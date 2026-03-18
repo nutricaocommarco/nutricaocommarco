@@ -56,7 +56,7 @@ const App = () => {
         </div>
       </nav>
 
-      {/* Hero Section - Estilo Visual Personalizado */}
+      {/* Hero Section */}
       <header id="home" className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-b from-green-100 to-white">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center gap-12">
@@ -79,9 +79,11 @@ const App = () => {
             </div>
             <div className="flex-1 relative">
               <div className="w-full aspect-square max-w-md mx-auto bg-green-200 rounded-[3rem] rotate-3 relative overflow-hidden shadow-2xl border-4 border-white">
-                <div className="w-full h-full bg-slate-300 flex items-center justify-center text-slate-500 font-bold">
-                  [Sua Foto Profissional Aqui]
-                </div>
+                <img 
+                  src="Imagens/1770375085833.jpg" 
+                  alt="Marco Aurélio Jr. - Nutricionista" 
+                  className="w-full h-full object-cover -rotate-3 scale-110"
+                />
               </div>
               {/* Badge ISAK */}
               <div className="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-2xl border border-slate-100 flex items-center gap-3">
@@ -124,7 +126,7 @@ const App = () => {
                 "Levar clareza nutricional para quem busca resultados reais, sem modismos e com total base científica."
               </p>
               <div className="flex items-center gap-3">
-                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center font-bold italic">Pingus</div>
+                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center font-bold italic text-xs">Pingus</div>
                  <span className="font-medium">Mascote Oficial da Marca</span>
               </div>
             </div>
