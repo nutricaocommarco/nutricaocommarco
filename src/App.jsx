@@ -46,7 +46,7 @@ export default function App() {
             {navLinks.map((link) => (
               <a key={link.name} href={link.href} className="text-sm font-bold hover:text-green-600 transition-colors uppercase tracking-wider">{link.name}</a>
             ))}
-            <a href="https://instagram.com/nutricao_com_marco" target="_blank" className="bg-green-600 text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-green-700 transition-all shadow-md flex items-center gap-2">
+            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-green-700 transition-all shadow-md flex items-center gap-2">
               <Instagram size={18} /> @Nutricao_com_Marco
             </a>
           </div>
@@ -56,7 +56,7 @@ export default function App() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section - Estilo Visual Personalizado */}
       <header id="home" className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-b from-green-100 to-white">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center gap-12">
@@ -64,8 +64,9 @@ export default function App() {
               <span className="inline-block bg-white text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6 shadow-sm border border-green-200">
                 Estudante de Nutrição • Unicesumar
               </span>
+              {/* Estilo Canva: Contorno azul grosso e sombra */}
               <h1 className="text-6xl md:text-8xl font-black mb-6 leading-tight text-white italic" 
-                  style={{ WebkitTextStroke: '3px #1e3a8a', textShadow: '5px 5px 0px #1e3a8a' }}>
+                  style={{ WebkitTextStroke: '4px #1e3a8a', textShadow: '5px 5px 0px #1e3a8a' }}>
                 NUTRIÇÃO <br/> COM CIÊNCIA
               </h1>
               <p className="text-lg text-slate-600 mb-8 max-w-xl leading-relaxed font-medium">
@@ -79,21 +80,18 @@ export default function App() {
             </div>
             
             <div className="flex-1 relative">
+              {/* Moldura para a foto */}
               <div className="w-full aspect-[4/5] max-w-md mx-auto bg-white p-3 rounded-[2.5rem] rotate-2 shadow-2xl border border-slate-100 overflow-hidden">
                 <img 
                   src="Imagens/marco-aurelio.jpg" 
                   alt="Marco Aurélio Jr. Nutricionista" 
                   className="w-full h-full object-cover rounded-[2rem] -rotate-2 scale-105 transition-transform hover:scale-110 duration-500"
-                  onError={(e) => {
-                    e.target.onerror = null; 
-                    e.target.src = "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800";
-                  }}
                 />
               </div>
               
-              {/* Badge Certificação */}
+              {/* Badge Flutuante de Certificação */}
               <div className="absolute -bottom-6 -left-6 bg-white p-5 rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-4 animate-bounce-slow">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-black text-xl">1</div>
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-black text-xl shadow-inner">1</div>
                 <div>
                   <p className="text-[10px] font-black uppercase text-slate-400">Certificação</p>
                   <p className="font-black text-slate-800 text-lg">ISAK Level 1</p>
@@ -109,10 +107,10 @@ export default function App() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
-              <h2 className="text-4xl font-black text-slate-900 tracking-tight uppercase italic">Olá, sou o Marco Aurélio Jr.</h2>
+              <h2 className="text-4xl font-black text-slate-900 tracking-tight uppercase italic">Olá, sou o Marco Aurélio Jr.👋</h2>
               <div className="w-20 h-2 bg-green-600 rounded-full"></div>
               <p className="text-lg text-slate-600 leading-relaxed">
-                Estudante do 2º ano de Nutrição na Unicesumar, sou apaixonado por antropometria e performance. Acredito que a nutrição deve ser prática, acessível e, acima de tudo, humana.
+                Sou estudante do 2º ano de Nutrição na Unicesumar e um entusiasta da antropometria. Acredito que a nutrição deve ser prática, acessível e, acima de tudo, humana.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100">
@@ -180,10 +178,12 @@ export default function App() {
             <a href="https://instagram.com/nutricao_com_marco" className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 border border-white/10"><Instagram size={24}/></a>
             <a href="mailto:contato@nutricaomarco.com" className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 border border-white/10"><Mail size={24}/></a>
           </div>
-          <p className="text-slate-500 text-xs font-bold tracking-[0.2em] uppercase">© 2026 Nutrição com Marco • Rio de Janeiro</p>
+          <p className="text-slate-500 text-xs font-bold tracking-[0.2em] uppercase mb-1">#NutriçãoComCiência #Antropometria #ISAK1</p>
+          <p className="text-slate-600 text-xs font-bold tracking-[0.2em] uppercase">© 2026 Nutrição com Marco • Rio de Janeiro</p>
         </div>
       </footer>
       
+      {/* Estilos CSS extras para animações */}
       <style>{`
         @keyframes bounce-slow {
           0%, 100% { transform: translateY(0); }
