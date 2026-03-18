@@ -38,12 +38,12 @@ export default function App() {
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-2 group cursor-pointer">
             <img 
-              src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logo_pingus.png" 
+              src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png" 
               alt="Logo Pingus" 
               className="w-10 h-10 rounded-lg shadow-lg group-hover:rotate-6 transition-transform object-cover bg-white"
               onError={(e) => {
                 e.target.onerror = null; 
-                e.target.src = "/Imagens/logo_pingus.png";
+                e.target.src = "/Imagens/logoN_pingus.png";
               }}
             />
             <span className="text-xl font-black tracking-tight text-slate-900 uppercase">
@@ -154,12 +154,12 @@ export default function App() {
               </p>
               <div className="flex items-center gap-4">
                  <img 
-                   src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logo_pingus.png" 
+                   src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png" 
                    alt="Mascote Pingus" 
                    className="w-14 h-14 rounded-2xl shadow-lg object-cover bg-white/20 backdrop-blur-md border border-white/30"
                    onError={(e) => {
                      e.target.onerror = null; 
-                     e.target.src = "/Imagens/logo_pingus.png";
+                     e.target.src = "/Imagens/logoN_pingus.png";
                    }}
                  />
                  <span className="font-bold uppercase tracking-widest text-sm">Mascote Oficial</span>
@@ -230,12 +230,12 @@ export default function App() {
         <div className="container mx-auto px-6 text-center">
           <div className="flex items-center justify-center gap-3 mb-10">
             <img 
-              src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logo_pingus.png" 
+              src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png" 
               alt="Logo Pingus" 
               className="w-10 h-10 rounded-xl shadow-lg object-cover bg-white"
               onError={(e) => {
                 e.target.onerror = null; 
-                e.target.src = "/Imagens/logo_pingus.png";
+                e.target.src = "/Imagens/logoN_pingus.png";
               }}
             />
             <span className="text-xl font-black tracking-tighter uppercase italic">Nutrição com Marco</span>
