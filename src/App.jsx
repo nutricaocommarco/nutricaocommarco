@@ -72,10 +72,9 @@ export default function App() {
               <span className="inline-block bg-white text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6 shadow-sm border border-green-200">
                 Estudante de Nutrição • Unicesumar
               </span>
-              {/* Estilo Canva: Contorno azul grosso e sombra */}
-              <h1 className="text-6xl md:text-8xl font-black mb-6 leading-tight text-white italic" 
-                  style={{ WebkitTextStroke: '4px #1e3a8a', textShadow: '5px 5px 0px #1e3a8a' }}>
-                NUTRIÇÃO <br/> COM CIÊNCIA
+              {/* Estilo Canva: Contorno azul e sombra com responsividade aplicada na classe titulo-vazado */}
+              <h1 className="text-5xl sm:text-6xl md:text-8xl font-black mb-6 leading-normal md:leading-tight text-white italic titulo-vazado">
+                NUTRIÇÃO <br/> COM <br className="md:hidden" /> CIÊNCIA
               </h1>
               <p className="text-lg text-slate-600 mb-8 max-w-xl leading-relaxed font-medium">
                 Simplificando a alimentação e transformando vidas através de evidências científicas. Conheça meu trabalho e meus materiais exclusivos.
@@ -87,7 +86,7 @@ export default function App() {
               </div>
             </div>
             
-            <div className="flex-1 relative">
+            <div className="flex-1 relative mt-10 md:mt-0">
               {/* Moldura para a foto */}
               <div className="w-full aspect-[4/5] max-w-md mx-auto bg-white p-3 rounded-[2.5rem] rotate-2 shadow-2xl border border-slate-100 overflow-hidden">
                 <img 
@@ -102,20 +101,20 @@ export default function App() {
               </div>
               
               {/* Badges Flutuantes de Certificação e Especialização */}
-              <div className="absolute -bottom-8 -left-8 flex flex-col gap-3">
-                <div className="bg-white p-4 rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-4 animate-bounce-slow">
-                  <div className="w-10 h-10 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-black text-lg shadow-inner">1</div>
+              <div className="absolute -bottom-4 md:-bottom-8 -left-2 md:-left-8 flex flex-col gap-3">
+                <div className="bg-white p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-3 animate-bounce-slow">
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-blue-600 text-white rounded-xl md:rounded-2xl flex items-center justify-center font-black text-base md:text-lg shadow-inner">1</div>
                   <div>
-                    <p className="text-[10px] font-black uppercase text-slate-400">Certificação</p>
-                    <p className="font-black text-slate-800 text-sm">ISAK Level 1</p>
+                    <p className="text-[9px] md:text-[10px] font-black uppercase text-slate-400">Certificação</p>
+                    <p className="font-black text-slate-800 text-xs md:text-sm">ISAK Level 1</p>
                   </div>
                 </div>
                 
-                <div className="bg-white p-4 rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-4 animate-bounce-slow" style={{ animationDelay: '1.5s' }}>
-                  <div className="w-10 h-10 bg-green-600 text-white rounded-2xl flex items-center justify-center font-black text-lg shadow-inner">2</div>
+                <div className="bg-white p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-3 animate-bounce-slow" style={{ animationDelay: '1.5s' }}>
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-green-600 text-white rounded-xl md:rounded-2xl flex items-center justify-center font-black text-base md:text-lg shadow-inner">2</div>
                   <div>
-                    <p className="text-[10px] font-black uppercase text-slate-400">Pós-Graduando</p>
-                    <p className="font-black text-slate-800 text-sm">Emagrecimento e Metabolismo</p>
+                    <p className="text-[9px] md:text-[10px] font-black uppercase text-slate-400">Pós-Graduando</p>
+                    <p className="font-black text-slate-800 text-xs md:text-sm">Emagrecimento e Metabolismo</p>
                   </div>
                 </div>
               </div>
@@ -128,31 +127,31 @@ export default function App() {
       <section id="sobre" className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="space-y-6">
+            <div className="space-y-6 text-center md:text-left">
               <h2 className="text-4xl font-black text-slate-900 tracking-tight uppercase italic">Olá, sou o Marco Aurélio Jr.👋</h2>
-              <div className="w-20 h-2 bg-green-600 rounded-full"></div>
+              <div className="w-20 h-2 bg-green-600 rounded-full mx-auto md:mx-0"></div>
               <p className="text-lg text-slate-600 leading-relaxed">
                 Sou estudante do 4º ano de Nutrição na Unicesumar e um entusiasta da antropometria. Acredito que a nutrição deve ser prática, acessível e, acima de tudo, humana.
               </p>
               <div className="grid grid-cols-2 gap-4">
-                <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100">
+                <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100 text-center md:text-left">
                   <h4 className="font-black text-green-600 uppercase text-sm mb-1">Foco</h4>
                   <p className="font-bold text-slate-700">Antropometria</p>
                 </div>
-                <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100">
+                <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100 text-center md:text-left">
                   <h4 className="font-black text-green-600 uppercase text-sm mb-1">Local</h4>
                   <p className="font-bold text-slate-700">Rio de Janeiro</p>
                 </div>
               </div>
             </div>
             
-            <div className="bg-green-600 p-12 rounded-[3.5rem] text-white shadow-2xl relative overflow-hidden group">
+            <div className="bg-green-600 p-8 md:p-12 rounded-[3.5rem] text-white shadow-2xl relative overflow-hidden group">
               <Zap className="absolute -top-10 -right-10 w-48 h-48 opacity-10 group-hover:rotate-12 transition-transform duration-700" />
-              <h3 className="text-2xl font-black mb-6 uppercase italic">Minha Missão</h3>
-              <p className="text-green-50 text-xl leading-relaxed mb-10 font-medium">
+              <h3 className="text-2xl font-black mb-6 uppercase italic text-center md:text-left">Minha Missão</h3>
+              <p className="text-green-50 text-xl leading-relaxed mb-10 font-medium text-center md:text-left">
                 "Levar clareza nutricional para quem busca resultados reais, sem modismos e com total base científica."
               </p>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center justify-center md:justify-start gap-4">
                  <img 
                    src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png" 
                    alt="Mascote Pingus" 
@@ -200,7 +199,7 @@ export default function App() {
                 link: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Antropometria-ebook.pdf"
               }
             ].map((ebook, i) => (
-              <a key={i} href={ebook.link} target="_blank" rel="noreferrer" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col cursor-pointer">
+              <a key={i} href={ebook.link} target="_blank" rel="noreferrer" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col cursor-pointer text-center md:text-left">
                 <div className="w-full aspect-[3/4] mb-6 rounded-3xl overflow-hidden shadow-inner bg-slate-100 p-4 flex items-center justify-center">
                   <img 
                     src={ebook.image} 
@@ -249,7 +248,7 @@ export default function App() {
         </div>
       </footer>
       
-      {/* Estilos CSS extras para animações */}
+      {/* Estilos CSS extras para animações e responsividade do título */}
       <style>{`
         @keyframes bounce-slow {
           0%, 100% { transform: translateY(0); }
@@ -257,6 +256,18 @@ export default function App() {
         }
         .animate-bounce-slow {
           animation: bounce-slow 3s ease-in-out infinite;
+        }
+        
+        .titulo-vazado {
+          -webkit-text-stroke: 2px #1e3a8a;
+          text-shadow: 3px 3px 0px #1e3a8a;
+        }
+        
+        @media (min-width: 768px) {
+          .titulo-vazado {
+            -webkit-text-stroke: 4px #1e3a8a;
+            text-shadow: 5px 5px 0px #1e3a8a;
+          }
         }
       `}</style>
     </div>
