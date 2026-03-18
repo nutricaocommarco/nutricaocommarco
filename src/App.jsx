@@ -93,7 +93,7 @@ export default function App() {
                 <img 
                   src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/marco-aurelio.png" 
                   alt="Marco Aurélio Jr. Nutricionista" 
-                  className="w-full h-full object-cover rounded-[2rem] -rotate-2 scale-105 transition-transform hover:scale-110 duration-500"
+                  className="w-full h-full object-cover rounded-[2rem] scale-105 transition-transform hover:scale-110 duration-500"
                   onError={(e) => {
                     e.target.onerror = null; 
                     e.target.src = "/Imagens/marco-aurelio.png";
