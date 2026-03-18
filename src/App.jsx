@@ -201,11 +201,11 @@ export default function App() {
               }
             ].map((ebook, i) => (
               <a key={i} href={ebook.link} target="_blank" rel="noreferrer" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col cursor-pointer">
-                <div className="w-full aspect-[3/4] mb-6 rounded-3xl overflow-hidden shadow-inner bg-slate-100">
+                <div className="w-full aspect-[3/4] mb-6 rounded-3xl overflow-hidden shadow-inner bg-slate-100 p-4 flex items-center justify-center">
                   <img 
                     src={ebook.image} 
                     alt={`Capa do E-book ${ebook.title}`} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-contain rounded-lg shadow-md group-hover:scale-110 transition-transform duration-500"
                     onError={(e) => {
                       e.target.onerror = null; 
                       e.target.src = "/Imagens/" + ebook.image.split('/').pop();
