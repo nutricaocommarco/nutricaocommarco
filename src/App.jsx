@@ -122,7 +122,7 @@ export default function App() {
               <h2 className="text-4xl font-black text-slate-900 tracking-tight uppercase italic">Olá, sou o Marco Aurélio Jr.👋</h2>
               <div className="w-20 h-2 bg-green-600 rounded-full"></div>
               <p className="text-lg text-slate-600 leading-relaxed">
-                Sou estudante do 2º ano de Nutrição na Unicesumar e um entusiasta da antropometria. Acredito que a nutrição deve ser prática, acessível e, acima de tudo, humana.
+                Sou estudante do 4º ano de Nutrição na Unicesumar e um entusiasta da antropometria. Acredito que a nutrição deve ser prática, acessível e, acima de tudo, humana.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100">
