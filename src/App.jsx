@@ -35,7 +35,7 @@ export default function App() {
     <div className="min-h-screen font-sans text-slate-800 bg-gradient-to-br from-green-50 to-white selection:bg-green-200">
       {/* Navegação */}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
-        <div className="container mx-auto px-6 flex justify-between items-center">
+        <div className="container mx-auto px-6 flex justify-between items-center relative">
           <div className="flex items-center gap-2 group cursor-pointer">
             <img 
               src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png" 
@@ -50,6 +50,8 @@ export default function App() {
               NUTRIÇÃO COM <span className="text-green-600">MARCO</span>
             </span>
           </div>
+          
+          {/* Menu Desktop */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a key={link.name} href={link.href} className="text-sm font-bold hover:text-green-600 transition-colors uppercase tracking-wider">{link.name}</a>
@@ -58,10 +60,36 @@ export default function App() {
               <Instagram size={18} /> @Nutricao_com_Marco
             </a>
           </div>
-          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X /> : <Menu />}
+
+          {/* Botão Menu Mobile */}
+          <button className="md:hidden text-slate-800 hover:text-green-600 transition-colors p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
+
+        {/* Menu Suspenso Mobile */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-green-100 shadow-xl py-6 px-6 flex flex-col gap-6 animate-in slide-in-from-top-2 duration-200">
+            {navLinks.map((link) => (
+              <a 
+                key={link.name} 
+                href={link.href} 
+                onClick={() => setIsMenuOpen(false)}
+                className="text-lg font-black text-slate-800 hover:text-green-600 transition-colors uppercase tracking-widest border-b border-slate-50 pb-2"
+              >
+                {link.name}
+              </a>
+            ))}
+            <a 
+              href="https://instagram.com/nutricao_com_marco" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="bg-green-600 text-white px-6 py-4 rounded-xl font-bold text-base hover:bg-green-700 transition-all shadow-md flex items-center justify-center gap-2 mt-2"
+            >
+              <Instagram size={20} /> Siga no Instagram
+            </a>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section - Estilo Visual Personalizado */}
