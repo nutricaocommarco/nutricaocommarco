@@ -37,7 +37,15 @@ export default function App() {
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-2 group cursor-pointer">
-            <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:rotate-6 transition-transform">M</div>
+            <img 
+              src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logo_pingus.png" 
+              alt="Logo Pingus" 
+              className="w-10 h-10 rounded-lg shadow-lg group-hover:rotate-6 transition-transform object-cover bg-white"
+              onError={(e) => {
+                e.target.onerror = null; 
+                e.target.src = "/Imagens/logo_pingus.png";
+              }}
+            />
             <span className="text-xl font-black tracking-tight text-slate-900 uppercase">
               NUTRIÇÃO COM <span className="text-green-600">MARCO</span>
             </span>
@@ -135,7 +143,15 @@ export default function App() {
                 "Levar clareza nutricional para quem busca resultados reais, sem modismos e com total base científica."
               </p>
               <div className="flex items-center gap-4">
-                 <div className="w-14 h-14 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center font-black italic text-xs border border-white/30">PINGUS</div>
+                 <img 
+                   src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logo_pingus.png" 
+                   alt="Mascote Pingus" 
+                   className="w-14 h-14 rounded-2xl shadow-lg object-cover bg-white/20 backdrop-blur-md border border-white/30"
+                   onError={(e) => {
+                     e.target.onerror = null; 
+                     e.target.src = "/Imagens/logo_pingus.png";
+                   }}
+                 />
                  <span className="font-bold uppercase tracking-widest text-sm">Mascote Oficial</span>
               </div>
             </div>
@@ -175,7 +191,15 @@ export default function App() {
       <footer className="bg-slate-900 text-white py-20">
         <div className="container mx-auto px-6 text-center">
           <div className="flex items-center justify-center gap-3 mb-10">
-            <div className="w-10 h-10 bg-green-600 rounded-xl flex items-center justify-center font-black text-xl">M</div>
+            <img 
+              src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logo_pingus.png" 
+              alt="Logo Pingus" 
+              className="w-10 h-10 rounded-xl shadow-lg object-cover bg-white"
+              onError={(e) => {
+                e.target.onerror = null; 
+                e.target.src = "/Imagens/logo_pingus.png";
+              }}
+            />
             <span className="text-xl font-black tracking-tighter uppercase italic">Nutrição com Marco</span>
           </div>
           <div className="flex justify-center gap-8 mb-16">
