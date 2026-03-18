@@ -80,7 +80,7 @@ const App = () => {
             <div className="flex-1 relative">
               <div className="w-full aspect-square max-w-md mx-auto bg-green-200 rounded-[3rem] rotate-3 relative overflow-hidden shadow-2xl border-4 border-white">
                 <img 
-                  src="Imagens/1770375085833.jpg" 
+                  src="Imagens/marco-aurelio.jpg" 
                   alt="Marco Aurélio Jr. - Nutricionista" 
                   className="w-full h-full object-cover -rotate-3 scale-110"
                 />
