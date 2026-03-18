@@ -178,20 +178,48 @@ export default function App() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: "Limite de Cafeína", desc: "O que a ANVISA diz sobre o consumo seguro.", status: "Grátis", icon: <Zap />, color: "green" },
-              { title: "Manual de Antropometria", desc: "Conceitos básicos para estudantes.", status: "Em breve", icon: <Award />, color: "blue" },
-              { title: "Guia de Marmitas", desc: "Praticidade para a sua semana.", status: "Em breve", icon: <BookOpen />, color: "orange" }
+              { 
+                title: "Guia de Receitas", 
+                desc: "Praticidade e muito sabor para o seu dia a dia.", 
+                status: "Baixar PDF", 
+                image: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/capa_receitas.jpg",
+                link: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Ebook-Receitas.pdf"
+              },
+              { 
+                title: "Entendendo a Fome", 
+                desc: "Aprenda a diferenciar fome física da emocional.", 
+                status: "Baixar PDF", 
+                image: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/capa_fome.jpg",
+                link: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Fome_Ebook.pdf"
+              },
+              { 
+                title: "Manual de Antropometria", 
+                desc: "Conceitos básicos fundamentais para estudantes.", 
+                status: "Baixar PDF", 
+                image: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/capa_antropometria.jpeg",
+                link: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Antropometria-ebook.pdf"
+              }
             ].map((ebook, i) => (
-              <div key={i} className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
-                <div className={`w-16 h-16 bg-${ebook.color}-100 text-${ebook.color}-600 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-12 transition-transform`}>
-                  {ebook.icon}
+              <a key={i} href={ebook.link} target="_blank" rel="noreferrer" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col cursor-pointer">
+                <div className="w-full aspect-[3/4] mb-6 rounded-3xl overflow-hidden shadow-inner bg-slate-100">
+                  <img 
+                    src={ebook.image} 
+                    alt={`Capa do E-book ${ebook.title}`} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    onError={(e) => {
+                      e.target.onerror = null; 
+                      e.target.src = "/Imagens/" + ebook.image.split('/').pop();
+                    }}
+                  />
                 </div>
                 <h3 className="text-2xl font-black mb-3 text-slate-800">{ebook.title}</h3>
-                <p className="text-slate-500 font-medium mb-8 italic">{ebook.desc}</p>
-                <span className={`inline-block px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${ebook.status === 'Grátis' ? 'bg-green-600 text-white shadow-md' : 'bg-slate-200 text-slate-500'}`}>
-                  {ebook.status}
-                </span>
-              </div>
+                <p className="text-slate-500 font-medium mb-6 italic flex-grow">{ebook.desc}</p>
+                <div className="mt-auto">
+                  <span className="inline-block px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-green-600 text-white shadow-md group-hover:bg-green-700 transition-colors">
+                    {ebook.status}
+                  </span>
+                </div>
+              </a>
             ))}
           </div>
         </div>
