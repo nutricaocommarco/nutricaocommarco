@@ -100,11 +100,11 @@ export default function App() {
               <span className="inline-block bg-white text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6 shadow-sm border border-green-200">
                 Estudante de Nutrição • Unicesumar
               </span>
-              {/* Estilo Canva: Contorno azul e sombra com responsividade aplicada na classe titulo-vazado */}
-              <h1 className="text-5xl sm:text-6xl md:text-8xl font-black mb-6 leading-normal md:leading-tight text-white italic titulo-vazado">
+              {/* Estilo Canva: Contorno azul e sombra com nova fonte e espaçamento */}
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-8 text-white italic titulo-vazado uppercase">
                 NUTRIÇÃO <br/> COM <br className="md:hidden" /> CIÊNCIA
               </h1>
-              <p className="text-lg text-slate-600 mb-8 max-w-xl leading-relaxed font-medium">
+              <p className="text-lg text-slate-600 mb-8 max-w-xl leading-relaxed font-medium mx-auto md:mx-0">
                 Simplificando a alimentação e transformando vidas através de evidências científicas. Conheça meu trabalho e meus materiais exclusivos.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -278,6 +278,8 @@ export default function App() {
       
       {/* Estilos CSS extras para animações e responsividade do título */}
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,900;1,900&display=swap');
+
         @keyframes bounce-slow {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-10px); }
@@ -287,12 +289,15 @@ export default function App() {
         }
         
         .titulo-vazado {
+          font-family: 'Poppins', sans-serif;
+          line-height: 1.3;
           -webkit-text-stroke: 2px #1e3a8a;
           text-shadow: 3px 3px 0px #1e3a8a;
         }
         
         @media (min-width: 768px) {
           .titulo-vazado {
+            line-height: 1.2;
             -webkit-text-stroke: 4px #1e3a8a;
             text-shadow: 5px 5px 0px #1e3a8a;
           }
