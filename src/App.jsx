@@ -83,7 +83,7 @@ export default function App() {
               {/* Moldura para a foto */}
               <div className="w-full aspect-[4/5] max-w-md mx-auto bg-white p-3 rounded-[2.5rem] rotate-2 shadow-2xl border border-slate-100 overflow-hidden">
                 <img 
-                  src="Imagens/marco-aurelio.jpg" 
+                  src="Imagens/marco-aurelio.png" 
                   alt="Marco Aurélio Jr. Nutricionista" 
                   className="w-full h-full object-cover rounded-[2rem] -rotate-2 scale-105 transition-transform hover:scale-110 duration-500"
                 />
