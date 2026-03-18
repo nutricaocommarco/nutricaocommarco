@@ -86,10 +86,6 @@ export default function App() {
                   src="/Imagens/marco-aurelio.png" 
                   alt="Marco Aurélio Jr. Nutricionista" 
                   className="w-full h-full object-cover rounded-[2rem] -rotate-2 scale-105 transition-transform hover:scale-110 duration-500"
-                  onError={(e) => {
-                    e.target.onerror = null; 
-                    e.target.src = "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800";
-                  }}
                 />
               </div>
               
