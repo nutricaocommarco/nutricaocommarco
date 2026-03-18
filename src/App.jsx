@@ -100,8 +100,8 @@ export default function App() {
               <span className="inline-block bg-white text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6 shadow-sm border border-green-200">
                 Estudante de Nutrição • Unicesumar
               </span>
-              {/* Estilo Canva: Contorno azul e sombra com nova fonte e espaçamento */}
-              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-8 text-white italic titulo-vazado uppercase">
+              {/* Estilo Canva: Contorno azul e sombra com tamanho ajustado para ser grande no celular e normal no desktop */}
+              <h1 className="text-6xl sm:text-7xl md:text-8xl font-black mb-8 text-white italic titulo-vazado uppercase">
                 NUTRIÇÃO <br/> COM <br className="md:hidden" /> CIÊNCIA
               </h1>
               <p className="text-lg text-slate-600 mb-8 max-w-xl leading-relaxed font-medium mx-auto md:mx-0">
