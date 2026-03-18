@@ -40,13 +40,13 @@ export default function App() {
             <img 
               src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png" 
               alt="Logo Pingus" 
-              className="w-10 h-10 rounded-lg shadow-lg group-hover:rotate-6 transition-transform object-cover bg-white"
+              className="w-12 h-12 group-hover:rotate-6 transition-transform object-contain drop-shadow-md"
               onError={(e) => {
                 e.target.onerror = null; 
                 e.target.src = "/Imagens/logoN_pingus.png";
               }}
             />
-            <span className="text-xl font-black tracking-tight text-slate-900 uppercase">
+            <span className="text-xl font-black tracking-tight text-slate-900 uppercase ml-1">
               NUTRIÇÃO COM <span className="text-green-600">MARCO</span>
             </span>
           </div>
@@ -156,7 +156,7 @@ export default function App() {
                  <img 
                    src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png" 
                    alt="Mascote Pingus" 
-                   className="w-14 h-14 rounded-2xl shadow-lg object-cover bg-white/20 backdrop-blur-md border border-white/30"
+                   className="w-16 h-16 object-contain drop-shadow-lg group-hover:scale-110 transition-transform"
                    onError={(e) => {
                      e.target.onerror = null; 
                      e.target.src = "/Imagens/logoN_pingus.png";
@@ -232,7 +232,7 @@ export default function App() {
             <img 
               src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png" 
               alt="Logo Pingus" 
-              className="w-10 h-10 rounded-xl shadow-lg object-cover bg-white"
+              className="w-12 h-12 object-contain drop-shadow-lg"
               onError={(e) => {
                 e.target.onerror = null; 
                 e.target.src = "/Imagens/logoN_pingus.png";
