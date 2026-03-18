@@ -101,12 +101,22 @@ export default function App() {
                 />
               </div>
               
-              {/* Badge Flutuante de Certificação */}
-              <div className="absolute -bottom-6 -left-6 bg-white p-5 rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-4 animate-bounce-slow">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-black text-xl shadow-inner">1</div>
-                <div>
-                  <p className="text-[10px] font-black uppercase text-slate-400">Certificação</p>
-                  <p className="font-black text-slate-800 text-lg">ISAK Level 1</p>
+              {/* Badges Flutuantes de Certificação e Especialização */}
+              <div className="absolute -bottom-8 -left-8 flex flex-col gap-3">
+                <div className="bg-white p-4 rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-4 animate-bounce-slow">
+                  <div className="w-10 h-10 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-black text-lg shadow-inner">1</div>
+                  <div>
+                    <p className="text-[10px] font-black uppercase text-slate-400">Certificação</p>
+                    <p className="font-black text-slate-800 text-sm">ISAK Level 1</p>
+                  </div>
+                </div>
+                
+                <div className="bg-white p-4 rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-4 animate-bounce-slow" style={{ animationDelay: '1.5s' }}>
+                  <div className="w-10 h-10 bg-green-600 text-white rounded-2xl flex items-center justify-center font-black text-lg shadow-inner">2</div>
+                  <div>
+                    <p className="text-[10px] font-black uppercase text-slate-400">Pós-Graduando</p>
+                    <p className="font-black text-slate-800 text-sm">Emagrecimento e Metabolismo</p>
+                  </div>
                 </div>
               </div>
             </div>
