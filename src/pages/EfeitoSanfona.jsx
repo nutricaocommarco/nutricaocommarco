@@ -51,7 +51,7 @@ export default function EfeitoSanfona() {
               "A obesidade causa uma reprogramação profunda nas células (epigenética) que não se resolve completamente apenas com a dieta."
             </div>
 
-            <p>Estudos recentes de 2025 mostram que a formação de tecidos mais rígidos, conhecidos como fibrose, faz com que o sistema de defesa do tecido continue em um estado de alerta disfuncional. Essa memória persistente explica por que qualquer descuido que leve ao reganho de peso pode reacender a inflamação com uma rapidez e gravidade surpreendentes. É aqui que entra a importância de uma <Link to="/o_que_e_antropometria" className="text-green-200 underline hover:text-white font-bold transition-colors">avaliação física detalhada</Link> para identificar se o que você está ganhando é realmente tecido inflamado ou massa magra.</p>
+            <p>Estudos recentes de 2025 mostram que a formação de tecidos mais rígidos, conhecidos como fibrose, faz com que o sistema de defesa do tecido continue em um estado de alerta disfuncional. Essa memória persistente explica por que qualquer descuido que leve ao reganho de peso pode reacender a inflamação com uma rapidez e gravidade surpreendentes. É aqui que entra a importância de uma <Link to="/o_que_e_antropometria" className="text-green-600 underline hover:text-white font-bold transition-colors">avaliação física detalhada</Link> para identificar se o que você está ganhando é realmente tecido inflamado ou massa magra.</p>
 
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               O que acontece quando o peso volta?
