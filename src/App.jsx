@@ -105,10 +105,16 @@ function Layout({ children }) {
             <img src={`${githubImgBase}logoN_pingus.png`} alt="Logo Pingus" className="w-12 h-12 group-hover:rotate-6 transition-transform object-contain" />
             <span className="text-xl font-black tracking-tight text-slate-900 uppercase ml-1">NUTRIÇÃO COM <span className="text-green-600">MARCO</span></span>
           </Link>
+          
+          {/* Menu Desktop */}
           <div className="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-widest">
             <Link to="/" className={`py-1 border-b-2 transition-all ${location.pathname === '/' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Início</Link>
             <Link to="/certificacoes" className={`py-1 border-b-2 transition-all ${location.pathname === '/certificacoes' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Certificações</Link>
             <Link to="/blog" className={`py-1 border-b-2 transition-all ${location.pathname.includes('/blog') || location.pathname.includes('/o_que_e') || location.pathname.includes('/a_balanca') ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Blog</Link>
+            
+            {/* NOVO LINK ÂNCORA DOS E-BOOKS AQUI */}
+            <a href="/#ebooks" className="py-1 border-b-2 border-transparent text-slate-800 hover:text-green-600 transition-all">E-books</a>
+            
             <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-6 py-2.5 rounded-full hover:bg-green-700 transition-all shadow-md italic">Instagram</a>
           </div>
           <button className="md:hidden text-slate-800 p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <X size={28} /> : <Menu size={28} />}</button>
@@ -120,6 +126,9 @@ function Layout({ children }) {
             <Link to="/" className={`text-lg font-black uppercase tracking-widest pb-2 border-b ${location.pathname === '/' ? 'text-green-600' : 'text-slate-800'}`}>Início</Link>
             <Link to="/certificacoes" className={`text-lg font-black uppercase tracking-widest pb-2 border-b ${location.pathname === '/certificacoes' ? 'text-green-600' : 'text-slate-800'}`}>Certificações</Link>
             <Link to="/blog" className={`text-lg font-black uppercase tracking-widest pb-2 border-b ${location.pathname.includes('/blog') ? 'text-green-600' : 'text-slate-800'}`}>Blog</Link>
+            
+            {/* NOVO LINK ÂNCORA DOS E-BOOKS NO MOBILE AQUI */}
+            <a href="/#ebooks" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">E-books</a>
           </div>
         )}
       </nav>
