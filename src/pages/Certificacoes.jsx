@@ -22,7 +22,10 @@ export default function Certificacoes() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <MiniCertCard image={`${githubImgBase}logo-temporaria.svg`} bgColor="bg-black" title="Farmacologia da Obesidade" org="Gustavo Stocker" desc="Estudo da farmacologia aplicada ao emagrecimento." />
             <MiniCertCard image={`${githubImgBase}medsize_logo-branco-png.png`} bgColor="bg-black" title="Medsize Klinik" org="Medsize" desc="Focado em protocolos de atendimento e gestão clínica." />
-            <MiniCertCard image={`${githubImgBase}antropometria-clínica-obesidade.jpg`} title="Antropometria na Obesidade" org="Icaro Andrade" desc="Técnicas de mensuração específicas para o paciente com obesidade." />
+            
+            {/* --- IMAGEM ATUALIZADA AQUI --- */}
+            <MiniCertCard image={`${githubImgBase}antropometria-obesidade.jpg`} title="Antropometria na Obesidade" org="Icaro Andrade" desc="Técnicas de mensuração específicas para o paciente com obesidade." />
+            
             <MiniCertCard image={`${githubImgBase}pronutri.webp`} title="Programa ProNutri (Ciclo 12)" org="Secad Artmed" desc="Atualização cobrindo Microbiota e Doenças Autoimunes." />
             <MiniCertCard image={`${githubImgBase}pronutri.webp`} title="Programa ProNutri (Ciclo 14)" org="Secad Artmed" desc="Continuidade da formação clínica de vanguarda." />
             <MiniCertCard image={`${githubImgBase}hormonios.jpg`} title="Metabolismo Hormonal" org="Prof. Dr. Rodrigo Vargas" desc="Hormônios esteroides e ajustes dietéticos esportivos." />
