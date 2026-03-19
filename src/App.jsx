@@ -37,7 +37,6 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
 
   useEffect(() => {
-    // Configuração dinâmica do Favicon e Título da Página
     const setupFaviconAndTitle = () => {
       let link = document.querySelector("link[rel~='icon']");
       if (!link) {
@@ -99,13 +98,12 @@ export default function App() {
             </span>
           </div>
           
-          {/* Menu Desktop - Padronização de cores verdes conforme solicitado */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <button 
                 key={link.name} 
                 onClick={() => handleNavClick(link)}
-                className={`text-sm font-bold uppercase tracking-wider transition-colors ${currentPage === link.id ? 'text-green-600 border-b-2 border-green-600 pb-1' : 'text-green-700 hover:text-green-500'}`}
+                className={`text-sm font-bold uppercase tracking-wider transition-colors ${currentPage === link.id ? 'text-green-600 border-b-2 border-green-600 pb-1' : 'text-slate-800 hover:text-green-600'}`}
               >
                 {link.name}
               </button>
@@ -115,20 +113,18 @@ export default function App() {
             </a>
           </div>
 
-          {/* Botão Menu Mobile */}
           <button className="md:hidden text-slate-800 hover:text-green-600 transition-colors p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
-        {/* Menu Suspenso Mobile */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-green-100 shadow-xl py-6 px-6 flex flex-col gap-6 animate-in slide-in-from-top-2 duration-200">
             {navLinks.map((link) => (
               <button 
                 key={link.name} 
                 onClick={() => handleNavClick(link)}
-                className={`text-lg font-black text-left uppercase tracking-widest border-b border-slate-50 pb-2 transition-colors ${currentPage === link.id ? 'text-green-600' : 'text-green-700'}`}
+                className={`text-lg font-black text-left uppercase tracking-widest border-b border-slate-50 pb-2 transition-colors ${currentPage === link.id ? 'text-green-600' : 'text-slate-800'}`}
               >
                 {link.name}
               </button>
@@ -142,7 +138,6 @@ export default function App() {
 
       {currentPage === 'home' ? (
         <>
-          {/* Hero Section */}
           <header id="home" className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-b from-green-100 to-white">
             <div className="container mx-auto px-6">
               <div className="flex flex-col md:flex-row items-center gap-12">
@@ -177,8 +172,8 @@ export default function App() {
                   
                   <div className="absolute -bottom-4 md:-bottom-8 -left-2 md:-left-8 flex flex-col gap-3">
                     <div className="bg-white p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-3 animate-bounce-slow">
-                      <div className="w-8 h-8 md:w-10 md:h-10 bg-blue-600 text-white rounded-xl md:rounded-2xl flex items-center justify-center font-black text-base md:text-lg shadow-inner overflow-hidden">
-                        <img src={`${githubImgBase}isak-logo.png`} alt="ISAK" className="w-full h-full object-cover" />
+                      <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-xl md:rounded-2xl flex items-center justify-center font-black text-base md:text-lg shadow-inner overflow-hidden p-1.5 border border-slate-50">
+                        <img src={`${githubImgBase}isak-logo.png`} alt="ISAK" className="w-full h-full object-contain" />
                       </div>
                       <div>
                         <p className="text-[9px] md:text-[10px] font-black uppercase text-slate-400">Certificação</p>
@@ -187,7 +182,7 @@ export default function App() {
                     </div>
                     
                     <div className="bg-white p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-3 animate-bounce-slow" style={{ animationDelay: '1.5s' }}>
-                      <div className="w-8 h-8 md:w-10 md:h-10 bg-green-600 text-white rounded-xl md:rounded-2xl flex items-center justify-center font-black text-base md:text-lg shadow-inner overflow-hidden p-1">
+                      <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-xl md:rounded-2xl flex items-center justify-center font-black text-base md:text-lg shadow-inner overflow-hidden p-1.5 border border-slate-50">
                         <img src={`${githubImgBase}oficial-uniguacu_vertical-edited.png`} alt="Uniguacu" className="w-full h-full object-contain" />
                       </div>
                       <div>
@@ -201,7 +196,6 @@ export default function App() {
             </div>
           </header>
 
-          {/* Seção Sobre */}
           <section id="sobre" className="py-24 bg-white">
             <div className="container mx-auto px-6">
               <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -245,7 +239,6 @@ export default function App() {
             </div>
           </section>
 
-          {/* Seção E-books */}
           <section id="ebooks" className="py-24 bg-slate-50">
             <div className="container mx-auto px-6">
               <div className="text-center mb-16">
@@ -284,7 +277,7 @@ export default function App() {
                   }
                 ].map((ebook, i) => (
                   <a key={i} href={ebook.link} target="_blank" rel="noreferrer" className="bg-white p-8 rounded-[3rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col cursor-pointer text-center md:text-left">
-                    <div className="w-full aspect-[3/4] mb-8 rounded-[2rem] overflow-hidden shadow-inner bg-slate-100 p-6 flex items-center justify-center">
+                    <div className="w-full aspect-[3/4] mb-8 rounded-[2rem] overflow-hidden shadow-inner bg-slate-50 p-6 flex items-center justify-center">
                       <img 
                         src={ebook.image} 
                         alt={`Capa do E-book ${ebook.title}`} 
@@ -360,7 +353,6 @@ export default function App() {
                   Prática Clínica e Comportamental
                 </h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {/* Novas Certificações Adicionadas */}
                   <MiniCertCard 
                     icon={<FlaskConical size={32} />}
                     title="Farmacologia da Obesidade"
@@ -382,8 +374,6 @@ export default function App() {
                     hours="Especialização"
                     desc="Técnicas de mensuração e avaliação específicas para o paciente com obesidade."
                   />
-                  
-                  {/* Certificações Anteriores */}
                   <MiniCertCard 
                     image={`${githubImgBase}hormonios.jpg`}
                     title="Metabolismo Hormonal na Hipertrofia"
@@ -436,11 +426,13 @@ export default function App() {
                   </h2>
                   <div className="bg-white p-8 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col gap-6">
                     <div className="flex gap-6 items-center">
-                      <img 
-                        src={`${githubImgBase}simposio_obesidade.jpg`} 
-                        className="w-24 h-24 object-cover rounded-2xl shadow-md" 
-                        alt="Simpósio Hcor" 
-                      />
+                      <div className="w-24 h-24 bg-white rounded-2xl shadow-md overflow-hidden p-2 border border-slate-50">
+                        <img 
+                          src={`${githubImgBase}simposio_obesidade.jpg`} 
+                          className="w-full h-full object-contain" 
+                          alt="Simpósio Hcor" 
+                        />
+                      </div>
                       <div>
                         <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">I Simpósio de Obesidade (Hcor)</h3>
                         <p className="text-slate-500 text-sm mt-1">Discussão avançada sobre tratamento multidisciplinar e novos desafios da obesidade.</p>
@@ -516,7 +508,7 @@ export default function App() {
   );
 }
 
-// Componentes de Interface para o Currículo
+// Componentes de Interface Refinados para Melhor Estética das Imagens
 function CertCard({ icon, image, badge, title, org, hours, date, desc, color }) {
   const colorMap = {
     green: 'bg-green-100 text-green-600',
@@ -527,8 +519,8 @@ function CertCard({ icon, image, badge, title, org, hours, date, desc, color }) 
   
   return (
     <div className="bg-white p-8 md:p-10 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col md:flex-row gap-8 items-center group hover:scale-[1.02] transition-all">
-      <div className={`w-32 h-32 ${colorMap[color]} rounded-3xl flex items-center justify-center shrink-0 group-hover:rotate-6 transition-transform overflow-hidden shadow-inner`}>
-        {image ? <img src={image} className="w-full h-full object-cover" alt={title} /> : icon}
+      <div className={`w-32 h-32 bg-white rounded-3xl flex items-center justify-center shrink-0 group-hover:rotate-6 transition-transform overflow-hidden shadow-inner p-3 border border-slate-50`}>
+        {image ? <img src={image} className="w-full h-full object-contain" alt={title} /> : <div className={colorMap[color]}>{icon}</div>}
       </div>
       <div className="flex-grow text-center md:text-left">
         <div className="flex flex-col md:flex-row md:items-center gap-3 mb-2">
@@ -546,9 +538,9 @@ function CertCard({ icon, image, badge, title, org, hours, date, desc, color }) 
 function MiniCertCard({ image, icon, title, org, hours, desc }) {
   return (
     <div className="bg-white rounded-[2.5rem] shadow-md border border-slate-50 hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden flex flex-col min-h-[400px]">
-      <div className="h-48 w-full overflow-hidden bg-slate-100 flex items-center justify-center">
+      <div className="h-48 w-full overflow-hidden bg-white flex items-center justify-center p-4 border-b border-slate-50">
         {image ? (
-          <img src={image} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" alt={title} />
+          <img src={image} className="w-full h-full object-contain hover:scale-105 transition-transform duration-500" alt={title} />
         ) : (
           <div className="text-blue-600 opacity-40">{icon}</div>
         )}
