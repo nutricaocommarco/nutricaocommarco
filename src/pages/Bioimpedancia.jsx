@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, PlayCircle, HelpCircle, Droplets, CheckCircle, Zap } from 'lucide-react';
+import { ChevronLeft, PlayCircle, HelpCircle, Zap } from 'lucide-react';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -37,15 +37,18 @@ export default function Bioimpedancia() {
             </div>
             
             <h2 className="text-2xl font-black text-slate-900 uppercase italic mt-12 mb-4 text-center md:text-left">O que pode interferir no resultado?</h2>
-            <p>Diversos fatores influenciam a quantidade de água corporal e, consequentemente, a leitura da bioimpedância: estado de hidratação (beber muita ou pouca água), consumo recente de alimentos, exercício físico antes da avaliação, consumo de álcool ou cafeína, retenção de líquidos, fase do ciclo menstrual e horário do dia. Por exemplo, uma pessoa pode apresentar um percentual de gordura maior simplesmente por estar desidratada naquele momento — não porque ganhou gordura de fato.</p>
+            <p>Diversos fatores influenciam a quantidade de água corporal e, consequentemente, a leitura da bioimpedância: estado de hidratação, consumo recente de alimentos, exercício físico, álcool, cafeína e até a fase do ciclo menstrual. Por exemplo, uma pessoa pode apresentar um percentual de gordura maior simplesmente por estar desidratada naquele momento.</p>
             
             <h2 className="text-2xl font-black text-slate-900 uppercase italic mt-12 mb-4 text-center md:text-left">Frequências e Balanças Octapolares</h2>
-            <p>Nem toda bioimpedância é igual. Baixa frequência (ex: 50 kHz) avalia principalmente a água extracelular. Aparelhos multifrequenciais (BIA multifrequência) utilizam várias frequências, permitindo uma análise mais completa. Já as chamadas <strong>balanças octapolares</strong> utilizam oito pontos de contato (mãos e pés), permitindo que a corrente percorra diferentes segmentos do corpo separadamente, o que traz maior precisão.</p>
+            <p>Nem toda bioimpedância é igual. Aparelhos multifrequenciais permitem uma análise mais completa, e as chamadas <strong>balanças octapolares</strong> utilizam oito pontos de contato (mãos e pés) para garantir maior precisão.</p>
             
+            {/* QUADRO DE DESTAQUE COM LINK INTERNO */}
             <div className="bg-green-600 text-white p-10 rounded-[3.5rem] shadow-xl my-12 relative overflow-hidden">
               <Zap className="absolute -top-5 -right-5 w-24 h-24 opacity-20" />
               <h2 className="text-white text-2xl font-black uppercase italic mb-6 leading-tight text-center md:text-left">E a certificação ISAK?</h2>
-              <p className="text-green-50 font-bold leading-relaxed">Diferente da bioimpedância, a antropometria bem aplicada por um profissional certificado pela ISAK tende a ser mais consistente ao longo do tempo e menos sensível a variações agudas de hidratação. É o padrão ouro para acompanhamento da evolução corporal.</p>
+              <p className="text-green-50 font-bold leading-relaxed">
+                Diferente da bioimpedância, a <Link to="/o_que_e_antropometria" className="text-white underline underline-offset-4 hover:text-green-200 transition-colors font-black">antropometria</Link> bem aplicada por um profissional certificado pela ISAK tende a ser mais consistente ao longo do tempo e menos sensível a variações agudas de hidratação. É o padrão ouro para acompanhamento da evolução corporal.
+              </p>
             </div>
             
             <div className="mt-16 pt-10 border-t border-slate-100">
@@ -59,9 +62,12 @@ export default function Bioimpedancia() {
                   <h4 className="font-black text-slate-800 mb-2 italic">Qual o melhor horário para fazer bioimpedância?</h4>
                   <p className="text-slate-600">Pela manhã, em jejum, após ir ao banheiro e antes de qualquer atividade física. Padronizar é o segredo da precisão.</p>
                 </div>
+                {/* FAQ COM LINK INTERNO */}
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
                   <h4 className="font-black text-slate-800 mb-2 italic">A bioimpedância substitui as dobras cutâneas?</h4>
-                  <p className="text-slate-600">Não. A antropometria (ISAK) é mais consistente e imune a flutuações rápidas de água corporal causada por desidratação.</p>
+                  <p className="text-slate-600">
+                    Não. Para quem busca precisão absoluta imune a oscilações de água, a <Link to="/o_que_e_antropometria" className="text-green-600 hover:text-green-700 underline underline-offset-2 font-bold transition-colors">antropometria (ISAK)</Link> é mais consistente e o método ideal para medir a gordura real abaixo da pele.
+                  </p>
                 </div>
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
                   <h4 className="font-black text-slate-800 mb-2 italic">Por que meu percentual muda tanto de um dia para o outro?</h4>
