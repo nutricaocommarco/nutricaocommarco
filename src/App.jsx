@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Instagram, Menu, X, Mail } from 'lucide-react';
 
-// Importando as páginas exclusivas que acabaste de criar!
+// Importando as páginas exclusivas
 import Home from './pages/Home';
 import Certificacoes from './pages/Certificacoes';
 import Blog from './pages/Blog';
@@ -42,14 +42,45 @@ function Layout({ children }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // SEO Básico: Muda o título do separador consoante a página
+  // MOTOR DE SEO: Muda o Título e a Meta Descrição consoante a página
   useEffect(() => {
-    let title = 'Nutrição com Marco | Performance e Ciência';
-    if (location.pathname === '/certificacoes') title = 'Currículo e Certificações | Nutrição com Marco';
-    if (location.pathname === '/blog') title = 'Blog de Nutrição e Ciência | Nutrição com Marco';
-    if (location.pathname === '/o_que_e_antropometria') title = 'O que é Antropometria? | Nutrição com Marco';
-    if (location.pathname === '/a_balanca_de_bioimpedancia_e_confiavel') title = 'A balança de bioimpedância é confiável? | Nutrição com Marco';
-    document.title = title;
+    const seoData = {
+      '/': { 
+        title: 'Nutrição com Marco | Performance e Ciência', 
+        desc: 'Especialista em Nutrição e Antropometria no Rio de Janeiro e Online. Performance física e saúde baseada em evidências científicas.' 
+      },
+      '/certificacoes': { 
+        title: 'Currículo e Certificações | Nutrição com Marco', 
+        desc: 'Conheça a trajetória técnica e as certificações internacionais ISAK do nutricionista Marco Aurélio Jr.' 
+      },
+      '/blog': { 
+        title: 'Blog de Nutrição e Ciência | Nutrição com Marco', 
+        desc: 'Conteúdo científico sobre antropometria, bioimpedância e emagrecimento real.' 
+      },
+      '/o_que_e_antropometria': { 
+        title: 'O que é Antropometria? A Ciência Exata da Avaliação | Nutrição com Marco', 
+        desc: 'Descubra o que é Antropometria e por que o peso na balança não define seus resultados. Entenda como a avaliação física ISAK transforma a sua composição corporal.' 
+      },
+      '/a_balanca_de_bioimpedancia_e_confiavel': { 
+        title: 'A balança de bioimpedância é confiável? | Nutrição com Marco', 
+        desc: 'Entenda se a balança de bioimpedância é confiável, como ela funciona e quais os fatores que alteram o seu percentual de gordura.' 
+      }
+    };
+
+    const currentSEO = seoData[location.pathname] || seoData['/'];
+    
+    // Atualiza o Título
+    document.title = currentSEO.title;
+    
+    // Atualiza a Meta Descrição para o Google
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = 'description';
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = currentSEO.desc;
+
     setIsMenuOpen(false); // Fecha menu mobile ao trocar de página
   }, [location.pathname]);
 
