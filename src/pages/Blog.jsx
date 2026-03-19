@@ -12,6 +12,19 @@ export default function Blog() {
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
+        {/* Card Efeito Sanfona (Sintaxe e Nome do Arquivo) */}
+        <Link to="/efeito_sanfona_inflamacao_invisivel" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
+  <div className="h-64 overflow-hidden border-b border-slate-50">
+    <img src={`${githubImgBase}Blog/efeito_sanfona.jpg`} alt="O Efeito Sanfona e a Inflamação Invisível" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+  </div>
+  <div className="p-8 flex-grow">
+    <span className="text-[10px] font-black bg-green-50 text-green-600 px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">Fisiopatologia</span>
+    <h3 className="text-2xl font-black text-slate-800 leading-tight mb-4">O Efeito Sanfona e a Inflamação Invisível</h3>
+    <p className="text-slate-500 text-sm font-medium italic mb-6 line-clamp-3">Por que o reganho de peso é tão perigoso e como a memória das suas células de gordura dificulta o emagrecimento real.</p>
+    <div className="flex items-center gap-2 text-green-600 font-bold uppercase text-xs">Ler Página do Artigo <ChevronRight size={16} /></div>
+  </div>
+</Link>
+
         {/* Card Frutose - CORRIGIDO (Sintaxe e Nome do Arquivo) */}
         <Link to="/quantas_frutas_posso_comer" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
           <div className="h-64 overflow-hidden border-b border-slate-50">
