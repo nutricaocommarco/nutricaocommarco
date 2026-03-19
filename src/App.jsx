@@ -37,6 +37,7 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
 
   useEffect(() => {
+    // Configuração dinâmica do Favicon e Título da Página
     const setupFaviconAndTitle = () => {
       let link = document.querySelector("link[rel~='icon']");
       if (!link) {
@@ -103,7 +104,7 @@ export default function App() {
               <button 
                 key={link.name} 
                 onClick={() => handleNavClick(link)}
-                className={`text-sm font-bold uppercase tracking-wider transition-colors ${currentPage === link.id ? 'text-green-600 border-b-2 border-green-600 pb-1' : 'text-slate-800 hover:text-green-600'}`}
+                className={`text-sm font-bold uppercase tracking-wider transition-colors ${currentPage === link.id ? 'text-green-600' : 'text-slate-800 hover:text-green-600'}`}
               >
                 {link.name}
               </button>
@@ -375,6 +376,20 @@ export default function App() {
                     desc="Técnicas de mensuração e avaliação específicas para o paciente com obesidade."
                   />
                   <MiniCertCard 
+                    image={`${githubImgBase}pronutri.webp`}
+                    title="Programa ProNutri (Ciclo 12)"
+                    org="Secad Artmed"
+                    hours="190h - Concluído"
+                    desc="Atualização em Nutrição Clínica cobrindo Microbiota, Longevidade, Doenças Autoimunes e diversos temas de vanguarda."
+                  />
+                  <MiniCertCard 
+                    image={`${githubImgBase}pronutri.webp`}
+                    title="Programa ProNutri (Ciclo 14)"
+                    org="Secad Artmed"
+                    hours="190h - Em curso"
+                    desc="Continuidade da formação avançada, explorando novas evidências e condutas dietoterápicas modernas em ambiente clínico."
+                  />
+                  <MiniCertCard 
                     image={`${githubImgBase}hormonios.jpg`}
                     title="Metabolismo Hormonal na Hipertrofia"
                     org="Prof. Dr. Rodrigo Vargas"
@@ -393,14 +408,7 @@ export default function App() {
                     title="Comer Intuitivo"
                     org="Inst. Nutrição Comportamental"
                     hours="4h"
-                    desc="Pilares da permissão incondicional para comer e atenção aos sinais internos de fome e saciedade."
-                  />
-                  <MiniCertCard 
-                    image={`${githubImgBase}pronutri.webp`}
-                    title="Programa ProNutri (Ciclo 12 e 14)"
-                    org="Secad Artmed"
-                    hours="Em curso"
-                    desc="Atualização em Nutrição Clínica cobrindo Microbiota, Longevidade e Doenças Autoimunes."
+                    desc="Este curso apresentou os pilares e princípios: permissão incondicional, sinais de fome/saciedade e razões físicas."
                   />
                 </div>
               </div>
