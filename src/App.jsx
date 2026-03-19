@@ -1,5 +1,8 @@
-// MOTOR DE SEO: Muda o Título e a Meta Descrição consoante a página
+// MOTOR DE SEO: Muda o Título, a Meta Descrição e a Tag Canonical consoante a página
   useEffect(() => {
+    // O seu domínio principal oficial
+    const baseUrl = 'https://nutricaocommarco.vercel.app';
+
     const seoData = {
       '/': { 
         title: 'Nutrição com Marco | Performance e Ciência', 
@@ -25,10 +28,10 @@
 
     const currentSEO = seoData[location.pathname] || seoData['/'];
     
-    // Atualiza o Título
+    // 1. Atualiza o Título
     document.title = currentSEO.title;
     
-    // Atualiza a Meta Descrição para o Google
+    // 2. Atualiza a Meta Descrição para o Google
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
       metaDesc = document.createElement('meta');
@@ -36,6 +39,17 @@
       document.head.appendChild(metaDesc);
     }
     metaDesc.content = currentSEO.desc;
+
+    // 3. Atualiza a Tag Canonical para evitar conteúdo duplicado no Google
+    let canonicalLink = document.querySelector("link[rel='canonical']");
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.rel = 'canonical';
+      document.head.appendChild(canonicalLink);
+    }
+    // Remove a barra final se estiver na home para manter a URL limpa
+    const cleanPath = location.pathname === '/' ? '' : location.pathname;
+    canonicalLink.href = `${baseUrl}${cleanPath}`;
 
     setIsMenuOpen(false); // Fecha menu mobile ao trocar de página
   }, [location.pathname]);
