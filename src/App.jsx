@@ -19,20 +19,6 @@ export default function App() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    // Adicionar o favicon dinamicamente
-    const setupFaviconAndTitle = () => {
-      let link = document.querySelector("link[rel~='icon']");
-      if (!link) {
-        link = document.createElement('link');
-        link.rel = 'icon';
-        document.head.appendChild(link);
-      }
-      link.href = 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png';
-      document.title = 'Nutrição com Marco | Performance e Ciência';
-    };
-    
-    setupFaviconAndTitle();
-
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -217,7 +203,8 @@ export default function App() {
             <h2 className="text-4xl font-black text-slate-900 mb-4 uppercase italic">Meus Materiais</h2>
             <p className="text-slate-500 font-bold uppercase tracking-widest text-sm">E-books pensados na sua evolução</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* Grid responsivo: 1 coluna no mobile, 2 em tablets, 4 no desktop */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { 
                 title: "Guia de Receitas", 
@@ -239,6 +226,13 @@ export default function App() {
                 status: "Baixar PDF", 
                 image: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/capa_antropometria.jpeg",
                 link: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Antropometria-ebook.pdf"
+              },
+              { 
+                title: "Casca de Banana na Cozinha", 
+                desc: "Aproveitamento integral e receitas surpreendentes.", 
+                status: "Baixar PDF", 
+                image: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Capa_pancs.jpg",
+                link: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Casca_de_Banana_na_Cozinha.pdf"
               }
             ].map((ebook, i) => (
               <a key={i} href={ebook.link} target="_blank" rel="noreferrer" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col cursor-pointer text-center md:text-left">
