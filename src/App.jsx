@@ -7,10 +7,10 @@ import {
   PlayCircle, HelpCircle, ExternalLink, Scale, Droplets
 } from 'lucide-react';
 
-// --- BANCO DE DADOS DE CONTEÚDO INTEGRAL (Textos Completos e Estruturados) ---
+// --- BANCO DE DADOS DE CONTEÚDO INTEGRAL (Protege seus textos de serem cortados) ---
 const BLOG_POSTS = {
-  "antropometria": {
-    id: "antropometria",
+  "o_que_e_antropometria": {
+    id: "o_que_e_antropometria",
     categoria: "Educação Científica",
     titulo: "O que é Antropometria?",
     imagemCapa: "Blog/O_que_e_antropometria.png",
@@ -78,8 +78,8 @@ const BLOG_POSTS = {
       </div>
     )
   },
-  "bioimpedancia": {
-    id: "bioimpedancia",
+  "a_balanca_de_bioimpedancia_e_confiavel": {
+    id: "a_balanca_de_bioimpedancia_e_confiavel",
     categoria: "Tecnologia e Medida",
     titulo: "A balança de bioimpedância é confiável?",
     imagemCapa: "Blog/Bia1.jpg",
@@ -215,6 +215,7 @@ export default function App() {
 
   const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
+  // Função de Navegação Segura para o Canvas
   const navigate = (v, p = null) => {
     setView(v);
     setPostId(p);
@@ -229,7 +230,7 @@ export default function App() {
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || view !== 'home' ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center relative">
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => navigate('home')}>
-            <img src={`${githubImgBase}logoN_pingus.png`} alt="Logo" className="w-12 h-12 group-hover:rotate-6 transition-transform object-contain" />
+            <img src={`${githubImgBase}logoN_pingus.png`} alt="Logo Pingus Nutrição" className="w-12 h-12 group-hover:rotate-6 transition-transform object-contain" />
             <span className="text-xl font-black tracking-tight text-slate-900 uppercase ml-1">NUTRIÇÃO COM <span className="text-green-600">MARCO</span></span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-widest">
@@ -242,7 +243,7 @@ export default function App() {
         </div>
       </nav>
 
-      {/* RENDERIZAÇÃO DE PÁGINAS */}
+      {/* RENDERIZAÇÃO DE CONTEÚDO */}
       <main className="pt-20 flex-grow">
         
         {/* PÁGINA INICIAL */}
@@ -259,7 +260,7 @@ export default function App() {
                   </div>
                   <div className="flex-1 relative mt-10 md:mt-0">
                     <div className="w-full aspect-[4/5] max-w-md mx-auto bg-white p-3 rounded-[2.5rem] rotate-2 shadow-2xl border border-slate-100 overflow-hidden">
-                      <img src={`${githubImgBase}marco-aurelio.png`} alt="Marco Aurélio Jr" className="w-full h-full object-cover rounded-[2rem] scale-105" />
+                      <img src={`${githubImgBase}marco-aurelio.png`} alt="Nutricionista Marco Aurélio Jr" className="w-full h-full object-cover rounded-[2rem] scale-105" />
                     </div>
                     
                     {/* MOLDURAS FLUTUANTES (BADGES) RESTAURADAS */}
@@ -289,14 +290,14 @@ export default function App() {
                   <p className="text-lg text-slate-600 leading-relaxed mb-8 font-medium italic">Sou estudante do 4º ano de Nutrição na Unicesumar e entusiasta da antropometria técnica. Minha missão é levar clareza nutricional para quem busca resultados reais através de ciência e precisão.</p>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="p-5 bg-slate-50 rounded-2xl border border-green-50"><h4 className="font-black text-green-600 text-sm uppercase">Foco</h4><p className="font-bold text-slate-800">Antropometria e Emagrecimento</p></div>
-                    <div className="p-5 bg-slate-50 rounded-2xl border border-green-50"><h4 className="font-black text-green-600 text-sm uppercase">Local</h4><p className="font-bold text-slate-800 leading-tight text-sm">Rio de Janeiro, Freguesia e Online</p></div>
+                    <div className="p-5 bg-slate-50 rounded-2xl border border-green-50"><h4 className="font-black text-green-600 text-sm uppercase">Local</h4><p className="font-bold text-slate-800 leading-tight text-sm text-left">Rio de Janeiro, Freguesia e Online</p></div>
                   </div>
                 </div>
                 <div className="flex-1 bg-green-600 p-8 md:p-12 rounded-[3.5rem] text-white shadow-2xl relative overflow-hidden">
                   <Zap className="absolute -top-10 -right-10 w-40 h-40 opacity-10" />
                   <h3 className="text-2xl font-black mb-6 italic uppercase">Minha Missão</h3>
-                  <p className="text-xl leading-relaxed mb-10 font-medium italic">"Levar clareza nutricional para quem busca resultados reais, sem modismos e com total base científica."</p>
-                  <div className="flex items-center gap-4 justify-center md:justify-start">
+                  <p className="text-xl leading-relaxed mb-10 font-medium italic text-left">"Levar clareza nutricional para quem busca resultados reais, sem modismos e com total base científica."</p>
+                  <div className="flex items-center gap-4 justify-center md:justify-start text-left">
                     <img src={`${githubImgBase}logoN_pingus.png`} alt="Pingus" className="w-16 h-16 object-contain drop-shadow-lg" />
                     <div><span className="font-bold block text-[10px] opacity-80 uppercase tracking-widest text-white">Mascote Oficial</span><span className="font-black text-lg uppercase tracking-tighter text-white">Pingus</span></div>
                   </div>
@@ -305,7 +306,7 @@ export default function App() {
             </section>
             {/* Seção E-books - Grid 3-2 */}
             <section id="ebooks" className="py-24 bg-slate-50 text-center">
-              <div className="container mx-auto px-6">
+              <div className="container mx-auto px-6 text-center">
                 <h2 className="text-4xl font-black text-slate-900 mb-4 uppercase italic">Meus Materiais</h2>
                 <p className="text-slate-500 font-bold uppercase text-sm tracking-widest mb-16">Conteúdo gratuito para sua evolução</p>
                 <div className="flex flex-wrap justify-center gap-10 max-w-7xl mx-auto">
@@ -318,8 +319,8 @@ export default function App() {
                   ].map((ebook, i) => (
                     <a key={i} href={ebook.link} target="_blank" rel="noreferrer" className="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.33%-2rem)] max-w-[360px] bg-white p-8 rounded-[3rem] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all flex flex-col group border border-slate-100">
                       <div className="aspect-[3/4] mb-8 rounded-[2rem] bg-slate-50 flex items-center justify-center overflow-hidden shadow-inner"><img src={ebook.image} alt={ebook.title} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" /></div>
-                      <h3 className="text-2xl font-black mb-4 text-slate-800 leading-tight min-h-[64px]">{ebook.title}</h3>
-                      <p className="text-slate-600 mb-8 flex-grow font-medium italic leading-relaxed">{ebook.desc}</p>
+                      <h3 className="text-2xl font-black mb-4 text-slate-800 leading-tight min-h-[64px] text-center md:text-left">{ebook.title}</h3>
+                      <p className="text-slate-600 mb-8 flex-grow font-medium italic leading-relaxed text-center md:text-left">{ebook.desc}</p>
                       <span className="bg-green-600 text-white px-8 py-3.5 rounded-full text-xs font-black uppercase text-center shadow-lg group-hover:bg-green-700">Baixar PDF</span>
                     </a>
                   ))}
@@ -331,7 +332,7 @@ export default function App() {
 
         {/* PÁGINA CERTIFICAÇÕES (LISTA COMPLETA) */}
         {view === 'certificacoes' && (
-          <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-6xl">
+          <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-6xl text-left">
             <h1 className="text-5xl md:text-8xl font-black text-white italic titulo-vazado uppercase mb-20 text-center">Currículo</h1>
             <div className="space-y-24">
               <div>
@@ -358,7 +359,7 @@ export default function App() {
               <div className="grid md:grid-cols-2 gap-12 mb-24 text-left">
                 <div>
                   <h2 className="text-2xl font-black text-slate-800 uppercase italic mb-10 flex items-center gap-4 justify-center md:justify-start"><span className="w-12 h-1 bg-red-600 rounded-full"></span> Segurança Alimentar</h2>
-                  <div className="bg-white rounded-[3rem] p-8 shadow-xl border border-slate-100 space-y-6">
+                  <div className="bg-white rounded-[3rem] p-8 shadow-xl border border-slate-100 space-y-6 text-left">
                     <IvisaItem title="Boas Práticas na Indústria" org="Ivisa-Rio" hours="4h" />
                     <IvisaItem title="Boas Práticas em Serviços" org="Ivisa-Rio" hours="4h" />
                     <IvisaItem title="Supervisão de Manipulação" org="Ivisa-Rio" hours="4h" />
@@ -381,8 +382,8 @@ export default function App() {
         {/* PÁGINA BLOG LISTA */}
         {view === 'blog' && (
           <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-6xl text-center">
-            <h1 className="text-5xl md:text-8xl font-black text-white italic titulo-vazado uppercase mb-4">Blog</h1>
-            <p className="text-slate-500 font-bold uppercase text-center mb-16 tracking-widest">Nutrição baseada em evidência científica</p>
+            <h1 className="text-5xl md:text-8xl font-black text-white italic titulo-vazado uppercase mb-4 text-center">Blog</h1>
+            <p className="text-slate-500 font-bold uppercase text-center mb-16 tracking-widest text-center">Nutrição baseada em evidência científica</p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
               {Object.values(BLOG_POSTS).map((post) => (
                 <div key={post.id} onClick={() => navigate('post', post.id)} className="bg-white rounded-[3rem] shadow-xl overflow-hidden cursor-pointer hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
@@ -416,7 +417,7 @@ export default function App() {
               <div className="mt-20 pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-black italic shadow-lg text-2xl">M</div>
-                  <div className="text-left"><p className="font-bold text-slate-900 text-sm">Marco Aurélio Jr.</p><p className="text-xs text-slate-400 uppercase tracking-widest font-black">ISAK Level 1 • Nutrição com Ciência</p></div>
+                  <div className="text-left font-bold"><p className="text-slate-900 text-sm">Marco Aurélio Jr.</p><p className="text-xs text-slate-400 uppercase tracking-widest font-black">ISAK Level 1 • Nutrição com Ciência</p></div>
                 </div>
                 <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-lg hover:bg-green-700 transition-all italic">@Nutricao_com_Marco</a>
               </div>
@@ -427,14 +428,14 @@ export default function App() {
 
       {/* RODAPÉ PROFISSIONAL RESTAURADO */}
       <footer className="bg-slate-900 text-white py-20 text-center mt-auto">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 text-center">
           <div className="flex items-center justify-center gap-3 mb-10 cursor-pointer" onClick={() => navigate('home')}>
             <img src={`${githubImgBase}logoN_pingus.png`} alt="Logo" className="w-12 h-12 object-contain" />
-            <span className="text-xl font-black uppercase italic tracking-tighter">Nutrição com Marco</span>
+            <span className="text-xl font-black uppercase italic tracking-tighter text-white">Nutrição com Marco</span>
           </div>
           <div className="flex justify-center gap-8 mb-16">
-            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 border border-white/10"><Instagram size={24}/></a>
-            <a href="mailto:nutricaocommarco@gmail.com" className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 border border-white/10"><Mail size={24}/></a>
+            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 border border-white/10 text-center justify-center flex"><Instagram size={24}/></a>
+            <a href="mailto:nutricaocommarco@gmail.com" className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 border border-white/10 text-center justify-center flex"><Mail size={24}/></a>
           </div>
           <p className="text-slate-500 text-xs font-bold tracking-[0.2em] uppercase mb-1">#NutriçãoComCiência #Antropometria #ISAK1 #ConsultaOnline</p>
           <p className="text-slate-600 text-xs font-bold tracking-[0.2em] uppercase">© 2026 Nutrição com Marco • Rio de Janeiro</p>
@@ -455,8 +456,8 @@ export default function App() {
 function CertCard({ image, badge, title, org, desc, color }) {
   const colorMap = { green: 'bg-green-100 text-green-600', blue: 'bg-blue-100 text-blue-600', slate: 'bg-slate-100 text-slate-600' };
   return (
-    <div className="bg-white p-8 md:p-10 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col md:flex-row gap-8 items-center group transition-all hover:scale-[1.02]">
-      <div className="w-32 h-32 bg-white rounded-3xl flex items-center justify-center shrink-0 shadow-inner p-3 border border-slate-50 group-hover:rotate-3 transition-transform"><img src={image} className="w-full h-full object-contain" alt={title} /></div>
+    <div className="bg-white p-8 md:p-10 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col md:flex-row gap-8 items-center group transition-all hover:scale-[1.02] text-left">
+      <div className="w-32 h-32 bg-white rounded-3xl flex items-center justify-center shrink-0 shadow-inner p-3 border border-slate-50 group-hover:rotate-3 transition-transform text-left justify-start flex"><img src={image} className="w-full h-full object-contain" alt={title} /></div>
       <div className="flex-grow text-left">
         <span className={`${colorMap[color]} font-black uppercase text-[10px] tracking-widest px-3 py-1 rounded-full mb-2 inline-block`}>{badge}</span>
         <h3 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mb-1 leading-tight">{title}</h3>
@@ -469,7 +470,7 @@ function CertCard({ image, badge, title, org, desc, color }) {
 
 function MiniCertCard({ image, title, org, desc, bgColor = "bg-white" }) {
   return (
-    <div className="bg-white rounded-[2.5rem] shadow-md border border-slate-50 hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden flex flex-col min-h-[380px]">
+    <div className="bg-white rounded-[2.5rem] shadow-md border border-slate-50 hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden flex flex-col min-h-[380px] text-left">
       <div className={`h-48 w-full overflow-hidden ${bgColor} flex items-center justify-center p-6 border-b border-slate-50`}><img src={image} className="w-full h-full object-contain group-hover:scale-105 transition-transform" alt={title} /></div>
       <div className="p-8 flex flex-col flex-grow text-left">
         <h3 className="text-xl font-black text-slate-800 uppercase italic mb-1 leading-tight">{title}</h3>
@@ -482,9 +483,9 @@ function MiniCertCard({ image, title, org, desc, bgColor = "bg-white" }) {
 
 function IvisaItem({ title, org, hours }) {
   return (
-    <div className="flex items-start gap-4">
+    <div className="flex items-start gap-4 text-left">
       <div className="w-10 h-10 bg-red-50 rounded-xl flex items-center justify-center shrink-0"><ShieldCheck className="text-red-500" size={20} /></div>
-      <div className="text-left"><h4 className="font-black text-slate-800 uppercase italic text-sm leading-tight">{title}</h4><p className="text-slate-400 font-bold text-[9px] uppercase tracking-tighter">{org} • {hours}</p></div>
+      <div className="text-left"><h4 className="font-black text-slate-800 uppercase italic text-sm leading-tight text-left">{title}</h4><p className="text-slate-400 font-bold text-[9px] uppercase tracking-tighter text-left">{org} • {hours}</p></div>
     </div>
   );
 }
