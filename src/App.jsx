@@ -31,7 +31,8 @@ import {
   Stethoscope,
   ChevronLeft,
   Search,
-  PlayCircle
+  PlayCircle,
+  HelpCircle
 } from 'lucide-react';
 
 export default function App() {
@@ -41,8 +42,9 @@ export default function App() {
   const [selectedPost, setSelectedPost] = useState(null);
 
   useEffect(() => {
-    // Configuração dinâmica do Favicon e Título da Página
-    const setupFaviconAndTitle = () => {
+    // Configuração dinâmica do Favicon, Título e Meta Description (SEO)
+    const setupSEO = () => {
+      // Favicon
       let link = document.querySelector("link[rel~='icon']");
       if (!link) {
         link = document.createElement('link');
@@ -51,20 +53,41 @@ export default function App() {
       }
       link.href = 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png';
       
+      // Títulos dinâmicos
       const titles = {
         home: 'Nutrição com Marco | Performance e Ciência',
         certificacoes: 'Currículo e Certificações | Nutrição com Marco',
         blog: 'Blog de Nutrição e Ciência | Nutrição com Marco'
       };
       document.title = titles[currentPage] || titles.home;
+
+      // Meta Description dinâmica para o Google
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) {
+        metaDesc = document.createElement('meta');
+        metaDesc.name = 'description';
+        document.head.appendChild(metaDesc);
+      }
+
+      const descriptions = {
+        home: 'Especialista em Nutrição e Antropometria no Rio de Janeiro e Online. Performance física e saúde baseada em evidências científicas.',
+        certificacoes: 'Conheça a trajetória acadêmica e as certificações internacionais ISAK do nutricionista Marco Aurélio Jr.',
+        blog: 'Conteúdo científico sobre antropometria, emagrecimento e fisiologia para transformar a sua saúde.'
+      };
+      
+      if (selectedPost === 'antropometria') {
+        metaDesc.content = 'Entenda o que é Antropometria e como a composição corporal revela resultados que a balança não mostra. Ciência aplicada ao emagrecimento.';
+      } else {
+        metaDesc.content = descriptions[currentPage] || descriptions.home;
+      }
     };
     
-    setupFaviconAndTitle();
+    setupSEO();
 
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [currentPage]);
+  }, [currentPage, selectedPost]);
 
   const navLinks = [
     { name: 'Início', id: 'home' },
@@ -166,7 +189,7 @@ export default function App() {
                     NUTRIÇÃO <br/> COM CIÊNCIA
                   </h1>
                   <p className="text-lg text-slate-600 mb-8 max-w-xl leading-relaxed font-medium mx-auto md:mx-0">
-                    Transformando vidas através da antropometria e estratégias baseadas em evidências. Resultados reais para atendimento presencial e online.
+                    Transformando vidas através da antropometria e estratégias baseadas em evidências. Resultados reais para atendimento presencial e online em todo o Brasil.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                     <button onClick={() => {
@@ -319,7 +342,7 @@ export default function App() {
                   <p className="text-slate-500 font-bold uppercase tracking-widest text-sm">Nutrição baseada em evidência para transformar sua vida</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                  {/* Card do Artigo 1 - Atualizado com a Capa Solicitada */}
+                  {/* Card do Artigo 1 */}
                   <div onClick={() => openPost('antropometria')} className="bg-white rounded-[3rem] shadow-xl border border-slate-100 flex flex-col group cursor-pointer hover:-translate-y-2 transition-all duration-300 overflow-hidden">
                     <div className="h-64 overflow-hidden border-b border-slate-50">
                       <img 
@@ -356,7 +379,7 @@ export default function App() {
                 
                 <article className="prose prose-lg prose-slate max-w-none">
                   <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Educação Científica</span>
-                  <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-10 uppercase italic leading-tight">O que é Antropometria?</h1>
+                  <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-10 uppercase italic leading-tight text-center md:text-left">O que é Antropometria?</h1>
                   
                   <div className="space-y-6 text-lg text-slate-600 leading-relaxed font-medium">
                     <p>A <strong>Antropometria</strong> é uma ciência fundamental que estuda as proporções, o tamanho e as medidas do corpo humano, sendo uma ferramenta indispensável para profissionais das áreas de saúde, nutrição e esportes. Etimologicamente, o termo deriva do grego <em>anthropos</em> (homem) e <em>metron</em> (medida), definindo-se objetivamente como o método de mensurar as características de um indivíduo para entender seu crescimento, estado nutricional e potencial de performance.</p>
@@ -377,7 +400,7 @@ export default function App() {
                       </div>
                     </div>
 
-                    <h2 className="text-2xl font-black text-slate-900 uppercase italic mt-12 mb-4">A Evolução da Ciência</h2>
+                    <h2 className="text-2xl font-black text-slate-900 uppercase italic mt-12 mb-4">Antropometria: A evolução da Ciência</h2>
                     <p>Historicamente, a preocupação com as formas corporais remonta aos antigos egípcios e gregos, mas o nascimento da antropometria científica consolidou-se com pesquisadores como Lambert Quételet no século XIX. No entanto, a verdadeira revolução técnica ocorreu na década de 1980, com estudos liderados por William Ross que demonstraram falhas nos sistemas da época, servindo como base para a criação da <strong>ISAK</strong>, que hoje é o padrão ouro mundial.</p>
 
                     {/* VÍDEO DO INSTAGRAM INCORPORADO */}
@@ -411,11 +434,32 @@ export default function App() {
                     <p>Na prática, o antropometrista utiliza instrumentos de precisão calibrados para coletar diversas medidas, como o estadiômetro para a estatura, a balança para a massa corporal, a trena metálica para os perímetros e o plicômetro (ou bússola de dobras) para a aferição das dobras cutâneas. Essas medições permitem o fracionamento da massa corporal em componentes fundamentais: <strong>massa gorda, massa muscular, massa óssea e massa residual.</strong></p>
 
                     <p>Para o paciente que busca saúde e bem-estar, a antropometria atua como um verdadeiro <strong>GPS</strong>. Ela identifica riscos cardiovasculares e permite que o nutricionista ajuste dietas com base no volume exato de massa muscular que precisa ser preservado ou hipertrofiado, garantindo que a evolução seja monitorada por dados concretos e científicos.</p>
+
+                    {/* SECÇÃO FAQ - EXCELENTE PARA SEO (Featured Snippets) */}
+                    <div className="mt-16 pt-10 border-t border-slate-100">
+                      <h3 className="text-2xl font-black text-slate-800 uppercase italic mb-8 flex items-center gap-3">
+                        <HelpCircle className="text-green-600" /> Perguntas Frequentes
+                      </h3>
+                      <div className="space-y-6">
+                        <div className="bg-slate-50 p-6 rounded-3xl">
+                          <h4 className="font-black text-slate-800 mb-2">Para que serve a antropometria na nutrição?</h4>
+                          <p className="text-slate-600 font-medium">Serve para mapear a composição corporal do paciente, distinguindo massa gorda de massa muscular, o que permite um ajuste dietético muito mais preciso do que apenas olhar o peso na balança.</p>
+                        </div>
+                        <div className="bg-slate-50 p-6 rounded-3xl">
+                          <h4 className="font-black text-slate-800 mb-2">Qual a vantagem da certificação ISAK?</h4>
+                          <p className="text-slate-600 font-medium">A certificação ISAK garante que o profissional segue um protocolo mundial de medidas, minimizando erros técnicos e permitindo que os seus resultados sejam comparáveis e fidedignos ao longo do tempo.</p>
+                        </div>
+                        <div className="bg-slate-50 p-6 rounded-3xl">
+                          <h4 className="font-black text-slate-800 mb-2">Posso fazer avaliação antropométrica online?</h4>
+                          <p className="text-slate-600 font-medium">Embora as dobras exijam presença física, na consulta online orientamos o paciente a recolher métricas estratégicas e perímetros que, combinados com análise visual, oferecem um excelente parâmetro de evolução.</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </article>
 
                 <div className="mt-20 pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
-                  <p className="font-bold text-slate-400 uppercase text-xs tracking-widest italic">Escrito por Marco Aurélio Jr. • ISAK Level 1</p>
+                  <p className="font-bold text-slate-400 uppercase text-xs tracking-widest italic text-center md:text-left">Escrito por Marco Aurélio Jr. • ISAK Level 1 • Estudante de Nutrição</p>
                   <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-2xl font-black uppercase text-xs shadow-lg hover:bg-green-700 transition-all">Seguir no Instagram <Instagram size={16}/></a>
                 </div>
               </div>
