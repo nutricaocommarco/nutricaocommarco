@@ -67,6 +67,11 @@ function Layout({ children }) {
       '/a_balanca_de_bioimpedancia_e_confiavel': { 
         title: 'A balança de bioimpedância é confiável? | Nutrição com Marco', 
         desc: 'Entenda se a balança de bioimpedância é confiável, como ela funciona e o que altera o seu percentual de gordura.' 
+      },
+      // ADICIONE ESTE BLOCO AQUI:
+      '/vitamina_a_para_que_serve': { 
+        title: 'Vitamina A para que serve? | Nutrição com Marco', 
+        desc: 'Entenda as diferenças entre retinol, retinal e ácido retinóico, e descubra como a Vitamina A atua no seu metabolismo muito além da visão.' 
       }
     };
 
@@ -168,7 +173,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/certificacoes" element={<Certificacoes />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/rascunho-vitamina" element={<VitaminaA />} />
+            <Route path="/vitamina_a_para_que_serve" element={<VitaminaA />} />
             <Route path="/o_que_e_antropometria" element={<Antropometria />} />
             <Route path="/a_balanca_de_bioimpedancia_e_confiavel" element={<Bioimpedancia />} />
           </Routes>
