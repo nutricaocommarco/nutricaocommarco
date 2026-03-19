@@ -99,13 +99,13 @@ export default function App() {
             </span>
           </div>
           
-          {/* Menu Desktop - Padronização de cores verdes */}
+          {/* Menu Desktop */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <button 
                 key={link.name} 
                 onClick={() => handleNavClick(link)}
-                className={`text-sm font-bold uppercase tracking-wider transition-colors ${currentPage === link.id ? 'text-green-600 border-b-2 border-green-600 pb-1' : 'text-slate-800 hover:text-green-600'}`}
+                className={`text-sm font-bold uppercase tracking-wider transition-colors ${currentPage === link.id ? 'text-green-600' : 'text-slate-800 hover:text-green-600'}`}
               >
                 {link.name}
               </button>
@@ -244,13 +244,14 @@ export default function App() {
             </div>
           </section>
 
+          {/* Seção E-books - Ajustada para 3 em cima e 2 em baixo */}
           <section id="ebooks" className="py-24 bg-slate-50">
             <div className="container mx-auto px-6">
               <div className="text-center mb-16">
                 <h2 className="text-4xl font-black text-slate-900 mb-4 uppercase italic">Meus Materiais</h2>
                 <p className="text-slate-500 font-bold uppercase tracking-widest text-sm">E-books pensados na sua evolução</p>
               </div>
-              <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+              <div className="flex flex-wrap justify-center gap-10 max-w-7xl mx-auto">
                 {[
                   { 
                     title: "Guia de Receitas", 
@@ -279,9 +280,22 @@ export default function App() {
                     status: "Baixar PDF", 
                     image: `${githubImgBase}Capa_pancs.jpg`,
                     link: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Casca_de_Banana_na_Cozinha.pdf"
+                  },
+                  { 
+                    title: "Vitaminas, um Guia com Receitas", 
+                    desc: "Tudo o que você precisa saber sobre micronutrientes.", 
+                    status: "Baixar PDF", 
+                    image: `${githubImgBase}Vitaminas_Capa.jpg`,
+                    link: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Vitaminas.pdf"
                   }
                 ].map((ebook, i) => (
-                  <a key={i} href={ebook.link} target="_blank" rel="noreferrer" className="bg-white p-8 rounded-[3rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col cursor-pointer text-center md:text-left">
+                  <a 
+                    key={i} 
+                    href={ebook.link} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="w-full sm:w-[calc(50%-20px)] lg:w-[calc(33.33%-30px)] max-w-[380px] bg-white p-8 rounded-[3rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col cursor-pointer text-center md:text-left"
+                  >
                     <div className="w-full aspect-[3/4] mb-8 rounded-[2rem] overflow-hidden shadow-inner bg-slate-100 p-6 flex items-center justify-center">
                       <img 
                         src={ebook.image} 
@@ -289,7 +303,7 @@ export default function App() {
                         className="w-full h-full object-contain rounded-xl shadow-md group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
-                    <h3 className="text-3xl font-black mb-4 text-slate-800 leading-tight">{ebook.title}</h3>
+                    <h3 className="text-2xl font-black mb-4 text-slate-800 leading-tight min-h-[64px]">{ebook.title}</h3>
                     <p className="text-slate-600 text-lg font-medium mb-8 italic flex-grow">{ebook.desc}</p>
                     <div className="mt-auto">
                       <span className="inline-block px-8 py-3.5 rounded-full text-xs font-black uppercase tracking-widest bg-green-600 text-white shadow-lg group-hover:bg-green-700 transition-colors">
@@ -375,7 +389,7 @@ export default function App() {
                     desc="Focado em protocolos de atendimento e gestão clínica para profissionais de alta performance."
                   />
                   <MiniCertCard 
-                    image={`${githubImgBase}antropometria-obesidade.jpg`} // Caminho atualizado conforme solicitado
+                    image={`${githubImgBase}antropometria-obesidade.jpg`}
                     title="Antropometria na Obesidade"
                     org="Icaro Andrade"
                     hours="Especialização"
