@@ -32,7 +32,8 @@ import {
   ChevronLeft,
   Search,
   PlayCircle,
-  HelpCircle
+  HelpCircle,
+  ExternalLink
 } from 'lucide-react';
 
 export default function App() {
@@ -206,6 +207,7 @@ export default function App() {
                     <img src={`${githubImgBase}marco-aurelio.png`} alt="Nutricionista Marco Aurélio Jr - Especialista em Antropometria e Emagrecimento" title="Marco Aurélio Jr - Nutrição com Ciência" className="w-full h-full object-cover rounded-[2rem] scale-105 transition-transform hover:scale-110 duration-500" />
                   </div>
                   <div className="absolute -bottom-4 md:-bottom-8 -left-2 md:-left-8 flex flex-col gap-3">
+                    {/* Badge ISAK - Removido link direto para centralizar no blog */}
                     <div className="bg-white p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-3 animate-bounce-slow">
                       <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-xl md:rounded-2xl flex items-center justify-center font-black text-base md:text-lg shadow-inner overflow-hidden p-1.5 border border-slate-50">
                         <img src={`${githubImgBase}isak-logo.png`} alt="Certificação Internacional ISAK" className="w-full h-full object-contain" />
@@ -310,7 +312,15 @@ export default function App() {
                 <div className="grid gap-8">
                   <CertCard image={`${githubImgBase}unicesumar.png`} badge="Graduação" title="Bacharelado em Nutrição" org="Unicesumar" hours="3470 horas" date="Conclusão: 12/2026" desc="Formação completa preparando para atuar em diversas áreas da Nutrição." color="slate" />
                   <CertCard image={`${githubImgBase}oficial-uniguacu_vertical-edited.png`} badge="Pós-Graduação" title="Emagrecimento e Metabolismo" org="Faculdade Uniguaçú" hours="Especialização" desc="Focado nas bases fisiológicas para a prática clínica de performance." color="green" />
-                  <CertCard image={`${githubImgBase}isak-logo.png`} badge="Internacional" title="ISAK Level 1" org="ISAK" hours="Antropometria" desc="Acreditação internacional para avaliações físicas de alta precisão técnica." color="blue" />
+                  <CertCard 
+                    image={`${githubImgBase}isak-logo.png`} 
+                    badge="Internacional" 
+                    title="ISAK Level 1" 
+                    org="ISAK" 
+                    hours="Antropometria" 
+                    desc="Acreditação internacional para avaliações físicas de alta precisão técnica baseada nos manuais de Norton e Olds. A padronização global garante resultados fidedignos e comparáveis mundialmente." 
+                    color="blue"
+                  />
                 </div>
               </div>
               <div>
@@ -318,7 +328,7 @@ export default function App() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   <MiniCertCard image={`${githubImgBase}logo-temporaria.svg`} bgColor="bg-black" title="Farmacologia da Obesidade" org="Gustavo Stocker" hours="Treinamento Avançado" desc="Estudo da farmacologia aplicada ao emagrecimento." />
                   <MiniCertCard image={`${githubImgBase}medsize_logo-branco-png.png`} bgColor="bg-black" title="Medsize Klinik" org="Medsize" hours="Capacitação" desc="Protocolos de atendimento para profissionais de alta performance." />
-                  <MiniCertCard image={`${githubImgBase}antropometria-obesidade.jpg`} title="Antropometria na Obesidade" org="Icaro Andrade" hours="Especialização" desc="Técnicas de mensuração específicas para pacientes com obesidade." />
+                  <MiniCertCard image={`${githubImgBase}antropometria-clínica-obesidade.jpg`} title="Antropometria na Obesidade" org="Icaro Andrade" hours="Especialização" desc="Técnicas de mensuração específicas para pacientes com obesidade." />
                   <MiniCertCard image={`${githubImgBase}pronutri.webp`} title="ProNutri (Ciclo 12)" org="Secad Artmed" hours="190h - Concluído" desc="Microbiota, Longevidade e Doenças Autoimunes." />
                   <MiniCertCard image={`${githubImgBase}pronutri.webp`} title="ProNutri (Ciclo 14)" org="Secad Artmed" hours="190h - Em curso" desc="Novas evidências e condutas dietoterápicas modernas." />
                   <MiniCertCard image={`${githubImgBase}hormonios.jpg`} title="Metabolismo Hormonal" org="Prof. Dr. Rodrigo Vargas" hours="12h" desc="Estudo dos hormônios esteroides e ajustes dietéticos." />
@@ -342,7 +352,6 @@ export default function App() {
                   <p className="text-slate-500 font-bold uppercase tracking-widest text-sm">Nutrição baseada em evidência para transformar sua vida</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                  {/* Card do Artigo 1 */}
                   <div onClick={() => openPost('antropometria')} className="bg-white rounded-[3rem] shadow-xl border border-slate-100 flex flex-col group cursor-pointer hover:-translate-y-2 transition-all duration-300 overflow-hidden">
                     <div className="h-64 overflow-hidden border-b border-slate-50">
                       <img 
@@ -396,7 +405,7 @@ export default function App() {
                         loading="lazy"
                       />
                       <div className="bg-slate-900/5 p-4 text-center">
-                        <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">A ciência da medida humana aplicada ao seu emagrecimento real.</p>
+                        <p className="text-xs text-slate-500 font-bold uppercase tracking-widest text-center">A ciência da medida humana aplicada ao seu emagrecimento real.</p>
                       </div>
                     </div>
 
@@ -435,7 +444,7 @@ export default function App() {
 
                     <p>Para o paciente que busca saúde e bem-estar, a antropometria atua como um verdadeiro <strong>GPS</strong>. Ela identifica riscos cardiovasculares e permite que o nutricionista ajuste dietas com base no volume exato de massa muscular que precisa ser preservado ou hipertrofiado, garantindo que a evolução seja monitorada por dados concretos e científicos.</p>
 
-                    {/* SECÇÃO FAQ - EXCELENTE PARA SEO (Featured Snippets) */}
+                    {/* SECÇÃO FAQ - COM LINK ISAK ÚNICO */}
                     <div className="mt-16 pt-10 border-t border-slate-100">
                       <h3 className="text-2xl font-black text-slate-800 uppercase italic mb-8 flex items-center gap-3">
                         <HelpCircle className="text-green-600" /> Perguntas Frequentes
@@ -447,7 +456,12 @@ export default function App() {
                         </div>
                         <div className="bg-slate-50 p-6 rounded-3xl">
                           <h4 className="font-black text-slate-800 mb-2">Qual a vantagem da certificação ISAK?</h4>
-                          <p className="text-slate-600 font-medium">A certificação ISAK garante que o profissional segue um protocolo mundial de medidas, minimizando erros técnicos e permitindo que os seus resultados sejam comparáveis e fidedignos ao longo do tempo.</p>
+                          <p className="text-slate-600 font-medium leading-relaxed">
+                            A vantagem reside na padronização rigorosa de medidas internacionais, minimizando o erro técnico e garantindo que o seu progresso seja monitorado com precisão absoluta. É o padrão ouro da nutrição esportiva e clínica. Você pode conferir os padrões globais no site oficial: 
+                            <a href="https://isak.global/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-green-600 font-black hover:underline ml-2">
+                              isak.global <ArrowUpRight size={14} />
+                            </a>
+                          </p>
                         </div>
                         <div className="bg-slate-50 p-6 rounded-3xl">
                           <h4 className="font-black text-slate-800 mb-2">Posso fazer avaliação antropométrica online?</h4>
