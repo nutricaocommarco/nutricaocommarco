@@ -73,7 +73,10 @@ function Layout({ children }) {
       '/vitamina_a_para_que_serve': { 
         title: 'Vitamina A para que serve? | Nutrição com Marco', 
         desc: 'Entenda as diferenças entre retinol, retinal e ácido retinóico, e descubra como a Vitamina A atua no seu metabolismo muito além da visão.' 
-      }
+      },
+      '/quantas_frutas_posso_comer': { 
+        title: 'Quantas frutas posso comer por dia? | Nutrição com Marco', 
+        desc: 'Entenda o metabolismo da frutose, a diferença entre o açúcar da fruta e o refinado, e a verdade sobre a fruta e a gordura no fígado.' }
     };
 
     const currentSEO = seoData[location.pathname] || seoData['/'];
@@ -174,7 +177,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/certificacoes" element={<Certificacoes />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/temporario_Frutose" element={<Frutose />} />
+            <Route path="/quantas_frutas_posso_comer" element={<Frutose />} />
             <Route path="/vitamina_a_para_que_serve" element={<VitaminaA />} />
             <Route path="/o_que_e_antropometria" element={<Antropometria />} />
             <Route path="/a_balanca_de_bioimpedancia_e_confiavel" element={<Bioimpedancia />} />
