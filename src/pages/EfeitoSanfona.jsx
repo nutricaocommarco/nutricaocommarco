@@ -72,7 +72,7 @@ export default function EfeitoSanfona() {
             </div>
 
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">O segredo está na constância, não na pressa</h2>
-            <p>O foco não deve ser em perdas rápidas, mas em estratégias sustentáveis que respeitem a biologia celular. Evitar flutuações bruscas é a melhor forma de garantir que o seu corpo realmente recupere a saúde e saia do estado de alerta constante.</p>
+            <p>A mensagem principal aqui é que o nosso tecido adiposo é dinâmico. Para quebrar esse ciclo de inflamação e proteger o seu metabolismo, o foco não deve ser em dietas milagrosas que prometem perdas rápidas, mas sim em estratégias sustentáveis. Evitar essas flutuações bruscas na balança (que muitas vezes são apenas variações de água, como vemos nos problemas de <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">confiabilidade da bioimpedância</Link>) é a melhor forma de garantir que o seu corpo realmente recupere a saúde.</p>
 
             {/* FAQ REVISADO */}
             <div className="mt-16 pt-10 border-t border-slate-100 text-left">
