@@ -19,6 +19,20 @@ export default function App() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    // Adicionar o favicon dinamicamente
+    const setupFaviconAndTitle = () => {
+      let link = document.querySelector("link[rel~='icon']");
+      if (!link) {
+        link = document.createElement('link');
+        link.rel = 'icon';
+        document.head.appendChild(link);
+      }
+      link.href = 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png';
+      document.title = 'Nutrição com Marco | Performance e Ciência';
+    };
+    
+    setupFaviconAndTitle();
+
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -92,7 +106,7 @@ export default function App() {
         )}
       </nav>
 
-      {/* Hero Section - Estilo Visual Personalizado */}
+      {/* Hero Section */}
       <header id="home" className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-b from-green-100 to-white">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center gap-12">
@@ -100,7 +114,6 @@ export default function App() {
               <span className="inline-block bg-white text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6 shadow-sm border border-green-200">
                 Estudante de Nutrição • Unicesumar
               </span>
-              {/* Estilo Canva: Contorno azul e sombra com tamanho ajustado para ser grande no celular e normal no desktop */}
               <h1 className="text-6xl sm:text-7xl md:text-8xl font-black mb-8 text-white italic titulo-vazado uppercase">
                 NUTRIÇÃO <br/> COM <br className="md:hidden" /> CIÊNCIA
               </h1>
@@ -115,7 +128,6 @@ export default function App() {
             </div>
             
             <div className="flex-1 relative mt-10 md:mt-0">
-              {/* Moldura para a foto */}
               <div className="w-full aspect-[4/5] max-w-md mx-auto bg-white p-3 rounded-[2.5rem] rotate-2 shadow-2xl border border-slate-100 overflow-hidden">
                 <img 
                   src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/marco-aurelio.png" 
@@ -128,7 +140,6 @@ export default function App() {
                 />
               </div>
               
-              {/* Badges Flutuantes de Certificação e Especialização */}
               <div className="absolute -bottom-4 md:-bottom-8 -left-2 md:-left-8 flex flex-col gap-3">
                 <div className="bg-white p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-3 animate-bounce-slow">
                   <div className="w-8 h-8 md:w-10 md:h-10 bg-blue-600 text-white rounded-xl md:rounded-2xl flex items-center justify-center font-black text-base md:text-lg shadow-inner">1</div>
@@ -203,8 +214,8 @@ export default function App() {
             <h2 className="text-4xl font-black text-slate-900 mb-4 uppercase italic">Meus Materiais</h2>
             <p className="text-slate-500 font-bold uppercase tracking-widest text-sm">E-books pensados na sua evolução</p>
           </div>
-          {/* Grid responsivo: 1 coluna no mobile, 2 em tablets, 4 no desktop */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Grid responsivo: 1 coluna no mobile, 2 em tablets/desktop (2x2 layout) */}
+          <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
             {[
               { 
                 title: "Guia de Receitas", 
@@ -235,22 +246,22 @@ export default function App() {
                 link: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Casca_de_Banana_na_Cozinha.pdf"
               }
             ].map((ebook, i) => (
-              <a key={i} href={ebook.link} target="_blank" rel="noreferrer" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col cursor-pointer text-center md:text-left">
-                <div className="w-full aspect-[3/4] mb-6 rounded-3xl overflow-hidden shadow-inner bg-slate-100 p-4 flex items-center justify-center">
+              <a key={i} href={ebook.link} target="_blank" rel="noreferrer" className="bg-white p-8 rounded-[3rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col cursor-pointer text-center md:text-left">
+                <div className="w-full aspect-[3/4] mb-8 rounded-[2rem] overflow-hidden shadow-inner bg-slate-100 p-6 flex items-center justify-center">
                   <img 
                     src={ebook.image} 
                     alt={`Capa do E-book ${ebook.title}`} 
-                    className="w-full h-full object-contain rounded-lg shadow-md group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-contain rounded-xl shadow-md group-hover:scale-105 transition-transform duration-500"
                     onError={(e) => {
                       e.target.onerror = null; 
                       e.target.src = "/Imagens/" + ebook.image.split('/').pop();
                     }}
                   />
                 </div>
-                <h3 className="text-2xl font-black mb-3 text-slate-800">{ebook.title}</h3>
-                <p className="text-slate-500 font-medium mb-6 italic flex-grow">{ebook.desc}</p>
+                <h3 className="text-3xl font-black mb-4 text-slate-800 leading-tight">{ebook.title}</h3>
+                <p className="text-slate-600 text-lg font-medium mb-8 italic flex-grow">{ebook.desc}</p>
                 <div className="mt-auto">
-                  <span className="inline-block px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-green-600 text-white shadow-md group-hover:bg-green-700 transition-colors">
+                  <span className="inline-block px-8 py-3.5 rounded-full text-xs font-black uppercase tracking-widest bg-green-600 text-white shadow-lg group-hover:bg-green-700 transition-colors">
                     {ebook.status}
                   </span>
                 </div>
@@ -284,7 +295,7 @@ export default function App() {
         </div>
       </footer>
       
-      {/* Estilos CSS extras para animações e responsividade do título */}
+      {/* Estilos CSS extras */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,900;1,900&display=swap');
 
