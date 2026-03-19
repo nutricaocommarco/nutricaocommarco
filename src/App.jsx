@@ -99,13 +99,13 @@ export default function App() {
             </span>
           </div>
           
-          {/* Menu Desktop */}
+          {/* Menu Desktop - Padronização de cores verdes */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <button 
                 key={link.name} 
                 onClick={() => handleNavClick(link)}
-                className={`text-sm font-bold uppercase tracking-wider transition-colors ${currentPage === link.id ? 'text-green-600' : 'text-slate-800 hover:text-green-600'}`}
+                className={`text-sm font-bold uppercase tracking-wider transition-colors ${currentPage === link.id ? 'text-green-600 border-b-2 border-green-600 pb-1' : 'text-slate-800 hover:text-green-600'}`}
               >
                 {link.name}
               </button>
@@ -115,6 +115,7 @@ export default function App() {
             </a>
           </div>
 
+          {/* Botão Menu Mobile */}
           <button className="md:hidden text-slate-800 hover:text-green-600 transition-colors p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -141,6 +142,7 @@ export default function App() {
 
       {currentPage === 'home' ? (
         <>
+          {/* Hero Section */}
           <header id="home" className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-b from-green-100 to-white">
             <div className="container mx-auto px-6">
               <div className="flex flex-col md:flex-row items-center gap-12">
@@ -373,11 +375,11 @@ export default function App() {
                     desc="Focado em protocolos de atendimento e gestão clínica para profissionais de alta performance."
                   />
                   <MiniCertCard 
-                    icon={<Target size={32} />}
+                    image={`${githubImgBase}antropometria-obesidade.jpg`} // Caminho atualizado conforme solicitado
                     title="Antropometria na Obesidade"
                     org="Icaro Andrade"
                     hours="Especialização"
-                    desc="Técnicas de mensuração e avaliação específicas para o paciente com obesidade."
+                    desc="Técnicas de mensuração e avaliação específicas para o paciente com obesidade, focando em precisão técnica."
                   />
                   <MiniCertCard 
                     image={`${githubImgBase}pronutri.webp`}
