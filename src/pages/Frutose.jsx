@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle } from 'lucide-react';
+import { ChevronLeft, HelpCircle, PlayCircle } from 'lucide-react';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -29,7 +29,7 @@ export default function Frutose() {
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed text-left">
             <p>Se você já ouviu por aí que "fruta engorda" ou que a "frutose destrói o fígado", saiba que a ciência conta uma história bem diferente e muito mais contextualizada. Na nutrição, o detalhe está na fonte e na dose. Vamos entender por que o açúcar natural da fruta não deve ser o vilão da sua dieta, mas sim um aliado da sua saúde.</p>
             
-            {/* IMAGEM DE CAPA CORRIGIDA */}
+            {/* IMAGEM DE CAPA */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
               <img src={`${githubImgBase}Blog/frutose_bananas.jpg`} alt="Frutas variadas e metabolismo da frutose" title="Mitos e verdades sobre o consumo de frutas" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest">O impacto da frutose natural versus o açúcar adicionado.</p></div>
@@ -124,6 +124,32 @@ export default function Frutose() {
             
             <p>Para otimizar sua ingestão, procure sempre variar as cores das frutas para garantir diferentes tipos de fitoquímicos. Além disso, prefira a fruta inteira ao suco para preservar as fibras e aumentar a saciedade. Combinar a fruta com uma fonte de fibra extra, como aveia, ou uma proteína, como iogurte, ajuda a reduzir ainda mais a resposta glicêmica da refeição.</p>
             
+            {/* VÍDEO RECOMENDADO EM DESTAQUE */}
+            <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
+              Bônus: Fruta no almoço ou de sobremesa faz mal?
+            </h2>
+            
+            <p>Para complementar tudo o que vimos sobre a frutose, é muito comum surgir a dúvida sobre o melhor horário para consumir frutas, especialmente junto às grandes refeições. O vídeo abaixo explica de forma muito didática os mitos e verdades sobre comer frutas no almoço e como isso impacta positivamente a sua digestão e a absorção de nutrientes importantes, como o ferro.</p>
+            
+            <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                  <PlayCircle size={24} />
+                </div>
+                <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Comer frutas no almoço faz bem ou mal?</h3>
+              </div>
+              <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
+                <iframe 
+                  src="https://www.youtube.com/embed/0sLR-WEFfRs" 
+                  title="Comer Frutas no Almoço" 
+                  className="absolute top-0 left-0 w-full h-full"
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+
             {/* FAQ */}
             <div className="mt-16 pt-10 border-t border-slate-100">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
