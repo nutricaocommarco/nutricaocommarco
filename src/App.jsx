@@ -99,6 +99,7 @@ export default function App() {
             </span>
           </div>
           
+          {/* Menu Desktop */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <button 
@@ -119,6 +120,7 @@ export default function App() {
           </button>
         </div>
 
+        {/* Menu Suspenso Mobile */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-green-100 shadow-xl py-6 px-6 flex flex-col gap-6 animate-in slide-in-from-top-2 duration-200">
             {navLinks.map((link) => (
@@ -278,7 +280,7 @@ export default function App() {
                   }
                 ].map((ebook, i) => (
                   <a key={i} href={ebook.link} target="_blank" rel="noreferrer" className="bg-white p-8 rounded-[3rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col cursor-pointer text-center md:text-left">
-                    <div className="w-full aspect-[3/4] mb-8 rounded-[2rem] overflow-hidden shadow-inner bg-slate-50 p-6 flex items-center justify-center">
+                    <div className="w-full aspect-[3/4] mb-8 rounded-[2rem] overflow-hidden shadow-inner bg-slate-100 p-6 flex items-center justify-center">
                       <img 
                         src={ebook.image} 
                         alt={`Capa do E-book ${ebook.title}`} 
@@ -355,14 +357,16 @@ export default function App() {
                 </h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   <MiniCertCard 
-                    icon={<FlaskConical size={32} />}
+                    image={`${githubImgBase}logo-temporaria.svg`}
+                    bgColor="bg-black"
                     title="Farmacologia da Obesidade"
                     org="Gustavo Stocker"
                     hours="Treinamento Avançado"
                     desc="Estudo da farmacologia aplicada ao emagrecimento, otimizando resultados clínicos com base em evidências."
                   />
                   <MiniCertCard 
-                    icon={<Stethoscope size={32} />}
+                    image={`${githubImgBase}medsize_logo-branco-png.png`}
+                    bgColor="bg-black"
                     title="Medsize Klinik"
                     org="Medsize"
                     hours="Capacitação"
@@ -516,7 +520,7 @@ export default function App() {
   );
 }
 
-// Componentes de Interface Refinados para Melhor Estética das Imagens
+// Componentes de Interface Refinados
 function CertCard({ icon, image, badge, title, org, hours, date, desc, color }) {
   const colorMap = {
     green: 'bg-green-100 text-green-600',
@@ -543,10 +547,10 @@ function CertCard({ icon, image, badge, title, org, hours, date, desc, color }) 
   );
 }
 
-function MiniCertCard({ image, icon, title, org, hours, desc }) {
+function MiniCertCard({ image, icon, title, org, hours, desc, bgColor = "bg-white" }) {
   return (
     <div className="bg-white rounded-[2.5rem] shadow-md border border-slate-50 hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden flex flex-col min-h-[400px]">
-      <div className="h-48 w-full overflow-hidden bg-white flex items-center justify-center p-4 border-b border-slate-50">
+      <div className={`h-48 w-full overflow-hidden ${bgColor} flex items-center justify-center p-6 border-b border-slate-50`}>
         {image ? (
           <img src={image} className="w-full h-full object-contain hover:scale-105 transition-transform duration-500" alt={title} />
         ) : (
