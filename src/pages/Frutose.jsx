@@ -113,6 +113,12 @@ export default function Frutose() {
             <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
               "O risco real de aumento de lipídeos intra-hepáticos e VLDL-TG ocorre em cenários de superávit calórico extremo."
             </div>
+
+            {/* IMAGEM ESTRATÉGICA DAS BANANAS */}
+            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
+              <img src={`${githubImgBase}Blog/frutose_bananas.jpg`} alt="Comparação mecânica do consumo de frutose" title="Seria necessário comer 15 bananas para atingir o nível perigoso de frutose" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest">O excesso calórico total é o vilão, não a fruta em si.</p></div>
+            </div>
             
             <p>Um estudo demonstrou que a suplementação de 3,5g de frutose ou glicose por quilo de massa magra elevou a gordura no fígado. Para um indivíduo de 80kg com 25% de gordura corporal (60kg de massa magra), isso equivaleria a consumir cerca de 210g de frutose, o que representa aproximadamente 30 bananas. Note que, nesse nível de excesso, tanto a glicose quanto a frutose causaram danos, provando que o excesso calórico total é o fator determinante, e não a fruta em si.</p>
 
