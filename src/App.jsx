@@ -26,7 +26,9 @@ import {
   Truck,
   Eye,
   BookText,
-  Clock
+  Clock,
+  Activity,
+  Stethoscope
 } from 'lucide-react';
 
 export default function App() {
@@ -97,13 +99,13 @@ export default function App() {
             </span>
           </div>
           
-          {/* Menu Desktop */}
+          {/* Menu Desktop - Padronização de cores verdes conforme solicitado */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <button 
                 key={link.name} 
                 onClick={() => handleNavClick(link)}
-                className={`text-sm font-bold uppercase tracking-wider transition-colors ${currentPage === link.id ? 'text-green-600' : 'hover:text-green-600'}`}
+                className={`text-sm font-bold uppercase tracking-wider transition-colors ${currentPage === link.id ? 'text-green-600 border-b-2 border-green-600 pb-1' : 'text-green-700 hover:text-green-500'}`}
               >
                 {link.name}
               </button>
@@ -119,14 +121,14 @@ export default function App() {
           </button>
         </div>
 
-        {/* Menu Suspenso Mobile (Fixado) */}
+        {/* Menu Suspenso Mobile */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-green-100 shadow-xl py-6 px-6 flex flex-col gap-6 animate-in slide-in-from-top-2 duration-200">
             {navLinks.map((link) => (
               <button 
                 key={link.name} 
                 onClick={() => handleNavClick(link)}
-                className="text-lg font-black text-slate-800 text-left hover:text-green-600 transition-colors uppercase tracking-widest border-b border-slate-50 pb-2"
+                className={`text-lg font-black text-left uppercase tracking-widest border-b border-slate-50 pb-2 transition-colors ${currentPage === link.id ? 'text-green-600' : 'text-green-700'}`}
               >
                 {link.name}
               </button>
@@ -175,7 +177,9 @@ export default function App() {
                   
                   <div className="absolute -bottom-4 md:-bottom-8 -left-2 md:-left-8 flex flex-col gap-3">
                     <div className="bg-white p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-3 animate-bounce-slow">
-                      <div className="w-8 h-8 md:w-10 md:h-10 bg-blue-600 text-white rounded-xl md:rounded-2xl flex items-center justify-center font-black text-base md:text-lg shadow-inner">1</div>
+                      <div className="w-8 h-8 md:w-10 md:h-10 bg-blue-600 text-white rounded-xl md:rounded-2xl flex items-center justify-center font-black text-base md:text-lg shadow-inner overflow-hidden">
+                        <img src={`${githubImgBase}isak-logo.png`} alt="ISAK" className="w-full h-full object-cover" />
+                      </div>
                       <div>
                         <p className="text-[9px] md:text-[10px] font-black uppercase text-slate-400">Certificação</p>
                         <p className="font-black text-slate-800 text-xs md:text-sm">ISAK Level 1</p>
@@ -183,10 +187,12 @@ export default function App() {
                     </div>
                     
                     <div className="bg-white p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-3 animate-bounce-slow" style={{ animationDelay: '1.5s' }}>
-                      <div className="w-8 h-8 md:w-10 md:h-10 bg-green-600 text-white rounded-xl md:rounded-2xl flex items-center justify-center font-black text-base md:text-lg shadow-inner">2</div>
+                      <div className="w-8 h-8 md:w-10 md:h-10 bg-green-600 text-white rounded-xl md:rounded-2xl flex items-center justify-center font-black text-base md:text-lg shadow-inner overflow-hidden p-1">
+                        <img src={`${githubImgBase}oficial-uniguacu_vertical-edited.png`} alt="Uniguacu" className="w-full h-full object-contain" />
+                      </div>
                       <div>
                         <p className="text-[9px] md:text-[10px] font-black uppercase text-slate-400">Pós-Graduando</p>
-                        <p className="font-black text-slate-800 text-xs md:text-sm">Uniguaçú • Metabolismo</p>
+                        <p className="font-black text-slate-800 text-xs md:text-sm leading-tight">Uniguaçú - Emagrecimento e Metabolismo</p>
                       </div>
                     </div>
                   </div>
@@ -208,11 +214,11 @@ export default function App() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100 text-center md:text-left">
                       <h4 className="font-black text-green-600 uppercase text-sm mb-1">Foco</h4>
-                      <p className="font-bold text-slate-700">Antropometria</p>
+                      <p className="font-bold text-slate-700">Antropometria e Emagrecimento</p>
                     </div>
                     <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100 text-center md:text-left">
                       <h4 className="font-black text-green-600 uppercase text-sm mb-1">Local</h4>
-                      <p className="font-bold text-slate-700">Rio de Janeiro</p>
+                      <p className="font-bold text-slate-700">Freguesia, Rio de Janeiro</p>
                     </div>
                   </div>
                 </div>
@@ -229,7 +235,10 @@ export default function App() {
                       alt="Mascote Pingus" 
                       className="w-16 h-16 object-contain drop-shadow-lg group-hover:scale-110 transition-transform"
                     />
-                    <span className="font-bold uppercase tracking-widest text-sm">Mascote Oficial</span>
+                    <div className="flex flex-col">
+                      <span className="font-bold uppercase tracking-widest text-[10px] opacity-80">Mascote Oficial</span>
+                      <span className="font-black uppercase tracking-tighter text-lg leading-none">Pingus</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -333,7 +342,7 @@ export default function App() {
                     color="green"
                   />
                   <CertCard 
-                    icon={<Award size={40} />}
+                    image={`${githubImgBase}isak-logo.png`}
                     badge="Internacional"
                     title="ISAK Level 1"
                     org="ISAK"
@@ -350,34 +359,58 @@ export default function App() {
                   <span className="w-12 h-1 bg-blue-600 rounded-full"></span>
                   Prática Clínica e Comportamental
                 </h2>
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {/* Novas Certificações Adicionadas */}
+                  <MiniCertCard 
+                    icon={<FlaskConical size={32} />}
+                    title="Farmacologia da Obesidade"
+                    org="Gustavo Stocker"
+                    hours="Treinamento Avançado"
+                    desc="Estudo da farmacologia aplicada ao emagrecimento, otimizando resultados clínicos com base em evidências."
+                  />
+                  <MiniCertCard 
+                    icon={<Stethoscope size={32} />}
+                    title="Medsize Klinik"
+                    org="Medsize"
+                    hours="Capacitação"
+                    desc="Focado em protocolos de atendimento e gestão clínica para profissionais de alta performance."
+                  />
+                  <MiniCertCard 
+                    icon={<Target size={32} />}
+                    title="Antropometria na Obesidade"
+                    org="Icaro Andrade"
+                    hours="Especialização"
+                    desc="Técnicas de mensuração e avaliação específicas para o paciente com obesidade."
+                  />
+                  
+                  {/* Certificações Anteriores */}
                   <MiniCertCard 
                     image={`${githubImgBase}hormonios.jpg`}
                     title="Metabolismo Hormonal na Hipertrofia"
                     org="Prof. Dr. Rodrigo Vargas"
                     hours="12h"
-                    desc="Estudo detalhado do metabolismo de hormônios esteroides e ajustes dietéticos para o público esportivo e fisiculturismo."
+                    desc="Estudo detalhado do metabolismo de hormônios esteroides e ajustes dietéticos para o público esportivo."
                   />
                   <MiniCertCard 
                     image={`${githubImgBase}ellocursos.webp`}
                     title="Psicologia e Obesidade"
                     org="Ellocursos Psicologia"
                     hours="100h"
-                    desc="Trabalho de mudança de comportamentos e emoções, focando na relação entre obesidade, saúde mental e transtornos."
+                    desc="Trabalho de mudança de comportamentos e emoções, focando na relação entre obesidade e saúde mental."
                   />
                   <MiniCertCard 
                     image={`${githubImgBase}comer_intuitivo.jpg`}
                     title="Comer Intuitivo"
                     org="Inst. Nutrição Comportamental"
                     hours="4h"
-                    desc="Este curso apresentou os pilares e princípios: permissão incondicional, sinais de fome/saciedade e razões físicas."
+                    desc="Pilares da permissão incondicional para comer e atenção aos sinais internos de fome e saciedade."
                   />
                   <MiniCertCard 
                     image={`${githubImgBase}pronutri.webp`}
                     title="Programa ProNutri (Ciclo 12 e 14)"
                     org="Secad Artmed"
                     hours="Em curso"
-                    desc="Atualização em Nutrição Clínica cobrindo Microbiota, Longevidade e Doenças Autoimunes e muitos outros temas!"
+                    desc="Atualização em Nutrição Clínica cobrindo Microbiota, Longevidade e Doenças Autoimunes."
                   />
                 </div>
               </div>
@@ -510,11 +543,15 @@ function CertCard({ icon, image, badge, title, org, hours, date, desc, color }) 
   );
 }
 
-function MiniCertCard({ image, title, org, hours, desc }) {
+function MiniCertCard({ image, icon, title, org, hours, desc }) {
   return (
-    <div className="bg-white rounded-[2.5rem] shadow-md border border-slate-50 hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden flex flex-col">
-      <div className="h-48 w-full overflow-hidden bg-slate-100">
-        <img src={image} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" alt={title} />
+    <div className="bg-white rounded-[2.5rem] shadow-md border border-slate-50 hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden flex flex-col min-h-[400px]">
+      <div className="h-48 w-full overflow-hidden bg-slate-100 flex items-center justify-center">
+        {image ? (
+          <img src={image} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" alt={title} />
+        ) : (
+          <div className="text-blue-600 opacity-40">{icon}</div>
+        )}
       </div>
       <div className="p-8 flex flex-col flex-grow">
         <h3 className="text-xl font-black text-slate-800 uppercase italic mb-1 leading-tight">{title}</h3>
