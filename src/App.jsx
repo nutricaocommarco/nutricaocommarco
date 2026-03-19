@@ -74,9 +74,9 @@ function Layout({ children }) {
         title: 'Quantas frutas posso comer por dia? | Nutrição com Marco', 
         desc: 'Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado.' 
       },
-      '/rascunho_efeitosanfona': { 
-        title: 'Rascunho: Efeito Sanfona | Nutrição com Marco', 
-        desc: 'Análise sobre o efeito sanfona, inflamação celular e memória metabólica.' 
+      '/efeito_sanfona_inflamacao_invisivel': { 
+        title: 'Efeito Sanfona e Inflamação Invisível | Nutrição com Marco', 
+        desc: 'Descubra por que o reganho de peso é mais perigoso que a obesidade estável e como a memória das suas células de gordura impacta sua saúde.' 
       }
     };
 
@@ -164,7 +164,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/certificacoes" element={<Certificacoes />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/rascunho_efeitosanfona" element={<EfeitoSanfona />} />
+            <Route path="/efeito_sanfona_inflamacao_invisivel" element={<EfeitoSanfona />} />
             <Route path="/quantas_frutas_posso_comer" element={<Frutose />} />
             <Route path="/vitamina_a_para_que_serve" element={<VitaminaA />} />
             <Route path="/o_que_e_antropometria" element={<Antropometria />} />
