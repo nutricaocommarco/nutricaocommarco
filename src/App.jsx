@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, useParams } from 'react-router-dom';
 import { 
   Instagram, ChevronRight, Menu, X, ArrowUpRight, Mail, Zap, CheckCircle, 
-  PlayCircle, HelpCircle, ShieldCheck, Droplets
+  PlayCircle, HelpCircle, ShieldCheck, Droplets, ChevronLeft
 } from 'lucide-react';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
@@ -401,17 +401,26 @@ function Layout({ children }) {
 
 export default function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/certificacoes" element={<Certificacoes />} />
-          <Route path="/blog" element={<BlogList />} />
-          <Route path="/:slug" element={<BlogPost />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <>
+      <Router>
+        <ScrollToTop />
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/certificacoes" element={<Certificacoes />} />
+            <Route path="/blog" element={<BlogList />} />
+            <Route path="/:slug" element={<BlogPost />} />
+          </Routes>
+        </Layout>
+      </Router>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,900;1,900&display=swap');
+        @keyframes bounce-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .animate-bounce-slow { animation: bounce-slow 3s ease-in-out infinite; }
+        .titulo-vazado { font-family: 'Poppins', sans-serif; -webkit-text-stroke: 2px #1e3a8a; text-shadow: 3px 3px 0px #1e3a8a; }
+        @media (min-width: 768px) { .titulo-vazado { -webkit-text-stroke: 4px #1e3a8a; text-shadow: 5px 5px 0px #1e3a8a; } }
+      `}</style>
+    </>
   );
 }
 
