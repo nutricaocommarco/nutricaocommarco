@@ -7,48 +7,57 @@ import {
   PlayCircle, HelpCircle, ExternalLink, Scale, Droplets
 } from 'lucide-react';
 
-// --- ARQUIVO DE DADOS IMUTÁVEIS (Protege seus textos de serem cortados) ---
+// --- BANCO DE DADOS DE CONTEÚDO INTEGRAL (Textos Completos e Estruturados) ---
 const BLOG_POSTS = {
-  "o_que_e_antropometria": {
-    id: "o_que_e_antropometria",
+  "antropometria": {
+    id: "antropometria",
     categoria: "Educação Científica",
     titulo: "O que é Antropometria?",
     imagemCapa: "Blog/O_que_e_antropometria.png",
-    resumo: "Entenda por que o peso na balança é apenas a ponta do iceberg no seu emagrecimento técnico e como a ciência lê seu corpo.",
+    resumo: "A Antropometria é uma ciência fundamental que estuda as proporções, o tamanho e as medidas do corpo humano...",
     html: (base) => (
-      <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
-        <p>A <strong>Antropometria</strong> é uma ciência fundamental que estuda as proporções, o tamanho e as medidas do corpo humano, sendo uma ferramenta indispensável para profissionais das áreas de saúde, nutrição e esportes. Etimologicamente, o termo deriva do grego <em>anthropos</em> (homem) e <em>metron</em> (medida), definindo-se objetivamente como o método de mensurar as características fenotípicas de um indivíduo para entender seu crescimento, estado nutricional e potencial de performance.</p>
-        <p>Diferente do que muitos acreditam, ela vai muito além de uma simples pesagem em balança de banheiro, oferecendo uma análise profunda do que o peso total realmente representa. Ela permite enxergar a história que seu corpo conta, separando os tecidos para uma intervenção nutricional verdadeiramente personalizada.</p>
+      <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed text-left">
+        <p>A <strong>Antropometria</strong> é uma ciência fundamental que estuda as proporções, o tamanho e as medidas do corpo humano, sendo uma ferramenta indispensável para profissionais das áreas de saúde, nutrição e esportes. Etimologicamente, o termo deriva do grego <em>anthropos</em> (homem) e <em>metron</em> (medida), definindo-se objetivamente como o método de mensurar as características fenotípicas de um indivíduo para entender seu crescimento, estado nutricional e potencial de performance. Diferente do que muitos acreditam, ela vai muito além de uma simples pesagem em balança de banheiro, oferecendo uma análise profunda do que o peso total realmente representa.</p>
         
+        <p>Historicamente, a preocupação com as formas corporais remonta aos antigos egípcios e gregos, que buscavam proporções ideais para o "homem perfeito" ou para atletas olímpicos. No entanto, o nascimento da antropometria científica consolidou-se com pesquisadores como Lambert Quételet, o pai da estatística aplicada ao homem, que propôs o Índice de Massa Corporal (IMC) em 1841. Mais recentemente, na década de 1980, estudos liderados por William Ross revolucionaram a área ao demonstrar falhas nos sistemas de estimativa de composição corporal da época, servindo como base para a criação da Sociedade Internacional para o Avanço da Cineantropometria, o método <strong>ISAK</strong>.</p>
+
+        {/* IMAGEM ESTRATÉGICA COM SEO */}
         <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-          <img src={`${base}Blog/O_que_e_antropometria.png`} alt="O que é Antropometria - Avaliação da Composição Corporal Nutrição Marco Aurélio Jr" title="Ciência da Antropometria e Composição Corporal" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+          <img 
+            src={`${base}Blog/O_que_e_antropometria.png`} 
+            alt="O que é Antropometria - Avaliação da Composição Corporal por Nutricionista Marco Aurélio Jr" 
+            title="Ciência da Antropometria e Composição Corporal"
+            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+          />
           <div className="bg-green-50 p-4 text-center">
             <p className="text-xs text-green-700 font-bold uppercase tracking-widest">Precisão técnica para resultados que a balança comum não consegue mostrar.</p>
           </div>
         </div>
 
-        <h2 className="text-2xl font-black text-slate-900 uppercase italic mt-12 mb-4">Antropometria: A evolução da Ciência</h2>
-        <p>Historicamente, a preocupação com as formas corporais remonta aos antigos egípcios e gregos, que buscavam proporções ideais para o "homem perfeito" ou para atletas olímpicos. No entanto, o nascimento da antropometria científica consolidou-se com pesquisadores como Lambert Quételet, o pai da estatística aplicada ao homem, que propôs o Índice de Massa Corporal (IMC) em 1841. Mais recentemente, na década de 1980, estudos liderados por William Ross revolucionaram a área ao demonstrar falhas nos sistemas de estimativa de composição corporal da época, servindo como base para a criação da Sociedade Internacional para o Avanço da Cineantropometria, o método <strong>ISAK</strong>.</p>
+        <p>O grande diferencial de uma avaliação física baseada no padrão ISAK é a sua padronização rigorosa. Esse protocolo internacional garante que os dados coletados sejam fidedignos e comparáveis em qualquer lugar do mundo, minimizando erros técnicos e de medição. Na prática, o antropometrista utiliza instrumentos de precisão para coletar diversas medidas, como o estadiômetro para a estatura, a balança para a massa corporal, a trena metálica para os perímetros e o plicômetro (ou bússola de dobras) para as dobras cutâneas.</p>
 
+        {/* VÍDEO INSTAGRAM ANTROPOMETRIA */}
         <div className="my-16 bg-green-50 p-6 md:p-10 rounded-[3.5rem] border border-green-100">
           <div className="flex items-center gap-4 mb-8">
             <PlayCircle size={32} className="text-green-600" />
-            <h3 className="text-xl font-black text-slate-800 uppercase italic leading-none text-center md:text-left">Explicação Técnica em Vídeo</h3>
+            <h3 className="text-xl font-black text-slate-800 uppercase italic leading-none">Explicação Técnica em Vídeo</h3>
           </div>
           <div className="relative w-full overflow-hidden rounded-[2.5rem] shadow-2xl flex justify-center bg-white border border-green-100">
             <iframe src="https://www.instagram.com/p/DUV4gfkkcab/embed" width="400" height="600" frameBorder="0" scrolling="no" allowtransparency="true" className="max-w-full"></iframe>
           </div>
         </div>
 
-        <p>O grande diferencial de uma avaliação física baseada no padrão ISAK é a sua padronização rigorosa. Esse protocolo internacional garante que os dados coletados sejam fidedignos e comparáveis em qualquer lugar do mundo, minimizando erros técnicos e de medição. Na prática, o antropometrista utiliza instrumentos de precisão para coletar diversas medidas, como o estadiômetro para a estatura, a balança para a massa corporal, a trena metálica para os perímetros e o plicômetro (ou bússola de dobras) para as dobras cutâneas.</p>
-        <p>Essas medições permitem o fracionamento da massa corporal em componentes fundamentais: <strong>massa gorda, massa muscular, massa óssea e massa residual.</strong> Para estimar o percentual de gordura de forma precisa, o avaliador realiza o destaque das dobras cutâneas em pontos anatômicos específicos (landmarks). Um erro de poucos milímetros na marcação desses pontos pode comprometer significativamente o resultado final, o que reforça a necessidade de um profissional qualificado.</p>
-        <p>Além do foco na gordura corporal, a antropometria é vital para o cálculo do somatotipo: <strong>endomorfia</strong> (adiposidade), <strong>mesomorfia</strong> (robustez muscular) e <strong>ectomorfia</strong> (linearidade ou magreza). Essa classificação ajuda a planejar intervenções específicas para melhora da performance esportiva ou para o monitoramento da saúde em casos de obesidade e doenças metabólicas.</p>
+        <p>Essas medições permitem o fracionamento da massa corporal em componentes como <strong>massa gorda, massa muscular, massa óssea e massa residual.</strong> Para estimar o percentual de gordura de forma precisa, o avaliador realiza o destaque das dobras cutâneas em pontos anatômicos específicos, conhecidos como landmarks. Um erro de poucos milímetros na marcação desses pontos pode comprometer significativamente o resultado final, o que reforça a necessidade de um profissional qualificado.</p>
+
+        <p>Além do foco na gordura corporal, a antropometria é vital para o cálculo do somatotipo, que descreve o físico em três componentes: <strong>endomorfia</strong> (adiposidade), <strong>mesomorfia</strong> (robustez muscular) e <strong>ectomorfia</strong> (linearidade ou magreza). Essa classificação ajuda a planejar intervenções específicas para melhora da performance esportiva ou para o monitoramento da saúde em casos de obesidade e doenças metabólicas.</p>
+
         <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center">
           "Para quem busca saúde e bem-estar, a antropometria atua como um GPS, retirando a pessoa da rota da incerteza das balanças comuns."
         </div>
-        <p>Ela identifica riscos cardiovasculares através de medidas como a circunferência da cintura e permite que nutricionistas ajustem dietas com base no volume exato de massa muscular e gordura, garantindo que a evolução do paciente seja monitorada por dados concretos e científicos, e não apenas por achismos. Portanto, investir em uma avaliação antropométrica de qualidade é o primeiro passo para qualquer pessoa que deseje entender a história que seu corpo conta.</p>
-        
-        {/* FAQ ANTROPOMETRIA RESTAURADO E AMPLIADO */}
+
+        <p>Ela identifica riscos cardiovasculares através de medidas como a circunferência da cintura e permite que nutricionistas ajustem dietas com base no volume exato de massa muscular e gordura, garantindo que a evolução do paciente seja monitorada por dados concretos e científicos, e não apenas por achismos. Portanto, investir em uma avaliação antropométrica de qualidade é o primeiro passo para qualquer pessoa que deseje entender a história que seu corpo conta e otimizar seus resultados de forma segura e precisa.</p>
+
+        {/* FAQ ANTROPOMETRIA */}
         <div className="mt-16 pt-10 border-t border-slate-100">
           <h3 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes</h3>
           <div className="space-y-6">
@@ -58,35 +67,43 @@ const BLOG_POSTS = {
             </div>
             <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
               <h4 className="font-black text-slate-800 mb-2 italic">A antropometria é melhor que a bioimpedância?</h4>
-              <p className="text-slate-600">Ambas são complementares, mas a antropometria (dobras cutâneas) é menos sensível a variações momentâneas de hidratação, sendo mais consistente para medir a gordura real abaixo da pele.</p>
+              <p className="text-slate-600">Ambas são complementares, mas a antropometria é menos sensível a variações momentâneas de hidratação, sendo mais consistente para medir a gordura real abaixo da pele.</p>
             </div>
             <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
               <h4 className="font-black text-slate-800 mb-2 italic">Posso fazer avaliação antropométrica online?</h4>
-              <p className="text-slate-600">Na consulta online, orientamos métricas alternativas e perímetros que, aliados a uma análise visual técnica, fornecem parâmetros sólidos de evolução, embora as dobras manuais exijam o adipômetro presencial.</p>
+              <p className="text-slate-600">Na consulta online, orientamos métricas alternativas e perímetros que, aliados a uma análise visual técnica, fornecem parâmetros sólidos de evolução.</p>
             </div>
           </div>
         </div>
       </div>
     )
   },
-  "a_balanca_de_bioimpedancia_e_confiavel": {
-    id: "a_balanca_de_bioimpedancia_e_confiavel",
+  "bioimpedancia": {
+    id: "bioimpedancia",
     categoria: "Tecnologia e Medida",
     titulo: "A balança de bioimpedância é confiável?",
     imagemCapa: "Blog/Bia1.jpg",
-    resumo: "Descubra a verdade científica por trás desse aparelho, o que interfere no resultado e como interpretá-la corretamente.",
+    resumo: "A balança de bioimpedância é uma ferramenta bastante utilizada para estimar a composição corporal...",
     html: (base) => (
-      <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
+      <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed text-left">
         <p>A balança de bioimpedância é uma ferramenta bastante utilizada para estimar a composição corporal — como percentual de gordura, massa muscular e água corporal. Mas afinal, <strong>a balança de bioimpedância é confiável?</strong> A resposta mais honesta é: depende de como ela é usada.</p>
         <p>A bioimpedância funciona a partir da passagem de uma corrente elétrica de baixa intensidade pelo corpo. Essa corrente percorre os tecidos com diferentes níveis de resistência: a água conduz eletricidade com facilidade, enquanto a gordura oferece maior resistência. A partir dessa diferença, o aparelho faz estimativas sobre a composição corporal.</p>
-        
+
+        {/* IMAGEM COM SEO TRABALHADO */}
         <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-          <img src={`${base}Blog/Bia1.jpg`} alt="A balança de bioimpedância é confiável? Entenda como funciona a medição do percentual de gordura." title="Balança de Bioimpedância: Confiabilidade e Composição Corporal" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+          <img 
+            src={`${base}Blog/Bia1.jpg`} 
+            alt="A balança de bioimpedância é confiável? Entenda a medição do percentual de gordura e massa muscular." 
+            title="Balança de Bioimpedância: Confiabilidade e Composição Corporal"
+            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+            loading="lazy"
+          />
           <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest leading-relaxed text-center">A bioimpedância estima o corpo através da água e não mede a gordura diretamente.</p></div>
         </div>
 
         <p>E aqui está o ponto-chave: <strong>ela não mede gordura diretamente — ela mede, principalmente, a quantidade de água corporal.</strong> A partir disso, utiliza equações para estimar os demais componentes. Ou seja, qualquer fator que altere a quantidade ou a distribuição de água no corpo pode impactar significativamente o resultado. Por isso, a bioimpedância não é 100% confiável, especialmente quando o protocolo não é seguido corretamente.</p>
 
+        {/* VÍDEO INSTAGRAM BIOIMPEDÂNCIA */}
         <div className="my-16 bg-green-50 p-6 md:p-10 rounded-[3.5rem] border border-green-100">
           <div className="flex items-center gap-4 mb-8">
             <PlayCircle size={32} className="text-green-600" />
@@ -98,50 +115,39 @@ const BLOG_POSTS = {
         </div>
 
         <h2 className="text-2xl font-black text-slate-900 uppercase italic mt-12 mb-4 text-center md:text-left">O que pode interferir no resultado?</h2>
-        <p>Diversos fatores influenciam a quantidade de água corporal e, consequentemente, a leitura da bioimpedância: estado de hidratação, consumo recente de alimentos, exercício físico antes da avaliação, consumo de álcool ou cafeína, retenção de líquidos, fase do ciclo menstrual e até o horário do dia. Por exemplo, uma pessoa pode apresentar um percentual de gordura maior simplesmente por estar desidratada no momento da avaliação — não porque ganhou gordura de fato.</p>
-        
+        <p>Diversos fatores influenciam a quantidade de água corporal e, consequentemente, a leitura da bioimpedância: estado de hidratação (beber muita ou pouca água), consumo recente de alimentos, exercício físico antes da avaliação, consumo de álcool ou cafeína, retenção de líquidos, fase do ciclo menstrual e horário do dia. Por exemplo, uma pessoa pode apresentar um percentual de gordura maior simplesmente por estar desidratada naquele momento — não porque ganhou gordura de fato.</p>
+
+        <h2 className="text-2xl font-black text-slate-900 uppercase italic mt-12 mb-4 text-center md:text-left">Frequências e Balanças Octapolares</h2>
+        <p>Nem toda bioimpedância é igual. Baixa frequência (ex: 50 kHz) avalia principalmente a água extracelular. Aparelhos multifrequenciais (BIA multifrequência) utilizam várias frequências, permitindo uma análise mais completa da distribuição de líquidos no corpo. Já as chamadas <strong>balanças octapolares</strong> utilizam oito pontos de contato (mãos e pés), permitindo que a corrente percorra diferentes segmentos do corpo separadamente, o que traz maior precisão.</p>
+
         <div className="bg-green-600 text-white p-10 rounded-[3.5rem] shadow-xl my-12 relative overflow-hidden">
-          <Droplets className="absolute -top-5 -right-5 w-24 h-24 opacity-20" />
-          <h2 className="text-white text-2xl font-black uppercase italic mb-6 leading-tight">Fatores de Interferência:</h2>
-          <ul className="grid md:grid-cols-2 gap-4 list-none p-0">
-            <li className="flex items-center gap-3 font-bold"><CheckCircle size={20}/> Hidratação</li>
-            <li className="flex items-center gap-3 font-bold"><CheckCircle size={20}/> Exercício Prévio</li>
-            <li className="flex items-center gap-3 font-bold"><CheckCircle size={20}/> Cafeína/Álcool</li>
-            <li className="flex items-center gap-3 font-bold"><CheckCircle size={20}/> Ciclo Menstrual</li>
-          </ul>
+          <Zap className="absolute -top-5 -right-5 w-24 h-24 opacity-20" />
+          <h2 className="text-white text-2xl font-black uppercase italic mb-6 leading-tight text-center md:text-left">E a certificação ISAK?</h2>
+          <p className="text-green-50 font-bold leading-relaxed">Diferente da bioimpedância, a antropometria bem aplicada por um profissional certificado pela ISAK tende a ser mais consistente ao longo do tempo e menos sensível a variações agudas de hidratação. É o padrão ouro para acompanhamento da evolução corporal.</p>
         </div>
 
-        <h2 className="text-2xl font-black text-slate-900 uppercase italic mt-12 mb-4 text-center md:text-left">Balanças octapolares e Certificação ISAK</h2>
-        <p>Nem toda bioimpedância é igual. Baixa frequência avalia água extracelular, enquanto aparelhos multifrequenciais analisam também a intracelular. As <strong>balanças octapolares</strong> utilizam oito pontos de contato, reduzindo a margem de erro, mas tecnologia ajuda — mas não elimina as limitações do método. Quando falamos de confiabilidade, a <strong>certificação ISAK</strong> é o diferencial: a antropometria profissional tende a ser mais consistente ao longo do tempo e imune a variações agudas de água.</p>
-        <p><strong>Conclusão:</strong> A bioimpedância ajuda a observar tendências, desde que as medições sejam feitas sempre nas mesmas condições. Mais importante do que um número isolado é entender o contexto e a evolução do corpo com o auxílio de profissionais qualificados.</p>
+        <h2 className="text-2xl font-black text-slate-900 uppercase italic mt-12 mb-4 text-center md:text-left">Então, vale a pena usar?</h2>
+        <p>Sim, mas com consciência. A bioimpedância ajuda a observar tendências, desde que as medições sejam feitas sempre nas mesmas condições (horário, jejum, sem treino). No fim das contas, mais importante do que um número isolado é entender o contexto e a evolução do corpo com o auxílio de profissionais qualificados.</p>
 
-        {/* FAQ BIOIMPEDÂNCIA RESTAURADO COM 6 PERGUNTAS SELECIONADAS */}
+        {/* FAQ BIOIMPEDÂNCIA */}
         <div className="mt-16 pt-10 border-t border-slate-100">
           <h3 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic text-center md:text-left"><HelpCircle className="text-green-600" /> FAQ Estratégico</h3>
           <div className="space-y-6">
             <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-              <h4 className="font-black text-slate-800 mb-2 italic text-left">1. A balança de bioimpedância acerta meu percentual de gordura?</h4>
+              <h4 className="font-black text-slate-800 mb-2 italic text-left">A balança de bioimpedância acerta meu percentual de gordura?</h4>
               <p className="text-slate-600 text-left">Não exatamente. Ela fornece uma estimativa baseada na água corporal. Os valores variam dependendo da sua hidratação e fatores momentâneos.</p>
             </div>
             <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-              <h4 className="font-black text-slate-800 mb-2 italic text-left">2. Qual o melhor horário para fazer bioimpedância?</h4>
+              <h4 className="font-black text-slate-800 mb-2 italic text-left">Qual o melhor horário para fazer bioimpedância?</h4>
               <p className="text-slate-600 text-left">Pela manhã, em jejum, após ir ao banheiro e antes de qualquer atividade física. Padronizar é o segredo da precisão.</p>
             </div>
             <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-              <h4 className="font-black text-slate-800 mb-2 italic text-left">3. Beber água antes do exame interfere no resultado?</h4>
-              <p className="text-slate-600 text-left">Sim. Como a bioimpedância se baseia na condução elétrica, tanto a desidratação quanto o excesso súbito de líquidos distorcem os resultados.</p>
+              <h4 className="font-black text-slate-800 mb-2 italic text-left">A bioimpedância substitui as dobras cutâneas?</h4>
+              <p className="text-slate-600 text-left">Não. A antropometria (ISAK) é mais consistente e imune a flutuações rápidas de água corporal causada por desidratação.</p>
             </div>
             <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-              <h4 className="font-black text-slate-800 mb-2 italic text-left">4. Fazer exercício antes da avaliação altera o resultado?</h4>
-              <p className="text-slate-600 text-left">Altera bastante. O exercício muda a distribuição de líquidos no corpo e pode reduzir artificialmente o percentual de gordura na leitura.</p>
-            </div>
-            <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-              <h4 className="font-black text-slate-800 mb-2 italic text-left">5. A bioimpedância substitui as dobras cutâneas?</h4>
-              <p className="text-slate-600 text-left">Não. A antropometria (ISAK) é mais consistente e imune a flutuações rápidas de água corporal. O ideal é usar os métodos de forma complementar.</p>
-            </div>
-            <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-              <h4 className="font-black text-slate-800 mb-2 italic text-left">6. Por que meu percentual muda tanto de um dia para o outro?</h4>
-              <p className="text-slate-600 text-left">Isso raramente é gordura real; são variações na água corporal causadas por sódio, hidratação ou rotina alimentar.</p>
+              <h4 className="font-black text-slate-800 mb-2 italic text-left">Por que meu percentual muda tanto de um dia para o outro?</h4>
+              <p className="text-slate-600 text-left">Isso raramente é gordura real; são variações na água corporal causadas por sódio, hidratação ou rotina.</p>
             </div>
           </div>
         </div>
@@ -151,7 +157,7 @@ const BLOG_POSTS = {
 };
 
 export default function App() {
-  const [view, setView] = useState('home');
+  const [view, setView] = useState('home'); // 'home', 'certificacoes', 'blog', 'post'
   const [postId, setPostId] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -160,6 +166,7 @@ export default function App() {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     
+    // SEO dinâmico
     let title = 'Nutrição com Marco | Performance e Ciência';
     if (view === 'certificacoes') title = 'Currículo e Certificações | Nutrição com Marco';
     if (view === 'blog') title = 'Blog de Nutrição e Ciência | Nutrição com Marco';
@@ -179,9 +186,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen font-sans text-slate-800 bg-gradient-to-br from-green-50 to-white selection:bg-green-200">
+    <div className="min-h-screen font-sans text-slate-800 bg-gradient-to-br from-green-50 to-white selection:bg-green-200 flex flex-col">
       
-      {/* NAVEGAÇÃO */}
+      {/* BARRA DE NAVEGAÇÃO FIXA */}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || view !== 'home' ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center relative">
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => navigate('home')}>
@@ -198,10 +205,10 @@ export default function App() {
         </div>
       </nav>
 
-      {/* RENDERIZAÇÃO */}
-      <main className="pt-20">
+      {/* RENDERIZAÇÃO DE PÁGINAS */}
+      <main className="pt-20 flex-grow">
         
-        {/* HOME (INTACTA) */}
+        {/* PÁGINA INICIAL */}
         {view === 'home' && (
           <>
             <header className="relative pt-20 pb-20 overflow-hidden bg-gradient-to-b from-green-100 to-white text-center md:text-left">
@@ -217,7 +224,8 @@ export default function App() {
                     <div className="w-full aspect-[4/5] max-w-md mx-auto bg-white p-3 rounded-[2.5rem] rotate-2 shadow-2xl border border-slate-100 overflow-hidden">
                       <img src={`${githubImgBase}marco-aurelio.png`} alt="Marco Aurélio Jr" className="w-full h-full object-cover rounded-[2rem] scale-105" />
                     </div>
-                    {/* BADGES FLUTUANTES RESTAURADOS */}
+                    
+                    {/* MOLDURAS FLUTUANTES (BADGES) RESTAURADAS */}
                     <div className="absolute -bottom-4 md:-bottom-8 -left-2 md:-left-8 flex flex-col gap-3">
                       <div className="bg-white p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-3 animate-bounce-slow">
                         <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-xl md:rounded-2xl flex items-center justify-center font-black text-base md:text-lg shadow-inner overflow-hidden p-1.5 border border-slate-50">
@@ -244,7 +252,7 @@ export default function App() {
                   <p className="text-lg text-slate-600 leading-relaxed mb-8 font-medium italic">Sou estudante do 4º ano de Nutrição na Unicesumar e entusiasta da antropometria técnica. Minha missão é levar clareza nutricional para quem busca resultados reais através de ciência e precisão.</p>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="p-5 bg-slate-50 rounded-2xl border border-green-50"><h4 className="font-black text-green-600 text-sm uppercase">Foco</h4><p className="font-bold text-slate-800">Antropometria e Emagrecimento</p></div>
-                    <div className="p-5 bg-slate-50 rounded-2xl border border-green-50"><h4 className="font-black text-green-600 text-sm uppercase">Local</h4><p className="font-bold text-slate-800 leading-tight">Rio de Janeiro, Freguesia e Online</p></div>
+                    <div className="p-5 bg-slate-50 rounded-2xl border border-green-50"><h4 className="font-black text-green-600 text-sm uppercase">Local</h4><p className="font-bold text-slate-800 leading-tight text-sm">Rio de Janeiro, Freguesia e Online</p></div>
                   </div>
                 </div>
                 <div className="flex-1 bg-green-600 p-8 md:p-12 rounded-[3.5rem] text-white shadow-2xl relative overflow-hidden">
@@ -258,6 +266,7 @@ export default function App() {
                 </div>
               </div>
             </section>
+            {/* Seção E-books - Grid 3-2 */}
             <section id="ebooks" className="py-24 bg-slate-50 text-center">
               <div className="container mx-auto px-6">
                 <h2 className="text-4xl font-black text-slate-900 mb-4 uppercase italic">Meus Materiais</h2>
@@ -283,7 +292,7 @@ export default function App() {
           </>
         )}
 
-        {/* CERTIFICAÇÕES (RESTAURADA COMPLETA) */}
+        {/* PÁGINA CERTIFICAÇÕES (LISTA COMPLETA) */}
         {view === 'certificacoes' && (
           <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-6xl">
             <h1 className="text-5xl md:text-8xl font-black text-white italic titulo-vazado uppercase mb-20 text-center">Currículo</h1>
@@ -292,7 +301,7 @@ export default function App() {
                 <h2 className="text-2xl font-black text-slate-800 uppercase italic mb-10 flex items-center gap-4 justify-center md:justify-start"><span className="w-12 h-1 bg-green-600 rounded-full"></span> Formação Principal</h2>
                 <div className="grid gap-8">
                   <CertCard image={`${githubImgBase}unicesumar.png`} badge="Graduação" title="Bacharelado em Nutrição" org="Unicesumar" desc="Formação híbrida completa focada em Nutrição Clínica e Esportiva." color="slate" />
-                  <CertCard image={`${githubImgBase}oficial-uniguacu_vertical-edited.png`} badge="Pós-Graduação" title="Emagrecimento e Metabolismo" org="Faculdade Uniguaçú" desc="Especialização avançada nas bases fisiológicas." color="green" />
+                  <CertCard image={`${githubImgBase}oficial-uniguacu_vertical-edited.png`} badge="Pós-Graduação" title="Emagrecimento e Metabolismo" org="Faculdade Uniguaçú" desc="Especialização avançada nas bases fisiológicas para a prática clínica." color="green" />
                   <CertCard image={`${githubImgBase}isak-logo.png`} badge="Internacional" title="ISAK Level 1" org="ISAK" desc="Certificação mundial para padronização de medidas baseada nos manuais de Norton e Olds." color="green" />
                 </div>
               </div>
@@ -300,13 +309,13 @@ export default function App() {
                 <h2 className="text-2xl font-black text-slate-800 uppercase italic mb-10 flex items-center gap-4 justify-center md:justify-start"><span className="w-12 h-1 bg-green-600 rounded-full"></span> Prática Clínica e Comportamental</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   <MiniCertCard image={`${githubImgBase}logo-temporaria.svg`} bgColor="bg-black" title="Farmacologia da Obesidade" org="Gustavo Stocker" desc="Estudo da farmacologia aplicada ao emagrecimento." />
-                  <MiniCertCard image={`${githubImgBase}medsize_logo-branco-png.png`} bgColor="bg-black" title="Medsize Klinik" org="Medsize" desc="Focado em protocolos de atendimento e gestão clínica." />
+                  <MiniCertCard image={`${githubImgBase}medsize_logo-branco-png.png`} bgColor="bg-black" title="Medsize Klinik" org="Medsize" desc="Focado em protocolos de atendimento clínico." />
                   <MiniCertCard image={`${githubImgBase}antropometria-clínica-obesidade.jpg`} title="Antropometria na Obesidade" org="Icaro Andrade" desc="Técnicas de mensuração específicas para o paciente com obesidade." />
                   <MiniCertCard image={`${githubImgBase}pronutri.webp`} title="Programa ProNutri (Ciclo 12)" org="Secad Artmed" desc="Microbiota, Longevidade e Doenças Autoimunes." />
                   <MiniCertCard image={`${githubImgBase}pronutri.webp`} title="Programa ProNutri (Ciclo 14)" org="Secad Artmed" desc="Condutas dietoterápicas modernas em ambiente clínico." />
                   <MiniCertCard image={`${githubImgBase}hormonios.jpg`} title="Metabolismo Hormonal" org="Prof. Dr. Rodrigo Vargas" desc="Estudo detalhado do metabolismo de hormônios esteroides." />
-                  <MiniCertCard image={`${githubImgBase}ellocursos.webp`} title="Psicologia e Obesidade" org="Ellocursos" desc="Saúde mental e comportamento alimentar." />
-                  <MiniCertCard image={`${githubImgBase}comer_intuitivo.jpg`} title="Comer Intuitivo" org="Nutrição Comportamental" desc="Abordagem focada em sinais de fome e razões físicas." />
+                  <MiniCertCard image={`${githubImgBase}ellocursos.webp`} title="Psicologia e Obesidade" org="Ellocursos Psicologia" desc="Saúde mental e comportamento alimentar." />
+                  <MiniCertCard image={`${githubImgBase}comer_intuitivo.jpg`} title="Comer Intuitivo" org="Inst. Nutrição Comportamental" desc="Abordagem focada em sinais de fome e razões físicas." />
                 </div>
               </div>
               <div className="grid md:grid-cols-2 gap-12 mb-24 text-left">
@@ -323,7 +332,7 @@ export default function App() {
                   <h2 className="text-2xl font-black text-slate-800 uppercase italic mb-10 flex items-center gap-4 justify-center md:justify-start"><span className="w-12 h-1 bg-purple-600 rounded-full"></span> Eventos</h2>
                   <div className="bg-white p-8 rounded-[3rem] shadow-xl border border-slate-100 flex items-center gap-6">
                     <div className="w-24 h-24 bg-white rounded-2xl shadow-md overflow-hidden p-2"><img src={`${githubImgBase}simposio_obesidade.jpg`} className="w-full h-full object-contain" alt="Hcor" /></div>
-                    <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight text-left">I Simpósio de Obesidade (Hcor)</h3>
+                    <h3 className="text-xl font-black text-slate-800 uppercase italic text-left">I Simpósio de Obesidade (Hcor)</h3>
                   </div>
                 </div>
               </div>
@@ -332,7 +341,7 @@ export default function App() {
           </section>
         )}
 
-        {/* BLOG LISTA */}
+        {/* PÁGINA BLOG LISTA */}
         {view === 'blog' && (
           <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-6xl text-center">
             <h1 className="text-5xl md:text-8xl font-black text-white italic titulo-vazado uppercase mb-4">Blog</h1>
@@ -355,7 +364,7 @@ export default function App() {
           </section>
         )}
 
-        {/* POST INTEGRAL COM FAQ COMPLETO */}
+        {/* PÁGINA POST INTEGRAL COM FAQ COMPLETO */}
         {view === 'post' && postId && (
           <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl">
             <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
