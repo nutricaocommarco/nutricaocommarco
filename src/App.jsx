@@ -30,7 +30,7 @@ const BLOG_POSTS = {
             className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
           />
           <div className="bg-green-50 p-4 text-center">
-            <p className="text-xs text-green-700 font-bold uppercase tracking-widest">Precisão técnica para resultados que a balança comum não consegue mostrar.</p>
+            <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">A ciência da medida humana aplicada ao seu emagrecimento real.</p>
           </div>
         </div>
 
@@ -40,14 +40,14 @@ const BLOG_POSTS = {
         <div className="my-16 bg-green-50 p-6 md:p-10 rounded-[3.5rem] border border-green-100">
           <div className="flex items-center gap-4 mb-8">
             <PlayCircle size={32} className="text-green-600" />
-            <h3 className="text-xl font-black text-slate-800 uppercase italic leading-none">Explicação Técnica em Vídeo</h3>
+            <h3 className="text-xl font-black text-slate-800 uppercase italic leading-none text-center md:text-left">Explicação Técnica em Vídeo</h3>
           </div>
           <div className="relative w-full overflow-hidden rounded-[2.5rem] shadow-2xl flex justify-center bg-white border border-green-100">
             <iframe src="https://www.instagram.com/p/DUV4gfkkcab/embed" width="400" height="600" frameBorder="0" scrolling="no" allowtransparency="true" className="max-w-full"></iframe>
           </div>
         </div>
 
-        <p>Essas medições permitem o fracionamento da massa corporal em componentes como <strong>massa gorda, massa muscular, massa óssea e massa residual.</strong> Para estimar o percentual de gordura de forma precisa, o avaliador realiza o destaque das dobras cutâneas em pontos anatômicos específicos, conhecidos como landmarks. Um erro de poucos milímetros na marcação desses pontos pode comprometer significativamente o resultado final, o que reforça a necessidade de um profissional qualificado.</p>
+        <p>Essas medições permitem o fracionamento da massa corporal em componentes fundamentais: <strong>massa gorda, massa muscular, massa óssea e massa residual.</strong> Para estimar o percentual de gordura de forma precisa, o avaliador realiza o destaque das dobras cutâneas em pontos anatômicos específicos, conhecidos como landmarks. Um erro de poucos milímetros na marcação desses pontos pode comprometer significativamente o resultado final, o que reforça a necessidade de um profissional qualificado.</p>
 
         <p>Além do foco na gordura corporal, a antropometria é vital para o cálculo do somatotipo, que descreve o físico em três componentes: <strong>endomorfia</strong> (adiposidade), <strong>mesomorfia</strong> (robustez muscular) e <strong>ectomorfia</strong> (linearidade ou magreza). Essa classificação ajuda a planejar intervenções específicas para melhora da performance esportiva ou para o monitoramento da saúde em casos de obesidade e doenças metabólicas.</p>
 
@@ -163,16 +163,53 @@ export default function App() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    // --- CONFIGURAÇÃO DO FAVICON E SEO ---
+    const setupSEO = () => {
+      let link = document.querySelector("link[rel~='icon']");
+      if (!link) {
+        link = document.createElement('link');
+        link.rel = 'icon';
+        document.head.appendChild(link);
+      }
+      link.href = 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png';
+      
+      const titles = {
+        home: 'Nutrição com Marco | Performance e Ciência',
+        certificacoes: 'Currículo e Certificações | Nutrição com Marco',
+        blog: 'Blog de Nutrição e Ciência | Nutrição com Marco'
+      };
+
+      if (view === 'post' && postId) {
+        document.title = `${BLOG_POSTS[postId].titulo} | Blog Nutrição com Marco`;
+      } else {
+        document.title = titles[view] || titles.home;
+      }
+
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) {
+        metaDesc = document.createElement('meta');
+        metaDesc.name = 'description';
+        document.head.appendChild(metaDesc);
+      }
+
+      const postDescriptions = {
+        antropometria: 'Descubra o que é Antropometria, sua história e por que o padrão ISAK é o GPS para sua saúde e performance física.',
+        bioimpedancia: 'A balança de bioimpedância é confiável? Entenda como ela funciona, os fatores que interferem no resultado e como interpretá-la com ciência.'
+      };
+
+      const descriptions = {
+        home: 'Especialista em Nutrição e Antropometria no Rio de Janeiro e Online. Performance física e saúde baseada em evidências científicas.',
+        certificacoes: 'Conheça a trajetória técnica e as certificações internacionais ISAK do nutricionista Marco Aurélio Jr.',
+        blog: 'Conteúdo científico sobre antropometria, bioimpedância e emagrecimento real.'
+      };
+      
+      metaDesc.content = (view === 'post' && postId) ? postDescriptions[postId] : (descriptions[view] || descriptions.home);
+    };
+    
+    setupSEO();
+
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
-    
-    // SEO dinâmico
-    let title = 'Nutrição com Marco | Performance e Ciência';
-    if (view === 'certificacoes') title = 'Currículo e Certificações | Nutrição com Marco';
-    if (view === 'blog') title = 'Blog de Nutrição e Ciência | Nutrição com Marco';
-    if (view === 'post' && postId) title = `${BLOG_POSTS[postId].titulo} | Blog Nutrição com Marco`;
-    document.title = title;
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, [view, postId]);
 
@@ -301,7 +338,7 @@ export default function App() {
                 <h2 className="text-2xl font-black text-slate-800 uppercase italic mb-10 flex items-center gap-4 justify-center md:justify-start"><span className="w-12 h-1 bg-green-600 rounded-full"></span> Formação Principal</h2>
                 <div className="grid gap-8">
                   <CertCard image={`${githubImgBase}unicesumar.png`} badge="Graduação" title="Bacharelado em Nutrição" org="Unicesumar" desc="Formação híbrida completa focada em Nutrição Clínica e Esportiva." color="slate" />
-                  <CertCard image={`${githubImgBase}oficial-uniguacu_vertical-edited.png`} badge="Pós-Graduação" title="Emagrecimento e Metabolismo" org="Faculdade Uniguaçú" desc="Especialização avançada nas bases fisiológicas para a prática clínica." color="green" />
+                  <CertCard image={`${githubImgBase}oficial-uniguacu_vertical-edited.png`} badge="Pós-Graduação" title="Emagrecimento e Metabolismo" org="Faculdade Uniguaçú" desc="Especialização avançada nas bases fisiológicas." color="green" />
                   <CertCard image={`${githubImgBase}isak-logo.png`} badge="Internacional" title="ISAK Level 1" org="ISAK" desc="Certificação mundial para padronização de medidas baseada nos manuais de Norton e Olds." color="green" />
                 </div>
               </div>
@@ -315,7 +352,7 @@ export default function App() {
                   <MiniCertCard image={`${githubImgBase}pronutri.webp`} title="Programa ProNutri (Ciclo 14)" org="Secad Artmed" desc="Condutas dietoterápicas modernas em ambiente clínico." />
                   <MiniCertCard image={`${githubImgBase}hormonios.jpg`} title="Metabolismo Hormonal" org="Prof. Dr. Rodrigo Vargas" desc="Estudo detalhado do metabolismo de hormônios esteroides." />
                   <MiniCertCard image={`${githubImgBase}ellocursos.webp`} title="Psicologia e Obesidade" org="Ellocursos Psicologia" desc="Saúde mental e comportamento alimentar." />
-                  <MiniCertCard image={`${githubImgBase}comer_intuitivo.jpg`} title="Comer Intuitivo" org="Inst. Nutrição Comportamental" desc="Abordagem focada em sinais de fome e razões físicas." />
+                  <MiniCertCard image={`${githubImgBase}comer_intuitivo.jpg`} title="Comer Intuitivo" org="Inst. Nutrição Comportamental" desc="Abordagem focada em sinais de fome." />
                 </div>
               </div>
               <div className="grid md:grid-cols-2 gap-12 mb-24 text-left">
