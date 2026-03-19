@@ -8,6 +8,7 @@ import Certificacoes from './pages/Certificacoes';
 import Blog from './pages/Blog';
 import Antropometria from './pages/Antropometria';
 import Bioimpedancia from './pages/Bioimpedancia';
+import VitaminaA from './pages/VitaminaA';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -167,6 +168,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/certificacoes" element={<Certificacoes />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/rascunho-vitamina" element={<VitaminaA />} />
             <Route path="/o_que_e_antropometria" element={<Antropometria />} />
             <Route path="/a_balanca_de_bioimpedancia_e_confiavel" element={<Bioimpedancia />} />
           </Routes>
