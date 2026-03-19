@@ -12,11 +12,11 @@ export default function Blog() {
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-        {/* Card Frutose - CORRIGIDO */}
+        {/* Card Frutose - CORRIGIDO (Sintaxe e Nome do Arquivo) */}
         <Link to="/quantas_frutas_posso_comer" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
           <div className="h-64 overflow-hidden border-b border-slate-50">
             <img 
-              src={`${githubImgBase}Blog/frutas.jpg`} 
+              src={`${githubImgBase}Blog/frutose_bananas.jpg`} 
               alt="Quantas frutas posso comer por dia?" 
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
             />
