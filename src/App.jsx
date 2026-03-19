@@ -177,7 +177,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/certificacoes" element={<Certificacoes />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/rascunho-efeitosanfona" element={<EfeitoSanfona />} />
+            <Route path="/rascunho_efeitosanfona" element={<EfeitoSanfona />} />
             <Route path="/quantas_frutas_posso_comer" element={<Frutose />} />
             <Route path="/vitamina_a_para_que_serve" element={<VitaminaA />} />
             <Route path="/o_que_e_antropometria" element={<Antropometria />} />
