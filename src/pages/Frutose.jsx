@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, useLocation } from 'react-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, HelpCircle } from 'lucide-react';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
