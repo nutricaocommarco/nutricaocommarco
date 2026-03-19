@@ -46,7 +46,11 @@ export default function VitaminaA() {
             
             <ul className="list-disc pl-6 space-y-2 marker:text-green-600 font-bold text-slate-700">
               <li><span className="font-medium text-slate-600"><strong>Vitamina A pré-formada (retinol):</strong> encontrada em alimentos de origem animal.</span></li>
-              <li><span className="font-medium text-slate-600"><strong>Pró-vitamina A (carotenoides):</strong> presente em vegetais como cenoura, abóbora e manga.</span></li>
+              <li>
+  <span className="font-medium text-slate-600">
+    <strong>Pró-vitamina A (carotenoides):</strong> presente em vegetais como cenoura, abóbora e manga. (Se tem dúvidas sobre as porções ideais destas frutas, confira o nosso guia completo sobre <Link to="/quantas_frutas_posso_comer" className="text-green-600 hover:text-green-700 underline underline-offset-2 font-bold transition-colors">quantas frutas comer por dia</Link>).
+  </span>
+</li>
             </ul>
             
             <p>Ao ser ingerida (por exemplo, na forma de carotenoides), a vitamina A passa por conversões no organismo até chegar às suas formas ativas.</p>
