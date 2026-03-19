@@ -45,7 +45,7 @@ function Layout({ children }) {
 
   // MOTOR DE SEO: Muda o Título, a Meta Descrição e a Tag Canonical consoante a página
   useEffect(() => {
-    const baseUrl = 'https://nutricaocommarco.vercel.app';
+    const baseUrl = 'https://www.nutricaocommarco.com.br';
 
     const seoData = {
       '/': { 
