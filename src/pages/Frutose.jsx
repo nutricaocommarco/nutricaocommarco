@@ -108,7 +108,7 @@ export default function Frutose() {
               O que a Ciência Realmente Diz
             </h2>
             
-            <p>Estudos robustos demonstram que a ingestão média de frutose em torno de 20g por dia não possui associação com a Doença Hepática Gordurosa Não Alcoólica (DHGNA). Nessas pesquisas, a grande maioria das pessoas (entre 54% e 80%) consumia a frutose através de frutas e sucos naturais, enquanto apenas 8% vinha de refrigerantes. Para você ter uma ideia prática, 20g de frutose equivalem a cerca de 15 bananas. Consumir 1,8 litros de refrigerante é mecanicamente muito mais fácil e comum do que comer 15 bananas em um único dia.</p>
+            <p>Um estudo demonstrou que a suplementação de 3,5g de frutose ou glicose por quilo de <Link to="/o_que_e_antropometria" className="text-green-600 hover:text-green-700 underline underline-offset-2 font-bold transition-colors">massa magra</Link> elevou a gordura no fígado. Para um indivíduo de 80kg com 25% de gordura corporal, isso equivaleria a consumir cerca de 210g de frutose, o que representa aproximadamente 30 bananas. Note que, nesse nível de excesso, tanto a glicose quanto a frutose causaram danos, provando que o excesso calórico total é o fator determinante, e não a fruta em si.</p>
             
             <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
               "O risco real de aumento de lipídeos intra-hepáticos e VLDL-TG ocorre em cenários de superávit calórico extremo."
