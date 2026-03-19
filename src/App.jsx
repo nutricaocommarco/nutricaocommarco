@@ -10,10 +10,10 @@ import Antropometria from './pages/Antropometria';
 import Bioimpedancia from './pages/Bioimpedancia';
 import VitaminaA from './pages/VitaminaA';
 import Frutose from './pages/Frutose';
+import EfeitoSanfona from './pages/EfeitoSanfona';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
-// Função para garantir que a página começa no topo ao clicar num link
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -22,13 +22,11 @@ function ScrollToTop() {
   return null;
 }
 
-// O Layout Fixo que envolve todas as páginas (Navegação + Rodapé)
 function Layout({ children }) {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Efeito da Navbar e Favicon
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
@@ -44,7 +42,6 @@ function Layout({ children }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // MOTOR DE SEO: Muda o Título, a Meta Descrição e a Tag Canonical consoante a página
   useEffect(() => {
     const baseUrl = 'https://www.nutricaocommarco.com.br';
 
@@ -69,22 +66,23 @@ function Layout({ children }) {
         title: 'A balança de bioimpedância é confiável? | Nutrição com Marco', 
         desc: 'Entenda se a balança de bioimpedância é confiável, como ela funciona e o que altera o seu percentual de gordura.' 
       },
-      // ADICIONE ESTE BLOCO AQUI:
       '/vitamina_a_para_que_serve': { 
         title: 'Vitamina A para que serve? | Nutrição com Marco', 
         desc: 'Entenda as diferenças entre retinol, retinal e ácido retinóico, e descubra como a Vitamina A atua no seu metabolismo muito além da visão.' 
       },
       '/quantas_frutas_posso_comer': { 
         title: 'Quantas frutas posso comer por dia? | Nutrição com Marco', 
-        desc: 'Entenda o metabolismo da frutose, a diferença entre o açúcar da fruta e o refinado, e a verdade sobre a fruta e a gordura no fígado.' }
+        desc: 'Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado.' 
+      },
+      '/rascunho_efeitosanfona': { 
+        title: 'Rascunho: Efeito Sanfona | Nutrição com Marco', 
+        desc: 'Análise sobre o efeito sanfona, inflamação celular e memória metabólica.' 
+      }
     };
 
     const currentSEO = seoData[location.pathname] || seoData['/'];
-    
-    // Atualiza o Título
     document.title = currentSEO.title;
     
-    // Atualiza a Meta Descrição
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
       metaDesc = document.createElement('meta');
@@ -93,7 +91,6 @@ function Layout({ children }) {
     }
     metaDesc.content = currentSEO.desc;
 
-    // Atualiza a Tag Canonical
     let canonicalLink = document.querySelector("link[rel='canonical']");
     if (!canonicalLink) {
       canonicalLink = document.createElement('link');
@@ -103,12 +100,11 @@ function Layout({ children }) {
     const cleanPath = location.pathname === '/' ? '' : location.pathname;
     canonicalLink.href = `${baseUrl}${cleanPath}`;
 
-    setIsMenuOpen(false); // Fecha menu mobile ao trocar de página
+    setIsMenuOpen(false);
   }, [location.pathname]);
 
   return (
     <div className="min-h-screen font-sans text-slate-800 bg-gradient-to-br from-green-50 to-white flex flex-col selection:bg-green-200">
-      
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || location.pathname !== '/' ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center relative">
           <Link to="/" className="flex items-center gap-2 group">
@@ -116,34 +112,26 @@ function Layout({ children }) {
             <span className="text-xl font-black tracking-tight text-slate-900 uppercase ml-1">NUTRIÇÃO COM <span className="text-green-600">MARCO</span></span>
           </Link>
           
-          {/* Menu Desktop */}
           <div className="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-widest">
             <Link to="/" className={`py-1 border-b-2 transition-all ${location.pathname === '/' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Início</Link>
             <Link to="/certificacoes" className={`py-1 border-b-2 transition-all ${location.pathname === '/certificacoes' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Certificações</Link>
-            <Link to="/blog" className={`py-1 border-b-2 transition-all ${location.pathname.includes('/blog') || location.pathname.includes('/o_que_e') || location.pathname.includes('/a_balanca') ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Blog</Link>
-            
-            {/* NOVO LINK ÂNCORA DOS E-BOOKS AQUI */}
+            <Link to="/blog" className={`py-1 border-b-2 transition-all ${location.pathname.includes('/blog') ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Blog</Link>
             <a href="/#ebooks" className="py-1 border-b-2 border-transparent text-slate-800 hover:text-green-600 transition-all">E-books</a>
-            
             <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-6 py-2.5 rounded-full hover:bg-green-700 transition-all shadow-md italic">Instagram</a>
           </div>
           <button className="md:hidden text-slate-800 p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <X size={28} /> : <Menu size={28} />}</button>
         </div>
         
-        {/* Menu Mobile */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-green-100 shadow-xl py-6 px-6 flex flex-col gap-6">
-            <Link to="/" className={`text-lg font-black uppercase tracking-widest pb-2 border-b ${location.pathname === '/' ? 'text-green-600' : 'text-slate-800'}`}>Início</Link>
-            <Link to="/certificacoes" className={`text-lg font-black uppercase tracking-widest pb-2 border-b ${location.pathname === '/certificacoes' ? 'text-green-600' : 'text-slate-800'}`}>Certificações</Link>
-            <Link to="/blog" className={`text-lg font-black uppercase tracking-widest pb-2 border-b ${location.pathname.includes('/blog') ? 'text-green-600' : 'text-slate-800'}`}>Blog</Link>
-            
-            {/* NOVO LINK ÂNCORA DOS E-BOOKS NO MOBILE AQUI */}
+            <Link to="/" className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Início</Link>
+            <Link to="/certificacoes" className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Certificações</Link>
+            <Link to="/blog" className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Blog</Link>
             <a href="/#ebooks" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">E-books</a>
           </div>
         )}
       </nav>
 
-      {/* RENDERIZAÇÃO DINÂMICA DAS PÁGINAS AQUI */}
       <main className="pt-20 flex-grow">
         {children}
       </main>
@@ -166,7 +154,6 @@ function Layout({ children }) {
   );
 }
 
-// Configuração das Rotas MESTRES (O "export default" está aqui para o Vercel parar de chorar)
 export default function App() {
   return (
     <>
@@ -186,7 +173,6 @@ export default function App() {
         </Layout>
       </Router>
       
-      {/* O SEU ESTILO VAZADO PROTEGIDO AQUI */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,900;1,900&display=swap');
         @keyframes bounce-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
