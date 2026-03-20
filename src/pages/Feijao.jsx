@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, HelpCircle } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
+import { Helmet } from 'react-helmet-async';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -13,6 +14,36 @@ export default function Feijao() {
   }, [pathname]);
 
   return (
+    <>
+      <Helmet>
+        <title>Por que o feijão dá gases e como evitar de vez | Nutrição com Marco</title>
+        <meta name="description" content="Descubra por que o feijão causa gases e o que fazer para evitar o desconforto. Entenda como funciona a digestão e veja dicas práticas." />
+        
+        {/* INÍCIO DO SCHEMA.ORG PARA ARTIGOS */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Por que o feijão dá gases e como evitar de vez",
+            "image": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/feijao.jpg",
+            "author": {
+              "@type": "Person",
+              "name": "Marco Aurélio Jr.",
+              "url": "https://www.nutricaocommarco.com.br/sobre"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Nutrição com Marco",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png"
+              }
+            },
+            "datePublished": "2026-03-20",
+            "description": "Descubra por que o feijão causa gases e o que fazer para evitar o desconforto. Entenda como funciona a digestão e veja dicas práticas."
+          })}
+        </script>
+      </Helmet>
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
@@ -112,5 +143,6 @@ export default function Feijao() {
 
       </div>
     </section>
+    </>
   );
 }
