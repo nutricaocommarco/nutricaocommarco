@@ -29,15 +29,85 @@ export default function Planos() {
         Escolha o nível de suporte ideal para transformar a sua composição corporal com base na ciência. <span className="text-green-600 block mt-2">Abertura de vagas em breve!</span>
       </p>
 
-      {/* NÍVEL 1: ATENDIMENTO ONLINE */}
+     {/* NÍVEL 1: AVALIAÇÃO ISAK (Passou a ser o primeiro) */}
+      <div className="mb-20 bg-white rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden text-left">
+        <div className="bg-slate-900 p-6 md:p-8 flex items-center gap-4">
+          <div className="w-12 h-12 md:w-14 md:h-14 bg-green-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
+            <Activity size={24} className="md:w-7 md:h-7" />
+          </div>
+          <div className="min-w-0 flex-1">
+            <span className="text-green-400 font-black uppercase tracking-widest text-[10px] md:text-xs">Nível 1</span>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white italic uppercase leading-tight mt-1 break-words">Avaliação Antropométrica (ISAK 1)</h2>
+          </div>
+        </div>
+        
+        <div className="p-8 overflow-x-auto">
+          <table className="w-full text-center border-collapse min-w-[600px]">
+            <thead>
+              <tr className="border-b-2 border-slate-100">
+                <th className="p-4 text-left font-black text-slate-400 uppercase tracking-widest text-sm w-1/3">O que está incluso?</th>
+                <th className="p-4 font-black text-slate-800 uppercase text-lg">Avulso</th>
+                <th className="p-4 font-black text-amber-700 uppercase text-lg bg-amber-50 rounded-t-2xl">Bronze <span className="block text-[10px] text-amber-600">6 Meses</span></th>
+                <th className="p-4 font-black text-slate-500 uppercase text-lg bg-slate-50 rounded-t-2xl">Prata <span className="block text-[10px] text-slate-400">10 Meses</span></th>
+                <th className="p-4 font-black text-yellow-600 uppercase text-lg bg-yellow-50 rounded-t-2xl">Ouro <span className="block text-[10px] text-yellow-500">12 Meses</span></th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-600 font-medium">
+              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
+                <td className="p-4 text-left">Nº de Avaliações ISAK</td>
+                <td className="p-4">{renderIcon('1')}</td>
+                <td className="p-4 bg-amber-50/50">{renderIcon('3')}</td>
+                <td className="p-4 bg-slate-50/50">{renderIcon('5')}</td>
+                <td className="p-4 bg-yellow-50/50">{renderIcon('6')}</td>
+              </tr>
+              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
+                <td className="p-4 text-left">Relatório Completo</td>
+                <td className="p-4">{renderIcon(true)}</td>
+                <td className="p-4 bg-amber-50/50">{renderIcon(true)}</td>
+                <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
+                <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
+              </tr>
+              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
+                <td className="p-4 text-left">Somatotipo + Somatocarta</td>
+                <td className="p-4">{renderIcon(true)}</td>
+                <td className="p-4 bg-amber-50/50">{renderIcon(true)}</td>
+                <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
+                <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
+              </tr>
+              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
+                <td className="p-4 text-left">Comparativo Evolutivo</td>
+                <td className="p-4">{renderIcon('Básico')}</td>
+                <td className="p-4 bg-amber-50/50">{renderIcon(true)}</td>
+                <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
+                <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
+              </tr>
+              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
+                <td className="p-4 text-left">Vídeo de Interpretação</td>
+                <td className="p-4">{renderIcon(false)}</td>
+                <td className="p-4 bg-amber-50/50">{renderIcon(true)}</td>
+                <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
+                <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
+              </tr>
+              <tr className="hover:bg-slate-50 transition-colors">
+                <td className="p-4 text-left font-bold text-slate-800">Preço</td>
+                <td className="p-4">{renderIcon('Em Breve')}</td>
+                <td className="p-4 bg-amber-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
+                <td className="p-4 bg-slate-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
+                <td className="p-4 bg-yellow-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* NÍVEL 2: ATENDIMENTO ONLINE (Passou a ser o segundo) */}
       <div className="mb-20 bg-white rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden text-left">
         <div className="bg-slate-900 p-6 md:p-8 flex items-center gap-4">
           <div className="w-12 h-12 md:w-14 md:h-14 bg-green-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
             <CalendarClock size={24} className="md:w-7 md:h-7" />
           </div>
           <div className="min-w-0 flex-1">
-            <span className="text-green-400 font-black uppercase tracking-widest text-[10px] md:text-xs">Nível 1</span>
-            {/* TÍTULO AJUSTADO PARA MOBILE */}
+            <span className="text-green-400 font-black uppercase tracking-widest text-[10px] md:text-xs">Nível 2</span>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white italic uppercase leading-tight mt-1 break-words">Atendimento Nutricional Online</h2>
           </div>
         </div>
@@ -114,79 +184,7 @@ export default function Planos() {
           </table>
         </div>
       </div>
-
-      {/* NÍVEL 2: AVALIAÇÃO ISAK */}
-      <div className="mb-20 bg-white rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden text-left">
-        <div className="bg-slate-900 p-6 md:p-8 flex items-center gap-4">
-          <div className="w-12 h-12 md:w-14 md:h-14 bg-green-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
-            <Activity size={24} className="md:w-7 md:h-7" />
-          </div>
-          <div className="min-w-0 flex-1">
-            <span className="text-green-400 font-black uppercase tracking-widest text-[10px] md:text-xs">Nível 2</span>
-            {/* TÍTULO AJUSTADO PARA MOBILE */}
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white italic uppercase leading-tight mt-1 break-words">Avaliação Antropométrica (ISAK 1)</h2>
-          </div>
-        </div>
-        
-        <div className="p-8 overflow-x-auto">
-          <table className="w-full text-center border-collapse min-w-[600px]">
-            <thead>
-              <tr className="border-b-2 border-slate-100">
-                <th className="p-4 text-left font-black text-slate-400 uppercase tracking-widest text-sm w-1/3">O que está incluso?</th>
-                <th className="p-4 font-black text-slate-800 uppercase text-lg">Avulso</th>
-                <th className="p-4 font-black text-amber-700 uppercase text-lg bg-amber-50 rounded-t-2xl">Bronze <span className="block text-[10px] text-amber-600">6 Meses</span></th>
-                <th className="p-4 font-black text-slate-500 uppercase text-lg bg-slate-50 rounded-t-2xl">Prata <span className="block text-[10px] text-slate-400">10 Meses</span></th>
-                <th className="p-4 font-black text-yellow-600 uppercase text-lg bg-yellow-50 rounded-t-2xl">Ouro <span className="block text-[10px] text-yellow-500">12 Meses</span></th>
-              </tr>
-            </thead>
-            <tbody className="text-slate-600 font-medium">
-              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
-                <td className="p-4 text-left">Nº de Avaliações ISAK</td>
-                <td className="p-4">{renderIcon('1')}</td>
-                <td className="p-4 bg-amber-50/50">{renderIcon('3')}</td>
-                <td className="p-4 bg-slate-50/50">{renderIcon('5')}</td>
-                <td className="p-4 bg-yellow-50/50">{renderIcon('6')}</td>
-              </tr>
-              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
-                <td className="p-4 text-left">Relatório Completo</td>
-                <td className="p-4">{renderIcon(true)}</td>
-                <td className="p-4 bg-amber-50/50">{renderIcon(true)}</td>
-                <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
-                <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
-              </tr>
-              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
-                <td className="p-4 text-left">Somatotipo + Somatocarta</td>
-                <td className="p-4">{renderIcon(true)}</td>
-                <td className="p-4 bg-amber-50/50">{renderIcon(true)}</td>
-                <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
-                <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
-              </tr>
-              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
-                <td className="p-4 text-left">Comparativo Evolutivo</td>
-                <td className="p-4">{renderIcon('Básico')}</td>
-                <td className="p-4 bg-amber-50/50">{renderIcon(true)}</td>
-                <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
-                <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
-              </tr>
-              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
-                <td className="p-4 text-left">Vídeo de Interpretação</td>
-                <td className="p-4">{renderIcon(false)}</td>
-                <td className="p-4 bg-amber-50/50">{renderIcon(true)}</td>
-                <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
-                <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
-              </tr>
-              <tr className="hover:bg-slate-50 transition-colors">
-                <td className="p-4 text-left font-bold text-slate-800">Preço</td>
-                <td className="p-4">{renderIcon('Em Breve')}</td>
-                <td className="p-4 bg-amber-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
-                <td className="p-4 bg-slate-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
-                <td className="p-4 bg-yellow-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
+      
       {/* NÍVEL 3: PRESENCIAL PREMIUM */}
       <div className="mb-20 bg-white rounded-[3rem] shadow-2xl border border-green-600 overflow-hidden text-left relative">
         <div className="absolute top-6 right-6 bg-green-600 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">
