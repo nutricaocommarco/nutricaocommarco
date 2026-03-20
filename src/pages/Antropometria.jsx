@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'; // CORREÇÃO: lowercase import e adic
 import { Link, useLocation } from 'react-router-dom'; // CORREÇÃO: adicionado useLocation
 import { ChevronLeft, PlayCircle, HelpCircle } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
+import { Helmet } from 'react-helmet-async';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -14,6 +15,23 @@ export default function Antropometria() {
   }, [pathname]);
 
   return (
+    <>
+    <Helmet>
+        <title>O que é Antropometria? A Ciência Exata da Avaliação | Nutrição com Marco</title>
+        <meta name="description" content="Descubra o que é Antropometria e como a avaliação física ISAK revela sua real composição corporal, muito além da balança." />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "O Que É Antropometria e Por Que Ela é Essencial para a Avaliação Física",
+            "image": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/antropometria.png",
+            "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
+            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png"}},
+            "datePublished": "2026-03-20",
+            "description": "Descubra o que é Antropometria e como a avaliação física ISAK revela sua real composição corporal, muito além da balança."
+          })}
+        </script>
+      </Helmet>
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
         
