@@ -12,6 +12,8 @@ import VitaminaA from './pages/VitaminaA';
 import Frutose from './pages/Frutose';
 import EfeitoSanfona from './pages/EfeitoSanfona';
 import Eritropoetina from './pages/Eritropoetina';
+import Planos from './pages/Planos';
+
 
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
@@ -59,6 +61,10 @@ function Layout({ children }) {
       '/blog': { 
         title: 'Blog de Nutrição e Ciência | Nutrição com Marco', 
         desc: 'Conteúdo científico sobre antropometria, bioimpedância e emagrecimento real.' 
+      },
+      '/planos': { 
+        title: 'Planos de Acompanhamento | Nutrição com Marco', 
+        desc: 'Conheça os níveis de acompanhamento nutricional e avaliação física ISAK 1.' 
       },
       '/o_que_e_antropometria': { 
         title: 'O que é Antropometria? A Ciência Exata da Avaliação | Nutrição com Marco', 
