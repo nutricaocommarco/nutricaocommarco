@@ -7,13 +7,14 @@ import { HelmetProvider } from 'react-helmet-async';
 import Home from './pages/Home';
 import Certificacoes from './pages/Certificacoes';
 import Blog from './pages/Blog';
+import Planos from './pages/Planos';
 import Antropometria from './pages/Antropometria';
 import Bioimpedancia from './pages/Bioimpedancia';
 import VitaminaA from './pages/VitaminaA';
 import Frutose from './pages/Frutose';
 import EfeitoSanfona from './pages/EfeitoSanfona';
 import Eritropoetina from './pages/Eritropoetina';
-import Planos from './pages/Planos';
+import Feijao from './pages/Feijao';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -88,6 +89,10 @@ function Layout({ children }) {
       '/o_dilema_do_sangue_na_altitude': { 
         title: 'Doping na Altitude: Eritropoetina e Ética no Esporte | Nutrição com Marco', 
         desc: 'Entenda os riscos fatais do uso sintético do hormônio eritropoetina e da transfusão de hemácias no esporte de alta performance.' 
+      },
+    '/por_que_o_feijao_da_gases': { 
+        title: 'Por que o feijão dá gases e como evitar de vez | Nutrição com Marco', 
+        desc: 'Descubra por que o feijão causa gases e o que fazer para evitar o desconforto. Entenda como funciona a digestão e veja dicas práticas.' 
       },
     };
 
@@ -185,6 +190,7 @@ export default function App() {
             <Route path="/o_que_e_antropometria" element={<Antropometria />} />
             <Route path="/a_balanca_de_bioimpedancia_e_confiavel" element={<Bioimpedancia />} />
             <Route path="/o_dilema_do_sangue_na_altitude" element={<Eritropoetina />} />
+            <Route path="/por_que_o_feijao_da_gases" element={<Feijao />} />
           </Routes>
         </Layout>
       </Router>
