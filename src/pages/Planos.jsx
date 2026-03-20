@@ -16,10 +16,15 @@ export default function Planos() {
     return <span className="font-black text-slate-700">{value}</span>;
   };
 
+  const renderMobileIcon = (value) => {
+    if (value === true) return <Check size={20} strokeWidth={3} className="text-green-500 shrink-0" />;
+    if (value === false) return <X size={20} strokeWidth={3} className="text-slate-200 shrink-0" />;
+    return <span className="font-black text-slate-700 text-sm">{value}</span>;
+  };
+
   return (
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-6xl text-center">
       
-      {/* CÓDIGO INVISÍVEL QUE O WHATSAPP E O GOOGLE VÃO LER */}
       <Helmet>
         <title>Planos de Acompanhamento | Nutrição com Marco</title>
         <meta name="description" content="Escolha o nível de suporte ideal para transformar a sua composição corporal com base na ciência." />
@@ -39,7 +44,7 @@ export default function Planos() {
         Escolha o nível de suporte ideal para transformar a sua composição corporal com base na ciência. <span className="text-green-600 block mt-2">Abertura de vagas em breve!</span>
       </p>
 
-     {/* NÍVEL 1: AVALIAÇÃO ISAK (Passou a ser o primeiro) */}
+      {/* NÍVEL 1: AVALIAÇÃO ISAK */}
       <div className="mb-20 bg-white rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden text-left">
         <div className="bg-slate-900 p-6 md:p-8 flex items-center gap-4">
           <div className="w-12 h-12 md:w-14 md:h-14 bg-green-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
@@ -51,7 +56,8 @@ export default function Planos() {
           </div>
         </div>
         
-        <div className="p-8 overflow-x-auto">
+        {/* VISÃO DESKTOP (Tabela) */}
+        <div className="hidden lg:block p-8 overflow-x-auto">
           <table className="w-full text-center border-collapse min-w-[600px]">
             <thead>
               <tr className="border-b-2 border-slate-100">
@@ -98,7 +104,7 @@ export default function Planos() {
                 <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
               </tr>
-<tr className="hover:bg-slate-50 transition-colors">
+              <tr className="hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left font-bold text-slate-800 align-middle">Preço</td>
                 <td className="p-4">
                   <div className="flex flex-col items-center">
@@ -127,25 +133,89 @@ export default function Planos() {
               </tr>
               <tr className="hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left font-bold text-slate-800">Reserva</td>
-                <td className="p-4">
-                  <a href="https://calendar.app.google/R9UBU3ANzW93K5wv7" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-green-700 transition-all inline-block">Agendar</a>
-                </td>
-                <td className="p-4 bg-amber-50/50 rounded-b-2xl">
-                  <a href="https://calendar.app.google/VHNNaQinSa5YuhJ1A" target="_blank" rel="noreferrer" className="bg-amber-600 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-amber-700 transition-all inline-block">Agendar</a>
-                </td>
-                <td className="p-4 bg-slate-50/50 rounded-b-2xl">
-                  <a href="https://calendar.app.google/Fh9inQ1dQD6G6SWZ7" target="_blank" rel="noreferrer" className="bg-slate-600 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-slate-800 transition-all inline-block">Agendar</a>
-                </td>
-                <td className="p-4 bg-yellow-50/50 rounded-b-2xl">
-                  <a href="https://calendar.app.google/3oktJvEmQhGJGqrm8" target="_blank" rel="noreferrer" className="bg-yellow-500 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-yellow-600 transition-all inline-block">Agendar</a>
-                </td>
+                <td className="p-4"><a href="https://calendar.app.google/R9UBU3ANzW93K5wv7" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-green-700 transition-all inline-block">Agendar</a></td>
+                <td className="p-4 bg-amber-50/50 rounded-b-2xl"><a href="https://calendar.app.google/VHNNaQinSa5YuhJ1A" target="_blank" rel="noreferrer" className="bg-amber-600 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-amber-700 transition-all inline-block">Agendar</a></td>
+                <td className="p-4 bg-slate-50/50 rounded-b-2xl"><a href="https://calendar.app.google/Fh9inQ1dQD6G6SWZ7" target="_blank" rel="noreferrer" className="bg-slate-600 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-slate-800 transition-all inline-block">Agendar</a></td>
+                <td className="p-4 bg-yellow-50/50 rounded-b-2xl"><a href="https://calendar.app.google/3oktJvEmQhGJGqrm8" target="_blank" rel="noreferrer" className="bg-yellow-500 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-yellow-600 transition-all inline-block">Agendar</a></td>
               </tr>
             </tbody>
           </table>
         </div>
+
+        {/* VISÃO MOBILE (Cards) */}
+        <div className="lg:hidden p-4 sm:p-6 grid grid-cols-1 gap-6 bg-slate-50 border-t border-slate-100">
+          
+          <div className="bg-white border-2 border-slate-100 rounded-3xl p-6 shadow-md flex flex-col">
+            <h3 className="text-2xl font-black text-slate-800 uppercase text-center mb-1">Avulso</h3>
+            <div className="text-center mb-6 pb-6 border-b border-slate-100">
+              <span className="text-2xl font-black text-slate-800 block">2x de R$ 109</span>
+              <span className="text-xs font-bold text-green-600 uppercase tracking-widest mt-1 block">R$ 199 no Pix</span>
+            </div>
+            <ul className="space-y-4 mb-8 flex-grow">
+              <li className="flex items-center gap-3">{renderMobileIcon('1')} <span className="text-sm font-medium text-slate-600">Nº de Avaliações ISAK</span></li>
+              <li className="flex items-center gap-3">{renderMobileIcon(true)} <span className="text-sm font-medium text-slate-600">Relatório Completo</span></li>
+              <li className="flex items-center gap-3">{renderMobileIcon(true)} <span className="text-sm font-medium text-slate-600">Somatotipo + Somatocarta</span></li>
+              <li className="flex items-center gap-3">{renderMobileIcon('Básico')} <span className="text-sm font-medium text-slate-600">Comparativo Evolutivo</span></li>
+              <li className="flex items-center gap-3 opacity-50">{renderMobileIcon(false)} <span className="text-sm font-medium text-slate-400 line-through">Vídeo de Interpretação</span></li>
+            </ul>
+            <a href="https://calendar.app.google/R9UBU3ANzW93K5wv7" target="_blank" rel="noreferrer" className="w-full bg-slate-800 text-white text-center py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-slate-900 shadow-lg">Agendar Avulso</a>
+          </div>
+
+          <div className="bg-amber-50 border-2 border-amber-200 rounded-3xl p-6 shadow-md flex flex-col">
+            <h3 className="text-2xl font-black text-amber-800 uppercase text-center mb-1">Bronze</h3>
+            <span className="text-[10px] text-amber-600 font-bold uppercase tracking-widest block text-center mb-2">6 Meses</span>
+            <div className="text-center mb-6 pb-6 border-b border-amber-200/50">
+              <span className="text-2xl font-black text-slate-800 block">6x de R$ 99</span>
+              <span className="text-xs font-bold text-green-600 uppercase tracking-widest mt-1 block">R$ 499 no Pix</span>
+            </div>
+            <ul className="space-y-4 mb-8 flex-grow">
+              <li className="flex items-center gap-3">{renderMobileIcon('3')} <span className="text-sm font-medium text-slate-600">Nº de Avaliações ISAK</span></li>
+              <li className="flex items-center gap-3">{renderMobileIcon(true)} <span className="text-sm font-medium text-slate-600">Relatório Completo</span></li>
+              <li className="flex items-center gap-3">{renderMobileIcon(true)} <span className="text-sm font-medium text-slate-600">Somatotipo + Somatocarta</span></li>
+              <li className="flex items-center gap-3">{renderMobileIcon(true)} <span className="text-sm font-medium text-slate-600">Comparativo Evolutivo</span></li>
+              <li className="flex items-center gap-3">{renderMobileIcon(true)} <span className="text-sm font-medium text-slate-600">Vídeo de Interpretação</span></li>
+            </ul>
+            <a href="https://calendar.app.google/VHNNaQinSa5YuhJ1A" target="_blank" rel="noreferrer" className="w-full bg-amber-600 text-white text-center py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-amber-700 shadow-lg">Agendar Bronze</a>
+          </div>
+
+          <div className="bg-slate-100 border-2 border-slate-300 rounded-3xl p-6 shadow-md flex flex-col relative overflow-hidden">
+            <div className="absolute top-4 right-[-35px] bg-slate-800 text-white text-[10px] font-black uppercase tracking-widest py-1 px-10 rotate-45 shadow-sm">Mais Vendido</div>
+            <h3 className="text-2xl font-black text-slate-700 uppercase text-center mb-1">Prata</h3>
+            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest block text-center mb-2">10 Meses</span>
+            <div className="text-center mb-6 pb-6 border-b border-slate-200">
+              <span className="text-2xl font-black text-slate-800 block">10x de R$ 95</span>
+              <span className="text-xs font-bold text-green-600 uppercase tracking-widest mt-1 block">R$ 799 no Pix</span>
+            </div>
+            <ul className="space-y-4 mb-8 flex-grow">
+              <li className="flex items-center gap-3">{renderMobileIcon('5')} <span className="text-sm font-medium text-slate-600">Nº de Avaliações ISAK</span></li>
+              <li className="flex items-center gap-3">{renderMobileIcon(true)} <span className="text-sm font-medium text-slate-600">Relatório Completo</span></li>
+              <li className="flex items-center gap-3">{renderMobileIcon(true)} <span className="text-sm font-medium text-slate-600">Somatotipo + Somatocarta</span></li>
+              <li className="flex items-center gap-3">{renderMobileIcon(true)} <span className="text-sm font-medium text-slate-600">Comparativo Evolutivo</span></li>
+              <li className="flex items-center gap-3">{renderMobileIcon(true)} <span className="text-sm font-medium text-slate-600">Vídeo de Interpretação</span></li>
+            </ul>
+            <a href="https://calendar.app.google/Fh9inQ1dQD6G6SWZ7" target="_blank" rel="noreferrer" className="w-full bg-slate-600 text-white text-center py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-slate-700 shadow-lg">Agendar Prata</a>
+          </div>
+
+          <div className="bg-yellow-50 border-2 border-yellow-400 rounded-3xl p-6 shadow-md flex flex-col">
+            <h3 className="text-2xl font-black text-yellow-600 uppercase text-center mb-1">Ouro</h3>
+            <span className="text-[10px] text-yellow-600 font-bold uppercase tracking-widest block text-center mb-2">12 Meses</span>
+            <div className="text-center mb-6 pb-6 border-b border-yellow-200">
+              <span className="text-2xl font-black text-slate-800 block">12x de R$ 90</span>
+              <span className="text-xs font-bold text-green-600 uppercase tracking-widest mt-1 block">R$ 899 no Pix</span>
+            </div>
+            <ul className="space-y-4 mb-8 flex-grow">
+              <li className="flex items-center gap-3">{renderMobileIcon('6')} <span className="text-sm font-medium text-slate-600">Nº de Avaliações ISAK</span></li>
+              <li className="flex items-center gap-3">{renderMobileIcon(true)} <span className="text-sm font-medium text-slate-600">Relatório Completo</span></li>
+              <li className="flex items-center gap-3">{renderMobileIcon(true)} <span className="text-sm font-medium text-slate-600">Somatotipo + Somatocarta</span></li>
+              <li className="flex items-center gap-3">{renderMobileIcon(true)} <span className="text-sm font-medium text-slate-600">Comparativo Evolutivo</span></li>
+              <li className="flex items-center gap-3">{renderMobileIcon(true)} <span className="text-sm font-medium text-slate-600">Vídeo de Interpretação</span></li>
+            </ul>
+            <a href="https://calendar.app.google/3oktJvEmQhGJGqrm8" target="_blank" rel="noreferrer" className="w-full bg-yellow-500 text-white text-center py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-yellow-600 shadow-lg">Agendar Ouro</a>
+          </div>
+        </div>
       </div>
 
-      {/* NÍVEL 2: ATENDIMENTO ONLINE (Passou a ser o segundo) */}
+      {/* NÍVEL 2: ATENDIMENTO ONLINE */}
       <div className="mb-20 bg-white rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden text-left">
         <div className="bg-slate-900 p-6 md:p-8 flex items-center gap-4">
           <div className="w-12 h-12 md:w-14 md:h-14 bg-green-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
@@ -157,7 +227,8 @@ export default function Planos() {
           </div>
         </div>
         
-        <div className="p-8 overflow-x-auto">
+        {/* VISÃO DESKTOP (Tabela) */}
+        <div className="hidden lg:block p-8 overflow-x-auto">
           <table className="w-full text-center border-collapse min-w-[600px]">
             <thead>
               <tr className="border-b-2 border-slate-100">
@@ -228,6 +299,15 @@ export default function Planos() {
             </tbody>
           </table>
         </div>
+
+        {/* VISÃO MOBILE (Cards) */}
+        <div className="lg:hidden p-4 sm:p-6 grid grid-cols-1 gap-6 bg-slate-50 border-t border-slate-100">
+          <div className="bg-white border-2 border-slate-100 rounded-3xl p-6 shadow-md flex flex-col items-center justify-center py-12">
+            <CalendarClock size={48} className="text-slate-300 mb-4" />
+            <h3 className="text-xl font-black text-slate-800 uppercase text-center mb-2">Vagas Online</h3>
+            <p className="text-slate-500 font-bold text-sm text-center">Os planos para atendimento 100% online serão liberados em breve. Fique de olho no Instagram!</p>
+          </div>
+        </div>
       </div>
       
       {/* NÍVEL 3: PRESENCIAL PREMIUM */}
@@ -242,12 +322,12 @@ export default function Planos() {
           </div>
           <div className="min-w-0 flex-1">
             <span className="text-green-400 font-black uppercase tracking-widest text-[10px] md:text-xs">Nível 3</span>
-            {/* TÍTULO AJUSTADO PARA MOBILE */}
             <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white italic uppercase leading-tight mt-1 break-words">Atendimento Presencial Premium</h2>
           </div>
         </div>
         
-        <div className="p-8 overflow-x-auto">
+        {/* VISÃO DESKTOP (Tabela) */}
+        <div className="hidden lg:block p-8 overflow-x-auto">
           <table className="w-full text-center border-collapse min-w-[600px]">
             <thead>
               <tr className="border-b-2 border-slate-100">
@@ -322,7 +402,6 @@ export default function Planos() {
                 <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
               </tr>
-              {/* !!! NOVA LINHA: PREÇO !!! */}
               <tr className="hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left font-bold text-slate-800">Preço</td>
                 <td className="p-4">{renderIcon('Em Breve')}</td>
@@ -332,6 +411,15 @@ export default function Planos() {
               </tr>
             </tbody>
           </table>
+        </div>
+
+        {/* VISÃO MOBILE (Cards) */}
+        <div className="lg:hidden p-4 sm:p-6 grid grid-cols-1 gap-6 bg-slate-50 border-t border-slate-100">
+          <div className="bg-white border-2 border-slate-100 rounded-3xl p-6 shadow-md flex flex-col items-center justify-center py-12">
+            <Dumbbell size={48} className="text-slate-300 mb-4" />
+            <h3 className="text-xl font-black text-slate-800 uppercase text-center mb-2">Vagas Presenciais</h3>
+            <p className="text-slate-500 font-bold text-sm text-center">Os planos para atendimento e avaliação no consultório serão liberados em breve. Fique de olho no Instagram!</p>
+          </div>
         </div>
       </div>
 
