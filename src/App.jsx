@@ -11,6 +11,8 @@ import Bioimpedancia from './pages/Bioimpedancia';
 import VitaminaA from './pages/VitaminaA';
 import Frutose from './pages/Frutose';
 import EfeitoSanfona from './pages/EfeitoSanfona';
+import Eritropoetina from './pages/Eritropoetina';
+
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -78,6 +80,10 @@ function Layout({ children }) {
         title: 'Efeito Sanfona e Inflamação Invisível | Nutrição com Marco', 
         desc: 'Descubra por que o reganho de peso é mais perigoso que a obesidade estável e como a memória das suas células de gordura impacta sua saúde.' 
       }
+'/rascunho_eritropoetina': { 
+  title: 'Rascunho: Eritropoetina | Nutrição com Marco', 
+  desc: 'Teste de layout do artigo sobre doping e altitude.' 
+},
     };
 
     const currentSEO = seoData[location.pathname] || seoData['/'];
@@ -169,6 +175,7 @@ export default function App() {
             <Route path="/vitamina_a_para_que_serve" element={<VitaminaA />} />
             <Route path="/o_que_e_antropometria" element={<Antropometria />} />
             <Route path="/a_balanca_de_bioimpedancia_e_confiavel" element={<Bioimpedancia />} />
+<Route path="/rascunho_eritropoetina" element={<Eritropoetina />} />
           </Routes>
         </Layout>
       </Router>
