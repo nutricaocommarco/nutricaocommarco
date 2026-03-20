@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, HelpCircle, PlayCircle } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
+import { Helmet } from 'react-helmet-async';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -12,6 +13,24 @@ export default function Frutose() {
   }, [pathname]);
 
   return (
+    <>
+    <Helmet>
+        <title>Quantas frutas posso comer por dia? | Nutrição com Marco</title>
+        <meta name="description" content="Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado." />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Afinal, a frutose causa gordura no fígado? Descubra quantas frutas você pode comer por dia",
+            "image": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/frutas.png",
+            "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
+            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png"}},
+            "datePublished": "2026-03-20",
+            "description": "Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado."
+          })}
+        </script>
+      </Helmet>
+      
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
         
@@ -190,5 +209,6 @@ export default function Frutose() {
         
       </div>
     </section>
+    </>
   );
 }
