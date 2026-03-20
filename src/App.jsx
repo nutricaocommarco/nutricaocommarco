@@ -15,8 +15,6 @@ import EfeitoSanfona from './pages/EfeitoSanfona';
 import Eritropoetina from './pages/Eritropoetina';
 import Planos from './pages/Planos';
 
-
-
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 function ScrollToTop() {
@@ -87,7 +85,7 @@ function Layout({ children }) {
         title: 'Efeito Sanfona e Inflamação Invisível | Nutrição com Marco', 
         desc: 'Descubra por que o reganho de peso é mais perigoso que a obesidade estável e como a memória das suas células de gordura impacta sua saúde.' 
       },
-            '/o_dilema_do_sangue_na_altitude': { 
+      '/o_dilema_do_sangue_na_altitude': { 
         title: 'Doping na Altitude: Eritropoetina e Ética no Esporte | Nutrição com Marco', 
         desc: 'Entenda os riscos fatais do uso sintético do hormônio eritropoetina e da transfusão de hemácias no esporte de alta performance.' 
       },
@@ -167,35 +165,27 @@ function Layout({ children }) {
   );
 }
 
-function App() {
+// CORREÇÃO: O App agora é exportado corretamente e envolve o Layout e as Rotas
+export default function App() {
   return (
     <HelmetProvider>
       <Router>
-        {/* Se você tiver um <Navbar /> ou <ScrollToTop />, eles ficam aqui, antes do <Routes> */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/certificacoes" element={<Certificacoes />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/planos" element={<Planos />} />
-          <Route path="/efeito_sanfona_inflamacao_invisivel" element={<EfeitoSanfona />} />
-          <Route path="/quantas_frutas_posso_comer" element={<Frutose />} />
-          <Route path="/vitamina_a_para_que_serve" element={<VitaminaA />} />
-          <Route path="/o_que_e_antropometria" element={<Antropometria />} />
-          <Route path="/a_balanca_de_bioimpedancia_e_confiavel" element={<Bioimpedancia />} />
-          <Route path="/o_dilema_do_sangue_na_altitude" element={<Eritropoetina />} />
-        </Routes>
+        <ScrollToTop />
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/certificacoes" element={<Certificacoes />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/planos" element={<Planos />} />
+            <Route path="/efeito_sanfona_inflamacao_invisivel" element={<EfeitoSanfona />} />
+            <Route path="/quantas_frutas_posso_comer" element={<Frutose />} />
+            <Route path="/vitamina_a_para_que_serve" element={<VitaminaA />} />
+            <Route path="/o_que_e_antropometria" element={<Antropometria />} />
+            <Route path="/a_balanca_de_bioimpedancia_e_confiavel" element={<Bioimpedancia />} />
+            <Route path="/o_dilema_do_sangue_na_altitude" element={<Eritropoetina />} />
+          </Routes>
+        </Layout>
       </Router>
     </HelmetProvider>
-  );
-}
-
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,900;1,900&display=swap');
-        @keyframes bounce-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        .animate-bounce-slow { animation: bounce-slow 3s ease-in-out infinite; }
-        .titulo-vazado { font-family: 'Poppins', sans-serif; -webkit-text-stroke: 2px #1e3a8a; text-shadow: 3px 3px 0px #1e3a8a; }
-        @media (min-width: 768px) { .titulo-vazado { -webkit-text-stroke: 4px #1e3a8a; text-shadow: 5px 5px 0px #1e3a8a; } }
-      `}</style>
-    </>
   );
 }
