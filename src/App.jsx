@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Instagram, Menu, X, Mail } from 'lucide-react';
+import { HelmetProvider } from 'react-helmet-async';
 
 // Importando as páginas exclusivas
 import Home from './pages/Home';
@@ -166,27 +167,27 @@ function Layout({ children }) {
   );
 }
 
-export default function App() {
+function App() {
   return (
-    <>
+    <HelmetProvider>
       <Router>
-        <ScrollToTop />
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/certificacoes" element={<Certificacoes />} />
-            <Route path="/blog" element={<Blog />} />
-<Route path="/planos" element={<Planos />} />
-            <Route path="/efeito_sanfona_inflamacao_invisivel" element={<EfeitoSanfona />} />
-            <Route path="/quantas_frutas_posso_comer" element={<Frutose />} />
-            <Route path="/vitamina_a_para_que_serve" element={<VitaminaA />} />
-            <Route path="/o_que_e_antropometria" element={<Antropometria />} />
-            <Route path="/a_balanca_de_bioimpedancia_e_confiavel" element={<Bioimpedancia />} />
-            <Route path="/o_dilema_do_sangue_na_altitude" element={<Eritropoetina />} />
-
-          </Routes>
-        </Layout>
+        {/* Se você tiver um <Navbar /> ou <ScrollToTop />, eles ficam aqui, antes do <Routes> */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/certificacoes" element={<Certificacoes />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/planos" element={<Planos />} />
+          <Route path="/efeito_sanfona_inflamacao_invisivel" element={<EfeitoSanfona />} />
+          <Route path="/quantas_frutas_posso_comer" element={<Frutose />} />
+          <Route path="/vitamina_a_para_que_serve" element={<VitaminaA />} />
+          <Route path="/o_que_e_antropometria" element={<Antropometria />} />
+          <Route path="/a_balanca_de_bioimpedancia_e_confiavel" element={<Bioimpedancia />} />
+          <Route path="/o_dilema_do_sangue_na_altitude" element={<Eritropoetina />} />
+        </Routes>
       </Router>
+    </HelmetProvider>
+  );
+}
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,900;1,900&display=swap');
