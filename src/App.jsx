@@ -90,7 +90,7 @@ function Layout({ children }) {
         title: 'Doping na Altitude: Eritropoetina e Ética no Esporte | Nutrição com Marco', 
         desc: 'Entenda os riscos fatais do uso sintético do hormônio eritropoetina e da transfusão de hemácias no esporte de alta performance.' 
       },
-    '/por_que_o_feijao_da_gases': { 
+      '/por_que_o_feijao_da_gases': { 
         title: 'Por que o feijão dá gases e como evitar de vez | Nutrição com Marco', 
         desc: 'Descubra por que o feijão causa gases e o que fazer para evitar o desconforto. Entenda como funciona a digestão e veja dicas práticas.' 
       },
@@ -172,7 +172,7 @@ function Layout({ children }) {
   );
 }
 
-// CORREÇÃO: O App agora é exportado corretamente e envolve o Layout, as Rotas e os Estilos Globais
+// CORREÇÃO: O App agora é exportado corretamente de forma única
 export default function App() {
   return (
     <HelmetProvider>
