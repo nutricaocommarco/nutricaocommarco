@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, HelpCircle, PlayCircle } from 'lucide-react';
+import ArtigosRecomendados from '../components/ArtigosRecomendados';
+
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -95,6 +97,8 @@ export default function EfeitoSanfona() {
             
           </div>
         </article>
+
+<ArtigosRecomendados currentPath={pathname} />
         
         {/* RODAPÉ DO AUTOR */}
         <div className="mt-20 pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6 text-left">
