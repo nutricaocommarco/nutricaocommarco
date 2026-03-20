@@ -9,7 +9,6 @@ export default function Planos() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  // Função simples para renderizar os ícones de V ou X para manter o código limpo
   const renderIcon = (value) => {
     if (value === true) return <Check size={24} strokeWidth={3} className="text-green-500 mx-auto" />;
     if (value === false) return <X size={24} strokeWidth={3} className="text-slate-200 mx-auto" />;
@@ -23,7 +22,6 @@ export default function Planos() {
         <ChevronLeft size={20} /> Voltar para o Início
       </Link>
 
-      {/* !!! CORREÇÃO DO TÍTULO E RESPONSIVIDADE !!! */}
       <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 italic uppercase mb-6 leading-tight">
         Planos de <span className="text-green-600">Acompanhamento</span>
       </h1>
@@ -33,13 +31,14 @@ export default function Planos() {
 
       {/* NÍVEL 1: ATENDIMENTO ONLINE */}
       <div className="mb-20 bg-white rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden text-left">
-        <div className="bg-slate-900 p-8 flex items-center gap-4">
-          <div className="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
-            <CalendarClock size={28} />
+        <div className="bg-slate-900 p-6 md:p-8 flex items-center gap-4">
+          <div className="w-12 h-12 md:w-14 md:h-14 bg-green-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
+            <CalendarClock size={24} className="md:w-7 md:h-7" />
           </div>
-          <div>
-            <span className="text-green-400 font-black uppercase tracking-widest text-xs">Nível 1</span>
-            <h2 className="text-3xl font-black text-white italic uppercase">Atendimento Nutricional Online</h2>
+          <div className="min-w-0 flex-1">
+            <span className="text-green-400 font-black uppercase tracking-widest text-[10px] md:text-xs">Nível 1</span>
+            {/* TÍTULO AJUSTADO PARA MOBILE */}
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white italic uppercase leading-tight mt-1 break-words">Atendimento Nutricional Online</h2>
           </div>
         </div>
         
@@ -97,14 +96,13 @@ export default function Planos() {
                 <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
               </tr>
-              <tr className="hover:bg-slate-50 transition-colors border-b border-slate-50 hover:bg-slate-50 transition-colors">
+              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left">Kit Exclusivo em Casa</td>
                 <td className="p-4">{renderIcon(false)}</td>
                 <td className="p-4 bg-amber-50/50">{renderIcon(false)}</td>
                 <td className="p-4 bg-slate-50/50">{renderIcon(false)}</td>
                 <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
               </tr>
-              {/* !!! NOVA LINHA: PREÇO !!! */}
               <tr className="hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left font-bold text-slate-800">Preço</td>
                 <td className="p-4">{renderIcon('Em Breve')}</td>
@@ -119,13 +117,14 @@ export default function Planos() {
 
       {/* NÍVEL 2: AVALIAÇÃO ISAK */}
       <div className="mb-20 bg-white rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden text-left">
-        <div className="bg-slate-900 p-8 flex items-center gap-4">
-          <div className="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
-            <Activity size={28} />
+        <div className="bg-slate-900 p-6 md:p-8 flex items-center gap-4">
+          <div className="w-12 h-12 md:w-14 md:h-14 bg-green-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
+            <Activity size={24} className="md:w-7 md:h-7" />
           </div>
-          <div>
-            <span className="text-green-400 font-black uppercase tracking-widest text-xs">Nível 2</span>
-            <h2 className="text-3xl font-black text-white italic uppercase">Avaliação Antropométrica (ISAK 1)</h2>
+          <div className="min-w-0 flex-1">
+            <span className="text-green-400 font-black uppercase tracking-widest text-[10px] md:text-xs">Nível 2</span>
+            {/* TÍTULO AJUSTADO PARA MOBILE */}
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white italic uppercase leading-tight mt-1 break-words">Avaliação Antropométrica (ISAK 1)</h2>
           </div>
         </div>
         
@@ -162,21 +161,20 @@ export default function Planos() {
                 <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
               </tr>
-              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors border-b border-slate-50 hover:bg-slate-50 transition-colors">
+              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left">Comparativo Evolutivo</td>
                 <td className="p-4">{renderIcon('Básico')}</td>
                 <td className="p-4 bg-amber-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
               </tr>
-              <tr className="hover:bg-slate-50 transition-colors border-b border-slate-50 hover:bg-slate-50 transition-colors">
+              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left">Vídeo de Interpretação</td>
                 <td className="p-4">{renderIcon(false)}</td>
                 <td className="p-4 bg-amber-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
               </tr>
-              {/* !!! NOVA LINHA: PREÇO !!! */}
               <tr className="hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left font-bold text-slate-800">Preço</td>
                 <td className="p-4">{renderIcon('Em Breve')}</td>
@@ -191,18 +189,18 @@ export default function Planos() {
 
       {/* NÍVEL 3: PRESENCIAL PREMIUM */}
       <div className="mb-20 bg-white rounded-[3rem] shadow-2xl border border-green-600 overflow-hidden text-left relative">
-        {/* Etiqueta Premium */}
         <div className="absolute top-6 right-6 bg-green-600 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">
           Experiência Completa
         </div>
         
-        <div className="bg-slate-900 p-8 flex items-center gap-4">
-          <div className="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
-            <Dumbbell size={28} />
+        <div className="bg-slate-900 p-6 md:p-8 flex items-center gap-4">
+          <div className="w-12 h-12 md:w-14 md:h-14 bg-green-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
+            <Dumbbell size={24} className="md:w-7 md:h-7" />
           </div>
-          <div>
-            <span className="text-green-400 font-black uppercase tracking-widest text-xs">Nível 3</span>
-            <h2 className="text-3xl font-black text-white italic uppercase">Atendimento Presencial Premium</h2>
+          <div className="min-w-0 flex-1">
+            <span className="text-green-400 font-black uppercase tracking-widest text-[10px] md:text-xs">Nível 3</span>
+            {/* TÍTULO AJUSTADO PARA MOBILE */}
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white italic uppercase leading-tight mt-1 break-words">Atendimento Presencial Premium</h2>
           </div>
         </div>
         
@@ -267,14 +265,14 @@ export default function Planos() {
                 <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
               </tr>
-              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors border-b border-slate-50 hover:bg-slate-50 transition-colors">
+              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left">Suporte & App</td>
                 <td className="p-4">{renderIcon('30 dias')}</td>
                 <td className="p-4 bg-amber-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
               </tr>
-              <tr className="hover:bg-slate-50 transition-colors border-b border-slate-50 hover:bg-slate-50 transition-colors">
+              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left">Kit Exclusivo em Casa</td>
                 <td className="p-4">{renderIcon(false)}</td>
                 <td className="p-4 bg-amber-50/50">{renderIcon(false)}</td>
@@ -297,4 +295,5 @@ export default function Planos() {
     </section>
   );
 }
+
 
