@@ -23,7 +23,8 @@ export default function Planos() {
         <ChevronLeft size={20} /> Voltar para o Início
       </Link>
 
-      <h1 className="text-5xl md:text-7xl font-black text-slate-900 italic uppercase mb-6 leading-tight">
+      {/* !!! CORREÇÃO DO TÍTULO E RESPONSIVIDADE !!! */}
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 italic uppercase mb-6 leading-tight">
         Planos de <span className="text-green-600">Acompanhamento</span>
       </h1>
       <p className="text-slate-500 font-bold uppercase mb-16 tracking-widest max-w-2xl mx-auto">
@@ -96,12 +97,20 @@ export default function Planos() {
                 <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
               </tr>
-              <tr className="hover:bg-slate-50 transition-colors">
+              <tr className="hover:bg-slate-50 transition-colors border-b border-slate-50 hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left">Kit Exclusivo em Casa</td>
                 <td className="p-4">{renderIcon(false)}</td>
-                <td className="p-4 bg-amber-50/50 rounded-b-2xl">{renderIcon(false)}</td>
-                <td className="p-4 bg-slate-50/50 rounded-b-2xl">{renderIcon(false)}</td>
-                <td className="p-4 bg-yellow-50/50 rounded-b-2xl">{renderIcon(true)}</td>
+                <td className="p-4 bg-amber-50/50">{renderIcon(false)}</td>
+                <td className="p-4 bg-slate-50/50">{renderIcon(false)}</td>
+                <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
+              </tr>
+              {/* !!! NOVA LINHA: PREÇO !!! */}
+              <tr className="hover:bg-slate-50 transition-colors">
+                <td className="p-4 text-left font-bold text-slate-800">Preço</td>
+                <td className="p-4">{renderIcon('Em Breve')}</td>
+                <td className="p-4 bg-amber-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
+                <td className="p-4 bg-slate-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
+                <td className="p-4 bg-yellow-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
               </tr>
             </tbody>
           </table>
@@ -153,19 +162,27 @@ export default function Planos() {
                 <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
               </tr>
-              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
+              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors border-b border-slate-50 hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left">Comparativo Evolutivo</td>
                 <td className="p-4">{renderIcon('Básico')}</td>
                 <td className="p-4 bg-amber-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
               </tr>
-              <tr className="hover:bg-slate-50 transition-colors">
+              <tr className="hover:bg-slate-50 transition-colors border-b border-slate-50 hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left">Vídeo de Interpretação</td>
                 <td className="p-4">{renderIcon(false)}</td>
-                <td className="p-4 bg-amber-50/50 rounded-b-2xl">{renderIcon(true)}</td>
-                <td className="p-4 bg-slate-50/50 rounded-b-2xl">{renderIcon(true)}</td>
-                <td className="p-4 bg-yellow-50/50 rounded-b-2xl">{renderIcon(true)}</td>
+                <td className="p-4 bg-amber-50/50">{renderIcon(true)}</td>
+                <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
+                <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
+              </tr>
+              {/* !!! NOVA LINHA: PREÇO !!! */}
+              <tr className="hover:bg-slate-50 transition-colors">
+                <td className="p-4 text-left font-bold text-slate-800">Preço</td>
+                <td className="p-4">{renderIcon('Em Breve')}</td>
+                <td className="p-4 bg-amber-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
+                <td className="p-4 bg-slate-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
+                <td className="p-4 bg-yellow-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
               </tr>
             </tbody>
           </table>
@@ -250,19 +267,27 @@ export default function Planos() {
                 <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
               </tr>
-              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
+              <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors border-b border-slate-50 hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left">Suporte & App</td>
                 <td className="p-4">{renderIcon('30 dias')}</td>
                 <td className="p-4 bg-amber-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
               </tr>
-              <tr className="hover:bg-slate-50 transition-colors">
+              <tr className="hover:bg-slate-50 transition-colors border-b border-slate-50 hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left">Kit Exclusivo em Casa</td>
                 <td className="p-4">{renderIcon(false)}</td>
-                <td className="p-4 bg-amber-50/50 rounded-b-2xl">{renderIcon(false)}</td>
-                <td className="p-4 bg-slate-50/50 rounded-b-2xl">{renderIcon(true)}</td>
-                <td className="p-4 bg-yellow-50/50 rounded-b-2xl">{renderIcon(true)}</td>
+                <td className="p-4 bg-amber-50/50">{renderIcon(false)}</td>
+                <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
+                <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
+              </tr>
+              {/* !!! NOVA LINHA: PREÇO !!! */}
+              <tr className="hover:bg-slate-50 transition-colors">
+                <td className="p-4 text-left font-bold text-slate-800">Preço</td>
+                <td className="p-4">{renderIcon('Em Breve')}</td>
+                <td className="p-4 bg-amber-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
+                <td className="p-4 bg-slate-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
+                <td className="p-4 bg-yellow-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
               </tr>
             </tbody>
           </table>
@@ -272,3 +297,4 @@ export default function Planos() {
     </section>
   );
 }
+
