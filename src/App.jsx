@@ -6,6 +6,7 @@ import { HelmetProvider } from 'react-helmet-async';
 // Importando as páginas exclusivas
 import Home from './pages/Home';
 import Certificacoes from './pages/Certificacoes';
+import Sobre from './pages/Sobre';
 import Blog from './pages/Blog';
 import Planos from './pages/Planos';
 import Antropometria from './pages/Antropometria';
@@ -53,6 +54,10 @@ function Layout({ children }) {
       '/': { 
         title: 'Nutrição com Marco | Performance e Ciência', 
         desc: 'Especialista em Nutrição e Antropometria no RJ e Online. Performance física e saúde baseada em evidências científicas.' 
+      },
+       '/sobre': { 
+        title: 'Sobre Marco Aurélio Jr. | Nutrição com Marco', 
+        desc: 'Conheça a história de Marco Aurélio Jr., futuro nutricionista, fotógrafo esportivo e especialista em avaliação física ISAK 1 no Rio de Janeiro.' 
       },
       '/certificacoes': { 
         title: 'Currículo e Certificações | Nutrição com Marco', 
@@ -182,6 +187,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/certificacoes" element={<Certificacoes />} />
+            <Route path="/sobre" element={<Sobre />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/planos" element={<Planos />} />
             <Route path="/efeito_sanfona_inflamacao_invisivel" element={<EfeitoSanfona />} />
