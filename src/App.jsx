@@ -80,10 +80,10 @@ function Layout({ children }) {
         title: 'Efeito Sanfona e Inflamação Invisível | Nutrição com Marco', 
         desc: 'Descubra por que o reganho de peso é mais perigoso que a obesidade estável e como a memória das suas células de gordura impacta sua saúde.' 
       },
-      '/rascunho_eritropoetina': { 
-        title: 'Rascunho: Eritropoetina | Nutrição com Marco', 
-        desc: 'Teste de layout do artigo sobre doping e altitude.' 
-      }
+            '/o_dilema_do_sangue_na_altitude': { 
+        title: 'Doping na Altitude: Eritropoetina e Ética no Esporte | Nutrição com Marco', 
+        desc: 'Entenda os riscos fatais do uso sintético do hormônio eritropoetina e da transfusão de hemácias no esporte de alta performance.' 
+      },
     };
 
     const currentSEO = seoData[location.pathname] || seoData['/'];
@@ -175,7 +175,8 @@ export default function App() {
             <Route path="/vitamina_a_para_que_serve" element={<VitaminaA />} />
             <Route path="/o_que_e_antropometria" element={<Antropometria />} />
             <Route path="/a_balanca_de_bioimpedancia_e_confiavel" element={<Bioimpedancia />} />
-            <Route path="/rascunho_eritropoetina" element={<Eritropoetina />} />
+            <Route path="/o_dilema_do_sangue_na_altitude" element={<Eritropoetina />} />
+
           </Routes>
         </Layout>
       </Router>
