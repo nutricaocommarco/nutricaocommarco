@@ -88,12 +88,21 @@ export default function Planos() {
                 <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
                 <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
               </tr>
-              <tr className="hover:bg-slate-50 transition-colors">
+<tr className="hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left font-bold text-slate-800">Preço</td>
                 <td className="p-4">{renderIcon('Em Breve')}</td>
-                <td className="p-4 bg-amber-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
-                <td className="p-4 bg-slate-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
-                <td className="p-4 bg-yellow-50/50 rounded-b-2xl">{renderIcon('Em Breve')}</td>
+                <td className="p-4 bg-amber-50/50">{renderIcon('Em Breve')}</td>
+                <td className="p-4 bg-slate-50/50">{renderIcon('Em Breve')}</td>
+                <td className="p-4 bg-yellow-50/50">{renderIcon('Em Breve')}</td>
+              </tr>
+              <tr className="hover:bg-slate-50 transition-colors">
+                <td className="p-4 text-left font-bold text-slate-800">Reserva</td>
+                <td className="p-4">
+                  <a href="https://calendar.app.google/R9UBU3ANzW93K5wv7" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-green-700 transition-all inline-block">Agendar</a>
+                </td>
+                <td className="p-4 bg-amber-50/50 rounded-b-2xl"></td>
+                <td className="p-4 bg-slate-50/50 rounded-b-2xl"></td>
+                <td className="p-4 bg-yellow-50/50 rounded-b-2xl"></td>
               </tr>
             </tbody>
           </table>
