@@ -106,8 +106,7 @@ export default function Planos() {
                   <div className="flex flex-col items-center">
                     <span className="font-black text-slate-800 text-sm md:text-base whitespace-nowrap">10x de R$ 95</span>
                     <span className="text-[10px] font-bold text-green-600 uppercase tracking-widest mt-1 whitespace-nowrap">R$ 799 no Pix</span>
-                  </div>
-                </td>
+                </tr>
               <tr className="hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left font-bold text-slate-800">Reserva</td>
                 <td className="p-4">
