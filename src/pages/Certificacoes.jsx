@@ -20,16 +20,15 @@ export default function Certificacoes() {
         <div>
           <h2 className="text-2xl font-black text-slate-800 uppercase italic mb-10 flex items-center gap-4 justify-center md:justify-start"><span className="w-12 h-1 bg-green-600 rounded-full"></span> Prática Clínica e Comportamental</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <MiniCertCard image={`${githubImgBase}logo-temporaria.svg`} bgColor="bg-black" title="Farmacologia da Obesidade" org="Gustavo Stocker" desc="Estudo da farmacologia aplicada ao emagrecimento." />
-            <MiniCertCard image={`${githubImgBase}medsize_logo-branco-png.png`} bgColor="bg-black" title="Medsize Klinik" org="Medsize" desc="Focado em protocolos de atendimento e gestão clínica." />
-            <MiniCertCard image={`${githubImgBase}antropometria-obesidade.jpg`} title="Antropometria na Obesidade" org="Icaro Andrade" desc="Técnicas de mensuração específicas para o paciente com obesidade." />
-            <MiniCertCard image={`${githubImgBase}bioquimica.png`} title="Bioquímica e Fisiologia da Teoria à Prática Nutricional" org="Luan Lisboa Cursos • 60h" 
-  desc="Abordou Bioquímica e Metabolismo de macronutrientes, micronutrientes, compostos bioativos e a fisiologia dos sistemas digestivo, endócrino, renal, imunológico, nervoso e neuromuscular." />
-            <MiniCertCard image={`${githubImgBase}pronutri.webp`} title="Programa ProNutri (Ciclo 12)" org="Secad Artmed" desc="Atualização cobrindo Microbiota e Doenças Autoimunes." />
-            <MiniCertCard image={`${githubImgBase}pronutri.webp`} title="Programa ProNutri (Ciclo 14)" org="Secad Artmed" desc="Continuidade da formação clínica de vanguarda." />
-            <MiniCertCard image={`${githubImgBase}hormonios.jpg`} title="Metabolismo Hormonal" org="Prof. Dr. Rodrigo Vargas" desc="Hormônios esteroides e ajustes dietéticos esportivos." />
-            <MiniCertCard image={`${githubImgBase}ellocursos.webp`} title="Psicologia e Obesidade" org="Ellocursos" desc="Saúde mental e comportamento alimentar." />
-            <MiniCertCard image={`${githubImgBase}comer_intuitivo.jpg`} title="Comer Intuitivo" org="Inst. Nutrição Comportamental" desc="Abordagem focada em sinais de fome e razões físicas." />
+            <MiniCertCard image={`${githubImgBase}logo-temporaria.svg`} bgColor="bg-black" title="Farmacologia da Obesidade" org="Gustavo Stocker • 20h" desc="Estudo da farmacologia aplicada ao emagrecimento." />
+            <MiniCertCard image={`${githubImgBase}medsize_logo-branco-png.png`} bgColor="bg-black" title="Medsize Klinik" org="Medsize • 12h" desc="Focado em protocolos de atendimento e gestão clínica." />
+            <MiniCertCard image={`${githubImgBase}antropometria-obesidade.jpg`} title="Antropometria na Obesidade" org="Icaro Andrade • 10h" desc="Técnicas de mensuração específicas para o paciente com obesidade." />
+            <MiniCertCard image={`${githubImgBase}bioquimica.png`} title="Bioquímica e Fisiologia da Teoria à Prática Nutricional" org="Luan Lisboa Cursos • 60h" desc="Abordou Bioquímica e Metabolismo de macronutrientes, micronutrientes, compostos bioativos e a fisiologia dos sistemas digestivo, endócrino, renal, imunológico, nervoso e neuromuscular." />
+            <MiniCertCard image={`${githubImgBase}pronutri.webp`} title="Programa ProNutri (Ciclo 12)" org="Secad Artmed • 190h" desc="Atualização cobrindo Microbiota e Doenças Autoimunes." />
+            <MiniCertCard image={`${githubImgBase}pronutri.webp`} title="Programa ProNutri (Ciclo 14)" org="Secad Artmed • 190h" desc="Continuidade da formação clínica de vanguarda." />
+            <MiniCertCard image={`${githubImgBase}hormonios.jpg`} title="Metabolismo Hormonal" org="Prof. Dr. Rodrigo Vargas • 12h" desc="Hormônios esteroides e ajustes dietéticos esportivos." />
+            <MiniCertCard image={`${githubImgBase}ellocursos.webp`} title="Psicologia e Obesidade" org="Ellocursos • 100h" desc="Saúde mental e comportamento alimentar." />
+            <MiniCertCard image={`${githubImgBase}comer_intuitivo.jpg`} title="Comer Intuitivo • 4h" org="Inst. Nutrição Comportamental" desc="Abordagem focada em sinais de fome e razões físicas." />
           </div>
         </div>
         <div className="grid md:grid-cols-2 gap-12 text-left mb-24">
