@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, Check, X, CalendarClock, Activity, Dumbbell } from 'lucide-react';
+import { Helmet } from 'react-helmet';
 
 export default function Planos() {
   const { pathname } = useLocation();
@@ -18,6 +19,15 @@ export default function Planos() {
   return (
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-6xl text-center">
       
+      {/* CÓDIGO INVISÍVEL QUE O WHATSAPP E O GOOGLE VÃO LER */}
+      <Helmet>
+        <title>Planos de Acompanhamento | Nutrição com Marco</title>
+        <meta name="description" content="Escolha o nível de suporte ideal para transformar a sua composição corporal com base na ciência." />
+        <meta property="og:title" content="Planos de Acompanhamento | Nutrição com Marco" />
+        <meta property="og:description" content="Escolha o nível de suporte ideal para transformar a sua composição corporal com base na ciência." />
+        <meta property="og:url" content="https://www.nutricaocommarco.com.br/planos" />
+      </Helmet>
+
       <Link to="/" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit mx-auto md:mx-0">
         <ChevronLeft size={20} /> Voltar para o Início
       </Link>
