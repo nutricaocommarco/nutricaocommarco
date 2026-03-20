@@ -1,12 +1,46 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Zap } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 export default function Home() {
   return (
     <>
+      <Helmet>
+        <title>Nutrição com Marco | Performance e Emagrecimento</title>
+        <meta name="description" content="Especialista em Nutrição e Antropometria no RJ e Online. Performance física e saúde baseada em evidências científicas." />
+        
+        {/* INÍCIO DO SCHEMA.ORG (DADOS ESTRUTURADOS PARA O GOOGLE) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HealthAndBeautyBusiness",
+            "name": "Nutrição com Marco",
+            "image": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png",
+            "@id": "https://www.nutricaocommarco.com.br/",
+            "url": "https://www.nutricaocommarco.com.br/",
+            "email": "nutricaocommarco@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Rio de Janeiro",
+              "addressRegion": "RJ",
+              "addressCountry": "BR"
+            },
+            "founder": {
+              "@type": "Person",
+              "name": "Marco Aurélio Jr.",
+              "jobTitle": "Nutricionista e Avaliador ISAK 1",
+              "image": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/marco-aurelio.png"
+            },
+            "description": "Especialista em Nutrição Clínico-Esportiva e Antropometria ISAK 1 com atendimento no Rio de Janeiro e Online.",
+            "priceRange": "$$"
+          })}
+        </script>
+        {/* FIM DO SCHEMA.ORG */}
+      </Helmet>
+
       <header className="relative pt-20 pb-20 overflow-hidden bg-gradient-to-b from-green-100 to-white text-center md:text-left">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center gap-12">
