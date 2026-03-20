@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, PlayCircle, HelpCircle } from 'lucide-react';
+import ArtigosRecomendados from '../components/ArtigosRecomendados';
+
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -93,6 +95,8 @@ export default function Antropometria() {
             </div>
           </div>
         </article>
+
+<ArtigosRecomendados currentPath={pathname} />
         
         <div className="mt-20 pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-4">
