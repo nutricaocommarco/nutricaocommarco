@@ -90,10 +90,10 @@ export default function Planos() {
               </tr>
 <tr className="hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left font-bold text-slate-800">Preço</td>
-                <td className="p-4">{renderIcon('Em Breve')}</td>
-                <td className="p-4 bg-amber-50/50">{renderIcon('Em Breve')}</td>
-                <td className="p-4 bg-slate-50/50">{renderIcon('Em Breve')}</td>
-                <td className="p-4 bg-yellow-50/50">{renderIcon('Em Breve')}</td>
+                <td className="p-4">{renderIcon('R$ 199')}</td>
+                <td className="p-4 bg-amber-50/50">{renderIcon('R$ 499')}</td>
+                <td className="p-4 bg-slate-50/50">{renderIcon('R$ 799')}</td>
+                <td className="p-4 bg-yellow-50/50">{renderIcon('R$ 899')}</td>
               </tr>
               <tr className="hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left font-bold text-slate-800">Reserva</td>
