@@ -89,25 +89,30 @@ export default function Planos() {
                 <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
               </tr>
 <tr className="hover:bg-slate-50 transition-colors">
-                <td className="p-4 text-left font-bold text-slate-800">Preço</td>
-                <td className="p-4">{renderIcon('R$ 199')}</td>
-                <td className="p-4 bg-amber-50/50">{renderIcon('R$ 499')}</td>
-                <td className="p-4 bg-slate-50/50">{renderIcon('R$ 799')}</td>
-                <td className="p-4 bg-yellow-50/50">{renderIcon('R$ 899')}</td>
-              </tr>
-              <tr className="hover:bg-slate-50 transition-colors">
-                <td className="p-4 text-left font-bold text-slate-800">Reserva</td>
+                <td className="p-4 text-left font-bold text-slate-800 align-middle">Preço</td>
                 <td className="p-4">
-                  <a href="https://calendar.app.google/R9UBU3ANzW93K5wv7" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-green-700 transition-all inline-block">Agendar</a>
+                  <div className="flex flex-col items-center">
+                    <span className="font-black text-slate-800 text-sm md:text-base whitespace-nowrap">2x de R$ 109</span>
+                    <span className="text-[10px] font-bold text-green-600 uppercase tracking-widest mt-1 whitespace-nowrap">R$ 199 no Pix</span>
+                  </div>
                 </td>
-                <td className="p-4 bg-amber-50/50 rounded-b-2xl">
-                  <a href="https://calendar.app.google/VHNNaQinSa5YuhJ1A" target="_blank" rel="noreferrer" className="bg-amber-600 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-amber-700 transition-all inline-block">Agendar</a>
+                <td className="p-4 bg-amber-50/50">
+                  <div className="flex flex-col items-center">
+                    <span className="font-black text-slate-800 text-sm md:text-base whitespace-nowrap">6x de R$ 99</span>
+                    <span className="text-[10px] font-bold text-green-600 uppercase tracking-widest mt-1 whitespace-nowrap">R$ 499 no Pix</span>
+                  </div>
                 </td>
-                <td className="p-4 bg-slate-50/50 rounded-b-2xl">
-                  <a href="https://calendar.app.google/Fh9inQ1dQD6G6SWZ7" target="_blank" rel="noreferrer" className="bg-slate-600 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-slate-800 transition-all inline-block">Agendar</a>
+                <td className="p-4 bg-slate-50/50">
+                  <div className="flex flex-col items-center">
+                    <span className="font-black text-slate-800 text-sm md:text-base whitespace-nowrap">10x de R$ 95</span>
+                    <span className="text-[10px] font-bold text-green-600 uppercase tracking-widest mt-1 whitespace-nowrap">R$ 799 no Pix</span>
+                  </div>
                 </td>
-                <td className="p-4 bg-yellow-50/50 rounded-b-2xl">
-                  <a href="https://calendar.app.google/3oktJvEmQhGJGqrm8" target="_blank" rel="noreferrer" className="bg-yellow-500 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-yellow-600 transition-all inline-block">Agendar</a>
+                <td className="p-4 bg-yellow-50/50">
+                  <div className="flex flex-col items-center">
+                    <span className="font-black text-slate-800 text-sm md:text-base whitespace-nowrap">12x de R$ 90</span>
+                    <span className="text-[10px] font-bold text-green-600 uppercase tracking-widest mt-1 whitespace-nowrap">R$ 899 no Pix</span>
+                  </div>
                 </td>
               </tr>
             </tbody>
