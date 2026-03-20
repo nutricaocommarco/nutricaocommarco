@@ -273,7 +273,7 @@ export default function Planos() {
                 <td className="p-4 bg-yellow-50/50">{renderIcon(true)}</td>
               </tr>
               <tr className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
-                <td className="p-4 text-left">Kit Exclusivo em Casa</td>
+                <td className="p-4 text-left">Kit Exclusivo</td>
                 <td className="p-4">{renderIcon(false)}</td>
                 <td className="p-4 bg-amber-50/50">{renderIcon(false)}</td>
                 <td className="p-4 bg-slate-50/50">{renderIcon(true)}</td>
