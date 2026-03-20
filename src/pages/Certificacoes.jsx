@@ -23,12 +23,8 @@ export default function Certificacoes() {
             <MiniCertCard image={`${githubImgBase}logo-temporaria.svg`} bgColor="bg-black" title="Farmacologia da Obesidade" org="Gustavo Stocker" desc="Estudo da farmacologia aplicada ao emagrecimento." />
             <MiniCertCard image={`${githubImgBase}medsize_logo-branco-png.png`} bgColor="bg-black" title="Medsize Klinik" org="Medsize" desc="Focado em protocolos de atendimento e gestão clínica." />
             <MiniCertCard image={`${githubImgBase}antropometria-obesidade.jpg`} title="Antropometria na Obesidade" org="Icaro Andrade" desc="Técnicas de mensuração específicas para o paciente com obesidade." />
-            <MiniCertCard 
-  image={`${githubImgBase}bioquimica.png`} 
-  title="Bioquímica e Fisiologia da Teoria à Prática Nutricional" 
-  org="Luan Lisboa Cursos • 60h" 
-  desc="Abordou Bioquímica e Metabolismo de macronutrientes, micronutrientes, compostos bioativos e a fisiologia dos sistemas digestivo, endócrino, renal, imunológico, nervoso e neuromuscular." 
-/>
+            <MiniCertCard image={`${githubImgBase}bioquimica.png`} title="Bioquímica e Fisiologia da Teoria à Prática Nutricional" org="Luan Lisboa Cursos • 60h" 
+  desc="Abordou Bioquímica e Metabolismo de macronutrientes, micronutrientes, compostos bioativos e a fisiologia dos sistemas digestivo, endócrino, renal, imunológico, nervoso e neuromuscular." />
             <MiniCertCard image={`${githubImgBase}pronutri.webp`} title="Programa ProNutri (Ciclo 12)" org="Secad Artmed" desc="Atualização cobrindo Microbiota e Doenças Autoimunes." />
             <MiniCertCard image={`${githubImgBase}pronutri.webp`} title="Programa ProNutri (Ciclo 14)" org="Secad Artmed" desc="Continuidade da formação clínica de vanguarda." />
             <MiniCertCard image={`${githubImgBase}hormonios.jpg`} title="Metabolismo Hormonal" org="Prof. Dr. Rodrigo Vargas" desc="Hormônios esteroides e ajustes dietéticos esportivos." />
