@@ -100,9 +100,15 @@ export default function Planos() {
                 <td className="p-4">
                   <a href="https://calendar.app.google/R9UBU3ANzW93K5wv7" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-green-700 transition-all inline-block">Agendar</a>
                 </td>
-                <td className="p-4 bg-amber-50/50 rounded-b-2xl"></td>
-                <td className="p-4 bg-slate-50/50 rounded-b-2xl"></td>
-                <td className="p-4 bg-yellow-50/50 rounded-b-2xl"></td>
+                <td className="p-4 bg-amber-50/50 rounded-b-2xl">
+                  <a href="https://calendar.app.google/VHNNaQinSa5YuhJ1A" target="_blank" rel="noreferrer" className="bg-amber-600 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-amber-700 transition-all inline-block">Agendar</a>
+                </td>
+                <td className="p-4 bg-slate-50/50 rounded-b-2xl">
+                  <a href="https://calendar.app.google/Fh9inQ1dQD6G6SWZ7" target="_blank" rel="noreferrer" className="bg-slate-600 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-slate-800 transition-all inline-block">Agendar</a>
+                </td>
+                <td className="p-4 bg-yellow-50/50 rounded-b-2xl">
+                  <a href="https://calendar.app.google/3oktJvEmQhGJGqrm8" target="_blank" rel="noreferrer" className="bg-yellow-500 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-yellow-600 transition-all inline-block">Agendar</a>
+                </td>
               </tr>
             </tbody>
           </table>
