@@ -12,6 +12,18 @@ export default function Blog() {
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
+<Link to="/por_que_o_feijao_da_gases" className="bg-white rounded-[2rem] overflow-hidden shadow-xl border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col group">
+  <div className="relative overflow-hidden aspect-video bg-slate-100">
+    <img src={`${githubImgBase}Blog/feijao.jpg`} alt="Por que o feijão dá gases" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest text-green-700">Saúde Intestinal</div>
+  </div>
+  <div className="p-6 md:p-8 flex flex-col flex-grow">
+    <h3 className="text-xl font-black text-slate-800 uppercase italic mb-3 leading-tight group-hover:text-green-600 transition-colors">Por que o feijão dá gases e como evitar de vez</h3>
+    <p className="text-slate-500 text-sm font-medium mb-6 line-clamp-3">Descubra por que o feijão causa gases, quais alimentos fermentam no intestino e veja dicas práticas para melhorar sua digestão.</p>
+    <span className="mt-auto inline-flex items-center gap-2 text-sm font-bold text-green-600 uppercase tracking-widest group-hover:translate-x-2 transition-transform">Ler Artigo</span>
+  </div>
+</Link>
+        
         {/* Card Eritropoetina (NOVO) */}
         <Link to="/o_dilema_do_sangue_na_altitude" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
           <div className="h-64 overflow-hidden border-b border-slate-50">
