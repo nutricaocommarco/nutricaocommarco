@@ -35,7 +35,7 @@ export default function Blog() {
             />
           </div>
           <div className="p-8 flex-grow">
-            <span className="text-[10px] font-black bg-green-50 text-green-600 px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">Nutrição Clínica</span>
+            <span className="text-[10px] font-black bg-green-50 text-green-600 px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">Metabolismo</span>
             <h3 className="text-2xl font-black text-slate-800 leading-tight mb-4">Quantas frutas posso comer por dia?</h3>
             <p className="text-slate-500 text-sm font-medium italic mb-6 line-clamp-3">
               Entenda o metabolismo da frutose, a diferença entre o açúcar natural e o refinado, e descubra a verdade sobre a fruta e a gordura no fígado.
