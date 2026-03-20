@@ -28,7 +28,7 @@ export default function Certificacoes() {
             <MiniCertCard image={`${githubImgBase}pronutri.webp`} title="Programa ProNutri (Ciclo 14)" org="Secad Artmed • 190h" desc="Continuidade da formação clínica de vanguarda." />
             <MiniCertCard image={`${githubImgBase}hormonios.jpg`} title="Metabolismo Hormonal" org="Prof. Dr. Rodrigo Vargas • 12h" desc="Hormônios esteroides e ajustes dietéticos esportivos." />
             <MiniCertCard image={`${githubImgBase}ellocursos.webp`} title="Psicologia e Obesidade" org="Ellocursos • 100h" desc="Saúde mental e comportamento alimentar." />
-            <MiniCertCard image={`${githubImgBase}comer_intuitivo.jpg`} title="Comer Intuitivo • 4h" org="Inst. Nutrição Comportamental" desc="Abordagem focada em sinais de fome e razões físicas." />
+            <MiniCertCard image={`${githubImgBase}comer_intuitivo.jpg`} title="Comer Intuitivo" org="Inst. Nutrição Comportamental • 4h" desc="Abordagem focada em sinais de fome e razões físicas." />
           </div>
         </div>
         <div className="grid md:grid-cols-2 gap-12 text-left mb-24">
