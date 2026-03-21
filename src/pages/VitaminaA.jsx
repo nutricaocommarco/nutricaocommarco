@@ -54,6 +54,21 @@ export default function VitaminaA() {
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900 text-left">
             Vitamina A para que serve? Entenda as diferenças entre retinol, retinal e ácido retinóico
           </h1>
+
+          {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) */}
+<div className="my-8 p-6 md:p-8 bg-slate-50 rounded-[2.5rem] border border-green-100 flex flex-col sm:flex-row items-center gap-6 shadow-inner">
+  <div className="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+    <PlayCircle size={28} />
+  </div>
+  <div className="flex-grow w-full text-left">
+    <h3 className="text-xl font-black text-slate-800 italic mb-2">Ouça este artigo</h3>
+    <audio controls className="w-full h-12 outline-none rounded-full">
+      <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/VitA.mp3" type="audio/mpeg" />
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
+  </div>
+</div>
+{/* FIM DA SESSÃO DO ÁUDIO */}
           
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed text-left">
             <p>A <strong>vitamina A</strong> é um nutriente essencial para o funcionamento adequado do organismo. Mas afinal, vitamina A para que serve? Sua atuação vai muito além da visão: ela participa da imunidade, da saúde da pele, do crescimento celular e da regulação genética.</p>
