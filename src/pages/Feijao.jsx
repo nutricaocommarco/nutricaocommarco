@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle } from 'lucide-react';
+import { ChevronLeft, HelpCircle, Headphones } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import { Helmet } from 'react-helmet-async';
 
@@ -65,6 +65,19 @@ export default function Feijao() {
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
             Por que o feijão dá gases e como evitar de vez
           </h1>
+
+          {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) - DESIGN COMPACTO */}
+<div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
+  <div className="flex items-center gap-3">
+    <Headphones className="text-green-600 w-6 h-6" />
+    <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+  </div>
+  <audio controls className="w-full h-10 outline-none">
+    <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Feijao.mp3" type="audio/mpeg" />
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
+</div>
+{/* FIM DA SESSÃO DO ÁUDIO */}
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
             <p>Se você já sentiu a barriga estufada depois de comer feijão, saiba que isso é extremamente comum e tem uma explicação científica exata. Apesar de ser um alimento incrivelmente nutritivo, rico em fibras, proteínas e minerais, o feijão contém compostos específicos que podem causar fermentação no intestino, levando à formação de gases. A boa notícia é que existem formas simples e comprovadas de reduzir ou até evitar completamente esse desconforto no seu dia a dia.</p>
