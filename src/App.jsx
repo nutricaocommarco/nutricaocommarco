@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Instagram, Menu, X, Mail } from 'lucide-react';
 import { HelmetProvider } from 'react-helmet-async';
+import HormoniosFome from './pages/HormoniosFome';
+import GeradorEmailSecreto from './pages/GeradorEmailSecreto'; // <-- Nova linha aqui
 
 // Importando as páginas exclusivas
 import Home from './pages/Home';
@@ -189,6 +191,8 @@ export default function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/hormonios_da_fome_emagrecimento" element={<HormoniosFome />} />
+            <Route path="/admin-pingus-email" element={<GeradorEmailSecreto />} /> {/* <-- Nova linha aqui */}
             <Route path="/certificacoes" element={<Certificacoes />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/blog" element={<Blog />} />
