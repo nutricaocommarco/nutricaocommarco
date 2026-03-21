@@ -37,7 +37,7 @@ const routes = [
   { 
     path: 'hormonios_da_fome_emagrecimento', 
     title: 'Hormônios da Fome: O Guia do Reganho | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Hormfome.png',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Hormfome.jpg',
     desc: 'Entenda a biologia por trás da fome insaciável pós-dieta. Grelina, Leptina e GLP-1.'
   },
   { 
