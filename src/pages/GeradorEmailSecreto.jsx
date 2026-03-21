@@ -6,6 +6,12 @@ export default function GeradorEmailSecreto() {
   // Idealmente, você importaria isso do mesmo arquivo que gera o seu Blog
   const ultimosArtigos = [
     {
+      titulo: "Nutrição para Ironman 70.3: Guia Completo",
+      link: "https://www.nutricaocommarco.com.br/nutricao_para_ironman_70_3",
+      descricao: "Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o Ironman 70.3.",
+      imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/nutricao_ironman_703.jpg"
+    },
+    {
       titulo: "Hormônios da Fome: Por que seu corpo luta contra a dieta?",
       link: "https://www.nutricaocommarco.com.br/hormonios_da_fome_emagrecimento",
       descricao: "Entenda como a Grelina e a Leptina controlam seu apetite e por que a ciência foca na inflamação celular para evitar o reganho de peso.",
