@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node gerar-rss.js && vite build"
+    "build": "node gerar-rss.js && vite build",
     "postbuild": "node prerender.mjs",
     "preview": "vite preview"
   },
