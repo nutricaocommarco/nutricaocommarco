@@ -16,6 +16,7 @@ import Frutose from './pages/Frutose';
 import EfeitoSanfona from './pages/EfeitoSanfona';
 import Eritropoetina from './pages/Eritropoetina';
 import Feijao from './pages/Feijao';
+import HormoniosFome from './pages/HormoniosFome';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -199,6 +200,7 @@ export default function App() {
             <Route path="/a_balanca_de_bioimpedancia_e_confiavel" element={<Bioimpedancia />} />
             <Route path="/o_dilema_do_sangue_na_altitude" element={<Eritropoetina />} />
             <Route path="/por_que_o_feijao_da_gases" element={<Feijao />} />
+<Route path="/hormonios_da_fome_emagrecimento" element={<HormoniosFome />} />
           </Routes>
         </Layout>
       </Router>
