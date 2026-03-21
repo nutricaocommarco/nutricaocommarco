@@ -1,0 +1,50 @@
+import fs from 'fs';
+import path from 'path';
+
+// O mapa do tesouro: Definimos aqui o que o WhatsApp deve ver em cada página
+const routes = [
+  { 
+    path: 'efeito_sanfona_inflamacao_invisivel', 
+    title: 'Efeito Sanfona e Inflamação Invisível | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/efeito_sanfona.jpg'
+  },
+  { 
+    path: 'hormonios_da_fome_emagrecimento', 
+    title: 'Hormônios da Fome: O Guia do Reganho | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Hormfome.png'
+  },
+  { 
+    path: 'o_dilema_do_sangue_na_altitude', 
+    title: 'Doping na Altitude: Eritropoietina | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/eritropoietina.jpg'
+  },
+  { 
+    path: 'quantas_frutas_posso_comer', 
+    title: 'A frutose das frutas faz mal? | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/frutose_bananas.jpg'
+  }
+];
+
+const distPath = path.resolve('dist');
+const template = fs.readFileSync(path.join(distPath, 'index.html'), 'utf-8');
+
+console.log('🚀 Iniciando Robô de SEO do Marco...');
+
+routes.forEach(route => {
+  const routePath = path.join(distPath, route.path);
+  if (!fs.existsSync(routePath)) fs.mkdirSync(routePath);
+
+  // Injetamos as tags do WhatsApp direto no HTML "congelado"
+  const html = template
+    .replace('<title>Nutrição com Marco</title>', `<title>${route.title}</title>`)
+    .replace('</head>', `
+      <meta property="og:type" content="article" />
+      <meta property="og:title" content="${route.title}" />
+      <meta property="og:image" content="${route.image}" />
+      <meta property="og:url" content="https://www.nutricaocommarco.com.br/${route.path}" />
+      <meta property="og:description" content="Conteúdo científico exclusivo sobre nutrição e performance." />
+    </head>`);
+
+  fs.writeFileSync(path.join(routePath, 'index.html'), html);
+  console.log(`✅ Página [${route.path}] preparada para o WhatsApp!`);
+});
