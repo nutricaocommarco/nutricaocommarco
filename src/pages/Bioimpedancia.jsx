@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, PlayCircle, HelpCircle, Zap, Headphones } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
-import Newsletter from './Newsletter';
+import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
