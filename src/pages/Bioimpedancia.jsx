@@ -19,6 +19,22 @@ export default function Bioimpedancia() {
   <Helmet>
         <title>A balança de bioimpedância é confiável? | Nutrição com Marco</title>
         <meta name="description" content="Entenda se a balança de bioimpedância é confiável, como ela funciona e o que altera o seu percentual de gordura." />
+
+{/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) */}
+<div className="my-8 p-6 md:p-8 bg-slate-50 rounded-[2.5rem] border border-green-100 flex flex-col sm:flex-row items-center gap-6 shadow-inner">
+  <div className="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+    <PlayCircle size={28} />
+  </div>
+  <div className="flex-grow w-full text-left">
+    <h3 className="text-xl font-black text-slate-800 italic mb-2">Ouça este artigo</h3>
+    <audio controls className="w-full h-12 outline-none rounded-full">
+      <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Bioimpedancia.mp3" type="audio/mpeg" />
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
+  </div>
+</div>
+{/* FIM DA SESSÃO DO ÁUDIO */}
+
         
         <meta property="og:type" content="article" />
         <meta property="og:title" content="A balança de bioimpedância é confiável? | Nutrição com Marco" />
