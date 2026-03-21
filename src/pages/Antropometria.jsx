@@ -19,6 +19,13 @@ export default function Antropometria() {
     <Helmet>
         <title>O que é Antropometria? A Ciência Exata da Avaliação | Nutrição com Marco</title>
         <meta name="description" content="Descubra o que é Antropometria e como a avaliação física ISAK revela sua real composição corporal, muito além da balança." />
+        
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="O que é Antropometria? A Ciência Exata da Avaliação | Nutrição com Marco" />
+        <meta property="og:description" content="Descubra o que é Antropometria e como a avaliação física ISAK revela sua real composição corporal, muito além da balança." />
+        <meta property="og:image" content="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/antropometria.png" />
+        <meta property="og:url" content="https://www.nutricaocommarco.com.br/o_que_e_antropometria" />
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
