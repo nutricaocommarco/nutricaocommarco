@@ -100,6 +100,29 @@ export default function HormoniosFome() {
               <p>Para vencer a batalha contra os hormônios da fome e evitar o efeito rebote, o segredo não está em restrições calóricas extremas e insustentáveis, mas em estratégias que respeitem a fisiologia do corpo.</p>
               <p>Manter a perda de peso exige foco em reduzir a inflamação persistente e gerenciar os picos de grelina. Isso é feito através de uma nutrição equilibrada (rica em proteínas e fibras que estimulam o GLP-1 natural), sono de qualidade, manejo do estresse e, crucialmente, o treinamento de força para manter a massa muscular (que ajuda a sustentar o metabolismo basal). Ao entender que o seu metabolismo é dinâmico e moldado pelas flutuações de peso, você pode adotar hábitos, com orientação nutricional personalizada, que ajudem o corpo a aceitar o novo peso como o "novo normal", silenciando gradualmente os sinais de alerta que disparam a fome excessiva.</p>
 
+              {/* SESSÃO DO VÍDEO DO YOUTUBE */}
+              <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
+                    <PlayCircle size={24} />
+                  </div>
+                  <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight text-left">A Dança dos Hormônios e o Reganhos de Peso</h3>
+                </div>
+                <p className="text-slate-600 mb-6 font-medium italic text-left">Entenda na prática clínica como a perda de gordura diminui a sua saciedade (leptina) e aumenta a sua fome (grelina), forçando o metabolismo a buscar o reganho de peso involuntário.</p>
+                <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
+                  <iframe 
+                    src="https://www.youtube.com/embed/BSqh47X9y4c" 
+                    title="Hormônios do Apetite e como eles afetam a fome" 
+                    className="absolute top-0 left-0 w-full h-full"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+              {/* FIM DA SESSÃO DO VÍDEO */}
+
+
               <div className="mt-16 pt-10 border-t border-slate-100 text-left">
                 <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
                 <div className="space-y-6">
