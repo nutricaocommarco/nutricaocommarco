@@ -19,6 +19,13 @@ export default function VitaminaA() {
     <Helmet>
         <title>Vitamina A para que serve? | Nutrição com Marco</title>
         <meta name="description" content="Entenda as diferenças entre retinol, retinal e ácido retinóico, e descubra como a Vitamina A atua no seu metabolismo muito além da visão." />
+        
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Vitamina A para que serve? | Nutrição com Marco" />
+        <meta property="og:description" content="Entenda as diferenças entre retinol, retinal e ácido retinóico, e descubra como a Vitamina A atua no seu metabolismo muito além da visão." />
+        <meta property="og:image" content="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/vitamina_A.jpg" />
+        <meta property="og:url" content="https://www.nutricaocommarco.com.br/vitamina_a_para_que_serve" />
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
