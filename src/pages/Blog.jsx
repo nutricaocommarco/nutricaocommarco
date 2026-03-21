@@ -12,6 +12,28 @@ export default function Blog() {
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
+        {/* Card Hormônios da Fome (NOVO) */}
+        <Link to="/hormonios_da_fome_emagrecimento" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
+          <div className="h-64 overflow-hidden border-b border-slate-50">
+            <img 
+              src={`${githubImgBase}Blog/Hormfome.png`} 
+              alt="Hormônios da fome: Grelina e Leptina" 
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+            />
+          </div>
+          <div className="p-8 flex-grow">
+            <span className="text-[10px] font-black bg-green-50 text-green-600 px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">Fisiologia e Metabolismo</span>
+            <h3 className="text-2xl font-black text-slate-800 leading-tight mb-4">Hormônios da Fome: A Verdadeira Razão do Efeito Rebote</h3>
+            <p className="text-slate-500 text-sm font-medium italic mb-6 line-clamp-3">
+              Entenda como Grelina, Leptina e GLP-1 sabotam sua dieta. Descubra por que a fome aumenta após emagrecer e a ciência por trás do reganho de peso.
+            </p>
+            <div className="flex items-center gap-2 text-green-600 font-bold uppercase text-xs">
+              Ler Página do Artigo <ChevronRight size={16} />
+            </div>
+          </div>
+        </Link>
+
+
 {/* Card Feijão (NOVO) */}
         <Link to="/por_que_o_feijao_da_gases" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
           <div className="h-64 overflow-hidden border-b border-slate-50">
