@@ -6,6 +6,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.nutricaocommarco.com.br/sobre</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.nutricaocommarco.com.br/certificacoes</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -47,6 +52,11 @@
   </url>
   <url>
     <loc>https://www.nutricaocommarco.com.br/o_dilema_do_sangue_na_altitude</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nutricaocommarco.com.br/por_que_o_feijao_da_gases</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
