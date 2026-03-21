@@ -7,6 +7,12 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 // 1. A sua lista centralizada. Toda vez que criar um post novo, basta adicionar aqui!
 export const listaArtigos = [
   {
+      titulo: "Nutrição para Ironman 70.3: Guia Completo",
+      link: "https://www.nutricaocommarco.com.br/nutricao_para_ironman_703",
+      descricao: "Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o Ironman 70.3.",
+      imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/nutricao_ironman_70_3.jpg"
+    },
+  {
     link: "/o_dilema_do_sangue_na_altitude",
     img: `${githubImgBase}Blog/eritropoietina.jpg`,
     tag: "Fisiologia do Esporte",
