@@ -18,7 +18,7 @@
     "react-helmet-async": "^2.0.4"
   },
 "devDependencies": {
-    "@prerenderer/renderer-jsdom": "^0.5.0",
+    "@prerenderer/renderer-jsdom": "^0.2.0",
     "@prerenderer/vite-plugin": "^0.5.2",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
