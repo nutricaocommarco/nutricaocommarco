@@ -17,6 +17,13 @@ export default function EfeitoSanfona() {
      <Helmet>
         <title>Efeito Sanfona e Inflamação Invisível | Nutrição com Marco</title>
         <meta name="description" content="Descubra por que o reganho de peso é mais perigoso que a obesidade estável e como a memória das suas células de gordura impacta sua saúde." />
+        
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Efeito Sanfona e Inflamação Invisível | Nutrição com Marco" />
+        <meta property="og:description" content="Descubra por que o reganho de peso é mais perigoso que a obesidade estável e como a memória das suas células de gordura impacta sua saúde." />
+        <meta property="og:image" content="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/efeito_sanfona.png" />
+        <meta property="og:url" content="https://www.nutricaocommarco.com.br/efeito_sanfona_inflamacao_invisivel" />
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
