@@ -20,21 +20,6 @@ export default function Bioimpedancia() {
         <title>A balança de bioimpedância é confiável? | Nutrição com Marco</title>
         <meta name="description" content="Entenda se a balança de bioimpedância é confiável, como ela funciona e o que altera o seu percentual de gordura." />
 
-{/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) */}
-<div className="my-8 p-6 md:p-8 bg-slate-50 rounded-[2.5rem] border border-green-100 flex flex-col sm:flex-row items-center gap-6 shadow-inner">
-  <div className="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
-    <PlayCircle size={28} />
-  </div>
-  <div className="flex-grow w-full text-left">
-    <h3 className="text-xl font-black text-slate-800 italic mb-2">Ouça este artigo</h3>
-    <audio controls className="w-full h-12 outline-none rounded-full">
-      <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Bioimpedancia.mp3" type="audio/mpeg" />
-      Seu navegador não suporta o elemento de áudio.
-    </audio>
-  </div>
-</div>
-{/* FIM DA SESSÃO DO ÁUDIO */}
-
         
         <meta property="og:type" content="article" />
         <meta property="og:title" content="A balança de bioimpedância é confiável? | Nutrição com Marco" />
@@ -55,6 +40,7 @@ export default function Bioimpedancia() {
           })}
         </script>
       </Helmet>
+
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
         
@@ -65,6 +51,21 @@ export default function Bioimpedancia() {
         <article className="prose prose-lg max-w-none">
           <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Tecnologia e Medida</span>
           <h1 className="text-4xl md:text-6xl font-black mb-10 uppercase italic leading-tight text-slate-900 text-left">A balança de bioimpedância é confiável?</h1>
+
+{/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) */}
+<div className="my-8 p-6 md:p-8 bg-slate-50 rounded-[2.5rem] border border-green-100 flex flex-col sm:flex-row items-center gap-6 shadow-inner">
+  <div className="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+    <PlayCircle size={28} />
+  </div>
+  <div className="flex-grow w-full text-left">
+    <h3 className="text-xl font-black text-slate-800 italic mb-2">Ouça este artigo</h3>
+    <audio controls className="w-full h-12 outline-none rounded-full">
+      <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Bioimpedancia.mp3" type="audio/mpeg" />
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
+  </div>
+</div>
+{/* FIM DA SESSÃO DO ÁUDIO */}
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed text-left">
             <p>A balança de bioimpedância é uma ferramenta bastante utilizada para estimar a composição corporal — como percentual de gordura, massa muscular e água corporal. Mas afinal, <strong>ela é realmente confiável?</strong> A resposta mais honesta é: depende de como ela é usada.</p>
