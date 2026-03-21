@@ -1,4 +1,4 @@
-Import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, PlayCircle, HelpCircle, Zap } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
