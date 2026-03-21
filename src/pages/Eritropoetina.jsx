@@ -15,9 +15,16 @@ export default function Eritropoetina() {
 
   return (
     <>
-      <Helmet>
+<Helmet>
         <title>Doping na Altitude: Eritropoetina e Ética no Esporte | Nutrição com Marco</title>
         <meta name="description" content="Entenda os riscos fatais do uso sintético do hormônio eritropoetina e da transfusão de hemácias no esporte de alta performance." />
+        
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Doping na Altitude: Eritropoetina e Ética no Esporte | Nutrição com Marco" />
+        <meta property="og:description" content="Entenda os riscos fatais do uso sintético do hormônio eritropoetina e da transfusão de hemácias no esporte de alta performance." />
+        <meta property="og:image" content="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/eritropoietina.jpg" />
+        <meta property="og:url" content="https://www.nutricaocommarco.com.br/o_dilema_do_sangue_na_altitude" />
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
