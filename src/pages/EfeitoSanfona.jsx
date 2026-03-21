@@ -53,6 +53,21 @@ export default function EfeitoSanfona() {
             Efeito Sanfona e a Inflamação Invisível: Por que o reganho de peso é tão perigoso?
           </h1>
           
+{/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) */}
+<div className="my-8 p-6 md:p-8 bg-slate-50 rounded-[2.5rem] border border-green-100 flex flex-col sm:flex-row items-center gap-6 shadow-inner">
+  <div className="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+    <PlayCircle size={28} />
+  </div>
+  <div className="flex-grow w-full text-left">
+    <h3 className="text-xl font-black text-slate-800 italic mb-2">Ouça este artigo</h3>
+    <audio controls className="w-full h-12 outline-none rounded-full">
+      <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/EfeitoSanfona.mp3" type="audio/mpeg" />
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
+  </div>
+</div>
+{/* FIM DA SESSÃO DO ÁUDIO */}
+          
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
             <p>Você já sentiu que, logo após terminar uma dieta e perder peso, o seu corpo parece fazer um esforço enorme para ganhar tudo de novo? Esse vaivém da balança, conhecido como efeito sanfona ou ciclo de peso, é um dos maiores desafios para quem busca saúde, já que a grande maioria das pessoas que tentam emagrecer acaba enfrentando dificuldades reais para manter o peso mais baixo a longo prazo.</p>
 
