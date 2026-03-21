@@ -17,6 +17,13 @@ export default function Frutose() {
     <Helmet>
         <title>Quantas frutas posso comer por dia? | Nutrição com Marco</title>
         <meta name="description" content="Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado." />
+        
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Quantas frutas posso comer por dia? | Nutrição com Marco" />
+        <meta property="og:description" content="Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado." />
+        <meta property="og:image" content="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/frutas.png" />
+        <meta property="og:url" content="https://www.nutricaocommarco.com.br/quantas_frutas_posso_comer" />
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
