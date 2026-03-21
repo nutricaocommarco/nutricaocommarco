@@ -18,6 +18,14 @@ export default function Feijao() {
       <Helmet>
         <title>Por que o feijão dá gases e como evitar de vez | Nutrição com Marco</title>
         <meta name="description" content="Descubra por que o feijão causa gases e o que fazer para evitar o desconforto. Entenda como funciona a digestão e veja dicas práticas." />
+
+        {/* INÍCIO DO OPEN GRAPH (PARA COMPARTILHAMENTO NO WHATSAPP, INSTAGRAM, FACEBOOK) */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Por que o feijão dá gases e como evitar de vez | Nutrição com Marco" />
+        <meta property="og:description" content="Descubra por que o feijão causa gases e o que fazer para evitar o desconforto. Entenda como funciona a digestão e veja dicas práticas." />
+        <meta property="og:image" content="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/feijao.jpg" />
+        <meta property="og:url" content="https://www.nutricaocommarco.com.br/por_que_o_feijao_da_gases" />
+        {/* FIM DO OPEN GRAPH */}        
         
         {/* INÍCIO DO SCHEMA.ORG PARA ARTIGOS */}
         <script type="application/ld+json">
