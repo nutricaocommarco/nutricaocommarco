@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Instagram, Menu, X, Mail } from 'lucide-react';
-import { HelmetProvider } from 'react-helmet-async';,
+import { HelmetProvider } from 'react-helmet-async';
 
 // Importando as páginas exclusivas
 import Home from './pages/Home';
