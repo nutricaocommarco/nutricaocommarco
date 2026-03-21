@@ -16,9 +16,16 @@ export default function Bioimpedancia() {
 
   return (
    <>
-   <Helmet>
+  <Helmet>
         <title>A balança de bioimpedância é confiável? | Nutrição com Marco</title>
         <meta name="description" content="Entenda se a balança de bioimpedância é confiável, como ela funciona e o que altera o seu percentual de gordura." />
+        
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="A balança de bioimpedância é confiável? | Nutrição com Marco" />
+        <meta property="og:description" content="Entenda se a balança de bioimpedância é confiável, como ela funciona e o que altera o seu percentual de gordura." />
+        <meta property="og:image" content="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/bioimpedancia.png" />
+        <meta property="og:url" content="https://www.nutricaocommarco.com.br/a_balanca_de_bioimpedancia_e_confiavel" />
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
