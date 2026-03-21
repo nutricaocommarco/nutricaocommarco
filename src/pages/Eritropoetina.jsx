@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, PlayCircle } from 'lucide-react';
+import { ChevronLeft, HelpCircle, PlayCircle, Headphones } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import { Helmet } from 'react-helmet-async';
 
@@ -52,6 +52,19 @@ export default function Eritropoetina() {
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
             O Dilema do Sangue na Altitude: Como o Hormônio Eritropoetina e a Transfusão de Hemácias Afetam a Ética no Esporte
           </h1>
+
+          {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) - DESIGN COMPACTO */}
+<div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
+  <div className="flex items-center gap-3">
+    <Headphones className="text-green-600 w-6 h-6" />
+    <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+  </div>
+  <audio controls className="w-full h-10 outline-none">
+    <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Eritropoietina.mp3" type="audio/mpeg" />
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
+</div>
+{/* FIM DA SESSÃO DO ÁUDIO */}
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
             <p>Correr uma maratona em um lugar como San Pedro do Atacama, a 2.500 metros acima do nível do mar, é um teste de fogo para qualquer ser humano. Para um corredor que sai do Rio de Janeiro, acostumado com a abundância de oxigênio do litoral, o impacto é imediato. O ar rarefeito da altitude faz com que cada respiração pareça insuficiente, forçando o organismo a buscar saídas para não entrar em colapso. É nesse cenário de pressão extrema que muitos atletas se veem diante de propostas tentadoras, porém perigosas e ilegais, que prometem melhorar o desempenho de forma artificial, mas que colocam a vida em risco.</p>
