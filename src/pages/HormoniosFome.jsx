@@ -23,7 +23,7 @@ export default function HormoniosFome() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Hormônios da Fome: O Guia Científico do Reganhos de Peso | Nutrição com Marco" />
         <meta property="og:description" content="Entenda a biologia por trás da fome insaciável pós-dieta. Grelina, Leptina e o papel do GLP-1 explicados pela ciência moderna." />
-        <meta property="og:image" content={`${githubImgBase}Blog/Hormfome.png`} />
+        <meta property="og:image" content={`${githubImgBase}Blog/Hormfome.jpg`} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         {/* SCHEMA.ORG (Google) */}
@@ -32,7 +32,7 @@ export default function HormoniosFome() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Hormônios da Fome: Como Grelina e Leptina Controlam seu Peso",
-            "image": `${githubImgBase}Blog/Hormfome.png`,
+            "image": `${githubImgBase}Blog/Hormfome.jpg`,
             "author": {
               "@type": "Person",
               "name": "Marco Aurélio Jr.",
@@ -72,7 +72,7 @@ export default function HormoniosFome() {
               <p>O emagrecimento, embora excelente para a saúde cardiovascular e metabólica, gera um alerta vermelho no organismo. No consultório, quando analiso a <Link to="/o_que_e_antropometria" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">antropometria ISAK 1</Link> de um paciente que reganhou peso rápido, muitas vezes vejo que a perda inicial foi agressiva demais, ignorando a fisiologia. O corpo interpreta a perda de gordura como uma ameaça à sobrevivência e reage ativando adaptações metabólicas potentes: diminui o gasto de energia (metabolismo basal) e gera um aumento expressivo nos <strong className="text-slate-800">hormônios da fome</strong>. Essa pressão biológica é o que muitas vezes nos empurra de volta, de forma quase inconsciente, aos antigos hábitos alimentares.</p>
 
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-                <img src={`${githubImgBase}Blog/Hormfome.png`} alt="Ilustração dos hormônios da fome Grelina e Leptina atuando no cérebro" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={`${githubImgBase}Blog/Hormfome.jpg`} alt="Ilustração dos hormônios da fome Grelina e Leptina atuando no cérebro" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">A batalha pela manutenção do peso ocorre no nível hormonal, não apenas na força de vontade.</p></div>
               </div>
 
