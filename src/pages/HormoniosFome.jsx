@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, BrainCircuit, Scale, Pill, Flame, Target } from 'lucide-react';
+import { ChevronLeft, HelpCircle, BrainCircuit, Scale, Pill, Flame, Target, PlayCircle } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import { Helmet } from 'react-helmet-async';
 
@@ -160,6 +160,6 @@ export default function HormoniosFome() {
 
         </div>
       </section>
-    </    >
+    </>
   );
 }
