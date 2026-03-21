@@ -39,6 +39,7 @@ export default function Antropometria() {
           })}
         </script>
       </Helmet>
+
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
         
@@ -52,6 +53,22 @@ export default function Antropometria() {
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900 text-left">
             O que é Antropometria? A Ciência Exata Por Trás da sua Avaliação Física
           </h1>
+
+{/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) */}
+<div className="my-8 p-6 md:p-8 bg-slate-50 rounded-[2.5rem] border border-green-100 flex flex-col sm:flex-row items-center gap-6 shadow-inner">
+  <div className="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+    <PlayCircle size={28} />
+  </div>
+  <div className="flex-grow w-full text-left">
+    <h3 className="text-xl font-black text-slate-800 italic mb-2">Ouça este artigo</h3>
+    <audio controls className="w-full h-12 outline-none rounded-full">
+      <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Antropometria.mp3" type="audio/mpeg" />
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
+  </div>
+</div>
+{/* FIM DA SESSÃO DO ÁUDIO */}
+
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed text-left">
             <p>A <strong>Antropometria</strong> é uma ciência fundamental que estuda as proporções, o tamanho e as medidas do corpo humano, sendo uma ferramenta indispensável para profissionais das áreas de saúde, nutrição esportiva e alta performance. Etimologicamente, o termo deriva do grego <em>anthropos</em> (homem) e <em>metron</em> (metodologia de medida), definindo-se objetivamente como o método de mensurar as características fenotípicas de um indivíduo para entender seu crescimento, estado nutricional e potencial de rendimento.</p>
