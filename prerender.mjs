@@ -3,25 +3,78 @@ import path from 'path';
 
 // O mapa do tesouro: Definimos aqui o que o WhatsApp deve ver em cada página
 const routes = [
+{ 
+    path: 'sobre', 
+    title: 'Sobre Marco Aurélio Jr. | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png',
+    desc: 'Conheça a história de Marco Aurélio Jr., futuro nutricionista e especialista em avaliação física ISAK 1.'
+  },
+  { 
+    path: 'certificacoes', 
+    title: 'Currículo e Certificações | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png',
+    desc: 'Conheça a trajetória técnica e as certificações internacionais ISAK do nutricionista Marco Aurélio Jr.'
+  },
+  { 
+    path: 'planos', 
+    title: 'Planos de Acompanhamento | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png',
+    desc: 'Conheça os níveis de acompanhamento nutricional e avaliação física ISAK 1.'
+  },
+  { 
+    path: 'blog', 
+    title: 'Blog de Nutrição e Ciência | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png',
+    desc: 'Conteúdo científico sobre antropometria, bioimpedância e emagrecimento real.'
+  },
+  // Artigos do Blog
   { 
     path: 'efeito_sanfona_inflamacao_invisivel', 
     title: 'Efeito Sanfona e Inflamação Invisível | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/efeito_sanfona.jpg'
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/efeito_sanfona.jpg',
+    desc: 'Descubra por que o reganho de peso é mais perigoso que a obesidade estável.'
   },
   { 
     path: 'hormonios_da_fome_emagrecimento', 
     title: 'Hormônios da Fome: O Guia do Reganho | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Hormfome.png'
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Hormfome.png',
+    desc: 'Entenda a biologia por trás da fome insaciável pós-dieta. Grelina, Leptina e GLP-1.'
   },
   { 
     path: 'o_dilema_do_sangue_na_altitude', 
-    title: 'Doping na Altitude: Eritropoietina | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/eritropoietina.jpg'
+    title: 'Doping na Altitude: Eritropoetina | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/eritropoetina.jpg',
+    desc: 'Entenda os riscos do uso sintético de hormônios e a ética no esporte de alta performance.'
   },
   { 
     path: 'quantas_frutas_posso_comer', 
     title: 'A frutose das frutas faz mal? | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/frutose_bananas.jpg'
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/frutose_bananas.jpg',
+    desc: 'Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado.'
+  },
+  { 
+    path: 'vitamina_a_para_que_serve', 
+    title: 'Vitamina A para que serve? | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/vitamina_a.jpg',
+    desc: 'Descubra como a Vitamina A atua no seu metabolismo muito além da visão.'
+  },
+  { 
+    path: 'o_que_e_antropometria', 
+    title: 'O que é Antropometria? | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/antropometria.jpg',
+    desc: 'Descubra como a avaliação ISAK revela sua real composição corporal, além da balança.'
+  },
+  { 
+    path: 'a_balanca_de_bioimpedancia_e_confiavel', 
+    title: 'A balança de bioimpedância é confiável? | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/bioimpedancia.jpg',
+    desc: 'Entenda como funciona a bioimpedância e o que pode alterar seu percentual de gordura.'
+  },
+  { 
+    path: 'por_que_o_feijao_da_gases', 
+    title: 'Por que o feijão dá gases? | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/feijao.jpg',
+    desc: 'Descubra por que o feijão causa gases e o que fazer para evitar o desconforto.'
   }
 ];
 
