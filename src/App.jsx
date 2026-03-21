@@ -17,6 +17,7 @@ import EfeitoSanfona from './pages/EfeitoSanfona';
 import Eritropoetina from './pages/Eritropoetina';
 import Feijao from './pages/Feijao';
 import HormoniosFome from './pages/HormoniosFome';
+import Ironman703 from './pages/Ironman703';
 import GeradorEmailSecreto from './pages/GeradorEmailSecreto';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
@@ -100,6 +101,10 @@ function Layout({ children }) {
       '/por_que_o_feijao_da_gases': { 
         title: 'Por que o feijão dá gases e como evitar de vez | Nutrição com Marco', 
         desc: 'Descubra por que o feijão causa gases e o que fazer para evitar o desconforto. Entenda como funciona a digestão e veja dicas práticas.' 
+      },
+      '/nutricao_para_ironman_703': { 
+        title: 'Nutrição para Ironman 70.3: Guia Completo | Nutrição com Marco', 
+        desc: 'Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o Ironman 70.3.' 
       },
     };
 
@@ -202,7 +207,8 @@ export default function App() {
             <Route path="/a_balanca_de_bioimpedancia_e_confiavel" element={<Bioimpedancia />} />
             <Route path="/o_dilema_do_sangue_na_altitude" element={<Eritropoetina />} />
             <Route path="/por_que_o_feijao_da_gases" element={<Feijao />} />
-<Route path="/hormonios_da_fome_emagrecimento" element={<HormoniosFome />} />
+            <Route path="/hormonios_da_fome_emagrecimento" element={<HormoniosFome />} />
+            <Route path="/nutricao_para_ironman_703" element={<Ironman703 />} />
           </Routes>
         </Layout>
       </Router>
