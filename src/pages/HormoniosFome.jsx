@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, BrainCircuit, Scale, Pill, Flame, Target, PlayCircle } from 'lucide-react';
+import { ChevronLeft, HelpCircle, BrainCircuit, Scale, Pill, Flame, Target, Headphones, PlayCircle } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import { Helmet } from 'react-helmet-async';
 
@@ -65,6 +65,19 @@ export default function HormoniosFome() {
             <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
               Hormônios da Fome: A Verdadeira Razão Biológica do Efeito Rebote
             </h1>
+
+            {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) - DESIGN COMPACTO */}
+<div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
+  <div className="flex items-center gap-3">
+    <Headphones className="text-green-600 w-6 h-6" />
+    <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+  </div>
+  <audio controls className="w-full h-10 outline-none">
+    <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/HormFome.mp3" type="audio/mpeg" />
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
+</div>
+{/* FIM DA SESSÃO DO ÁUDIO */}
 
             <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
               <p>Se você já tentou emagrecer, provavelmente já viveu essa cena: após semanas de disciplina e perda de peso, a sua fome parece ter dobrado de tamanho, tornando a manutenção do novo corpo uma tortura diária. Esse fenômeno é extremamente comum e não é falta de força de vontade. A maioria das pessoas que tenta perder peso enfrenta dificuldades biológicas reais para manter o novo peso a longo prazo.</p>
