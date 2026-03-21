@@ -16,7 +16,7 @@ export default function Blog() {
         <Link to="/hormonios_da_fome_emagrecimento" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
           <div className="h-64 overflow-hidden border-b border-slate-50">
             <img 
-              src={`${githubImgBase}Blog/Hormfome.png`} 
+              src={`${githubImgBase}Blog/Hormfome.jpg`} 
               alt="Hormônios da fome: Grelina e Leptina" 
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
             />
