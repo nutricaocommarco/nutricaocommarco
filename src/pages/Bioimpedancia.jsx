@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, PlayCircle, HelpCircle, Zap } from 'lucide-react';
+import { ChevronLeft, PlayCircle, HelpCircle, Zap, Headphones } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import { Helmet } from 'react-helmet-async';
 
@@ -52,18 +52,16 @@ export default function Bioimpedancia() {
           <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Tecnologia e Medida</span>
           <h1 className="text-4xl md:text-6xl font-black mb-10 uppercase italic leading-tight text-slate-900 text-left">A balança de bioimpedância é confiável?</h1>
 
-{/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) */}
-<div className="my-8 p-6 md:p-8 bg-slate-50 rounded-[2.5rem] border border-green-100 flex flex-col sm:flex-row items-center gap-6 shadow-inner">
-  <div className="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
-    <PlayCircle size={28} />
+          {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) - DESIGN COMPACTO */}
+<div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
+  <div className="flex items-center gap-3">
+    <Headphones className="text-green-600 w-6 h-6" />
+    <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
   </div>
-  <div className="flex-grow w-full text-left">
-    <h3 className="text-xl font-black text-slate-800 italic mb-2">Ouça este artigo</h3>
-    <audio controls className="w-full h-12 outline-none rounded-full">
-      <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Bioimpedancia.mp3" type="audio/mpeg" />
-      Seu navegador não suporta o elemento de áudio.
-    </audio>
-  </div>
+  <audio controls className="w-full h-10 outline-none">
+    <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Bioimpedancia.mp3" type="audio/mpeg" />
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
 </div>
 {/* FIM DA SESSÃO DO ÁUDIO */}
 
