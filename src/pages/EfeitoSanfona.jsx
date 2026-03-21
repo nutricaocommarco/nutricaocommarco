@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, Headphones } from 'lucide-react';
+import { ChevronLeft, HelpCircle, Headphones, PlayCircle } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import { Helmet } from 'react-helmet-async';
 
