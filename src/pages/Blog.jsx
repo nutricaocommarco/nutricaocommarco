@@ -12,7 +12,7 @@ export default function Blog() {
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-        {/* Card Ironman 70.3 (NOVO) */}
+        {/* Card Ironman70.3 (NOVO) */}
 <Link to="/nutricao_para_ironman_703" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
   <div className="h-64 overflow-hidden border-b border-slate-50">
     <img 
