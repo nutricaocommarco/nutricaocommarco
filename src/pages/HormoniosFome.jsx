@@ -264,26 +264,27 @@ export default function HormoniosFome() {
 
           <ArtigosRecomendados currentPath={pathname} />
 
-          {/* RODAPÉ DO AUTOR (ATUALIZADO COM FOTO REAL) */}
-          <div className="mt-20 pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6 text-left">
-            <div className="flex items-center gap-4 text-left">
-              <img 
-                src={`${githubImgBase}Eu_1.png`} 
-                alt="Marco Aurélio Jr." 
-                className="w-12 h-12 rounded-full object-cover shadow-lg border-2 border-green-100 flex-shrink-0"
-              />
-              <div className="text-left font-bold">
-                <p className="text-slate-900 text-sm">Marco Aurélio Jr.</p>
-                <p className="text-xs text-slate-400 uppercase tracking-widest font-black text-left">
-                  ISAK Level 1 • Nutrição com Ciência
-                </p>
-              </div>
+{/* RODAPÉ DO AUTOR (ATUALIZADO COM FOTO REAL) */}
+        <div className="mt-20 pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6 text-left">
+          <div className="flex items-center gap-4 text-left">
+            {/* Sua Foto Real em vez do 'M' */}
+            <img 
+              src={`${githubImgBase}Eu_1.png`} 
+              alt="Marco Aurélio Jr." 
+              className="w-12 h-12 rounded-full object-cover shadow-lg border-2 border-green-100 flex-shrink-0"
+            />
+            <div className="text-left font-bold">
+              <p className="text-slate-900 text-sm">Marco Aurélio Jr.</p>
+              <p className="text-xs text-slate-400 uppercase tracking-widest font-black text-left">
+                ISAK Level 1 • Antropometrista Internacional
+              </p>
             </div>
-            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-lg hover:bg-green-700 transition-all italic">@Nutricao_com_Marco</a>
           </div>
-
+          <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-lg hover:bg-green-700 transition-all italic">@Nutricao_com_Marco</a>
         </div>
-      </section>
+        
+      </div>
+    </section>
     </>
   );
 }
