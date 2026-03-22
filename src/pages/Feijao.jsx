@@ -101,6 +101,17 @@ export default function Feijao() {
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Por que o feijão dá gases?</h2>
             <p>O principal motivo para esse estufamento está na presença de carboidratos específicos chamados oligossacarídeos, tendo a rafinose como o principal exemplo. A fisiologia do nosso corpo não possui as ferramentas enzimáticas necessárias para quebrar esses compostos no intestino delgado. Como resultado, eles chegam totalmente intactos ao intestino grosso, onde são rapidamente fermentados pelas bactérias que compõem a nossa microbiota. Esse processo de fermentação bacteriana produz gases intensos como hidrogênio, metano e dióxido de carbono, o que gera aquele conhecido estufamento, desconforto abdominal e flatulência.</p>
 
+ {/* BLOCO CITÁVEL (OTIMIZADO PARA IA E SEO) */}
+            <div className="my-8 p-6 bg-white border-l-4 border-green-600 shadow-md rounded-r-2xl">
+              <h3 className="text-lg font-black text-slate-800 mb-2 flex items-center gap-2">
+                <span className="text-green-600">👉</span> O que são oligossacarídeos?
+              </h3>
+              <p className="text-slate-600 font-medium m-0">
+                São carboidratos complexos (como a rafinose) presentes nas leguminosas. Como o corpo humano não produz a enzima necessária para digeri-los no intestino delgado, eles chegam intactos ao intestino grosso, onde são fermentados pelas bactérias, resultando na produção de gases.
+              </p>
+            </div>
+            {/* FIM DO BLOCO CITÁVEL */}
+
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Outros alimentos que também causam gases</h2>
             <p>O feijão não é o único responsável por essa sensação, pois vários outros alimentos podem gerar exatamente o mesmo efeito fermentativo no seu corpo se não forem bem administrados.</p>
 
