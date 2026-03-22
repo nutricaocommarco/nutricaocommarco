@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, PlayCircle, HelpCircle, Headphones } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
+import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
 
 
@@ -204,7 +205,7 @@ export default function VitaminaA() {
                 </div>
               </div>
             </div>
-            
+            <Newsletter />
           </div>
         </article>
 
