@@ -76,6 +76,18 @@ const routes = [
     image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/feijao.jpg',
     desc: 'Descubra por que o feijão causa gases e o que fazer para evitar o desconforto.'
   }
+  { 
+    path: 'nutricao_para_ironman_703', 
+    title: 'Nutrição para Ironman 70.3: Guia Completo | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/nutricao_ironman_703.jpg',
+    desc: 'Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação.'
+  },
+  { 
+    path: 'hormonios_da_fome_emagrecimento', 
+    title: 'Hormônios da Fome: O corpo contra a dieta | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Hormfome.jpg',
+    desc: 'Entenda como a Grelina e a Leptina controlam seu apetite e a relação da inflamação celular com o reganho de peso.'
+  },
 ];
 
 const distPath = path.resolve('dist');
