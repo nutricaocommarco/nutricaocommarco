@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, HelpCircle, BrainCircuit, Activity, Droplets, Zap, Coffee, Headphones, PlayCircle } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
+import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
@@ -149,7 +150,7 @@ export default function Ironman703() {
                   </div>
                 </div>
               </div>
-
+<Newsletter />
             </div>
           </article>
 
