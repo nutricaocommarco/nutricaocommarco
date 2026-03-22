@@ -71,7 +71,7 @@ export default function Feijao() {
 <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col md:flex-row items-start md:items-center gap-6 text-left">
     <span className="inline-block bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest flex-shrink-0 md:mb-0">Resposta Rápida</span>
     <p className="m-0 text-lg md:text-xl text-green-950 font-bold leading-relaxed text-left flex-grow">
-    O feijão causa gases porque contém oligossacarídeos que não são digeridos no intestino delgado e são fermentados no intestino grosso, produzindo gases.
+    O feijão causa gases porque contém oligossacarídeos, como rafinose e estaquiose, que não são digeridos no intestino delgado e são fermentados pela microbiota intestinal no intestino grosso, produzindo gases como hidrogênio e metano.
     </p>
 </div>
 {/* FIM DO BLOCO DE RESPOSTA DIRETA */}
