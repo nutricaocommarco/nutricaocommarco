@@ -229,7 +229,7 @@ export default function HormoniosFome() {
               </div>
               {/* FIM DA SESSÃO DO VÍDEO */}
 
-              {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
+{/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
               <div className="mt-16 pt-10 border-t border-slate-100 text-left">
                 <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
                 <div className="space-y-6">
@@ -259,12 +259,12 @@ export default function HormoniosFome() {
               {/* FIM DO FAQ VISUAL OTIMIZADO */}
 
               <Newsletter />
-            </div>
-          </article>
+            </div> {/* <- AQUI FECHA A DIV space-y-6 DO TEXTO */}
+          </article> {/* <- AQUI FECHA O ARTIGO INTEIRO */}
 
           <ArtigosRecomendados currentPath={pathname} />
 
-{/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
+          {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
           <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
             
             {/* Foto do Autor no lugar do 'M' */}
@@ -288,8 +288,9 @@ export default function HormoniosFome() {
             </div>
           </div>
           {/* FIM DO NOVO CARTÃO DE AUTOR */}
-          </div>
-    </section>
+
+        </div> {/* <- AQUI FECHA A DIV BRANCA GIGANTE (bg-white) */}
+      </section> {/* <- AQUI FECHA A SECTION CINZA DE FUNDO */}
     </>
   );
 }
