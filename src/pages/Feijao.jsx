@@ -67,14 +67,17 @@ export default function Feijao() {
             Por que o feijão dá gases e como evitar de vez
           </h1>
 
-{/* BLOCO DE RESPOSTA DIRETA - ADICIONADO LOGO NO COMEÇO */}
-<div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col md:flex-row items-start md:items-center gap-6 text-left">
-    <span className="inline-block bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest flex-shrink-0 md:mb-0">Resposta Rápida</span>
-    <p className="m-0 text-lg md:text-xl text-green-950 font-bold leading-relaxed text-left flex-grow">
-    O feijão causa gases porque contém oligossacarídeos, como rafinose e estaquiose, que não são digeridos no intestino delgado e são fermentados pela microbiota intestinal no intestino grosso, produzindo gases como hidrogênio e metano.
+{/* BLOCO DE RESPOSTA DIRETA (OTIMIZADO COM H2 PARA SEO) */}
+<div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-4 text-left">
+    <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
+      Resposta rápida: por que o feijão dá gases?
+    </h2>
+    <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
+      O feijão causa gases porque contém oligossacarídeos, como rafinose e estaquiose, que não são digeridos no intestino delgado e são fermentados pela microbiota intestinal no intestino grosso, produzindo gases como hidrogênio e metano.
     </p>
 </div>
 {/* FIM DO BLOCO DE RESPOSTA DIRETA */}
+
 
           {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) - DESIGN COMPACTO */}
 <div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
@@ -102,34 +105,44 @@ export default function Feijao() {
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Por que o feijão dá gases?</h2>
             <p>O principal motivo para esse estufamento está na presença de carboidratos específicos chamados oligossacarídeos, tendo a rafinose como o principal exemplo. A fisiologia do nosso corpo não possui as ferramentas enzimáticas necessárias para quebrar esses compostos no intestino delgado. Como resultado, eles chegam totalmente intactos ao intestino grosso, onde são rapidamente fermentados pelas bactérias que compõem a nossa microbiota. Esse processo de fermentação bacteriana produz gases intensos como hidrogênio, metano e dióxido de carbono, o que gera aquele conhecido estufamento, desconforto abdominal e flatulência.</p>
 
- {/* BLOCO CITÁVEL (OTIMIZADO PARA IA E SEO) */}
-            <div className="my-8 p-6 bg-white border-l-4 border-green-600 shadow-md rounded-r-2xl">
-              <h3 className="text-lg font-black text-slate-800 mb-2 flex items-center gap-2">
-                <span className="text-green-600">👉</span> O que são oligossacarídeos?
-              </h3>
-              <p className="text-slate-600 font-medium m-0">
-                São carboidratos complexos (como a rafinose) presentes nas leguminosas. Como o corpo humano não produz a enzima necessária para digeri-los no intestino delgado, eles chegam intactos ao intestino grosso, onde são fermentados pelas bactérias, resultando na produção de gases.
-              </p>
-            </div>
-            {/* FIM DO BLOCO CITÁVEL */}
+ 
+{/* BLOCO CITÁVEL (OTIMIZADO PARA IA E SEO) */}
+<div className="my-8 p-6 md:p-8 bg-white border-l-4 border-green-600 shadow-md rounded-r-3xl flex flex-col gap-3 text-left">
+  <h3 className="text-xl font-black text-slate-800 m-0 border-b border-slate-100 pb-3 flex items-center gap-2">
+    <span className="text-green-600 text-2xl leading-none">👉</span> O que são oligossacarídeos?
+  </h3>
+  <p className="m-0 text-slate-600 font-medium leading-relaxed">
+    Os oligossacarídeos (como a rafinose) são carboidratos complexos presentes nas leguminosas. Como o corpo humano não produz a enzima necessária para digeri-los no intestino delgado, eles chegam intactos ao intestino grosso, onde são fermentados pelas bactérias, resultando na produção de gases.
+  </p>
+</div>
+{/* FIM DO BLOCO CITÁVEL */}
+
 
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Outros alimentos que também causam gases</h2>
             <p>O feijão não é o único responsável por essa sensação, pois vários outros alimentos podem gerar exatamente o mesmo efeito fermentativo no seu corpo se não forem bem administrados.</p>
 
-  {/* LISTA OBJETIVA (OTIMIZADO PARA IA E SEO) */}
-            <div className="my-8 p-6 bg-slate-50 border border-green-100 rounded-3xl shadow-sm">
-              <h3 className="text-lg font-black text-slate-800 mb-4 italic">
-                Alimentos que mais causam gases:
-              </h3>
-              <ul className="list-none space-y-3 m-0 p-0">
-                <li className="flex items-center gap-3 text-slate-700 font-bold"><div className="w-2 h-2 rounded-full bg-green-600"></div> Feijão</li>
-                <li className="flex items-center gap-3 text-slate-700 font-bold"><div className="w-2 h-2 rounded-full bg-green-600"></div> Lentilha</li>
-                <li className="flex items-center gap-3 text-slate-700 font-bold"><div className="w-2 h-2 rounded-full bg-green-600"></div> Grão-de-bico</li>
-                <li className="flex items-center gap-3 text-slate-700 font-bold"><div className="w-2 h-2 rounded-full bg-green-600"></div> Soja e Ervilha</li>
-                <li className="flex items-center gap-3 text-slate-700 font-bold"><div className="w-2 h-2 rounded-full bg-green-600"></div> Brócolis, Couve-flor e Repolho</li>
-              </ul>
-            </div>
-            {/* FIM DA LISTA OBJETIVA */}
+A OBJETIVA (OTIMIZADO PARA IA E SEO) */}
+<div className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left">
+  <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
+    O que no feijão causa gases?
+  </h2>
+  <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+    <li className="text-slate-700 font-bold text-lg pl-1">
+      Oligossacarídeos
+    </li>
+    <li className="text-slate-700 font-bold text-lg pl-1">
+      Rafinose
+    </li>
+    <li className="text-slate-700 font-bold text-lg pl-1">
+      Estaquiose
+    </li>
+    <li className="text-slate-700 font-bold text-lg pl-1">
+      Fermentação intestinal
+    </li>
+  </ul>
+</div>
+{/* FIM DA LISTA OBJETIVA */}
+
 
             <h3 className="text-xl font-bold text-slate-800 mt-8 mb-3">Alimentos ricos em carboidratos fermentáveis</h3>
             <p>Quando falamos do grupo das leguminosas, alimentos ricos em carboidratos fermentáveis como a lentilha, o grão-de-bico, a soja e a ervilha seguem exatamente o mesmo caminho da rafinose, desafiando a digestão no intestino delgado e causando grande fermentação bacteriana na sequência.</p>
