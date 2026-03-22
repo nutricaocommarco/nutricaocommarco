@@ -288,6 +288,7 @@ export default function HormoniosFome() {
             </div>
           </div>
           {/* FIM DO NOVO CARTÃO DE AUTOR */}
+          </div>
     </section>
     </>
   );
