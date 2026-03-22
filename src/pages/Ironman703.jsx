@@ -139,7 +139,12 @@ export default function Ironman703() {
               <p>O resultado dessa conta que não fecha? Fadiga extrema constante, câimbras paralisantes no meio do pedal e uma dependência perigosa de refeições rápidas e processadas. Para que você cruze a linha de chegada com energia, a ciência da nutrição esportiva precisa ser aplicada de forma estratégica e individualizada.</p>
 
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-                <img src={`${githubImgBase}Blog/nutricao_ironman_703.jpg`} alt="Atleta de triatlo pedalando em uma competição de Ironman 70.3" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img 
+                    src={`${githubImgBase}Blog/nutricao_ironman_703.jpg`} 
+                    alt="Atleta de triatlo pedalando em uma competição de Ironman 70.3" 
+                    title="Nutrição Estratégica para Triatlo e Provas de Ironman 70.3"
+                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+                />
                 <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">A performance no triatlo é definida pela capacidade do corpo de gerar e gerir energia.</p></div>
               </div>
 
@@ -271,6 +276,7 @@ export default function Ironman703() {
               <img 
                 src={`${githubImgBase}Eu_1.png`} 
                 alt="Marco Aurélio Jr." 
+                title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador ISAK 1"
                 className="w-full h-full object-cover"
               />
             </div>
