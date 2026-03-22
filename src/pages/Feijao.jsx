@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, Headphones } from 'lucide-react';
+import { ChevronLeft, HelpCircle, Headphones, PlayCircle } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
@@ -127,6 +127,28 @@ export default function Feijao() {
 
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Conclusão</h2>
             <p>Em resumo, o feijão dá gases principalmente por causa da fermentação de carboidratos complexos que o corpo humano não consegue digerir completamente sozinho na primeira etapa. No entanto, isso não significa, sob hipótese alguma, que você deve parar de consumir esse alimento tão rico e tradicional da nossa cultura. Com estratégias diárias muito simples, como o demolho prolongado, o ajuste fino da quantidade consumida nas refeições e o uso inteligente de recursos digestivos, é perfeitamente possível aproveitar todos os benefícios do feijão para a sua composição corporal sem sofrer com nenhum desconforto posterior.</p>
+
+            {/* VÍDEO COMPLEMENTAR INTEGRADO */}
+            <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
+                  <PlayCircle size={24} />
+                </div>
+                <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight text-left">O Segredo Prático: Como Eliminar os Antinutrientes?</h3>
+              </div>
+              <p className="text-slate-600 mb-6 font-medium italic text-left">Aprenda o passo a passo prático de como fazer o remolho correto para eliminar fitatos, lectinas e oxalatos, acabando com os gases e otimizando a absorção de nutrientes do seu feijão.</p>
+              <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
+                <iframe 
+                  src="https://www.youtube.com/embed/HqsASvY-NXg" 
+                  title="Como remover fitatos, oxalatos e lectinas do feijão" 
+                  className="absolute top-0 left-0 w-full h-full"
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+
 
             <div className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
