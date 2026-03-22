@@ -148,6 +148,17 @@ export default function Antropometria() {
 
             <p>O grande diferencial de uma avaliação física baseada no padrão ISAK é a sua padronização rigorosa. Na prática, o antropometrista utiliza instrumentos de precisão para coletar diversas medidas, como o plicômetro para as dobras cutâneas.</p>
 
+            {/* BLOCO CITÁVEL: TERMOS TÉCNICOS (OTIMIZADO PARA IA E SEO) */}
+<div className="my-8 p-6 md:p-8 bg-white border-l-4 border-green-600 shadow-md rounded-r-3xl flex flex-col gap-3 text-left">
+  <h3 className="text-xl font-black text-slate-800 m-0 border-b border-slate-100 pb-3 flex items-center gap-2">
+    <span className="text-green-600 text-2xl leading-none">👉</span> Plicômetro ou adipômetro: qual é o certo?
+  </h3>
+  <p className="m-0 text-slate-600 font-medium leading-relaxed">
+    Os dois termos estão corretos e se referem exatamente ao <strong>mesmo instrumento</strong>. O plicômetro (ou adipômetro) é um equipamento clínico de alta precisão, semelhante a uma pinça, utilizado na antropometria para pinçar e medir a espessura das dobras cutâneas (a camada de gordura logo abaixo da pele). Em avaliações de padrão internacional, são exigidos modelos científicos calibrados para garantir exatidão milimétrica.
+  </p>
+</div>
+{/* FIM DO BLOCO CITÁVEL */}
+           
             {/* PRIMEIRA LISTA OBJETIVA (O QUE É MEDIDO) */}
             <div className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left">
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
