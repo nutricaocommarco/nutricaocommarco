@@ -273,18 +273,29 @@ export default function Feijao() {
 
           <ArtigosRecomendados currentPath={pathname} />
 
-          <div className="mt-20 pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6 text-left">
-            <div className="flex items-center gap-4 text-left">
-              <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-black italic shadow-lg text-2xl">M</div>
-              <div className="text-left font-bold"><p className="text-slate-900 text-sm">Marco Aurélio Jr.</p><p className="text-xs text-slate-400 uppercase tracking-widest font-black text-left">ISAK Level 1 • Nutrição com Ciência</p></div>
+          {/* INÍCIO DO NOVO CARTÃO DE AUTOR */}
+          <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
+            <div className="w-24 h-24 bg-green-600 rounded-full flex items-center justify-center text-white font-black italic shadow-xl text-4xl shrink-0">
+              M
             </div>
-            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-lg hover:bg-green-700 transition-all italic">@Nutricao_com_Marco</a>
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="text-2xl font-black text-slate-900 italic mb-1">Marco Aurélio Jr.</h3>
+              <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador ISAK Nível 1</p>
+              <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
+                Apaixonado pela ciência metabólica e pela avaliação da composição corporal. Através do projeto Nutrição com Marco, tem a missão de descomplicar a nutrição baseada em evidências, ajudando você a entender o funcionamento do próprio corpo de forma prática e sem terrorismo. Especialista em antropometria, foca em entregar conteúdos claros e avaliações precisas com forte rigor científico.
+              </p>
+              <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+                Acompanhe @Nutricao_com_Marco
+              </a>
+            </div>
           </div>
+          {/* FIM DO NOVO CARTÃO DE AUTOR */}
 
         </div>
       </section>
     </>
   );
 }
+
 
 
