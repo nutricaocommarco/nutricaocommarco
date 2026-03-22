@@ -67,6 +67,15 @@ export default function Feijao() {
             Por que o feijão dá gases e como evitar de vez
           </h1>
 
+{/* BLOCO DE RESPOSTA DIRETA - ADICIONADO LOGO NO COMEÇO */}
+<div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col md:flex-row items-start md:items-center gap-6 text-left">
+    <span className="inline-block bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest flex-shrink-0 md:mb-0">Resposta Rápida</span>
+    <p className="m-0 text-lg md:text-xl text-green-950 font-bold leading-relaxed text-left flex-grow">
+    O feijão causa gases porque contém oligossacarídeos que não são digeridos no intestino delgado e são fermentados no intestino grosso, produzindo gases.
+    </p>
+</div>
+{/* FIM DO BLOCO DE RESPOSTA DIRETA */}
+
           {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) - DESIGN COMPACTO */}
 <div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
   <div className="flex items-center gap-3">
@@ -80,14 +89,6 @@ export default function Feijao() {
 </div>
 {/* FIM DA SESSÃO DO ÁUDIO */}
 
-{/* BLOCO DE RESPOSTA DIRETA - ADICIONADO LOGO NO COMEÇO */}
-<div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col md:flex-row items-start md:items-center gap-6 text-left">
-    <span className="inline-block bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest flex-shrink-0 md:mb-0">Resposta Rápida</span>
-    <p className="m-0 text-lg md:text-xl text-green-950 font-bold leading-relaxed text-left flex-grow">
-    O feijão causa gases porque contém oligossacarídeos que não são digeridos no intestino delgado e são fermentados no intestino grosso, produzindo gases.
-    </p>
-</div>
-{/* FIM DO BLOCO DE RESPOSTA DIRETA */}
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
             <p>Se você já sentiu a barriga estufada depois de comer feijão, saiba que isso é extremamente comum e tem uma explicação científica exata. Apesar de ser um alimento incrivelmente nutritivo, rico em fibras, proteínas e minerais, o feijão contém compostos específicos que podem causar fermentação no intestino, levando à formação de gases. A boa notícia é que existem formas simples e comprovadas de reduzir ou até evitar completamente esse desconforto no seu dia a dia.</p>
