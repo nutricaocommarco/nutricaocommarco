@@ -7,22 +7,25 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 // 1. A sua lista centralizada. Toda vez que criar um post novo, basta adicionar aqui!
 export const listaArtigos = [
   {
+      link: "/nutricao_para_ironman_703",
+      img: `${githubImgBase}Blog/nutricao_ironman_703.jpg`,
+      tag: "Nutrição Esportiva"
       titulo: "Nutrição para Ironman 70.3: Guia Completo",
-      link: "https://www.nutricaocommarco.com.br/nutricao_para_ironman_703",
-      descricao: "Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o Ironman 70.3.",
-      imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/nutricao_ironman_703.jpg"
+      descricao: "Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o Ironman 70.3."
     },
   {
+      link: "/hormonios_da_fome_emagrecimento",
+      img: `${githubImgBase}Blog/Hormfome.jpg',  
+      tag: "Fisiologia e Metabolismo",
       titulo: "Hormônios da Fome: Por que seu corpo luta contra a dieta?",
-      link: "https://www.nutricaocommarco.com.br/hormonios_da_fome_emagrecimento",
-      descricao: "Entenda como a Grelina e a Leptina controlam seu apetite e por que a ciência foca na inflamação celular para evitar o reganho de peso.",
-      imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Hormfome.jpg"
+      descricao: "Entenda como a Grelina e a Leptina controlam seu apetite e por que a ciência foca na inflamação celular para evitar o reganho de peso."
     },
     {
+      link: "/por_que_o_feijao_da_gases",
+      img: `${githubImgBase}Blog/feijao.jpg`,
+      tag: "Saúde Intestinal",
       titulo: "Por que o Feijão dá Gases? (E como evitar)",
-      link: "https://www.nutricaocommarco.com.br/por_que_o_feijao_da_gases",
-      descricao: "Descubra a ciência por trás dos antinutrientes e como o remolho pode salvar sua digestão.",
-      imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/feijao.jpg"
+      desc: "Descubra a ciência por trás dos antinutrientes e como o remolho pode salvar sua digestão."  
     },
   {
     link: "/o_dilema_do_sangue_na_altitude",
