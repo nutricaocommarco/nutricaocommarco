@@ -12,6 +12,27 @@ export default function Blog() {
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
+        {/* Card Ironman 70.3 (NOVO) */}
+<Link to="/nutricao_para_ironman_70_3" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
+  <div className="h-64 overflow-hidden border-b border-slate-50">
+    <img 
+      src={`${githubImgBase}Blog/nutricao_ironman_703.jpg`} 
+      alt="Nutrição para Ironman 70.3" 
+      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+    />
+  </div>
+  <div className="p-8 flex-grow">
+    <span className="text-[10px] font-black bg-green-50 text-green-600 px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">Nutrição Esportiva</span>
+    <h3 className="text-2xl font-black text-slate-800 leading-tight mb-4">Nutrição para Ironman 70.3: O Guia Definitivo</h3>
+    <p className="text-slate-500 text-sm font-medium italic mb-6 line-clamp-3">
+      Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o triatlo.
+    </p>
+    <div className="flex items-center gap-2 text-green-600 font-bold uppercase text-xs">
+      Ler Página do Artigo <ChevronRight size={16} />
+    </div>
+  </div>
+</Link>
+
         {/* Card Hormônios da Fome (NOVO) */}
         <Link to="/hormonios_da_fome_emagrecimento" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
           <div className="h-64 overflow-hidden border-b border-slate-50">
