@@ -15,7 +15,7 @@ export default function Frutose() {
 
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title>Quantas frutas posso comer por dia? | Nutrição com Marco</title>
         <meta name="description" content="Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado." />
         
@@ -25,6 +25,7 @@ export default function Frutose() {
         <meta property="og:image" content="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/frutas.png" />
         <meta property="og:url" content="https://www.nutricaocommarco.com.br/quantas_frutas_posso_comer" />
 
+        {/* SCHEMA.ORG PARA O ARTIGO PRINCIPAL */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -37,6 +38,49 @@ export default function Frutose() {
             "description": "Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado."
           })}
         </script>
+
+        {/* INÍCIO DO SCHEMA.ORG PARA FAQ (ATUALIZADO PARA SEO 950+) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Quem tem diabetes pode comer fruta?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sim, deve comer. O segredo é a moderação e a escolha de frutas com menor índice glicêmico e maior teor de fibras. A insulina é essencial para o transporte da glicose, e o consumo de frutas dentro de um plano alimentar equilibrado ajuda a manter a glicemia estável sem abrir mão dos nutrientes essenciais."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Comer fruta à noite engorda?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Não existe evidência de que o horário mude o impacto calórico da fruta. O ganho de peso está relacionado ao balanço calórico total do dia e ao estado de superávit persistente. Se você está dentro das suas necessidades energéticas, a fruta à noite é uma excelente opção de ceia."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "A frutose da fruta causa gordura no fígado (esteatose)?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Em pessoas saudáveis que consomem a fruta inteira, isso é extremamente improvável. A esteatose hepática está muito mais ligada ao sedentarismo, ao consumo excessivo de calorias e de produtos ultraprocessados ricos em xarope de milho, que possuem uma densidade energética muito superior à das frutas."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Posso substituir uma refeição principal por frutas?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Não é recomendado. Embora as frutas sejam ricas em vitaminas e minerais, uma refeição principal precisa de um aporte adequado de proteínas e gorduras boas para garantir a manutenção da massa muscular e a saciedade prolongada. Utilize as frutas como complementos ou lanches intermediários."
+                }
+              }
+            ]
+          })}
+        </script>
+        {/* FIM DO SCHEMA.ORG PARA FAQ */}
       </Helmet>
       
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl">
@@ -53,6 +97,17 @@ export default function Frutose() {
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900 text-left">
             Quantas frutas posso comer por dia?
           </h1>
+
+          {/* BLOCO DE RESPOSTA DIRETA (OTIMIZADO COM H2 PARA SEO) */}
+          <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-4 text-left">
+              <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
+                Resposta rápida: quantas frutas posso comer por dia?
+              </h2>
+              <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
+                A recomendação geral da Organização Mundial da Saúde (OMS) é o consumo de 3 a 5 porções de frutas por dia (cerca de 400g). A frutose presente nas frutas inteiras não causa gordura no fígado; o que gera esse acúmulo é o excesso calórico crônico e o sedentarismo.
+              </p>
+          </div>
+          {/* FIM DO BLOCO DE RESPOSTA DIRETA */}
 
           {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) - DESIGN COMPACTO */}
             <div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
@@ -82,6 +137,17 @@ export default function Frutose() {
             
             <p>Diferente da glicose, que é a principal fonte de energia para as nossas células e estimula diretamente a liberação de insulina, a frutose segue um caminho metabólico particular. Ela entra nas células intestinais através de um transportador específico chamado GLUT-5. Uma vez absorvida, ela é direcionada quase integralmente para o fígado. É justamente por essa característica hepática que surgiram os mitos sobre a gordura no fígado. No entanto, o problema metabólico real não está na fruta inteira, mas sim no consumo excessivo de açúcares refinados e xaropes industriais que sobrecarregam o fígado de uma forma que a fruta dificilmente consegue fazer.</p>
             
+            {/* BLOCO CITÁVEL (OTIMIZADO PARA IA E SEO) */}
+            <div className="my-8 p-6 md:p-8 bg-white border-l-4 border-green-600 shadow-md rounded-r-3xl flex flex-col gap-3 text-left">
+              <h3 className="text-xl font-black text-slate-800 m-0 border-b border-slate-100 pb-3 flex items-center gap-2">
+                <span className="text-green-600 text-2xl leading-none">👉</span> O que é a frutose?
+              </h3>
+              <p className="m-0 text-slate-600 font-medium leading-relaxed">
+                A frutose é um carboidrato simples (um tipo de açúcar) encontrado naturalmente nas frutas, nos vegetais e no mel. Quando consumida em sua matriz alimentar original, acompanhada de fibras, vitaminas e minerais, sua absorção é lenta e extremamente benéfica para o corpo humano.
+              </p>
+            </div>
+            {/* FIM DO BLOCO CITÁVEL */}
+
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               Comparando a Densidade: Frutas vs. Industrializados
             </h2>
@@ -145,6 +211,25 @@ export default function Frutose() {
             
             <p>Enquanto 100g de morango entregam menos de 3g de frutose, a mesma quantidade de açúcar de mesa entrega 50g. Essa diferença de densidade, somada à presença de fibras na fruta, muda completamente o impacto no seu metabolismo.</p>
             
+            {/* SEGUNDA LISTA OBJETIVA (SOLUÇÕES PARA IA E SEO) */}
+            <div className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left">
+              <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
+                Como consumir frutas de forma estratégica (base científica)
+              </h2>
+              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+                <li className="text-slate-700 font-bold text-lg pl-1">
+                  Priorize a fruta inteira em vez de sucos coados
+                </li>
+                <li className="text-slate-700 font-bold text-lg pl-1">
+                  Combine com fontes de proteínas (ex: iogurte) ou boas gorduras
+                </li>
+                <li className="text-slate-700 font-bold text-lg pl-1">
+                  Varie as cores para garantir diferentes fitoquímicos e vitaminas
+                </li>
+              </ul>
+            </div>
+            {/* FIM DA SEGUNDA LISTA OBJETIVA */}
+
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               O que a Ciência Realmente Diz
             </h2>
@@ -155,8 +240,6 @@ export default function Frutose() {
               "O risco real de aumento de lipídeos intra-hepáticos e VLDL-TG ocorre em cenários de superávit calórico extremo."
             </div>
             
-            <p>Um estudo demonstrou que a suplementação de 3,5g de frutose ou glicose por quilo de massa magra elevou a gordura no fígado. Para um indivíduo de 80kg com 25% de gordura corporal (60kg de massa magra), isso equivaleria a consumir cerca de 210g de frutose, o que representa aproximadamente 30 bananas. Note que, nesse nível de excesso, tanto a glicose quanto a frutose causaram danos, provando que o excesso calórico total é o fator determinante, e não a fruta em si.</p>
-
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               Afinal, existe um limite seguro?
             </h2>
@@ -165,6 +248,28 @@ export default function Frutose() {
             
             <p>Para otimizar sua ingestão, procure sempre variar as cores das frutas para garantir diferentes tipos de fitoquímicos. Além disso, prefira a fruta inteira ao suco para preservar as fibras e aumentar a saciedade. Combinar a fruta com uma fonte de fibra extra, como aveia, ou uma proteína, como iogurte, ajuda a reduzir ainda mais a resposta glicêmica da refeição.</p>
             
+            {/* LISTA OBJETIVA (OTIMIZADO PARA IA E SEO) */}
+            <div className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left">
+              <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
+                O que realmente causa gordura no fígado?
+              </h2>
+              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+                <li className="text-slate-700 font-bold text-lg pl-1">
+                  Superávit calórico crônico (comer mais calorias do que gasta)
+                </li>
+                <li className="text-slate-700 font-bold text-lg pl-1">
+                  Alto consumo de xarope de milho (frutose industrializada)
+                </li>
+                <li className="text-slate-700 font-bold text-lg pl-1">
+                  Consumo excessivo de álcool
+                </li>
+                <li className="text-slate-700 font-bold text-lg pl-1">
+                  Sedentarismo e falta de massa muscular
+                </li>
+              </ul>
+            </div>
+            {/* FIM DA LISTA OBJETIVA */}
+
             {/* VÍDEO RECOMENDADO EM DESTAQUE */}
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               Bônus: Fruta no almoço ou de sobremesa faz mal?
@@ -191,39 +296,56 @@ export default function Frutose() {
               </div>
             </div>
 
-            {/* FAQ */}
-            <div className="mt-16 pt-10 border-t border-slate-100">
+            {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
+            <div className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
               <div className="space-y-6">
+                
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-                  <h4 className="font-black text-slate-800 mb-2 italic">1. Quem tem diabetes pode comer fruta?</h4>
-                  <p className="text-slate-600">Sim, deve comer. O segredo é a moderação e a escolha de frutas com menor índice glicêmico e maior teor de fibras. A insulina é essencial para o transporte da glicose, e o consumo de frutas dentro de um plano alimentar equilibrado ajuda a manter a glicemia estável sem abrir mão dos nutrientes essenciais.</p>
+                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Quem tem diabetes pode comer fruta?</h3>
+                  <p className="text-slate-600 m-0 leading-relaxed">Sim, deve comer. O segredo é a moderação e a escolha de frutas com menor índice glicêmico e maior teor de fibras. A insulina é essencial para o transporte da glicose, e o consumo de frutas dentro de um plano alimentar equilibrado ajuda a manter a glicemia estável sem abrir mão dos nutrientes essenciais.</p>
                 </div>
+                
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-                  <h4 className="font-black text-slate-800 mb-2 italic">2. Comer fruta à noite engorda?</h4>
-                  <p className="text-slate-600">Não existe evidência de que o horário mude o impacto calórico da fruta. O ganho de peso está relacionado ao balanço calórico total do dia e ao estado de superávit persistente. Se você está dentro das suas necessidades energéticas, a fruta à noite é uma excelente opção de ceia.</p>
+                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Comer fruta à noite engorda?</h3>
+                  <p className="text-slate-600 m-0 leading-relaxed">Não existe evidência de que o horário mude o impacto calórico da fruta. O ganho de peso está relacionado ao balanço calórico total do dia e ao estado de superávit persistente. Se você está dentro das suas necessidades energéticas, a fruta à noite é uma excelente opção de ceia.</p>
                 </div>
+                
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-                  <h4 className="font-black text-slate-800 mb-2 italic">3. A frutose da fruta causa gordura no fígado (esteatose)?</h4>
-                  <p className="text-slate-600">Em pessoas saudáveis que consomem a fruta inteira, isso é extremamente improvável. A esteatose hepática está muito mais ligada ao sedentarismo, ao consumo excessivo de calorias e de produtos ultraprocessados ricos em xarope de milho, que possuem uma densidade energética muito superior à das frutas.</p>
+                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">A frutose da fruta causa gordura no fígado (esteatose)?</h3>
+                  <p className="text-slate-600 m-0 leading-relaxed">Em pessoas saudáveis que consomem a fruta inteira, isso é extremamente improvável. A esteatose hepática está muito mais ligada ao sedentarismo, ao consumo excessivo de calorias e de produtos ultraprocessados ricos em xarope de milho, que possuem uma densidade energética muito superior à das frutas.</p>
                 </div>
+                
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-                  <h4 className="font-black text-slate-800 mb-2 italic">4. Posso substituir uma refeição principal por frutas?</h4>
-                  <p className="text-slate-600">Não é recomendado. Embora as frutas sejam ricas em vitaminas e minerais, uma refeição principal precisa de um aporte adequado de proteínas e gorduras boas para garantir a manutenção da massa muscular e a saciedade prolongada. Utilize as frutas como complementos ou lanches intermediários.</p>
+                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Posso substituir uma refeição principal por frutas?</h3>
+                  <p className="text-slate-600 m-0 leading-relaxed">Não é recomendado. Embora as frutas sejam ricas em vitaminas e minerais, uma refeição principal precisa de um aporte adequado de proteínas e gorduras boas para garantir a manutenção da massa muscular e a saciedade prolongada. Utilize as frutas como complementos ou lanches intermediários.</p>
                 </div>
+                
               </div>
             </div>
+            {/* FIM DO FAQ VISUAL OTIMIZADO */}
+            
             <Newsletter />
           </div>
         </article>
 
-<ArtigosRecomendados currentPath={pathname} />
+        <ArtigosRecomendados currentPath={pathname} />
         
-        {/* RODAPÉ DO AUTOR */}
-        <div className="mt-20 pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-black italic shadow-lg text-2xl">M</div>
-            <div className="text-left font-bold"><p className="text-slate-900 text-sm">Marco Aurélio Jr.</p><p className="text-xs text-slate-400 uppercase tracking-widest font-black">ISAK Level 1 • Nutrição com Ciência</p></div>
+{/* RODAPÉ DO AUTOR (ATUALIZADO COM FOTO REAL) */}
+        <div className="mt-20 pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6 text-left">
+          <div className="flex items-center gap-4 text-left">
+            {/* Sua Foto Real em vez do 'M' */}
+            <img 
+              src={`${githubImgBase}Eu_1.png`} 
+              alt="Marco Aurélio Jr." 
+              className="w-12 h-12 rounded-full object-cover shadow-lg border-2 border-green-100 flex-shrink-0"
+            />
+            <div className="text-left font-bold">
+              <p className="text-slate-900 text-sm">Marco Aurélio Jr.</p>
+              <p className="text-xs text-slate-400 uppercase tracking-widest font-black text-left">
+                ISAK Level 1 • Antropometrista Internacional
+              </p>
+            </div>
           </div>
           <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-lg hover:bg-green-700 transition-all italic">@Nutricao_com_Marco</a>
         </div>
