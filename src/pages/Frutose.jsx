@@ -331,26 +331,30 @@ export default function Frutose() {
 
         <ArtigosRecomendados currentPath={pathname} />
         
-{/* RODAPÉ DO AUTOR (ATUALIZADO COM FOTO REAL) */}
-        <div className="mt-20 pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6 text-left">
-          <div className="flex items-center gap-4 text-left">
-            {/* Sua Foto Real em vez do 'M' */}
-            <img 
-              src={`${githubImgBase}Eu_1.png`} 
-              alt="Marco Aurélio Jr." 
-              className="w-12 h-12 rounded-full object-cover shadow-lg border-2 border-green-100 flex-shrink-0"
-            />
-            <div className="text-left font-bold">
-              <p className="text-slate-900 text-sm">Marco Aurélio Jr.</p>
-              <p className="text-xs text-slate-400 uppercase tracking-widest font-black text-left">
-                ISAK Level 1 • Antropometrista Internacional
+{/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
+          <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
+            
+            {/* Foto do Autor no lugar do 'M' */}
+            <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+              <img 
+                src={`${githubImgBase}Eu_1.png`} 
+                alt="Marco Aurélio Jr." 
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
+              <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
+              <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
+                Apaixonado pela ciência metabólica, Marco dedica seus estudos a compreender a fisiologia humana de forma aprofundada. Especialista em composição corporal com certificação internacional, ele foca em traduzir o rigor dos artigos científicos para a prática do dia a dia. Seu objetivo é ajudar você a entender como o próprio corpo funciona através da educação nutricional baseada em evidências reais.
               </p>
+              <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+                Siga @Nutricao_com_Marco
+              </a>
             </div>
           </div>
-          <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-lg hover:bg-green-700 transition-all italic">@Nutricao_com_Marco</a>
-        </div>
-        
-      </div>
+          {/* FIM DO NOVO CARTÃO DE AUTOR */}
     </section>
     </>
   );
