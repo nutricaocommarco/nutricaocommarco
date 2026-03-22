@@ -151,6 +151,28 @@ A OBJETIVA (OTIMIZADO PARA IA E SEO) */}
             <p>Além dos grãos, existem vegetais e fibras fermentáveis que potencializam esse quadro de distensão. Vegetais crucíferos como o brócolis, a couve-flor e o repolho também fazem parte desse grupo que fermenta intensamente no intestino, afetando de forma mais pesada as pessoas que já possuem um trato gastrointestinal naturalmente mais sensível.</p>
 
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Como evitar gases ao comer feijão</h2>
+
+
+{/* SEGUNDA LISTA OBJETIVA (SOLUÇÕES PARA IA E SEO) */}
+<div className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left">
+  <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
+    Como evitar gases do feijão (base científica)
+  </h2>
+  <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+    <li className="text-slate-700 font-bold text-lg pl-1">
+      Demolho reduz oligossacarídeos
+    </li>
+    <li className="text-slate-700 font-bold text-lg pl-1">
+      Cozimento adequado
+    </li>
+    <li className="text-slate-700 font-bold text-lg pl-1">
+      Uso de enzimas digestivas
+    </li>
+  </ul>
+</div>
+{/* FIM DA SEGUNDA LISTA OBJETIVA */}
+
+
             <p>Chegamos à parte mais importante, onde a nutrição aplicada resolve o problema na prática através de ajustes muito pontuais na sua rotina de preparo e consumo.</p>
 
             <h3 className="text-xl font-bold text-slate-800 mt-8 mb-3">1. Faça o demolho corretamente</h3>
