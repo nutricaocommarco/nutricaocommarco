@@ -5,12 +5,11 @@ import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
 
-
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 export default function VitaminaA() {
-  // Garante que a página abra sempre no topo
   const { pathname } = useLocation();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -39,12 +38,46 @@ export default function VitaminaA() {
             "description": "Entenda as diferenças entre retinol, retinal e ácido retinóico, e descubra como a Vitamina A atua no seu metabolismo muito além da visão."
           })}
         </script>
+
+        {/* INÍCIO DO SCHEMA.ORG PARA FAQ (ATUALIZADO PARA SEO 950+) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Comer muita cenoura realmente melhora a visão?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sim, mas até certo ponto. A cenoura é riquíssima em betacaroteno, uma pró-vitamina A que o corpo converte em retinal. O retinal previne a chamada cegueira noturna, no entanto, não vai corrigir o grau dos seus óculos caso você tenha problemas como miopia."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Qual a diferença entre tomar suplemento de vitamina A e usar cremes com ácido retinóico?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A diferença está na forma de atuação. Um suplemento oral de retinol tem um efeito sistêmico no corpo (visão e imunidade). Já os cremes com ácido retinóico agem localmente onde são aplicados, acelerando a renovação celular da pele, sem atuar na sua visão."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "É possível ter excesso de vitamina A no organismo?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sim, a hipervitaminose A. Como a vitamina A é lipossolúvel, o que o corpo não usa é estocado no fígado. O excesso de suplementos de retinol pode causar toxicidade hepática, dores de cabeça e ressecamento da pele."
+                }
+              }
+            ]
+          })}
+        </script>
+        {/* FIM DO SCHEMA.ORG PARA FAQ */}
       </Helmet>
       
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
         
-        {/* Botão de Voltar */}
         <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
           <ChevronLeft size={20} /> Voltar para o Blog
         </Link>
@@ -56,18 +89,29 @@ export default function VitaminaA() {
             Vitamina A para que serve? Entenda as diferenças entre retinol, retinal e ácido retinóico
           </h1>
 
-          {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) - DESIGN COMPACTO */}
-<div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
-  <div className="flex items-center gap-3">
-    <Headphones className="text-green-600 w-6 h-6" />
-    <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
-  </div>
-  <audio controls className="w-full h-10 outline-none">
-    <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/VitA.mp3" type="audio/mpeg" />
-    Seu navegador não suporta o elemento de áudio.
-  </audio>
-</div>
-{/* FIM DA SESSÃO DO ÁUDIO */}
+          {/* BLOCO DE RESPOSTA DIRETA (OTIMIZADO COM H2 PARA SEO) */}
+          <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-4 text-left">
+              <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
+                Resposta rápida: para que serve a Vitamina A?
+              </h2>
+              <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
+                A vitamina A é fundamental para três processos principais: o Retinal mantém a saúde da visão, o Ácido Retinóico regula a expressão dos nossos genes e a renovação celular da pele, e o Retinol atua no fortalecimento do sistema imunológico e no crescimento saudável.
+              </p>
+          </div>
+          {/* FIM DO BLOCO DE RESPOSTA DIRETA */}
+
+          {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) */}
+          <div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
+            <div className="flex items-center gap-3">
+              <Headphones className="text-green-600 w-6 h-6" />
+              <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+            </div>
+            <audio controls className="w-full h-10 outline-none">
+              <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/VitA.mp3" type="audio/mpeg" />
+              Seu navegador não suporta o elemento de áudio.
+            </audio>
+          </div>
+          {/* FIM DA SESSÃO DO ÁUDIO */}
           
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed text-left">
             <p>A <strong>vitamina A</strong> é um nutriente essencial para o funcionamento adequado do organismo. Mas afinal, vitamina A para que serve? Sua atuação vai muito além da visão: ela participa da imunidade, da saúde da pele, do crescimento celular e da regulação genética.</p>
@@ -83,16 +127,27 @@ export default function VitaminaA() {
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               O que é a vitamina A e como ela é absorvida?
             </h2>
+
+            {/* BLOCO CITÁVEL (OTIMIZADO PARA IA E SEO) */}
+            <div className="my-8 p-6 md:p-8 bg-white border-l-4 border-green-600 shadow-md rounded-r-3xl flex flex-col gap-3 text-left">
+              <h3 className="text-xl font-black text-slate-800 m-0 border-b border-slate-100 pb-3 flex items-center gap-2">
+                <span className="text-green-600 text-2xl leading-none">👉</span> O que são vitaminas lipossolúveis?
+              </h3>
+              <p className="m-0 text-slate-600 font-medium leading-relaxed">
+                As vitaminas lipossolúveis (como a vitamina A, D, E e K) são aquelas que o corpo só consegue absorver de forma eficiente quando consumidas junto com gorduras na alimentação. Ao contrário das vitaminas hidrossolúveis (como a C), as lipossolúveis podem ser armazenadas no fígado e no tecido adiposo para uso futuro.
+              </p>
+            </div>
+            {/* FIM DO BLOCO CITÁVEL */}
             
             <p>A vitamina A é <strong>lipossolúvel</strong>, ou seja, é absorvida junto com gorduras da dieta e pode ser armazenada no organismo, principalmente no fígado. Ela pode ser obtida de duas formas:</p>
             
             <ul className="list-disc pl-6 space-y-2 marker:text-green-600 font-bold text-slate-700">
               <li><span className="font-medium text-slate-600"><strong>Vitamina A pré-formada (retinol):</strong> encontrada em alimentos de origem animal.</span></li>
               <li>
-  <span className="font-medium text-slate-600">
-    <strong>Pró-vitamina A (carotenoides):</strong> presente em vegetais como cenoura, abóbora e manga. (Se tem dúvidas sobre as porções ideais destas frutas, confira o nosso guia completo sobre <Link to="/quantas_frutas_posso_comer" className="text-green-600 hover:text-green-700 underline underline-offset-2 font-bold transition-colors">quantas frutas comer por dia</Link>).
-  </span>
-</li>
+                <span className="font-medium text-slate-600">
+                  <strong>Pró-vitamina A (carotenoides):</strong> presente em vegetais como cenoura, abóbora e manga. (Se tem dúvidas sobre as porções ideais destas frutas, confira o nosso guia completo sobre <Link to="/quantas_frutas_posso_comer" className="text-green-600 hover:text-green-700 underline underline-offset-2 font-bold transition-colors">quantas frutas comer por dia</Link>).
+                </span>
+              </li>
             </ul>
             
             <p>Ao ser ingerida (por exemplo, na forma de carotenoides), a vitamina A passa por conversões no organismo até chegar às suas formas ativas.</p>
@@ -100,6 +155,25 @@ export default function VitaminaA() {
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               Retinol, retinal e ácido retinóico: qual a diferença?
             </h2>
+
+            {/* PRIMEIRA LISTA OBJETIVA (OTIMIZADO PARA IA E SEO) */}
+            <div className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left">
+              <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
+                As principais formas ativas da Vitamina A no corpo
+              </h2>
+              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+                <li className="text-slate-700 font-bold text-lg pl-1">
+                  <strong>Retinol:</strong> A forma base, serve para transporte no sangue e armazenamento no fígado.
+                </li>
+                <li className="text-slate-700 font-bold text-lg pl-1">
+                  <strong>Retinal (Retinaldeído):</strong> A forma responsável pela visão e adaptação a ambientes escuros.
+                </li>
+                <li className="text-slate-700 font-bold text-lg pl-1">
+                  <strong>Ácido Retinóico:</strong> A forma mais potente, responsável por ligar e desligar a expressão dos nossos genes.
+                </li>
+              </ul>
+            </div>
+            {/* FIM DA PRIMEIRA LISTA OBJETIVA */}
             
             <h3 className="text-xl font-bold text-slate-800 flex items-center gap-2 mt-8">🔹 Retinol (C20H30O)</h3>
             <p>O <strong>retinol</strong> é a forma mais comum e <strong>armazenável</strong> da vitamina A.</p>
@@ -144,13 +218,20 @@ export default function VitaminaA() {
             
             <p>Quando ingerimos vitamina A (como em alimentos ou suplementos), ela pode estar na forma de <strong>ésteres de retinil</strong> ou carotenoides. O processo básico é:</p>
             
-            <ol className="list-decimal pl-6 space-y-2 marker:text-green-600 font-bold">
-              <li><span className="font-medium text-slate-600">Digestão e absorção intestinal</span></li>
-              <li><span className="font-medium text-slate-600">Conversão em retinol</span></li>
-              <li><span className="font-medium text-slate-600">Transporte via lipoproteínas (como quilomícrons)</span></li>
-              <li><span className="font-medium text-slate-600">Armazenamento no fígado</span></li>
-              <li><span className="font-medium text-slate-600">Conversão em retinal ou ácido retinóico conforme a necessidade</span></li>
-            </ol>
+            {/* SEGUNDA LISTA OBJETIVA (OTIMIZADO PARA IA E SEO) */}
+            <div className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left">
+              <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
+                O caminho da Vitamina A no organismo
+              </h2>
+              <ol className="list-decimal pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+                <li className="text-slate-700 font-bold text-lg pl-1">Digestão e absorção ocorrem no intestino junto com as gorduras</li>
+                <li className="text-slate-700 font-bold text-lg pl-1">Conversão primária em Retinol</li>
+                <li className="text-slate-700 font-bold text-lg pl-1">Transporte pelo sangue através de lipoproteínas (como quilomícrons)</li>
+                <li className="text-slate-700 font-bold text-lg pl-1">Armazenamento principal de longo prazo no fígado</li>
+                <li className="text-slate-700 font-bold text-lg pl-1">Oxidação final para Retinal ou Ácido Retinóico de acordo com a necessidade dos tecidos</li>
+              </ol>
+            </div>
+            {/* FIM DA SEGUNDA LISTA OBJETIVA */}
             
             {/* CITAÇÃO EM DESTAQUE */}
             <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
@@ -187,40 +268,57 @@ export default function VitaminaA() {
             
             <p>Essa dinâmica mostra como a nutrição vai muito além do consumo de nutrientes — envolve também a forma como o corpo transforma e utiliza cada substância. Se você quer aprofundar sua prática ou melhorar sua alimentação, entender esse metabolismo é um diferencial enorme.</p>
             
-            {/* FAQ NO MESMO PADRÃO DA ANTROPOMETRIA */}
-            <div className="mt-16 pt-10 border-t border-slate-100">
+            {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
+            <div className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes sobre a Vitamina A</h2>
               <div className="space-y-6">
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-                  <h4 className="font-black text-slate-800 mb-2 italic">Comer muita cenoura realmente melhora a visão?</h4>
-                  <p className="text-slate-600">Sim, mas até certo ponto. A cenoura é riquíssima em betacaroteno, uma pró-vitamina A que o corpo converte em retinal. O retinal é fundamental para enxergarmos em ambientes escuros e previne a chamada "cegueira noturna". No entanto, se você tem algum problema de refração como miopia ou astigmatismo, comer cenoura não vai corrigir o grau dos seus óculos, apenas manter a saúde da sua retina em dia.</p>
+                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Comer muita cenoura realmente melhora a visão?</h3>
+                  <p className="text-slate-600 m-0 leading-relaxed">Sim, mas até certo ponto. A cenoura é riquíssima em betacaroteno, uma pró-vitamina A que o corpo converte em retinal. O retinal previne a chamada cegueira noturna, no entanto, não vai corrigir o grau dos seus óculos caso você tenha problemas como miopia.</p>
                 </div>
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-                  <h4 className="font-black text-slate-800 mb-2 italic">Qual a diferença entre tomar suplemento de vitamina A e usar cremes com ácido retinóico?</h4>
-                  <p className="text-slate-600">A diferença está na forma de atuação e na via de administração. Quando você toma um suplemento de retinol, ele tem um efeito sistêmico, sendo armazenado no fígado e distribuído pelo sangue para a visão, imunidade e células. Já os cremes com ácido retinóico agem localmente onde são aplicados, comunicando-se diretamente com os genes das células da pele para acelerar a renovação celular, sendo excelentes aliados contra acne e envelhecimento, mas sem atuar na sua visão.</p>
+                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Qual a diferença entre tomar suplemento de vitamina A e usar cremes com ácido retinóico?</h3>
+                  <p className="text-slate-600 m-0 leading-relaxed">A diferença está na forma de atuação. Um suplemento oral de retinol tem um efeito sistêmico no corpo (visão e imunidade). Já os cremes com ácido retinóico agem localmente onde são aplicados, acelerando a renovação celular da pele, sem atuar na sua visão.</p>
                 </div>
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-                  <h4 className="font-black text-slate-800 mb-2 italic">É possível ter excesso de vitamina A no organismo?</h4>
-                  <p className="text-slate-600">Sim, e isso é chamado de hipervitaminose A. Como essa vitamina é lipossolúvel (dissolve em gordura), o que o corpo não usa no momento acaba sendo estocado no fígado. O excesso geralmente ocorre pelo uso inadequado de suplementos de retinol em altas doses por tempo prolongado, podendo causar toxicidade hepática, dores de cabeça e alterações na pele. Por isso, a suplementação deve sempre ser acompanhada por um profissional para garantir a dose exata que o seu metabolismo precisa.</p>
+                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">É possível ter excesso de vitamina A no organismo?</h3>
+                  <p className="text-slate-600 m-0 leading-relaxed">Sim, a hipervitaminose A. Como a vitamina A é lipossolúvel, o que o corpo não usa é estocado no fígado. O excesso de suplementos de retinol pode causar toxicidade hepática, dores de cabeça e ressecamento da pele.</p>
                 </div>
               </div>
             </div>
+            {/* FIM DO FAQ VISUAL OTIMIZADO */}
+
             <Newsletter />
-          </div>
+          </div> {/* FIM DA DIV DO CONTEÚDO SPACE-Y-6 */}
         </article>
 
-<ArtigosRecomendados currentPath={pathname} />
+        <ArtigosRecomendados currentPath={pathname} />
         
-        {/* RODAPÉ DO AUTOR */}
-        <div className="mt-20 pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-black italic shadow-lg text-2xl">M</div>
-            <div className="text-left font-bold"><p className="text-slate-900 text-sm">Marco Aurélio Jr.</p><p className="text-xs text-slate-400 uppercase tracking-widest font-black">ISAK Level 1 • Nutrição com Ciência</p></div>
+        {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
+        <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
+          
+          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+            <img 
+              src={`${githubImgBase}Eu_1.png`} 
+              alt="Marco Aurélio Jr." 
+              className="w-full h-full object-cover"
+            />
           </div>
-          <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-lg hover:bg-green-700 transition-all italic">@Nutricao_com_Marco</a>
+
+          <div className="flex-1 text-center md:text-left">
+            <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
+            <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
+            <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
+              Apaixonado pela ciência metabólica, Marco dedica seus estudos a compreender a fisiologia humana de forma aprofundada. Especialista em composição corporal com certificação internacional, ele foca em traduzir o rigor dos artigos científicos para a prática do dia a dia. Seu objetivo é ajudar você a entender como o próprio corpo funciona através da educação nutricional baseada em evidências reais.
+            </p>
+            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+              Siga @Nutricao_com_Marco
+            </a>
+          </div>
         </div>
+        {/* FIM DO NOVO CARTÃO DE AUTOR */}
         
-      </div>
+      </div> {/* FIM DA DIV BRANCA GIGANTE */}
     </section>
     </>
   );
