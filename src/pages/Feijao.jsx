@@ -140,7 +140,6 @@ export default function Feijao() {
               <p>Se você já sentiu a barriga estufada depois de comer feijão, saiba que isso é extremamente comum e tem uma explicação científica exata. Apesar de ser um alimento incrivelmente nutritivo, rico em fibras, proteínas e minerais, o feijão contém compostos específicos que podem causar fermentação no intestino, levando à formação de gases. A boa notícia é que existem formas simples e comprovadas de reduzir ou até evitar completamente esse desconforto no seu dia a dia.</p>
 
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-                {/* Lembre-se de subir uma imagem com o nome feijao.jpg para a sua pasta Blog no GitHub */}
                 <img src={`${githubImgBase}Blog/feijao.jpg`} alt="Preparo correto do feijão para evitar gases" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">O preparo correto das leguminosas transforma a sua resposta digestiva.</p></div>
               </div>
@@ -244,6 +243,30 @@ export default function Feijao() {
                 </div>
               </div>
 
+              {/* INÍCIO DO FAQ VISUAL */}
+              <div className="mt-16 pt-10 border-t border-slate-100 text-left">
+                <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
+                <div className="space-y-6">
+                  <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
+                    <h4 className="font-black text-slate-800 mb-2 italic">Feijão sempre causa gases?</h4>
+                    <p className="text-slate-600">Não. Isso varia de pessoa para pessoa. Algumas têm mais sensibilidade à fermentação intestinal do que outras.</p>
+                  </div>
+                  <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
+                    <h4 className="font-black text-slate-800 mb-2 italic">Tirar a água do feijão realmente funciona?</h4>
+                    <p className="text-slate-600">Sim. O processo de demolho e descarte da água reduz de forma drástica os compostos fermentáveis presentes na casca do grão, diminuindo muito a produção final de gases no intestino.</p>
+                  </div>
+                  <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
+                    <h4 className="font-black text-slate-800 mb-2 italic">Chá ajuda mesmo a reduzir gases?</h4>
+                    <p className="text-slate-600">Sim. Chás botânicos clássicos como a hortelã e a erva-doce possuem um efeito digestivo e antiespasmódico natural comprovado que pode aliviar rapidamente o desconforto abdominal gerado após as refeições maiores.</p>
+                  </div>
+                  <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
+                    <h4 className="font-black text-slate-800 mb-2 italic">Vale a pena usar enzimas digestivas?</h4>
+                    <p className="text-slate-600">Em alguns casos mais agudos sim, principalmente para aqueles pacientes com um histórico de muita sensibilidade intestinal. Contudo, o cenário ideal e seguro é sempre avaliar o caso individualmente em uma consulta nutricional bem estruturada para não mascarar outros problemas.</p>
+                  </div>
+                </div>
+              </div>
+              {/* FIM DO FAQ VISUAL */}
+
               <Newsletter />
             </div>
           </article>
@@ -263,4 +286,5 @@ export default function Feijao() {
     </>
   );
 }
+
 
