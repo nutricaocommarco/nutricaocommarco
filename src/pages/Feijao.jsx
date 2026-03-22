@@ -115,6 +115,21 @@ export default function Feijao() {
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Outros alimentos que também causam gases</h2>
             <p>O feijão não é o único responsável por essa sensação, pois vários outros alimentos podem gerar exatamente o mesmo efeito fermentativo no seu corpo se não forem bem administrados.</p>
 
+  {/* LISTA OBJETIVA (OTIMIZADO PARA IA E SEO) */}
+            <div className="my-8 p-6 bg-slate-50 border border-green-100 rounded-3xl shadow-sm">
+              <h3 className="text-lg font-black text-slate-800 mb-4 italic">
+                Alimentos que mais causam gases:
+              </h3>
+              <ul className="list-none space-y-3 m-0 p-0">
+                <li className="flex items-center gap-3 text-slate-700 font-bold"><div className="w-2 h-2 rounded-full bg-green-600"></div> Feijão</li>
+                <li className="flex items-center gap-3 text-slate-700 font-bold"><div className="w-2 h-2 rounded-full bg-green-600"></div> Lentilha</li>
+                <li className="flex items-center gap-3 text-slate-700 font-bold"><div className="w-2 h-2 rounded-full bg-green-600"></div> Grão-de-bico</li>
+                <li className="flex items-center gap-3 text-slate-700 font-bold"><div className="w-2 h-2 rounded-full bg-green-600"></div> Soja e Ervilha</li>
+                <li className="flex items-center gap-3 text-slate-700 font-bold"><div className="w-2 h-2 rounded-full bg-green-600"></div> Brócolis, Couve-flor e Repolho</li>
+              </ul>
+            </div>
+            {/* FIM DA LISTA OBJETIVA */}
+
             <h3 className="text-xl font-bold text-slate-800 mt-8 mb-3">Alimentos ricos em carboidratos fermentáveis</h3>
             <p>Quando falamos do grupo das leguminosas, alimentos ricos em carboidratos fermentáveis como a lentilha, o grão-de-bico, a soja e a ervilha seguem exatamente o mesmo caminho da rafinose, desafiando a digestão no intestino delgado e causando grande fermentação bacteriana na sequência.</p>
 
