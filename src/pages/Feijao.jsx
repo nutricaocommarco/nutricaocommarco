@@ -268,11 +268,18 @@ export default function Feijao() {
 
           <ArtigosRecomendados currentPath={pathname} />
 
-          {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
+{/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
           <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
-            <div className="w-24 h-24 bg-green-600 rounded-full flex items-center justify-center text-white font-black italic shadow-xl text-4xl shrink-0">
-              M
+            
+            {/* Foto do Autor no lugar do 'M' */}
+            <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+              <img 
+                src={`${githubImgBase}Eu_1.png`} 
+                alt="Marco Aurélio Jr." 
+                className="w-full h-full object-cover"
+              />
             </div>
+
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
               <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
