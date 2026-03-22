@@ -355,6 +355,7 @@ export default function Frutose() {
             </div>
           </div>
           {/* FIM DO NOVO CARTÃO DE AUTOR */}
+        </div>
     </section>
     </>
   );
