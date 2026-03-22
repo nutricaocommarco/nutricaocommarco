@@ -3,7 +3,7 @@ import path from 'path';
 
 // O mapa do tesouro: Definimos aqui o que o WhatsApp deve ver em cada página
 const routes = [
-{ 
+  { 
     path: 'sobre', 
     title: 'Sobre Marco Aurélio Jr. | Nutrição com Marco',
     image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png',
@@ -27,18 +27,11 @@ const routes = [
     image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png',
     desc: 'Conteúdo científico sobre antropometria, bioimpedância e emagrecimento real.'
   },
-  // Artigos do Blog
   { 
     path: 'efeito_sanfona_inflamacao_invisivel', 
     title: 'Efeito Sanfona e Inflamação Invisível | Nutrição com Marco',
     image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/efeito_sanfona.jpg',
     desc: 'Descubra por que o reganho de peso é mais perigoso que a obesidade estável.'
-  },
-  { 
-    path: 'hormonios_da_fome_emagrecimento', 
-    title: 'Hormônios da Fome: O Guia do Reganho | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Hormfome.jpg',
-    desc: 'Entenda a biologia por trás da fome insaciável pós-dieta. Grelina, Leptina e GLP-1.'
   },
   { 
     path: 'o_dilema_do_sangue_na_altitude', 
@@ -75,7 +68,7 @@ const routes = [
     title: 'Por que o feijão dá gases? | Nutrição com Marco',
     image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/feijao.jpg',
     desc: 'Descubra por que o feijão causa gases e o que fazer para evitar o desconforto.'
-  }
+  },
   { 
     path: 'nutricao_para_ironman_703', 
     title: 'Nutrição para Ironman 70.3: Guia Completo | Nutrição com Marco',
@@ -87,7 +80,7 @@ const routes = [
     title: 'Hormônios da Fome: O corpo contra a dieta | Nutrição com Marco',
     image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Hormfome.jpg',
     desc: 'Entenda como a Grelina e a Leptina controlam seu apetite e a relação da inflamação celular com o reganho de peso.'
-  },
+  }
 ];
 
 const distPath = path.resolve('dist');
@@ -107,9 +100,10 @@ routes.forEach(route => {
       <meta property="og:title" content="${route.title}" />
       <meta property="og:image" content="${route.image}" />
       <meta property="og:url" content="https://www.nutricaocommarco.com.br/${route.path}" />
-      <meta property="og:description" content="Conteúdo científico exclusivo sobre nutrição e performance." />
+      <meta property="og:description" content="${route.desc}" />
     </head>`);
 
   fs.writeFileSync(path.join(routePath, 'index.html'), html);
   console.log(`✅ Página [${route.path}] preparada para o WhatsApp!`);
 });
+
