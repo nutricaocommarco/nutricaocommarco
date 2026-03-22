@@ -191,6 +191,9 @@ export default function Bioimpedancia() {
                   Evitar atividades físicas moderadas/intensas no dia anterior
                 </li>
                 <li className="text-slate-700 font-bold text-lg pl-1">
+                  Não consumir Cafeína nas 24 horas anteriores
+                </li>
+                <li className="text-slate-700 font-bold text-lg pl-1">
                   Esvaziar a bexiga (urinar) imediatamente antes do exame
                 </li>
               </ul>
