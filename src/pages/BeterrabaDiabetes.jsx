@@ -173,33 +173,86 @@ export default function BeterrabaDiabetes() {
               
               <p>Enquanto o <strong>índice glicêmico</strong> avalia a velocidade com que um carboidrato isolado vira açúcar no sangue, a <strong>carga glicêmica</strong> avalia a quantidade real de carboidratos que você consome em uma porção normal. O índice glicêmico da beterraba pode até ser considerado moderado, mas a sua carga glicêmica é muito baixa, pois ela possui muita água e um baixo aporte calórico total por porção.</p>
 
-              {/* TABELA COMPARATIVA (GEO BOOST) */}
+{/* TABELA COMPARATIVA AMPLIADA (GEO BOOST) */}
               <div className="my-10 bg-white border border-green-100 shadow-md rounded-[2rem] overflow-hidden">
                 <div className="bg-green-50 px-6 py-4 border-b border-green-100">
-                  <h3 className="text-xl font-black text-green-800 uppercase italic m-0">Comparativo: Beterraba vs. Arroz Branco (Porção de 100g)</h3>
+                  <h3 className="text-xl font-black text-green-800 uppercase italic m-0">Comparativo de Impacto Glicêmico (Porção de 100g)</h3>
                 </div>
                 <div className="p-6">
                   <ul className="space-y-4 m-0">
+                    {/* Beterraba Crua */}
                     <li className="flex justify-between items-center border-b border-slate-50 pb-3">
                       <span className="text-slate-700 font-bold">Beterraba Crua</span>
-                      <div className="flex gap-2">
-                        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-black">9.6g Carbo</span>
-                        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-black">2.8g Fibras</span>
-                        <span className="bg-emerald-200 text-emerald-900 px-3 py-1 rounded-full text-xs font-black">Carga Baixa</span>
+                      <div className="flex flex-wrap justify-end gap-2">
+                        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">9.6g Carbo</span>
+                        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">2.8g Fibras</span>
+                        <span className="bg-emerald-200 text-emerald-900 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga Baixa</span>
                       </div>
                     </li>
-                    <li className="flex justify-between items-center pt-1">
+                    {/* Arroz Integral */}
+                    <li className="flex justify-between items-center border-b border-slate-50 pb-3">
+                      <span className="text-slate-700 font-bold">Arroz Integral Cozido</span>
+                      <div className="flex flex-wrap justify-end gap-2">
+                        <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">25g Carbo</span>
+                        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">2.7g Fibras</span>
+                        <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga Média</span>
+                      </div>
+                    </li>
+                    {/* Arroz Parboilizado */}
+                    <li className="flex justify-between items-center border-b border-slate-50 pb-3">
+                      <span className="text-slate-700 font-bold">Arroz Parboilizado</span>
+                      <div className="flex flex-wrap justify-end gap-2">
+                        <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">26g Carbo</span>
+                        <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">1.5g Fibras</span>
+                        <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga Alta</span>
+                      </div>
+                    </li>
+                    {/* Arroz Branco */}
+                    <li className="flex justify-between items-center border-b border-slate-50 pb-3">
                       <span className="text-slate-700 font-bold">Arroz Branco Cozido</span>
-                      <div className="flex gap-2">
-                        <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-black">28.0g Carbo</span>
-                        <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-black">0.4g Fibras</span>
-                        <span className="bg-red-200 text-red-900 px-3 py-1 rounded-full text-xs font-black">Carga Alta</span>
+                      <div className="flex flex-wrap justify-end gap-2">
+                        <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">28g Carbo</span>
+                        <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">0.4g Fibras</span>
+                        <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga Alta</span>
+                      </div>
+                    </li>
+                    {/* Açúcar Refinado */}
+                    <li className="flex justify-between items-center pt-1">
+                      <span className="text-slate-700 font-bold">Açúcar Refinado</span>
+                      <div className="flex flex-wrap justify-end gap-2">
+                        <span className="bg-red-50 text-red-600 px-3 py-1 rounded-full text-[10px] font-black uppercase">99.8g Carbo</span>
+                        <span className="bg-red-50 text-red-600 px-3 py-1 rounded-full text-[10px] font-black uppercase">0g Fibras</span>
+                        <span className="bg-red-600 text-white px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga Crítica</span>
                       </div>
                     </li>
                   </ul>
                 </div>
               </div>
               {/* FIM DA TABELA */}
+
+              {/* SESSÃO DO VÍDEO DO MARCO NO YOUTUBE */}
+              <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                    <PlayCircle size={24} />
+                  </div>
+                  <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Aula: Índice Glicêmico vs. Carga Glicêmica</h3>
+                </div>
+                <p className="text-slate-600 mb-6 font-medium italic text-left">
+                  Ainda ficou com dúvidas sobre como a beterraba pode ter um açúcar "doce" mas não prejudicar sua glicemia? Neste vídeo eu explico detalhadamente a diferença técnica entre esses dois conceitos e por que a Carga Glicêmica é o que realmente importa no seu dia a dia.
+                </p>
+                <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
+                  <iframe 
+                    src="https://www.youtube.com/embed/bcaJS6tQfL0" 
+                    title="Diferença entre Índice Glicêmico e Carga Glicêmica - Nutrição com Marco" 
+                    className="absolute top-0 left-0 w-full h-full"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+              {/* FIM DA SESSÃO DO VÍDEO */}
 
               <h2 id="beneficios-clinicos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Heart className="text-green-600"/> Os Benefícios Clínicos Comprovados
@@ -209,7 +262,7 @@ export default function BeterrabaDiabetes() {
               <p>Além de atuar diretamente no controle do açúcar, a intervenção resultou na queda da pressão arterial sistólica em 0,73 mmHg e diastólica em 0,34 mmHg. Esse efeito cardiovascular protetor está ligado à presença de nitratos inorgânicos na composição do vegetal, que atuam na dilatação endotelial e na saúde dos vasos sanguíneos cerebrais e periféricos.</p>
 
               <div className="bg-slate-100 p-6 md:p-8 rounded-[2rem] border-l-4 border-slate-400 my-8">
-                <h3 className="text-xl font-black text-slate-800 mb-3 flex items-center gap-2"><Activity size={20} className="text-slate-600"/> Função Cognitiva e Nervosa</h3>
+                <h3 className="text-xl font-black text-slate-800 mb-3 flex items-center gap-2"><Activity size={20} className="text-slate-600"/> Função Cognitiva e Nervosa associada à Beterraba</h3>
                 <p className="m-0 text-slate-700 font-medium leading-relaxed">Como se não bastasse todo esse controle endócrino e vascular, o consumo regular reduziu os níveis da homocisteína no sangue em 7,88 µmol/L, diminuindo processos inflamatórios. O estudo também documentou um aumento formidável nas pontuações de testes de função cognitiva, indicando melhora na eficiência do aprendizado de dígitos e maior atenção concentrada. Esse benefício protege o tecido nervoso contra os declínios cognitivos e quadros de neuropatia que são frequentemente observados após anos de exposição à hiperglicemia e dislipidemia.</p>
               </div>
 
