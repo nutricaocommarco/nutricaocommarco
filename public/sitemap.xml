@@ -70,4 +70,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+    <url>
+    <loc>https://www.nutricaocommarco.com.br/qual_melhor_horario_para_se_pesar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
