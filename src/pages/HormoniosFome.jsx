@@ -93,6 +93,7 @@ export default function HormoniosFome() {
             ]
           })}
         </script>
+        {/* FIM DO SCHEMA.ORG PARA FAQ */}
       </Helmet>
 
       <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
@@ -138,8 +139,14 @@ export default function HormoniosFome() {
               
               <p>O emagrecimento, embora excelente para a saúde cardiovascular e metabólica, gera um alerta vermelho no organismo. No consultório, quando analiso a <Link to="/o_que_e_antropometria" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">antropometria ISAK 1</Link> de um paciente que reganhou peso rápido, muitas vezes vejo que a perda inicial foi agressiva demais, ignorando a fisiologia. O corpo interpreta a perda de gordura como uma ameaça à sobrevivência e reage ativando adaptações metabólicas potentes: diminui o gasto de energia (metabolismo basal) e gera um aumento expressivo nos <strong className="text-slate-800">hormônios da fome</strong>. Essa pressão biológica é o que muitas vezes nos empurra de volta, de forma quase inconsciente, aos antigos hábitos alimentares.</p>
 
+              {/* IMAGEM ESTRATÉGICA COM ALT E TITLE ARRUMADOS */}
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-                <img src={`${githubImgBase}Blog/Hormfome.jpg`} alt="Ilustração dos hormônios da fome Grelina e Leptina atuando no cérebro" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img 
+                  src={`${githubImgBase}Blog/Hormfome.jpg`} 
+                  alt="Ilustração mostrando Ghrelina e Leptina, hormônios da fome, agindo no cérebro." 
+                  title="Como os hormônios Grelina e Leptina controlam o apetite e o peso."
+                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+                />
                 <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">A batalha pela manutenção do peso ocorre no nível hormonal, não apenas na força de vontade.</p></div>
               </div>
 
@@ -173,13 +180,13 @@ export default function HormoniosFome() {
                   <li className="text-slate-700 font-bold text-lg pl-1">Ativação de vias cerebrais que aumentam o desejo por doces e gorduras</li>
                 </ul>
               </div>
-              {/* FIM DA LISTA OBJETIVA */}
+              {/* FIM DO BOLCO LISTA OBJETIVA */}
 
               <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Pill className="text-green-600"/> O Fenômeno do GLP-1 (Semaglutida) e a Verdade Clínica
               </h2>
               <p>Recentemente, o uso de medicamentos conhecidos como agonistas do receptor de GLP-1 (como a semaglutida e a tirzepatida) trouxe uma nova perspectiva para o controle da obesidade. O GLP-1 é um hormônio naturalmente produzido pelo intestino após as refeições que ajuda a regular a saciedade e a secreção de insulina.</p>
-              <p>Essas terapias modernas simulam a ação desse hormônio em doses supra-fisiológicas para ajudar o paciente a manter o peso, combatendo justamente a pressão biológica que o corpo exerce para recuperar a energia perdida. No entanto, se esses medicamentos forem interrompidos sem uma estratégia nutricional e comportamental sustentável de "desmame" e manutenção de massa muscular, o reganho de peso pode ser extremamente rápido, reativando a inflamação celular de forma agressiva.</p>
+              <p>Essas terapias modernas simulam a ação desse hormônio em doses supra-fisiológicas para ajudar o paciente a manter o peso, combatendo justamente a pressão biológica que o corpo exerts para recuperar a energia perdida. No entanto, se esses medicamentos forem interrompidos sem uma estratégia nutricional e comportamental sustentável de "desmame" e manutenção de massa muscular, o reganho de peso pode ser extremamente rápido, reativando a inflamação celular de forma agressiva.</p>
 
               <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Flame className="text-green-600"/> Inflamação Adiposa e a "Memória" da Gordura
@@ -229,7 +236,7 @@ export default function HormoniosFome() {
               </div>
               {/* FIM DA SESSÃO DO VÍDEO */}
 
-{/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
+              {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
               <div className="mt-16 pt-10 border-t border-slate-100 text-left">
                 <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
                 <div className="space-y-6">
@@ -264,14 +271,14 @@ export default function HormoniosFome() {
 
           <ArtigosRecomendados currentPath={pathname} />
 
-          {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
+          {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO E ALT/TITLE NAS IMAGENS */}
           <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
             
-            {/* Foto do Autor no lugar do 'M' */}
             <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
               <img 
                 src={`${githubImgBase}Eu_1.png`} 
-                alt="Marco Aurélio Jr." 
+                alt="Marco Aurélio Jr. - Nutricionista e Autor do Artigo." 
+                title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador Antropométrico ISAK Nível 1."
                 className="w-full h-full object-cover"
               />
             </div>
