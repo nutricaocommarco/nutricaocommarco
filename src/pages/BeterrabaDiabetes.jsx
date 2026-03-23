@@ -173,90 +173,62 @@ export default function BeterrabaDiabetes() {
               
               <p>Enquanto o <strong>índice glicêmico</strong> avalia a velocidade com que um carboidrato isolado vira açúcar no sangue, a <strong>carga glicêmica</strong> avalia a quantidade real de carboidratos que você consome em uma porção normal. O índice glicêmico da beterraba pode até ser considerado moderado, mas a sua carga glicêmica é muito baixa, pois ela possui muita água e um baixo aporte calórico total por porção.</p>
 
-{/* TABELA COMPARATIVA COMPLETA (GEO BOOST) */}
+
+              {/* TABELA COMPARATIVA SIMPLIFICADA (GEO BOOST) */}
               <div className="my-10 bg-white border border-green-100 shadow-md rounded-[2rem] overflow-hidden">
                 <div className="bg-green-50 px-6 py-4 border-b border-green-100">
-                  <h3 className="text-xl font-black text-green-800 uppercase italic m-0">Comparativo: Índice vs. Carga Glicêmica (Porção de 100g)</h3>
+                  <h3 className="text-xl font-black text-green-800 uppercase italic m-0">Comparativo: Índice vs. Carga Glicêmica</h3>
                 </div>
                 <div className="p-6">
-                  <ul className="space-y-6 m-0">
+                  <ul className="space-y-4 m-0">
                     {/* Beterraba Crua */}
-                    <li className="flex flex-col md:flex-row md:justify-between md:items-center border-b border-slate-50 pb-5 gap-3">
+                    <li className="flex flex-col md:flex-row md:justify-between md:items-center border-b border-slate-50 pb-3 gap-2">
                       <span className="text-slate-700 font-bold text-lg">Beterraba Crua</span>
-                      <div className="flex flex-col items-start md:items-end gap-2">
-                        <div className="flex flex-wrap gap-2">
-                          <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">9.6g Carbo</span>
-                          <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">2.8g Fibras</span>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          <span className="bg-blue-50 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase border border-blue-100">IG: 54 a 64 (Baixo)</span>
-                          <span className="bg-emerald-200 text-emerald-900 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga: 6 (Baixa)</span>
-                        </div>
+                      <div className="flex flex-wrap md:justify-end gap-2">
+                        <span className="bg-blue-50 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase border border-blue-100">IG: 54 a 64 (Baixo)</span>
+                        <span className="bg-emerald-200 text-emerald-900 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga: 6 (Baixa)</span>
                       </div>
                     </li>
                     {/* Arroz Integral */}
-                    <li className="flex flex-col md:flex-row md:justify-between md:items-center border-b border-slate-50 pb-5 gap-3">
+                    <li className="flex flex-col md:flex-row md:justify-between md:items-center border-b border-slate-50 pb-3 gap-2">
                       <span className="text-slate-700 font-bold text-lg">Arroz Integral Cozido</span>
-                      <div className="flex flex-col items-start md:items-end gap-2">
-                        <div className="flex flex-wrap gap-2">
-                          <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">25g Carbo</span>
-                          <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">2.7g Fibras</span>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          <span className="bg-blue-50 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase border border-blue-100">IG: 66 a 68 (Médio)</span>
-                          <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga: 39 (Alta)</span>
-                        </div>
+                      <div className="flex flex-wrap md:justify-end gap-2">
+                        <span className="bg-blue-50 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase border border-blue-100">IG: 66 a 68 (Médio)</span>
+                        <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga: 39 (Alta)</span>
                       </div>
                     </li>
                     {/* Arroz Parboilizado */}
-                    <li className="flex flex-col md:flex-row md:justify-between md:items-center border-b border-slate-50 pb-5 gap-3">
+                    <li className="flex flex-col md:flex-row md:justify-between md:items-center border-b border-slate-50 pb-3 gap-2">
                       <span className="text-slate-700 font-bold text-lg">Arroz Parboilizado</span>
-                      <div className="flex flex-col items-start md:items-end gap-2">
-                        <div className="flex flex-wrap gap-2">
-                          <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">26g Carbo</span>
-                          <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">1.5g Fibras</span>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          <span className="bg-blue-50 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase border border-blue-100">IG: 68 (Médio)</span>
-                          <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga: 16 (Média)</span>
-                        </div>
+                      <div className="flex flex-wrap md:justify-end gap-2">
+                        <span className="bg-blue-50 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase border border-blue-100">IG: 68 (Médio)</span>
+                        <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga: 16 (Média)</span>
                       </div>
                     </li>
                     {/* Arroz Branco */}
-                    <li className="flex flex-col md:flex-row md:justify-between md:items-center border-b border-slate-50 pb-5 gap-3">
+                    <li className="flex flex-col md:flex-row md:justify-between md:items-center border-b border-slate-50 pb-3 gap-2">
                       <span className="text-slate-700 font-bold text-lg">Arroz Branco Cozido</span>
-                      <div className="flex flex-col items-start md:items-end gap-2">
-                        <div className="flex flex-wrap gap-2">
-                          <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">28g Carbo</span>
-                          <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">0.4g Fibras</span>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          <span className="bg-orange-50 text-orange-800 px-3 py-1 rounded-full text-[10px] font-black uppercase border border-orange-200">IG: 73 a 89 (Alto)</span>
-                          <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga: 38 (Alta)</span>
-                        </div>
+                      <div className="flex flex-wrap md:justify-end gap-2">
+                        <span className="bg-orange-50 text-orange-800 px-3 py-1 rounded-full text-[10px] font-black uppercase border border-orange-200">IG: 73 a 89 (Alto)</span>
+                        <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga: 38 (Alta)</span>
                       </div>
                     </li>
                     {/* Açúcar Refinado */}
-                    <li className="flex flex-col md:flex-row md:justify-between md:items-center pt-2 gap-3">
+                    <li className="flex flex-col md:flex-row md:justify-between md:items-center pt-1 gap-2">
                       <span className="text-slate-700 font-bold text-lg">Açúcar Refinado</span>
-                      <div className="flex flex-col items-start md:items-end gap-2">
-                        <div className="flex flex-wrap gap-2">
-                          <span className="bg-red-50 text-red-600 px-3 py-1 rounded-full text-[10px] font-black uppercase">99.8g Carbo</span>
-                          <span className="bg-red-50 text-red-600 px-3 py-1 rounded-full text-[10px] font-black uppercase">0g Fibras</span>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          <span className="bg-blue-50 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase border border-blue-100">IG: 64 a 68 (Médio)</span>
-                          <span className="bg-red-600 text-white px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga: 100 (Crítica)</span>
-                        </div>
+                      <div className="flex flex-wrap md:justify-end gap-2">
+                        <span className="bg-blue-50 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase border border-blue-100">IG: 64 a 68 (Médio)</span>
+                        <span className="bg-red-600 text-white px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga: 100 (Crítica)</span>
                       </div>
                     </li>
                   </ul>
-                  <p className="text-xs text-slate-400 mt-8 leading-relaxed italic">
-                    * Observe a diferença brutal: o açúcar refinado tem um <strong>Índice Glicêmico (IG)</strong> médio (semelhante ao do arroz integral), mas como ele é 100% carboidrato sem nenhuma fibra, sua <strong>Carga Glicêmica (CG)</strong> no organismo é crítica. Já a beterraba possui um IG médio, mas sua carga real na porção é classificada como baixa (6).
+                  <p className="text-xs text-slate-400 mt-6 leading-relaxed italic">
+                    * Observe a diferença brutal: a beterraba possui um <strong>Índice Glicêmico (IG)</strong> muito próximo ao do açúcar, mas a sua <strong>Carga Glicêmica (CG)</strong> real no corpo é totalmente inofensiva (6). O vídeo abaixo explica essa armadilha.
                   </p>
                 </div>
               </div>
               {/* FIM DA TABELA */}
+
 
               {/* SESSÃO DO VÍDEO DO MARCO NO YOUTUBE */}
               <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
