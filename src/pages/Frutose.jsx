@@ -270,7 +270,7 @@ export default function Frutose() {
             </div>
             {/* FIM DA LISTA OBJETIVA */}
 
-            {/* VÍDEO RECOMENDADO EM DESTAQUE */}
+{/* VÍDEO RECOMENDADO EM DESTAQUE */}
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               Bônus: Fruta no almoço ou de sobremesa faz mal?
             </h2>
@@ -286,7 +286,7 @@ export default function Frutose() {
               </div>
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
                 <iframe 
-                  src="https://www.youtube.com/watch?v=GjcchiFKBt4" 
+                  src="https://www.youtube.com/embed/GjcchiFKBt4" 
                   title="Comer Frutas no Almoço" 
                   className="absolute top-0 left-0 w-full h-full"
                   frameBorder="0" 
