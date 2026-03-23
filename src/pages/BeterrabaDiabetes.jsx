@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, HelpCircle, Activity, Heart, Clock, Leaf, PlayCircle, Scale, ChevronRight, Headphones } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
@@ -139,6 +139,62 @@ export default function BeterrabaDiabetes() {
               </audio>
             </div>
             {/* FIM DA SESSÃO DO ÁUDIO */}
+
+{/* INÍCIO DO SUMÁRIO RETRÁTIL */}
+const [isTocOpen, setIsTocOpen] = useState(false);
+
+// ... dentro do return ...
+
+<nav className="my-10 border border-slate-100 rounded-[2.5rem] bg-white shadow-sm overflow-hidden transition-all duration-300">
+  <button 
+    onClick={() => setIsTocOpen(!isTocOpen)}
+    className="w-full px-8 py-5 flex items-center justify-between hover:bg-slate-50 transition-colors group"
+  >
+    <div className="flex items-center gap-3">
+      <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-slate-100 text-slate-400'}`}>
+        <Activity size={18} />
+      </div>
+      <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic">
+        Índice do Conteúdo
+      </h3>
+    </div>
+    <ChevronRight 
+      size={20} 
+      className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+    />
+  </button>
+
+  <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-slate-50' : 'max-h-0 opacity-0'} overflow-hidden`}>
+    <ul className="p-8 grid grid-cols-1 md:grid-cols-2 gap-4 list-none m-0">
+      <li>
+        <a href="#o-mito-do-acucar" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base">
+          <Leaf size={16} className="text-slate-300 group-hover:text-green-500" />
+          O Mito do Açúcar
+        </a>
+      </li>
+      <li>
+        <a href="#indice-vs-carga" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base">
+          <Scale size={16} className="text-slate-300 group-hover:text-green-500" />
+          Índice vs. Carga
+        </a>
+      </li>
+      <li>
+        <a href="#beneficios-clinicos" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base">
+          <Heart size={16} className="text-slate-300 group-hover:text-green-500" />
+          Benefícios Clínicos
+        </a>
+      </li>
+      <li>
+        <a href="#dicas-consumo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base">
+          <HelpCircle size={16} className="text-slate-300 group-hover:text-green-500" />
+          Dicas de Ouro
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+{/* FIM DO SUMÁRIO RETRÁTIL */}
+
 
             <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
               <p>Muitas pessoas que recebem o diagnóstico de diabetes ou pré-diabetes acabam saindo do consultório médico com uma verdadeira lista mental de alimentos "proibidos", gerando ansiedade na hora de montar o prato. Quase sempre, a beterraba está no topo dessa temida lista por causa do seu inconfundível sabor adocicado.</p>
