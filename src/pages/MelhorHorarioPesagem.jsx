@@ -261,6 +261,30 @@ export default function MelhorHorarioPesagem() {
               <p>Se você quer acompanhar resultados de verdade, mude o seu foco. Comece a observar suas fotos de evolução (tiradas a cada 15 dias, na mesma luz), acompanhe as suas medidas corporais (principalmente a circunferência da cintura e do abdômen) e sinta como suas roupas estão vestindo.</p>
               <p>Muitas vezes, o seu corpo está mudando drasticamente e a sua saúde metabólica está melhorando de forma silenciosa. Para ter precisão de verdade e entender o que está acontecendo abaixo da sua pele, o caminho científico é realizar uma avaliação física rigorosa, como a <Link to="/o_que_e_antropometria" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">avaliação antropométrica ISAK</Link>, com um profissional qualificado.</p>
 
+              {/* SESSÃO DO VÍDEO DO YOUTUBE */}
+              <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
+                    <PlayCircle size={24} />
+                  </div>
+                  <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight text-left">A Balança Mente? Entenda a Oscilação Diária</h3>
+                </div>
+                <p className="text-slate-600 mb-6 font-medium italic text-left">
+                  Complementando a nossa leitura, veja a explicação didática do professor Leandro Twin sobre como a água, o sódio e o conteúdo intestinal manipulam os números que você vê no visor, e por que a balança não deve ser o seu único parâmetro.
+                </p>
+                <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
+                  <iframe 
+                    src="https://www.youtube.com/embed/Mu_AQHlNqGw" 
+                    title="Por que o peso varia todos os dias e a importância de não se pesar diariamente" 
+                    className="absolute top-0 left-0 w-full h-full"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+              {/* FIM DA SESSÃO DO VÍDEO */}
+              
               {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
               <div className="mt-16 pt-10 border-t border-slate-100 text-left">
                 <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
