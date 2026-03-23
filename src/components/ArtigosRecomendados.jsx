@@ -6,7 +6,14 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 // 1. A sua lista centralizada. Toda vez que criar um post novo, basta adicionar aqui!
 export const listaArtigos = [
-{
+  {
+    link: "/qual_melhor_horario_para_se_pesar",
+    img: `${githubImgBase}Blog/melhor_horario_pesagem.jpg`,
+    tag: "Avaliação e Medidas",
+    titulo: "Qual o melhor horário para se pesar?",
+    desc: "Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite."
+  },
+  {
     link: "/nutricao_para_ironman_703",
     img: `${githubImgBase}Blog/nutricao_ironman_703.jpg`,
     tag: "Nutrição Esportiva",
@@ -26,7 +33,7 @@ export const listaArtigos = [
     tag: "Saúde Intestinal",
     titulo: "Por que o Feijão dá Gases? (E como evitar)",
     desc: "Descubra a ciência por trás dos antinutrientes e como o remolho pode salvar sua digestão." 
-    },
+  },
   {
     link: "/o_dilema_do_sangue_na_altitude",
     img: `${githubImgBase}Blog/eritropoietina.jpg`,
