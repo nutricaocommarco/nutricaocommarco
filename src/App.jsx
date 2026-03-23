@@ -19,6 +19,7 @@ import Feijao from './pages/Feijao';
 import HormoniosFome from './pages/HormoniosFome';
 import Ironman703 from './pages/Ironman703';
 import GeradorEmailSecreto from './pages/GeradorEmailSecreto';
+import MelhorHorarioPesagem from './pages/MelhorHorarioPesagem'; // <-- IMPORTAÇÃO DO NOVO ARTIGO AQUI
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -106,6 +107,10 @@ function Layout({ children }) {
         title: 'Nutrição para Ironman 70.3: Guia Completo | Nutrição com Marco', 
         desc: 'Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o Ironman 70.3.' 
       },
+      '/qual_melhor_horario_para_se_pesar': { // <-- SEO DA NOVA ROTA AQUI
+        title: 'Qual o melhor horário para se pesar? | Nutrição com Marco', 
+        desc: 'Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite. Peso na balança não é igual a gordura corporal.' 
+      },
     };
 
     const currentSEO = seoData[location.pathname] || seoData['/'];
@@ -136,7 +141,7 @@ function Layout({ children }) {
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || location.pathname !== '/' ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center relative">
           <Link to="/" className="flex items-center gap-2 group">
-            <img src={`${githubImgBase}logoN_pingus.png`} alt="Logo Pingus" className="w-12 h-12 group-hover:rotate-6 transition-transform object-contain" />
+            <img src={`${githubImgBase}logoN_pingus.png`} alt="Logo Pingus" title="Nutrição com Marco - Fisiologia, Composição Corporal e Saúde" className="w-12 h-12 group-hover:rotate-6 transition-transform object-contain" />
             <span className="text-xl font-black tracking-tight text-slate-900 uppercase ml-1">NUTRIÇÃO COM <span className="text-green-600">MARCO</span></span>
           </Link>
 
@@ -171,7 +176,7 @@ function Layout({ children }) {
       <footer className="bg-slate-900 text-white py-20 text-center mt-auto">
         <div className="container mx-auto px-6 text-center">
           <Link to="/" className="flex items-center justify-center gap-3 mb-10 group">
-            <img src={`${githubImgBase}logoN_pingus.png`} alt="Logo" className="w-12 h-12 object-contain group-hover:rotate-6 transition-transform" />
+            <img src={`${githubImgBase}logoN_pingus.png`} alt="Logo" title="Nutrição com Marco - Fisiologia, Composição Corporal e Saúde" className="w-12 h-12 object-contain group-hover:rotate-6 transition-transform" />
             <span className="text-xl font-black uppercase italic tracking-tighter text-white">Nutrição com Marco</span>
           </Link>
           <div className="flex justify-center gap-8 mb-16">
@@ -195,7 +200,7 @@ export default function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/admin-pingus-email" element={<GeradorEmailSecreto />} /> {/* <-- Nova linha aqui */}
+            <Route path="/admin-pingus-email" element={<GeradorEmailSecreto />} />
             <Route path="/certificacoes" element={<Certificacoes />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/blog" element={<Blog />} />
@@ -209,6 +214,7 @@ export default function App() {
             <Route path="/por_que_o_feijao_da_gases" element={<Feijao />} />
             <Route path="/hormonios_da_fome_emagrecimento" element={<HormoniosFome />} />
             <Route path="/nutricao_para_ironman_703" element={<Ironman703 />} />
+            <Route path="/qual_melhor_horario_para_se_pesar" element={<MelhorHorarioPesagem />} /> {/* <-- NOVA ROTA ATUALIZADA AQUI */}
           </Routes>
         </Layout>
       </Router>
@@ -223,3 +229,4 @@ export default function App() {
     </HelmetProvider>
   );
 }
+
