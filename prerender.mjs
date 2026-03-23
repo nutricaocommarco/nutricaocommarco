@@ -24,7 +24,7 @@ const routes = [
   { 
     path: 'blog', 
     title: 'Blog de Nutrição e Ciência | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/ImgBlog.jpg',
     desc: 'Conteúdo científico sobre antropometria, bioimpedância e emagrecimento real.'
   },
   { 
