@@ -116,9 +116,14 @@ export default function EfeitoSanfona() {
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
             <p>Você já sentiu que, logo após terminar uma dieta e perder peso, o seu corpo parece fazer um esforço enorme para ganhar tudo de novo? Esse vaivém da balança, conhecido como efeito sanfona ou ciclo de peso, é um dos maiores desafios para quem busca saúde, já que a grande maioria das pessoas que tentam emagrecer acaba enfrentando dificuldades reais para manter o peso mais baixo a longo prazo.</p>
 
-            {/* IMAGEM DE CAPA */}
+            {/* IMAGEM DE CAPA COM ALT E TITLE ARRUMADOS */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img src={`${githubImgBase}Blog/efeito_sanfona.jpg`} alt="Metabolismo e efeito sanfona" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img 
+                src={`${githubImgBase}Blog/efeito_sanfona.jpg`} 
+                alt="Ilustração do metabolismo e o impacto do efeito sanfona" 
+                title="Os perigos do reganho de peso e a inflamação celular invisível"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+              />
               <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">O reganho de peso é um evento inflamatório agressivo para as células.</p></div>
             </div>
 
@@ -249,7 +254,8 @@ export default function EfeitoSanfona() {
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
             <img 
               src={`${githubImgBase}Eu_1.png`} 
-              alt="Marco Aurélio Jr." 
+              alt="Marco Aurélio Jr. - Nutricionista e Autor do Artigo." 
+              title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador Antropométrico ISAK Nível 1."
               className="w-full h-full object-cover"
             />
           </div>
