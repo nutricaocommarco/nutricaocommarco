@@ -1,0 +1,308 @@
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { ChevronLeft, HelpCircle, Activity, Heart, Clock, Leaf, PlayCircle, Scale, ChevronRight } from 'lucide-react';
+import ArtigosRecomendados from '../components/ArtigosRecomendados';
+import Newsletter from '../components/Newsletter';
+import { Helmet } from 'react-helmet-async';
+
+const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+
+export default function BeterrabaDiabetes() {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return (
+    <>
+      <Helmet>
+        <title>Diabético pode comer beterraba? O mito desvendado | Nutrição com Marco</title>
+        <meta name="description" content="Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2." />
+        
+        {/* OPEN GRAPH (Redes Sociais) */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Diabético pode comer beterraba? O mito que você precisa parar de acreditar" />
+        <meta property="og:description" content="A beterraba é doce, mas será que aumenta a glicemia? Entenda o impacto da carga glicêmica e das fibras no controle do diabetes." />
+        <meta property="og:image" content={`${githubImgBase}Blog/beterraba_diabetes.jpg`} />
+        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
+
+        {/* SCHEMA.ORG (Google) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Diabético pode comer beterraba? O mito que você precisa parar de acreditar",
+            "image": `${githubImgBase}Blog/beterraba_diabetes.jpg`,
+            "author": {
+              "@type": "Person",
+              "name": "Marco Aurélio Jr.",
+              "url": "https://www.nutricaocommarco.com.br/sobre"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Nutrição com Marco",
+              "logo": {
+                "@type": "ImageObject",
+                "url": `${githubImgBase}logoN_pingus.png`
+              }
+            },
+            "datePublished": "2026-04-10",
+            "description": "Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2."
+          })}
+        </script>
+
+        {/* BREADCRUMB (NÍVEL NINJA) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.nutricaocommarco.com.br/" },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.nutricaocommarco.com.br/blog" },
+              { "@type": "ListItem", "position": 3, "name": "Beterraba e Diabetes", "item": `https://www.nutricaocommarco.com.br${pathname}` }
+            ]
+          })}
+        </script>
+
+        {/* SCHEMA.ORG PARA FAQ */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Beterraba cozida é pior que a crua para o diabético?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A versão crua é superior por concentrar de forma intacta as fibras e os compostos bioativos associados a marcadores metabólicos positivos em testes clínicos recentes. O processamento térmico (cozinhar muito) e o fatiamento excessivo quebram a barreira fibrosa, o que pode acelerar a digestão e a absorção intestinal dos carboidratos."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Qual a quantidade ideal de beterraba por dia para diabéticos?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A ciência atesta de maneira sólida que a ingestão de 100 gramas diárias de beterraba crua oferece resultados seguros e eficazes. Esse volume demonstrou melhorias clinicamente relevantes na redução de glicose, pressão arterial e marcadores lipídicos no diabetes tipo 2."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Posso tomar suco de beterraba com laranja se tenho diabetes?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Não é o ideal. A ingestão através de sucos e alimentos liquidificados (especialmente se coados) retira a proteção fibrosa que atua como freio natural, controlando a velocidade do metabolismo glicêmico. As melhores condutas recomendam consumir o vegetal inteiro, mastigado, e preferencialmente in natura."
+                }
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
+
+      <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
+        <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
+
+          <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+            <ChevronLeft size={20} /> Voltar para o Blog
+          </Link>
+
+          <article className="prose prose-lg max-w-none text-left">
+            
+            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Nutrição Clínica</span>
+
+            <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
+              Diabético pode comer beterraba? O mito que você precisa parar de acreditar
+            </h1>
+
+            {/* BLOCO DE RESPOSTA DIRETA (FEATURED SNIPPET) */}
+            <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-4 text-left">
+                <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
+                  Resposta rápida: Sim, diabéticos podem e devem comer beterraba!
+                </h2>
+                <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
+                  Embora a beterraba tenha açúcar natural, ela possui uma <strong>carga glicêmica baixa</strong> e é riquíssima em fibras que retardam a absorção da glicose. Quando consumida de forma equilibrada (aprox. 100g diárias), preferencialmente crua, ela ajuda a evitar picos de glicose, melhora a glicemia de jejum e o metabolismo lipídico no diabetes tipo 2.
+                </p>
+            </div>
+            {/* FIM DO BLOCO DE RESPOSTA DIRETA */}
+
+            {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) */}
+            <div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <Headphones className="text-green-600 w-6 h-6" />
+                <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+              </div>
+              <audio controls className="w-full h-10 outline-none">
+                <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/BeterrabaDiabetes.mp3" type="audio/mpeg" />
+                Seu navegador não suporta o elemento de áudio.
+              </audio>
+            </div>
+            {/* FIM DA SESSÃO DO ÁUDIO */}
+
+            <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
+              <p>Muitas pessoas que recebem o diagnóstico de diabetes ou pré-diabetes acabam saindo do consultório médico com uma verdadeira lista mental de alimentos "proibidos", gerando ansiedade na hora de montar o prato. Quase sempre, a beterraba está no topo dessa temida lista por causa do seu inconfundível sabor adocicado.</p>
+              
+              <p>A exclusão desse vegetal é, inclusive, reconhecida por manuais oficiais de abordagem nutricional como um tabu alimentar cultural e infundado que acaba apenas por empobrecer a dieta diária. A lógica popular parece óbvia e irrefutável: "se o alimento é doce na boca, é porque a beterraba tem muito açúcar; e se tem açúcar, fatalmente a beterraba aumenta a glicemia de forma perigosa". Mas, quando mergulhamos na nutrição clínica e na fisiologia do corpo humano, o grande erro está em olhar apenas para o teor de açúcar isolado e esquecer a <strong>complexa matriz nutricional</strong> do alimento.</p>
+
+              {/* IMAGEM ESTRATÉGICA */}
+              <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
+                <img 
+                  src={`${githubImgBase}Blog/beterraba_diabetes.jpg`} 
+                  alt="Foto de uma beterraba cortada ao meio com folhas verdes ao fundo, destacando sua cor vibrante." 
+                  title="Beterraba e Diabetes"
+                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+                />
+                <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">A beterraba é uma aliada da saúde do diabético quando consumida corretamente.</p></div>
+              </div>
+
+              <h2 id="o-mito-do-acucar" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+                <Leaf className="text-green-600"/> O Mito do Açúcar e a Matriz Nutricional
+              </h2>
+              <p>A beterraba é um vegetal riquíssimo em fibras alimentares, e é exatamente aqui que o jogo vira a favor do paciente diabético. As <strong>fibras solúveis e insolúveis</strong> presentes na matriz da beterraba funcionam como uma espécie de barreira natural no seu sistema digestivo.</p>
+              
+              <p>Isso retarda o esvaziamento gástrico e proporciona uma resposta significativamente menor de glicose e insulina na fase pós-prandial. Esse processo cadenciado evita aqueles picos perigosos de insulina circulante no sangue. Além disso, as <em>betalaínas</em>, que são os pigmentos responsáveis por dar a inconfundível cor vermelha intensa à beterraba, possuem potentes propriedades antioxidantes e anti-inflamatórias que auxiliam na proteção e reparo dos componentes celulares.</p>
+
+              <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
+                “O segredo para o controle glicêmico não é a exclusão de alimentos naturais, mas sim a inteligência nas combinações e no modo de preparo.”
+              </div>
+
+              <h2 id="indice-vs-carga" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+                <Scale className="text-green-600"/> Índice Glicêmico vs. Carga Glicêmica
+              </h2>
+              <p>Para desmistificar de vez esse medo, existe um conceito técnico fundamental: a diferença prática entre índice glicêmico e carga glicêmica.</p>
+              
+              <p>Enquanto o <strong>índice glicêmico</strong> avalia a velocidade com que um carboidrato isolado vira açúcar no sangue, a <strong>carga glicêmica</strong> avalia a quantidade real de carboidratos que você consome em uma porção normal. O índice glicêmico da beterraba pode até ser considerado moderado, mas a sua carga glicêmica é muito baixa, pois ela possui muita água e um baixo aporte calórico total por porção.</p>
+
+              {/* TABELA COMPARATIVA (GEO BOOST) */}
+              <div className="my-10 bg-white border border-green-100 shadow-md rounded-[2rem] overflow-hidden">
+                <div className="bg-green-50 px-6 py-4 border-b border-green-100">
+                  <h3 className="text-xl font-black text-green-800 uppercase italic m-0">Comparativo: Beterraba vs. Arroz Branco (Porção de 100g)</h3>
+                </div>
+                <div className="p-6">
+                  <ul className="space-y-4 m-0">
+                    <li className="flex justify-between items-center border-b border-slate-50 pb-3">
+                      <span className="text-slate-700 font-bold">Beterraba Crua</span>
+                      <div className="flex gap-2">
+                        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-black">9.6g Carbo</span>
+                        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-black">2.8g Fibras</span>
+                        <span className="bg-emerald-200 text-emerald-900 px-3 py-1 rounded-full text-xs font-black">Carga Baixa</span>
+                      </div>
+                    </li>
+                    <li className="flex justify-between items-center pt-1">
+                      <span className="text-slate-700 font-bold">Arroz Branco Cozido</span>
+                      <div className="flex gap-2">
+                        <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-black">28.0g Carbo</span>
+                        <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-black">0.4g Fibras</span>
+                        <span className="bg-red-200 text-red-900 px-3 py-1 rounded-full text-xs font-black">Carga Alta</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              {/* FIM DA TABELA */}
+
+              <h2 id="beneficios-clinicos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+                <Heart className="text-green-600"/> Os Benefícios Clínicos Comprovados
+              </h2>
+              <p>Os benefícios clínicos para quem convive com o diabetes são substanciais e comprovados em ensaios rigorosos. Em um estudo clínico, 44 pacientes com diabetes tipo 2 consumiram 100 gramas de beterraba vermelha crua diariamente durante 8 semanas consecutivas. Os resultados mostraram uma redução expressiva de <strong>13,53 mg/dL na glicemia de jejum</strong> e uma queda de 0,34% na hemoglobina glicada (HbA1c).</p>
+              
+              <p>Além de atuar diretamente no controle do açúcar, a intervenção resultou na queda da pressão arterial sistólica em 0,73 mmHg e diastólica em 0,34 mmHg. Esse efeito cardiovascular protetor está ligado à presença de nitratos inorgânicos na composição do vegetal, que atuam na dilatação endotelial e na saúde dos vasos sanguíneos cerebrais e periféricos.</p>
+
+              <div className="bg-slate-100 p-6 md:p-8 rounded-[2rem] border-l-4 border-slate-400 my-8">
+                <h3 className="text-xl font-black text-slate-800 mb-3 flex items-center gap-2"><Activity size={20} className="text-slate-600"/> Função Cognitiva e Nervosa</h3>
+                <p className="m-0 text-slate-700 font-medium leading-relaxed">Como se não bastasse todo esse controle endócrino e vascular, o consumo regular reduziu os níveis da homocisteína no sangue em 7,88 µmol/L, diminuindo processos inflamatórios. O estudo também documentou um aumento formidável nas pontuações de testes de função cognitiva, indicando melhora na eficiência do aprendizado de dígitos e maior atenção concentrada. Esse benefício protege o tecido nervoso contra os declínios cognitivos e quadros de neuropatia que são frequentemente observados após anos de exposição à hiperglicemia e dislipidemia.</p>
+              </div>
+
+              <h2 id="dicas-consumo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+                <HelpCircle className="text-green-600"/> Dicas de Ouro para consumir Beterraba com segurança
+              </h2>
+              
+              <div className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left">
+                <ul className="list-none m-0 p-0 space-y-6">
+                  <li className="flex gap-4 items-start">
+                    <div className="w-8 h-8 rounded-full bg-green-200 text-green-800 font-black flex items-center justify-center shrink-0 mt-1">1</div>
+                    <div>
+                      <h4 className="text-xl font-black text-slate-800 m-0 mb-1">Priorize a versão crua</h4>
+                      <p className="text-slate-600 m-0 leading-relaxed">Consumir 100g diárias de beterraba crua na salada preserva a integridade das fibras e folatos essenciais do vegetal. A manutenção das fibras garante a digestão lenta e prolonga o efeito metabólico benéfico no controle do açúcar e dos lipídios.</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-4 items-start">
+                    <div className="w-8 h-8 rounded-full bg-green-200 text-green-800 font-black flex items-center justify-center shrink-0 mt-1">2</div>
+                    <div>
+                      <h4 className="text-xl font-black text-slate-800 m-0 mb-1">Cuidado com o tempo de cozimento</h4>
+                      <p className="text-slate-600 m-0 leading-relaxed">Se preferir cozinhar, deixe a beterraba sempre muito firme, pois as fibras solúveis em sua forma natural são as grandes responsáveis por retardar o esvaziamento gástrico. O preparo altamente modificado e o fatiamento excessivo devem ser evitados para não acelerar a absorção intestinal dos carboidratos.</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-4 items-start">
+                    <div className="w-8 h-8 rounded-full bg-green-200 text-green-800 font-black flex items-center justify-center shrink-0 mt-1">3</div>
+                    <div>
+                      <h4 className="text-xl font-black text-slate-800 m-0 mb-1">Aplique a Regra da Combinação</h4>
+                      <p className="text-slate-600 m-0 leading-relaxed">Evite comer grandes porções de fontes de carboidratos de forma totalmente isolada. O consumo combinado com alimentos ricos em polifenóis e outros macronutrientes diminui de forma eficiente a hiperinsulinemia reativa e a hiperglicemia pós-prandial.</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-4 items-start">
+                    <div className="w-8 h-8 rounded-full bg-green-200 text-green-800 font-black flex items-center justify-center shrink-0 mt-1">4</div>
+                    <div>
+                      <h4 className="text-xl font-black text-slate-800 m-0 mb-1">Evite o suco coado sem critério</h4>
+                      <p className="text-slate-600 m-0 leading-relaxed">O consumo da versão líquida e coada elimina componentes estruturais importantes como as fibras, que desempenham a função vital de estimular a peristalse intestinal. Vegetais liquidificados não retêm a mesma matriz protetora e devem ser preferencialmente mastigados e consumidos in natura.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
+              <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
+                <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
+                <div className="space-y-6">
+                  <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
+                    <h3 className="text-lg font-black text-slate-800 mb-2 italic">Beterraba cozida é pior que a crua para o diabético?</h3>
+                    <p className="text-slate-600 m-0 leading-relaxed">A versão crua é superior por concentrar de forma absolutamente intacta as fibras e os compostos bioativos associados a marcadores metabólicos positivos em testes clínicos recentes. O processamento do vegetal na cozinha, que inclui cozinhar muito e picar em excesso, deve ser restrito ao mínimo possível para preservar a lentidão fisiológica da digestão.</p>
+                  </div>
+                  <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
+                    <h3 className="text-lg font-black text-slate-800 mb-2 italic">Qual a quantidade ideal por dia?</h3>
+                    <p className="text-slate-600 m-0 leading-relaxed">A ciência atesta de maneira sólida que a ingestão de 100 gramas diárias de beterraba crua oferece resultados altamente seguros e eficazes. Esse volume diário específico demonstrou melhorias clinicamente relevantes na redução de glicose, pressão arterial e marcadores lipídicos no diabetes tipo 2.</p>
+                  </div>
+                  <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
+                    <h3 className="text-lg font-black text-slate-800 mb-2 italic">Posso tomar suco de beterraba com laranja?</h3>
+                    <p className="text-slate-600 m-0 leading-relaxed">A ingestão através de sucos e alimentos altamente liquidificados retira a proteção fibrosa que atua como freio natural e controla a velocidade do metabolismo glicêmico. As melhores condutas de educação nutricional recomendam fortemente que frutas e vegetais devam ser consumidos na sua forma inteira e em pedaços em vez de serem processados.</p>
+                  </div>
+                </div>
+              </div>
+              {/* FIM DO FAQ VISUAL OTIMIZADO */}
+
+              <Newsletter />
+            </div> {/* AQUI FECHA A DIV SPACE-Y-6 CORRETAMENTE */}
+          </article>
+
+          <ArtigosRecomendados currentPath={pathname} />
+
+          {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
+          <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
+            
+            <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+              <img 
+                src={`${githubImgBase}Eu_1.png`} 
+                alt="Marco Aurélio Jr." 
+                title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador ISAK 1"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
+              <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
+              <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
+                Apaixonado pela ciência metabólica, Marco dedica seus estudos a compreender a fisiologia humana de forma aprofundada. Especialista em composição corporal com certificação internacional, ele foca em traduzir o rigor dos artigos científicos para a prática do dia a dia. Seu objetivo é ajudar você a entender como o próprio corpo funciona através da educação nutricional baseada em evidências reais.
+              </p>
+              <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+                Siga @Nutricao_com_Marco
+              </a>
+            </div>
+          </div>
+          {/* FIM DO NOVO CARTÃO DE AUTOR */}
+          
+        </div>
+      </section>
+    </>
+  );
+}
