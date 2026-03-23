@@ -80,6 +80,12 @@ const routes = [
     title: 'Hormônios da Fome: O corpo contra a dieta | Nutrição com Marco',
     image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Hormfome.jpg',
     desc: 'Entenda como a Grelina e a Leptina controlam seu apetite e a relação da inflamação celular com o reganho de peso.'
+  },
+  { 
+    path: 'qual_melhor_horario_para_se_pesar', 
+    title: 'Qual o melhor horário para se pesar? | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/melhor_horario_pesagem.jpg',
+    desc: 'Se você já se pesou à noite e achou que engordou… esse artigo vai te mostrar por que isso é um grande erro.'
   }
 ];
 
@@ -106,4 +112,3 @@ routes.forEach(route => {
   fs.writeFileSync(path.join(routePath, 'index.html'), html);
   console.log(`✅ Página [${route.path}] preparada para o WhatsApp!`);
 });
-
