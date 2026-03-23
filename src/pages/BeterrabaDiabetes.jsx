@@ -48,7 +48,7 @@ export default function BeterrabaDiabetes() {
               }
             },
             "datePublished": "2026-04-10",
- "dateModified": "2026-04-15",
+ "dateModified": "2026-03-21",
             "description": "Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2."
           })}
         </script>
