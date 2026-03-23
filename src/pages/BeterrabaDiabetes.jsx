@@ -129,69 +129,77 @@ const [isTocOpen, setIsTocOpen] = useState(false);
             </div>
             {/* FIM DO BLOCO DE RESPOSTA DIRETA */}
 
-            {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) */}
-            <div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
-              <div className="flex items-center gap-3">
-                <Headphones className="text-green-600 w-6 h-6" />
-                <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+             {/* INÍCIO DA CAIXA COMBINADA: ÁUDIO + SUMÁRIO RETRÁTIL */}
+            <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+              
+              {/* 1. SEÇÃO DO ÁUDIO */}
+              <div className="p-5 md:p-6 flex flex-col gap-3">
+                <div className="flex items-center gap-3">
+                  <Headphones className="text-green-600 w-6 h-6" />
+                  <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+                </div>
+                <audio controls className="w-full h-10 outline-none">
+                  <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/BeterrabaDiabetes.mp3" type="audio/mpeg" />
+                  Seu navegador não suporta o elemento de áudio.
+                </audio>
               </div>
-              <audio controls className="w-full h-10 outline-none">
-                <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/BeterrabaDiabetes.mp3" type="audio/mpeg" />
-                Seu navegador não suporta o elemento de áudio.
-              </audio>
+
+              {/* LINHA DIVISÓRIA SUAVE */}
+              <div className="h-px bg-green-100/60 w-full"></div>
+
+              {/* 2. SEÇÃO DO SUMÁRIO (TOC) */}
+              <nav className="bg-slate-50">
+                <button 
+                  onClick={() => setIsTocOpen(!isTocOpen)}
+                  className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                      <Activity size={18} />
+                    </div>
+                    <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
+                      Índice do Conteúdo
+                    </h3>
+                  </div>
+                  <ChevronRight 
+                    size={20} 
+                    className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                  />
+                </button>
+
+                {/* LISTA DE LINKS ESCONDIDA */}
+                <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
+                  <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
+                    <li>
+                      <a href="#o-mito-do-acucar" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <Leaf size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        O Mito do Açúcar
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#indice-vs-carga" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        Índice vs. Carga
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#beneficios-clinicos" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <Heart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        Benefícios Clínicos
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#dicas-consumo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        Dicas de Ouro
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
             </div>
-            {/* FIM DA SESSÃO DO ÁUDIO */}
+            {/* FIM DA CAIXA COMBINADA */}
 
-{/* INÍCIO DO SUMÁRIO RETRÁTIL OTIMIZADO PARA MOBILE */}
-<nav className="my-6 md:my-10 border border-slate-100 rounded-[1.5rem] md:rounded-[2.5rem] bg-white shadow-sm overflow-hidden transition-all duration-300">
-  <button 
-    onClick={() => setIsTocOpen(!isTocOpen)}
-    className="w-full px-5 py-4 md:px-8 md:py-5 flex items-center justify-between hover:bg-slate-50 transition-colors group"
-  >
-    <div className="flex items-center gap-3">
-      <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-slate-100 text-slate-400'}`}>
-        <Activity size={18} />
-      </div>
-      <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic">
-        Índice do Conteúdo
-      </h3>
-    </div>
-    <ChevronRight 
-      size={20} 
-      className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
-    />
-  </button>
-
-  <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-slate-50' : 'max-h-0 opacity-0'} overflow-hidden`}>
-    <ul className="p-5 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
-      <li>
-        <a href="#o-mito-do-acucar" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base">
-          <Leaf size={16} className="text-slate-300 group-hover:text-green-500" />
-          O Mito do Açúcar
-        </a>
-      </li>
-      <li>
-        <a href="#indice-vs-carga" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base">
-          <Scale size={16} className="text-slate-300 group-hover:text-green-500" />
-          Índice vs. Carga
-        </a>
-      </li>
-      <li>
-        <a href="#beneficios-clinicos" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base">
-          <Heart size={16} className="text-slate-300 group-hover:text-green-500" />
-          Benefícios Clínicos
-        </a>
-      </li>
-      <li>
-        <a href="#dicas-consumo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base">
-          <HelpCircle size={16} className="text-slate-300 group-hover:text-green-500" />
-          Dicas de Ouro
-        </a>
-      </li>
-    </ul>
-  </div>
-</nav>
-{/* FIM DO SUMÁRIO RETRÁTIL OTIMIZADO PARA MOBILE */}
 
 
 
