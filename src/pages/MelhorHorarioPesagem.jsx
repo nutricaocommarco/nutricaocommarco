@@ -141,7 +141,6 @@ export default function MelhorHorarioPesagem() {
             
             <div className="flex items-center flex-wrap gap-4 mb-6">
               <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Avaliação e Medidas</span>
-              <span className="text-slate-400 text-sm font-medium flex items-center gap-1"><Clock size={16}/> 5 min de leitura</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-black mb-4 uppercase italic leading-tight text-slate-900">
@@ -316,10 +315,10 @@ export default function MelhorHorarioPesagem() {
                   <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
                     <PlayCircle size={24} />
                   </div>
-                  <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight text-left">A Balança Mente? Entenda a Oscilação Diária</h3>
+                  <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight text-left">Como é uma avaliação Antropométrica completa?</h3>
                 </div>
                 <p className="text-slate-600 mb-6 font-medium italic text-left">
-                  Complementando a nossa leitura, veja no vídeo abaixo como a água, o sódio e o conteúdo intestinal manipulam os números que você vê no visor, e por que a balança não deve ser o seu único parâmetro.
+                  Complementando a nossa leitura, veja no vídeo abaixo como eu faço uma avaliação nos padrões internacionais para saber exatamente quanto de gordura e musculo você tem!
                 </p>
                 <div className="relative w-full overflow-hidden rounded-[2.5rem] shadow-2xl flex justify-center bg-white border border-green-100">
                   <iframe 
