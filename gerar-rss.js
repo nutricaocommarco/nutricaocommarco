@@ -3,11 +3,19 @@ import path from 'path';
 
 const artigos = [
   {
-      titulo: "Nutrição para Ironman 70.3: Guia Completo",
-      link: "https://www.nutricaocommarco.com.br/nutricao_para_ironman_70_3",
-      descricao: "Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o Ironman 70.3.",
-      imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/nutricao_ironman_703.jpg"
-    },
+    titulo: "Qual o melhor horário para se pesar?",
+    link: "https://www.nutricaocommarco.com.br/qual_melhor_horario_para_se_pesar",
+    descricao: "Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite.",
+    imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/melhor_horario_pesagem.jpg",
+    data: new Date("2026-03-30").toUTCString()
+  },
+  {
+    titulo: "Nutrição para Ironman 70.3: Guia Completo",
+    link: "https://www.nutricaocommarco.com.br/nutricao_para_ironman_703",
+    descricao: "Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o Ironman 70.3.",
+    imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/nutricao_ironman_703.jpg",
+    data: new Date("2026-03-25").toUTCString()
+  },
   {
     titulo: "Hormônios da Fome: Por que seu corpo luta contra a dieta?",
     link: "https://www.nutricaocommarco.com.br/hormonios_da_fome_emagrecimento",
