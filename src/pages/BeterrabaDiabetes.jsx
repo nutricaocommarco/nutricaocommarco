@@ -194,7 +194,7 @@ export default function BeterrabaDiabetes() {
                       <span className="text-slate-700 font-bold text-lg">Arroz Integral Cozido</span>
                       <div className="flex flex-wrap md:justify-end gap-2">
                         <span className="bg-blue-50 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase border border-blue-100">IG: 66 a 68 (Médio)</span>
-                        <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga: 19 (Média)</span>
+                        <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga: 19 (Média)</span>
                       </div>
                     </li>
                     {/* Arroz Parboilizado */}
@@ -217,7 +217,7 @@ export default function BeterrabaDiabetes() {
                     <li className="flex flex-col md:flex-row md:justify-between md:items-center pt-1 gap-2">
                       <span className="text-slate-700 font-bold text-lg">Açúcar Refinado</span>
                       <div className="flex flex-wrap md:justify-end gap-2">
-                        <span className="bg-blue-50 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase border border-blue-100">IG: 64 a 68 (Alto)</span>
+                        <span className="bg-orange-50 text-orange-800 px-3 py-1 rounded-full text-[10px] font-black uppercase border border-orange-200">IG: 64 a 68 (Alto)</span>
                         <span className="bg-red-600 text-white px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga: 64 (Crítica)</span>
                       </div>
                     </li>
@@ -228,6 +228,7 @@ export default function BeterrabaDiabetes() {
                 </div>
               </div>
               {/* FIM DA TABELA */}
+
 
 
               {/* SESSÃO DO VÍDEO DO MARCO NO YOUTUBE */}
