@@ -239,6 +239,32 @@ export default function Ironman703() {
               </div>
               {/* FIM DA SEGUNDA LISTA OBJETIVA */}
 
+              {/* VÍDEO RECOMENDADO EM DESTAQUE */}
+            <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
+              Bônus: A Experiência de um Ironman no Brasil
+            </h2>
+            
+            <p>Para complementar nosso guia nutricional, nada melhor do que entender na prática a intensidade e o clima dessa prova. O vídeo abaixo mostra os bastidores, a energia e a realidade de um dia de competição do Ironman no Brasil, ajudando você a visualizar o desafio colossal para o qual está preparando o seu corpo.</p>
+            
+            <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                  <PlayCircle size={24} />
+                </div>
+                <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Um dia de prova no Ironman Brasil</h3>
+              </div>
+              <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
+                <iframe 
+                  src="https://www.youtube.com/embed/_vpty8lX854" 
+                  title="Como é um dia de prova do Ironman no Brasil" 
+                  className="absolute top-0 left-0 w-full h-full"
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+
               {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
               <div className="mt-16 pt-10 border-t border-slate-100 text-left">
                 <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
