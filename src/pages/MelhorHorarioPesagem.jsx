@@ -270,7 +270,7 @@ export default function MelhorHorarioPesagem() {
                   <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight text-left">A Balança Mente? Entenda a Oscilação Diária</h3>
                 </div>
                 <p className="text-slate-600 mb-6 font-medium italic text-left">
-                  Complementando a nossa leitura, veja a explicação didática do professor Leandro Twin sobre como a água, o sódio e o conteúdo intestinal manipulam os números que você vê no visor, e por que a balança não deve ser o seu único parâmetro.
+                  Complementando a nossa leitura, veja a explicação didática sobre como a água, o sódio e o conteúdo intestinal manipulam os números que você vê no visor, e por que a balança não deve ser o seu único parâmetro.
                 </p>
                 <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
                   <iframe 
