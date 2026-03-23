@@ -12,28 +12,49 @@ export default function Blog() {
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-        {/* Card Ironman 70.3 (NOVO) */}
-<Link to="/nutricao_para_ironman_703" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
-  <div className="h-64 overflow-hidden border-b border-slate-50">
-    <img 
-      src={`${githubImgBase}Blog/nutricao_ironman_703.jpg`} 
-      alt="Nutrição para Ironman 70.3" 
-      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-    />
-  </div>
-  <div className="p-8 flex-grow">
-    <span className="text-[10px] font-black bg-green-50 text-green-600 px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">Nutrição Esportiva</span>
-    <h3 className="text-2xl font-black text-slate-800 leading-tight mb-4">Nutrição para Ironman 70.3: O Guia Definitivo</h3>
-    <p className="text-slate-500 text-sm font-medium italic mb-6 line-clamp-3">
-      Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o triatlo.
-    </p>
-    <div className="flex items-center gap-2 text-green-600 font-bold uppercase text-xs">
-      Ler Página do Artigo <ChevronRight size={16} />
-    </div>
-  </div>
-</Link>
+        {/* Card Melhor Horário para Pesar (NOVO) */}
+        <Link to="/qual_melhor_horario_para_se_pesar" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
+          <div className="h-64 overflow-hidden border-b border-slate-50">
+            <img 
+              src={`${githubImgBase}Blog/melhor_horario_pesagem.jpg`} 
+              alt="Qual o melhor horário para se pesar?" 
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+            />
+          </div>
+          <div className="p-8 flex-grow">
+            <span className="text-[10px] font-black bg-green-50 text-green-600 px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">Avaliação e Medidas</span>
+            <h3 className="text-2xl font-black text-slate-800 leading-tight mb-4">Qual o melhor horário para se pesar?</h3>
+            <p className="text-slate-500 text-sm font-medium italic mb-6 line-clamp-3">
+              Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite. Peso na balança não é igual a gordura corporal.
+            </p>
+            <div className="flex items-center gap-2 text-green-600 font-bold uppercase text-xs">
+              Ler Página do Artigo <ChevronRight size={16} />
+            </div>
+          </div>
+        </Link>
 
-        {/* Card Hormônios da Fome (NOVO) */}
+        {/* Card Ironman 70.3 */}
+        <Link to="/nutricao_para_ironman_703" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
+          <div className="h-64 overflow-hidden border-b border-slate-50">
+            <img 
+              src={`${githubImgBase}Blog/nutricao_ironman_703.jpg`} 
+              alt="Nutrição para Ironman 70.3" 
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+            />
+          </div>
+          <div className="p-8 flex-grow">
+            <span className="text-[10px] font-black bg-green-50 text-green-600 px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">Nutrição Esportiva</span>
+            <h3 className="text-2xl font-black text-slate-800 leading-tight mb-4">Nutrição para Ironman 70.3: O Guia Definitivo</h3>
+            <p className="text-slate-500 text-sm font-medium italic mb-6 line-clamp-3">
+              Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o triatlo.
+            </p>
+            <div className="flex items-center gap-2 text-green-600 font-bold uppercase text-xs">
+              Ler Página do Artigo <ChevronRight size={16} />
+            </div>
+          </div>
+        </Link>
+
+        {/* Card Hormônios da Fome */}
         <Link to="/hormonios_da_fome_emagrecimento" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
           <div className="h-64 overflow-hidden border-b border-slate-50">
             <img 
@@ -54,8 +75,7 @@ export default function Blog() {
           </div>
         </Link>
 
-
-{/* Card Feijão (NOVO) */}
+        {/* Card Feijão */}
         <Link to="/por_que_o_feijao_da_gases" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
           <div className="h-64 overflow-hidden border-b border-slate-50">
             <img 
@@ -76,7 +96,7 @@ export default function Blog() {
           </div>
         </Link>
         
-        {/* Card Eritropoetina (NOVO) */}
+        {/* Card Eritropoetina */}
         <Link to="/o_dilema_do_sangue_na_altitude" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
           <div className="h-64 overflow-hidden border-b border-slate-50">
             <img 
@@ -97,21 +117,20 @@ export default function Blog() {
           </div>
         </Link>
 
-
-        {/* Card Efeito Sanfona (Sintaxe e Nome do Arquivo) */}
+        {/* Card Efeito Sanfona */}
         <Link to="/efeito_sanfona_inflamacao_invisivel" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
-  <div className="h-64 overflow-hidden border-b border-slate-50">
-    <img src={`${githubImgBase}Blog/efeito_sanfona.jpg`} alt="O Efeito Sanfona e a Inflamação Invisível" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-  </div>
-  <div className="p-8 flex-grow">
-    <span className="text-[10px] font-black bg-green-50 text-green-600 px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">Fisiopatologia</span>
-    <h3 className="text-2xl font-black text-slate-800 leading-tight mb-4">O Efeito Sanfona e a Inflamação Invisível</h3>
-    <p className="text-slate-500 text-sm font-medium italic mb-6 line-clamp-3">Por que o reganho de peso é tão perigoso e como a memória das suas células de gordura dificulta o emagrecimento real.</p>
-    <div className="flex items-center gap-2 text-green-600 font-bold uppercase text-xs">Ler Página do Artigo <ChevronRight size={16} /></div>
-  </div>
-</Link>
+          <div className="h-64 overflow-hidden border-b border-slate-50">
+            <img src={`${githubImgBase}Blog/efeito_sanfona.jpg`} alt="O Efeito Sanfona e a Inflamação Invisível" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div className="p-8 flex-grow">
+            <span className="text-[10px] font-black bg-green-50 text-green-600 px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">Fisiopatologia</span>
+            <h3 className="text-2xl font-black text-slate-800 leading-tight mb-4">O Efeito Sanfona e a Inflamação Invisível</h3>
+            <p className="text-slate-500 text-sm font-medium italic mb-6 line-clamp-3">Por que o reganho de peso é tão perigoso e como a memória das suas células de gordura dificulta o emagrecimento real.</p>
+            <div className="flex items-center gap-2 text-green-600 font-bold uppercase text-xs">Ler Página do Artigo <ChevronRight size={16} /></div>
+          </div>
+        </Link>
 
-        {/* Card Frutose - CORRIGIDO (Sintaxe e Nome do Arquivo) */}
+        {/* Card Frutose */}
         <Link to="/quantas_frutas_posso_comer" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
           <div className="h-64 overflow-hidden border-b border-slate-50">
             <img 
