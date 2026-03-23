@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, HelpCircle, Scale, Clock, Activity, Droplets, Headphones, PlayCircle, AlertTriangle } from 'lucide-react';
+import { ChevronLeft, HelpCircle, Scale, Clock, Activity, Droplets, Headphones, PlayCircle, AlertTriangle } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
@@ -49,19 +49,6 @@ export default function MelhorHorarioPesagem() {
             },
             "datePublished": "2026-03-30",
             "description": "Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite. Peso na balança não é igual a gordura corporal."
-          })}
-        </script>
-
-        {/* INÍCIO DO SCHEMA.ORG PARA BREADCRUMB (NÍVEL NINJA) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.nutricaocommarco.com.br/" },
-              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.nutricaocommarco.com.br/blog" },
-              { "@type": "ListItem", "position": 3, "name": "Melhor Horário para se Pesar", "item": `https://www.nutricaocommarco.com.br${pathname}` }
-            ]
           })}
         </script>
 
@@ -128,20 +115,12 @@ export default function MelhorHorarioPesagem() {
       <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
         <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
-          {/* BREADCRUMBS VISUAIS (SEO NÍVEL NINJA) */}
-          <div className="mb-10 flex items-center flex-wrap gap-2 text-xs font-black uppercase tracking-widest text-slate-400">
-            <Link to="/" className="hover:text-green-600 transition-colors">Início</Link>
-            <span>/</span>
-            <Link to="/blog" className="hover:text-green-600 transition-colors">Blog</Link>
-            <span>/</span>
-            <span className="text-green-600">Pesagem</span>
-          </div>
+          <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+            <ChevronLeft size={20} /> Voltar para o Blog
+          </Link>
 
           <article className="prose prose-lg max-w-none text-left">
-            
-            <div className="flex items-center flex-wrap gap-4 mb-6">
-              <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Avaliação e Medidas</span>
-            </div>
+            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Avaliação e Medidas</span>
 
             <h1 className="text-4xl md:text-5xl font-black mb-4 uppercase italic leading-tight text-slate-900">
               Qual o melhor horário para se pesar? (Você está fazendo isso errado)
@@ -176,20 +155,6 @@ export default function MelhorHorarioPesagem() {
             </div>
             {/* FIM DA SESSÃO DO ÁUDIO */}
 
-            {/* ÍNDICE NAVEGÁVEL (TOC - HACK SEO Sitelinks) */}
-            <div className="my-10 p-6 md:p-8 bg-white border border-slate-100 rounded-[2rem] shadow-sm text-left">
-              <h3 className="text-lg font-black text-slate-800 uppercase italic mb-4">Neste artigo você vai ver:</h3>
-              <ul className="flex flex-col gap-3 m-0 p-0 list-none">
-                <li><a href="#protocolo" className="text-green-700 font-bold hover:underline flex items-center gap-2"><ChevronRight size={16} className="text-green-500 shrink-0"/> O Protocolo Científico: Como se pesar do jeito certo</a></li>
-                <li><a href="#erros" className="text-green-700 font-bold hover:underline flex items-center gap-2"><ChevronRight size={16} className="text-green-500 shrink-0"/> Os Maiores Erros ao Se Pesar</a></li>
-                <li><a href="#fisiologia" className="text-green-700 font-bold hover:underline flex items-center gap-2"><ChevronRight size={16} className="text-green-500 shrink-0"/> Por que seu peso varia tanto? A Fisiologia da Retenção</a></li>
-                <li><a href="#ilusao" className="text-green-700 font-bold hover:underline flex items-center gap-2"><ChevronRight size={16} className="text-green-500 shrink-0"/> A Ilusão da Densidade: Músculo vs. Gordura</a></li>
-                <li><a href="#pesartododia" className="text-green-700 font-bold hover:underline flex items-center gap-2"><ChevronRight size={16} className="text-green-500 shrink-0"/> Posso me pesar todo dia? O Fim do "Achismo"</a></li>
-                <li><a href="#faq" className="text-green-700 font-bold hover:underline flex items-center gap-2"><ChevronRight size={16} className="text-green-500 shrink-0"/> Perguntas Frequentes (FAQ)</a></li>
-              </ul>
-            </div>
-            {/* FIM DO ÍNDICE */}
-
             <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
               <p>Se você já subiu na balança à noite, depois de um longo dia de trabalho, e tomou um susto com o número que apareceu no visor… relaxa: <strong>você provavelmente não engordou — você só se pesou na hora errada.</strong></p>
               
@@ -213,7 +178,7 @@ export default function MelhorHorarioPesagem() {
               <p>Para acompanhar o seu peso real e excluir ao máximo as interferências externas, você precisa encontrar o momento em que seu corpo está mais "neutro". A ciência da avaliação física determina um protocolo rigoroso para isso.</p>
 
               {/* PRIMEIRA LISTA OBJETIVA (CHECKLIST PADRÃO OURO) */}
-              <div id="protocolo" className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left scroll-mt-32">
+              <div className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left">
                 <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                   Checklist Padrão Ouro da Pesagem
                 </h2>
@@ -228,7 +193,7 @@ export default function MelhorHorarioPesagem() {
               </div>
               {/* FIM DA PRIMEIRA LISTA OBJETIVA */}
 
-              <h2 id="erros" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3 scroll-mt-32">
+              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <AlertTriangle className="text-red-500"/> Os Maiores Erros ao Se Pesar
               </h2>
               <p>Se você não segue o protocolo acima, é provável que esteja caindo em armadilhas que mascaram seus resultados reais. Muitos pacientes chegam frustrados no consultório porque cometem estes erros clássicos:</p>
@@ -242,7 +207,7 @@ export default function MelhorHorarioPesagem() {
                 </ul>
               </div>
 
-              <h2 id="fisiologia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3 scroll-mt-32">
+              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Droplets className="text-green-600"/> Por que seu peso varia tanto? A Fisiologia da Retenção
               </h2>
               <p>Muitas pessoas pesquisam: <em>"peso varia quanto por dia?"</em>. A resposta choca a maioria: de 0,5 a 3 kg, sem que um único grama seja de gordura real.</p>
@@ -282,7 +247,7 @@ export default function MelhorHorarioPesagem() {
                 <p className="m-0 text-slate-700 font-medium leading-relaxed">Para que você realmente ganhe 1kg de gordura corporal, a ciência mostra que é necessário consumir um superávit de aproximadamente <strong>7.000 a 7.700 calorias</strong> acima do seu gasto energético total. Pensando na flutuação diária, para engordar 2kg de gordura do dia para a noite, você precisaria ter ingerido cerca de 14.000 calorias extras. Isso é humanamente quase impossível.</p>
               </div>
 
-              <h2 id="ilusao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3 scroll-mt-32">
+              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Scale className="text-green-600"/> A Ilusão da Densidade: Músculo vs. Gordura
               </h2>
               <p>Outro erro conceitual enorme que gera frustração no emagrecimento (e facilita o temido <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">efeito sanfona</Link>) é ignorar a densidade dos tecidos. O músculo é um tecido denso e compacto, enquanto a gordura é volumosa e "fofa".</p>
@@ -297,19 +262,7 @@ export default function MelhorHorarioPesagem() {
               </div>
               {/* FIM LINK INTERNO ESTRATÉGICO */}
 
-              <h2 id="pesartododia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3 scroll-mt-32">
-                <Activity className="text-green-600"/> Posso me pesar todo dia? O Fim do "Achismo"
-              </h2>
-              
-              <p>Muitos especialistas divergem sobre isso. A resposta baseada em evidências é: <strong>Sim, você pode se pesar todos os dias</strong>, contanto que obedeça o Checklist Padrão Ouro e anote o peso para tirar a <strong>média semanal</strong>. A média dilui as flutuações diárias de água e intestino e te mostra a real tendência do seu corpo (seja de emagrecimento ou hipertrofia).</p>
-
-              <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
-                “O peso corporal isolado é uma medida extremamente limitada. Avaliar a sua composição corporal e as tendências ao longo das semanas é muito mais relevante do que o desespero de um número único.”
-              </div>
-
-              <p>Comece a observar suas fotos de evolução (tiradas a cada 15 dias, na mesma luz), acompanhe as suas medidas corporais (principalmente a circunferência da cintura e do abdômen) e sinta como suas roupas estão vestindo. Muitas vezes, o seu corpo está mudando drasticamente, e a balança é a última a perceber.</p>
-
-              {/* SESSÃO DO VÍDEO DO INSTAGRAM (Substituído conforme pedido) */}
+                         {/* SESSÃO DO VÍDEO DO INSTAGRAM (Substituído conforme pedido) */}
               <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
@@ -334,8 +287,44 @@ export default function MelhorHorarioPesagem() {
               </div>
               {/* FIM DA SESSÃO DO VÍDEO */}
 
+              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+                <Activity className="text-green-600"/> Posso me pesar todo dia? O Fim do "Achismo"
+              </h2>
+              
+              <p>Muitos especialistas divergem sobre isso. A resposta baseada em evidências é: <strong>Sim, você pode se pesar todos os dias</strong>, contanto que obedeça o Checklist Padrão Ouro e anote o peso para tirar a <strong>média semanal</strong>. A média dilui as flutuações diárias de água e intestino e te mostra a real tendência do seu corpo (seja de emagrecimento ou hipertrofia).</p>
+
+              <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
+                “O peso corporal isolado é uma medida extremamente limitada. Avaliar a sua composição corporal e as tendências ao longo das semanas é muito mais relevante do que o desespero de um número único.”
+              </div>
+
+              <p>Comece a observar suas fotos de evolução (tiradas a cada 15 dias, na mesma luz), acompanhe as suas medidas corporais (principalmente a circunferência da cintura e do abdômen) e sinta como suas roupas estão vestindo. Muitas vezes, o seu corpo está mudando drasticamente, e a balança é a última a perceber.</p>
+
+              {/* SESSÃO DO VÍDEO DO YOUTUBE */}
+              <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
+                    <PlayCircle size={24} />
+                  </div>
+                  <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight text-left">A Balança Mente? Entenda a Oscilação Diária</h3>
+                </div>
+                <p className="text-slate-600 mb-6 font-medium italic text-left">
+                  Complementando a nossa leitura, veja a explicação didática do professor Leandro Twin sobre como a água, o sódio e o conteúdo intestinal manipulam os números que você vê no visor, e por que a balança não deve ser o seu único parâmetro.
+                </p>
+                <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
+                  <iframe 
+                    src="https://www.youtube.com/embed/Mu_AQHlNqGw" 
+                    title="Por que o peso varia todos os dias e a importância de não se pesar diariamente" 
+                    className="absolute top-0 left-0 w-full h-full"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+              {/* FIM DA SESSÃO DO VÍDEO */}
+
               {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
-              <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left scroll-mt-32">
+              <div className="mt-16 pt-10 border-t border-slate-100 text-left">
                 <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
                 <div className="space-y-6">
                   
