@@ -142,15 +142,11 @@ const [isTocOpen, setIsTocOpen] = useState(false);
             </div>
             {/* FIM DA SESSÃO DO ÁUDIO */}
 
-{/* INÍCIO DO SUMÁRIO RETRÁTIL */}
-const [isTocOpen, setIsTocOpen] = useState(false);
-
-// ... dentro do return ...
-
-<nav className="my-10 border border-slate-100 rounded-[2.5rem] bg-white shadow-sm overflow-hidden transition-all duration-300">
+{/* INÍCIO DO SUMÁRIO RETRÁTIL OTIMIZADO PARA MOBILE */}
+<nav className="my-6 md:my-10 border border-slate-100 rounded-[1.5rem] md:rounded-[2.5rem] bg-white shadow-sm overflow-hidden transition-all duration-300">
   <button 
     onClick={() => setIsTocOpen(!isTocOpen)}
-    className="w-full px-8 py-5 flex items-center justify-between hover:bg-slate-50 transition-colors group"
+    className="w-full px-5 py-4 md:px-8 md:py-5 flex items-center justify-between hover:bg-slate-50 transition-colors group"
   >
     <div className="flex items-center gap-3">
       <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-slate-100 text-slate-400'}`}>
@@ -167,7 +163,7 @@ const [isTocOpen, setIsTocOpen] = useState(false);
   </button>
 
   <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-slate-50' : 'max-h-0 opacity-0'} overflow-hidden`}>
-    <ul className="p-8 grid grid-cols-1 md:grid-cols-2 gap-4 list-none m-0">
+    <ul className="p-5 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
       <li>
         <a href="#o-mito-do-acucar" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base">
           <Leaf size={16} className="text-slate-300 group-hover:text-green-500" />
@@ -195,7 +191,8 @@ const [isTocOpen, setIsTocOpen] = useState(false);
     </ul>
   </div>
 </nav>
-{/* FIM DO SUMÁRIO RETRÁTIL */}
+{/* FIM DO SUMÁRIO RETRÁTIL OTIMIZADO PARA MOBILE */}
+
 
 
             <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
