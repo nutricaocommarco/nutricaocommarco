@@ -1,3 +1,4 @@
+
 import fs from 'fs';
 import path from 'path';
 
@@ -86,7 +87,7 @@ const routes = [
     title: 'Qual o melhor horário para se pesar? | Nutrição com Marco',
     image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/melhor_horario_pesagem.jpg',
     desc: 'Se você já se pesou à noite e achou que engordou… esse artigo vai te mostrar por que isso é um grande erro.'
-  }
+  },
   { 
     path: 'diabetico_pode_comer_beterraba', 
     title: 'Diabético pode comer beterraba? O mito desvendado | Nutrição com Marco',
