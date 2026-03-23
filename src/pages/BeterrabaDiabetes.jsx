@@ -10,6 +10,8 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 export default function BeterrabaDiabetes() {
   const { pathname } = useLocation();
   
+const [isTocOpen, setIsTocOpen] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
