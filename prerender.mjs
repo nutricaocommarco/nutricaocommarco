@@ -87,6 +87,12 @@ const routes = [
     image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/melhor_horario_pesagem.jpg',
     desc: 'Se você já se pesou à noite e achou que engordou… esse artigo vai te mostrar por que isso é um grande erro.'
   }
+  { 
+    path: 'diabetico_pode_comer_beterraba', 
+    title: 'Diabético pode comer beterraba? O mito desvendado | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/beterraba_diabetes.jpg',
+    desc: 'Descubra por que o sabor doce da beterraba engana e como suas fibras na verdade ajudam a controlar os picos de glicemia.'
+  }
 ];
 
 const distPath = path.resolve('dist');
