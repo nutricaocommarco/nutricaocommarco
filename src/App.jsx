@@ -19,7 +19,8 @@ import Feijao from './pages/Feijao';
 import HormoniosFome from './pages/HormoniosFome';
 import Ironman703 from './pages/Ironman703';
 import GeradorEmailSecreto from './pages/GeradorEmailSecreto';
-import MelhorHorarioPesagem from './pages/MelhorHorarioPesagem'; // <-- IMPORTAÇÃO DO NOVO ARTIGO AQUI
+import MelhorHorarioPesagem from './pages/MelhorHorarioPesagem'; 
+import BeterrabaDiabetes from './pages/BeterrabaDiabetes';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -110,6 +111,10 @@ function Layout({ children }) {
       '/qual_melhor_horario_para_se_pesar': { // <-- SEO DA NOVA ROTA AQUI
         title: 'Qual o melhor horário para se pesar? | Nutrição com Marco', 
         desc: 'Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite. Peso na balança não é igual a gordura corporal.' 
+      },
+      '/diabetico_pode_comer_beterraba': { // <-- SEO DO NOVO ARTIGO AQUI
+        title: 'Diabético pode comer beterraba? O mito desvendado | Nutrição com Marco', 
+        desc: 'Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2.' 
       },
     };
 
@@ -214,7 +219,8 @@ export default function App() {
             <Route path="/por_que_o_feijao_da_gases" element={<Feijao />} />
             <Route path="/hormonios_da_fome_emagrecimento" element={<HormoniosFome />} />
             <Route path="/nutricao_para_ironman_703" element={<Ironman703 />} />
-            <Route path="/qual_melhor_horario_para_se_pesar" element={<MelhorHorarioPesagem />} /> {/* <-- NOVA ROTA ATUALIZADA AQUI */}
+            <Route path="/qual_melhor_horario_para_se_pesar" element={<MelhorHorarioPesagem />} />
+            <Route path="/diabetico_pode_comer_beterraba" element={<BeterrabaDiabetes />} /> {/* <-- ROTA DO NOVO ARTIGO AQUI */}
           </Routes>
         </Layout>
       </Router>
