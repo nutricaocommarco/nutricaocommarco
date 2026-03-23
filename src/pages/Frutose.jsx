@@ -282,11 +282,11 @@ export default function Frutose() {
                 <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
                   <PlayCircle size={24} />
                 </div>
-                <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Comer frutas no almoço faz bem ou mal?</h3>
+                <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Entenda o metabolismo da Frutose</h3>
               </div>
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
                 <iframe 
-                  src="https://www.youtube.com/embed/0sLR-WEFfRs" 
+                  src="https://www.youtube.com/watch?v=GjcchiFKBt4" 
                   title="Comer Frutas no Almoço" 
                   className="absolute top-0 left-0 w-full h-full"
                   frameBorder="0" 
