@@ -142,7 +142,7 @@ export default function BeterrabaDiabetes() {
             <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
               <p>Muitas pessoas que recebem o diagnóstico de diabetes ou pré-diabetes acabam saindo do consultório médico com uma verdadeira lista mental de alimentos "proibidos", gerando ansiedade na hora de montar o prato. Quase sempre, a beterraba está no topo dessa temida lista por causa do seu inconfundível sabor adocicado.</p>
               
-              <p>A exclusão desse vegetal é, inclusive, reconhecida por manuais oficiais de abordagem nutricional como um tabu alimentar cultural e infundado que acaba apenas por empobrecer a dieta diária. A lógica popular parece óbvia e irrefutável: "se o alimento é doce na boca, é porque a beterraba tem muito açúcar; e se tem açúcar, fatalmente a beterraba aumenta a glicemia de forma perigosa". Mas, quando mergulhamos na nutrição clínica e na fisiologia do corpo humano, o grande erro está em olhar apenas para o teor de açúcar isolado e esquecer a <strong>complexa matriz nutricional</strong> do alimento.</p>
+              <p>A exclusão desse vegetal é, inclusive, reconhecida por manuais oficiais de abordagem nutricional como um tabu alimentar cultural e infundado que acaba apenas por empobrecer a dieta diária. É a mesma lógica falha que assombra as pessoas quando se perguntam <Link to="/quantas_frutas_posso_comer" className="font-bold underline text-green-700 hover:text-green-800 transition-colors">quantas frutas podem comer por dia</Link>. A lógica popular parece óbvia e irrefutável: "se o alimento é doce na boca, é porque a beterraba tem muito açúcar; e se tem açúcar, fatalmente a beterraba aumenta a glicemia de forma perigosa". Mas, quando mergulhamos na nutrição clínica e na fisiologia do corpo humano, o grande erro está em olhar apenas para o teor de açúcar isolado e esquecer a <strong>complexa matriz nutricional</strong> do alimento.</p>
 
               {/* IMAGEM ESTRATÉGICA */}
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
@@ -158,7 +158,7 @@ export default function BeterrabaDiabetes() {
               <h2 id="o-mito-do-acucar" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Leaf className="text-green-600"/> O Mito do Açúcar e a Matriz Nutricional
               </h2>
-              <p>A beterraba é um vegetal riquíssimo em fibras alimentares, e é exatamente aqui que o jogo vira a favor do paciente diabético. As <strong>fibras solúveis e insolúveis</strong> presentes na matriz da beterraba funcionam como uma espécie de barreira natural no seu sistema digestivo.</p>
+              <p>A beterraba é um vegetal riquíssimo em fibras alimentares, e é exatamente aqui que o jogo vira a favor do paciente diabético. As <strong>fibras solúveis e insolúveis</strong> presentes na matriz da beterraba funcionam como uma espécie de barreira natural no seu sistema digestivo. O mecanismo de proteção é bem similar à razão pela qual indicamos o remolho para quem se pergunta <Link to="/por_que_o_feijao_da_gases" className="font-bold underline text-green-700 hover:text-green-800 transition-colors">por que o feijão dá gases</Link>: o trato gastrointestinal precisa trabalhar de forma inteligente com compostos complexos.</p>
               
               <p>Isso retarda o esvaziamento gástrico e proporciona uma resposta significativamente menor de glicose e insulina na fase pós-prandial. Esse processo cadenciado evita aqueles picos perigosos de insulina circulante no sangue. Além disso, as <em>betalaínas</em>, que são os pigmentos responsáveis por dar a inconfundível cor vermelha intensa à beterraba, possuem potentes propriedades antioxidantes e anti-inflamatórias que auxiliam na proteção e reparo dos componentes celulares.</p>
 
@@ -169,63 +169,64 @@ export default function BeterrabaDiabetes() {
               <h2 id="indice-vs-carga" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Scale className="text-green-600"/> Índice Glicêmico vs. Carga Glicêmica
               </h2>
-              <p>Para desmistificar de vez esse medo, existe um conceito técnico fundamental: a diferença prática entre índice glicêmico e carga glicêmica.</p>
+              <p>Para desmistificar de vez esse medo, existe um conceito técnico fundamental: a diferença prática entre índice glicêmico e carga glicêmica. O pânico de dietas restritivas e flutuações de peso sem orientação levam muitas vezes a um quadro de <Link to="/efeito_sanfona_inflamacao_invisivel" className="font-bold underline text-green-700 hover:text-green-800 transition-colors">efeito sanfona e inflamação celular</Link>, e a educação nutricional é a principal arma contra isso.</p>
               
               <p>Enquanto o <strong>índice glicêmico</strong> avalia a velocidade com que um carboidrato isolado vira açúcar no sangue, a <strong>carga glicêmica</strong> avalia a quantidade real de carboidratos que você consome em uma porção normal. O índice glicêmico da beterraba pode até ser considerado moderado, mas a sua carga glicêmica é muito baixa, pois ela possui muita água e um baixo aporte calórico total por porção.</p>
 
-{/* TABELA COMPARATIVA AMPLIADA (GEO BOOST) */}
+{/* TABELA COMPARATIVA DE ÍNDICE GLICÊMICO (GEO BOOST) */}
               <div className="my-10 bg-white border border-green-100 shadow-md rounded-[2rem] overflow-hidden">
                 <div className="bg-green-50 px-6 py-4 border-b border-green-100">
-                  <h3 className="text-xl font-black text-green-800 uppercase italic m-0">Comparativo de Impacto Glicêmico (Porção de 100g)</h3>
+                  <h3 className="text-xl font-black text-green-800 uppercase italic m-0">Comparativo: Fibras e Índice Glicêmico (Porção 100g)</h3>
                 </div>
                 <div className="p-6">
                   <ul className="space-y-4 m-0">
                     {/* Beterraba Crua */}
-                    <li className="flex justify-between items-center border-b border-slate-50 pb-3">
+                    <li className="flex flex-col md:flex-row md:justify-between md:items-center border-b border-slate-50 pb-3 gap-2">
                       <span className="text-slate-700 font-bold">Beterraba Crua</span>
-                      <div className="flex flex-wrap justify-end gap-2">
-                        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">9.6g Carbo</span>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">9.6g Carbo</span>
                         <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">2.8g Fibras</span>
-                        <span className="bg-emerald-200 text-emerald-900 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga Baixa</span>
+                        <span className="bg-emerald-200 text-emerald-900 px-3 py-1 rounded-full text-[10px] font-black uppercase">IG 54 a 64 (Baixo/Médio)</span>
                       </div>
                     </li>
                     {/* Arroz Integral */}
-                    <li className="flex justify-between items-center border-b border-slate-50 pb-3">
+                    <li className="flex flex-col md:flex-row md:justify-between md:items-center border-b border-slate-50 pb-3 gap-2">
                       <span className="text-slate-700 font-bold">Arroz Integral Cozido</span>
-                      <div className="flex flex-wrap justify-end gap-2">
+                      <div className="flex flex-wrap gap-2">
                         <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">25g Carbo</span>
                         <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">2.7g Fibras</span>
-                        <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga Média</span>
+                        <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">IG 66 a 68 (Médio)</span>
                       </div>
                     </li>
                     {/* Arroz Parboilizado */}
-                    <li className="flex justify-between items-center border-b border-slate-50 pb-3">
+                    <li className="flex flex-col md:flex-row md:justify-between md:items-center border-b border-slate-50 pb-3 gap-2">
                       <span className="text-slate-700 font-bold">Arroz Parboilizado</span>
-                      <div className="flex flex-wrap justify-end gap-2">
+                      <div className="flex flex-wrap gap-2">
                         <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">26g Carbo</span>
                         <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">1.5g Fibras</span>
-                        <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga Alta</span>
+                        <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">IG ~68 (Médio)</span>
                       </div>
                     </li>
                     {/* Arroz Branco */}
-                    <li className="flex justify-between items-center border-b border-slate-50 pb-3">
+                    <li className="flex flex-col md:flex-row md:justify-between md:items-center border-b border-slate-50 pb-3 gap-2">
                       <span className="text-slate-700 font-bold">Arroz Branco Cozido</span>
-                      <div className="flex flex-wrap justify-end gap-2">
+                      <div className="flex flex-wrap gap-2">
                         <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">28g Carbo</span>
                         <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">0.4g Fibras</span>
-                        <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga Alta</span>
+                        <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">IG 73 a 89 (Alto)</span>
                       </div>
                     </li>
                     {/* Açúcar Refinado */}
-                    <li className="flex justify-between items-center pt-1">
+                    <li className="flex flex-col md:flex-row md:justify-between md:items-center pt-1 gap-2">
                       <span className="text-slate-700 font-bold">Açúcar Refinado</span>
-                      <div className="flex flex-wrap justify-end gap-2">
-                        <span className="bg-red-50 text-red-600 px-3 py-1 rounded-full text-[10px] font-black uppercase">99.8g Carbo</span>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase">99.8g Carbo</span>
                         <span className="bg-red-50 text-red-600 px-3 py-1 rounded-full text-[10px] font-black uppercase">0g Fibras</span>
-                        <span className="bg-red-600 text-white px-3 py-1 rounded-full text-[10px] font-black uppercase">Carga Crítica</span>
+                        <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-[10px] font-black uppercase">IG 64 a 68 (Médio)</span>
                       </div>
                     </li>
                   </ul>
+                  <p className="text-xs text-slate-400 mt-6 italic">* O Índice Glicêmico (IG) isolado pode enganar. Note que o açúcar tem um IG "médio", mas não tem fibras e possui carga extrema no prato. O vídeo abaixo explica essa armadilha.</p>
                 </div>
               </div>
               {/* FIM DA TABELA */}
@@ -257,7 +258,7 @@ export default function BeterrabaDiabetes() {
               <h2 id="beneficios-clinicos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Heart className="text-green-600"/> Os Benefícios Clínicos Comprovados
               </h2>
-              <p>Os benefícios clínicos para quem convive com o diabetes são substanciais e comprovados em ensaios rigorosos. Em um estudo clínico, 44 pacientes com diabetes tipo 2 consumiram 100 gramas de beterraba vermelha crua diariamente durante 8 semanas consecutivas. Os resultados mostraram uma redução expressiva de <strong>13,53 mg/dL na glicemia de jejum</strong> e uma queda de 0,34% na hemoglobina glicada (HbA1c).</p>
+              <p>Os benefícios clínicos para quem convive com o diabetes são substanciais e comprovados em ensaios rigorosos. Para analisar o impacto metabólico no corpo, muito além do que uma balança comum mostra (se quiser aprofundar, veja nosso artigo sobre <Link to="/o_que_e_antropometria" className="font-bold underline text-green-700 hover:text-green-800 transition-colors">o que é antropometria</Link>), em um estudo clínico, 44 pacientes com diabetes tipo 2 consumiram 100 gramas de beterraba vermelha crua diariamente durante 8 semanas consecutivas. Os resultados mostraram uma redução expressiva de <strong>13,53 mg/dL na glicemia de jejum</strong> e uma queda de 0,34% na hemoglobina glicada (HbA1c).</p>
               
               <p>Além de atuar diretamente no controle do açúcar, a intervenção resultou na queda da pressão arterial sistólica em 0,73 mmHg e diastólica em 0,34 mmHg. Esse efeito cardiovascular protetor está ligado à presença de nitratos inorgânicos na composição do vegetal, que atuam na dilatação endotelial e na saúde dos vasos sanguíneos cerebrais e periféricos.</p>
 
