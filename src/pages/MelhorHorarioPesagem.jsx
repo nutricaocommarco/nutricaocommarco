@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, Scale, Clock, Activity, Droplets, Headphones, PlayCircle } from 'lucide-react';
+import { ChevronLeft, HelpCircle, Scale, Clock, Activity, Droplets, Headphones, PlayCircle, AlertTriangle } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
@@ -194,11 +194,25 @@ export default function MelhorHorarioPesagem() {
               {/* FIM DA PRIMEIRA LISTA OBJETIVA */}
 
               <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+                <AlertTriangle className="text-red-500"/> Os Maiores Erros ao Se Pesar
+              </h2>
+              <p>Se você não segue o protocolo acima, é provável que esteja caindo em armadilhas que mascaram seus resultados reais. Muitos pacientes chegam frustrados no consultório porque cometem estes erros clássicos:</p>
+
+              <div className="bg-red-50 p-6 md:p-8 rounded-[2rem] border border-red-100 my-8">
+                <ul className="list-disc pl-6 space-y-3 m-0 marker:text-red-500">
+                  <li className="text-slate-700"><strong>Pesar à noite:</strong> É o momento em que você está mais pesado, acumulando o peso dos alimentos e líquidos ingeridos no dia.</li>
+                  <li className="text-slate-700"><strong>Pesar após o treino:</strong> Exercícios intensos causam microlesões musculares e inflamação, o que leva a uma retenção temporária de líquidos. Além disso, se você suou muito, pode achar que emagreceu, mas só perdeu água (desidratação).</li>
+                  <li className="text-slate-700"><strong>Pesar após as refeições:</strong> A comida tem peso físico. Se você comeu 500g, a balança sobe 500g até a digestão terminar.</li>
+                  <li className="text-slate-700"><strong>Usar balanças diferentes:</strong> Balanças de farmácia, de academia e de casa possuem calibrações diferentes. Use sempre a mesma!</li>
+                </ul>
+              </div>
+
+              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Droplets className="text-green-600"/> Por que seu peso varia tanto? A Fisiologia da Retenção
               </h2>
-              <p>Essa é a maior dúvida nos consultórios de nutrição. Se você se pesa depois de comer, à noite, ou após um treino exaustivo, o seu peso parecerá artificialmente maior. Vamos entender a biologia por trás disso.</p>
+              <p>Muitas pessoas pesquisam: <em>"peso varia quanto por dia?"</em>. A resposta choca a maioria: de 0,5 a 3 kg, sem que um único grama seja de gordura real.</p>
               
-              <p>Primeiro, a alimentação. A comida tem peso físico e a hidratação é matemática pura: 1 litro de água equivale exatamente a 1kg na balança. Se você consumiu 800g de alimentos e líquidos no jantar, você estará 800g mais pesado até que ocorra a digestão e a eliminação dos resíduos.</p>
+              <p>A matemática da hidratação é exata: 1 litro de água equivale exatamente a 1kg na balança. O grande "vilão" das flutuações rápidas é a dupla <strong>carboidrato e sódio</strong>. O nosso corpo armazena os carboidratos que comemos dentro dos músculos e no fígado na forma de uma molécula chamada glicogênio. A regra fisiológica é clara: <strong>para cada 1 grama de glicogênio estocado, o corpo retém junto cerca de 3 gramas de água</strong>. Ou seja, se você comeu uma pizza na noite anterior (rica em carboidratos e sódio), seus estoques de glicogênio encheram e puxaram muita água para dentro das células. O peso extra na manhã seguinte é pura água e glicogênio.</p>
 
               {/* TABELA DE VARIAÇÃO DE PESO (GEO BOOST) */}
               <div className="my-10 bg-white border border-green-100 shadow-md rounded-[2rem] overflow-hidden">
@@ -228,8 +242,6 @@ export default function MelhorHorarioPesagem() {
               </div>
               {/* FIM DA TABELA */}
 
-              <p>Mas o grande "vilão" das flutuações rápidas é a dupla <strong>carboidrato e sódio</strong>. O nosso corpo armazena os carboidratos que comemos dentro dos músculos e no fígado na forma de uma molécula chamada glicogênio. A regra fisiológica é clara: <strong>para cada 1 grama de glicogênio estocado, o corpo retém junto cerca de 3 gramas de água</strong>. Ou seja, se você comeu uma pizza na noite anterior (rica em carboidratos e sódio), seus estoques de glicogênio encheram e puxaram muita água para dentro das células. O peso extra que aparece na balança na manhã seguinte é pura água e glicogênio, e não tecido adiposo.</p>
-
               <div className="bg-slate-100 p-6 md:p-8 rounded-[2rem] border-l-4 border-slate-400 my-8">
                 <h3 className="text-xl font-black text-slate-800 mb-3">A Matemática da Gordura (A Regra das 7.000 kcal)</h3>
                 <p className="m-0 text-slate-700 font-medium leading-relaxed">Para que você realmente ganhe 1kg de gordura corporal, a ciência mostra que é necessário consumir um superávit de aproximadamente <strong>7.000 a 7.700 calorias</strong> acima do seu gasto energético total. Pensando na flutuação diária, para engordar 2kg de gordura do dia para a noite, você precisaria ter ingerido cerca de 14.000 calorias extras. Isso é humanamente quase impossível.</p>
@@ -242,24 +254,25 @@ export default function MelhorHorarioPesagem() {
               
               <p>Um quilo de gordura ocupa cerca de 15% a 20% mais espaço de volume do que um quilo de músculo. É por isso que você pode começar a treinar, perder gordura, ganhar massa muscular e o número da balança não mudar nem 100 gramas. A balança estagna, mas a sua calça jeans passa a fechar com folga.</p>
 
-              {/* LINK INTERNO ESTRATÉGICO CLUSTER SEO */}
+              {/* LINK INTERNO ESTRATÉGICO CLUSTER SEO (COM OUTROS MÉTODOS) */}
               <div className="bg-green-50 p-6 rounded-[2rem] border border-green-200 my-10">
-                <p className="m-0 text-green-900 font-medium text-lg">
-                  👉 Se você quer entender melhor como acompanhar as mudanças no seu corpo de forma técnica, profunda e muito mais precisa que a balança comum, confira nosso <strong>guia completo sobre <Link to="/o_que_e_antropometria" className="font-black underline hover:text-green-700 transition-colors">antropometria e composição corporal</Link></strong> e entenda de uma vez por todas se <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="font-black underline hover:text-green-700 transition-colors">a bioimpedância é realmente confiável</Link> no dia a dia.
+                <p className="m-0 text-green-900 font-medium text-lg leading-relaxed">
+                  👉 <strong>Balança digital é confiável?</strong> Ela é útil para acompanhar tendências, mas não conta a história toda. Se você quer entender se está perdendo gordura ou músculo, confira nosso guia completo sobre <strong><Link to="/o_que_e_antropometria" className="font-black underline hover:text-green-700 transition-colors">avaliação por antropometria</Link></strong> e saiba se <strong><Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="font-black underline hover:text-green-700 transition-colors">a bioimpedância é realmente melhor que a balança comum</Link></strong>.
                 </p>
               </div>
               {/* FIM LINK INTERNO ESTRATÉGICO */}
 
               <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Activity className="text-green-600"/> Dica de Ouro: O fim do "achismo"
+                <Activity className="text-green-600"/> Posso me pesar todo dia? O Fim do "Achismo"
               </h2>
               
+              <p>Muitos especialistas divergem sobre isso. A resposta baseada em evidências é: <strong>Sim, você pode se pesar todos os dias</strong>, contanto que obedeça o Checklist Padrão Ouro e anote o peso para tirar a <strong>média semanal</strong>. A média dilui as flutuações diárias de água e intestino e te mostra a real tendência do seu corpo (seja de emagrecimento ou hipertrofia).</p>
+
               <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
                 “O peso corporal isolado é uma medida extremamente limitada. Avaliar a sua composição corporal e as tendências ao longo das semanas é muito mais relevante do que o desespero de um número único.”
               </div>
 
-              <p>Se você quer acompanhar resultados de verdade, mude o seu foco. Comece a observar suas fotos de evolução (tiradas a cada 15 dias, na mesma luz), acompanhe as suas medidas corporais (principalmente a circunferência da cintura e do abdômen) e sinta como suas roupas estão vestindo.</p>
-              <p>Muitas vezes, o seu corpo está mudando drasticamente e a sua saúde metabólica está melhorando de forma silenciosa. Para ter precisão de verdade e entender o que está acontecendo abaixo da sua pele, o caminho científico é realizar uma avaliação física rigorosa, como a <Link to="/o_que_e_antropometria" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">avaliação antropométrica ISAK</Link>, com um profissional qualificado.</p>
+              <p>Comece a observar suas fotos de evolução (tiradas a cada 15 dias, na mesma luz), acompanhe as suas medidas corporais (principalmente a circunferência da cintura e do abdômen) e sinta como suas roupas estão vestindo. Muitas vezes, o seu corpo está mudando drasticamente, e a balança é a última a perceber.</p>
 
               {/* SESSÃO DO VÍDEO DO YOUTUBE */}
               <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
@@ -270,7 +283,7 @@ export default function MelhorHorarioPesagem() {
                   <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight text-left">A Balança Mente? Entenda a Oscilação Diária</h3>
                 </div>
                 <p className="text-slate-600 mb-6 font-medium italic text-left">
-                  Complementando a nossa leitura, veja a explicação didática sobre como a água, o sódio e o conteúdo intestinal manipulam os números que você vê no visor, e por que a balança não deve ser o seu único parâmetro.
+                  Complementando a nossa leitura, veja a explicação didática do professor Leandro Twin sobre como a água, o sódio e o conteúdo intestinal manipulam os números que você vê no visor, e por que a balança não deve ser o seu único parâmetro.
                 </p>
                 <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
                   <iframe 
@@ -284,7 +297,7 @@ export default function MelhorHorarioPesagem() {
                 </div>
               </div>
               {/* FIM DA SESSÃO DO VÍDEO */}
-              
+
               {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
               <div className="mt-16 pt-10 border-t border-slate-100 text-left">
                 <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
