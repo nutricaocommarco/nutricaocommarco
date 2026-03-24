@@ -34,8 +34,8 @@ export default function Blog() {
             <p className="text-slate-600 text-sm mb-6 flex-grow font-medium leading-relaxed">
               Descubra por que o sabor doce da beterraba engana e como suas fibras na verdade ajudam a controlar os picos de glicemia no seu dia a dia.
             </p>
-            <div className="mt-auto flex items-center text-green-600 font-black text-sm uppercase tracking-widest gap-2 group-hover:gap-4 transition-all">
-              Ler Artigo <ChevronRight size={16} />
+            <div className="flex items-center gap-2 text-green-600 font-bold uppercase text-xs">
+              Ler Página do Artigo <ChevronRight size={16} />
             </div>
           </div>
         </Link>
