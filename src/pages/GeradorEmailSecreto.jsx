@@ -6,6 +6,18 @@ export default function GeradorEmailSecreto() {
   // Idealmente, você importaria isso do mesmo arquivo que gera o seu Blog
   const ultimosArtigos = [
     {
+      titulo: "Diabético pode comer beterraba? O mito desvendado",
+      link: "https://www.nutricaocommarco.com.br/diabetico_pode_comer_beterraba",
+      descricao: "Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2.",
+      imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/beterraba_diabetes.jpg"
+    },
+    {
+      titulo: "Qual o melhor horário para se pesar?",
+      link: "https://www.nutricaocommarco.com.br/qual_melhor_horario_para_se_pesar",
+      descricao: "Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite. Peso na balança não é igual a gordura corporal.",
+      imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/melhor_horario_pesagem.jpg"
+    },
+    {
       titulo: "Nutrição para Ironman 70.3: Guia Completo",
       link: "https://www.nutricaocommarco.com.br/nutricao_para_ironman_70_3",
       descricao: "Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o Ironman 70.3.",
