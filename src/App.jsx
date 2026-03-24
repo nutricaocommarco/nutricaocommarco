@@ -23,9 +23,6 @@ import MelhorHorarioPesagem from './pages/MelhorHorarioPesagem';
 import BeterrabaDiabetes from './pages/BeterrabaDiabetes';
 import ConfirmacaoPendente from './pages/kitkit'; 
 import InscricaoConfirmada from './pages/InscricaoConfirmada';
-// <-- NOVA IMPORTAÇÃO DO ARTIGO DE RETATRUTIDA AQUI
-import RetatrutidaOQueE from './pages/retratrutida'; 
-
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 function ScrollToTop() {
