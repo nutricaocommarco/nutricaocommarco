@@ -2,7 +2,7 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export const posts = [
   {
-    id: 1,
+    id: 11,
     link: "/diabetico_pode_comer_beterraba",
     img: `${githubImgBase}Blog/beterraba_diabetes.jpg`,
     tag: "Nutrição Clínica",
@@ -12,7 +12,7 @@ export const posts = [
     dataMod: "2026-03-24"
   },
   {
-    id: 2,
+    id: 10,
     link: "/qual_melhor_horario_para_se_pesar",
     img: `${githubImgBase}Blog/melhor_horario_pesagem.jpg`,
     tag: "Avaliação e Medidas",
@@ -22,7 +22,7 @@ export const posts = [
     dataMod: "2026-03-24"
   },
   {
-    id: 3,
+    id: 9,
     link: "/nutricao_para_ironman_703",
     img: `${githubImgBase}Blog/nutricao_ironman_703.jpg`,
     tag: "Nutrição Esportiva",
@@ -32,7 +32,7 @@ export const posts = [
     dataMod: "2026-03-19"
   },
   {
-    id: 4,
+    id: 8,
     link: "/hormonios_da_fome_emagrecimento",
     img: `${githubImgBase}Blog/Hormfome.jpg`,
     tag: "Fisiologia e Metabolismo",
@@ -42,7 +42,7 @@ export const posts = [
     dataMod: "2026-03-18"
   },
   {
-    id: 5,
+    id: 7,
     link: "/por_que_o_feijao_da_gases",
     img: `${githubImgBase}Blog/feijao.jpg`,
     tag: "Saúde Intestinal",
@@ -62,7 +62,7 @@ export const posts = [
     dataMod: "2026-03-16"
   },
   {
-    id: 7,
+    id: 5,
     link: "/efeito_sanfona_inflamacao_invisivel",
     img: `${githubImgBase}Blog/efeito_sanfona.jpg`,
     tag: "Fisiopatologia",
@@ -72,7 +72,7 @@ export const posts = [
     dataMod: "2026-03-15"
   },
   {
-    id: 8,
+    id: 4,
     link: "/quantas_frutas_posso_comer",
     img: `${githubImgBase}Blog/frutose_bananas.jpg`,
     tag: "Nutrição Clínica",
@@ -82,7 +82,7 @@ export const posts = [
     dataMod: "2026-03-14"
   },
   {
-    id: 9,
+    id: 3,
     link: "/vitamina_a_para_que_serve",
     img: `${githubImgBase}Blog/vitamina_a.jpg`,
     tag: "Metabolismo",
@@ -92,7 +92,7 @@ export const posts = [
     dataMod: "2026-03-13"
   },
   {
-    id: 10,
+    id: 2,
     link: "/o_que_e_antropometria",
     img: `${githubImgBase}Blog/O_que_e_antropometria.png`,
     tag: "Educação Científica",
@@ -101,4 +101,14 @@ export const posts = [
     data: "2026-03-12",
     dataMod: "2026-03-12"
   },
+  {
+    id: 1,
+    link: "/a_balanca_de_bioimpedancia_e_confiavel",
+    img: `${githubImgBase}Blog/Bia1.jpg`,
+    tag: "Tecnologia e Medida",
+    titulo: "A balança de bioimpedância é confiável?",
+    desc: "Entenda se a balança de bioimpedância é confiável e os fatores que alteram o resultado.",
+    data: "2026-03-11",
+    dataMod: "2026-03-11"
+  }
 ];
