@@ -1,41 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, Activity, Heart, Clock, Leaf, PlayCircle, Scale, ChevronRight, Headphones } from 'lucide-react';
-import ArtigosRecomendados from '../components/ArtigosRecomendados';
-import Newsletter from '../components/Newsletter';
-import { Helmet } from 'react-helmet-async';
+import React from 'react';
+import { useLocation } from 'react-router-dom'; // Precisamos disso para saber a URL atual
+import { Helmet } from 'react-helmet';
+// 🧠 Importando o Cérebro Central!
+import { posts } from '../data/posts'; 
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
-export default function BeterrabaDiabetes() {
+export default function DiabeticoPodeComerBeterraba() {
   const { pathname } = useLocation();
-  
-const [isTocOpen, setIsTocOpen] = useState(false);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+  // O Pingus procura no Cérebro Central qual post corresponde a essa página
+  const postAtual = posts.find(post => post.link === pathname);
+
+  // Se por algum motivo não achar, colocamos valores padrão para não quebrar o site
+  const tituloSEO = postAtual ? postAtual.titulo : "Artigo de Nutrição | Nutrição com Marco";
+  const descSEO = postAtual ? postAtual.desc : "Leia mais no blog Nutrição com Marco.";
+  const imgSEO = postAtual ? postAtual.img : `${githubImgBase}logoN_pingus.png`;
+  const dataPub = postAtual ? postAtual.data : "2026-01-01";
+  const dataMod = postAtual ? postAtual.dataMod : "2026-01-01";
 
   return (
     <>
       <Helmet>
-        <title>Diabético pode comer beterraba? O mito desvendado | Nutrição com Marco</title>
-        <meta name="description" content="Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2." />
-        
-        {/* OPEN GRAPH (Redes Sociais) */}
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Diabético pode comer beterraba? O mito que você precisa parar de acreditar" />
-        <meta property="og:description" content="A beterraba é doce, mas será que aumenta a glicemia? Entenda o impacto da carga glicêmica e das fibras no controle do diabetes." />
-        <meta property="og:image" content={`${githubImgBase}Blog/beterraba_diabetes.jpg`} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        {/* SCHEMA.ORG (Google) */}
+        {/* SCHEMA.ORG (Google) - 100% Automático! */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Diabético pode comer beterraba? O mito que você precisa parar de acreditar",
-            "image": `${githubImgBase}Blog/beterraba_diabetes.jpg`,
+            "headline": tituloSEO,
+            "image": imgSEO,
             "author": {
               "@type": "Person",
               "name": "Marco Aurélio Jr.",
@@ -49,13 +42,13 @@ const [isTocOpen, setIsTocOpen] = useState(false);
                 "url": `${githubImgBase}logoN_pingus.png`
               }
             },
-            "datePublished": "2026-03-22",
- "dateModified": "2026-03-22",
-            "description": "Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2."
+            "datePublished": dataPub,
+            "dateModified": dataMod,
+            "description": descSEO
           })}
         </script>
 
-        {/* BREADCRUMB (NÍVEL NINJA) */}
+        {/* BREADCRUMB (NÍVEL NINJA) - 100% Automático! */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -63,7 +56,7 @@ const [isTocOpen, setIsTocOpen] = useState(false);
             "itemListElement": [
               { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.nutricaocommarco.com.br/" },
               { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.nutricaocommarco.com.br/blog" },
-              { "@type": "ListItem", "position": 3, "name": "Beterraba e Diabetes", "item": `https://www.nutricaocommarco.com.br${pathname}` }
+              { "@type": "ListItem", "position": 3, "name": tituloSEO, "item": `https://www.nutricaocommarco.com.br${pathname}` }
             ]
           })}
         </script>
