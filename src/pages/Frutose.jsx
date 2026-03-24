@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, PlayCircle, Headphones } from 'lucide-react';
+import { ChevronLeft, HelpCircle, PlayCircle, Headphones, ChevronRight, Activity, Scale, AlertTriangle, BookOpen } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
@@ -9,6 +9,8 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export default function Frutose() {
   const { pathname } = useLocation();
+  const [isTocOpen, setIsTocOpen] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -18,12 +20,12 @@ export default function Frutose() {
       <Helmet>
         <title>Quantas frutas posso comer por dia? | Nutrição com Marco</title>
         <meta name="description" content="Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado." />
-        
+
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Quantas frutas posso comer por dia? | Nutrição com Marco" />
         <meta property="og:description" content="Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado." />
-        <meta property="og:image" content="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/frutas.png" />
-        <meta property="og:url" content="https://www.nutricaocommarco.com.br/quantas_frutas_posso_comer" />
+        <meta property="og:image" content={`${githubImgBase}Blog/frutas.png`} />
+        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         {/* SCHEMA.ORG PARA O ARTIGO PRINCIPAL */}
         <script type="application/ld+json">
@@ -31,11 +33,11 @@ export default function Frutose() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Afinal, a frutose causa gordura no fígado? Descubra quantas frutas você pode comer por dia",
-            "image": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/frutas.png",
+            "image": `${githubImgBase}Blog/frutas.png`,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
-            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png"}},
+            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png`}},
             "datePublished": "2026-03-20",
- "dateModified": "2026-03-21",
+            "dateModified": "2026-03-21",
             "description": "Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado."
           })}
         </script>
@@ -83,18 +85,18 @@ export default function Frutose() {
         </script>
         {/* FIM DO SCHEMA.ORG PARA FAQ */}
       </Helmet>
-      
+
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
-        
+
         {/* Botão de Voltar */}
         <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
           <ChevronLeft size={20} /> Voltar para o Blog
         </Link>
-        
+
         <article className="prose prose-lg max-w-none">
           <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Nutrição Clínica</span>
-          
+
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900 text-left">
             Quantas frutas posso comer por dia?
           </h1>
@@ -110,8 +112,11 @@ export default function Frutose() {
           </div>
           {/* FIM DO BLOCO DE RESPOSTA DIRETA */}
 
-          {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) - DESIGN COMPACTO */}
-            <div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
+          {/* INÍCIO DA CAIXA COMBINADA: ÁUDIO + SUMÁRIO RETRÁTIL */}
+          <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+            
+            {/* 1. SEÇÃO DO ÁUDIO */}
+            <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
                 <Headphones className="text-green-600 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
@@ -121,23 +126,78 @@ export default function Frutose() {
                 Seu navegador não suporta o elemento de áudio.
               </audio>
             </div>
-            {/* FIM DA SESSÃO DO ÁUDIO */}
-          
+
+            {/* LINHA DIVISÓRIA SUAVE */}
+            <div className="h-px bg-green-100/60 w-full"></div>
+
+            {/* 2. SEÇÃO DO SUMÁRIO (TOC) */}
+            <nav className="bg-slate-50">
+              <button 
+                onClick={() => setIsTocOpen(!isTocOpen)}
+                className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                    <Activity size={18} />
+                  </div>
+                  <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
+                    Índice do Conteúdo
+                  </h3>
+                </div>
+                <ChevronRight 
+                  size={20} 
+                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                />
+              </button>
+
+              {/* LISTA DE LINKS ESCONDIDA */}
+              <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
+                <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
+                  <li>
+                    <a href="#metabolismo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Metabolismo da Frutose
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#densidade" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Frutas vs. Industrializados
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#ciencia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <BookOpen size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      O que a Ciência Diz
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#limite" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <AlertTriangle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Existe um limite seguro?
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          {/* FIM DA CAIXA COMBINADA */}
+
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed text-left">
             <p>Se você já ouviu por aí que "fruta engorda" ou que a "frutose destrói o fígado", saiba que a ciência conta uma história bem diferente e muito mais contextualizada. Na nutrição, o detalhe está na fonte e na dose. Vamos entender por que o açúcar natural da fruta não deve ser o vilão da sua dieta, mas sim um aliado da sua saúde.</p>
-            
+
             {/* IMAGEM DE CAPA */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
               <img src={`${githubImgBase}Blog/frutose_bananas.jpg`} alt="Frutas variadas e metabolismo da frutose" title="Mitos e verdades sobre o consumo de frutas" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest">O impacto da frutose natural versus o açúcar adicionado.</p></div>
             </div>
-            
-            <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
+
+            <h2 id="metabolismo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               O Metabolismo da Frutose: Glicose vs. Frutose
             </h2>
-            
+
             <p>Diferente da glicose, que é a principal fonte de energia para as nossas células e estimula diretamente a liberação de insulina, a frutose segue um caminho metabólico particular. Ela entra nas células intestinais através de um transportador específico chamado GLUT-5. Uma vez absorvida, ela é direcionada quase integralmente para o fígado. É justamente por essa característica hepática que surgiram os mitos sobre a gordura no fígado. No entanto, o problema metabólico real não está na fruta inteira, mas sim no consumo excessivo de açúcares refinados e xaropes industriais que sobrecarregam o fígado de uma forma que a fruta dificilmente consegue fazer.</p>
-            
+
             {/* BLOCO CITÁVEL (OTIMIZADO PARA IA E SEO) */}
             <div className="my-8 p-6 md:p-8 bg-white border-l-4 border-green-600 shadow-md rounded-r-3xl flex flex-col gap-3 text-left">
               <h3 className="text-xl font-black text-slate-800 m-0 border-b border-slate-100 pb-3 flex items-center gap-2">
@@ -149,12 +209,12 @@ export default function Frutose() {
             </div>
             {/* FIM DO BLOCO CITÁVEL */}
 
-            <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
+            <h2 id="densidade" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               Comparando a Densidade: Frutas vs. Industrializados
             </h2>
-            
+
             <p>Para visualizar a diferença de carga de açúcar, observe a tabela abaixo baseada em porções de 100g. Note como os produtos processados concentram uma densidade de açúcares muito superior à das frutas frescas.</p>
-            
+
             {/* TABELA ESTILIZADA */}
             <div className="overflow-x-auto my-10 border border-slate-200 rounded-3xl shadow-sm">
               <table className="w-full text-left border-collapse">
@@ -209,9 +269,9 @@ export default function Frutose() {
                 </tbody>
               </table>
             </div>
-            
+
             <p>Enquanto 100g de morango entregam menos de 3g de frutose, a mesma quantidade de açúcar de mesa entrega 50g. Essa diferença de densidade, somada à presença de fibras na fruta, muda completamente o impacto no seu metabolismo.</p>
-            
+
             {/* SEGUNDA LISTA OBJETIVA (SOLUÇÕES PARA IA E SEO) */}
             <div className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left">
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
@@ -231,24 +291,24 @@ export default function Frutose() {
             </div>
             {/* FIM DA SEGUNDA LISTA OBJETIVA */}
 
-            <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
+            <h2 id="ciencia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               O que a Ciência Realmente Diz
             </h2>
-            
-            <p>Um estudo demonstrou que a suplementação de 3,5g de frutose ou glicose por quilo de <Link to="/o_que_e_antropometria" className="text-green-600 hover:text-green-700 underline underline-offset-2 font-bold transition-colors">massa magra</Link> elevou a gordura no fígado. Para um indivíduo de 80kg com 25% de gordura corporal, isso equivaleria a consumir cerca de 210g de frutose, o que representa aproximadamente 30 bananas. Note que, nesse nível de excesso, tanto a glicose quanto a frutose causaram danos, provando que o excesso calórico total é o fator determinante, e não a fruta em si.</p>
-            
+
+            <p>Um estudo demonstrou que a suplementação de 3,5g de frutose ou glicose por quilo de massa magra elevou a gordura no fígado. Para um indivíduo de 80kg com 25% de gordura corporal, isso equivaleria a consumir cerca de 210g de frutose, o que representa aproximadamente 30 bananas. Note que, nesse nível de excesso, tanto a glicose quanto a frutose causaram danos, provando que o excesso calórico total é o fator determinante, e não a fruta em si.</p>
+
             <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
               "O risco real de aumento de lipídeos intra-hepáticos e VLDL-TG ocorre em cenários de superávit calórico extremo."
             </div>
-            
-            <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
+
+            <h2 id="limite" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               Afinal, existe um limite seguro?
             </h2>
-            
+
             <p>Para a maioria das pessoas saudáveis, o consumo de 3 a 5 porções de frutas variadas (cerca de 400g) por dia é considerado não apenas seguro, mas altamente protetor. O consumo de frutas e vegetais está associado à redução da mortalidade por todas as causas, incluindo câncer e doenças cardiovasculares, devido à presença de fibras, potássio e antioxidantes que mitigam qualquer efeito negativo do açúcar.</p>
-            
+
             <p>Para otimizar sua ingestão, procure sempre variar as cores das frutas para garantir diferentes tipos de fitoquímicos. Além disso, prefira a fruta inteira ao suco para preservar as fibras e aumentar a saciedade. Combinar a fruta com uma fonte de fibra extra, como aveia, ou uma proteína, como iogurte, ajuda a reduzir ainda mais a resposta glicêmica da refeição.</p>
-            
+
             {/* LISTA OBJETIVA (OTIMIZADO PARA IA E SEO) */}
             <div className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left">
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
@@ -271,13 +331,13 @@ export default function Frutose() {
             </div>
             {/* FIM DA LISTA OBJETIVA */}
 
-{/* VÍDEO RECOMENDADO EM DESTAQUE */}
-            <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
+            {/* VÍDEO RECOMENDADO EM DESTAQUE */}
+            <h2 id="bonus" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               Bônus: Fruta no almoço ou de sobremesa faz mal?
             </h2>
-            
+
             <p>Para complementar tudo o que vimos sobre a frutose, é muito comum surgir a dúvida sobre o melhor horário para consumir frutas, especialmente junto às grandes refeições. O vídeo abaixo explica de forma muito didática os mitos e verdades sobre comer frutas no almoço e como isso impacta positivamente a sua digestão e a absorção de nutrientes importantes, como o ferro.</p>
-            
+
             <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
@@ -301,63 +361,65 @@ export default function Frutose() {
             <div className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
               <div className="space-y-6">
-                
+
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
                   <h3 className="text-lg font-black text-slate-800 mb-2 italic">Quem tem diabetes pode comer fruta?</h3>
                   <p className="text-slate-600 m-0 leading-relaxed">Sim, deve comer. O segredo é a moderação e a escolha de frutas com menor índice glicêmico e maior teor de fibras. A insulina é essencial para o transporte da glicose, e o consumo de frutas dentro de um plano alimentar equilibrado ajuda a manter a glicemia estável sem abrir mão dos nutrientes essenciais.</p>
                 </div>
-                
+
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
                   <h3 className="text-lg font-black text-slate-800 mb-2 italic">Comer fruta à noite engorda?</h3>
                   <p className="text-slate-600 m-0 leading-relaxed">Não existe evidência de que o horário mude o impacto calórico da fruta. O ganho de peso está relacionado ao balanço calórico total do dia e ao estado de superávit persistente. Se você está dentro das suas necessidades energéticas, a fruta à noite é uma excelente opção de ceia.</p>
                 </div>
-                
+
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
                   <h3 className="text-lg font-black text-slate-800 mb-2 italic">A frutose da fruta causa gordura no fígado (esteatose)?</h3>
                   <p className="text-slate-600 m-0 leading-relaxed">Em pessoas saudáveis que consomem a fruta inteira, isso é extremamente improvável. A esteatose hepática está muito mais ligada ao sedentarismo, ao consumo excessivo de calorias e de produtos ultraprocessados ricos em xarope de milho, que possuem uma densidade energética muito superior à das frutas.</p>
                 </div>
-                
+
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
                   <h3 className="text-lg font-black text-slate-800 mb-2 italic">Posso substituir uma refeição principal por frutas?</h3>
                   <p className="text-slate-600 m-0 leading-relaxed">Não é recomendado. Embora as frutas sejam ricas em vitaminas e minerais, uma refeição principal precisa de um aporte adequado de proteínas e gorduras boas para garantir a manutenção da massa muscular e a saciedade prolongada. Utilize as frutas como complementos ou lanches intermediários.</p>
                 </div>
-                
+
               </div>
             </div>
             {/* FIM DO FAQ VISUAL OTIMIZADO */}
-            
+
             <Newsletter />
           </div>
         </article>
 
         <ArtigosRecomendados currentPath={pathname} />
-        
-{/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
-          <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
-            
-            {/* Foto do Autor no lugar do 'M' */}
-            <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
-              <img 
-                src={`${githubImgBase}Eu_1.png`} 
-                alt="Marco Aurélio Jr." 
-                className="w-full h-full object-cover"
-              />
-            </div>
 
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
-              <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
-              <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
-                Apaixonado pela ciência metabólica, Marco dedica seus estudos a compreender a fisiologia humana de forma aprofundada. Especialista em composição corporal com certificação internacional, ele foca em traduzir o rigor dos artigos científicos para a prática do dia a dia. Seu objetivo é ajudar você a entender como o próprio corpo funciona através da educação nutricional baseada em evidências reais.
-              </p>
-              <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
-                Siga @Nutricao_com_Marco
-              </a>
-            </div>
+        {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
+        <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
+
+          {/* Foto do Autor no lugar do 'M' */}
+          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+            <img 
+              src={`${githubImgBase}Eu_1.png`} 
+              alt="Marco Aurélio Jr. - Nutricionista e Autor do Artigo." 
+              title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador Antropométrico ISAK Nível 1."
+              className="w-full h-full object-cover"
+            />
           </div>
-          {/* FIM DO NOVO CARTÃO DE AUTOR */}
+
+          <div className="flex-1 text-center md:text-left">
+            <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
+            <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
+            <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
+              Apaixonado pela ciência metabólica, Marco dedica seus estudos a compreender a fisiologia humana de forma aprofundada. Especialista em composição corporal com certificação internacional, ele foca em traduzir o rigor dos artigos científicos para a prática do dia a dia. Seu objetivo é ajudar você a entender como o próprio corpo funciona através da educação nutricional baseada em evidências reais.
+            </p>
+            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+              Siga @Nutricao_com_Marco
+            </a>
+          </div>
         </div>
+        {/* FIM DO NOVO CARTÃO DE AUTOR */}
+      </div>
     </section>
     </>
   );
 }
+
