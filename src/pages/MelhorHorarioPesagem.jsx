@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, Scale, Clock, Activity, Droplets, Headphones, PlayCircle, AlertTriangle } from 'lucide-react';
+import { ChevronLeft, HelpCircle, Scale, Clock, Activity, Droplets, Headphones, PlayCircle, AlertTriangle, ChevronRight } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
@@ -9,7 +9,8 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export default function MelhorHorarioPesagem() {
   const { pathname } = useLocation();
-  
+  const [isTocOpen, setIsTocOpen] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -19,7 +20,7 @@ export default function MelhorHorarioPesagem() {
       <Helmet>
         <title>Qual o melhor horário para se pesar? | Nutrição com Marco</title>
         <meta name="description" content="Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite. Peso na balança não é igual a gordura corporal." />
-        
+
         {/* OPEN GRAPH (Redes Sociais) */}
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Qual o melhor horário para se pesar? (Você está fazendo isso errado)" />
@@ -48,12 +49,12 @@ export default function MelhorHorarioPesagem() {
               }
             },
             "datePublished": "2026-03-30",
- "dateModified": "2026-03-21",
+            "dateModified": "2026-03-21",
             "description": "Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite. Peso na balança não é igual a gordura corporal."
           })}
         </script>
 
-        {/* INÍCIO DO SCHEMA.ORG PARA FAQ (ATUALIZADO PARA SEO 950+) */}
+        {/* INÍCIO DO SCHEMA.ORG PARA FAQ */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -143,22 +144,86 @@ export default function MelhorHorarioPesagem() {
             </div>
             {/* FIM DO BLOCO DE RESPOSTA DIRETA */}
 
-            {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) */}
-            <div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
-              <div className="flex items-center gap-3">
-                <Headphones className="text-green-600 w-6 h-6" />
-                <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+            {/* INÍCIO DA CAIXA COMBINADA: ÁUDIO + SUMÁRIO RETRÁTIL */}
+            <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+              
+              {/* 1. SEÇÃO DO ÁUDIO */}
+              <div className="p-5 md:p-6 flex flex-col gap-3">
+                <div className="flex items-center gap-3">
+                  <Headphones className="text-green-600 w-6 h-6" />
+                  <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+                </div>
+                <audio controls className="w-full h-10 outline-none">
+                  <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/MelhorHorarioPesagem.mp3" type="audio/mpeg" />
+                  Seu navegador não suporta o elemento de áudio.
+                </audio>
               </div>
-              <audio controls className="w-full h-10 outline-none">
-                <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/MelhorHorarioPesagem.mp3" type="audio/mpeg" />
-                Seu navegador não suporta o elemento de áudio.
-              </audio>
+
+              {/* LINHA DIVISÓRIA SUAVE */}
+              <div className="h-px bg-green-100/60 w-full"></div>
+
+              {/* 2. SEÇÃO DO SUMÁRIO (TOC) */}
+              <nav className="bg-slate-50">
+                <button 
+                  onClick={() => setIsTocOpen(!isTocOpen)}
+                  className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                      <Activity size={18} />
+                    </div>
+                    <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
+                      Índice do Conteúdo
+                    </h3>
+                  </div>
+                  <ChevronRight 
+                    size={20} 
+                    className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                  />
+                </button>
+
+                {/* LISTA DE LINKS ESCONDIDA */}
+                <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
+                  <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
+                    <li>
+                      <a href="#horario-certo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <Clock size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        O Horário Certo
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#maiores-erros" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <AlertTriangle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        Maiores Erros
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#porque-varia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <Droplets size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        Por que varia tanto?
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#ilusao-densidade" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        Ilusão da Densidade
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#pesar-todo-dia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        Pesar todo dia?
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
             </div>
-            {/* FIM DA SESSÃO DO ÁUDIO */}
+            {/* FIM DA CAIXA COMBINADA */}
 
             <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
               <p>Se você já subiu na balança à noite, depois de um longo dia de trabalho, e tomou um susto com o número que apareceu no visor… relaxa: <strong>você provavelmente não engordou — você só se pesou na hora errada.</strong></p>
-              
+
               <p>A balança tradicional mede absolutamente tudo o que está sobre ela: seus ossos, órgãos, pele, sangue, a água que você bebeu e a comida que ainda está sendo digerida. Ela mede a atração gravitacional da Terra sobre o seu corpo, e não a sua quantidade de gordura. É por isso que o peso corporal humano não é um número estático. É perfeitamente normal e fisiológico que ele flutue de 0,5 até impressionantes 3kg em um único dia.</p>
 
               {/* IMAGEM ESTRATÉGICA COM ALT E TITLE ARRUMADOS */}
@@ -173,7 +238,7 @@ export default function MelhorHorarioPesagem() {
               </div>
 
               {/* MICRO GEO HACK: PERGUNTA NATURAL NO MEIO DO TEXTO */}
-              <h3 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <h3 id="horario-certo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Clock className="text-green-600"/> Então… qual é o horário certo para se pesar?
               </h3>
               <p>Para acompanhar o seu peso real e excluir ao máximo as interferências externas, você precisa encontrar o momento em que seu corpo está mais "neutro". A ciência da avaliação física determina um protocolo rigoroso para isso.</p>
@@ -194,7 +259,7 @@ export default function MelhorHorarioPesagem() {
               </div>
               {/* FIM DA PRIMEIRA LISTA OBJETIVA */}
 
-              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <h2 id="maiores-erros" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <AlertTriangle className="text-red-500"/> Os Maiores Erros ao Se Pesar
               </h2>
               <p>Se você não segue o protocolo acima, é provável que esteja caindo em armadilhas que mascaram seus resultados reais. Muitos pacientes chegam frustrados no consultório porque cometem estes erros clássicos:</p>
@@ -208,11 +273,11 @@ export default function MelhorHorarioPesagem() {
                 </ul>
               </div>
 
-              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <h2 id="porque-varia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Droplets className="text-green-600"/> Por que seu peso varia tanto? A Fisiologia da Retenção
               </h2>
               <p>Muitas pessoas pesquisam: <em>"peso varia quanto por dia?"</em>. A resposta choca a maioria: de 0,5 a 3 kg, sem que um único grama seja de gordura real.</p>
-              
+
               <p>A matemática da hidratação é exata: 1 litro de água equivale exatamente a 1kg na balança. O grande "vilão" das flutuações rápidas é a dupla <strong>carboidrato e sódio</strong>. O nosso corpo armazena os carboidratos que comemos dentro dos músculos e no fígado na forma de uma molécula chamada glicogênio. A regra fisiológica é clara: <strong>para cada 1 grama de glicogênio estocado, o corpo retém junto cerca de 3 gramas de água</strong>. Ou seja, se você comeu uma pizza na noite anterior (rica em carboidratos e sódio), seus estoques de glicogênio encheram e puxaram muita água para dentro das células. O peso extra na manhã seguinte é pura água e glicogênio.</p>
 
               {/* TABELA DE VARIAÇÃO DE PESO (GEO BOOST) */}
@@ -248,11 +313,11 @@ export default function MelhorHorarioPesagem() {
                 <p className="m-0 text-slate-700 font-medium leading-relaxed">Para que você realmente ganhe 1kg de gordura corporal, a ciência mostra que é necessário consumir um superávit de aproximadamente <strong>7.000 a 7.700 calorias</strong> acima do seu gasto energético total. Pensando na flutuação diária, para engordar 2kg de gordura do dia para a noite, você precisaria ter ingerido cerca de 14.000 calorias extras. Isso é humanamente quase impossível.</p>
               </div>
 
-              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <h2 id="ilusao-densidade" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Scale className="text-green-600"/> A Ilusão da Densidade: Músculo vs. Gordura
               </h2>
               <p>Outro erro conceitual enorme que gera frustração no emagrecimento (e facilita o temido <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">efeito sanfona</Link>) é ignorar a densidade dos tecidos. O músculo é um tecido denso e compacto, enquanto a gordura é volumosa e "fofa".</p>
-              
+
               <p>Um quilo de gordura ocupa cerca de 15% a 20% mais espaço de volume do que um quilo de músculo. É por isso que você pode começar a treinar, perder gordura, ganhar massa muscular e o número da balança não mudar nem 100 gramas. A balança estagna, mas a sua calça jeans passa a fechar com folga.</p>
 
               {/* LINK INTERNO ESTRATÉGICO CLUSTER SEO (COM OUTROS MÉTODOS) */}
@@ -263,7 +328,7 @@ export default function MelhorHorarioPesagem() {
               </div>
               {/* FIM LINK INTERNO ESTRATÉGICO */}
 
-                         {/* SESSÃO DO VÍDEO DO INSTAGRAM (Substituído conforme pedido) */}
+              {/* SESSÃO DO VÍDEO DO INSTAGRAM */}
               <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
@@ -288,10 +353,10 @@ export default function MelhorHorarioPesagem() {
               </div>
               {/* FIM DA SESSÃO DO VÍDEO */}
 
-              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <h2 id="pesar-todo-dia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Activity className="text-green-600"/> Posso me pesar todo dia? O Fim do "Achismo"
               </h2>
-              
+
               <p>Muitos especialistas divergem sobre isso. A resposta baseada em evidências é: <strong>Sim, você pode se pesar todos os dias</strong>, contanto que obedeça o Checklist Padrão Ouro e anote o peso para tirar a <strong>média semanal</strong>. A média dilui as flutuações diárias de água e intestino e te mostra a real tendência do seu corpo (seja de emagrecimento ou hipertrofia).</p>
 
               <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
@@ -328,7 +393,7 @@ export default function MelhorHorarioPesagem() {
               <div className="mt-16 pt-10 border-t border-slate-100 text-left">
                 <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
                 <div className="space-y-6">
-                  
+
                   <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
                     <h3 className="text-lg font-black text-slate-800 mb-2 italic">Qual o melhor horário para se pesar?</h3>
                     <p className="text-slate-600 m-0 leading-relaxed">O padrão ouro é pela manhã, em jejum, logo após ir ao banheiro e antes de beber água ou tomar café da manhã. Esse é o momento de maior estabilidade metabólica do corpo.</p>
@@ -371,7 +436,7 @@ export default function MelhorHorarioPesagem() {
 
           {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO E ALT/TITLE NAS IMAGENS */}
           <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
-            
+
             <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
               <img 
                 src={`${githubImgBase}Eu_1.png`} 
@@ -399,3 +464,4 @@ export default function MelhorHorarioPesagem() {
     </>
   );
 }
+
