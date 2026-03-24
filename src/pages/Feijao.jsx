@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, Headphones, PlayCircle } from 'lucide-react';
+import { ChevronLeft, HelpCircle, Headphones, PlayCircle, Activity, ChevronRight, Wind, Droplets, AlertTriangle, CheckCircle } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
@@ -9,7 +9,8 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export default function Feijao() {
   const { pathname } = useLocation();
-  
+  const [isTocOpen, setIsTocOpen] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -24,17 +25,17 @@ export default function Feijao() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Por que o feijão dá gases e como evitar de vez | Nutrição com Marco" />
         <meta property="og:description" content="Descubra por que o feijão causa gases e o que fazer para evitar o desconforto. Entenda como funciona a digestão e veja dicas práticas." />
-        <meta property="og:image" content="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/feijao.jpg" />
-        <meta property="og:url" content="https://www.nutricaocommarco.com.br/por_que_o_feijao_da_gases" />
+        <meta property="og:image" content={`${githubImgBase}Blog/feijao.jpg`} />
+        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
         {/* FIM DO OPEN GRAPH */}        
-        
+
         {/* INÍCIO DO SCHEMA.ORG PARA ARTIGOS */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Por que o feijão dá gases e como evitar de vez",
-            "image": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/feijao.jpg",
+            "image": `${githubImgBase}Blog/feijao.jpg`,
             "author": {
               "@type": "Person",
               "name": "Marco Aurélio Jr.",
@@ -45,11 +46,11 @@ export default function Feijao() {
               "name": "Nutrição com Marco",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png"
+                "url": `${githubImgBase}logoN_pingus.png`
               }
             },
             "datePublished": "2026-03-20",
- "dateModified": "2026-03-21",
+            "dateModified": "2026-03-21",
             "description": "Descubra por que o feijão causa gases e o que fazer para evitar o desconforto. Entenda como funciona a digestão e veja dicas práticas."
           })}
         </script>
@@ -98,7 +99,7 @@ export default function Feijao() {
         </script>
         {/* FIM DO SCHEMA.ORG PARA FAQ */}
       </Helmet>
-      
+
       <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
         <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
@@ -122,18 +123,83 @@ export default function Feijao() {
                   O feijão causa gases porque contém oligossacarídeos, como rafinose e estaquiose, que não são digeridos no intestino delgado e são fermentados pela microbiota intestinal no intestino grosso, produzindo gases como hidrogênio e metano.
                 </p>
             </div>
-            
-            {/* SESSÃO DO ÁUDIO */}
-            <div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
-              <div className="flex items-center gap-3">
-                <Headphones className="text-green-600 w-6 h-6" />
-                <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+
+            {/* INÍCIO DA CAIXA COMBINADA: ÁUDIO + SUMÁRIO RETRÁTIL */}
+            <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+              
+              {/* 1. SEÇÃO DO ÁUDIO */}
+              <div className="p-5 md:p-6 flex flex-col gap-3">
+                <div className="flex items-center gap-3">
+                  <Headphones className="text-green-600 w-6 h-6" />
+                  <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+                </div>
+                <audio controls className="w-full h-10 outline-none">
+                  <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Feijao.mp3" type="audio/mpeg" />
+                  Seu navegador não suporta o elemento de áudio.
+                </audio>
               </div>
-              <audio controls className="w-full h-10 outline-none">
-                <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Feijao.mp3" type="audio/mpeg" />
-                Seu navegador não suporta o elemento de áudio.
-              </audio>
+
+              {/* LINHA DIVISÓRIA SUAVE */}
+              <div className="h-px bg-green-100/60 w-full"></div>
+
+              {/* 2. SEÇÃO DO SUMÁRIO (TOC) */}
+              <nav className="bg-slate-50">
+                <button 
+                  onClick={() => setIsTocOpen(!isTocOpen)}
+                  className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                      <Activity size={18} />
+                    </div>
+                    <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
+                      Índice do Conteúdo
+                    </h3>
+                  </div>
+                  <ChevronRight 
+                    size={20} 
+                    className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                  />
+                </button>
+
+                {/* LISTA DE LINKS ESCONDIDA */}
+                <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
+                  <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
+                    <li>
+                      <a href="#por-que-da-gases" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <Wind size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        A Causa dos Gases
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#outros-alimentos" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <AlertTriangle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        Outros Alimentos
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#como-evitar" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <Droplets size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        Como Evitar (Demolho)
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#gases-problema" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        É Sempre um Problema?
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#melhorar-digestao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <CheckCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        Melhorar a Digestão
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
             </div>
+            {/* FIM DA CAIXA COMBINADA */}
 
             <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
               <p>Se você já sentiu a barriga estufada depois de comer feijão, saiba que isso é extremamente comum e tem uma explicação científica exata. Apesar de ser um alimento incrivelmente nutritivo, rico em fibras, proteínas e minerais, o feijão contém compostos específicos que podem causar fermentação no intestino, levando à formação de gases. A boa notícia é que existem formas simples e comprovadas de reduzir ou até evitar completamente esse desconforto no seu dia a dia.</p>
@@ -143,7 +209,7 @@ export default function Feijao() {
                 <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">O preparo correto das leguminosas transforma a sua resposta digestiva.</p></div>
               </div>
 
-              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Por que o feijão dá gases?</h2>
+              <h2 id="por-que-da-gases" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Por que o feijão dá gases?</h2>
               <p>O principal motivo para esse estufamento está na presença de carboidratos específicos chamados oligossacarídeos, tendo a rafinose como o principal exemplo. A fisiologia do nosso corpo não possui as ferramentas enzimáticas necessárias para quebrar esses compostos no intestino delgado. Como resultado, eles chegam totalmente intactos ao intestino grosso, onde são rapidamente fermentados pelas bactérias que compõem a nossa microbiota. Esse processo de fermentação bacteriana produz gases intensos como hidrogênio, metano e dióxido de carbono, o que gera aquele conhecido estufamento, desconforto abdominal e flatulência.</p>
 
               {/* BLOCO CITÁVEL */}
@@ -156,7 +222,7 @@ export default function Feijao() {
                 </p>
               </div>
 
-              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Outros alimentos que também causam gases</h2>
+              <h2 id="outros-alimentos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Outros alimentos que também causam gases</h2>
               <p>O feijão não é o único responsável por essa sensação, pois vários outros alimentos podem gerar exatamente o mesmo efeito fermentativo no seu corpo se não forem bem administrados.</p>
 
               {/* PRIMEIRA LISTA OBJETIVA */}
@@ -178,7 +244,7 @@ export default function Feijao() {
               <h3 className="text-xl font-bold text-slate-800 mt-8 mb-3">Vegetais e fibras fermentáveis</h3>
               <p>Além dos grãos, existem vegetais e fibras fermentáveis que potencializam esse quadro de distensão. Vegetais crucíferos como o brócolis, a couve-flor e o repolho também fazem parte desse grupo que fermenta intensamente no intestino, afetando de forma mais pesada as pessoas que já possuem um trato gastrointestinal naturalmente mais sensível.</p>
 
-              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Como evitar gases ao comer feijão</h2>
+              <h2 id="como-evitar" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Como evitar gases ao comer feijão</h2>
 
               {/* SEGUNDA LISTA OBJETIVA */}
               <div className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left">
@@ -209,10 +275,10 @@ export default function Feijao() {
               <h3 className="text-xl font-bold text-slate-800 mt-8 mb-3">5. Considere enzimas digestivas</h3>
               <p>Por fim, considere o uso de enzimas digestivas em casos mais persistentes. Existem suplementos específicos no mercado que ajudam na digestão direta desses carboidratos complexos. Essas enzimas atuam quebrando os compostos do feijão logo no início do processo, muito antes que eles cheguem ao intestino grosso, cortando o mal pela raiz e reduzindo drasticamente a formação de gases.</p>
 
-              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Gases intestinais são sempre um problema?</h2>
+              <h2 id="gases-problema" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Gases intestinais são sempre um problema?</h2>
               <p>É fundamental esclarecer que os gases nem sempre são um problema. A produção de gases é um processo totalmente natural e esperado da digestão humana, especialmente quando ocorre a fermentação saudável de fibras, o que, inclusive, é um sinal muito positivo de vitalidade para a sua saúde e barreira intestinal. Porém, é preciso ter muita atenção aos sinais de alerta do corpo. Se você apresentar dor abdominal intensa, distensão frequente que atrapalha o caimento das roupas ou um desconforto persistente e limitante, vale a pena investigar o quadro mais a fundo para descartar disbioses.</p>
 
-              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Como melhorar sua digestão de forma geral</h2>
+              <h2 id="melhorar-digestao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Como melhorar sua digestão de forma geral</h2>
               <p>Muito além de apenas ajustar o consumo pontual de feijão, você pode melhorar a sua digestão de forma geral adotando hábitos básicos e contínuos de estilo de vida. Manter uma boa hidratação ao longo do dia é inegociável para a formação das fezes, assim como comer com atenção plena, evitando distrações nocivas como a tela do celular. A inclusão de novas fibras na dieta deve ser feita sempre de forma gradual para dar tempo ao corpo de se adaptar, o que ajuda a cuidar da saúde da microbiota a longo prazo. Assim como explico em detalhes no artigo sobre <Link to="/quantas_frutas_posso_comer" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">quantas frutas você pode comer por dia</Link>, o grande segredo da digestão eficiente, seja da frutose ou da rafinose, está sempre no equilíbrio e na dose certa, e não no terrorismo nutricional.</p>
 
               <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Conclusão</h2>
@@ -269,14 +335,15 @@ export default function Feijao() {
 
           <ArtigosRecomendados currentPath={pathname} />
 
-{/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
+          {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
           <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
-            
+
             {/* Foto do Autor no lugar do 'M' */}
             <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
               <img 
                 src={`${githubImgBase}Eu_1.png`} 
-                alt="Marco Aurélio Jr." 
+                alt="Marco Aurélio Jr. - Nutricionista e Autor do Artigo." 
+                title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador Antropométrico ISAK Nível 1."
                 className="w-full h-full object-cover"
               />
             </div>
@@ -299,6 +366,7 @@ export default function Feijao() {
     </>
   );
 }
+
 
 
 
