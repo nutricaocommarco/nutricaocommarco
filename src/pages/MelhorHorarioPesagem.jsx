@@ -48,6 +48,7 @@ export default function MelhorHorarioPesagem() {
               }
             },
             "datePublished": "2026-03-30",
+ "dateModified": "2026-03-21",
             "description": "Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite. Peso na balança não é igual a gordura corporal."
           })}
         </script>
