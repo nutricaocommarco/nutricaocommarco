@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, PlayCircle, HelpCircle, Zap, Headphones } from 'lucide-react';
+import { ChevronLeft, PlayCircle, HelpCircle, Zap, Headphones, ChevronRight, Activity, AlertTriangle } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
@@ -9,7 +9,8 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export default function Bioimpedancia() {
   const { pathname } = useLocation();
-  
+  const [isTocOpen, setIsTocOpen] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -19,23 +20,23 @@ export default function Bioimpedancia() {
     <Helmet>
         <title>A balança de bioimpedância é confiável? | Nutrição com Marco</title>
         <meta name="description" content="Entenda se a balança de bioimpedância é confiável, como ela funciona e o que altera o seu percentual de gordura." />
-        
+
         <meta property="og:type" content="article" />
         <meta property="og:title" content="A balança de bioimpedância é confiável? | Nutrição com Marco" />
         <meta property="og:description" content="Entenda se a balança de bioimpedância é confiável, como ela funciona e o que altera o seu percentual de gordura." />
-        <meta property="og:image" content="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/bioimpedancia.png" />
-        <meta property="og:url" content="https://www.nutricaocommarco.com.br/a_balanca_de_bioimpedancia_e_confiavel" />
+        <meta property="og:image" content={`${githubImgBase}Blog/bioimpedancia.png`} />
+        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "A Balança de Bioimpedância é Realmente Confiável?",
-            "image": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/bioimpedancia.png",
+            "image": `${githubImgBase}Blog/bioimpedancia.png`,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
-            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png"}},
+            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png`}},
             "datePublished": "2026-03-20",
- "dateModified": "2026-03-21",
+            "dateModified": "2026-03-21",
             "description": "Entenda se a balança de bioimpedância é confiável, como ela funciona e o que altera o seu percentual de gordura."
           })}
         </script>
@@ -86,11 +87,11 @@ export default function Bioimpedancia() {
 
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
-        
+
         <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
           <ChevronLeft size={20} /> Voltar para o Blog
         </Link>
-        
+
         <article className="prose prose-lg max-w-none">
           <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Tecnologia e Medida</span>
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900 text-left">A balança de bioimpedância é confiável?</h1>
@@ -106,21 +107,82 @@ export default function Bioimpedancia() {
           </div>
           {/* FIM DO BLOCO DE RESPOSTA DIRETA */}
 
-          {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) */}
-          <div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
-            <div className="flex items-center gap-3">
-              <Headphones className="text-green-600 w-6 h-6" />
-              <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+          {/* INÍCIO DA CAIXA COMBINADA: ÁUDIO + SUMÁRIO RETRÁTIL */}
+          <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+            
+            {/* 1. SEÇÃO DO ÁUDIO */}
+            <div className="p-5 md:p-6 flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <Headphones className="text-green-600 w-6 h-6" />
+                <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+              </div>
+              <audio controls className="w-full h-10 outline-none">
+                <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Bioimpedancia.mp3" type="audio/mpeg" />
+                Seu navegador não suporta o elemento de áudio.
+              </audio>
             </div>
-            <audio controls className="w-full h-10 outline-none">
-              <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Bioimpedancia.mp3" type="audio/mpeg" />
-              Seu navegador não suporta o elemento de áudio.
-            </audio>
+
+            {/* LINHA DIVISÓRIA SUAVE */}
+            <div className="h-px bg-green-100/60 w-full"></div>
+
+            {/* 2. SEÇÃO DO SUMÁRIO (TOC) */}
+            <nav className="bg-slate-50">
+              <button 
+                onClick={() => setIsTocOpen(!isTocOpen)}
+                className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                    <Activity size={18} />
+                  </div>
+                  <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
+                    Índice do Conteúdo
+                  </h3>
+                </div>
+                <ChevronRight 
+                  size={20} 
+                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                />
+              </button>
+
+              {/* LISTA DE LINKS ESCONDIDA */}
+              <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
+                <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
+                  <li>
+                    <a href="#como-funciona" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Como Funciona?
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#interferencias" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <AlertTriangle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      O Que Interfere
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#frequencias" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Frequências e Aparelhos
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Perguntas Frequentes
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
           </div>
-          {/* FIM DA SESSÃO DO ÁUDIO */}
+          {/* FIM DA CAIXA COMBINADA */}
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed text-left">
             <p>A balança de bioimpedância é uma ferramenta bastante utilizada para estimar a composição corporal — como percentual de gordura, massa muscular e água corporal. Mas afinal, <strong>ela é realmente confiável?</strong> A resposta mais honesta é: depende de como ela é usada.</p>
+            
+            <h2 id="como-funciona" className="text-2xl font-black text-slate-900 uppercase italic mt-12 mb-4 text-center md:text-left">Como a Bioimpedância Funciona?</h2>
+            
             <p>A bioimpedância funciona a partir da passagem de uma corrente elétrica de baixa intensidade pelo corpo. Essa corrente percorre os tecidos com diferentes níveis de resistência: a água conduz eletricidade com facilidade, enquanto a gordura oferece maior resistência. A partir dessa diferença, o aparelho faz estimativas sobre a composição corporal.</p>
 
             {/* BLOCO CITÁVEL (OTIMIZADO PARA IA E SEO) */}
@@ -151,7 +213,7 @@ export default function Bioimpedancia() {
               </div>
             </div>
 
-            <h2 className="text-2xl font-black text-slate-900 uppercase italic mt-12 mb-4 text-center md:text-left">O que pode interferir no resultado?</h2>
+            <h2 id="interferencias" className="text-2xl font-black text-slate-900 uppercase italic mt-12 mb-4 text-center md:text-left">O que pode interferir no resultado?</h2>
             <p>Diversos fatores influenciam a quantidade de água corporal e, consequentemente, a leitura da bioimpedância: estado de hidratação, consumo recente de alimentos, exercício físico, álcool, cafeína e até a fase do ciclo menstrual. Por exemplo, uma pessoa pode apresentar um percentual de gordura maior simplesmente por estar desidratada naquele momento.</p>
 
             {/* PRIMEIRA LISTA OBJETIVA (OTIMIZADO PARA IA E SEO) */}
@@ -201,7 +263,7 @@ export default function Bioimpedancia() {
             </div>
             {/* FIM DA SEGUNDA LISTA OBJETIVA */}
 
-            <h2 className="text-2xl font-black text-slate-900 uppercase italic mt-12 mb-4 text-center md:text-left">Frequências e Balanças Octapolares</h2>
+            <h2 id="frequencias" className="text-2xl font-black text-slate-900 uppercase italic mt-12 mb-4 text-center md:text-left">Frequências e Balanças Octapolares</h2>
             <p>Nem toda bioimpedância é igual. Aparelhos multifrequenciais permitem uma análise mais completa, e as chamadas <strong>balanças octapolares</strong> utilizam oito pontos de contato (mãos e pés) para garantir maior precisão.</p>
 
             {/* QUADRO DE DESTAQUE COM LINK INTERNO */}
@@ -214,7 +276,7 @@ export default function Bioimpedancia() {
             </div>
 
             {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
-            <div className="mt-16 pt-10 border-t border-slate-100 text-left">
+            <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
               <div className="space-y-6">
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
@@ -246,12 +308,13 @@ export default function Bioimpedancia() {
 
         {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
-          
+
           {/* Foto do Autor no lugar do 'M' */}
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
             <img 
               src={`${githubImgBase}Eu_1.png`} 
               alt="Marco Aurélio Jr." 
+              title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador Antropométrico ISAK Nível 1."
               className="w-full h-full object-cover"
             />
           </div>
@@ -273,3 +336,4 @@ export default function Bioimpedancia() {
    </>
   );
 }
+
