@@ -20,7 +20,8 @@ import HormoniosFome from './pages/HormoniosFome';
 import Ironman703 from './pages/Ironman703';
 import GeradorEmailSecreto from './pages/GeradorEmailSecreto';
 import MelhorHorarioPesagem from './pages/MelhorHorarioPesagem';
-import BeterrabaDiabetes from './pages/BeterrabaDiabetes'; // <-- IMPORTAÇÃO DO NOVO ARTIGO AQUI
+import BeterrabaDiabetes from './pages/BeterrabaDiabetes';
+import ConfirmacaoPendente from './pages/kitkit'; // <-- IMPORTAÇÃO EXATA DO ARQUIVO .jsx
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -112,10 +113,14 @@ function Layout({ children }) {
         title: 'Qual o melhor horário para se pesar? | Nutrição com Marco', 
         desc: 'Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite. Peso na balança não é igual a gordura corporal.' 
       },
-      '/diabetico_pode_comer_beterraba': { // <-- SEO DO NOVO ARTIGO AQUI
+      '/diabetico_pode_comer_beterraba': { 
         title: 'Diabético pode comer beterraba? O mito desvendado | Nutrição com Marco', 
         desc: 'Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2.' 
       },
+      '/confirmacao-pendente': { // <-- SEO DA NOVA ROTA AQUI
+        title: 'Quase lá! Confirme seu e-mail | Nutrição com Marco',
+        desc: 'Falta apenas um clique para confirmar sua inscrição e receber nossos conteúdos exclusivos.'
+      }
     };
 
     const currentSEO = seoData[location.pathname] || seoData['/'];
@@ -196,7 +201,6 @@ function Layout({ children }) {
   );
 }
 
-// CORREÇÃO: O App agora é exportado corretamente de forma única
 export default function App() {
   return (
     <HelmetProvider>
@@ -220,7 +224,8 @@ export default function App() {
             <Route path="/hormonios_da_fome_emagrecimento" element={<HormoniosFome />} />
             <Route path="/nutricao_para_ironman_703" element={<Ironman703 />} />
             <Route path="/qual_melhor_horario_para_se_pesar" element={<MelhorHorarioPesagem />} />
-            <Route path="/diabetico_pode_comer_beterraba" element={<BeterrabaDiabetes />} /> {/* <-- ROTA DO NOVO ARTIGO AQUI */}
+            <Route path="/diabetico_pode_comer_beterraba" element={<BeterrabaDiabetes />} />
+            <Route path="/confirmacao-pendente" element={<ConfirmacaoPendente />} /> {/* <-- ROTA DA PÁGINA AQUI */}
           </Routes>
         </Layout>
       </Router>
