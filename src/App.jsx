@@ -21,7 +21,7 @@ import Ironman703 from './pages/Ironman703';
 import GeradorEmailSecreto from './pages/GeradorEmailSecreto';
 import MelhorHorarioPesagem from './pages/MelhorHorarioPesagem'; 
 import BeterrabaDiabetes from './pages/BeterrabaDiabetes';
-import ConfirmacaoPendente from './pages/kitkit'; // <-- IMPORTAÇÃO INCLUÍDA AQUI
+import ConfirmacaoPendente from './pages/kitkit';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -201,7 +201,6 @@ function Layout({ children }) {
   );
 }
 
-// ÚNICA exportação do App
 export default function App() {
   return (
     <HelmetProvider>
