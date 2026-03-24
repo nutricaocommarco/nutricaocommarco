@@ -184,8 +184,7 @@ export default function App() {
             <Route path="/diabetico_pode_comer_beterraba" element={<BeterrabaDiabetes />} />
             <Route path="/confirmacao-pendente" element={<ConfirmacaoPendente />} />
             <Route path="/inscricao-confirmada" element={<InscricaoConfirmada />} />
-            {/* <-- NOVA ROTA ADICIONADA AQUI */}
-            <Route path="/retatrutida_o_que_e" element={<RetatrutidaOQueE />} />
+            
           </Routes>
         </Layout>
       </Router>
