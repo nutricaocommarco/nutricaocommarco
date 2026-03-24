@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, BrainCircuit, Activity, Droplets, Zap, Coffee, Headphones, PlayCircle } from 'lucide-react';
+import { ChevronLeft, HelpCircle, BrainCircuit, Activity, Droplets, Zap, Coffee, Headphones, PlayCircle, ChevronRight } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
@@ -9,7 +9,8 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export default function Ironman703() {
   const { pathname } = useLocation();
-  
+  const [isTocOpen, setIsTocOpen] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -19,7 +20,7 @@ export default function Ironman703() {
       <Helmet>
         <title>Nutrição para Ironman 70.3: Guia Completo | Nutrição com Marco</title>
         <meta name="description" content="Descubra o guia completo de nutrição para Ironman 70.3. Aprenda a calcular calorias, evitar câimbras, distribuir macronutrientes e usar cafeína para turbinar seu desempenho no triatlo." />
-        
+
         {/* OPEN GRAPH (Redes Sociais) */}
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Nutrição para Ironman 70.3: O Guia Definitivo para Triatletas" />
@@ -48,7 +49,7 @@ export default function Ironman703() {
               }
             },
             "datePublished": "2026-03-25",
- "dateModified": "2026-03-21",
+            "dateModified": "2026-03-21",
             "description": "Descubra o guia completo de nutrição para Ironman 70.3. Aprenda a calcular calorias, evitar câimbras, distribuir macronutrientes e usar cafeína para turbinar seu desempenho no triatlo."
           })}
         </script>
@@ -122,21 +123,86 @@ export default function Ironman703() {
             </div>
             {/* FIM DO BLOCO DE RESPOSTA DIRETA */}
 
-            {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) */}
-            <div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
-              <div className="flex items-center gap-3">
-                <Headphones className="text-green-600 w-6 h-6" />
-                <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+            {/* INÍCIO DA CAIXA COMBINADA: ÁUDIO + SUMÁRIO RETRÁTIL */}
+            <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+              
+              {/* 1. SEÇÃO DO ÁUDIO */}
+              <div className="p-5 md:p-6 flex flex-col gap-3">
+                <div className="flex items-center gap-3">
+                  <Headphones className="text-green-600 w-6 h-6" />
+                  <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+                </div>
+                <audio controls className="w-full h-10 outline-none">
+                  <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Ironman703.mp3" type="audio/mpeg" />
+                  Seu navegador não suporta o elemento de áudio.
+                </audio>
               </div>
-              <audio controls className="w-full h-10 outline-none">
-                <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Ironman703.mp3" type="audio/mpeg" />
-                Seu navegador não suporta o elemento de áudio.
-              </audio>
+
+              {/* LINHA DIVISÓRIA SUAVE */}
+              <div className="h-px bg-green-100/60 w-full"></div>
+
+              {/* 2. SEÇÃO DO SUMÁRIO (TOC) */}
+              <nav className="bg-slate-50">
+                <button 
+                  onClick={() => setIsTocOpen(!isTocOpen)}
+                  className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                      <Activity size={18} />
+                    </div>
+                    <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
+                      Índice do Conteúdo
+                    </h3>
+                  </div>
+                  <ChevronRight 
+                    size={20} 
+                    className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                  />
+                </button>
+
+                {/* LISTA DE LINKS ESCONDIDA */}
+                <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
+                  <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
+                    <li>
+                      <a href="#avaliacao-fisica" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        Avaliação Física
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#gasto-energetico" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        Gasto Energético
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#macronutrientes" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <BrainCircuit size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        Macronutrientes
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#caimbras-fadiga" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <Droplets size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        Fim das Câimbras
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#suplementacao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                        <Coffee size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                        Creatina e Cafeína
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
             </div>
+            {/* FIM DA CAIXA COMBINADA */}
 
             <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
               <p>Treinar para um Half-Ironman (Ironman 70.3) exige muito mais do que apenas dedicação nas piscinas, nas pistas e no asfalto. Com 1.9 km de natação, 90 km de ciclismo e 21.1 km de corrida, o corpo humano é levado ao limite metabólico. É muito comum ver atletas amadores aumentando seu volume de treino para 12 a 15 horas semanais, mas negligenciando a base de tudo: a nutrição.</p>
-              
+
               <p>O resultado dessa conta que não fecha? Fadiga extrema constante, câimbras paralisantes no meio do pedal e uma dependência perigosa de refeições rápidas e processadas. Para que você cruze a linha de chegada com energia, a ciência da nutrição esportiva precisa ser aplicada de forma estratégica e individualizada.</p>
 
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
@@ -149,11 +215,11 @@ export default function Ironman703() {
                 <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">A performance no triatlo é definida pela capacidade do corpo de gerar e gerir energia.</p></div>
               </div>
 
-              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <h2 id="avaliacao-fisica" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Activity className="text-green-600"/> 1. Além da Balança: A Avaliação Física do Triatleta
               </h2>
               <p>Para estruturar a nutrição para Ironman 70.3, um simples recordatório alimentar não basta. É crucial realizar uma avaliação da composição corporal profunda. Métodos duplamente indiretos, como a <Link to="/o_que_e_antropometria" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">avaliação antropométrica ISAK 1</Link>, permitem o acompanhamento do somatório de dobras cutâneas de forma muito mais precisa e menos propensa a erros do que as balanças comuns.</p>
-              
+
               {/* BLOCO CITÁVEL (OTIMIZADO PARA IA E SEO) */}
               <div className="my-8 p-6 md:p-8 bg-white border-l-4 border-green-600 shadow-md rounded-r-3xl flex flex-col gap-3 text-left">
                 <h3 className="text-xl font-black text-slate-800 m-0 border-b border-slate-100 pb-3 flex items-center gap-2">
@@ -168,13 +234,13 @@ export default function Ironman703() {
               <h3 className="text-xl font-bold text-slate-800 mt-6 mb-2">O Papel do Somatotipo</h3>
               <p>Identificar o somatotipo do atleta (endomorfia, mesomorfia e ectomorfia) fornece uma base sólida para entender como o corpo se adapta aos estímulos do endurance. Uma alta ectomorfia, por exemplo, pode ser uma vantagem biomecânica na corrida, devido à linearidade e menor peso a ser transportado, enquanto um perfil endomorfo exigirá um olhar mais clínico sobre o balanço calórico para evitar o transporte de peso "morto" (tecido adiposo em excesso) durante 90km de ciclismo.</p>
 
-              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <h2 id="gasto-energetico" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Zap className="text-green-600"/> 2. Calculando o Gasto Energético em Alta Rodagem
               </h2>
               <p>Um atleta que treina de 12 a 15 horas por semana tem uma demanda calórica astronômica. O Gasto Energético Total (GET) é composto pela Taxa Metabólica Basal (TMB), a Termogênese Induzida pela Dieta (TID) e o Efeito Térmico do Exercício (ETE).</p>
               <p>Equações preditivas de TMB que consideram a massa livre de gordura (como a de Cunningham, 1981) são muito mais precisas para atletas. O componente que mais flutua é o ETE. Em um cenário hipotético de um triatleta de 75kg e 60kg de Massa Livre de Gordura, a TMB giraria em torno de 1.666 kcal. Adicionando a TID e multiplicando por um Fator de Atividade intenso (ex: 2.1), o gasto diário pode facilmente saltar para a faixa de <strong>3.600 a 4.000 kcal diárias</strong>. Sem esse aporte, a fadiga precoce é inevitável.</p>
 
-              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <h2 id="macronutrientes" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <BrainCircuit className="text-green-600"/> 3. A Distribuição Inteligente de Macronutrientes
               </h2>
               <p>A periodização nutricional é a chave para o sucesso em uma prova longa. Veja como os macronutrientes devem ser distribuídos:</p>
@@ -184,7 +250,7 @@ export default function Ironman703() {
                 <li><strong className="text-slate-800">Lipídios (A Base Hormonal):</strong> Mantidos entre 25% e 30% do Valor Energético Total, limitando gorduras saturadas a menos de 10%.</li>
               </ul>
 
-              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <h2 id="caimbras-fadiga" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Droplets className="text-green-600"/> 4. O Fim das Câimbras e da Fadiga
               </h2>
               <p>Câimbras durante treinos longos de ciclismo não são apenas falta de alongamento. Elas são um fenômeno complexo ligado à incapacidade de ressintetizar energia (ATP) e a desequilíbrios na recaptação de cálcio muscular.</p>
@@ -212,12 +278,12 @@ export default function Ironman703() {
               </div>
               {/* FIM DA PRIMEIRA LISTA OBJETIVA */}
 
-              <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <h2 id="suplementacao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Coffee className="text-green-600"/> 5. Creatina e Cafeína no Triatlo: Vale a pena?
               </h2>
               <h3 className="text-xl font-bold text-slate-800 mt-6 mb-2">Creatina</h3>
               <p>Embora seja o suplemento mais estudado do mundo, a Creatina <strong>não é a prioridade</strong> para o objetivo central de um Half-Ironman. Seu mecanismo favorece vias de energia de explosão e curta duração. Além disso, a retenção de água intramuscular gera ganho de peso corporal, o que é uma desvantagem mecânica ao carregar seu próprio peso durante 21.1 km de corrida.</p>
-              
+
               <h3 className="text-xl font-bold text-slate-800 mt-6 mb-2">Cafeína</h3>
               <p>Por outro lado, a Cafeína é um recurso ergogênico padrão ouro para o endurance. Ela atua diretamente no sistema nervoso central, mascarando e reduzindo a percepção de esforço e fadiga. O protocolo ideal varia de <strong>3 a 6 mg por quilo de peso corporal</strong>, ingeridos cerca de 60 minutos antes do treino ou da prova. Contudo, deve ser rigorosamente testada durante os treinos para evitar distúrbios gastrointestinais ou taquicardia no dia do evento.</p>
 
@@ -244,9 +310,9 @@ export default function Ironman703() {
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               Bônus: A Experiência de um Ironman no Brasil
             </h2>
-            
+
             <p>Para complementar nosso guia nutricional, nada melhor do que entender na prática a intensidade e o clima dessa prova. O vídeo abaixo mostra os bastidores, a energia e a realidade de um dia de competição do Ironman no Brasil, ajudando você a visualizar o desafio colossal para o qual está preparando o seu corpo.</p>
-            
+
             <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
@@ -298,7 +364,7 @@ export default function Ironman703() {
 
           {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
           <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
-            
+
             <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
               <img 
                 src={`${githubImgBase}Eu_1.png`} 
@@ -320,9 +386,10 @@ export default function Ironman703() {
             </div>
           </div>
           {/* FIM DO NOVO CARTÃO DE AUTOR */}
-          
+
         </div>
       </section>
     </>
   );
 }
+
