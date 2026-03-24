@@ -1,6 +1,16 @@
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 export const posts = [
+{
+    id: 12,
+    link: "/retatrutida_o_que_e", // Link exclusivo da Retatrutida
+    img: `${githubImgBase}Blog/retatrutida_molecula.jpg`,
+    tag: "Tratamento Metabólico",
+    titulo: "Retatrutida o que é? A nova fronteira da ciência contra a obesidade",
+    desc: "Descubra o que é a retatrutida, o novo medicamento agonista triplo e seus resultados na perda de peso.",
+    data: "2026-03-24",
+    dataMod: "2026-03-24"
+  },
   {
     id: 11,
     link: "/diabetico_pode_comer_beterraba",
