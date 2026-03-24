@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, PlayCircle, HelpCircle, Headphones } from 'lucide-react';
+import { ChevronLeft, HelpCircle, PlayCircle, Headphones, ChevronRight, Activity, Ruler, Target } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
@@ -9,7 +9,8 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export default function Antropometria() {
   const { pathname } = useLocation();
-  
+  const [isTocOpen, setIsTocOpen] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -19,23 +20,23 @@ export default function Antropometria() {
     <Helmet>
         <title>O que é Antropometria? A Ciência Exata da Avaliação | Nutrição com Marco</title>
         <meta name="description" content="Descubra o que é Antropometria e como a avaliação física ISAK revela sua real composição corporal, muito além da balança." />
-        
+
         <meta property="og:type" content="article" />
         <meta property="og:title" content="O que é Antropometria? A Ciência Exata da Avaliação | Nutrição com Marco" />
         <meta property="og:description" content="Descubra o que é Antropometria e como a avaliação física ISAK revela sua real composição corporal, muito além da balança." />
-        <meta property="og:image" content="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/antropometria.png" />
-        <meta property="og:url" content="https://www.nutricaocommarco.com.br/o_que_e_antropometria" />
+        <meta property="og:image" content={`${githubImgBase}Blog/antropometria.png`} />
+        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "O Que É Antropometria e Por Que Ela é Essencial para a Avaliação Física",
-            "image": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/antropometria.png",
+            "image": `${githubImgBase}Blog/antropometria.png`,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
-            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png"}},
+            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png`}},
             "datePublished": "2026-03-20",
- "dateModified": "2026-03-21",
+            "dateModified": "2026-03-21",
             "description": "Descubra o que é Antropometria e como a avaliação física ISAK revela sua real composição corporal, muito além da balança."
           })}
         </script>
@@ -78,7 +79,7 @@ export default function Antropometria() {
 
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
-        
+
         <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
           <ChevronLeft size={20} /> Voltar para o Blog
         </Link>
@@ -101,25 +102,83 @@ export default function Antropometria() {
           </div>
           {/* FIM DO BLOCO DE RESPOSTA DIRETA */}
 
-          {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) */}
-          <div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
-            <div className="flex items-center gap-3">
-              <Headphones className="text-green-600 w-6 h-6" />
-              <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+          {/* INÍCIO DA CAIXA COMBINADA: ÁUDIO + SUMÁRIO RETRÁTIL */}
+          <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+            
+            {/* 1. SEÇÃO DO ÁUDIO */}
+            <div className="p-5 md:p-6 flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <Headphones className="text-green-600 w-6 h-6" />
+                <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+              </div>
+              <audio controls className="w-full h-10 outline-none">
+                <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Antropometria.mp3" type="audio/mpeg" />
+                Seu navegador não suporta o elemento de áudio.
+              </audio>
             </div>
-            <audio controls className="w-full h-10 outline-none">
-              <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Antropometria.mp3" type="audio/mpeg" />
-              Seu navegador não suporta o elemento de áudio.
-            </audio>
+
+            {/* LINHA DIVISÓRIA SUAVE */}
+            <div className="h-px bg-green-100/60 w-full"></div>
+
+            {/* 2. SEÇÃO DO SUMÁRIO (TOC) */}
+            <nav className="bg-slate-50">
+              <button 
+                onClick={() => setIsTocOpen(!isTocOpen)}
+                className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                    <Activity size={18} />
+                  </div>
+                  <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
+                    Índice do Conteúdo
+                  </h3>
+                </div>
+                <ChevronRight 
+                  size={20} 
+                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                />
+              </button>
+
+              {/* LISTA DE LINKS ESCONDIDA */}
+              <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
+                <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
+                  <li>
+                    <a href="#evolucao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Evolução & ISAK
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#como-funciona" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <Ruler size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Como Funciona?
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#somatotipo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <Target size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Somatotipo
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Dúvidas Comuns
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
           </div>
-          {/* FIM DA SESSÃO DO ÁUDIO */}
+          {/* FIM DA CAIXA COMBINADA */}
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed text-left">
             <p>A <strong>Antropometria</strong> é uma ciência fundamental que estuda as proporções, o tamanho e as medidas do corpo humano, sendo uma ferramenta indispensável para profissionais das áreas de saúde, nutrição esportiva e alta performance. Etimologicamente, o termo deriva do grego <em>anthropos</em> (homem) e <em>metron</em> (metodologia de medida), definindo-se objetivamente como o método de mensurar as características fenotípicas de um indivíduo para entender seu crescimento, estado nutricional e potencial de rendimento.</p>
 
             <p>Diferente do que muitos acreditam, a avaliação física vai muito além de uma simples pesagem na balança comum (aliás, se já se perguntou se <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">a balança de bioimpedância é confiável</Link>, vale a leitura deste artigo). A antropometria oferece uma análise profunda do que o seu peso total realmente representa, separando os tecidos para uma intervenção nutricional verdadeiramente personalizada.</p>
 
-            <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
+            <h2 id="evolucao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               A Evolução da Composição Corporal: Da Grécia ao Padrão ISAK
             </h2>
 
@@ -143,23 +202,23 @@ export default function Antropometria() {
               <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">Precisão técnica para resultados que a balança comum não consegue mostrar.</p></div>
             </div>
 
-            <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
+            <h2 id="como-funciona" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               Como funciona a Medição do Percentual de Gordura na Prática?
             </h2>
 
             <p>O grande diferencial de uma avaliação física baseada no padrão ISAK é a sua padronização rigorosa. Na prática, o antropometrista utiliza instrumentos de precisão para coletar diversas medidas, como o plicômetro para as dobras cutâneas.</p>
 
             {/* BLOCO CITÁVEL: TERMOS TÉCNICOS (OTIMIZADO PARA IA E SEO) */}
-<div className="my-8 p-6 md:p-8 bg-white border-l-4 border-green-600 shadow-md rounded-r-3xl flex flex-col gap-3 text-left">
-  <h3 className="text-xl font-black text-slate-800 m-0 border-b border-slate-100 pb-3 flex items-center gap-2">
-    <span className="text-green-600 text-2xl leading-none">👉</span> Plicômetro ou adipômetro: qual é o certo?
-  </h3>
-  <p className="m-0 text-slate-600 font-medium leading-relaxed">
-    Os dois termos estão corretos e se referem exatamente ao <strong>mesmo instrumento</strong>. O plicômetro (ou adipômetro) é um equipamento clínico de alta precisão, semelhante a uma pinça, utilizado na antropometria para pinçar e medir a espessura das dobras cutâneas (a camada de gordura logo abaixo da pele). Em avaliações de padrão internacional, são exigidos modelos científicos calibrados para garantir exatidão milimétrica.
-  </p>
-</div>
-{/* FIM DO BLOCO CITÁVEL */}
-           
+            <div className="my-8 p-6 md:p-8 bg-white border-l-4 border-green-600 shadow-md rounded-r-3xl flex flex-col gap-3 text-left">
+              <h3 className="text-xl font-black text-slate-800 m-0 border-b border-slate-100 pb-3 flex items-center gap-2">
+                <span className="text-green-600 text-2xl leading-none">👉</span> Plicômetro ou adipômetro: qual é o certo?
+              </h3>
+              <p className="m-0 text-slate-600 font-medium leading-relaxed">
+                Os dois termos estão corretos e se referem exatamente ao <strong>mesmo instrumento</strong>. O plicômetro (ou adipômetro) é um equipamento clínico de alta precisão, semelhante a uma pinça, utilizado na antropometria para pinçar e medir a espessura das dobras cutâneas (a camada de gordura logo abaixo da pele). Em avaliações de padrão internacional, são exigidos modelos científicos calibrados para garantir exatidão milimétrica.
+              </p>
+            </div>
+            {/* FIM DO BLOCO CITÁVEL */}
+
             {/* PRIMEIRA LISTA OBJETIVA (O QUE É MEDIDO) */}
             <div className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left">
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
@@ -194,7 +253,7 @@ export default function Antropometria() {
 
             <p>Essas medições permitem o fracionamento da massa corporal em componentes essenciais. Para estimar o percentual de gordura de forma exata, o avaliador realiza o destaque das dobras cutâneas em pontos anatômicos específicos, conhecidos como landmarks. Um erro de poucos milímetros na marcação desses pontos pode comprometer o resultado final.</p>
 
-            <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
+            <h2 id="somatotipo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               Somatotipo e o Fim do "Achismo" no Emagrecimento
             </h2>
 
@@ -229,7 +288,7 @@ export default function Antropometria() {
             <p>Ela identifica riscos cardiovasculares e permite que nutricionistas ajustem dietas com base no volume exato de massa muscular, garantindo que a sua evolução seja monitorada por dados concretos e científicos, crucial para evitar a inflamação do <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">efeito sanfona</Link>. Portanto, investir em uma antropometria de qualidade é o primeiro passo para otimizar seus resultados.</p>
 
             {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
-            <div className="mt-16 pt-10 border-t border-slate-100 text-left">
+            <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
               <div className="space-y-6">
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
@@ -247,7 +306,7 @@ export default function Antropometria() {
               </div>
             </div>
             {/* FIM DO FAQ VISUAL OTIMIZADO */}
-            
+
             <Newsletter />
           </div> {/* FIM DA DIV DO CONTEÚDO SPACE-Y-6 */}
         </article>
@@ -256,11 +315,12 @@ export default function Antropometria() {
 
         {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
-          
+
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
             <img 
               src={`${githubImgBase}Eu_1.png`} 
               alt="Marco Aurélio Jr." 
+              title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador Antropométrico ISAK Nível 1."
               className="w-full h-full object-cover"
             />
           </div>
@@ -277,9 +337,10 @@ export default function Antropometria() {
           </div>
         </div>
         {/* FIM DO NOVO CARTÃO DE AUTOR */}
-        
+
       </div> {/* FIM DA DIV BRANCA GIGANTE */}
     </section>
     </>
   );
 }
+
