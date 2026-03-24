@@ -101,14 +101,4 @@ export const posts = [
     data: "2026-03-12",
     dataMod: "2026-03-12"
   },
-  {
-    id: 11,
-    link: "/a_balanca_de_bioimpedancia_e_confiavel",
-    img: `${githubImgBase}Blog/Bia1.jpg`,
-    tag: "Tecnologia e Medida",
-    titulo: "A balança de bioimpedância é confiável?",
-    desc: "Entenda se a balança de bioimpedância é confiável e os fatores que alteram o resultado.",
-    data: "2026-03-11",
-    dataMod: "2026-03-11"
-  }
 ];
