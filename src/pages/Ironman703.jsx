@@ -48,6 +48,7 @@ export default function Ironman703() {
               }
             },
             "datePublished": "2026-03-25",
+ "dateModified": "2026-03-21",
             "description": "Descubra o guia completo de nutrição para Ironman 70.3. Aprenda a calcular calorias, evitar câimbras, distribuir macronutrientes e usar cafeína para turbinar seu desempenho no triatlo."
           })}
         </script>
