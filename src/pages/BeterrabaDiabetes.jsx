@@ -1,6 +1,6 @@
 Import React from 'react';
 import { useLocation } from 'react-router-dom'; // Precisamos disso para saber a URL atual
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async'; 
 // 🧠 Importando o Cérebro Central!
 import { posts } from '../data/posts'; 
 
