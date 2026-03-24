@@ -12,7 +12,35 @@ export default function Blog() {
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-        {/* Card Melhor Horário para Pesar (NOVO) */}
+        {/* Card Beterraba e Diabetes (NOVO) */}
+        <Link to="/diabetico_pode_comer_beterraba" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
+          <div className="h-64 overflow-hidden border-b border-slate-50">
+            <img 
+              src={`${githubImgBase}Blog/beterraba_diabetes.jpg`} 
+              alt="Diabético pode comer beterraba?" 
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+            />
+          </div>
+          <div className="p-8 flex flex-col flex-grow">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="bg-green-100 text-green-700 text-xs font-black px-3 py-1 rounded-full uppercase tracking-widest">
+                Nutrição Clínica
+              </span>
+              <span className="text-slate-400 text-xs font-bold flex items-center gap-1"><Clock size={14} /> 6 min</span>
+            </div>
+            <h2 className="text-2xl font-black text-slate-800 mb-3 italic group-hover:text-green-600 transition-colors uppercase leading-tight">
+              Diabético pode comer beterraba? O mito desvendado
+            </h2>
+            <p className="text-slate-600 text-sm mb-6 flex-grow font-medium leading-relaxed">
+              Descubra por que o sabor doce da beterraba engana e como suas fibras na verdade ajudam a controlar os picos de glicemia no seu dia a dia.
+            </p>
+            <div className="mt-auto flex items-center text-green-600 font-black text-sm uppercase tracking-widest gap-2 group-hover:gap-4 transition-all">
+              Ler Artigo <ChevronRight size={16} />
+            </div>
+          </div>
+        </Link>
+
+        {/* Card Melhor Horário para Pesar */}
         <Link to="/qual_melhor_horario_para_se_pesar" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
           <div className="h-64 overflow-hidden border-b border-slate-50">
             <img 
