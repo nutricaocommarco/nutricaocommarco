@@ -19,9 +19,8 @@ import Feijao from './pages/Feijao';
 import HormoniosFome from './pages/HormoniosFome';
 import Ironman703 from './pages/Ironman703';
 import GeradorEmailSecreto from './pages/GeradorEmailSecreto';
-import MelhorHorarioPesagem from './pages/MelhorHorarioPesagem'; 
-import BeterrabaDiabetes from './pages/BeterrabaDiabetes';
-import ConfirmacaoPendente from './pages/kitkit';
+import MelhorHorarioPesagem from './pages/MelhorHorarioPesagem';
+import BeterrabaDiabetes from './pages/BeterrabaDiabetes'; // <-- IMPORTAÇÃO DO NOVO ARTIGO AQUI
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -113,14 +112,10 @@ function Layout({ children }) {
         title: 'Qual o melhor horário para se pesar? | Nutrição com Marco', 
         desc: 'Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite. Peso na balança não é igual a gordura corporal.' 
       },
-      '/diabetico_pode_comer_beterraba': { 
+      '/diabetico_pode_comer_beterraba': { // <-- SEO DO NOVO ARTIGO AQUI
         title: 'Diabético pode comer beterraba? O mito desvendado | Nutrição com Marco', 
         desc: 'Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2.' 
       },
-      '/confirmacao-pendente': {
-        title: 'Quase lá! Confirme seu e-mail | Nutrição com Marco',
-        desc: 'Falta apenas um clique para confirmar sua inscrição e receber nossos conteúdos exclusivos.'
-      }
     };
 
     const currentSEO = seoData[location.pathname] || seoData['/'];
@@ -201,6 +196,7 @@ function Layout({ children }) {
   );
 }
 
+// CORREÇÃO: O App agora é exportado corretamente de forma única
 export default function App() {
   return (
     <HelmetProvider>
@@ -214,7 +210,6 @@ export default function App() {
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/planos" element={<Planos />} />
-            <Route path="/confirmacao-pendente" element={<ConfirmacaoPendente />} />
             <Route path="/efeito_sanfona_inflamacao_invisivel" element={<EfeitoSanfona />} />
             <Route path="/quantas_frutas_posso_comer" element={<Frutose />} />
             <Route path="/vitamina_a_para_que_serve" element={<VitaminaA />} />
@@ -225,7 +220,7 @@ export default function App() {
             <Route path="/hormonios_da_fome_emagrecimento" element={<HormoniosFome />} />
             <Route path="/nutricao_para_ironman_703" element={<Ironman703 />} />
             <Route path="/qual_melhor_horario_para_se_pesar" element={<MelhorHorarioPesagem />} />
-            <Route path="/diabetico_pode_comer_beterraba" element={<BeterrabaDiabetes />} />
+            <Route path="/diabetico_pode_comer_beterraba" element={<BeterrabaDiabetes />} /> {/* <-- ROTA DO NOVO ARTIGO AQUI */}
           </Routes>
         </Layout>
       </Router>
