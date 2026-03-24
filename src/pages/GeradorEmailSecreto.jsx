@@ -1,53 +1,17 @@
 import React, { useState } from 'react';
+// 🧠 Importando o Cérebro Central!
+import { posts } from '../data/posts'; 
 
 export default function GeradorEmailSecreto() {
   const [copiado, setCopiado] = useState(false);
 
-  // Idealmente, você importaria isso do mesmo arquivo que gera o seu Blog
-  const ultimosArtigos = [
-    {
-      titulo: "Diabético pode comer beterraba? O mito desvendado",
-      link: "https://www.nutricaocommarco.com.br/diabetico_pode_comer_beterraba",
-      descricao: "Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2.",
-      imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/beterraba_diabetes.jpg"
-    },
-    {
-      titulo: "Qual o melhor horário para se pesar?",
-      link: "https://www.nutricaocommarco.com.br/qual_melhor_horario_para_se_pesar",
-      descricao: "Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite. Peso na balança não é igual a gordura corporal.",
-      imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/melhor_horario_pesagem.jpg"
-    },
-    {
-      titulo: "Nutrição para Ironman 70.3: Guia Completo",
-      link: "https://www.nutricaocommarco.com.br/nutricao_para_ironman_70_3",
-      descricao: "Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o Ironman 70.3.",
-      imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/nutricao_ironman_703.jpg"
-    },
-    {
-      titulo: "Hormônios da Fome: Por que seu corpo luta contra a dieta?",
-      link: "https://www.nutricaocommarco.com.br/hormonios_da_fome_emagrecimento",
-      descricao: "Entenda como a Grelina e a Leptina controlam seu apetite e por que a ciência foca na inflamação celular para evitar o reganho de peso.",
-      imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Hormfome.jpg"
-    },
-    {
-      titulo: "Por que o Feijão dá Gases? (E como evitar)",
-      link: "https://www.nutricaocommarco.com.br/por_que_o_feijao_da_gases",
-      descricao: "Descubra a ciência por trás dos antinutrientes e como o remolho pode salvar sua digestão.",
-      imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/feijao.jpg"
-    },
-    {
-      titulo: "O Dilema do Sangue na Altitude",
-      link: "https://www.nutricaocommarco.com.br/o_dilema_do_sangue_na_altitude",
-      descricao: "Entenda como a falta de oxigênio altera o sangue e o desempenho de atletas de elite.",
-      imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/eritropoietina.jpg"
-    },
-    {
-      titulo: "Efeito Sanfona: A Inflamação Invisível",
-      link: "https://www.nutricaocommarco.com.br/efeito_sanfona_inflamacao_invisivel",
-      descricao: "Saiba por que recuperar o peso gera uma memória inflamatória que trava seu progresso.",
-      imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/efeito_sanfona.jpg"
-    }
-  ];
+  // Pega os 4 artigos mais recentes do Cérebro Central e adapta para o formato do e-mail
+  const ultimosArtigos = posts.slice(0, 4).map(post => ({
+    titulo: post.titulo,
+    link: `https://www.nutricaocommarco.com.br${post.link}`,
+    descricao: post.desc,
+    imagem: post.img
+  }));
 
   const gerarHTML = () => {
     return `<!DOCTYPE html>
