@@ -15,42 +15,42 @@ const artigos = [
     link: "https://www.nutricaocommarco.com.br/qual_melhor_horario_para_se_pesar",
     descricao: "Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite.",
     imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/melhor_horario_pesagem.jpg",
-    data: new Date("2026-03-30").toUTCString()
+    data: new Date("2026-03-20").toUTCString()
   },
   {
     titulo: "Nutrição para Ironman 70.3: Guia Completo",
     link: "https://www.nutricaocommarco.com.br/nutricao_para_ironman_703",
     descricao: "Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o Ironman 70.3.",
     imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/nutricao_ironman_703.jpg",
-    data: new Date("2026-03-25").toUTCString()
+    data: new Date("2026-03-19").toUTCString()
   },
   {
     titulo: "Hormônios da Fome: Por que seu corpo luta contra a dieta?",
     link: "https://www.nutricaocommarco.com.br/hormonios_da_fome_emagrecimento",
     descricao: "Entenda como a Grelina e a Leptina controlam seu apetite e por que a ciência foca na inflamação celular para evitar o reganho de peso.",
     imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Hormfome.jpg",
-    data: new Date("2025-05-15").toUTCString()
+    data: new Date("2026-03-18").toUTCString()
   },
   {
     titulo: "Por que o Feijão dá Gases? (E como evitar)",
     link: "https://www.nutricaocommarco.com.br/por_que_o_feijao_da_gases",
     descricao: "Descubra a ciência por trás dos antinutrientes e como a técnica correta de remolho pode salvar sua digestão.",
     imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/feijao.jpg",
-    data: new Date("2025-05-08").toUTCString()
+    data: new Date("2026-03-17").toUTCString()
   },
   {
     titulo: "O Dilema do Sangue na Altitude",
     link: "https://www.nutricaocommarco.com.br/o_dilema_do_sangue_na_altitude",
     descricao: "Entenda como a falta de oxigênio altera o sangue e o desempenho de atletas de elite na montanha.",
     imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/eritropoietina.jpg",
-    data: new Date("2025-05-01").toUTCString()
+    data: new Date("2026-03-16").toUTCString()
   },
   {
     titulo: "Efeito Sanfona: A Inflamação Invisível",
     link: "https://www.nutricaocommarco.com.br/efeito_sanfona_inflamacao_invisivel",
     descricao: "Saiba por que recuperar o peso gera uma memória inflamatória nas suas células de gordura que trava seu progresso metabólico.",
     imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/efeito_sanfona.jpg",
-    data: new Date("2025-04-24").toUTCString()
+    data: new Date("2026-03-15").toUTCString()
   }
 ];
 
