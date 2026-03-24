@@ -49,8 +49,8 @@ const [isTocOpen, setIsTocOpen] = useState(false);
                 "url": `${githubImgBase}logoN_pingus.png`
               }
             },
-            "datePublished": "2026-04-10",
- "dateModified": "2026-03-21",
+            "datePublished": "2026-03-22",
+ "dateModified": "2026-03-22",
             "description": "Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2."
           })}
         </script>
