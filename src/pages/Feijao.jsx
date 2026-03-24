@@ -49,6 +49,7 @@ export default function Feijao() {
               }
             },
             "datePublished": "2026-03-20",
+ "dateModified": "2026-03-21",
             "description": "Descubra por que o feijão causa gases e o que fazer para evitar o desconforto. Entenda como funciona a digestão e veja dicas práticas."
           })}
         </script>
