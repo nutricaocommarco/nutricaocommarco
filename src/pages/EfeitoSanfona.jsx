@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, Headphones, PlayCircle } from 'lucide-react';
+import { ChevronLeft, HelpCircle, PlayCircle, Headphones, ChevronRight, Activity, Flame, TrendingDown, Scale } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
@@ -9,6 +9,8 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export default function EfeitoSanfona() {
   const { pathname } = useLocation();
+  const [isTocOpen, setIsTocOpen] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -18,23 +20,23 @@ export default function EfeitoSanfona() {
       <Helmet>
         <title>Efeito Sanfona e Inflamação Invisível | Nutrição com Marco</title>
         <meta name="description" content="Descubra por que o reganho de peso é mais perigoso que a obesidade estável e como a memória das suas células de gordura impacta sua saúde." />
-        
+
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Efeito Sanfona e Inflamação Invisível | Nutrição com Marco" />
         <meta property="og:description" content="Descubra por que o reganho de peso é mais perigoso que a obesidade estável e como a memória das suas células de gordura impacta sua saúde." />
-        <meta property="og:image" content="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/efeito_sanfona.png" />
-        <meta property="og:url" content="https://www.nutricaocommarco.com.br/efeito_sanfona_inflamacao_invisivel" />
+        <meta property="og:image" content={`${githubImgBase}Blog/efeito_sanfona.png`} />
+        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "O Perigo Oculto do Efeito Sanfona: Por que engordar e emagrecer inflama o seu corpo",
-            "image": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/efeito_sanfona.png",
+            "image": `${githubImgBase}Blog/efeito_sanfona.png`,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
-            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png"}},
+            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png`}},
             "datePublished": "2026-03-20",
- "dateModified": "2026-03-21",
+            "dateModified": "2026-03-21",
             "description": "Descubra por que o reganho de peso é mais perigoso que a obesidade estável e como a memória das suas células de gordura impacta sua saúde."
           })}
         </script>
@@ -74,18 +76,18 @@ export default function EfeitoSanfona() {
         </script>
         {/* FIM DO SCHEMA.ORG PARA FAQ */}
       </Helmet>
-      
+
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
-        
+
         {/* Botão de Voltar */}
         <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
           <ChevronLeft size={20} /> Voltar para o Blog
         </Link>
-        
+
         <article className="prose prose-lg max-w-none text-left">
           <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Fisiopatologia e Metabolismo</span>
-          
+
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
             Efeito Sanfona e a Inflamação Invisível: Por que o reganho de peso é tão perigoso?
           </h1>
@@ -100,20 +102,78 @@ export default function EfeitoSanfona() {
               </p>
           </div>
           {/* FIM DO BLOCO DE RESPOSTA DIRETA */}
-          
-          {/* SESSÃO DO ÁUDIO (OUVIR O ARTIGO) - DESIGN COMPACTO */}
-          <div className="my-8 p-5 bg-slate-50 rounded-3xl border border-green-100 shadow-sm flex flex-col gap-3">
-            <div className="flex items-center gap-3">
-              <Headphones className="text-green-600 w-6 h-6" />
-              <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+
+          {/* INÍCIO DA CAIXA COMBINADA: ÁUDIO + SUMÁRIO RETRÁTIL */}
+          <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+            
+            {/* 1. SEÇÃO DO ÁUDIO */}
+            <div className="p-5 md:p-6 flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <Headphones className="text-green-600 w-6 h-6" />
+                <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+              </div>
+              <audio controls className="w-full h-10 outline-none">
+                <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/EfeitoSanfona.mp3" type="audio/mpeg" />
+                Seu navegador não suporta o elemento de áudio.
+              </audio>
             </div>
-            <audio controls className="w-full h-10 outline-none">
-              <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/EfeitoSanfona.mp3" type="audio/mpeg" />
-              Seu navegador não suporta o elemento de áudio.
-            </audio>
+
+            {/* LINHA DIVISÓRIA SUAVE */}
+            <div className="h-px bg-green-100/60 w-full"></div>
+
+            {/* 2. SEÇÃO DO SUMÁRIO (TOC) */}
+            <nav className="bg-slate-50">
+              <button 
+                onClick={() => setIsTocOpen(!isTocOpen)}
+                className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                    <Activity size={18} />
+                  </div>
+                  <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
+                    Índice do Conteúdo
+                  </h3>
+                </div>
+                <ChevronRight 
+                  size={20} 
+                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                />
+              </button>
+
+              {/* LISTA DE LINKS ESCONDIDA */}
+              <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
+                <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
+                  <li>
+                    <a href="#gordura-orgao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <Flame size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      A Gordura como Órgão
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#quando-peso-volta" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <TrendingDown size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Quando o Peso Volta
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#constancia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      O Segredo da Constância
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Perguntas Frequentes (FAQ)
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
           </div>
-          {/* FIM DA SESSÃO DO ÁUDIO */}
-          
+          {/* FIM DA CAIXA COMBINADA */}
+
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
             <p>Você já sentiu que, logo após terminar uma dieta e perder peso, o seu corpo parece fazer um esforço enorme para ganhar tudo de novo? Esse vaivém da balança, conhecido como efeito sanfona ou ciclo de peso, é um dos maiores desafios para quem busca saúde, já que a grande maioria das pessoas que tentam emagrecer acaba enfrentando dificuldades reais para manter o peso mais baixo a longo prazo.</p>
 
@@ -130,7 +190,7 @@ export default function EfeitoSanfona() {
 
             <p>A ciência moderna nos mostra que isso acontece porque o nosso corpo não encara o emagrecimento apenas como uma mudança estética, mas como um evento que mexe profundamente com o funcionamento das nossas células de gordura e com o equilíbrio do nosso metabolismo. Essa oscilação constante está ligada a riscos aumentados de doenças cardiovasculares e diabetes, provando que o impacto vai muito além do que vemos no espelho.</p>
 
-            <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Sua gordura é mais do que um "estoque" de energia</h2>
+            <h2 id="gordura-orgao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Sua gordura é mais do que um "estoque" de energia</h2>
             <p>Muitas vezes, olhamos para a gordura apenas como um estoque de energia, mas ela funciona como um verdadeiro órgão endócrino. Em um estado de saúde, esse tecido é flexível, mas o excesso crônico de nutrientes desencadeia uma inflamação silenciosa de baixo grau.</p>
 
             {/* QUADRO DE DESTAQUE COM LINK CORRIGIDO */}
@@ -151,7 +211,7 @@ export default function EfeitoSanfona() {
 
             <p>Estudos recentes de 2025 mostram que a formação de tecidos mais rígidos, conhecidos como fibrose, faz com que o sistema de defesa do tecido continue em um estado de alerta disfuncional. Essa memória persistente explica por que qualquer descuido que leve ao reganho de peso pode reacender a inflamação com uma rapidez e gravidade surpreendentes. É aqui que entra a importância de uma <Link to="/o_que_e_antropometria" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">avaliação física detalhada</Link> para identificar se o que você está ganhando é realmente tecido inflamado ou massa magra.</p>
 
-            <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">O que acontece quando o peso volta?</h2>
+            <h2 id="quando-peso-volta" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">O que acontece quando o peso volta?</h2>
             <p>O grande perigo do efeito sanfona está no que acontece quando recuperamos o peso perdido. De acordo com pesquisas, o reganho de peso costuma ser muito mais agressivo para o corpo do que o ganho inicial. Quando você volta a engordar, as suas células de gordura crescem rápido demais (hipertrofia), gerando falta de oxigênio no tecido e reativando a inflamação de forma ainda mais forte. Esse estresse celular pode ser mais prejudicial ao coração do que manter um peso estável, mesmo que um pouco acima do ideal.</p>
 
             {/* PRIMEIRA LISTA OBJETIVA (OTIMIZADO PARA IA E SEO) */}
@@ -219,11 +279,11 @@ export default function EfeitoSanfona() {
             </div>
             {/* FIM DA SEGUNDA LISTA OBJETIVA */}
 
-            <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">O segredo está na constância, não na pressa</h2>
+            <h2 id="constancia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">O segredo está na constância, não na pressa</h2>
             <p>A mensagem principal aqui é que o nosso tecido adiposo é dinâmico. Para quebrar esse ciclo de inflamação e proteger o seu metabolismo, o foco não deve ser em dietas milagrosas que prometem perdas rápidas, mas sim em estratégias sustentáveis. Evitar essas flutuações bruscas na balança (que muitas vezes são apenas variações de água, como vemos nos problemas de <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">confiabilidade da bioimpedância</Link>) é a melhor forma de garantir que o seu corpo realmente recupere a saúde.</p>
 
             {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
-            <div className="mt-16 pt-10 border-t border-slate-100 text-left">
+            <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
               <div className="space-y-6">
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
@@ -241,16 +301,16 @@ export default function EfeitoSanfona() {
               </div>
             </div>
             {/* FIM DO FAQ VISUAL OTIMIZADO */}
-            
+
             <Newsletter />
           </div> {/* FIM DA DIV DO CONTEÚDO */}
         </article>
 
         <ArtigosRecomendados currentPath={pathname} />
-        
+
         {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
-          
+
           {/* Foto do Autor no lugar do 'M' */}
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
             <img 
@@ -278,3 +338,4 @@ export default function EfeitoSanfona() {
     </>
   );
 }
+
