@@ -22,7 +22,9 @@ import GeradorEmailSecreto from './pages/GeradorEmailSecreto';
 import MelhorHorarioPesagem from './pages/MelhorHorarioPesagem';
 import BeterrabaDiabetes from './pages/BeterrabaDiabetes';
 import ConfirmacaoPendente from './pages/kitkit'; 
-import InscricaoConfirmada from './pages/InscricaoConfirmada'; // <-- NOVA IMPORTAÇÃO AQUI
+import InscricaoConfirmada from './pages/InscricaoConfirmada';
+// <-- NOVA IMPORTAÇÃO DO ARTIGO DE RETATRUTIDA AQUI
+import RetatrutidaOQueE from './pages/retratrutida'; 
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -70,11 +72,15 @@ function Layout({ children }) {
         title: 'Quase lá! Confirme seu e-mail | Nutrição com Marco',
         desc: 'Falta apenas um clique para confirmar sua inscrição e receber nossos conteúdos exclusivos.'
       },
-      '/inscricao-confirmada': { // <-- SEO DA PÁGINA DE SUCESSO AQUI
+      '/inscricao-confirmada': { 
         title: 'Inscrição Confirmada! | Nutrição com Marco',
         desc: 'Tudo pronto! Você agora faz parte da nossa comunidade de nutrição e antropometria.'
+      },
+      // <-- SEO DA NOVA PÁGINA ADICIONADO AQUI
+      '/retatrutida_o_que_e': {
+        title: 'Retatrutida o que é? A nova fronteira da ciência | Nutrição com Marco',
+        desc: 'Descubra o que é a retatrutida, o novo medicamento agonista triplo (GLP-1, GIP e Glucagon) e seus resultados na perda de peso.'
       }
-      // ... (mantenha os outros dados de SEO que você já tem)
     };
 
     const currentSEO = seoData[location.pathname] || seoData['/'];
@@ -180,7 +186,9 @@ export default function App() {
             <Route path="/qual_melhor_horario_para_se_pesar" element={<MelhorHorarioPesagem />} />
             <Route path="/diabetico_pode_comer_beterraba" element={<BeterrabaDiabetes />} />
             <Route path="/confirmacao-pendente" element={<ConfirmacaoPendente />} />
-            <Route path="/inscricao-confirmada" element={<InscricaoConfirmada />} /> {/* <-- NOVA ROTA ADICIONADA AQUI */}
+            <Route path="/inscricao-confirmada" element={<InscricaoConfirmada />} />
+            {/* <-- NOVA ROTA ADICIONADA AQUI */}
+            <Route path="/retatrutida_o_que_e" element={<RetatrutidaOQueE />} />
           </Routes>
         </Layout>
       </Router>
