@@ -7,6 +7,13 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 // 1. A sua lista centralizada. Toda vez que criar um post novo, basta adicionar aqui!
 export const listaArtigos = [
   {
+    link: "/diabetico_pode_comer_beterraba",
+    img: `${githubImgBase}Blog/beterraba_diabetes.jpg`,
+    tag: "Nutrição Clínica",
+    titulo: "Diabético pode comer beterraba? O mito desvendado",
+    desc: "Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2."
+  },
+  {
     link: "/qual_melhor_horario_para_se_pesar",
     img: `${githubImgBase}Blog/melhor_horario_pesagem.jpg`,
     tag: "Avaliação e Medidas",
