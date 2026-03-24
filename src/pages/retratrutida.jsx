@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 import { ChevronLeft, Headphones, Activity, ChevronRight, Leaf, Scale, Heart, HelpCircle, PlayCircle } from 'lucide-react';
 
 // Importando componentes fixos
