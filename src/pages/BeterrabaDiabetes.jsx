@@ -22,79 +22,79 @@ export default function DiabeticoPodeComerBeterraba() {
   return (
     <>
       <Helmet>
-        {/* SCHEMA.ORG (Google) - 100% Automático! */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": tituloSEO,
-            "image": imgSEO,
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Nutrição com Marco",
-              "logo": {
-                "@type": "ImageObject",
-                "url": `${githubImgBase}logoN_pingus.png`
-              }
-            },
-            "datePublished": dataPub,
-            "dateModified": dataMod,
-            "description": descSEO
-          })}
-        </script>
+     {/* SCHEMA.ORG (Google) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Diabético pode comer beterraba? O mito que você precisa parar de acreditar",
+            "image": `${githubImgBase}Blog/beterraba_diabetes.jpg`,
+            "author": {
+              "@type": "Person",
+              "name": "Marco Aurélio Jr.",
+              "url": "https://www.nutricaocommarco.com.br/sobre"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Nutrição com Marco",
+              "logo": {
+                "@type": "ImageObject",
+                "url": `${githubImgBase}logoN_pingus.png`
+              }
+            },
+            "datePublished": "2026-03-22",
+ "dateModified": "2026-03-22",
+            "description": "Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2."
+          })}
+        </script>
 
-        {/* BREADCRUMB (NÍVEL NINJA) - 100% Automático! */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.nutricaocommarco.com.br/" },
-              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.nutricaocommarco.com.br/blog" },
-              { "@type": "ListItem", "position": 3, "name": tituloSEO, "item": `https://www.nutricaocommarco.com.br${pathname}` }
-            ]
-          })}
-        </script>
+        {/* BREADCRUMB (NÍVEL NINJA) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.nutricaocommarco.com.br/" },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.nutricaocommarco.com.br/blog" },
+              { "@type": "ListItem", "position": 3, "name": "Beterraba e Diabetes", "item": `https://www.nutricaocommarco.com.br${pathname}` }
+            ]
+          })}
+        </script>
 
-        {/* SCHEMA.ORG PARA FAQ */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Beterraba cozida é pior que a crua para o diabético?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A versão crua é superior por concentrar de forma intacta as fibras e os compostos bioativos associados a marcadores metabólicos positivos em testes clínicos recentes. O processamento térmico (cozinhar muito) e o fatiamento excessivo quebram a barreira fibrosa, o que pode acelerar a digestão e a absorção intestinal dos carboidratos."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Qual a quantidade ideal de beterraba por dia para diabéticos?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A ciência atesta de maneira sólida que a ingestão de 100 gramas diárias de beterraba crua oferece resultados seguros e eficazes. Esse volume demonstrou melhorias clinicamente relevantes na redução de glicose, pressão arterial e marcadores lipídicos no diabetes tipo 2."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Posso tomar suco de beterraba com laranja se tenho diabetes?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Não é o ideal. A ingestão através de sucos e alimentos liquidificados (especialmente se coados) retira a proteção fibrosa que atua como freio natural, controlando a velocidade do metabolismo glicêmico. As melhores condutas recomendam consumir o vegetal inteiro, mastigado, e preferencialmente in natura."
-                }
-              }
-            ]
-          })}
-        </script>
-      </Helmet>
+        {/* SCHEMA.ORG PARA FAQ */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Beterraba cozida é pior que a crua para o diabético?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A versão crua é superior por concentrar de forma intacta as fibras e os compostos bioativos associados a marcadores metabólicos positivos em testes clínicos recentes. O processamento térmico (cozinhar muito) e o fatiamento excessivo quebram a barreira fibrosa, o que pode acelerar a digestão e a absorção intestinal dos carboidratos."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Qual a quantidade ideal de beterraba por dia para diabéticos?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A ciência atesta de maneira sólida que a ingestão de 100 gramas diárias de beterraba crua oferece resultados seguros e eficazes. Esse volume demonstrou melhorias clinicamente relevantes na redução de glicose, pressão arterial e marcadores lipídicos no diabetes tipo 2."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Posso tomar suco de beterraba com laranja se tenho diabetes?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Não é o ideal. A ingestão através de sucos e alimentos liquidificados (especialmente se coados) retira a proteção fibrosa que atua como freio natural, controlando a velocidade do metabolismo glicêmico. As melhores condutas recomendam consumir o vegetal inteiro, mastigado, e preferencialmente in natura."
+                }
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
 
       <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
         <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
