@@ -7,7 +7,7 @@ const artigos = [
     link: "https://www.nutricaocommarco.com.br/diabetico_pode_comer_beterraba",
     descricao: "Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2.",
     imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/beterraba_diabetes.jpg",
-    data: new Date("2026-03-22").toUTCString()
+    data: new Date("2026-03-24").toUTCString()
   },
 
   {
@@ -15,7 +15,7 @@ const artigos = [
     link: "https://www.nutricaocommarco.com.br/qual_melhor_horario_para_se_pesar",
     descricao: "Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite.",
     imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/melhor_horario_pesagem.jpg",
-    data: new Date("2026-03-21").toUTCString()
+    data: new Date("2026-03-24").toUTCString()
   },
   {
     titulo: "Nutrição para Ironman 70.3: Guia Completo",
