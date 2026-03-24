@@ -21,7 +21,8 @@ import Ironman703 from './pages/Ironman703';
 import GeradorEmailSecreto from './pages/GeradorEmailSecreto';
 import MelhorHorarioPesagem from './pages/MelhorHorarioPesagem';
 import BeterrabaDiabetes from './pages/BeterrabaDiabetes';
-import ConfirmacaoPendente from './pages/kitkit'; // <-- IMPORTAÇÃO EXATA DO ARQUIVO .jsx
+import ConfirmacaoPendente from './pages/kitkit'; 
+import InscricaoConfirmada from './pages/InscricaoConfirmada'; // <-- NOVA IMPORTAÇÃO AQUI
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -61,66 +62,19 @@ function Layout({ children }) {
         title: 'Nutrição com Marco | Performance e Ciência', 
         desc: 'Especialista em Nutrição e Antropometria no RJ e Online. Performance física e saúde baseada em evidências científicas.' 
       },
-       '/sobre': { 
+      '/sobre': { 
         title: 'Sobre Marco Aurélio Jr. | Nutrição com Marco', 
         desc: 'Conheça a história de Marco Aurélio Jr., futuro nutricionista, fotógrafo esportivo e especialista em avaliação física ISAK 1 no Rio de Janeiro.' 
       },
-      '/certificacoes': { 
-        title: 'Currículo e Certificações | Nutrição com Marco', 
-        desc: 'Conheça a trajetória técnica e as certificações internacionais ISAK do nutricionista Marco Aurélio Jr.' 
-      },
-      '/blog': { 
-        title: 'Blog de Nutrição e Ciência | Nutrição com Marco', 
-        desc: 'Conteúdo científico sobre antropometria, bioimpedância e emagrecimento real.' 
-      },
-      '/planos': { 
-        title: 'Planos de Acompanhamento | Nutrição com Marco', 
-        desc: 'Conheça os níveis de acompanhamento nutricional e avaliação física ISAK 1.' 
-      },
-      '/o_que_e_antropometria': { 
-        title: 'O que é Antropometria? A Ciência Exata da Avaliação | Nutrição com Marco', 
-        desc: 'Descubra o que é Antropometria e como a avaliação física ISAK revela sua real composição corporal, muito além da balança.' 
-      },
-      '/a_balanca_de_bioimpedancia_e_confiavel': { 
-        title: 'A balança de bioimpedância é confiável? | Nutrição com Marco', 
-        desc: 'Entenda se a balança de bioimpedância é confiável, como ela funciona e o que altera o seu percentual de gordura.' 
-      },
-      '/vitamina_a_para_que_serve': { 
-        title: 'Vitamina A para que serve? | Nutrição com Marco', 
-        desc: 'Entenda as diferenças entre retinol, retinal e ácido retinóico, e descubra como a Vitamina A atua no seu metabolismo muito além da visão.' 
-      },
-      '/quantas_frutas_posso_comer': { 
-        title: 'Quantas frutas posso comer por dia? | Nutrição com Marco', 
-        desc: 'Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado.' 
-      },
-      '/efeito_sanfona_inflamacao_invisivel': { 
-        title: 'Efeito Sanfona e Inflamação Invisível | Nutrição com Marco', 
-        desc: 'Descubra por que o reganho de peso é mais perigoso que a obesidade estável e como a memória das suas células de gordura impacta sua saúde.' 
-      },
-      '/o_dilema_do_sangue_na_altitude': { 
-        title: 'Doping na Altitude: Eritropoetina e Ética no Esporte | Nutrição com Marco', 
-        desc: 'Entenda os riscos fatais do uso sintético do hormônio eritropoetina e da transfusão de hemácias no esporte de alta performance.' 
-      },
-      '/por_que_o_feijao_da_gases': { 
-        title: 'Por que o feijão dá gases e como evitar de vez | Nutrição com Marco', 
-        desc: 'Descubra por que o feijão causa gases e o que fazer para evitar o desconforto. Entenda como funciona a digestão e veja dicas práticas.' 
-      },
-      '/nutricao_para_ironman_703': { 
-        title: 'Nutrição para Ironman 70.3: Guia Completo | Nutrição com Marco', 
-        desc: 'Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o Ironman 70.3.' 
-      },
-      '/qual_melhor_horario_para_se_pesar': { 
-        title: 'Qual o melhor horário para se pesar? | Nutrição com Marco', 
-        desc: 'Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite. Peso na balança não é igual a gordura corporal.' 
-      },
-      '/diabetico_pode_comer_beterraba': { 
-        title: 'Diabético pode comer beterraba? O mito desvendado | Nutrição com Marco', 
-        desc: 'Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2.' 
-      },
-      '/confirmacao-pendente': { // <-- SEO DA NOVA ROTA AQUI
+      '/confirmacao-pendente': {
         title: 'Quase lá! Confirme seu e-mail | Nutrição com Marco',
         desc: 'Falta apenas um clique para confirmar sua inscrição e receber nossos conteúdos exclusivos.'
+      },
+      '/inscricao-confirmada': { // <-- SEO DA PÁGINA DE SUCESSO AQUI
+        title: 'Inscrição Confirmada! | Nutrição com Marco',
+        desc: 'Tudo pronto! Você agora faz parte da nossa comunidade de nutrição e antropometria.'
       }
+      // ... (mantenha os outros dados de SEO que você já tem)
     };
 
     const currentSEO = seoData[location.pathname] || seoData['/'];
@@ -225,7 +179,8 @@ export default function App() {
             <Route path="/nutricao_para_ironman_703" element={<Ironman703 />} />
             <Route path="/qual_melhor_horario_para_se_pesar" element={<MelhorHorarioPesagem />} />
             <Route path="/diabetico_pode_comer_beterraba" element={<BeterrabaDiabetes />} />
-            <Route path="/confirmacao-pendente" element={<ConfirmacaoPendente />} /> {/* <-- ROTA DA PÁGINA AQUI */}
+            <Route path="/confirmacao-pendente" element={<ConfirmacaoPendente />} />
+            <Route path="/inscricao-confirmada" element={<InscricaoConfirmada />} /> {/* <-- NOVA ROTA ADICIONADA AQUI */}
           </Routes>
         </Layout>
       </Router>
@@ -233,7 +188,9 @@ export default function App() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,900;1,900&display=swap');
         @keyframes bounce-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes bounce-short { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
         .animate-bounce-slow { animation: bounce-slow 3s ease-in-out infinite; }
+        .animate-bounce-short { animation: bounce-short 1.5s ease-in-out infinite; }
         .titulo-vazado { font-family: 'Poppins', sans-serif; -webkit-text-stroke: 2px #1e3a8a; text-shadow: 3px 3px 0px #1e3a8a; }
         @media (min-width: 768px) { .titulo-vazado { -webkit-text-stroke: 4px #1e3a8a; text-shadow: 5px 5px 0px #1e3a8a; } }
       `}</style>
