@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Mail, AlertCircle, ArrowRight } from 'lucide-react';
+import { Mail, AlertCircle, ArrowRight, Clock } from 'lucide-react'; // Adicionei o Clock aqui
 import { Helmet } from 'react-helmet-async';
 
 export default function ConfirmacaoPendente() {
@@ -29,8 +29,14 @@ export default function ConfirmacaoPendente() {
             Falta só um clique!
           </h1>
           
-          <p className="text-lg md:text-xl text-slate-600 font-medium mb-10 leading-relaxed max-w-xl">
+          <p className="text-lg md:text-xl text-slate-600 font-medium mb-4 leading-relaxed max-w-xl">
             Nós acabamos de enviar uma mensagem para você com o link de confirmação. Para receber nossos conteúdos exclusivos e garantir que o Pingus não fique triste, você precisa abrir o seu e-mail agora e clicar no botão de confirmação lá dentro.
+          </p>
+
+          {/* NOVO AVISO DE TEMPO DE ESPERA */}
+          <p className="text-sm text-slate-400 font-bold italic mb-10 flex items-center gap-2 justify-center">
+            <Clock size={16} className="text-slate-300" /> 
+            Isso pode levar alguns minutos para que o e-mail de verificação chegue para você!
           </p>
 
           <div className="bg-orange-50 border border-orange-100 p-6 md:p-8 rounded-3xl w-full flex flex-col sm:flex-row items-center gap-5 text-left mb-10">
