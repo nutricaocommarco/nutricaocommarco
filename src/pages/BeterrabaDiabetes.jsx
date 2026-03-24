@@ -1,6 +1,22 @@
-Import React from 'react';
-import { useLocation } from 'react-router-dom'; // Precisamos disso para saber a URL atual
+import React, { useState } from 'react';
+import { useLocation, Link } from 'react-router-dom'; 
 import { Helmet } from 'react-helmet-async'; 
+import { 
+  ChevronLeft, 
+  ChevronRight, 
+  Activity, 
+  Leaf, 
+  Scale, 
+  Heart, 
+  HelpCircle, 
+  PlayCircle, 
+  Headphones 
+} from 'lucide-react';
+
+// Importações dos seus componentes (ajuste o caminho se necessário)
+import Newsletter from '../components/Newsletter';
+import ArtigosRecomendados from '../components/ArtigosRecomendados';
+
 // 🧠 Importando o Cérebro Central!
 import { posts } from '../data/posts'; 
 
@@ -8,6 +24,7 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export default function DiabeticoPodeComerBeterraba() {
   const { pathname } = useLocation();
+  const [isTocOpen, setIsTocOpen] = useState(false);
 
   // O Pingus procura no Cérebro Central qual post corresponde a essa página
   const postAtual = posts.find(post => post.link === pathname);
@@ -22,79 +39,79 @@ export default function DiabeticoPodeComerBeterraba() {
   return (
     <>
       <Helmet>
-     {/* SCHEMA.ORG (Google) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Diabético pode comer beterraba? O mito que você precisa parar de acreditar",
-            "image": `${githubImgBase}Blog/beterraba_diabetes.jpg`,
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Nutrição com Marco",
-              "logo": {
-                "@type": "ImageObject",
-                "url": `${githubImgBase}logoN_pingus.png`
-              }
-            },
-            "datePublished": "2026-03-22",
- "dateModified": "2026-03-22",
-            "description": "Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2."
-          })}
-        </script>
+        {/* SCHEMA.ORG (Google) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Diabético pode comer beterraba? O mito que você precisa parar de acreditar",
+            "image": `${githubImgBase}Blog/beterraba_diabetes.jpg`,
+            "author": {
+              "@type": "Person",
+              "name": "Marco Aurélio Jr.",
+              "url": "https://www.nutricaocommarco.com.br/sobre"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Nutrição com Marco",
+              "logo": {
+                "@type": "ImageObject",
+                "url": `${githubImgBase}logoN_pingus.png`
+              }
+            },
+            "datePublished": "2026-03-22",
+            "dateModified": "2026-03-22",
+            "description": "Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2."
+          })}
+        </script>
 
-        {/* BREADCRUMB (NÍVEL NINJA) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.nutricaocommarco.com.br/" },
-              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.nutricaocommarco.com.br/blog" },
-              { "@type": "ListItem", "position": 3, "name": "Beterraba e Diabetes", "item": `https://www.nutricaocommarco.com.br${pathname}` }
-            ]
-          })}
-        </script>
+        {/* BREADCRUMB (NÍVEL NINJA) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.nutricaocommarco.com.br/" },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.nutricaocommarco.com.br/blog" },
+              { "@type": "ListItem", "position": 3, "name": "Beterraba e Diabetes", "item": `https://www.nutricaocommarco.com.br${pathname}` }
+            ]
+          })}
+        </script>
 
-        {/* SCHEMA.ORG PARA FAQ */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Beterraba cozida é pior que a crua para o diabético?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A versão crua é superior por concentrar de forma intacta as fibras e os compostos bioativos associados a marcadores metabólicos positivos em testes clínicos recentes. O processamento térmico (cozinhar muito) e o fatiamento excessivo quebram a barreira fibrosa, o que pode acelerar a digestão e a absorção intestinal dos carboidratos."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Qual a quantidade ideal de beterraba por dia para diabéticos?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A ciência atesta de maneira sólida que a ingestão de 100 gramas diárias de beterraba crua oferece resultados seguros e eficazes. Esse volume demonstrou melhorias clinicamente relevantes na redução de glicose, pressão arterial e marcadores lipídicos no diabetes tipo 2."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Posso tomar suco de beterraba com laranja se tenho diabetes?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Não é o ideal. A ingestão através de sucos e alimentos liquidificados (especialmente se coados) retira a proteção fibrosa que atua como freio natural, controlando a velocidade do metabolismo glicêmico. As melhores condutas recomendam consumir o vegetal inteiro, mastigado, e preferencialmente in natura."
-                }
-              }
-            ]
-          })}
-        </script>
-      </Helmet>
+        {/* SCHEMA.ORG PARA FAQ */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Beterraba cozida é pior que a crua para o diabético?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A versão crua é superior por concentrar de forma intacta as fibras e os compostos bioativos associados a marcadores metabólicos positivos em testes clínicos recentes. O processamento térmico (cozinhar muito) e o fatiamento excessivo quebram a barreira fibrosa, o que pode acelerar a digestão e a absorção intestinal dos carboidratos."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Qual a quantidade ideal de beterraba por dia para diabéticos?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A ciência atesta de maneira sólida que a ingestão de 100 gramas diárias de beterraba crua oferece resultados seguros e eficazes. Esse volume demonstrou melhorias clinicamente relevantes na redução de glicose, pressão arterial e marcadores lipídicos no diabetes tipo 2."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Posso tomar suco de beterraba com laranja se tenho diabetes?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Não é o ideal. A ingestão através de sucos e alimentos liquidificados (especialmente se coados) retira a proteção fibrosa que atua como freio natural, controlando a velocidade do metabolismo glicêmico. As melhores condutas recomendam consumir o vegetal inteiro, mastigado, e preferencialmente in natura."
+                }
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
 
       <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
         <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
@@ -193,9 +210,6 @@ export default function DiabeticoPodeComerBeterraba() {
             </div>
             {/* FIM DA CAIXA COMBINADA */}
 
-
-
-
             <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
               <p>Muitas pessoas que recebem o diagnóstico de diabetes ou pré-diabetes acabam saindo do consultório médico com uma verdadeira lista mental de alimentos "proibidos", gerando ansiedade na hora de montar o prato. Quase sempre, a beterraba está no topo dessa temida lista por causa do seu inconfundível sabor adocicado.</p>
 
@@ -229,7 +243,6 @@ export default function DiabeticoPodeComerBeterraba() {
               <p>Para desmistificar de vez esse medo, existe um conceito técnico fundamental: a diferença prática entre índice glicêmico e carga glicêmica. O pânico de dietas restritivas e flutuações de peso sem orientação levam muitas vezes a um quadro de <Link to="/efeito_sanfona_inflamacao_invisivel" className="font-bold underline text-green-700 hover:text-green-800 transition-colors">efeito sanfona e inflamação celular</Link>, e a educação nutricional é a principal arma contra isso.</p>
 
               <p>Enquanto o <strong>índice glicêmico</strong> avalia a velocidade com que um carboidrato isolado vira açúcar no sangue, a <strong>carga glicêmica</strong> avalia a quantidade real de carboidratos que você consome em uma porção normal. O índice glicêmico da beterraba pode até ser considerado moderado, mas a sua carga glicêmica é muito baixa, pois ela possui muita água e um baixo aporte calórico total por porção.</p>
-
 
               {/* TABELA COMPARATIVA SIMPLIFICADA (GEO BOOST) */}
               <div className="my-10 bg-white border border-green-100 shadow-md rounded-[2rem] overflow-hidden">
@@ -285,8 +298,6 @@ export default function DiabeticoPodeComerBeterraba() {
                 </div>
               </div>
               {/* FIM DA TABELA */}
-
-
 
               {/* SESSÃO DO VÍDEO DO MARCO NO YOUTUBE */}
               <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
