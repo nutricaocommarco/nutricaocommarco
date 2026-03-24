@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react
 import { Instagram, Menu, X, Mail } from 'lucide-react';
 import { HelmetProvider } from 'react-helmet-async';
 
-// Importando as páginas exclusivas
 import Home from './pages/Home';
 import Certificacoes from './pages/Certificacoes';
 import Sobre from './pages/Sobre';
@@ -21,7 +20,7 @@ import Ironman703 from './pages/Ironman703';
 import GeradorEmailSecreto from './pages/GeradorEmailSecreto';
 import MelhorHorarioPesagem from './pages/MelhorHorarioPesagem'; 
 import BeterrabaDiabetes from './pages/BeterrabaDiabetes';
-import ConfirmacaoPendente from './pages/kitkit'; // <-- IMPORTAÇÃO CORRIGIDA AQUI
+import ConfirmacaoPendente from './pages/kitkit';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -240,5 +239,3 @@ export default function App() {
     </HelmetProvider>
   );
 }
-
-
