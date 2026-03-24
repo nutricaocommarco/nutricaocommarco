@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { ChevronLeft, Headphones, Activity, ChevronRight, Leaf, Scale, Heart, HelpCircle } from 'lucide-react';
 
-// Importando componentes fixos (ajuste os caminhos se necessário)
+// Importando componentes fixos
 import Newsletter from '../components/Newsletter';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 
@@ -12,10 +12,9 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 export default function RetatrutidaOQueE() {
   const [isTocOpen, setIsTocOpen] = useState(false);
 
-  // Informações fixas para teste e SEO
+  // Informações fixas para SEO (Independente do cérebro central)
   const tituloPagina = "Retatrutida o que é? A nova fronteira contra a obesidade";
   const descricaoPagina = "Descubra o que é a retatrutida, o novo medicamento agonista triplo (GLP-1, GIP e Glucagon) e seus resultados na perda de peso.";
-  const imagemCapa = `${githubImgBase}Blog/retatrutida.jpg`;
 
   return (
     <>
@@ -45,11 +44,11 @@ export default function RetatrutidaOQueE() {
                   Resposta rápida: O que é a Retatrutida?
                 </h2>
                 <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
-                  [span_0](start_span)A retatrutida (LY3437943) é uma medicação em fase de estudos que atua como um <strong>agonista triplo</strong>[span_0](end_span). [span_1](start_span)[span_2](start_span)Ela simula a ação dos hormônios GLP-1, GIP e Glucagon simultaneamente, promovendo saciedade e aumentando o gasto energético[span_1](end_span)[span_2](end_span). [span_3](start_span)Nos estudos de Fase 2, pacientes alcançaram uma perda de peso média de até 24,2% em 48 semanas[span_3](end_span).
+                  [span_0](start_span)A retatrutida (LY3437943) é uma medicação em fase de estudos classificada como um <strong>agonista triplo</strong>[span_0](end_span). [span_1](start_span)Ela simula a ação dos hormônios GLP-1, GIP e Glucagon simultaneamente, promovendo saciedade e aumentando o gasto energético[span_1](end_span). [span_2](start_span)Nos estudos de Fase 2 (TRIUMPH-1), pacientes alcançaram uma perda de peso média de até 24,2% em 48 semanas[span_2](end_span).
                 </p>
             </div>
 
-            {/* SUMÁRIO RETRÁTIL SIMPLIFICADO */}
+            {/* SUMÁRIO RETRÁTIL */}
             <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden bg-slate-50">
                 <button 
                   onClick={() => setIsTocOpen(!isTocOpen)}
@@ -75,27 +74,29 @@ export default function RetatrutidaOQueE() {
               <h2 id="mecanismo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 flex items-center gap-3">
                 <Leaf className="text-green-600"/> O Poder do Agonista Triplo
               </h2>
-              [span_4](start_span)[span_5](start_span)<p>Diferente de medicamentos anteriores, a retatrutida atua em três frentes hormonais[span_4](end_span)[span_5](end_span):</p>
+              [span_3](start_span)<p>Diferente de medicamentos anteriores que focavam apenas em uma via, a retatrutida atua em três frentes hormonais simultâneas[span_3](end_span):</p>
               
+              
+
               <ul className="list-disc pl-5 space-y-2">
-                [span_6](start_span)[span_7](start_span)<li><strong>GLP-1:</strong> Reduz o apetite e aumenta a saciedade via ação central[span_6](end_span)[span_7](end_span).</li>
-                [span_8](start_span)[span_9](start_span)<li><strong>GIP:</strong> Melhora a sensibilidade à insulina e ajuda no metabolismo lipídico[span_8](end_span)[span_9](end_span).</li>
-                [span_10](start_span)[span_11](start_span)<li><strong>Glucagon:</strong> Aumenta o gasto energético e a queima de gordura (oxidação de ácidos graxos)[span_10](end_span)[span_11](end_span).</li>
+                [span_4](start_span)[span_5](start_span)<li><strong>GLP-1:</strong> Atua no hipotálamo regulando o apetite e aumentando a saciedade[span_4](end_span)[span_5](end_span).</li>
+                [span_6](start_span)<li><strong>GIP:</strong> Melhora a sensibilidade à insulina e a captação de glicose[span_6](end_span).</li>
+                [span_7](start_span)<li><strong>Glucagon:</strong> Potencializa a termogênese e a queima de gordura (oxidação de ácidos graxos)[span_7](end_span).</li>
               </ul>
 
               <h2 id="resultados" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 flex items-center gap-3">
                 <Scale className="text-green-600"/> Resultados do Estudo TRIUMPH-1
               </h2>
-              [span_12](start_span)[span_13](start_span)<p>Os dados de Fase 2 mostram que a retatrutida é significativamente superior aos análogos isolados[span_12](end_span)[span_13](end_span). [span_14](start_span)Com doses de até 12 mg semanais, a perda de peso média chegou a 24,2% em apenas 48 semanas[span_14](end_span). [span_15](start_span)Além disso, houve melhorias notáveis em parâmetros cardiometabólicos, como pressão arterial e níveis lipídicos[span_15](end_span).</p>
+              [span_8](start_span)<p>Os dados de Fase 2 demonstram que a retatrutida oferece eficácia superior aos fármacos injetáveis anteriores[span_8](end_span). [span_9](start_span)Com doses semanais que variam de 1 mg a 12 mg[span_9](end_span)[span_10](start_span), a perda de peso média chegou a 24,2% nas doses mais altas após 48 semanas[span_10](end_span). [span_11](start_span)[span_12](start_span)Além disso, observou-se melhorias significativas na pressão arterial e nos níveis de hemoglobina glicada (HbA1c)[span_11](end_span)[span_12](end_span).</p>
 
               <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
-                [span_16](start_span)“O sucesso prolongado depende da reestruturação de hábitos e da relação com a alimentação.”[span_16](end_span)
+                [span_13](start_span)“O tratamento é mais eficaz quando integra farmacoterapia, nutrição personalizada e mudanças comportamentais[span_13](end_span).”
               </div>
 
               <h2 id="nutricao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 flex items-center gap-3">
-                <Heart className="text-green-600"/> O Pilar Nutricional
+                <Heart className="text-green-600"/> O Pilar Nutricional e Manejo
               </h2>
-              <p>Mesmo com medicações potentes, a nutrição é a base. [span_17](start_span)[span_18](start_span)É necessário um aporte proteico adequado (1,2-1,5g/kg/dia) para preservar a massa magra durante a perda rápida de peso[span_17](end_span)[span_18](end_span). [span_19](start_span)[span_20](start_span)O acompanhamento nutricional minimiza efeitos colaterais gastrointestinais, como náuseas e constipação, através de ajustes na densidade e fracionamento das refeições[span_19](end_span)[span_20](end_span).</p>
+              [span_14](start_span)[span_15](start_span)<p>O sucesso prolongado depende da manutenção da massa magra. É recomendado um aporte proteico de 1,2 a 1,5g/kg de peso por dia[span_14](end_span)[span_15](end_span). [span_16](start_span)[span_17](start_span)[span_18](start_span)Além disso, o monitoramento nutricional é essencial para minimizar efeitos gastrointestinais comuns, como náuseas (20-40% dos pacientes) e constipação, através do fracionamento das refeições e hidratação adequada[span_16](end_span)[span_17](end_span)[span_18](end_span).</p>
 
               <Newsletter />
             </div> 
@@ -103,15 +104,15 @@ export default function RetatrutidaOQueE() {
 
           <ArtigosRecomendados currentPath="/retatrutida_o_que_e" />
 
-          {/* CARTÃO DE AUTOR FIXO */}
+          {/* CARTÃO DE AUTOR */}
           <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
             <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
               <img src={`${githubImgBase}Eu_1.png`} alt="Marco Aurélio Jr." className="w-full h-full object-cover" />
             </div>
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
-              <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador ISAK Nível 1</p>
-              <p className="text-slate-600 font-medium leading-relaxed mb-6">Trabalhando para traduzir a ciência metabólica em saúde prática para o seu dia a dia.</p>
+              <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
+              <p className="text-slate-600 font-medium leading-relaxed mb-6">Especialista em traduzir evidências científicas e fisiologia metabólica em resultados práticos para a saúde.</p>
               <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md">Siga @Nutricao_com_Marco</a>
             </div>
           </div>
@@ -121,4 +122,5 @@ export default function RetatrutidaOQueE() {
     </>
   );
 }
+
 
