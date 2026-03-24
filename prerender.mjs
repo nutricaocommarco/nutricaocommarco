@@ -1,9 +1,11 @@
-
 import fs from 'fs';
 import path from 'path';
 
-// O mapa do tesouro: Definimos aqui o que o WhatsApp deve ver em cada página
-const routes = [
+// 🧠 Importando o Cérebro Central!
+import { posts } from './src/data/posts.js';
+
+// 1. ROTAS FIXAS (Páginas do site que não são artigos de blog)
+const rotasEstaticas = [
   { 
     path: 'sobre', 
     title: 'Sobre Marco Aurélio Jr. | Nutrição com Marco',
@@ -27,79 +29,37 @@ const routes = [
     title: 'Blog de Nutrição e Ciência | Nutrição com Marco',
     image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/ImgBlog.jpg',
     desc: 'Conteúdo científico sobre antropometria, bioimpedância e emagrecimento real.'
-  },
-  { 
-    path: 'efeito_sanfona_inflamacao_invisivel', 
-    title: 'Efeito Sanfona e Inflamação Invisível | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/efeito_sanfona.jpg',
-    desc: 'Descubra por que o reganho de peso é mais perigoso que a obesidade estável.'
-  },
-  { 
-    path: 'o_dilema_do_sangue_na_altitude', 
-    title: 'Doping na Altitude: Eritropoetina | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/eritropoetina.jpg',
-    desc: 'Entenda os riscos do uso sintético de hormônios e a ética no esporte de alta performance.'
-  },
-  { 
-    path: 'quantas_frutas_posso_comer', 
-    title: 'A frutose das frutas faz mal? | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/frutose_bananas.jpg',
-    desc: 'Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado.'
-  },
-  { 
-    path: 'vitamina_a_para_que_serve', 
-    title: 'Vitamina A para que serve? | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/vitamina_a.jpg',
-    desc: 'Descubra como a Vitamina A atua no seu metabolismo muito além da visão.'
-  },
-  { 
-    path: 'o_que_e_antropometria', 
-    title: 'O que é Antropometria? | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/antropometria.jpg',
-    desc: 'Descubra como a avaliação ISAK revela sua real composição corporal, além da balança.'
-  },
-  { 
-    path: 'a_balanca_de_bioimpedancia_e_confiavel', 
-    title: 'A balança de bioimpedância é confiável? | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/bioimpedancia.jpg',
-    desc: 'Entenda como funciona a bioimpedância e o que pode alterar seu percentual de gordura.'
-  },
-  { 
-    path: 'por_que_o_feijao_da_gases', 
-    title: 'Por que o feijão dá gases? | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/feijao.jpg',
-    desc: 'Descubra por que o feijão causa gases e o que fazer para evitar o desconforto.'
-  },
-  { 
-    path: 'nutricao_para_ironman_703', 
-    title: 'Nutrição para Ironman 70.3: Guia Completo | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/nutricao_ironman_703.jpg',
-    desc: 'Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação.'
-  },
-  { 
-    path: 'hormonios_da_fome_emagrecimento', 
-    title: 'Hormônios da Fome: O corpo contra a dieta | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Hormfome.jpg',
-    desc: 'Entenda como a Grelina e a Leptina controlam seu apetite e a relação da inflamação celular com o reganho de peso.'
-  },
-  { 
-    path: 'qual_melhor_horario_para_se_pesar', 
-    title: 'Qual o melhor horário para se pesar? | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/melhor_horario_pesagem.jpg',
-    desc: 'Se você já se pesou à noite e achou que engordou… esse artigo vai te mostrar por que isso é um grande erro.'
-  },
-  { 
-    path: 'diabetico_pode_comer_beterraba', 
-    title: 'Diabético pode comer beterraba? O mito desvendado | Nutrição com Marco',
-    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/beterraba_diabetes.jpg',
-    desc: 'Descubra por que o sabor doce da beterraba engana e como suas fibras na verdade ajudam a controlar os picos de glicemia.'
   }
 ];
 
+// 2. ROTAS DINÂMICAS (Puxando os artigos e transformando no formato que o WhatsApp gosta)
+const rotasDoBlog = posts.map(post => {
+  // Como o post.link vem com uma barra no começo (ex: "/diabetico_pode_comer_beterraba"),
+  // nós removemos essa primeira barra para não bugar a criação de pastas da Vercel.
+  const routePath = post.link.startsWith('/') ? post.link.slice(1) : post.link;
+
+  return {
+    path: routePath,
+    title: `${post.titulo} | Nutrição com Marco`, // Adicionamos sua marca no final
+    image: post.img,
+    desc: post.desc
+  };
+});
+
+// 3. JUNTANDO TUDO (Fixas + Artigos)
+const routes = [...rotasEstaticas, ...rotasDoBlog];
+
 const distPath = path.resolve('dist');
+
+// Se o build falhar porque não achou o dist/index.html, o script avisa no log
+if (!fs.existsSync(path.join(distPath, 'index.html'))) {
+    console.error('❌ ERRO: Arquivo index.html não encontrado na pasta dist. O Prerender parou.');
+    process.exit(1); 
+}
+
 const template = fs.readFileSync(path.join(distPath, 'index.html'), 'utf-8');
 
-console.log('🚀 Iniciando Robô de SEO do Marco...');
+console.log('🚀 Iniciando Robô de SEO e WhatsApp do Marco...');
 
 routes.forEach(route => {
   const routePath = path.join(distPath, route.path);
@@ -117,5 +77,5 @@ routes.forEach(route => {
     </head>`);
 
   fs.writeFileSync(path.join(routePath, 'index.html'), html);
-  console.log(`✅ Página [${route.path}] preparada para o WhatsApp!`);
+  console.log(`✅ Página [${route.path}] preparada para o WhatsApp e Google!`);
 });
