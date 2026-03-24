@@ -48,6 +48,7 @@ export default function HormoniosFome() {
               }
             },
             "datePublished": "2026-03-20", 
+ "dateModified": "2026-03-21",
             "description": "Entenda a fisiologia por trás do aumento da fome após a perda de peso, analisando o papel da Grelina, Leptina, GLP-1 e a inflamação do tecido adiposo."
           })}
         </script>
