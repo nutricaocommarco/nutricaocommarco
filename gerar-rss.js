@@ -9,7 +9,6 @@ const artigos = [
     imagem: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/beterraba_diabetes.jpg",
     data: new Date("2026-03-24").toUTCString()
   },
-
   {
     titulo: "Qual o melhor horário para se pesar?",
     link: "https://www.nutricaocommarco.com.br/qual_melhor_horario_para_se_pesar",
@@ -68,6 +67,7 @@ const gerarXML = () => {
   <item>
     <title>${artigo.titulo}</title>
     <link>${artigo.link}</link>
+    <guid isPermaLink="true">${artigo.link}</guid>
     <description>${artigo.descricao}</description>
     <media:content url="${artigo.imagem}" type="image/jpeg" medium="image" />
     <pubDate>${artigo.data}</pubDate>
@@ -81,7 +81,6 @@ const gerarXML = () => {
   return rss;
 };
 
-// Salva o arquivo na pasta public para o Vercel hospedar
 const publicPath = path.join(process.cwd(), 'public');
 if (!fs.existsSync(publicPath)) {
   fs.mkdirSync(publicPath);
