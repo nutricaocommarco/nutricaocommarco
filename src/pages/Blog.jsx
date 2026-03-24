@@ -27,7 +27,6 @@ export default function Blog() {
               <span className="bg-green-100 text-green-700 text-xs font-black px-3 py-1 rounded-full uppercase tracking-widest">
                 Nutrição Clínica
               </span>
-              <span className="text-slate-400 text-xs font-bold flex items-center gap-1"><Clock size={14} /> 6 min</span>
             </div>
             <h2 className="text-2xl font-black text-slate-800 mb-3 italic group-hover:text-green-600 transition-colors uppercase leading-tight">
               Diabético pode comer beterraba? O mito desvendado
