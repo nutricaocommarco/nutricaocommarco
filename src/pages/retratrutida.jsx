@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, Scale, Activity, Headphones, Leaf, Heart, ChevronRight } from 'lucide-react';
+import { ChevronLeft, HelpCircle, Scale, Activity, Headphones, Leaf, Heart, ChevronRight, PlayCircle } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
@@ -53,6 +53,40 @@ export default function RetatrutidaOQueE() {
             "description": "Descubra o que é a retatrutida, o novo medicamento agonista triplo e seus resultados na perda de peso."
           })}
         </script>
+
+        {/* SCHEMA.ORG PARA FAQ */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "O que é a retatrutida?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A retatrutida (LY3437943) é uma medicação experimental classificada como um agonista triplo. Ela atua simulando a ação de três hormônios: GLP-1, GIP e Glucagon, oferecendo uma abordagem multitarefa para o emagrecimento."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Qual a perda de peso esperada com a retatrutida?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Nos estudos clínicos de Fase 2 (TRIUMPH-1), os participantes que utilizaram a dose máxima de 12mg alcançaram uma redução média de peso corporal de 24,2% ao longo de 48 semanas."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Quais os principais efeitos colaterais?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Os efeitos mais comuns são gastrointestinais, como náuseas, vômitos e constipação, geralmente de intensidade leve a moderada e ocorrendo principalmente durante a fase de ajuste da dose."
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
@@ -75,7 +109,7 @@ export default function RetatrutidaOQueE() {
                   Resposta rápida: O que é a Retatrutida?
                 </h2>
                 <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
-                  A retatrutida (LY3437943) é uma medicação revolucionária em fase de testes que atua como um <strong>agonista triplo</strong>, simulando a ação de três hormônios simultaneamente: GLP-1, GIP e glucagon. Essa combinação otimiza o gasto energético, resultando em uma perda de peso corporal média de até 24,2% em 48 semanas nos estudos clínicos de Fase 2.
+                  A retatrutida (LY3437943) é uma medicação revolucionária que atua como um <strong>agonista triplo</strong>, simulando a ação de três hormônios simultaneamente: GLP-1, GIP e glucagon. Essa combinação otimiza o gasto energético e reduz o apetite, resultando em uma perda de peso média de até 24,2% em 48 semanas, superando as gerações anteriores de análogos.
                 </p>
             </div>
 
@@ -104,46 +138,43 @@ export default function RetatrutidaOQueE() {
                   <ChevronRight size={20} className={`text-slate-400 transition-transform ${isTocOpen ? 'rotate-90' : ''}`} />
                 </button>
 
-                {isTocOpen && (
-                  <div className="p-6 bg-white border-t border-green-100/60">
-                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 list-none m-0">
-                      <li><a href="#mecanismo" className="text-slate-500 hover:text-green-600 font-bold transition-colors">O Mecanismo Triplo</a></li>
-                      <li><a href="#resultados" className="text-slate-500 hover:text-green-600 font-bold transition-colors">Resultados Clínicos</a></li>
-                      <li><a href="#nutricao" className="text-slate-500 hover:text-green-600 font-bold transition-colors">Pilar Nutricional</a></li>
-                    </ul>
-                  </div>
-                )}
+                <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
+                  <ul className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4 list-none m-0">
+                    <li><a href="#mecanismo" className="text-slate-500 hover:text-green-600 font-bold transition-colors">O Mecanismo Triplo</a></li>
+                    <li><a href="#resultados" className="text-slate-500 hover:text-green-600 font-bold transition-colors">Resultados Clínicos</a></li>
+                    <li><a href="#nutricao" className="text-slate-500 hover:text-green-600 font-bold transition-colors">Pilar Nutricional</a></li>
+                  </ul>
+                </div>
               </nav>
             </div>
 
             <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
-              <p>O cenário do tratamento da obesidade está mudando. Após o sucesso dos análogos de GLP-1, a ciência metabólica revelou a retatrutida, uma molécula que atua simultaneamente nos receptores de três hormônios fundamentais.</p>
+              <p>O tratamento da obesidade está evoluindo de abordagens isoladas para sinergias hormonais complexas. Após o sucesso do GLP-1, a ciência metabólica apresenta a retatrutida, que promete resultados nunca vistos antes fora de intervenções cirúrgicas.</p>
 
               <h2 id="mecanismo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Leaf className="text-green-600"/> O Poder do Agonista Triplo
+                <Leaf className="text-green-600"/> O Mecanismo: A Sinfonia Hormonal
               </h2>
-              <p>A retatrutida atua nas seguintes frentes:</p>
-              
-              
+              <p>Diferente de medicamentos que focam em apenas uma via, a retatrutida ativa três receptores simultâneos:</p>
               
               <ul className="list-disc pl-5 space-y-2">
-                <li><strong>GLP-1 e GIP:</strong> Promovem saciedade e retardam o esvaziamento gástrico.</li>
-                <li><strong>Glucagon:</strong> Aumenta o gasto energético e a oxidação de gorduras.</li>
+                <li><strong>GLP-1:</strong> Regula o apetite central e retarda o esvaziamento do estômago.</li>
+                <li><strong>GIP:</strong> Melhora a sensibilidade à insulina e o metabolismo lipídico no tecido adiposo.</li>
+                <li><strong>Glucagon:</strong> Aumenta a taxa metabólica e a oxidação de gorduras.</li>
               </ul>
 
               <h2 id="resultados" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Scale className="text-green-600"/> Resultados do Estudo TRIUMPH-1
               </h2>
-              <p>No estudo de Fase 2, pacientes utilizando doses de 12mg semanais alcançaram uma perda de peso média de 24,2%. Além disso, houve melhoria nos níveis de pressão arterial e gordura no fígado (esteatose hepática).</p>
+              <p>Os dados do estudo de Fase 2 mostraram que pacientes com obesidade perderam, em média, 24,2% de seu peso corporal em menos de um ano. Além disso, houve melhorias significativas na saúde cardiovascular e na redução da gordura hepática.</p>
 
               <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
-                “A retatrutida não é apenas sobre perder peso, é sobre reprogramar o metabolismo de forma sinérgica.”
+                “A retatrutida reprograma o metabolismo para utilizar a energia de forma mais eficiente, combatendo a obesidade em múltiplas frentes.”
               </div>
 
               <h2 id="nutricao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Heart className="text-green-600"/> O Manejo Nutricional
+                <Heart className="text-green-600"/> O Manejo Nutricional e Proteico
               </h2>
-              <p>O suporte nutricional é essencial. O aporte de proteínas deve ser de 1,2 a 1,5g/kg de peso para proteger a massa magra durante o emagrecimento rápido. O fracionamento das refeições ajuda a controlar náuseas, efeito colateral presente em cerca de 40% dos pacientes no início do tratamento.</p>
+              <p>Com perdas de peso tão rápidas, o risco de perder massa muscular é real. O suporte nutricional deve focar em um aporte de proteína de 1,2 a 1,5g/kg de peso e no fracionamento das refeições para evitar náuseas, comuns no início do tratamento.</p>
 
               <Newsletter />
             </div>
@@ -160,9 +191,9 @@ export default function RetatrutidaOQueE() {
               <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
               <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
               <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
-                Especialista em traduzir evidências científicas para a prática diária, focando em saúde metabólica e performance.
+                Especialista em traduzir evidências científicas para a prática diária, focando em saúde metabólica e performance humana.
               </p>
-              <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md">
+              <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
                 Siga @Nutricao_com_Marco
               </a>
             </div>
@@ -173,6 +204,4 @@ export default function RetatrutidaOQueE() {
     </>
   );
 }
-
-
 
