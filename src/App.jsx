@@ -24,6 +24,8 @@ import BeterrabaDiabetes from './pages/BeterrabaDiabetes';
 import ConfirmacaoPendente from './pages/kitkit'; 
 import RetatrutidaOQueE from './pages/Retatrutida';
 import InscricaoConfirmada from './pages/InscricaoConfirmada';
+import OvoColesterol from './pages/ovoecolesterol'; // Importação do novo artigo
+
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 function ScrollToTop() {
@@ -74,10 +76,13 @@ function Layout({ children }) {
         title: 'Inscrição Confirmada! | Nutrição com Marco',
         desc: 'Tudo pronto! Você agora faz parte da nossa comunidade de nutrição e antropometria.'
       },
-      // <-- SEO DA NOVA PÁGINA ADICIONADO AQUI
       '/retatrutida_o_que_e': {
         title: 'Retatrutida o que é? A nova fronteira da ciência | Nutrição com Marco',
         desc: 'Descubra o que é a retatrutida, o novo medicamento agonista triplo (GLP-1, GIP e Glucagon) e seus resultados na perda de peso.'
+      },
+      '/ovo_e_colesterol': {
+        title: 'Ovo e Colesterol: Benefícios, Mitos e Verdades Científicas | Nutrição com Marco',
+        desc: 'Comer ovo todo dia faz mal? Quem tem gordura no fígado pode comer? Desvendamos tudo com base em estudos científicos atualizados.'
       }
     };
 
@@ -185,9 +190,8 @@ export default function App() {
             <Route path="/diabetico_pode_comer_beterraba" element={<BeterrabaDiabetes />} />
             <Route path="/confirmacao-pendente" element={<ConfirmacaoPendente />} />
             <Route path="/inscricao-confirmada" element={<InscricaoConfirmada />} />
-<Route path="/retatrutida_o_que_e" element={<RetatrutidaOQueE />} />
-
-            
+            <Route path="/retatrutida_o_que_e" element={<RetatrutidaOQueE />} />
+            <Route path="/ovo_e_colesterol" element={<OvoColesterol />} />
           </Routes>
         </Layout>
       </Router>
