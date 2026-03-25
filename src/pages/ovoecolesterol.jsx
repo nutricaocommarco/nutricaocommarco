@@ -64,30 +64,34 @@ export default function OvoColesterol() {
   return (
     <>
       <Helmet>
-        <title>Ovo e Colesterol: Benefícios, Mitos e Verdades Científicas | Nutrição com Marco</title>
-        <meta name="description" content="Descubra os benefícios do ovo, entenda o que é HDL, LDL e Triglicerídios, e veja a verdade científica sobre ovo e colesterol." />
+        {/* SEO OTIMIZADO - TÍTULO DO SNIPPET (aprox 60 caracteres) */}
+        <title>Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Científica | Nutrição com Marco</title>
+        
+        {/* META DESCRIPTION OTIMIZADA (aprox 155 caracteres) */}
+        <meta name="description" content="Comer ovo todo dia aumenta o colesterol? Descubra a verdade científica, entenda HDL, LDL e quantos ovos você pode consumir com segurança." />
 
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Ovo e Colesterol: Benefícios, Mitos e Verdades Científicas | Nutrição com Marco" />
-        <meta property="og:description" content="Comer ovo todo dia faz mal? Quem tem gordura no fígado pode comer? Desvendamos tudo com base em estudos científicos atualizados." />
+        <meta property="og:title" content="Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Científica | Nutrição com Marco" />
+        <meta property="og:description" content="Comer ovo todo dia faz mal à saúde? Ovo aumenta LDL ou HDL? Desvendamos tudo com base em estudos científicos atualizados." />
         <meta property="og:image" content={`${githubImgBase}Blog/ovo_colesterol.jpg`} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
+        {/* SCHEMA.ORG PARA ARTIGO OTIMIZADO */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Ovo e Colesterol: Benefícios, Mitos e Verdades Científicas",
+            "headline": "Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Científica",
             "image": `${githubImgBase}Blog/ovo_colesterol.jpg`,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
             "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png`}},
             "datePublished": "2026-03-25",
             "dateModified": "2026-03-25",
-            "description": "Descubra os benefícios do ovo, entenda o que é HDL, LDL e Triglicerídios, e veja a verdade científica sobre ovo e colesterol."
+            "description": "Descubra a verdade científica sobre se comer ovo todo dia aumenta o colesterol e entenda o impacto no perfil lipídico."
           })}
         </script>
 
-        {/* INÍCIO DO SCHEMA.ORG PARA FAQ */}
+        {/* INÍCIO DO SCHEMA.ORG PARA FAQ - PERGUNTAS EXATAS DO GOOGLE */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -95,34 +99,34 @@ export default function OvoColesterol() {
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "Quais são os benefícios do ovo?",
+                "name": "Comer ovo todo dia aumenta o colesterol?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "O ovo é uma excelente fonte de proteínas de alto valor biológico, vitaminas (como B12, A e D) e minerais. Ele ajuda a prolongar a saciedade, favorece o ganho de massa muscular e atua na prevenção da perda de tecido muscular relacionada ao envelhecimento."
+                  "text": "Não necessariamente. O colesterol dietético presente no ovo tem um impacto muito pequeno no colesterol sanguíneo da maioria das pessoas. Estudos mostram que o consumo adequado pode até melhorar a funcionalidade do colesterol HDL (o 'bom' colesterol)."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Ovo cozido aumenta o colesterol?",
+                "name": "Quem tem colesterol alto pode comer ovo?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "O colesterol dietético presente no ovo tem um impacto muito pequeno no colesterol sanguíneo da maioria das pessoas. Estudos mostram que o consumo adequado pode até melhorar a funcionalidade do colesterol HDL (o 'bom' colesterol) e modular as partículas de LDL de forma menos prejudicial."
+                  "text": "Sim, na maioria dos casos, desde que inserido em uma dieta equilibrada. O ovo melhora as partículas de LDL para um formato menos prejudicial e melhora a função do HDL."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Comer ovo todo dia faz mal?",
+                "name": "Quantos ovos por dia faz mal?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Não. Para indivíduos saudáveis ou com uma alimentação equilibrada, o consumo diário de ovos não causa malefícios ao perfil lipídico e, pelo contrário, oferece um aporte nutritivo denso e benefícios antioxidantes."
+                  "text": "A literatura científica indica que a ingestão de 1 a 3 ovos inteiros por dia é segura para indivíduos saudáveis e traz benefícios nutricionais e cardiovasculares."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Quantos ovos posso comer por dia?",
+                "name": "Ovo aumenta o LDL?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "A literatura científica aponta que a ingestão de 1 a 3 ovos inteiros por dia é segura e traz benefícios cardiovasculares e antioxidantes. Contudo, a prescrição dietética exata deve sempre respeitar a individualidade bioquímica e o ajuste de macronutrientes do paciente."
+                  "text": "O ovo pode aumentar levemente o colesterol total, mas esse aumento ocorre principalmente nas partículas de LDL grandes (não aterogênicas), que são menos propensas a causar doenças cardíacas."
                 }
               }
             ]
@@ -141,16 +145,18 @@ export default function OvoColesterol() {
         <article className="prose prose-lg max-w-none text-left">
           <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Nutrição Clínica</span>
 
+          {/* H1 OTIMIZADO COM KEYWORD EXATA NO INÍCIO */}
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
-            Ovo e Colesterol: A Verdade Científica que Você Precisa Saber
+            Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Científica
           </h1>
 
           <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-4 text-left">
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                 Resumo Científico Direto
               </h2>
+              {/* PRIMEIRO PARÁGRAFO REESCRITO PARA SEO (Keyword no início) */}
               <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
-                Por muitos anos, o ovo foi injustamente taxado como o grande vilão das dietas devido ao seu teor de colesterol. Hoje, a ciência da nutrição moderna comprova que ele é uma das fontes de proteína mais completas e biodisponíveis do planeta. Entenda como o seu corpo realmente processa o ovo e por que ele deve fazer parte da sua rotina.
+                <strong>Comer ovo todo dia aumenta o colesterol?</strong> Essa é uma das dúvidas mais comuns quando o assunto é alimentação saudável. Durante muitos anos, o ovo foi visto como vilão, mas a ciência da nutrição moderna evoluiu e hoje mostra uma realidade bem diferente. Entenda como o seu corpo realmente processa o ovo e por que ele deve fazer parte da sua rotina.
               </p>
           </div>
 
@@ -198,31 +204,31 @@ export default function OvoColesterol() {
                   <li>
                     <a href="#beneficios" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
                       <Heart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
-                      Benefícios do ovo
+                      Benefícios do ovo para a saúde
                     </a>
                   </li>
                   <li>
-                    <a href="#colesterol" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#ovo-aumenta-ldl-hdl" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
                       <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
-                      Ovo cozido aumenta o colesterol?
+                      Ovo aumenta LDL ou HDL?
                     </a>
                   </li>
                   <li>
-                    <a href="#figado" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#quem-tem-colesterol-alto-pode-comer-ovo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
                       <Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
-                      Gordura no fígado e o consumo
+                      Colesterol alto e gordura no fígado
                     </a>
                   </li>
                   <li>
-                    <a href="#diario" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#comer-ovo-todo dia-faz-mal" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
                       <Leaf size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
-                      Comer ovo todo dia faz mal?
+                      Comer ovo todo dia faz mal à saúde?
                     </a>
                   </li>
                   <li>
-                    <a href="#quantos" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#quantos-ovos-por-dia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
                       <FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
-                      Quantos ovos posso comer por dia?
+                      Quantos ovos posso comer por dia sem risco?
                     </a>
                   </li>
                   <li>
@@ -238,12 +244,12 @@ export default function OvoColesterol() {
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
             <p>O ovo de galinha é o produto de origem animal mais consumido no mundo todo, apresentando um preço acessível, fácil preparação e um perfil nutricional espetacular. Após o leite materno, ele é considerado o alimento mais completo da natureza, sendo formado pela clara (rica em água e proteínas) e pela gema (rica em lipídios, vitaminas e minerais).</p>
- 
-            {/* IMAGEM DE CAPA */}
+
+            {/* IMAGEM DE CAPA OTIMIZADA - ALT OTIMIZADO */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
               <img 
                 src={`${githubImgBase}Blog/ovoecolesterol.jpg`} 
-                alt="Imagem ilustrativa de ovos destacando sua composição nutricional e a relação com o colesterol." 
+                alt="Comer ovo todo dia aumenta o colesterol? Veja o que diz a ciência moderna" 
                 title="Benefícios do Ovo e Colesterol"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
               />
@@ -253,6 +259,9 @@ export default function OvoColesterol() {
                 </p>
               </div>
             </div>
+
+            {/* MICRO-OTIMIZAÇÃO: FRASE ESTRATÉGICA */}
+            <p className="font-bold text-slate-800">Afinal, comer ovo todo dia aumenta o colesterol ou isso é um mito? Continue lendo para descobrir.</p>
             
             <h2 id="perfil" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Zap className="text-green-600"/> O básico: Colesterol, HDL, LDL, VLDL e Triglicerídios
@@ -294,13 +303,16 @@ export default function OvoColesterol() {
                 <div className="w-16 h-16 bg-orange-100 text-orange-700 rounded-2xl flex items-center justify-center shrink-0 font-black text-2xl shadow-inner">3</div>
                 <div>
                   <h3 className="text-xl font-black text-slate-800 mb-2">Efeito na Saciedade</h3>
-                  <p className="m-0 text-slate-600 leading-relaxed">Um dos grandes aliados no processo de emagrecimento. As proteínas do ovo induzem uma menor secreção do hormônio da fome (grelina). Indivíduos que consomem ovos na primeira refeição tendem a ingerir menos calorias ao longo do dia, facilitando as dietas com déficit calórico.</p>
+                  <p className="m-0 text-slate-600 leading-relaxed">
+                    Um dos grandes aliados no processo de emagrecimento e <Link to="/blog/tudo-sobre-composicao-corporal-bioimpedancia" className="text-green-600 font-semibold hover:underline">composição corporal</Link>. As proteínas do ovo induzem uma menor secreção do hormônio da fome (grelina). Indivíduos que consomem ovos na primeira refeição tendem a ingerir menos calorias ao longo do dia, facilitando as dietas com déficit calórico e o <Link to="/blog/horario-pesagem-peso-ideal" className="text-green-600 font-semibold hover:underline">controle de peso</Link>.
+                  </p>
                 </div>
               </div>
             </div>
 
-            <h2 id="colesterol" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Scale className="text-green-600"/> Ovo cozido aumenta o colesterol?
+            {/* H2 OTIMIZADO: BUSCA EXATA */}
+            <h2 id="ovo-aumenta-ldl-hdl" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Scale className="text-green-600"/> Ovo aumenta o colesterol LDL ou HDL?
             </h2>
             <p>Esse é, de longe, o maior mito que a nutrição precisou desconstruir. A literatura mais antiga apontava que a ingestão de colesterol na dieta elevaria o colesterol do sangue. No entanto, a ciência evoluiu e mostrou que essa relação não é direta ou prejudicial na prática clínica.</p>
 
@@ -310,22 +322,28 @@ export default function OvoColesterol() {
               <li className="font-bold text-lg pl-1">A ingestão de ovos melhora a funcionalidade do colesterol HDL (o famoso "bom" colesterol), proporcionando uma melhor atividade anti-inflamatória e antioxidante no corpo.</li>
             </ul>
 
-            <h2 id="figado" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Activity className="text-green-600"/> Quem tem gordura no fígado pode comer ovo?
+            {/* MICRO-OTIMIZAÇÃO: INSERÇÃO NATURAL DE KEYWORD SECUNDÁRIA */}
+            <p>Portanto, a dúvida se <Link to="/blog/controle-fome-emagrecimento" className="text-green-600 font-semibold hover:underline">comer ovo todo dia faz mal</Link> à saúde está superada pela ciência, desde que inserido em um estilo de vida saudável.</p>
+
+            {/* H2 OTIMIZADO: BUSCA EXATA */}
+            <h2 id="quem-tem-colesterol-alto-pode-comer-ovo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Activity className="text-green-600"/> Quem tem gordura no fígado ou colesterol alto pode comer ovo?
             </h2>
-            <p>Pacientes diagnosticados com esteatose hepática não alcoólica frequentemente têm dúvidas sobre o consumo de lipídios. O ovo concentra suas gorduras e o colesterol exclusivamente na gema. No entanto, o ovo apresenta um rico conteúdo de gorduras insaturadas (as chamadas "gorduras boas") e componentes antioxidantes.</p>
+            <p>Pacientes diagnosticados com esteatose hepática não alcoólica frequentemente têm dúvidas sobre o consumo de lipídios e se <strong>ovo aumenta o colesterol mesmo</strong>. O ovo concentra suas gorduras e o colesterol exclusivamente na gema. No entanto, o ovo apresenta um rico conteúdo de gorduras insaturadas (as chamadas "gorduras boas") e componentes antioxidantes.</p>
 
-            <p>Mesmo para pacientes com distúrbios de lipídios (como hipercolesterolemia combinada), estudos demonstraram que o consumo controlado não causa alterações desastrosas nos marcadores quando o paciente segue uma dieta baseada nas recomendações nutricionais. Além disso, a presença de antioxidantes atua como um fator protetor cardiovascular, auxiliando no equilíbrio fisiológico que o corpo necessita para se recuperar.</p>
+            <p>Mesmo para pacientes com distúrbios de lipídios (como hipercolesterolemia combinada), estudos demonstraram que o consumo controlado não causa alterações desastrosas nos marcadores quando o paciente segue uma dieta baseada nas recomendações nutricionais e foca no <Link to="/blog/melhor-horario-pesagem-emagrecimento" className="text-green-600 font-semibold hover:underline">controle de peso</Link>. Além disso, a presença de antioxidantes atua como um fator protetor cardiovascular, auxiliando no equilíbrio fisiológico.</p>
 
-            <h2 id="diario" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Leaf className="text-green-600"/> Comer ovo todo dia faz mal?
+            {/* H2 OTIMIZADO: BUSCA EXATA */}
+            <h2 id="comer-ovo-todo-dia-faz-mal" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Leaf className="text-green-600"/> Comer ovo todo dia faz mal à saúde?
             </h2>
             <p>Definitivamente, não. O renomado estudo PREDIMED, que avaliou indivíduos seguindo um estilo de dieta mediterrânea, comprovou que o consumo regular de ovos não aumenta a incidência de doenças cardiovasculares.</p>
             
-            <p>Pelo contrário, se o indivíduo é praticante de atividades físicas e possui um controle alimentar adequado de macronutrientes, a ingestão rotineira de ovos inteiros é totalmente segura. As análises clínicas mais modernas focam na dieta como um todo; o ovo, quando inserido numa matriz alimentar sem excesso de frituras ou alimentos ultraprocessados, é um excelente aliado.</p>
+            <p>Pelo contrário, se o indivíduo é praticante de atividades físicas, busca melhorar a <Link to="/blog/tudo-sobre-composicao-corporal-bioimpedancia" className="text-green-600 font-semibold hover:underline">composição corporal</Link> e possui um controle alimentar adequado de macronutrientes, a ingestão rotineira de ovos inteiros é totalmente segura. As análises clínicas mais modernas focam na dieta como um todo; o ovo, quando inserido numa matriz alimentar sem excesso de frituras ou alimentos ultraprocessados, é um excelente aliado.</p>
 
-            <h2 id="quantos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <FileText className="text-green-600"/> Quantos ovos posso comer por dia?
+            {/* H2 OTIMIZADO: BUSCA EXATA */}
+            <h2 id="quantos-ovos-por-dia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <FileText className="text-green-600"/> Quantos ovos posso comer por dia sem risco?
             </h2>
             <p>A resposta correta sempre dependerá de uma avaliação nutricional individualizada. No entanto, intervenções científicas recentes com adultos saudáveis mostraram que a ingestão diária de <strong>1 a 3 ovos inteiros</strong> foi capaz de melhorar o perfil da partícula de LDL, aumentar a função do HDL e subir as concentrações de antioxidantes no sangue.</p>
 
@@ -383,25 +401,25 @@ export default function OvoColesterol() {
               </div>
             </div>
             
-            {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
+            {/* INÍCIO DO FAQ VISUAL OTIMIZADO COM PERGUNTAS EXATAS */}
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
               <div className="space-y-6">
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Quais são os benefícios do ovo?</h3>
-                  <p className="text-slate-600 m-0 leading-relaxed">O ovo é uma excelente fonte de proteínas de alto valor biológico, vitaminas (como B12, A e D) e minerais. Ele ajuda a prolongar a saciedade, favorece o ganho de massa muscular e atua na prevenção da perda de tecido muscular relacionada ao envelhecimento.</p>
+                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Comer ovo todo dia aumenta o colesterol?</h3>
+                  <p className="text-slate-600 m-0 leading-relaxed">Não necessariamente. O colesterol dietético presente no ovo tem um impacto muito pequeno no colesterol sanguíneo da maioria das pessoas. Estudos mostram que o consumo adequado pode até melhorar a funcionalidade do colesterol HDL (o "bom" colesterol) e modular as partículas de LDL de forma menos prejudicial.</p>
                 </div>
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Ovo cozido aumenta o colesterol?</h3>
-                  <p className="text-slate-600 m-0 leading-relaxed">O colesterol dietético presente no ovo tem um impacto muito pequeno no colesterol sanguíneo da maioria das pessoas. Estudos mostram que o consumo adequado pode até melhorar a funcionalidade do colesterol HDL (o "bom" colesterol) e modular as partículas de LDL de forma menos prejudicial.</p>
+                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Quem tem colesterol alto pode comer ovo?</h3>
+                  <p className="text-slate-600 m-0 leading-relaxed">Sim, na maioria dos casos, desde que inserido em uma dieta baseada nas recomendações nutricionais. Estudos demonstram que o ovo melhora a funcionalidade do colesterol HDL e modula o LDL, sendo seguro quando inserido em uma matriz alimentar equilibrada.</p>
                 </div>
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Comer ovo todo dia faz mal?</h3>
-                  <p className="text-slate-600 m-0 leading-relaxed">Não. Para indivíduos saudáveis ou com uma alimentação equilibrada, o consumo diário de ovos não causa malefícios ao perfil lipídico e, pelo contrário, oferece um aporte nutritivo denso e benefícios antioxidantes.</p>
+                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Quantos ovos por dia faz mal à saúde?</h3>
+                  <p className="text-slate-600 m-0 leading-relaxed">Não há uma resposta única, mas a literatura científica aponta que a ingestão de 1 a 3 ovos inteiros por dia é totalmente segura para indivíduos saudáveis, oferecendo um aporte nutritivo denso e benefícios antioxidantes, sem malefícios ao perfil lipídico.</p>
                 </div>
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Quantos ovos posso comer por dia?</h3>
-                  <p className="text-slate-600 m-0 leading-relaxed">A literatura científica aponta que a ingestão de 1 a 3 ovos inteiros por dia é segura e traz benefícios cardiovasculares e antioxidantes. Contudo, a prescrição dietética exata deve sempre respeitar a individualidade bioquímica e o ajuste de macronutrientes do paciente.</p>
+                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Ovo aumenta o LDL?</h3>
+                  <p className="text-slate-600 m-0 leading-relaxed">O consumo de ovos pode aumentar levemente o colesterol LDL grandes. No entanto, essa leve alteração não aumenta o risco cardiovascular, pois essas moléculas volumosas têm dificuldade de penetrar nas artérias e causar aterosclerose.</p>
                 </div>
               </div>
             </div>
