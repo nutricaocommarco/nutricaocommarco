@@ -233,6 +233,21 @@ export default function OvoColesterol() {
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
             <p>O ovo de galinha é o produto de origem animal mais consumido no mundo todo, apresentando um preço acessível, fácil preparação e um perfil nutricional espetacular. Após o leite materno, ele é considerado o alimento mais completo da natureza, sendo formado pela clara (rica em água e proteínas) e pela gema (rica em lipídios, vitaminas e minerais).</p>
 
+            {/* IMAGEM DE CAPA */}
+            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
+              <img 
+                src={`${githubImgBase}Blog/ovoecolesterol.jpg`} 
+                alt="Imagem ilustrativa de ovos destacando sua composição nutricional e a relação com o colesterol." 
+                title="Benefícios do Ovo e Colesterol"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+              />
+              <div className="bg-green-50 p-4 text-center">
+                <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
+                  Estudos modernos comprovam que o consumo de ovos é seguro e traz diversos benefícios cardiovasculares.
+                </p>
+              </div>
+            </div>
+            
             <h2 id="beneficios" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Heart className="text-green-600"/> Benefícios do ovo para a saúde
             </h2>
