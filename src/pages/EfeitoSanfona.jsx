@@ -86,7 +86,7 @@ export default function EfeitoSanfona() {
         </Link>
 
         <article className="prose prose-lg max-w-none text-left">
-          <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Fisiopatologia e Metabolismo</span>
+          <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Fisiologia e Metabolismo</span>
 
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
             Efeito Sanfona e a Inflamação Invisível: Por que o reganho de peso é tão perigoso?
