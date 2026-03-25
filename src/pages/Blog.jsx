@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Clock } from 'lucide-react';
+import { ChevronRight, Clock, Filter, Tag as TagIcon } from 'lucide-react';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -9,10 +9,9 @@ const postsData = [
     id: 12,
     link: "/retatrutida_o_que_e",
     imgSrc: `${githubImgBase}Blog/retatrutida_molecula.jpg`,
-    tag: "Tratamento Metabólico",
+    tag: "Tratamento Farmacológico",
     title: "Retatrutida o que é? A nova fronteira da ciência",
-    desc: "Descubra o que é a retatrutida, o novo medicamento agonista triplo e seus resultados impressionantes na perda de peso.",
-    isNew: true
+    desc: "Descubra o que é a retatrutida, o novo medicamento agonista triplo e seus resultados impressionantes na perda de peso."
   },
   {
     id: 11,
@@ -26,7 +25,7 @@ const postsData = [
     id: 10,
     link: "/qual_melhor_horario_para_se_pesar",
     imgSrc: `${githubImgBase}Blog/melhor_horario_pesagem.jpg`,
-    tag: "Avaliação e Medidas",
+    tag: "Composição Corporal",
     title: "Qual o melhor horário para se pesar?",
     desc: "Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite. Peso na balança não é igual a gordura corporal."
   },
@@ -50,7 +49,7 @@ const postsData = [
     id: 7,
     link: "/por_que_o_feijao_da_gases",
     imgSrc: `${githubImgBase}Blog/feijao.jpg`,
-    tag: "Saúde Intestinal",
+    tag: "Nutrição Clínica",
     title: "Por que o feijão dá gases e como evitar de vez",
     desc: "Descubra por que o feijão causa gases, quais alimentos fermentam no intestino e veja dicas práticas para melhorar sua digestão."
   },
@@ -58,7 +57,7 @@ const postsData = [
     id: 6,
     link: "/o_dilema_do_sangue_na_altitude",
     imgSrc: `${githubImgBase}Blog/eritropoietina.jpg`,
-    tag: "Fisiologia do Esporte",
+    tag: "Nutrição Esportiva",
     title: "O Dilema do Sangue na Altitude",
     desc: "Como o hormônio eritropoetina e a transfusão de hemácias afetam a biologia do atleta e a ética no esporte."
   },
@@ -66,7 +65,7 @@ const postsData = [
     id: 5,
     link: "/efeito_sanfona_inflamacao_invisivel",
     imgSrc: `${githubImgBase}Blog/efeito_sanfona.jpg`,
-    tag: "Fisiopatologia",
+    tag: "Fisiologia e Metabolismo",
     title: "O Efeito Sanfona e a Inflamação Invisível",
     desc: "Por que o reganho de peso é tão perigoso e como a memória das suas células de gordura dificulta o emagrecimento real."
   },
@@ -74,7 +73,7 @@ const postsData = [
     id: 4,
     link: "/quantas_frutas_posso_comer",
     imgSrc: `${githubImgBase}Blog/frutose_bananas.jpg`,
-    tag: "Metabolismo",
+    tag: "Fisiologia e Metabolismo",
     title: "Quantas frutas posso comer por dia?",
     desc: "Entenda o metabolismo da frutose, a diferença entre o açúcar natural e o refinado, e descubra a verdade sobre a fruta e a gordura no fígado."
   },
@@ -82,7 +81,7 @@ const postsData = [
     id: 3,
     link: "/vitamina_a_para_que_serve",
     imgSrc: `${githubImgBase}Blog/vitamina_a.jpg`,
-    tag: "Metabolismo",
+    tag: "Fisiologia e Metabolismo",
     title: "Vitamina A para que serve?",
     desc: "Entenda as diferenças entre retinol, retinal e ácido retinóico, e descubra como a Vitamina A atua no seu metabolismo muito além da visão."
   },
@@ -90,7 +89,7 @@ const postsData = [
     id: 2,
     link: "/o_que_e_antropometria",
     imgSrc: `${githubImgBase}Blog/O_que_e_antropometria.png`,
-    tag: "Educação Científica",
+    tag: "Composição Corporal",
     title: "O que é Antropometria?",
     desc: "A Antropometria é uma ciência fundamental que estuda as proporções do corpo humano..."
   },
@@ -98,38 +97,46 @@ const postsData = [
     id: 1,
     link: "/a_balanca_de_bioimpedancia_e_confiavel",
     imgSrc: `${githubImgBase}Blog/Bia1.jpg`,
-    tag: "Tecnologia e Medida",
+    tag: "Composição Corporal",
     title: "A balança de bioimpedância é confiável?",
     desc: "Entenda se a balança de bioimpedância é confiável e os fatores que alteram o resultado."
   }
 ];
 
+// Lista única de tags baseada nos posts + opção "Todas"
+const categories = ["Todas", ...new Set(postsData.map(post => post.tag))];
+
 export default function Blog() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedTag, setSelectedTag] = useState("Todas");
   const postsPerPage = 9;
+
+  // Filtragem dos posts
+  const filteredPosts = selectedTag === "Todas" 
+    ? postsData 
+    : postsData.filter(post => post.tag === selectedTag);
+
+  // Resetar página quando o filtro mudar
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedTag]);
 
   // Efeito para rolar suavemente para o topo quando a página mudar
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentPage]);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = postsData.slice(indexOfFirstPost, indexOfLastPost);
-  const totalPages = Math.ceil(postsData.length / postsPerPage);
+  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
   const nextPage = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));
   const prevPage = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
   const goToPage = (pageNumber) => setCurrentPage(pageNumber);
 
-  // Componente interno para renderizar a paginação sem repetir código
   const PaginationControls = () => {
     if (totalPages <= 1) return null;
-
-    // Cria um array com os números das páginas (ex: [1, 2, 3])
     const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
     return (
@@ -141,23 +148,17 @@ export default function Blog() {
         >
           Anterior
         </button>
-        
         <div className="flex gap-2">
           {pageNumbers.map((number) => (
             <button
               key={number}
               onClick={() => goToPage(number)}
-              className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full font-bold text-sm transition-all flex items-center justify-center ${
-                currentPage === number 
-                  ? 'bg-green-600 text-white shadow-lg scale-110' 
-                  : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-green-600'
-              }`}
+              className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full font-bold text-sm transition-all flex items-center justify-center ${currentPage === number ? 'bg-green-600 text-white shadow-lg scale-110' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-green-600'}`}
             >
               {number}
             </button>
           ))}
         </div>
-        
         <button 
           onClick={nextPage} 
           disabled={currentPage === totalPages}
@@ -174,7 +175,22 @@ export default function Blog() {
       <h1 className="text-5xl md:text-8xl font-black text-white italic titulo-vazado uppercase mb-4 text-center">Blog</h1>
       <p className="text-slate-500 font-bold uppercase text-center mb-8 tracking-widest">Nutrição baseada em evidência científica</p>
 
-      {/* Navegação no Topo */}
+      {/* Menu Dropdown Superior (Discreto) */}
+      <div className="flex justify-center mb-12">
+        <div className="relative inline-flex items-center">
+          <Filter size={14} className="absolute left-3 text-green-600 pointer-events-none" />
+          <select 
+            value={selectedTag}
+            onChange={(e) => setSelectedTag(e.target.value)}
+            className="appearance-none bg-white border border-slate-200 text-slate-600 py-2 pl-9 pr-8 rounded-full text-[10px] font-black uppercase tracking-widest cursor-pointer hover:border-green-300 transition-colors focus:outline-none shadow-sm"
+          >
+            {categories.map(cat => (
+              <option key={cat} value={cat}>{cat}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+
       <PaginationControls />
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -189,7 +205,7 @@ export default function Blog() {
             </div>
             <div className="p-8 flex flex-col flex-grow">
               <div className="flex items-center gap-3 mb-4">
-                <span className={`text-xs font-black px-3 py-1 rounded-full uppercase tracking-widest ${post.isNew ? 'bg-green-100 text-green-700' : 'bg-green-50 text-green-600'}`}>
+                <span className={`text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest ${post.isNew ? 'bg-green-100 text-green-700' : 'bg-green-50 text-green-600'}`}>
                   {post.tag}
                 </span>
               </div>
@@ -207,9 +223,27 @@ export default function Blog() {
         ))}
       </div>
 
-      {/* Navegação no Fim */}
-      <PaginationControls />
+      {/* Tags Inferiores para Filtro Rápido */}
+      <div className="mt-20 mb-4 flex flex-wrap justify-center gap-2 border-t border-slate-100 pt-10">
+        <div className="w-full mb-4 flex items-center justify-center gap-2 text-slate-400 font-black uppercase text-[10px] tracking-widest">
+           <TagIcon size={12} /> Explorar por tema
+        </div>
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setSelectedTag(cat)}
+            className={`px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${
+              selectedTag === cat 
+                ? 'bg-green-600 text-white shadow-md' 
+                : 'bg-white text-slate-500 border border-slate-200 hover:text-green-600 hover:border-green-200'
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
 
+      <PaginationControls />
     </section>
   );
 }
