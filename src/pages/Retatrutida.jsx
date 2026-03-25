@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, PlayCircle, Headphones, ChevronRight, Activity, Leaf, Scale, Heart, AlertTriangle, FileText } from 'lucide-react';
+import { ChevronLeft, HelpCircle, PlayCircle, Headphones, ChevronRight, Activity, Leaf, Scale, Heart, AlertTriangle, FileText, Zap } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
@@ -263,23 +263,43 @@ export default function RetatrutidaOQueE() {
             <h2 id="mecanismo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Leaf className="text-green-600"/> O Mecanismo de Ação: O Poder do Agonista Triplo
             </h2>
-            <p>O grande diferencial da retatrutida reside na sua incrível capacidade multitarefa no corpo humano. Ela funciona como um agonista triplo, o que significa que se liga e ativa simultaneamente os receptores de três hormônios fundamentais: o GIP, o GLP-1 e o glucagon.</p>
+            
+            <p>O grande diferencial da retatrutida reside na sua incrível capacidade multitarefa no corpo humano. Mas o que exatamente isso significa? Na farmacologia, um <strong>agonista</strong> é uma substância capaz de se ligar a um receptor da célula (como uma chave em uma fechadura) e ativar uma resposta biológica. Um <strong>agonista triplo</strong> é uma única molécula, criada em laboratório, capaz de ativar três "fechaduras" diferentes ao mesmo tempo.</p>
+
+            
+
+            <p>A retatrutida age como um maestro, conduzindo simultaneamente as vias dos hormônios GLP-1, GIP e Glucagon. Veja como cada um deles trabalha no seu corpo:</p>
+
+            <div className="flex flex-col gap-6 my-8">
+              <div className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-16 h-16 bg-blue-100 text-blue-700 rounded-2xl flex items-center justify-center shrink-0 font-black text-2xl shadow-inner">1</div>
+                <div>
+                  <h3 className="text-xl font-black text-slate-800 mb-2">GLP-1 (Foco na Saciedade)</h3>
+                  <p className="m-0 text-slate-600 leading-relaxed">Age predominantemente no sistema nervoso central (hipotálamo), sinalizando ao cérebro que você já está satisfeito. Além disso, retarda o esvaziamento do estômago (o que mantém a comida lá por mais tempo) e estimula o pâncreas a liberar insulina de forma inteligente quando você come carboidratos.</p>
+                </div>
+              </div>
+
+              <div className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-16 h-16 bg-purple-100 text-purple-700 rounded-2xl flex items-center justify-center shrink-0 font-black text-2xl shadow-inner">2</div>
+                <div>
+                  <h3 className="text-xl font-black text-slate-800 mb-2">GIP (Foco no Metabolismo)</h3>
+                  <p className="m-0 text-slate-600 leading-relaxed">Trabalha em forte sinergia com o GLP-1. Ele atua no tecido adiposo (gordura) melhorando a sensibilidade à insulina e a captação de glicose. Um bônus gigantesco do GIP é que ele atua no cérebro "acalmando" o centro de náuseas, permitindo que os pacientes tolerem doses mais altas e potentes da medicação sem passarem mal.</p>
+                </div>
+              </div>
+
+              <div className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-16 h-16 bg-orange-100 text-orange-700 rounded-2xl flex items-center justify-center shrink-0 font-black text-2xl shadow-inner">3</div>
+                <div>
+                  <h3 className="text-xl font-black text-slate-800 mb-2">Glucagon (Foco na Queima)</h3>
+                  <p className="m-0 text-slate-600 leading-relaxed">É a "peça que faltava". O Glucagon aumenta a termogênese (gasto de energia do corpo mesmo em repouso) e promove ativamente a lipólise (quebra de gordura), com um foco especial em limpar a gordura acumulada no fígado (esteatose hepática).</p>
+                </div>
+              </div>
+            </div>
 
             {/* QUADRO DE DESTAQUE */}
             <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
               "A ciência deixou de atuar em vias hormonais isoladas para criar sinfonias metabólicas que reprogramam a resposta do corpo à obesidade."
             </div>
-
-            {/* BLOCO CITÁVEL (OTIMIZADO PARA IA E SEO) */}
-            <div className="my-8 p-6 md:p-8 bg-white border-l-4 border-green-600 shadow-md rounded-r-3xl flex flex-col gap-3 text-left">
-              <h3 className="text-xl font-black text-slate-800 m-0 border-b border-slate-100 pb-3 flex items-center gap-2">
-                <span className="text-green-600 text-2xl leading-none">👉</span> Como os três hormônios agem juntos?
-              </h3>
-              <p className="m-0 text-slate-600 font-medium leading-relaxed">
-                Enquanto o GLP-1 e o GIP possuem papéis amplamente reconhecidos em aumentar a sensação de saciedade e retardar o esvaziamento do estômago, a adição do glucagon cria uma sinergia única. O glucagon potencializa o gasto energético do paciente e promove uma oxidação de gorduras mais acelerada.
-              </p>
-            </div>
-            {/* FIM DO BLOCO CITÁVEL */}
 
             <h2 id="resultados" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Scale className="text-green-600"/> Resultados Clínicos Impressionantes (Estudo TRIUMPH-1)
@@ -420,13 +440,11 @@ export default function RetatrutidaOQueE() {
             </div>
             {/* FIM DA NOVA SEÇÃO: FASES DE APROVAÇÃO */}
 
-            {/* INÍCIO DA NOVA SEÇÃO: TABELA COMPARATIVA */}
+            {/* INÍCIO DA NOVA SEÇÃO: TABELA COMPARATIVA E COMPARAÇÕES */}
             <h2 id="comparativo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Scale className="text-green-600"/> Comparativo Épico: A Evolução da Perda de Peso
             </h2>
-            <p>A Retatrutida não surgiu do nada; ela é o ápice de décadas de evolução na compreensão dos hormônios incretínicos. Para analisar o impacto metabólico real (se quiser aprofundar, veja nosso artigo sobre <Link to="/o_que_e_antropometria" className="font-bold underline text-green-700 hover:text-green-800 transition-colors">o que é antropometria</Link>), precisamos comparar o que já existe no mercado com essa nova promessa, além do tratamento padrão ouro, o Bypass Gástrico.</p>
-
-            <p>Abaixo, apresentamos uma tabela comparativa detalhada dos principais fármacos e do procedimento cirúrgico utilizados no tratamento da obesidade, focando na sua eficácia clínica.</p>
+            <p>A Retatrutida não surgiu do nada; ela é o ápice de décadas de evolução na compreensão dos hormônios incretínicos. Para analisar o impacto metabólico real, precisamos comparar o que já existe no mercado com essa nova promessa, além do tratamento padrão ouro cirúrgico.</p>
 
             {/* TABELA COMPARATIVA (DESKTOP) - HIDDEN ON MOBILE */}
             <div className="my-10 bg-white border border-slate-100 shadow-2xl rounded-[3rem] overflow-hidden hidden md:block">
@@ -471,7 +489,6 @@ export default function RetatrutidaOQueE() {
                 </div>
               ))}
             </div>
-            {/* FIM DA TABELA COMPARATIVA (DESKTOP) */}
 
             {/* CARDS COMPARATIVOS (MOBILE) - HIDDEN ON DESKTOP */}
             <div className="space-y-6 md:hidden my-10">
@@ -500,8 +517,32 @@ export default function RetatrutidaOQueE() {
                 </div>
               ))}
             </div>
-            {/* FIM DOS CARDS COMPARATIVOS (MOBILE) */}
-            {/* FIM DA NOVA SEÇÃO: TABELA COMPARATIVA */}
+
+            {/* SEÇÃO DE COMPARAÇÃO DIRETA */}
+            <div className="my-12 bg-slate-50 p-8 md:p-10 rounded-[3rem] border border-slate-200">
+              <h3 className="text-2xl font-black text-slate-800 uppercase italic mb-6 border-b border-slate-200 pb-3 flex items-center gap-3">
+                <Zap className="text-orange-500" /> Entendendo as Diferenças na Prática
+              </h3>
+              
+              <div className="space-y-8">
+                <div>
+                  <h4 className="text-xl font-bold text-slate-900 mb-2">Retatrutida vs. Semaglutida (Ozempic/Wegovy)</h4>
+                  <p className="text-slate-600 leading-relaxed">
+                    A semaglutida é um <strong>agonista único</strong> (atua apenas no GLP-1), focando quase que inteiramente na saciedade e redução da fome. Embora seja muito eficaz (perda de peso de 15% a 18%), ela não atua ativamente para aumentar o gasto energético do corpo. A retatrutida, por possuir o glucagon, não só tira a fome como "acelera" a queima de gordura, resultando em uma perda de peso quase 10% superior.
+                  </p>
+                </div>
+                
+                <div className="h-px bg-slate-200 w-full"></div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-slate-900 mb-2">Retatrutida vs. Tirzepatida (Mounjaro/Zepbound)</h4>
+                  <p className="text-slate-600 leading-relaxed">
+                    A tirzepatida foi o primeiro passo dessa evolução, atuando como um <strong>agonista duplo</strong> (GLP-1 e GIP). Ela já consegue perdas em torno de 21% a 22,5%. A principal diferença para a retatrutida é a adição da terceira via, o <strong>Glucagon</strong>. Essa "peça extra" da retatrutida ataca agressivamente a gordura armazenada no fígado e eleva o metabolismo basal, encostando a eficácia em cerca de 24,2%, muito próximo aos resultados de um Bypass Gástrico cirúrgico.
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* FIM DA NOVA SEÇÃO: TABELA COMPARATIVA E COMPARAÇÕES */}
 
             <h2 id="nutricao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Heart className="text-green-600"/> O Pilar Insubstituível da Nutrição
