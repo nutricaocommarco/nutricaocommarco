@@ -191,7 +191,7 @@ export default function App() {
             <Route path="/confirmacao-pendente" element={<ConfirmacaoPendente />} />
             <Route path="/inscricao-confirmada" element={<InscricaoConfirmada />} />
             <Route path="/retatrutida_o_que_e" element={<RetatrutidaOQueE />} />
-            <Route path="/ovo_e_colesterol" element={<OvoColesterol />} />
+            <Route path="/comer-ovo-todo-dia-aumenta-o-colesterol" element={<OvoColesterol />} />
           </Routes>
         </Layout>
       </Router>
