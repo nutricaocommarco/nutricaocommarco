@@ -1,11 +1,58 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, PlayCircle, Headphones, ChevronRight, Activity, Leaf, Scale, Heart } from 'lucide-react';
+import { ChevronLeft, HelpCircle, PlayCircle, Headphones, ChevronRight, Activity, Leaf, Scale, Heart, AlertTriangle, FileText } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+
+// Dados comparativos extraídos do PDF "Caso-Clinico-Analogos..."
+const comparativoFarmacos = [
+  { 
+    id: 1, 
+    molecula: "Retatrutida", 
+    mecanismo: "Agonista Triplo (GIP / GLP-1 / Glucagon)", 
+    frequencia: "Semanal (Subcutânea)", 
+    perdaPeso: "~24,2% (48 semanas)", 
+    fase: "Fase 3 (Em testes finais)", 
+    cor: "bg-green-600", 
+    textColor: "text-white" 
+  },
+  { 
+    id: 2, 
+    molecula: "Tirzepatida", 
+    nomeComercial: "Mounjaro / Zepbound", 
+    mecanismo: "Agonista Duplo (GIP / GLP-1)", 
+    frequencia: "Semanal (Subcutânea)", 
+    perdaPeso: "~21% a 22,5% (Estudos SURMOUNT)", 
+    fase: "Aprovado e Comercializado", 
+    cor: "bg-slate-100", 
+    textColor: "text-slate-800" 
+  },
+  { 
+    id: 3, 
+    molecula: "Semaglutida", 
+    nomeComercial: "Wegovy / Ozempic", 
+    mecanismo: "Agonista Unico (GLP-1)", 
+    frequencia: "Semanal (Subcutânea)", 
+    perdaPeso: "~15% a 18% (Estudos STEP)", 
+    fase: "Aprovado e Comercializado", 
+    cor: "bg-slate-100", 
+    textColor: "text-slate-800" 
+  },
+  { 
+    id: 4, 
+    molecula: "Liraglutida", 
+    nomeComercial: "Saxenda / Victoza", 
+    mecanismo: "Agonista Unico (GLP-1)", 
+    frequencia: "Diária (Subcutânea)", 
+    perdaPeso: "~8% (Estudo SCALE)", 
+    fase: "Aprovado e Comercializado", 
+    cor: "bg-slate-100", 
+    textColor: "text-slate-800" 
+  },
+];
 
 export default function RetatrutidaOQueE() {
   const { pathname } = useLocation();
@@ -19,11 +66,11 @@ export default function RetatrutidaOQueE() {
     <>
       <Helmet>
         <title>Retatrutida o que é? A nova fronteira da ciência | Nutrição com Marco</title>
-        <meta name="description" content="Descubra o que é a retatrutida, o novo medicamento agonista triplo (GLP-1, GIP e Glucagon) e seus resultados impressionantes na perda de peso." />
+        <meta name="description" content="Descubra o que é a retatrutida, o novo medicamento agonista triplo (GLP-1, GIP e Glucagon) e seus resultados impressionantes na perda de peso. Entenda em que fase de aprovação ela está." />
 
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Retatrutida o que é? A nova fronteira da ciência | Nutrição com Marco" />
-        <meta property="og:description" content="Descubra o que é a retatrutida, o novo medicamento agonista triplo e seus resultados impressionantes na perda de peso." />
+        <meta property="og:description" content="Descubra o que é a retatrutida, o novo medicamento agonista triplo e seus resultados impressionantes na perda de peso. Entenda em que fase de aprovação ela está." />
         <meta property="og:image" content={`${githubImgBase}Blog/retatrutida_molecula.jpg`} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
@@ -65,10 +112,10 @@ export default function RetatrutidaOQueE() {
               },
               {
                 "@type": "Question",
-                "name": "Como o medicamento retatrutida é administrado?",
+                "name": "Em que fase de aprovação está a Retatrutida?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "O tratamento é feito por meio de injeção subcutânea semanal, com doses que variam progressivamente de 1 mg a 12 mg para gerenciar a adaptação do corpo."
+                  "text": "A Retatrutida concluiu com sucesso os testes de Fase 2 (mostrando eficácia) e atualmente está na Fase 3 dos testes clínicos. Esta é a fase final e crucial de testes em grande escala antes da submissão para registro e aprovação por órgãos como a ANVISA."
                 }
               }
             ]
@@ -157,9 +204,15 @@ export default function RetatrutidaOQueE() {
                     </a>
                   </li>
                   <li>
-                    <a href="#nutricao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
-                      <Heart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
-                      O Pilar Nutricional
+                    <a href="#aprovacao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Fases de Aprovação
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#comparativo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Comparativo de Fármacos
                     </a>
                   </li>
                   <li>
@@ -190,7 +243,9 @@ export default function RetatrutidaOQueE() {
 
             <p>Compreender o que é a retatrutida e como ela interage com a nossa complexa fisiologia é essencial para entender por que essa substância representa um avanço tão significativo, oferecendo uma eficácia de perda de peso que supera as terapias lançadas anteriormente no mercado.</p>
 
-            <h2 id="mecanismo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">O Mecanismo de Ação: O Poder do Agonista Triplo</h2>
+            <h2 id="mecanismo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Leaf className="text-green-600"/> O Mecanismo de Ação: O Poder do Agonista Triplo
+            </h2>
             <p>O grande diferencial da retatrutida reside na sua incrível capacidade multitarefa no corpo humano. Ela funciona como um agonista triplo, o que significa que se liga e ativa simultaneamente os receptores de três hormônios fundamentais: o GIP, o GLP-1 e o glucagon.</p>
 
             {/* QUADRO DE DESTAQUE */}
@@ -209,13 +264,15 @@ export default function RetatrutidaOQueE() {
             </div>
             {/* FIM DO BLOCO CITÁVEL */}
 
-            <h2 id="resultados" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Resultados Clínicos Impressionantes</h2>
+            <h2 id="resultados" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Scale className="text-green-600"/> Resultados Clínicos Impressionantes (Estudo TRIUMPH-1)
+            </h2>
             <p>Os dados que sustentam a empolgação da comunidade científica são extremamente robustos. Durante a Fase 2 dos testes clínicos, batizada de estudo TRIUMPH-1, a eficácia do medicamento foi colocada à prova com resultados excepcionais.</p>
 
             {/* PRIMEIRA LISTA OBJETIVA */}
             <div className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left">
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
-                O que o estudo TRIUMPH-1 revelou?
+                Principais resultados da Fase 2:
               </h2>
               <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
                 <li className="text-slate-700 font-bold text-lg pl-1">
@@ -234,7 +291,178 @@ export default function RetatrutidaOQueE() {
             </div>
             {/* FIM DA PRIMEIRA LISTA OBJETIVA */}
 
-            <h2 id="nutricao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">O Pilar Insubstituível da Nutrição</h2>
+            {/* INÍCIO DA NOVA SEÇÃO: FASES DE APROVAÇÃO */}
+            <h2 id="aprovacao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <FileText className="text-green-600"/> A Jornada Científica: Como um Medicamento é Aprovado
+            </h2>
+            <p>Muitos pacientes perguntam: "Quando a Retatrutida estará disponível?". Para entender a resposta, precisamos compreender o rigoroso processo de Pesquisa e Desenvolvimento (P&D) pelo qual todo novo fármaco deve passar antes de chegar às farmácias.</p>
+            
+            <p>Esse processo é dividido em fases fundamentais, garantindo a segurança e a eficácia da substância:</p>
+
+            <div className="my-10 bg-white border border-slate-100 shadow-xl rounded-[2rem] overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-5 text-center font-black uppercase tracking-widest text-xs border-b border-slate-100">
+                <div className="p-5 bg-slate-50 text-slate-500 border-r border-slate-100">Fase</div>
+                <div className="p-5 bg-slate-50 text-slate-500 border-r border-slate-100 md:col-span-2">Objetivo e Escala</div>
+                <div className="p-5 bg-slate-50 text-slate-500 md:col-span-2">Em que pé estamos?</div>
+              </div>
+              
+              {/* Pré-Clínica */}
+              <div className="grid grid-cols-1 md:grid-cols-5 items-center border-b border-slate-100 last:border-b-0 hover:bg-slate-50 transition-colors">
+                <div className="p-6 md:p-8 font-black text-lg text-slate-900 border-r border-slate-100 text-center">Pré-Clínica</div>
+                <div className="p-6 md:p-8 md:col-span-2 border-r border-slate-100">
+                  <p className="m-0 text-sm font-medium text-slate-600">Testes em laboratório (in vitro) e em animais. Avalia a <strong>segurança inicial</strong> e o potencial terapêutico.</p>
+                </div>
+                <div className="p-6 md:p-8 md:col-span-2 flex items-center gap-3">
+                  <div className="p-2.5 rounded-full bg-green-100 text-green-700 shrink-0"><Activity size={18} /></div>
+                  <span className="text-sm font-bold text-green-700">Concluída com sucesso.</span>
+                </div>
+              </div>
+
+              {/* Fase 1 */}
+              <div className="grid grid-cols-1 md:grid-cols-5 items-center border-b border-slate-100 last:border-b-0 hover:bg-slate-50 transition-colors">
+                <div className="p-6 md:p-8 font-black text-lg text-slate-900 border-r border-slate-100 text-center">Fase 1</div>
+                <div className="p-6 md:p-8 md:col-span-2 border-r border-slate-100">
+                  <p className="m-0 text-sm font-medium text-slate-600">Pequeno grupo de voluntários saudáveis (20-100). Foco total na <strong>segurança</strong>, dosagem e como o corpo processa o fármaco (farmacocinética).</p>
+                </div>
+                <div className="p-6 md:p-8 md:col-span-2 flex items-center gap-3">
+                  <div className="p-2.5 rounded-full bg-green-100 text-green-700 shrink-0"><Activity size={18} /></div>
+                  <span className="text-sm font-bold text-green-700">Concluída com sucesso.</span>
+                </div>
+              </div>
+
+              {/* Fase 2 */}
+              <div className="grid grid-cols-1 md:grid-cols-5 items-center border-b border-slate-100 last:border-b-0 hover:bg-slate-50 transition-colors">
+                <div className="p-6 md:p-8 font-black text-lg text-slate-900 border-r border-slate-100 text-center">Fase 2</div>
+                <div className="p-6 md:p-8 md:col-span-2 border-r border-slate-100">
+                  <p className="m-0 text-sm font-medium text-slate-600">Grupo maior de pacientes com a condição (100-500). Avalia a <strong>eficácia preliminar</strong> e a segurança a curto prazo.</p>
+                </div>
+                <div className="p-6 md:p-8 md:col-span-2 flex items-center gap-3">
+                  <div className="p-2.5 rounded-full bg-green-100 text-green-700 shrink-0"><Activity size={18} /></div>
+                  <span className="text-sm font-bold text-green-700">Concluída (Estudo TRIUMPH-1). Mostrou eficácia impressionante.</span>
+                </div>
+              </div>
+
+              {/* Fase 3 */}
+              <div className="grid grid-cols-1 md:grid-cols-5 items-center bg-green-50 last:border-b-0">
+                <div className="p-6 md:p-8 font-black text-lg text-slate-900 border-r border-green-100 text-center">Fase 3</div>
+                <div className="p-6 md:p-8 md:col-span-2 border-r border-green-100">
+                  <p className="m-0 text-sm font-medium text-slate-600">Grande escala (1000-5000+ pacientes). <strong>Confirma a eficácia</strong>, monitora reações adversas e compara com placebos ou tratamentos padrão. Fase necessária para o registro.</p>
+                </div>
+                <div className="p-6 md:p-8 md:col-span-2 flex items-center gap-3">
+                  <div className="p-2.5 rounded-full bg-green-600 text-white shrink-0"><PlayCircle size={18} /></div>
+                  <span className="text-sm font-bold text-green-800">ATUAL: A Retatrutida está realizando estes testes cruciais em grande escala.</span>
+                </div>
+              </div>
+
+              {/* Registro */}
+              <div className="grid grid-cols-1 md:grid-cols-5 items-center border-b border-slate-100 last:border-b-0 hover:bg-slate-50 transition-colors">
+                <div className="p-6 md:p-8 font-black text-lg text-slate-900 border-r border-slate-100 text-center">Registro</div>
+                <div className="p-6 md:p-8 md:col-span-2 border-r border-slate-100">
+                  <p className="m-0 text-sm font-medium text-slate-600">Submissão dos dados de todas as fases anteriores para agências reguladoras (como ANVISA no Brasil e FDA nos EUA).</p>
+                </div>
+                <div className="p-6 md:p-8 md:col-span-2 flex items-center gap-3">
+                  <div className="p-2.5 rounded-full bg-slate-100 text-slate-400 shrink-0"><Activity size={18} /></div>
+                  <span className="text-sm font-bold text-slate-500">Próximo passo após a Fase 3.</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="my-8 p-6 md:p-8 bg-white border border-green-100 rounded-3xl shadow-sm flex flex-col gap-3 text-left">
+              <h3 className="text-xl font-black text-slate-800 m-0 border-b border-slate-100 pb-3 flex items-center gap-2">
+                <span className="text-green-600 text-2xl leading-none">✅</span> Onde está a Retatrutida?
+              </h3>
+              <p className="m-0 text-slate-600 font-medium leading-relaxed">
+                Baseado nos manuais de Pesquisa Clínica, a Retatrutida concluiu com sucesso a Fase 2 (TRIUMPH-1). No momento da escrita deste artigo, ela encontra-se na <strong>Fase 3 dos testes clínicos</strong>, que é a etapa final e confirmatória em grande escala necessária para que os dados sejam robustos o suficiente para a submissão de registro e futura comercialização.
+              </p>
+            </div>
+            {/* FIM DA NOVA SEÇÃO: FASES DE APROVAÇÃO */}
+
+            {/* INÍCIO DA NOVA SEÇÃO: TABELA COMPARATIVA */}
+            <h2 id="comparativo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Scale className="text-green-600"/> Comparativo Épico: A Evolução da Perda de Peso
+            </h2>
+            <p>A Retatrutida não surgiu do nada; ela é o ápice de décadas de evolução na compreensão dos hormônios incretínicos. Para analisar o impacto metabólico real (se quiser aprofundar, veja nosso artigo sobre <Link to="/o_que_e_antropometria" className="font-bold underline text-green-700 hover:text-green-800 transition-colors">o que é antropometria</Link>), precisamos comparar o que já existe no mercado com essa nova promessa.</p>
+            
+            <p>Abaixo, apresentamos uma tabela comparativa detalhada dos principais fármacos (análogos) utilizados no tratamento metabólico e obesidade, focando na sua eficácia clínica.</p>
+
+            {/* TABELA COMPARATIVA (DESKTOP) - HIDDEN ON MOBILE */}
+            <div className="my-10 bg-white border border-slate-100 shadow-2xl rounded-[3rem] overflow-hidden hidden md:block">
+              <div className="grid grid-cols-5 text-center font-black uppercase tracking-widest text-[10px] border-b border-slate-100">
+                <div className="p-5 bg-slate-50 text-slate-500 border-r border-slate-100">Molécula</div>
+                <div className="p-5 bg-slate-50 text-slate-500 border-r border-slate-100 col-span-2">Mecanismo e Frequência</div>
+                <div className="p-5 bg-slate-50 text-slate-500 border-r border-slate-100">Perda de Peso Média (%)</div>
+                <div className="p-5 bg-slate-50 text-slate-500">Status no Brasil</div>
+              </div>
+              
+              {comparativoFarmacos.map((farmaco) => (
+                <div key={farmaco.id} className={`grid grid-cols-5 items-center ${farmaco.cor === 'bg-green-600' ? 'bg-green-600 text-white' : 'hover:bg-slate-50' } transition-colors border-b border-slate-100 last:border-b-0`}>
+                  
+                  {/* Molécula */}
+                  <div className="p-6 border-r border-slate-100 text-center">
+                    <span className={`font-black text-xl italic uppercase ${farmaco.cor === 'bg-green-600' ? 'text-white' : 'text-slate-900' }`}>{farmaco.molecula}</span>
+                    {farmaco.nomeComercial && (
+                      <span className={`block text-xs font-bold mt-1 ${farmaco.cor === 'bg-green-600' ? 'text-green-100' : 'text-slate-500' }`}>({farmaco.nomeComercial})</span>
+                    )}
+                  </div>
+                  
+                  {/* Mecanismo e Frequência */}
+                  <div className="p-6 col-span-2 border-r border-slate-100 flex flex-col gap-2">
+                    <span className={`text-sm font-bold ${farmaco.cor === 'bg-green-600' ? 'text-green-50' : 'text-slate-700' }`}>{farmaco.mecanismo}</span>
+                    <span className={`text-xs font-medium ${farmaco.cor === 'bg-green-600' ? 'text-green-100' : 'text-slate-500' }`}>{farmaco.frequencia}</span>
+                  </div>
+                  
+                  {/* Perda Peso */}
+                  <div className="p-6 border-r border-slate-100 text-center">
+                    <span className={`font-black text-2xl ${farmaco.cor === 'bg-green-600' ? 'text-white' : 'text-green-700' }`}>{farmaco.perdaPeso}</span>
+                  </div>
+                  
+                  {/* Fase */}
+                  <div className="p-6 text-center">
+                    {farmaco.fase.includes('Aprovado') ? (
+                      <span className="bg-slate-100 text-slate-800 px-3 py-1.5 rounded-full text-[10px] font-black uppercase">Aprovado</span>
+                    ) : (
+                      <span className="bg-green-100 text-green-800 px-3 py-1.5 rounded-full text-[10px] font-black uppercase">Em Testes</span>
+                    )}
+                    <span className={`block text-[10px] font-bold mt-2 ${farmaco.cor === 'bg-green-600' ? 'text-green-100' : 'text-slate-500' }`}>{farmaco.fase}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* FIM DA TABELA COMPARATIVA (DESKTOP) */}
+
+            {/* CARDS COMPARATIVOS (MOBILE) - HIDDEN ON DESKTOP */}
+            <div className="space-y-6 md:hidden my-10">
+              {comparativoFarmacos.map((farmaco) => (
+                <div key={farmaco.id} className={`${farmaco.cor} ${farmaco.textColor} p-6 rounded-3xl shadow-lg border ${farmaco.cor === 'bg-green-600' ? 'border-green-500' : 'border-slate-100'}`}>
+                  <div className="flex justify-between items-center mb-4 border-b pb-3 gap-3">
+                    <div className="flex flex-col">
+                      <span className="font-black text-xl italic uppercase">{farmaco.molecula}</span>
+                      {farmaco.nomeComercial && (
+                        <span className={`text-xs font-bold ${farmaco.cor === 'bg-green-600' ? 'text-green-100' : 'text-slate-500' }`}>({farmaco.nomeComercial})</span>
+                      )}
+                    </div>
+                    {farmaco.fase.includes('Aprovado') ? (
+                      <span className="bg-slate-100 text-slate-800 px-3 py-1.5 rounded-full text-[10px] font-black uppercase shrink-0">Aprovado</span>
+                    ) : (
+                      <span className="bg-green-100 text-green-800 px-3 py-1.5 rounded-full text-[10px] font-black uppercase shrink-0">Em Testes</span>
+                    )}
+                  </div>
+                  
+                  <div className="space-y-3 font-medium text-sm">
+                    <p className="flex justify-between gap-3"><span className="font-bold opacity-80">Mecanismo:</span> <span className="text-right">{farmaco.mecanismo}</span></p>
+                    <p className="flex justify-between gap-3"><span className="font-bold opacity-80">Uso:</span> <span className="text-right">{farmaco.frequencia}</span></p>
+                    <p className="flex justify-between items-center gap-3"><span className="font-bold opacity-80">Perda de Peso Média:</span> <span className={`font-black text-xl ${farmaco.cor === 'bg-green-600' ? 'text-white' : 'text-green-700'}`}>{farmaco.perdaPeso}</span></p>
+                    <p className="flex justify-between gap-3"><span className="font-bold opacity-80">Status:</span> <span className={`text-right text-xs font-bold ${farmaco.cor === 'bg-green-600' ? 'text-green-100' : 'text-slate-500'}`}>{farmaco.fase}</span></p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* FIM DOS CARDS COMPARATIVOS (MOBILE) */}
+            {/* FIM DA NOVA SEÇÃO: TABELA COMPARATIVA */}
+
+            <h2 id="nutricao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Heart className="text-green-600"/> O Pilar Insubstituível da Nutrição
+            </h2>
             <p>Embora a chegada de inovações farmacológicas traga imensa esperança, é vital ressaltar que nenhuma caneta de injeção anula a necessidade de uma base comportamental sólida. O suporte nutricional rigoroso é indispensável para evitar o catabolismo muscular exagerado durante uma fase de perda de peso tão rápida e intensa.</p>
 
             {/* SEGUNDA LISTA OBJETIVA */}
@@ -269,8 +497,8 @@ export default function RetatrutidaOQueE() {
                   <p className="text-slate-600 m-0 leading-relaxed">De acordo com os dados colhidos no estudo clínico TRIUMPH-1 (Fase 2), os participantes que utilizaram as doses mais altas da medicação registraram uma impressionante redução de peso média de até 24,2% do peso corporal total no período de 48 semanas.</p>
                 </div>
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Como o medicamento é administrado?</h3>
-                  <p className="text-slate-600 m-0 leading-relaxed">A medicação é aplicada no paciente via injeção subcutânea uma vez na semana. O protocolo inclui uma titulação progressiva de doses, que variam de 1 mg a 12 mg a cada aplicação semanal, para garantir a segurança e gerenciar a adaptação do organismo.</p>
+                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Em que fase de aprovação está a Retatrutida?</h3>
+                  <p className="text-slate-600 m-0 leading-relaxed">A Retatrutida concluiu com sucesso a Fase 2 (TRIUMPH-1) e encontra-se atualmente na Fase 3 dos testes clínicos. Esta é a fase final e confirmatória em grande escala necessária para que os dados sejam robustos o suficiente para a submissão de registro e futura comercialização.</p>
                 </div>
               </div>
             </div>
