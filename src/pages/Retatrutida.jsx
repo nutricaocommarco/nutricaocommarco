@@ -484,6 +484,33 @@ export default function RetatrutidaOQueE() {
             </div>
             {/* FIM DA SEGUNDA LISTA OBJETIVA */}
 
+            {/* VÍDEO RECOMENDADO EM DESTAQUE */}
+            <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
+              Palavra do Especialista: A Evolução dos Fármacos
+            </h2>
+
+            <p>Para aprofundar ainda mais o entendimento sobre o impacto dessa nova classe de medicamentos na obesidade, confira a análise detalhada do Dr. Stocker, médico especialista em fármacos de emagrecimento, sobre a evolução tecnológica desses tratamentos.</p>
+
+            <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                  <PlayCircle size={24} />
+                </div>
+                <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Análise médica sobre os novos tratamentos</h3>
+              </div>
+              <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
+                <iframe 
+                  src="https://www.youtube.com/embed/7Sk7CWqeH9Y" 
+                  title="Análise do Dr. Stocker sobre Fármacos de Emagrecimento" 
+                  className="absolute top-0 left-0 w-full h-full"
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+
+
             {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
