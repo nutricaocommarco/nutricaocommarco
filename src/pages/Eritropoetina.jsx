@@ -85,7 +85,7 @@ export default function Eritropoetina() {
         </Link>
 
         <article className="prose prose-lg max-w-none text-left">
-          <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Fisiologia do Esporte</span>
+          <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Nutrição Esportiva</span>
 
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
             O Dilema do Sangue na Altitude: Como o Hormônio Eritropoetina e a Transfusão de Hemácias Afetam a Ética no Esporte
