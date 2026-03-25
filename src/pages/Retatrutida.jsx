@@ -150,7 +150,7 @@ export default function RetatrutidaOQueE() {
             Retatrutida o que é? A nova fronteira da ciência contra a obesidade
           </h1>
 
-          {/* BLOCO DE RESPOSTA DIRETA (OTIMIZADO COM H2 PARA SEO) */}
+          {/* BLOCO DE RESPOSTA DIRETA */}
           <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-4 text-left">
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                 Resposta rápida: o que é a Retatrutida?
@@ -247,7 +247,7 @@ export default function RetatrutidaOQueE() {
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
             <p>O cenário do tratamento da obesidade e das doenças metabólicas está passando por uma evolução tecnológica extremamente acelerada e empolgante. Até bem pouco tempo atrás, as atenções estavam voltadas quase que exclusivamente para o sucesso das terapias de primeira e segunda geração, focadas principalmente na via do hormônio GLP-1. No entanto, a ciência metabólica acaba de revelar uma nova e promissora molécula que vem conquistando o protagonismo nas discussões médicas: a retatrutida.</p>
 
-            {/* IMAGEM DE CAPA COM ALT E TITLE ARRUMADOS */}
+            {/* IMAGEM DE CAPA */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
               <img 
                 src={`${githubImgBase}Blog/retatrutida_molecula.jpg`} 
@@ -265,8 +265,6 @@ export default function RetatrutidaOQueE() {
             </h2>
             
             <p>O grande diferencial da retatrutida reside na sua incrível capacidade multitarefa no corpo humano. Mas o que exatamente isso significa? Na farmacologia, um <strong>agonista</strong> é uma substância capaz de se ligar a um receptor da célula (como uma chave em uma fechadura) e ativar uma resposta biológica. Um <strong>agonista triplo</strong> é uma única molécula, criada em laboratório, capaz de ativar três "fechaduras" diferentes ao mesmo tempo.</p>
-
-            
 
             <p>A retatrutida age como um maestro, conduzindo simultaneamente as vias dos hormônios GLP-1, GIP e Glucagon. Veja como cada um deles trabalha no seu corpo:</p>
 
@@ -326,7 +324,6 @@ export default function RetatrutidaOQueE() {
                 </li>
               </ul>
             </div>
-            {/* FIM DA PRIMEIRA LISTA OBJETIVA */}
 
             {/* VÍDEO RECOMENDADO EM DESTAQUE - DR. STOCKER */}
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
@@ -446,49 +443,50 @@ export default function RetatrutidaOQueE() {
             </h2>
             <p>A Retatrutida não surgiu do nada; ela é o ápice de décadas de evolução na compreensão dos hormônios incretínicos. Para analisar o impacto metabólico real, precisamos comparar o que já existe no mercado com essa nova promessa, além do tratamento padrão ouro cirúrgico.</p>
 
-            {/* TABELA COMPARATIVA (DESKTOP) - HIDDEN ON MOBILE */}
+            {/* TABELA COMPARATIVA (DESKTOP) OTIMIZADA PARA NAO QUEBRAR */}
             <div className="my-10 bg-white border border-slate-100 shadow-2xl rounded-[3rem] overflow-hidden hidden md:block">
-              <div className="grid grid-cols-5 text-center font-black uppercase tracking-widest text-[10px] border-b border-slate-100">
-                <div className="p-5 bg-slate-50 text-slate-500 border-r border-slate-100">Tratamento / Molécula</div>
-                <div className="p-5 bg-slate-50 text-slate-500 border-r border-slate-100 col-span-2">Mecanismo e Uso</div>
-                <div className="p-5 bg-slate-50 text-slate-500 border-r border-slate-100">Perda de Peso Média (%)</div>
-                <div className="p-5 bg-slate-50 text-slate-500">Status no Brasil</div>
+              <div className="grid grid-cols-12 text-center font-black uppercase tracking-widest text-[10px] border-b border-slate-100 items-stretch">
+                <div className="p-4 flex items-center justify-center bg-slate-50 text-slate-500 border-r border-slate-100 col-span-3">Tratamento / Molécula</div>
+                <div className="p-4 flex items-center justify-center bg-slate-50 text-slate-500 border-r border-slate-100 col-span-5">Mecanismo e Uso</div>
+                <div className="p-4 flex items-center justify-center bg-slate-50 text-slate-500 border-r border-slate-100 col-span-2">Perda de Peso (%)</div>
+                <div className="p-4 flex items-center justify-center bg-slate-50 text-slate-500 col-span-2">Status</div>
               </div>
 
               {comparativoTratamentos.map((farmaco) => (
-                <div key={farmaco.id} className={`grid grid-cols-5 items-center ${farmaco.cor === 'bg-green-600' ? 'bg-green-600 text-white' : farmaco.cor === 'bg-slate-800' ? 'bg-slate-800 text-white' : 'hover:bg-slate-50' } transition-colors border-b border-slate-100 last:border-b-0`}>
+                <div key={farmaco.id} className={`grid grid-cols-12 items-stretch ${farmaco.cor === 'bg-green-600' ? 'bg-green-600 text-white' : farmaco.cor === 'bg-slate-800' ? 'bg-slate-800 text-white' : 'hover:bg-slate-50' } transition-colors border-b border-slate-100 last:border-b-0`}>
 
                   {/* Molécula/Tratamento */}
-                  <div className="p-6 border-r border-slate-100 text-center">
-                    <span className={`font-black text-xl italic uppercase ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-white' : 'text-slate-900' }`}>{farmaco.molecula}</span>
+                  <div className="p-4 border-r border-slate-100 flex flex-col justify-center items-center text-center col-span-3">
+                    <span className={`font-black text-lg lg:text-xl italic uppercase ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-white' : 'text-slate-900' } leading-tight`}>{farmaco.molecula}</span>
                     {farmaco.nomeComercial && (
-                      <span className={`block text-xs font-bold mt-1 ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-300' : 'text-slate-500' }`}>({farmaco.nomeComercial})</span>
+                      <span className={`block text-[11px] font-bold mt-1 ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-300' : 'text-slate-500' } leading-tight`}>({farmaco.nomeComercial})</span>
                     )}
                   </div>
 
                   {/* Mecanismo e Frequência */}
-                  <div className="p-6 col-span-2 border-r border-slate-100 flex flex-col gap-2">
-                    <span className={`text-sm font-bold ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-100' : 'text-slate-700' }`}>{farmaco.mecanismo}</span>
+                  <div className="p-4 border-r border-slate-100 flex flex-col justify-center gap-1 col-span-5">
+                    <span className={`text-sm lg:text-base font-bold leading-tight ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-100' : 'text-slate-800' }`}>{farmaco.mecanismo}</span>
                     <span className={`text-xs font-medium ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-300' : 'text-slate-500' }`}>{farmaco.frequencia}</span>
                   </div>
 
                   {/* Perda Peso */}
-                  <div className="p-6 border-r border-slate-100 text-center">
-                    <span className={`font-black text-2xl ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-white' : 'text-green-700' }`}>{farmaco.perdaPeso}</span>
+                  <div className="p-4 border-r border-slate-100 flex flex-col justify-center items-center text-center col-span-2">
+                    <span className={`font-black text-xl lg:text-2xl ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-white' : 'text-green-700' }`}>{farmaco.perdaPeso}</span>
                   </div>
 
                   {/* Fase */}
-                  <div className="p-6 text-center">
+                  <div className="p-4 flex flex-col justify-center items-center text-center col-span-2">
                     {farmaco.fase.includes('Aprovado') || farmaco.fase.includes('Ouro') ? (
-                      <span className="bg-slate-100 text-slate-800 px-3 py-1.5 rounded-full text-[10px] font-black uppercase">Aprovado</span>
+                      <span className="bg-slate-100 text-slate-800 px-2 py-1 rounded-full text-[9px] lg:text-[10px] font-black uppercase text-center leading-none flex items-center justify-center h-fit">Aprovado</span>
                     ) : (
-                      <span className="bg-green-100 text-green-800 px-3 py-1.5 rounded-full text-[10px] font-black uppercase">Em Testes</span>
+                      <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-[9px] lg:text-[10px] font-black uppercase text-center leading-none flex items-center justify-center h-fit">Em Testes</span>
                     )}
-                    <span className={`block text-[10px] font-bold mt-2 ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-300' : 'text-slate-500' }`}>{farmaco.fase}</span>
+                    <span className={`block text-[9px] lg:text-[10px] font-bold mt-2 ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-300' : 'text-slate-500' } leading-tight`}>{farmaco.fase}</span>
                   </div>
                 </div>
               ))}
             </div>
+            {/* FIM DA TABELA COMPARATIVA (DESKTOP) */}
 
             {/* CARDS COMPARATIVOS (MOBILE) - HIDDEN ON DESKTOP */}
             <div className="space-y-6 md:hidden my-10">
@@ -517,6 +515,7 @@ export default function RetatrutidaOQueE() {
                 </div>
               ))}
             </div>
+            {/* FIM DOS CARDS COMPARATIVOS (MOBILE) */}
 
             {/* SEÇÃO DE COMPARAÇÃO DIRETA */}
             <div className="my-12 bg-slate-50 p-8 md:p-10 rounded-[3rem] border border-slate-200">
@@ -542,7 +541,7 @@ export default function RetatrutidaOQueE() {
                 </div>
               </div>
             </div>
-            {/* FIM DA NOVA SEÇÃO: TABELA COMPARATIVA E COMPARAÇÕES */}
+            {/* FIM DA NOVA SEÇÃO DE COMPARAÇÃO */}
 
             <h2 id="nutricao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Heart className="text-green-600"/> O Pilar Insubstituível da Nutrição
