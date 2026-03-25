@@ -7,8 +7,8 @@ import { Helmet } from 'react-helmet-async';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
-// Dados comparativos extraídos do PDF "Caso-Clinico-Analogos..."
-const comparativoFarmacos = [
+// Dados comparativos atualizados com a Cirurgia Bariátrica
+const comparativoTratamentos = [
   { 
     id: 1, 
     molecula: "Retatrutida", 
@@ -34,7 +34,7 @@ const comparativoFarmacos = [
     id: 3, 
     molecula: "Semaglutida", 
     nomeComercial: "Wegovy / Ozempic", 
-    mecanismo: "Agonista Unico (GLP-1)", 
+    mecanismo: "Agonista Único (GLP-1)", 
     frequencia: "Semanal (Subcutânea)", 
     perdaPeso: "~15% a 18% (Estudos STEP)", 
     fase: "Aprovado e Comercializado", 
@@ -45,12 +45,23 @@ const comparativoFarmacos = [
     id: 4, 
     molecula: "Liraglutida", 
     nomeComercial: "Saxenda / Victoza", 
-    mecanismo: "Agonista Unico (GLP-1)", 
+    mecanismo: "Agonista Único (GLP-1)", 
     frequencia: "Diária (Subcutânea)", 
     perdaPeso: "~8% (Estudo SCALE)", 
     fase: "Aprovado e Comercializado", 
     cor: "bg-slate-100", 
     textColor: "text-slate-800" 
+  },
+  { 
+    id: 5, 
+    molecula: "Bypass Gástrico", 
+    nomeComercial: "Cirurgia Bariátrica (BGYR)", 
+    mecanismo: "Restritivo e Disabsortivo (Metabólico)", 
+    frequencia: "Procedimento Cirúrgico Único", 
+    perdaPeso: "~30% a 35% (1 a 2 anos)", 
+    fase: "Padrão Ouro Consolidado", 
+    cor: "bg-slate-800", 
+    textColor: "text-white" 
   },
 ];
 
@@ -212,7 +223,13 @@ export default function RetatrutidaOQueE() {
                   <li>
                     <a href="#comparativo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
                       <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
-                      Comparativo de Fármacos
+                      Comparativo de Tratamentos
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#nutricao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <Heart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      O Pilar Nutricional
                     </a>
                   </li>
                   <li>
@@ -291,12 +308,38 @@ export default function RetatrutidaOQueE() {
             </div>
             {/* FIM DA PRIMEIRA LISTA OBJETIVA */}
 
+            {/* VÍDEO RECOMENDADO EM DESTAQUE - DR. STOCKER */}
+            <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
+              Palavra do Especialista: A Evolução dos Fármacos
+            </h2>
+
+            <p>Para aprofundar ainda mais o entendimento sobre o impacto dessa nova classe de medicamentos na obesidade, confira a análise detalhada do Dr. Stocker, médico especialista em fármacos de emagrecimento, sobre a evolução tecnológica desses tratamentos.</p>
+
+            <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                  <PlayCircle size={24} />
+                </div>
+                <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Análise médica sobre os novos tratamentos</h3>
+              </div>
+              <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
+                <iframe 
+                  src="https://www.youtube.com/embed/7Sk7CWqeH9Y" 
+                  title="Análise do Dr. Stocker sobre Fármacos de Emagrecimento" 
+                  className="absolute top-0 left-0 w-full h-full"
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+
             {/* INÍCIO DA NOVA SEÇÃO: FASES DE APROVAÇÃO */}
             <h2 id="aprovacao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <FileText className="text-green-600"/> A Jornada Científica: Como um Medicamento é Aprovado
             </h2>
             <p>Muitos pacientes perguntam: "Quando a Retatrutida estará disponível?". Para entender a resposta, precisamos compreender o rigoroso processo de Pesquisa e Desenvolvimento (P&D) pelo qual todo novo fármaco deve passar antes de chegar às farmácias.</p>
-            
+
             <p>Esse processo é dividido em fases fundamentais, garantindo a segurança e a eficácia da substância:</p>
 
             <div className="my-10 bg-white border border-slate-100 shadow-xl rounded-[2rem] overflow-hidden">
@@ -305,7 +348,7 @@ export default function RetatrutidaOQueE() {
                 <div className="p-5 bg-slate-50 text-slate-500 border-r border-slate-100 md:col-span-2">Objetivo e Escala</div>
                 <div className="p-5 bg-slate-50 text-slate-500 md:col-span-2">Em que pé estamos?</div>
               </div>
-              
+
               {/* Pré-Clínica */}
               <div className="grid grid-cols-1 md:grid-cols-5 items-center border-b border-slate-100 last:border-b-0 hover:bg-slate-50 transition-colors">
                 <div className="p-6 md:p-8 font-black text-lg text-slate-900 border-r border-slate-100 text-center">Pré-Clínica</div>
@@ -381,49 +424,49 @@ export default function RetatrutidaOQueE() {
             <h2 id="comparativo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Scale className="text-green-600"/> Comparativo Épico: A Evolução da Perda de Peso
             </h2>
-            <p>A Retatrutida não surgiu do nada; ela é o ápice de décadas de evolução na compreensão dos hormônios incretínicos. Para analisar o impacto metabólico real (se quiser aprofundar, veja nosso artigo sobre <Link to="/o_que_e_antropometria" className="font-bold underline text-green-700 hover:text-green-800 transition-colors">o que é antropometria</Link>), precisamos comparar o que já existe no mercado com essa nova promessa.</p>
-            
-            <p>Abaixo, apresentamos uma tabela comparativa detalhada dos principais fármacos (análogos) utilizados no tratamento metabólico e obesidade, focando na sua eficácia clínica.</p>
+            <p>A Retatrutida não surgiu do nada; ela é o ápice de décadas de evolução na compreensão dos hormônios incretínicos. Para analisar o impacto metabólico real (se quiser aprofundar, veja nosso artigo sobre <Link to="/o_que_e_antropometria" className="font-bold underline text-green-700 hover:text-green-800 transition-colors">o que é antropometria</Link>), precisamos comparar o que já existe no mercado com essa nova promessa, além do tratamento padrão ouro, o Bypass Gástrico.</p>
+
+            <p>Abaixo, apresentamos uma tabela comparativa detalhada dos principais fármacos e do procedimento cirúrgico utilizados no tratamento da obesidade, focando na sua eficácia clínica.</p>
 
             {/* TABELA COMPARATIVA (DESKTOP) - HIDDEN ON MOBILE */}
             <div className="my-10 bg-white border border-slate-100 shadow-2xl rounded-[3rem] overflow-hidden hidden md:block">
               <div className="grid grid-cols-5 text-center font-black uppercase tracking-widest text-[10px] border-b border-slate-100">
-                <div className="p-5 bg-slate-50 text-slate-500 border-r border-slate-100">Molécula</div>
-                <div className="p-5 bg-slate-50 text-slate-500 border-r border-slate-100 col-span-2">Mecanismo e Frequência</div>
+                <div className="p-5 bg-slate-50 text-slate-500 border-r border-slate-100">Tratamento / Molécula</div>
+                <div className="p-5 bg-slate-50 text-slate-500 border-r border-slate-100 col-span-2">Mecanismo e Uso</div>
                 <div className="p-5 bg-slate-50 text-slate-500 border-r border-slate-100">Perda de Peso Média (%)</div>
                 <div className="p-5 bg-slate-50 text-slate-500">Status no Brasil</div>
               </div>
-              
-              {comparativoFarmacos.map((farmaco) => (
-                <div key={farmaco.id} className={`grid grid-cols-5 items-center ${farmaco.cor === 'bg-green-600' ? 'bg-green-600 text-white' : 'hover:bg-slate-50' } transition-colors border-b border-slate-100 last:border-b-0`}>
-                  
-                  {/* Molécula */}
+
+              {comparativoTratamentos.map((farmaco) => (
+                <div key={farmaco.id} className={`grid grid-cols-5 items-center ${farmaco.cor === 'bg-green-600' ? 'bg-green-600 text-white' : farmaco.cor === 'bg-slate-800' ? 'bg-slate-800 text-white' : 'hover:bg-slate-50' } transition-colors border-b border-slate-100 last:border-b-0`}>
+
+                  {/* Molécula/Tratamento */}
                   <div className="p-6 border-r border-slate-100 text-center">
-                    <span className={`font-black text-xl italic uppercase ${farmaco.cor === 'bg-green-600' ? 'text-white' : 'text-slate-900' }`}>{farmaco.molecula}</span>
+                    <span className={`font-black text-xl italic uppercase ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-white' : 'text-slate-900' }`}>{farmaco.molecula}</span>
                     {farmaco.nomeComercial && (
-                      <span className={`block text-xs font-bold mt-1 ${farmaco.cor === 'bg-green-600' ? 'text-green-100' : 'text-slate-500' }`}>({farmaco.nomeComercial})</span>
+                      <span className={`block text-xs font-bold mt-1 ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-300' : 'text-slate-500' }`}>({farmaco.nomeComercial})</span>
                     )}
                   </div>
-                  
+
                   {/* Mecanismo e Frequência */}
                   <div className="p-6 col-span-2 border-r border-slate-100 flex flex-col gap-2">
-                    <span className={`text-sm font-bold ${farmaco.cor === 'bg-green-600' ? 'text-green-50' : 'text-slate-700' }`}>{farmaco.mecanismo}</span>
-                    <span className={`text-xs font-medium ${farmaco.cor === 'bg-green-600' ? 'text-green-100' : 'text-slate-500' }`}>{farmaco.frequencia}</span>
+                    <span className={`text-sm font-bold ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-100' : 'text-slate-700' }`}>{farmaco.mecanismo}</span>
+                    <span className={`text-xs font-medium ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-300' : 'text-slate-500' }`}>{farmaco.frequencia}</span>
                   </div>
-                  
+
                   {/* Perda Peso */}
                   <div className="p-6 border-r border-slate-100 text-center">
-                    <span className={`font-black text-2xl ${farmaco.cor === 'bg-green-600' ? 'text-white' : 'text-green-700' }`}>{farmaco.perdaPeso}</span>
+                    <span className={`font-black text-2xl ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-white' : 'text-green-700' }`}>{farmaco.perdaPeso}</span>
                   </div>
-                  
+
                   {/* Fase */}
                   <div className="p-6 text-center">
-                    {farmaco.fase.includes('Aprovado') ? (
+                    {farmaco.fase.includes('Aprovado') || farmaco.fase.includes('Ouro') ? (
                       <span className="bg-slate-100 text-slate-800 px-3 py-1.5 rounded-full text-[10px] font-black uppercase">Aprovado</span>
                     ) : (
                       <span className="bg-green-100 text-green-800 px-3 py-1.5 rounded-full text-[10px] font-black uppercase">Em Testes</span>
                     )}
-                    <span className={`block text-[10px] font-bold mt-2 ${farmaco.cor === 'bg-green-600' ? 'text-green-100' : 'text-slate-500' }`}>{farmaco.fase}</span>
+                    <span className={`block text-[10px] font-bold mt-2 ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-300' : 'text-slate-500' }`}>{farmaco.fase}</span>
                   </div>
                 </div>
               ))}
@@ -432,27 +475,27 @@ export default function RetatrutidaOQueE() {
 
             {/* CARDS COMPARATIVOS (MOBILE) - HIDDEN ON DESKTOP */}
             <div className="space-y-6 md:hidden my-10">
-              {comparativoFarmacos.map((farmaco) => (
-                <div key={farmaco.id} className={`${farmaco.cor} ${farmaco.textColor} p-6 rounded-3xl shadow-lg border ${farmaco.cor === 'bg-green-600' ? 'border-green-500' : 'border-slate-100'}`}>
-                  <div className="flex justify-between items-center mb-4 border-b pb-3 gap-3">
+              {comparativoTratamentos.map((farmaco) => (
+                <div key={farmaco.id} className={`${farmaco.cor} ${farmaco.textColor} p-6 rounded-3xl shadow-lg border ${farmaco.cor === 'bg-green-600' ? 'border-green-500' : farmaco.cor === 'bg-slate-800' ? 'border-slate-700' : 'border-slate-100'}`}>
+                  <div className="flex justify-between items-center mb-4 border-b pb-3 gap-3 border-opacity-20">
                     <div className="flex flex-col">
                       <span className="font-black text-xl italic uppercase">{farmaco.molecula}</span>
                       {farmaco.nomeComercial && (
-                        <span className={`text-xs font-bold ${farmaco.cor === 'bg-green-600' ? 'text-green-100' : 'text-slate-500' }`}>({farmaco.nomeComercial})</span>
+                        <span className={`text-xs font-bold ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-300' : 'text-slate-500' }`}>({farmaco.nomeComercial})</span>
                       )}
                     </div>
-                    {farmaco.fase.includes('Aprovado') ? (
+                    {farmaco.fase.includes('Aprovado') || farmaco.fase.includes('Ouro') ? (
                       <span className="bg-slate-100 text-slate-800 px-3 py-1.5 rounded-full text-[10px] font-black uppercase shrink-0">Aprovado</span>
                     ) : (
                       <span className="bg-green-100 text-green-800 px-3 py-1.5 rounded-full text-[10px] font-black uppercase shrink-0">Em Testes</span>
                     )}
                   </div>
-                  
+
                   <div className="space-y-3 font-medium text-sm">
                     <p className="flex justify-between gap-3"><span className="font-bold opacity-80">Mecanismo:</span> <span className="text-right">{farmaco.mecanismo}</span></p>
                     <p className="flex justify-between gap-3"><span className="font-bold opacity-80">Uso:</span> <span className="text-right">{farmaco.frequencia}</span></p>
-                    <p className="flex justify-between items-center gap-3"><span className="font-bold opacity-80">Perda de Peso Média:</span> <span className={`font-black text-xl ${farmaco.cor === 'bg-green-600' ? 'text-white' : 'text-green-700'}`}>{farmaco.perdaPeso}</span></p>
-                    <p className="flex justify-between gap-3"><span className="font-bold opacity-80">Status:</span> <span className={`text-right text-xs font-bold ${farmaco.cor === 'bg-green-600' ? 'text-green-100' : 'text-slate-500'}`}>{farmaco.fase}</span></p>
+                    <p className="flex justify-between items-center gap-3"><span className="font-bold opacity-80">Perda de Peso:</span> <span className={`font-black text-xl ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-white' : 'text-green-700'}`}>{farmaco.perdaPeso}</span></p>
+                    <p className="flex justify-between gap-3"><span className="font-bold opacity-80">Status:</span> <span className={`text-right text-xs font-bold ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-300' : 'text-slate-500'}`}>{farmaco.fase}</span></p>
                   </div>
                 </div>
               ))}
@@ -483,33 +526,6 @@ export default function RetatrutidaOQueE() {
               </ul>
             </div>
             {/* FIM DA SEGUNDA LISTA OBJETIVA */}
-
-            {/* VÍDEO RECOMENDADO EM DESTAQUE */}
-            <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
-              Palavra do Especialista: A Evolução dos Fármacos
-            </h2>
-
-            <p>Para aprofundar ainda mais o entendimento sobre o impacto dessa nova classe de medicamentos na obesidade, confira a análise detalhada do Dr. Stocker, médico especialista em fármacos de emagrecimento, sobre a evolução tecnológica desses tratamentos.</p>
-
-            <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
-                  <PlayCircle size={24} />
-                </div>
-                <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Análise médica sobre os novos tratamentos</h3>
-              </div>
-              <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                <iframe 
-                  src="https://www.youtube.com/embed/7Sk7CWqeH9Y" 
-                  title="Análise do Dr. Stocker sobre Fármacos de Emagrecimento" 
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </div>
-
 
             {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
