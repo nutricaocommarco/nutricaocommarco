@@ -163,24 +163,13 @@ export default function OvoColesterol() {
 
           <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-4 text-left">
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
-                Resumo Científico Direto
+                Comer ovo todo dia aumenta o colesterol?
               </h2>
               {/* PRIMEIRO PARÁGRAFO REESCRITO PARA SEO (Keyword no início) */}
               <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
-                <strong>Comer ovo todo dia aumenta o colesterol?</strong> Essa é uma das dúvidas mais comuns quando o assunto é alimentação saudável. Durante muitos anos, o ovo foi visto como vilão, mas a ciência da nutrição moderna evoluiu e hoje mostra uma realidade bem diferente. Entenda como o seu corpo realmente processa o ovo e por que ele deve fazer parte da sua rotina.
-              </p>
-          </div>
-
-          {/* BOX DO FEATURED SNIPPET (RESPOSTA DIRETA) */}
-          <div className="bg-green-50 p-6 rounded-2xl border border-green-100 my-8">
-            <h3 className="text-xl font-bold text-slate-900 mt-0 mb-3">Comer ovo todo dia aumenta o colesterol?</h3>
-            <p className="m-0 text-slate-700">
-              <strong>Não.</strong> Para a maioria das pessoas, comer ovo diariamente não aumenta o colesterol de forma significativa. Estudos mostram que o colesterol dos alimentos tem pouco impacto no colesterol do sangue, sendo a gordura saturada o principal fator de risco.
+                <strong>Não.</strong> Para a maioria das pessoas, comer ovo diariamente não aumenta o colesterol de forma significativa. Estudos mostram que o colesterol dos alimentos tem pouco impacto no colesterol do sangue, sendo a gordura saturada o principal fator de risco.
             </p>
           </div>
-
-          {/* REPETIÇÃO ESTRATÉGICA DA KEYWORD */}
-          <p>Muitos pacientes chegam ao consultório com essa dúvida: <strong className="text-slate-800 font-bold">afinal, comer ovo todo dia aumenta o colesterol?</strong> A resposta curta é não, mas precisamos entender a fisiologia por trás dessa afirmação.</p>
 
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
