@@ -567,6 +567,21 @@ export default function RetatrutidaOQueE() {
             </div>
             {/* FIM DA SEGUNDA LISTA OBJETIVA */}
 
+            {/* ALERTA IMPORTANTE - PERIGO / FAKE NEWS */}
+            <div className="my-12 p-8 md:p-10 bg-red-50 rounded-[3rem] border-2 border-red-200 shadow-lg flex flex-col items-center text-center md:flex-row md:text-left gap-8">
+              <div className="w-20 h-20 bg-red-100 text-red-600 rounded-full flex items-center justify-center shrink-0 shadow-inner">
+                <AlertTriangle size={40} />
+              </div>
+              <div>
+                <h3 className="text-2xl font-black text-red-700 uppercase italic mb-3">
+                  ALERTA MÁXIMO: A Retatrutida NÃO está à venda!
+                </h3>
+                <p className="text-red-900 text-lg font-medium leading-relaxed m-0">
+                  Qualquer anúncio na internet, redes sociais ou mercado paralelo oferecendo a Retatrutida hoje é <strong>100% FALSO e extremamente perigoso</strong>. O medicamento ainda está em fase de testes (Fase 3) e <strong>não foi aprovado</strong> por nenhuma agência reguladora do mundo (nem FDA, nem ANVISA). Não coloque sua vida em risco injetando substâncias de origem desconhecida.
+                </p>
+              </div>
+            </div>
+
             {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
