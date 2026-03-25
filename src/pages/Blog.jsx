@@ -6,7 +6,7 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 const postsData = [
   {
-    id: 1,
+    id: 12,
     link: "/retatrutida_o_que_e",
     imgSrc: `${githubImgBase}Blog/retatrutida_molecula.jpg`,
     tag: "Tratamento Metabólico",
@@ -15,7 +15,7 @@ const postsData = [
     isNew: true
   },
   {
-    id: 2,
+    id: 11,
     link: "/diabetico_pode_comer_beterraba",
     imgSrc: `${githubImgBase}Blog/beterraba_diabetes.jpg`,
     tag: "Nutrição Clínica",
@@ -23,7 +23,7 @@ const postsData = [
     desc: "Descubra por que o sabor doce da beterraba engana e como suas fibras na verdade ajudam a controlar os picos de glicemia no seu dia a dia."
   },
   {
-    id: 3,
+    id: 10,
     link: "/qual_melhor_horario_para_se_pesar",
     imgSrc: `${githubImgBase}Blog/melhor_horario_pesagem.jpg`,
     tag: "Avaliação e Medidas",
@@ -31,7 +31,7 @@ const postsData = [
     desc: "Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite. Peso na balança não é igual a gordura corporal."
   },
   {
-    id: 4,
+    id: 9,
     link: "/nutricao_para_ironman_703",
     imgSrc: `${githubImgBase}Blog/nutricao_ironman_703.jpg`,
     tag: "Nutrição Esportiva",
@@ -39,7 +39,7 @@ const postsData = [
     desc: "Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o triatlo."
   },
   {
-    id: 5,
+    id: 8,
     link: "/hormonios_da_fome_emagrecimento",
     imgSrc: `${githubImgBase}Blog/Hormfome.jpg`,
     tag: "Fisiologia e Metabolismo",
@@ -47,7 +47,7 @@ const postsData = [
     desc: "Entenda como Grelina, Leptina e GLP-1 sabotam sua dieta. Descubra por que a fome aumenta após emagrecer e a ciência por trás do reganho de peso."
   },
   {
-    id: 6,
+    id: 7,
     link: "/por_que_o_feijao_da_gases",
     imgSrc: `${githubImgBase}Blog/feijao.jpg`,
     tag: "Saúde Intestinal",
@@ -55,7 +55,7 @@ const postsData = [
     desc: "Descubra por que o feijão causa gases, quais alimentos fermentam no intestino e veja dicas práticas para melhorar sua digestão."
   },
   {
-    id: 7,
+    id: 6,
     link: "/o_dilema_do_sangue_na_altitude",
     imgSrc: `${githubImgBase}Blog/eritropoietina.jpg`,
     tag: "Fisiologia do Esporte",
@@ -63,7 +63,7 @@ const postsData = [
     desc: "Como o hormônio eritropoetina e a transfusão de hemácias afetam a biologia do atleta e a ética no esporte."
   },
   {
-    id: 8,
+    id: 5,
     link: "/efeito_sanfona_inflamacao_invisivel",
     imgSrc: `${githubImgBase}Blog/efeito_sanfona.jpg`,
     tag: "Fisiopatologia",
@@ -71,7 +71,7 @@ const postsData = [
     desc: "Por que o reganho de peso é tão perigoso e como a memória das suas células de gordura dificulta o emagrecimento real."
   },
   {
-    id: 9,
+    id: 4,
     link: "/quantas_frutas_posso_comer",
     imgSrc: `${githubImgBase}Blog/frutose_bananas.jpg`,
     tag: "Metabolismo",
@@ -79,7 +79,7 @@ const postsData = [
     desc: "Entenda o metabolismo da frutose, a diferença entre o açúcar natural e o refinado, e descubra a verdade sobre a fruta e a gordura no fígado."
   },
   {
-    id: 10,
+    id: 3,
     link: "/vitamina_a_para_que_serve",
     imgSrc: `${githubImgBase}Blog/vitamina_a.jpg`,
     tag: "Metabolismo",
@@ -87,7 +87,7 @@ const postsData = [
     desc: "Entenda as diferenças entre retinol, retinal e ácido retinóico, e descubra como a Vitamina A atua no seu metabolismo muito além da visão."
   },
   {
-    id: 11,
+    id: 2,
     link: "/o_que_e_antropometria",
     imgSrc: `${githubImgBase}Blog/O_que_e_antropometria.png`,
     tag: "Educação Científica",
@@ -95,7 +95,7 @@ const postsData = [
     desc: "A Antropometria é uma ciência fundamental que estuda as proporções do corpo humano..."
   },
   {
-    id: 12,
+    id: 1,
     link: "/a_balanca_de_bioimpedancia_e_confiavel",
     imgSrc: `${githubImgBase}Blog/Bia1.jpg`,
     tag: "Tecnologia e Medida",
@@ -106,7 +106,7 @@ const postsData = [
 
 export default function Blog() {
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 10;
+  const postsPerPage = 9;
 
   // Efeito para rolar suavemente para o topo quando a página mudar
   useEffect(() => {
