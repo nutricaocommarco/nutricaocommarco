@@ -108,7 +108,7 @@ export default function Feijao() {
           </Link>
 
           <article className="prose prose-lg max-w-none text-left">
-            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Saúde Intestinal</span>
+            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Nutrição Clínica</span>
 
             <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
               Por que o feijão dá gases e como evitar de vez
