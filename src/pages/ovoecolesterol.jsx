@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, PlayCircle, Headphones, ChevronRight, Activity, Leaf, Scale, Heart, AlertTriangle, FileText, Zap } from 'lucide-react';
+import { ChevronLeft, HelpCircle, PlayCircle, Headphones, ChevronRight, Activity, Leaf, Scale, Heart, FileText, Zap } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
@@ -65,7 +65,7 @@ export default function OvoColesterol() {
     <>
       <Helmet>
         <title>Ovo e Colesterol: Benefícios, Mitos e Verdades Científicas | Nutrição com Marco</title>
-        <meta name="description" content="Descubra os benefícios do ovo, se o ovo cozido aumenta o colesterol, e entenda quantos ovos você pode comer por dia segundo a ciência." />
+        <meta name="description" content="Descubra os benefícios do ovo, entenda o que é HDL, LDL e Triglicerídios, e veja a verdade científica sobre ovo e colesterol." />
 
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Ovo e Colesterol: Benefícios, Mitos e Verdades Científicas | Nutrição com Marco" />
@@ -83,7 +83,7 @@ export default function OvoColesterol() {
             "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png`}},
             "datePublished": "2026-03-25",
             "dateModified": "2026-03-25",
-            "description": "Descubra os benefícios do ovo, se o ovo cozido aumenta o colesterol, e entenda quantos ovos você pode comer por dia segundo a ciência."
+            "description": "Descubra os benefícios do ovo, entenda o que é HDL, LDL e Triglicerídios, e veja a verdade científica sobre ovo e colesterol."
           })}
         </script>
 
@@ -187,8 +187,14 @@ export default function OvoColesterol() {
                 />
               </button>
 
-              <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
+              <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[600px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                 <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
+                  <li>
+                    <a href="#perfil" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Entendendo HDL, LDL e Triglicerídios
+                    </a>
+                  </li>
                   <li>
                     <a href="#beneficios" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
                       <Heart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
@@ -232,6 +238,19 @@ export default function OvoColesterol() {
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
             <p>O ovo de galinha é o produto de origem animal mais consumido no mundo todo, apresentando um preço acessível, fácil preparação e um perfil nutricional espetacular. Após o leite materno, ele é considerado o alimento mais completo da natureza, sendo formado pela clara (rica em água e proteínas) e pela gema (rica em lipídios, vitaminas e minerais).</p>
+
+            <h2 id="perfil" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Zap className="text-green-600"/> O básico: Colesterol, HDL, LDL, VLDL e Triglicerídios
+            </h2>
+            <p>Antes de falarmos especificamente do ovo, precisamos entender o que compõe o chamado "perfil lipídico" nos exames de sangue. Essas gorduras e transportadores são essenciais para a vida, mas precisam estar em equilíbrio.</p>
+
+            <div className="my-8 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-5 marker:text-green-600">
+              <p className="m-0"><strong>• Colesterol Total:</strong> É a soma de todos os tipos de colesterol no sangue. É um componente estrutural de todas as nossas células e base para produção de hormônios.</p>
+              <p className="m-0"><strong>• HDL (Lipoproteína de Alta Densidade):</strong> Conhecido como "colesterol bom". Ele atua como um "lixeiro", recolhendo o excesso de colesterol dos tecidos e artérias e levando-o de volta ao fígado para ser excretado ou reutilizado.</p>
+              <p className="m-0"><strong>• LDL (Lipoproteína de Baixa Densidade):</strong> Frequentemente chamado de "colesterol mau". Ele transporta o colesterol do fígado para as células. Se houver excesso e as partículas forem pequenas e densas, elas podem se depositar nas paredes das artérias.</p>
+              <p className="m-0"><strong>• VLDL (Lipoproteína de Muito Baixa Densidade):</strong> Transporta principalmente triglicerídios e, em menor quantidade, colesterol para os tecidos.</p>
+              <p className="m-0"><strong>• Triglicerídios:</strong> São a principal forma de gordura no corpo, usados para armazenar energia. Níveis altos geralmente estão ligados ao excesso de calorias na dieta (açúcares, massas e bebidas alcoólicas) e não diretamente ao colesterol dos alimentos.</p>
+            </div>
 
             {/* IMAGEM DE CAPA */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
@@ -333,6 +352,10 @@ export default function OvoColesterol() {
             </div>
 
             <p>O ajuste da quantidade de ovos prescrita na prática clínica leva em consideração os alvos proteicos totais do dia e a tolerância de ingestão de gorduras do paciente. Uma dica extra é sempre atentar à estocagem: mantenha os ovos sob refrigeração, pois o tempo de armazenamento em temperatura ambiente favorece a desidratação e o aumento da concentração interna de colesterol.</p>
+
+            <p className="bg-slate-100 p-6 rounded-2xl border border-slate-200 text-slate-700 font-semibold mt-10">
+                É fundamental destacar que, embora as evidências científicas gerais sejam muito positivas para o consumo de ovos, sua saúde é única. Fazer o acompanhamento com um nutricionista é crucial. Este profissional vai avaliar seus exames de sangue atuais, sua rotina de treinos, histórico familiar e objetivos para determinar a quantidade ideal de ovos e o ajuste de outras fontes de colesterol e gordura na sua dieta diária.
+            </p>
 
             {/* VÍDEO RECOMENDADO EM DESTAQUE */}
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
