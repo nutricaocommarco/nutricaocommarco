@@ -13,7 +13,34 @@ export default function Blog() {
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-        {/* Card Beterraba e Diabetes (NOVO) */}
+        {/* Card Retatrutida (NOVO) */}
+        <Link to="/retatrutida_o_que_e" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
+          <div className="h-64 overflow-hidden border-b border-slate-50">
+            <img 
+              src={`${githubImgBase}Blog/retatrutida_molecula.jpg`} 
+              alt="O que é Retatrutida?" 
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+            />
+          </div>
+          <div className="p-8 flex flex-col flex-grow">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="bg-green-100 text-green-700 text-xs font-black px-3 py-1 rounded-full uppercase tracking-widest">
+                Tratamento Metabólico
+              </span>
+            </div>
+            <h2 className="text-2xl font-black text-slate-800 mb-3 italic group-hover:text-green-600 transition-colors uppercase leading-tight">
+              Retatrutida o que é? A nova fronteira da ciência
+            </h2>
+            <p className="text-slate-600 text-sm mb-6 flex-grow font-medium leading-relaxed">
+              Descubra o que é a retatrutida, o novo medicamento agonista triplo e seus resultados impressionantes na perda de peso.
+            </p>
+            <div className="flex items-center gap-2 text-green-600 font-bold uppercase text-xs">
+              Ler Página do Artigo <ChevronRight size={16} />
+            </div>
+          </div>
+        </Link>
+
+        {/* Card Beterraba e Diabetes */}
         <Link to="/diabetico_pode_comer_beterraba" className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
           <div className="h-64 overflow-hidden border-b border-slate-50">
             <img 
