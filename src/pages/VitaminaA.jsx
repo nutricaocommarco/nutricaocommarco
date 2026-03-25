@@ -85,7 +85,7 @@ export default function VitaminaA() {
         </Link>
 
         <article className="prose prose-lg max-w-none">
-          <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Metabolismo</span>
+          <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Fisiologia e Metabolismo</span>
 
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900 text-left">
             Vitamina A para que serve? Entenda as diferenças entre retinol, retinal e ácido retinóico
