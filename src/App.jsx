@@ -22,6 +22,7 @@ import GeradorEmailSecreto from './pages/GeradorEmailSecreto';
 import MelhorHorarioPesagem from './pages/MelhorHorarioPesagem';
 import BeterrabaDiabetes from './pages/BeterrabaDiabetes';
 import ConfirmacaoPendente from './pages/kitkit'; 
+import RetatrutidaOQueE from './pages/Retatrutida';
 import InscricaoConfirmada from './pages/InscricaoConfirmada';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -184,6 +185,8 @@ export default function App() {
             <Route path="/diabetico_pode_comer_beterraba" element={<BeterrabaDiabetes />} />
             <Route path="/confirmacao-pendente" element={<ConfirmacaoPendente />} />
             <Route path="/inscricao-confirmada" element={<InscricaoConfirmada />} />
+<Route path="/retatrutida_o_que_e" element={<RetatrutidaOQueE />} />
+
             
           </Routes>
         </Layout>
