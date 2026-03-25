@@ -238,20 +238,7 @@ export default function OvoColesterol() {
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
             <p>O ovo de galinha é o produto de origem animal mais consumido no mundo todo, apresentando um preço acessível, fácil preparação e um perfil nutricional espetacular. Após o leite materno, ele é considerado o alimento mais completo da natureza, sendo formado pela clara (rica em água e proteínas) e pela gema (rica em lipídios, vitaminas e minerais).</p>
-
-            <h2 id="perfil" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Zap className="text-green-600"/> O básico: Colesterol, HDL, LDL, VLDL e Triglicerídios
-            </h2>
-            <p>Antes de falarmos especificamente do ovo, precisamos entender o que compõe o chamado "perfil lipídico" nos exames de sangue. Essas gorduras e transportadores são essenciais para a vida, mas precisam estar em equilíbrio.</p>
-
-            <div className="my-8 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-5 marker:text-green-600">
-              <p className="m-0"><strong>• Colesterol Total:</strong> É a soma de todos os tipos de colesterol no sangue. É um componente estrutural de todas as nossas células e base para produção de hormônios.</p>
-              <p className="m-0"><strong>• HDL (Lipoproteína de Alta Densidade):</strong> Conhecido como "colesterol bom". Ele atua como um "lixeiro", recolhendo o excesso de colesterol dos tecidos e artérias e levando-o de volta ao fígado para ser excretado ou reutilizado.</p>
-              <p className="m-0"><strong>• LDL (Lipoproteína de Baixa Densidade):</strong> Frequentemente chamado de "colesterol mau". Ele transporta o colesterol do fígado para as células. Se houver excesso e as partículas forem pequenas e densas, elas podem se depositar nas paredes das artérias.</p>
-              <p className="m-0"><strong>• VLDL (Lipoproteína de Muito Baixa Densidade):</strong> Transporta principalmente triglicerídios e, em menor quantidade, colesterol para os tecidos.</p>
-              <p className="m-0"><strong>• Triglicerídios:</strong> São a principal forma de gordura no corpo, usados para armazenar energia. Níveis altos geralmente estão ligados ao excesso de calorias na dieta (açúcares, massas e bebidas alcoólicas) e não diretamente ao colesterol dos alimentos.</p>
-            </div>
-
+ 
             {/* IMAGEM DE CAPA */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
               <img 
@@ -265,6 +252,19 @@ export default function OvoColesterol() {
                   Estudos modernos comprovam que o consumo de ovos é seguro e traz diversos benefícios cardiovasculares.
                 </p>
               </div>
+            </div>
+            
+            <h2 id="perfil" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Zap className="text-green-600"/> O básico: Colesterol, HDL, LDL, VLDL e Triglicerídios
+            </h2>
+            <p>Antes de falarmos especificamente do ovo, precisamos entender o que compõe o chamado "perfil lipídico" nos exames de sangue. Essas gorduras e transportadores são essenciais para a vida, mas precisam estar em equilíbrio.</p>
+
+            <div className="my-8 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-5 marker:text-green-600">
+              <p className="m-0"><strong>• Colesterol Total:</strong> É a soma de todos os tipos de colesterol no sangue. É um componente estrutural de todas as nossas células e base para produção de hormônios.</p>
+              <p className="m-0"><strong>• HDL (Lipoproteína de Alta Densidade):</strong> Conhecido como "colesterol bom". Ele atua como um "lixeiro", recolhendo o excesso de colesterol dos tecidos e artérias e levando-o de volta ao fígado para ser excretado ou reutilizado.</p>
+              <p className="m-0"><strong>• LDL (Lipoproteína de Baixa Densidade):</strong> Frequentemente chamado de "colesterol mau". Ele transporta o colesterol do fígado para as células. Se houver excesso e as partículas forem pequenas e densas, elas podem se depositar nas paredes das artérias.</p>
+              <p className="m-0"><strong>• VLDL (Lipoproteína de Muito Baixa Densidade):</strong> Transporta principalmente triglicerídios e, em menor quantidade, colesterol para os tecidos.</p>
+              <p className="m-0"><strong>• Triglicerídios:</strong> São a principal forma de gordura no corpo, usados para armazenar energia. Níveis altos geralmente estão ligados ao excesso de calorias na dieta (açúcares, massas e bebidas alcoólicas) e não diretamente ao colesterol dos alimentos.</p>
             </div>
             
             <h2 id="beneficios" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
