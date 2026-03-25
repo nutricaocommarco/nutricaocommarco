@@ -2,6 +2,16 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export const posts = [
   {
+    id: 12,
+    link: "/retatrutida_o_que_e",
+    img: `${githubImgBase}Blog/retatrutida_molecula.jpg`,
+    tag: "Tratamento Metabólico",
+    titulo: "Retatrutida o que é? A nova fronteira da ciência | Nutrição com Marco",
+    desc: "Descubra o que é a retatrutida, o novo medicamento agonista triplo (GLP-1, GIP e Glucagon) e seus resultados impressionantes na perda de peso.",
+    data: "2026-03-24",
+    dataMod: "2026-03-24"
+  },
+  {
     id: 11,
     link: "/diabetico_pode_comer_beterraba",
     img: `${githubImgBase}Blog/beterraba_diabetes.jpg`,
