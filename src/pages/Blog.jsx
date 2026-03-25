@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Clock } from 'lucide-react';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
-// Transformamos os cards em um array de dados para facilitar a paginação
 const postsData = [
   {
     id: 1,
@@ -106,26 +105,77 @@ const postsData = [
 ];
 
 export default function Blog() {
-  // Estado para controlar a página atual
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 10;
 
-  // Lógica matemática para fatiar o array baseado na página
+  // Efeito para rolar suavemente para o topo quando a página mudar
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [currentPage]);
+
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = postsData.slice(indexOfFirstPost, indexOfLastPost);
-
-  // Calcula o total de páginas
   const totalPages = Math.ceil(postsData.length / postsPerPage);
 
-  // Funções para mudar de página
   const nextPage = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));
   const prevPage = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
+  const goToPage = (pageNumber) => setCurrentPage(pageNumber);
+
+  // Componente interno para renderizar a paginação sem repetir código
+  const PaginationControls = () => {
+    if (totalPages <= 1) return null;
+
+    // Cria um array com os números das páginas (ex: [1, 2, 3])
+    const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+
+    return (
+      <div className="flex justify-center items-center gap-2 sm:gap-4 my-12 flex-wrap">
+        <button 
+          onClick={prevPage} 
+          disabled={currentPage === 1}
+          className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold uppercase text-xs sm:text-sm transition-all ${currentPage === 1 ? 'bg-slate-200 text-slate-400 cursor-not-allowed' : 'bg-green-600 text-white hover:bg-green-700 shadow-md hover:-translate-y-1'}`}
+        >
+          Anterior
+        </button>
+        
+        <div className="flex gap-2">
+          {pageNumbers.map((number) => (
+            <button
+              key={number}
+              onClick={() => goToPage(number)}
+              className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full font-bold text-sm transition-all flex items-center justify-center ${
+                currentPage === number 
+                  ? 'bg-green-600 text-white shadow-lg scale-110' 
+                  : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-green-600'
+              }`}
+            >
+              {number}
+            </button>
+          ))}
+        </div>
+        
+        <button 
+          onClick={nextPage} 
+          disabled={currentPage === totalPages}
+          className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold uppercase text-xs sm:text-sm transition-all ${currentPage === totalPages ? 'bg-slate-200 text-slate-400 cursor-not-allowed' : 'bg-green-600 text-white hover:bg-green-700 shadow-md hover:-translate-y-1'}`}
+        >
+          Próxima
+        </button>
+      </div>
+    );
+  };
 
   return (
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-6xl text-center">
       <h1 className="text-5xl md:text-8xl font-black text-white italic titulo-vazado uppercase mb-4 text-center">Blog</h1>
-      <p className="text-slate-500 font-bold uppercase text-center mb-16 tracking-widest">Nutrição baseada em evidência científica</p>
+      <p className="text-slate-500 font-bold uppercase text-center mb-8 tracking-widest">Nutrição baseada em evidência científica</p>
+
+      {/* Navegação no Topo */}
+      <PaginationControls />
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
         {currentPosts.map((post) => (
@@ -157,30 +207,9 @@ export default function Blog() {
         ))}
       </div>
 
-      {/* Controles de Paginação */}
-      {totalPages > 1 && (
-        <div className="flex justify-center items-center gap-4 mt-16">
-          <button 
-            onClick={prevPage} 
-            disabled={currentPage === 1}
-            className={`px-6 py-3 rounded-full font-bold uppercase text-sm transition-all ${currentPage === 1 ? 'bg-slate-200 text-slate-400 cursor-not-allowed' : 'bg-green-600 text-white hover:bg-green-700 shadow-lg hover:-translate-y-1'}`}
-          >
-            Anterior
-          </button>
-          
-          <span className="text-slate-600 font-bold">
-            Página {currentPage} de {totalPages}
-          </span>
-          
-          <button 
-            onClick={nextPage} 
-            disabled={currentPage === totalPages}
-            className={`px-6 py-3 rounded-full font-bold uppercase text-sm transition-all ${currentPage === totalPages ? 'bg-slate-200 text-slate-400 cursor-not-allowed' : 'bg-green-600 text-white hover:bg-green-700 shadow-lg hover:-translate-y-1'}`}
-          >
-            Próxima
-          </button>
-        </div>
-      )}
+      {/* Navegação no Fim */}
+      <PaginationControls />
+
     </section>
   );
 }
