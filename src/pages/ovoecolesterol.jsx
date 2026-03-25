@@ -334,6 +334,32 @@ export default function OvoColesterol() {
 
             <p>O ajuste da quantidade de ovos prescrita na prática clínica leva em consideração os alvos proteicos totais do dia e a tolerância de ingestão de gorduras do paciente. Uma dica extra é sempre atentar à estocagem: mantenha os ovos sob refrigeração, pois o tempo de armazenamento em temperatura ambiente favorece a desidratação e o aumento da concentração interna de colesterol.</p>
 
+            {/* VÍDEO RECOMENDADO EM DESTAQUE */}
+            <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
+              Palavra da Especialista: Ovo Aumenta o Colesterol?
+            </h2>
+
+            <p>Para aprofundar ainda mais o entendimento sobre o impacto do consumo de ovos na nossa saúde e desmistificar a relação com as taxas de gordura no sangue, confira esta análise detalhada com dicas e cuidados essenciais trazidos pela nutricionista Dra. Patricia Leite.</p>
+
+            <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                  <PlayCircle size={24} />
+                </div>
+                <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Ovo Aumenta o Colesterol? [DICAS e CUIDADOS]</h3>
+              </div>
+              <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
+                <iframe 
+                  src="https://www.youtube.com/embed/8q_bkOUPX4Q" 
+                  title="Ovo Aumenta o Colesterol? [DICAS e CUIDADOS] - Dra. Patricia Leite" 
+                  className="absolute top-0 left-0 w-full h-full"
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+            
             {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
