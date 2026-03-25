@@ -87,6 +87,7 @@ export default function OvoColesterol() {
           })}
         </script>
 
+        {/* INÍCIO DO SCHEMA.ORG PARA FAQ */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -127,6 +128,7 @@ export default function OvoColesterol() {
             ]
           })}
         </script>
+        {/* FIM DO SCHEMA.ORG PARA FAQ */}
       </Helmet>
 
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
@@ -217,26 +219,32 @@ export default function OvoColesterol() {
                       Quantos ovos posso comer por dia?
                     </a>
                   </li>
+                  <li>
+                    <a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Perguntas Frequentes (FAQ)
+                    </a>
+                  </li>
                 </ul>
               </div>
             </nav>
           </div>
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
-            <p>O ovo de galinha é o produto de origem animal mais consumido no mundo todo, apresentando um preço acessível, fácil preparação e um perfil nutricional espetacular[cite: 12]. Após o leite materno, ele é considerado o alimento mais completo da natureza, sendo formado pela clara (rica em água e proteínas) e pela gema (rica em lipídios, vitaminas e minerais)[cite: 263, 265, 305].</p>
+            <p>O ovo de galinha é o produto de origem animal mais consumido no mundo todo, apresentando um preço acessível, fácil preparação e um perfil nutricional espetacular. Após o leite materno, ele é considerado o alimento mais completo da natureza, sendo formado pela clara (rica em água e proteínas) e pela gema (rica em lipídios, vitaminas e minerais).</p>
 
             <h2 id="beneficios" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Heart className="text-green-600"/> Benefícios do ovo para a saúde
             </h2>
             
-            <p>A composição do ovo oferece uma matriz encapsulada de macro e micronutrientes extremamente favoráveis ao organismo[cite: 244]. A gema e a clara apresentam substâncias ativas com características biológicas protetoras e promotoras da saúde humana[cite: 245].</p>
+            <p>A composição do ovo oferece uma matriz encapsulada de macro e micronutrientes extremamente favoráveis ao organismo. A gema e a clara apresentam substâncias ativas com características biológicas protetoras e promotoras da saúde humana.</p>
 
             <div className="flex flex-col gap-6 my-8">
               <div className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col md:flex-row gap-6 items-start">
                 <div className="w-16 h-16 bg-blue-100 text-blue-700 rounded-2xl flex items-center justify-center shrink-0 font-black text-2xl shadow-inner">1</div>
                 <div>
                   <h3 className="text-xl font-black text-slate-800 mb-2">Massa Muscular e Envelhecimento</h3>
-                  <p className="m-0 text-slate-600 leading-relaxed">Os ovos contêm proteínas de Alto Valor Biológico (AVB). A ingestão desse tipo de proteína está diretamente associada ao ganho e à manutenção da massa muscular, ajudando a combater as perdas naturais de tecido magro que ocorrem durante o envelhecimento[cite: 380, 381].</p>
+                  <p className="m-0 text-slate-600 leading-relaxed">Os ovos contêm proteínas de Alto Valor Biológico (AVB). A ingestão desse tipo de proteína está diretamente associada ao ganho e à manutenção da massa muscular, ajudando a combater as perdas naturais de tecido magro que ocorrem durante o envelhecimento.</p>
                 </div>
               </div>
 
@@ -244,7 +252,7 @@ export default function OvoColesterol() {
                 <div className="w-16 h-16 bg-purple-100 text-purple-700 rounded-2xl flex items-center justify-center shrink-0 font-black text-2xl shadow-inner">2</div>
                 <div>
                   <h3 className="text-xl font-black text-slate-800 mb-2">Micronutrientes Essenciais</h3>
-                  <p className="m-0 text-slate-600 leading-relaxed">O consumo de ovos garante uma maior absorção de vitaminas essenciais como a B12 (vital para o sistema nervoso), A, e D, além de suprir estoques de minerais importantes como zinco, magnésio e iodo[cite: 335, 337, 338, 339].</p>
+                  <p className="m-0 text-slate-600 leading-relaxed">O consumo de ovos garante uma maior absorção de vitaminas essenciais como a B12 (vital para o sistema nervoso), A, e D, além de suprir estoques de minerais importantes como zinco, magnésio e iodo.</p>
                 </div>
               </div>
 
@@ -252,7 +260,7 @@ export default function OvoColesterol() {
                 <div className="w-16 h-16 bg-orange-100 text-orange-700 rounded-2xl flex items-center justify-center shrink-0 font-black text-2xl shadow-inner">3</div>
                 <div>
                   <h3 className="text-xl font-black text-slate-800 mb-2">Efeito na Saciedade</h3>
-                  <p className="m-0 text-slate-600 leading-relaxed">Um dos grandes aliados no processo de emagrecimento. As proteínas do ovo induzem uma menor secreção do hormônio da fome (grelina). Indivíduos que consomem ovos na primeira refeição tendem a ingerir menos calorias ao longo do dia, facilitando as dietas com déficit calórico[cite: 373, 378].</p>
+                  <p className="m-0 text-slate-600 leading-relaxed">Um dos grandes aliados no processo de emagrecimento. As proteínas do ovo induzem uma menor secreção do hormônio da fome (grelina). Indivíduos que consomem ovos na primeira refeição tendem a ingerir menos calorias ao longo do dia, facilitando as dietas com déficit calórico.</p>
                 </div>
               </div>
             </div>
@@ -260,32 +268,32 @@ export default function OvoColesterol() {
             <h2 id="colesterol" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Scale className="text-green-600"/> Ovo cozido aumenta o colesterol?
             </h2>
-            <p>Esse é, de longe, o maior mito que a nutrição precisou desconstruir. A literatura mais antiga apontava que a ingestão de colesterol na dieta elevaria o colesterol do sangue[cite: 9]. No entanto, a ciência evoluiu e mostrou que essa relação não é direta ou prejudicial na prática clínica[cite: 10].</p>
+            <p>Esse é, de longe, o maior mito que a nutrição precisou desconstruir. A literatura mais antiga apontava que a ingestão de colesterol na dieta elevaria o colesterol do sangue. No entanto, a ciência evoluiu e mostrou que essa relação não é direta ou prejudicial na prática clínica.</p>
 
             <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600 text-slate-700">
-              <li className="font-bold text-lg pl-1">Estudos amplos mostram que a cada 100 mg de colesterol dietético ingerido (um ovo grande tem em média 225 mg [cite: 312]), o colesterol total no plasma aumenta ínfimos 2,2 mg/dL[cite: 26].</li>
-              <li className="font-bold text-lg pl-1">Essa leve alteração aumenta as partículas de LDL grandes (não aterogênicas), o que na verdade é uma modulação benéfica, pois essas moléculas volumosas têm dificuldade de penetrar nas artérias[cite: 58].</li>
-              <li className="font-bold text-lg pl-1">A ingestão de ovos melhora a funcionalidade do colesterol HDL (o famoso "bom" colesterol), proporcionando uma melhor atividade anti-inflamatória e antioxidante no corpo[cite: 51, 55].</li>
+              <li className="font-bold text-lg pl-1">Estudos amplos mostram que a cada 100 mg de colesterol dietético ingerido (um ovo grande tem em média 225 mg), o colesterol total no plasma aumenta ínfimos 2,2 mg/dL.</li>
+              <li className="font-bold text-lg pl-1">Essa leve alteração aumenta as partículas de LDL grandes (não aterogênicas), o que na verdade é uma modulação benéfica, pois essas moléculas volumosas têm dificuldade de penetrar nas artérias.</li>
+              <li className="font-bold text-lg pl-1">A ingestão de ovos melhora a funcionalidade do colesterol HDL (o famoso "bom" colesterol), proporcionando uma melhor atividade anti-inflamatória e antioxidante no corpo.</li>
             </ul>
 
             <h2 id="figado" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Activity className="text-green-600"/> Quem tem gordura no fígado pode comer ovo?
             </h2>
-            <p>Pacientes diagnosticados com esteatose hepática não alcoólica frequentemente têm dúvidas sobre o consumo de lipídios. O ovo concentra suas gorduras e o colesterol exclusivamente na gema[cite: 11, 323]. No entanto, o ovo apresenta um rico conteúdo de gorduras insaturadas (as chamadas "gorduras boas") e componentes antioxidantes[cite: 14].</p>
+            <p>Pacientes diagnosticados com esteatose hepática não alcoólica frequentemente têm dúvidas sobre o consumo de lipídios. O ovo concentra suas gorduras e o colesterol exclusivamente na gema. No entanto, o ovo apresenta um rico conteúdo de gorduras insaturadas (as chamadas "gorduras boas") e componentes antioxidantes.</p>
 
-            <p>Mesmo para pacientes com distúrbios de lipídios (como hipercolesterolemia combinada), estudos demonstraram que o consumo controlado não causa alterações desastrosas nos marcadores quando o paciente segue uma dieta baseada nas recomendações nutricionais[cite: 35, 36, 37]. Além disso, a presença de antioxidantes atua como um fator protetor cardiovascular, auxiliando no equilíbrio fisiológico que o corpo necessita para se recuperar[cite: 68, 76].</p>
+            <p>Mesmo para pacientes com distúrbios de lipídios (como hipercolesterolemia combinada), estudos demonstraram que o consumo controlado não causa alterações desastrosas nos marcadores quando o paciente segue uma dieta baseada nas recomendações nutricionais. Além disso, a presença de antioxidantes atua como um fator protetor cardiovascular, auxiliando no equilíbrio fisiológico que o corpo necessita para se recuperar.</p>
 
             <h2 id="diario" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Leaf className="text-green-600"/> Comer ovo todo dia faz mal?
             </h2>
-            <p>Definitivamente, não. O renomado estudo PREDIMED, que avaliou indivíduos seguindo um estilo de dieta mediterrânea, comprovou que o consumo regular de ovos não aumenta a incidência de doenças cardiovasculares[cite: 45, 46].</p>
+            <p>Definitivamente, não. O renomado estudo PREDIMED, que avaliou indivíduos seguindo um estilo de dieta mediterrânea, comprovou que o consumo regular de ovos não aumenta a incidência de doenças cardiovasculares.</p>
             
-            <p>Pelo contrário, se o indivíduo é praticante de atividades físicas e possui um controle alimentar adequado de macronutrientes, a ingestão rotineira de ovos inteiros é totalmente segura[cite: 68, 80]. As análises clínicas mais modernas focam na dieta como um todo; o ovo, quando inserido numa matriz alimentar sem excesso de frituras ou alimentos ultraprocessados, é um excelente aliado[cite: 62].</p>
+            <p>Pelo contrário, se o indivíduo é praticante de atividades físicas e possui um controle alimentar adequado de macronutrientes, a ingestão rotineira de ovos inteiros é totalmente segura. As análises clínicas mais modernas focam na dieta como um todo; o ovo, quando inserido numa matriz alimentar sem excesso de frituras ou alimentos ultraprocessados, é um excelente aliado.</p>
 
             <h2 id="quantos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <FileText className="text-green-600"/> Quantos ovos posso comer por dia?
             </h2>
-            <p>A resposta correta sempre dependerá de uma avaliação nutricional individualizada. No entanto, intervenções científicas recentes com adultos saudáveis mostraram que a ingestão diária de <strong>1 a 3 ovos inteiros</strong> foi capaz de melhorar o perfil da partícula de LDL, aumentar a função do HDL e subir as concentrações de antioxidantes no sangue[cite: 52, 53, 55].</p>
+            <p>A resposta correta sempre dependerá de uma avaliação nutricional individualizada. No entanto, intervenções científicas recentes com adultos saudáveis mostraram que a ingestão diária de <strong>1 a 3 ovos inteiros</strong> foi capaz de melhorar o perfil da partícula de LDL, aumentar a função do HDL e subir as concentrações de antioxidantes no sangue.</p>
 
             <div className="my-10 bg-white border border-slate-100 shadow-2xl rounded-[3rem] overflow-hidden hidden md:block">
               <div className="grid grid-cols-4 text-center font-black uppercase tracking-widest text-xs border-b border-slate-100 items-stretch bg-slate-50">
@@ -309,7 +317,31 @@ export default function OvoColesterol() {
               ))}
             </div>
 
-            <p>O ajuste da quantidade de ovos prescrita na prática clínica leva em consideração os alvos proteicos totais do dia e a tolerância de ingestão de gorduras do paciente[cite: 81]. Uma dica extra é sempre atentar à estocagem: mantenha os ovos sob refrigeração, pois o tempo de armazenamento em temperatura ambiente favorece a desidratação e o aumento da concentração interna de colesterol[cite: 704, 715].</p>
+            <p>O ajuste da quantidade de ovos prescrita na prática clínica leva em consideração os alvos proteicos totais do dia e a tolerância de ingestão de gorduras do paciente. Uma dica extra é sempre atentar à estocagem: mantenha os ovos sob refrigeração, pois o tempo de armazenamento em temperatura ambiente favorece a desidratação e o aumento da concentração interna de colesterol.</p>
+
+            {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
+            <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
+              <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
+              <div className="space-y-6">
+                <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
+                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Quais são os benefícios do ovo?</h3>
+                  <p className="text-slate-600 m-0 leading-relaxed">O ovo é uma excelente fonte de proteínas de alto valor biológico, vitaminas (como B12, A e D) e minerais. Ele ajuda a prolongar a saciedade, favorece o ganho de massa muscular e atua na prevenção da perda de tecido muscular relacionada ao envelhecimento.</p>
+                </div>
+                <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
+                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Ovo cozido aumenta o colesterol?</h3>
+                  <p className="text-slate-600 m-0 leading-relaxed">O colesterol dietético presente no ovo tem um impacto muito pequeno no colesterol sanguíneo da maioria das pessoas. Estudos mostram que o consumo adequado pode até melhorar a funcionalidade do colesterol HDL (o "bom" colesterol) e modular as partículas de LDL de forma menos prejudicial.</p>
+                </div>
+                <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
+                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Comer ovo todo dia faz mal?</h3>
+                  <p className="text-slate-600 m-0 leading-relaxed">Não. Para indivíduos saudáveis ou com uma alimentação equilibrada, o consumo diário de ovos não causa malefícios ao perfil lipídico e, pelo contrário, oferece um aporte nutritivo denso e benefícios antioxidantes.</p>
+                </div>
+                <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
+                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Quantos ovos posso comer por dia?</h3>
+                  <p className="text-slate-600 m-0 leading-relaxed">A literatura científica aponta que a ingestão de 1 a 3 ovos inteiros por dia é segura e traz benefícios cardiovasculares e antioxidantes. Contudo, a prescrição dietética exata deve sempre respeitar a individualidade bioquímica e o ajuste de macronutrientes do paciente.</p>
+                </div>
+              </div>
+            </div>
+            {/* FIM DO FAQ VISUAL OTIMIZADO */}
 
             <Newsletter />
           </div>
