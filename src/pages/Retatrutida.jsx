@@ -144,7 +144,7 @@ export default function RetatrutidaOQueE() {
         </Link>
 
         <article className="prose prose-lg max-w-none text-left">
-          <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Tratamento Metabólico</span>
+          <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Tratamento Farmacológico</span>
 
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
             Retatrutida o que é? A nova fronteira da ciência contra a obesidade
