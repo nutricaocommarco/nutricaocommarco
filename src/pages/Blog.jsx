@@ -5,6 +5,15 @@ import { ChevronRight, Clock, Filter, Tag as TagIcon } from 'lucide-react';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 const postsData = [
+{
+    id: 13,
+    link: "/comer-ovo-todo-dia-aumenta-o-colesterol",
+    imgSrc: `${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.jpg`,
+    tag: "Nutrição Clínica",
+    title: "Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Científica",
+    desc: "Descubra a verdade científica, entenda o impacto no HDL/LDL e quantos ovos você pode consumir com segurança.",
+    isNew: true
+  },
   {
     id: 12,
     link: "/retatrutida_o_que_e",
