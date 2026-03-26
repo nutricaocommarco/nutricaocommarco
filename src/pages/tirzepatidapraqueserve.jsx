@@ -21,12 +21,38 @@ export default function TirzepatidaParaQueServe() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  // Array de dados para a Tabela Comparativa
+  const comparativoTratamentos = [
+    {
+      id: 1,
+      molecula: 'Tirzepatida',
+      nomeComercial: 'Mounjaro / Zepbound',
+      mecanismo: 'Duplo Agonista (GLP-1 + GIP)',
+      frequencia: 'Injeção Semanal',
+      perdaPeso: 'Até 22,5%',
+      fase: 'Aprovado (Anvisa)',
+      cor: 'bg-green-600',
+      textColor: 'text-white'
+    },
+    {
+      id: 2,
+      molecula: 'Retatrutida',
+      nomeComercial: 'Em Desenvolvimento',
+      mecanismo: 'Triplo Agonista (GLP-1 + GIP + Glucagon)',
+      frequencia: 'Injeção Semanal',
+      perdaPeso: 'Até 24,2%',
+      fase: 'Fase 3 Clínica',
+      cor: 'bg-white',
+      textColor: 'text-slate-800'
+    }
+  ];
+
   return (
     <>
       <Helmet>
         {/* SEO OTIMIZADO - TÍTULO DO SNIPPET (aprox 60 caracteres) */}
         <title>Tirzepatida: Para que serve? Emagrecimento, Mounjaro e Rebote | Nutrição com Marco</title>
-        
+
         {/* META DESCRIPTION OTIMIZADA (aprox 155 caracteres) */}
         <meta name="description" content="Descubra para que serve a Tirzepatida (Mounjaro), como funciona no emagrecimento, quanto peso se perde e como evitar o temido efeito rebote." />
 
@@ -103,7 +129,7 @@ export default function TirzepatidaParaQueServe() {
         </Link>
 
         <article className="prose prose-lg max-w-none text-left">
-          
+
           {/* TAG E DATA DE ATUALIZAÇÃO */}
           <div className="mb-8 flex flex-col items-start gap-2">
             <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Tratamento Farmacológico</span>
@@ -219,14 +245,14 @@ export default function TirzepatidaParaQueServe() {
           </div>
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
-            
+
             <h2 id="mecanismo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Zap className="text-green-600"/> O Mecanismo no Corpo
             </h2>
             <p>A tirzepatida é uma medicação inovadora aprovada pela Anvisa inicialmente para o tratamento do diabetes tipo 2, mas que ganhou destaque global pelo seu potente efeito no controle da obesidade. Diferente de medicações mais antigas, ela é um duplo agonista, o que significa que ela imita dois hormônios naturais do nosso intestino: o GLP-1 (peptídeo semelhante ao glucagon 1) e o GIP (polipeptídeo insulinotrópico dependente de glicose). Enquanto o GLP-1 é amplamente conhecido por retardar o esvaziamento gástrico e sinalizar saciedade ao cérebro, o GIP atua de forma complementar melhorando a sensibilidade à insulina e a maneira como o corpo processa a gordura.</p>
 
             <p>O mecanismo de ação da tirzepatida é tão profundo que ela não apenas reduz a fome, mas altera a "recompensa" cerebral associada à comida, ajudando a silenciar o chamado "barulho mental" por alimentos hipercalóricos. Isso explica por que, nos estudos clínicos, os pacientes alcançaram resultados superiores a outros tratamentos injetáveis disponíveis no mercado brasileiro.</p>
-            
+
             <h2 id="indicacoes" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Heart className="text-green-600"/> Quem pode usar Tirzepatida?
             </h2>
@@ -235,12 +261,12 @@ export default function TirzepatidaParaQueServe() {
               <p className="m-0"><strong>• Falha Terapêutica Prévia:</strong> Insucesso da terapia comportamental isolada (dieta, atividade física e modificação comportamental) ou tentativas anteriores de perda de peso sem resultados satisfatórios.</p>
               <p className="m-0"><strong>• Avaliação Individual:</strong> Paciente sem contraindicações ao uso do medicamento proposto e com condições para acompanhamento médico regular.</p>
             </div>
-            
+
             <h2 id="perda-peso" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Scale className="text-green-600"/> Quanto peso se perde com a Tirzepatida?
             </h2>
             <p>Os dados dos estudos da linha SURMOUNT mostram que a perda de peso com a tirzepatida é dose-dependente e altamente significativa. Em média, pacientes utilizando a dose máxima de 15mg chegaram a perder entre <strong>15% e 22,5% do seu peso corporal total</strong> ao longo de 72 semanas de tratamento.</p>
-            
+
             <p>Para se ter uma ideia prática, em um indivíduo de 100 kg, isso representa uma redução de mais de 20 kg, aproximando os resultados farmacológicos daqueles observados em cirurgias bariátricas menos invasivas. No entanto, é fundamental entender que esses números dependem diretamente da resposta individual e da adesão às mudanças de estilo de vida.</p>
 
             <h2 id="base-sucesso" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
@@ -249,7 +275,7 @@ export default function TirzepatidaParaQueServe() {
             <p>Muitas pessoas cometem o erro de achar que a injeção faz todo o trabalho sozinha, mas a verdade é que a alimentação e a musculação são os pilares que garantem que o peso perdido seja gordura e não músculo. Durante o uso da tirzepatida, a saciedade é muito alta, o que pode levar a uma ingestão proteica insuficiente. É essencial focar em uma dieta densa em nutrientes, priorizando proteínas magras e fibras para evitar a constipação, um efeito colateral comum.</p>
 
             <p className="bg-green-50/50 p-6 rounded-2xl border border-green-100 border-dashed text-green-950 font-medium">A musculação é inegociável. A perda de peso rápida pode induzir a sarcopenia (perda de massa muscular), o que reduz o metabolismo basal e facilita o efeito rebote no futuro.</p>
-            
+
             <p>O treinamento de força sinaliza ao corpo que ele deve preservar o tecido muscular, mantendo a "máquina" metabólica ativa. Sem exercício resistido, você corre o risco de se tornar um "falso magro" com metabolismo lento.</p>
 
             <h2 id="efeito-rebote" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
@@ -264,7 +290,7 @@ export default function TirzepatidaParaQueServe() {
             <h2 id="estrategias" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <FileText className="text-green-600"/> Estratégias para minimizar o reganho de peso
             </h2>
-            
+
             <div className="flex flex-col gap-6 my-8">
               <div className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col md:flex-row gap-6 items-start">
                 <div className="w-16 h-16 bg-blue-100 text-blue-700 rounded-2xl flex items-center justify-center shrink-0 font-black text-2xl shadow-inner">1</div>
@@ -296,13 +322,87 @@ export default function TirzepatidaParaQueServe() {
             </h2>
             <p>Enquanto a tirzepatida é um duplo agonista atuando no GLP-1 e GIP, a ciência já estuda o próximo passo: a Retatrutida. Esta nova molécula é um triplo agonista (GIP, GLP-1 e Glucagon). Os estudos de fase 2 mostram que a retatrutida pode levar a uma redução média de peso ainda maior (cerca de 24,2% após 48 semanas) e atua de forma muito potente na redução da gordura hepática e níveis de LDL. A tirzepatida já é uma realidade impressionante, mas a evolução dos tratamentos aponta para resultados ainda mais expressivos no futuro.</p>
 
+            {/* TABELA COMPARATIVA (DESKTOP) OTIMIZADA PARA NAO QUEBRAR */}
+            <div className="my-10 bg-white border border-slate-100 shadow-2xl rounded-[3rem] overflow-hidden hidden md:block">
+              <div className="grid grid-cols-12 text-center font-black uppercase tracking-widest text-[10px] border-b border-slate-100 items-stretch">
+                <div className="p-4 flex items-center justify-center bg-slate-50 text-slate-500 border-r border-slate-100 col-span-3">Tratamento / Molécula</div>
+                <div className="p-4 flex items-center justify-center bg-slate-50 text-slate-500 border-r border-slate-100 col-span-5">Mecanismo e Uso</div>
+                <div className="p-4 flex items-center justify-center bg-slate-50 text-slate-500 border-r border-slate-100 col-span-2">Perda de Peso (%)</div>
+                <div className="p-4 flex items-center justify-center bg-slate-50 text-slate-500 col-span-2">Status</div>
+              </div>
+
+              {comparativoTratamentos.map((farmaco) => (
+                <div key={farmaco.id} className={`grid grid-cols-12 items-stretch ${farmaco.cor === 'bg-green-600' ? 'bg-green-600 text-white' : farmaco.cor === 'bg-slate-800' ? 'bg-slate-800 text-white' : 'hover:bg-slate-50' } transition-colors border-b border-slate-100 last:border-b-0`}>
+
+                  {/* Molécula/Tratamento */}
+                  <div className="p-4 border-r border-slate-100 flex flex-col justify-center items-center text-center col-span-3">
+                    <span className={`font-black text-lg lg:text-xl italic uppercase ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-white' : 'text-slate-900' } leading-tight`}>{farmaco.molecula}</span>
+                    {farmaco.nomeComercial && (
+                      <span className={`block text-[11px] font-bold mt-1 ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-300' : 'text-slate-500' } leading-tight`}>({farmaco.nomeComercial})</span>
+                    )}
+                  </div>
+
+                  {/* Mecanismo e Frequência */}
+                  <div className="p-4 border-r border-slate-100 flex flex-col justify-center gap-1 col-span-5">
+                    <span className={`text-sm lg:text-base font-bold leading-tight ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-100' : 'text-slate-800' }`}>{farmaco.mecanismo}</span>
+                    <span className={`text-xs font-medium ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-300' : 'text-slate-500' }`}>{farmaco.frequencia}</span>
+                  </div>
+
+                  {/* Perda Peso */}
+                  <div className="p-4 border-r border-slate-100 flex flex-col justify-center items-center text-center col-span-2">
+                    <span className={`font-black text-xl lg:text-2xl ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-white' : 'text-green-700' }`}>{farmaco.perdaPeso}</span>
+                  </div>
+
+                  {/* Fase */}
+                  <div className="p-4 flex flex-col justify-center items-center text-center col-span-2">
+                    {farmaco.fase.includes('Aprovado') || farmaco.fase.includes('Ouro') ? (
+                      <span className="bg-slate-100 text-slate-800 px-2 py-1 rounded-full text-[9px] lg:text-[10px] font-black uppercase text-center leading-none flex items-center justify-center h-fit w-fit mx-auto">Aprovado</span>
+                    ) : (
+                      <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-[9px] lg:text-[10px] font-black uppercase text-center leading-none flex items-center justify-center h-fit w-fit mx-auto">Em Testes</span>
+                    )}
+                    <span className={`block text-[9px] lg:text-[10px] font-bold mt-2 ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-300' : 'text-slate-500' } leading-tight`}>{farmaco.fase}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* FIM DA TABELA COMPARATIVA (DESKTOP) */}
+
+            {/* CARDS COMPARATIVOS (MOBILE) - HIDDEN ON DESKTOP */}
+            <div className="space-y-6 md:hidden my-10">
+              {comparativoTratamentos.map((farmaco) => (
+                <div key={farmaco.id} className={`${farmaco.cor} ${farmaco.textColor} p-6 rounded-3xl shadow-lg border ${farmaco.cor === 'bg-green-600' ? 'border-green-500' : farmaco.cor === 'bg-slate-800' ? 'border-slate-700' : 'border-slate-100'}`}>
+                  <div className="flex justify-between items-center mb-4 border-b pb-3 gap-3 border-opacity-20">
+                    <div className="flex flex-col">
+                      <span className="font-black text-xl italic uppercase">{farmaco.molecula}</span>
+                      {farmaco.nomeComercial && (
+                        <span className={`text-xs font-bold ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-300' : 'text-slate-500' }`}>({farmaco.nomeComercial})</span>
+                      )}
+                    </div>
+                    {farmaco.fase.includes('Aprovado') || farmaco.fase.includes('Ouro') ? (
+                      <span className="bg-slate-100 text-slate-800 px-3 py-1.5 rounded-full text-[10px] font-black uppercase shrink-0">Aprovado</span>
+                    ) : (
+                      <span className="bg-green-100 text-green-800 px-3 py-1.5 rounded-full text-[10px] font-black uppercase shrink-0">Em Testes</span>
+                    )}
+                  </div>
+
+                  <div className="space-y-3 font-medium text-sm">
+                    <p className="flex justify-between gap-3"><span className="font-bold opacity-80">Mecanismo:</span> <span className="text-right">{farmaco.mecanismo}</span></p>
+                    <p className="flex justify-between gap-3"><span className="font-bold opacity-80">Uso:</span> <span className="text-right">{farmaco.frequencia}</span></p>
+                    <p className="flex justify-between items-center gap-3"><span className="font-bold opacity-80">Perda de Peso:</span> <span className={`font-black text-xl ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-white' : 'text-green-700'}`}>{farmaco.perdaPeso}</span></p>
+                    <p className="flex justify-between gap-3"><span className="font-bold opacity-80">Status:</span> <span className={`text-right text-xs font-bold ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-300' : 'text-slate-500'}`}>{farmaco.fase}</span></p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* FIM DOS CARDS COMPARATIVOS (MOBILE) */}
+
             <h2 id="perigos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Zap className="text-green-600"/> O perigo da Tirzepatida Paraguaia e Manipulada
             </h2>
             <p>Com o sucesso do Mounjaro, surgiu um mercado paralelo perigoso, muitas vezes referido como "tirzepatida paraguaia". Esse termo vem do fato de que no Paraguai a medicação não exige receita médica e é comercializada a preços muito menores. Porém, os produtos são contrabandeados para o Brasil sem os devidos cuidados de conservação. Um ponto crítico é a necessidade estrita de guardar o medicamento na geladeira, o que é frequentemente ignorado por atravessadores e vendedores ilegais.</p>
 
             <p>O uso de versões manipuladas sem procedência garantida ou medicamentos mal armazenados traz riscos gravíssimos. Você expõe seu corpo a infecções no local da aplicação, contaminação com substâncias tóxicas ou doses incorretas, pois a tirzepatida é uma molécula complexa e sua estabilidade depende de tecnologia de ponta. Comprar medicação fora das redes de farmácias oficiais do Brasil coloca sua vida em risco em troca de uma falsa economia.</p>
-            
+
             {/* INÍCIO DO FAQ VISUAL OTIMIZADO COM PERGUNTAS EXATAS */}
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
