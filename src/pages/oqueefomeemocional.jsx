@@ -348,6 +348,66 @@ export default function FomeEmocional() {
               </table>
             </div>
 
+            {/* PERFIS DE COMEDOR */}
+<h2 id="perfis-comedor" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+  <Activity className="text-green-600"/> Perfis de Comedor: Qual é o seu?
+</h2>
+<p>
+  A forma como nos relacionamos com a comida é altamente influenciada pelo nosso estilo de vida, crenças e pelas informações que consumimos[cite: 194, 196]. Na prática, observamos diferentes tipos de comedores, cada um com suas particularidades e desafios[cite: 196, 197]. Identificar o seu perfil é um grande passo para fazer ajustes que promovam uma alimentação mais consciente[cite: 505].
+</p>
+
+<div className="my-10 bg-white border border-slate-100 shadow-xl rounded-[2.5rem] overflow-hidden overflow-x-auto">
+  <table className="w-full text-left border-collapse min-w-[700px]">
+    <thead>
+      <tr className="bg-slate-50 border-b border-slate-100">
+        <th className="p-4 md:p-5 font-black uppercase tracking-widest text-[11px] text-slate-500 w-[20%]">Perfil</th>
+        <th className="p-4 md:p-5 font-black uppercase tracking-widest text-[11px] text-slate-500 w-[45%]">Características Principais</th>
+        <th className="p-4 md:p-5 font-black uppercase tracking-widest text-[11px] text-slate-500 w-[35%]">Riscos e Consequências</th>
+      </tr>
+    </thead>
+    <tbody className="text-base font-medium">
+      {/* O CUIDADOSO */}
+      <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+        <td className="p-4 md:p-5 font-bold text-green-700 uppercase tracking-wide text-sm bg-green-50/30">O Cuidadoso</td>
+        <td className="p-4 md:p-5 text-slate-600 text-sm space-y-2">
+          <p>• Interessa-se profundamente por nutrição e alimentação saudável[cite: 199].</p>
+          <p>• Lê rótulos com atenção, questiona os preparos e preocupa-se excessivamente com a qualidade dos alimentos[cite: 203].</p>
+          <p>• Costuma ingerir menos do que precisa e adota dietas de forma inconsciente por obsessão pelas escolhas "certas"[cite: 202, 210, 211].</p>
+        </td>
+        <td className="p-4 md:p-5 text-slate-600 text-sm">
+          A rigidez transforma o comer em uma tarefa estressante[cite: 213, 214]. Pode gerar alta ansiedade e abrir portas para transtornos alimentares como a ortorexia[cite: 213].
+        </td>
+      </tr>
+      
+      {/* O EM DIETA */}
+      <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+        <td className="p-4 md:p-5 font-bold text-green-700 uppercase tracking-wide text-sm bg-green-50/30">O Em Dieta</td>
+        <td className="p-4 md:p-5 text-slate-600 text-sm space-y-2">
+          <p>• Está sempre à procura da próxima solução mágica (jejum, cetogênica, etc)[cite: 216, 217].</p>
+          <p>• Sua alimentação é ditada por calorias, porções e horários específicos[cite: 218].</p>
+          <p>• Vive no extremo: alternando entre "estar em dieta" e "não estar em dieta"[cite: 219].</p>
+        </td>
+        <td className="p-4 md:p-5 text-slate-600 text-sm">
+          Esse comportamento é insustentável e gera frustração, cansaço e insatisfação corporal crônica[cite: 220, 224]. Pode desencadear compulsões alimentares e bulimia[cite: 227].
+        </td>
+      </tr>
+      
+      {/* O DESATENTO */}
+      <tr className="hover:bg-slate-50 transition-colors">
+        <td className="p-4 md:p-5 font-bold text-green-700 uppercase tracking-wide text-sm bg-green-50/30">O Desatento</td>
+        <td className="p-4 md:p-5 text-slate-600 text-sm space-y-2">
+          <p>• Não prioriza o ato de comer, alimentando-se enquanto assiste TV, trabalha ou dirige[cite: 231, 232].</p>
+          <p>• É altamente vulnerável a emoções e ambientes (como rodízios ou almoços em família)[cite: 233, 236].</p>
+          <p>• Come no "piloto automático" e sai da rotina com extrema facilidade[cite: 233, 237].</p>
+        </td>
+        <td className="p-4 md:p-5 text-slate-600 text-sm">
+          A desatenção impede a percepção da saciedade, causando ingestão excessiva[cite: 236]. A longo prazo, desenvolve compulsão alimentar crônica e usa a comida como fuga[cite: 237, 238].
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <PlayCircle className="text-green-600"/> Palavra do Especialista: Paulo Muzy
             </h2>
