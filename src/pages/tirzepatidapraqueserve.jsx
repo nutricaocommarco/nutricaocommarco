@@ -59,7 +59,7 @@ export default function TirzepatidaParaQueServe() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Tirzepatida: Para que serve? Emagrecimento, Mounjaro e Rebote | Nutrição com Marco" />
         <meta property="og:description" content="Tudo sobre a Tirzepatida: mecanismo de ação, perda de peso esperada, necessidade de musculação, desmame e alertas sobre falsificações." />
-        <meta property="og:image" content={`${githubImgBase}Blog/tirzepatida-para-que-serve-mounjaro.jpg`} />
+        <meta property="og:image" content={`${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         {/* SCHEMA.ORG PARA ARTIGO OTIMIZADO */}
@@ -68,7 +68,7 @@ export default function TirzepatidaParaQueServe() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Tirzepatida: Para que serve e como funciona no corpo?",
-            "image": `${githubImgBase}Blog/tirzepatida-para-que-serve-mounjaro.jpg`,
+            "image": `${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
             "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png`}},
             "datePublished": datePublishedISO,
@@ -252,6 +252,21 @@ export default function TirzepatidaParaQueServe() {
             <p>A tirzepatida é uma medicação inovadora aprovada pela Anvisa inicialmente para o tratamento do diabetes tipo 2, mas que ganhou destaque global pelo seu potente efeito no controle da obesidade. Diferente de medicações mais antigas, ela é um duplo agonista, o que significa que ela imita dois hormônios naturais do nosso intestino: o GLP-1 (peptídeo semelhante ao glucagon 1) e o GIP (polipeptídeo insulinotrópico dependente de glicose). Enquanto o GLP-1 é amplamente conhecido por retardar o esvaziamento gástrico e sinalizar saciedade ao cérebro, o GIP atua de forma complementar melhorando a sensibilidade à insulina e a maneira como o corpo processa a gordura.</p>
 
             <p>O mecanismo de ação da tirzepatida é tão profundo que ela não apenas reduz a fome, mas altera a "recompensa" cerebral associada à comida, ajudando a silenciar o chamado "barulho mental" por alimentos hipercalóricos. Isso explica por que, nos estudos clínicos, os pacientes alcançaram resultados superiores a outros tratamentos injetáveis disponíveis no mercado brasileiro.</p>
+
+         {/* IMAGEM DE CAPA COM SEO OTIMIZADO */}
+          <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
+            <img 
+              src={`${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`} 
+              alt="Caixa e caneta injetável de Tirzepatida 5mg, conhecida comercialmente como Mounjaro, utilizada para tratamento metabólico e emagrecimento." 
+              title="Tirzepatida 5mg (Mounjaro) - Medicação para Emagrecimento e Controle Metabólico"
+              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+            />
+            <div className="bg-green-50 p-4 text-center">
+              <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
+                A tirzepatida representa um marco científico no tratamento da obesidade e saúde metabólica.
+              </p>
+            </div>
+          </div>
 
             <h2 id="indicacoes" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Heart className="text-green-600"/> Quem pode usar Tirzepatida?
