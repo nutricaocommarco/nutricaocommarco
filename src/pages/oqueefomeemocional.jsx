@@ -13,7 +13,7 @@ const dateModifiedISO = "2026-03-27";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Caminho da imagem de capa com o Pingus
-const fomeEmocionalCapa = `${githubImgBase}Blog/Fome-Emocional-Pingus.jpg`;
+const fomeEmocionalCapa = `${githubImgBase}Blog/Fome-Emocional-Capa.jpg`;
 
 export default function FomeEmocional() {
   const { pathname } = useLocation();
