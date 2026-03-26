@@ -210,13 +210,13 @@ export default function FomeEmocional() {
               <div className="text-center text-slate-400">⬇️ (Gera mais estresse, voltando ao passo 1)</div>
             </div>
 
-            <p>A culpa no dia seguinte muitas vezes faz a pessoa subir na balança de forma punitiva. É crucial entender <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-600 font-semibold hover:underline">qual o melhor horário para se pesar</Link> e como a retenção de líquidos pós-compulsão afeta os números. Para não pirar, foque na composição corporal real (entenda <Link to="/o_que_e_antropometria" className="text-green-600 font-semibold hover:underline">o que é antropometria</Link> e se <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 font-semibold hover:underline">a bioimpedância é confiável</Link>) em vez de se julgar por flutuações diárias.</p>
+            <p>A culpa no dia seguinte muitas vezes faz a pessoa subir na balança de forma punitiva. É crucial entender <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-600 font-semibold hover:underline">qual o melhor horário para se pesar</Link> e como a retenção de líquidos pós-compulsão afeta os números. Para não pirar, foque na composição corporal real — entenda <Link to="/o_que_e_antropometria" className="text-green-600 font-semibold hover:underline">o que é a antropometria</Link> ou se a sua <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 font-semibold hover:underline">bioimpedância é confiável</Link> — em vez de se julgar por flutuações diárias na balança de casa.</p>
 
             {/* SEÇÃO 3: DIFERENCIAÇÃO */}
             <h2 id="comparativo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Scale className="text-green-600"/> Diferenciação: Física vs Emocional
             </h2>
-            <p>A nossa necessidade de energia varia. O corpo de um atleta se preparando para um <Link to="/nutricao_para_ironman_703" className="text-green-600 font-semibold hover:underline">Ironman 70.3</Link> ou sofrendo hipóxia por <Link to="/o_dilema_do_sangue_na_altitude" className="text-green-600 font-semibold hover:underline">estresse na altitude</Link> exige calorias reais para sobrevivência (Fome Física). Já no sedentarismo do escritório, a busca por um bolo de chocolate é quase sempre emocional. Veja as diferenças na linha do tempo e na intensidade:</p>
+            <p>A nossa necessidade de energia varia. O corpo de um atleta se preparando para um <Link to="/nutricao_para_ironman_703" className="text-green-600 font-semibold hover:underline">Ironman 70.3</Link> exige repor um gasto extremo de calorias reais para sobrevivência (Fome Física). Já no sedentarismo do escritório, a busca repentina por um bolo de chocolate após uma reunião tensa é quase sempre emocional. Veja as diferenças na linha do tempo e na intensidade:</p>
 
             <div className="my-10 bg-white border border-slate-100 shadow-2xl rounded-[3rem] overflow-hidden hidden md:block">
               <div className="grid grid-cols-12 text-center font-black uppercase tracking-widest text-[10px] border-b border-slate-100 items-stretch bg-slate-50">
@@ -248,7 +248,7 @@ export default function FomeEmocional() {
             <h2 id="estrategias" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <FileText className="text-green-600"/> Fome emocional: Como controlar com Estratégias Práticas
             </h2>
-            <p>Se você procura saber <strong>fome emocional como controlar</strong>, esqueça as dicas genéricas de "beba água e respire". Precisamos de estratégias de alto nível:</p>
+            <p>Se você procura saber <strong>fome emocional como controlar</strong>, esqueça as dicas genéricas de "beba água e respire". Precisamos de estratégias de alto nível para romper o gatilho:</p>
 
             <div className="flex flex-col gap-6 my-8">
               <div className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col md:flex-row gap-6 items-start">
@@ -263,7 +263,7 @@ export default function FomeEmocional() {
                 <div className="w-16 h-16 bg-purple-100 text-purple-700 rounded-2xl flex items-center justify-center shrink-0 font-black text-2xl shadow-inner">2</div>
                 <div>
                   <h3 className="text-xl font-black text-slate-800 mb-2">Estrutura Nutricional Anti-Gatilho</h3>
-                  <p className="m-0 text-slate-600 leading-relaxed">Se o seu corpo estiver bem nutrido, a barreira contra a emoção é maior. Monte refeições com alta densidade de proteínas (ovos são excelentes, veja se <Link to="/comer-ovo-todo-dia-aumenta-o-colesterol" className="text-green-600 font-semibold hover:underline">ovo aumenta o colesterol</Link>) e fibras (entenda <Link to="/por_que_o_feijao_da_gases" className="text-green-600 font-semibold hover:underline">por que o feijão dá gases</Link> e como prepará-lo). Isso amortece a fome fisiológica.</p>
+                  <p className="m-0 text-slate-600 leading-relaxed">Se o seu corpo estiver bem nutrido, a barreira contra a emoção é maior. Monte refeições com alta densidade de proteínas — e fique tranquilo, <Link to="/comer-ovo-todo-dia-aumenta-o-colesterol" className="text-green-600 font-semibold hover:underline">o ovo não é o vilão do colesterol</Link> — combinadas com fibras. Um corpo sem fome física é muito menos propenso a ceder à fome mental.</p>
                 </div>
               </div>
 
@@ -271,7 +271,7 @@ export default function FomeEmocional() {
                 <div className="w-16 h-16 bg-orange-100 text-orange-700 rounded-2xl flex items-center justify-center shrink-0 font-black text-2xl shadow-inner">3</div>
                 <div>
                   <h3 className="text-xl font-black text-slate-800 mb-2">Substituição Sensorial (Não Restrição)</h3>
-                  <p className="m-0 text-slate-600 leading-relaxed">Se o cérebro quer "crocância" por estresse, mastigar gelo ou cenoura ajuda na tensão mandibular. Se o corpo pede doce, alimentos da natureza como a beterraba (sim, <Link to="/diabetico_pode_comer_beterraba" className="text-green-600 font-semibold hover:underline">diabético pode comer beterraba</Link>), fontes de <Link to="/vitamina_a_para_que_serve" className="text-green-600 font-semibold hover:underline">Vitamina A</Link>, ou entender <Link to="/quantas_frutas_posso_comer" className="text-green-600 font-semibold hover:underline">quantas frutas comer no dia</Link> pode fornecer a frutose necessária sem o pico viciante de insulina dos ultraprocessados.</p>
+                  <p className="m-0 text-slate-600 leading-relaxed">Se o cérebro quer "crocância" por estresse, mastigar gelo ou cenoura crua ajuda na tensão mandibular. Se o corpo pede doce insistentemente, recorrer a frutas ricas em fibras (veja <Link to="/quantas_frutas_posso_comer" className="text-green-600 font-semibold hover:underline">quantas frutas comer no dia</Link>) pode fornecer o paladar doce sem o pico de insulina arrasador dos doces industrializados.</p>
                 </div>
               </div>
             </div>
@@ -295,7 +295,6 @@ export default function FomeEmocional() {
                   </tr>
                 </thead>
                 <tbody className="text-base font-medium">
-                  {/* FOME VORAZ */}
                   <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                     <td className="p-4 md:p-5 text-center font-black text-xl text-red-600 bg-red-50/30">1 - 2</td>
                     <td className="p-4 md:p-5 font-bold text-red-700 uppercase tracking-wide text-sm">Fome Voraz / Dolorosa</td>
@@ -307,7 +306,6 @@ export default function FomeEmocional() {
                     <td className="p-4 md:p-5 text-center"><span className="bg-red-100 text-red-700 px-3 py-1.5 rounded-full text-[10px] font-black uppercase whitespace-nowrap">Perigo de Compulsão</span></td>
                   </tr>
                   
-                  {/* MOMENTO IDEAL */}
                   <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                     <td className="p-4 md:p-5 text-center font-black text-xl text-green-600 bg-green-50/50">3 - 4</td>
                     <td className="p-4 md:p-5 font-bold text-green-700 uppercase tracking-wide text-sm">Hora Ideal de Comer</td>
@@ -320,7 +318,6 @@ export default function FomeEmocional() {
                     <td className="p-4 md:p-5 text-center"><span className="bg-green-600 text-white px-3 py-1.5 rounded-full text-[10px] font-black uppercase whitespace-nowrap">Momento Ideal</span></td>
                   </tr>
                   
-                  {/* NEUTRO */}
                   <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                     <td className="p-4 md:p-5 text-center font-black text-xl text-slate-400 bg-slate-50/50">5</td>
                     <td className="p-4 md:p-5 font-bold text-slate-500 uppercase tracking-wide text-sm">Zona Neutra</td>
@@ -332,7 +329,6 @@ export default function FomeEmocional() {
                     <td className="p-4 md:p-5 text-center text-slate-400 font-bold italic text-sm">Sinal de Alerta</td>
                   </tr>
                   
-                  {/* SATISFEITO */}
                   <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                     <td className="p-4 md:p-5 text-center font-black text-xl text-green-600 bg-green-50/50">6</td>
                     <td className="p-4 md:p-5 font-bold text-green-700 uppercase tracking-wide text-sm">Satisfeito</td>
@@ -345,7 +341,6 @@ export default function FomeEmocional() {
                     <td className="p-4 md:p-5 text-center"><span className="bg-green-600 text-white px-3 py-1.5 rounded-full text-[10px] font-black uppercase whitespace-nowrap">Hora de Parar</span></td>
                   </tr>
                   
-                  {/* EXCESSO */}
                   <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                     <td className="p-4 md:p-5 text-center font-black text-xl text-orange-600 bg-orange-50/30">7 - 8</td>
                     <td className="p-4 md:p-5 font-bold text-orange-700 uppercase tracking-wide text-sm">Passou um Pouquinho</td>
@@ -357,7 +352,6 @@ export default function FomeEmocional() {
                     <td className="p-4 md:p-5 text-center"><span className="bg-orange-100 text-orange-700 px-3 py-1.5 rounded-full text-[10px] font-black uppercase whitespace-nowrap">Atenção</span></td>
                   </tr>
                   
-                  {/* PASSANDO MAL */}
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-4 md:p-5 text-center font-black text-xl text-red-600 bg-red-50/30">9 - 10</td>
                     <td className="p-4 md:p-5 font-bold text-red-700 uppercase tracking-wide text-sm">Empanturrado / Mal</td>
@@ -373,7 +367,7 @@ export default function FomeEmocional() {
               </table>
             </div>
 
-            {/* SEÇÃO 6: PERFIS E VÍDEO MUZY */}
+            {/* SEÇÃO 6: VÍDEO MUZY */}
             <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <PlayCircle className="text-green-600"/> Palavra do Especialista: Paulo Muzy
             </h2>
