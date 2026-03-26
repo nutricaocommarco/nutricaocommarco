@@ -205,6 +205,46 @@ export default function TirzepatidaParaQueServe() {
             }))
           })}
         </script>
+
+        {/* SCHEMA.ORG 5: AUDIO OBJECT (SEO PARA ÁUDIO DO ARTIGO) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AudioObject",
+            "name": "Áudio do Artigo: Tirzepatida Para que serve?",
+            "description": "Narração em áudio do artigo completo sobre a Tirzepatida, Mounjaro e emagrecimento.",
+            "contentUrl": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Tirzepatida.mp3",
+            "encodingFormat": "audio/mpeg",
+            "author": {
+              "@type": "Person",
+              "name": "Marco Aurélio Jr."
+            }
+          })}
+        </script>
+
+        {/* SCHEMA.ORG 6: VIDEO OBJECT (SEO PARA VÍDEO DO YOUTUBE EMBUTIDO) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            "name": "Como Multiplicar o Efeito do Mounjaro - Dr Stocker",
+            "description": "Explicação médica detalhada sobre estratégias práticas para potencializar os resultados do tratamento com Mounjaro (Tirzepatida) e evitar o reganho de peso.",
+            "thumbnailUrl": [
+              "https://img.youtube.com/vi/TBPP_wa087k/maxresdefault.jpg"
+            ],
+            "uploadDate": "2023-11-20T08:00:00+00:00",
+            "embedUrl": "https://www.youtube.com/embed/TBPP_wa087k",
+            "contentUrl": "https://www.youtube.com/watch?v=TBPP_wa087k",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Dr. Stocker",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"
+              }
+            }
+          })}
+        </script>
       </Helmet>
 
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
