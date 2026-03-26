@@ -150,6 +150,21 @@ export default function TirzepatidaParaQueServe() {
             </p>
           </div>
 
+          {/* IMAGEM DE CAPA COM SEO OTIMIZADO */}
+          <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
+            <img 
+              src={`${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`} 
+              alt="Caixa e caneta injetável de Tirzepatida 5mg, conhecida comercialmente como Mounjaro, utilizada para tratamento metabólico e emagrecimento." 
+              title="Tirzepatida 5mg (Mounjaro) - Medicação para Emagrecimento e Controle Metabólico"
+              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+            />
+            <div className="bg-green-50 p-4 text-center">
+              <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
+                A tirzepatida representa um marco científico no tratamento da obesidade e saúde metabólica.
+              </p>
+            </div>
+          </div>
+
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
@@ -222,6 +237,12 @@ export default function TirzepatidaParaQueServe() {
                     </a>
                   </li>
                   <li>
+                    <a href="#video-especialista" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <PlayCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Como Multiplicar os Efeitos
+                    </a>
+                  </li>
+                  <li>
                     <a href="#comparacao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
                       <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Tirzepatida x Retatrutida
@@ -252,21 +273,6 @@ export default function TirzepatidaParaQueServe() {
             <p>A tirzepatida é uma medicação inovadora aprovada pela Anvisa inicialmente para o tratamento do diabetes tipo 2, mas que ganhou destaque global pelo seu potente efeito no controle da obesidade. Diferente de medicações mais antigas, ela é um duplo agonista, o que significa que ela imita dois hormônios naturais do nosso intestino: o GLP-1 (peptídeo semelhante ao glucagon 1) e o GIP (polipeptídeo insulinotrópico dependente de glicose). Enquanto o GLP-1 é amplamente conhecido por retardar o esvaziamento gástrico e sinalizar saciedade ao cérebro, o GIP atua de forma complementar melhorando a sensibilidade à insulina e a maneira como o corpo processa a gordura.</p>
 
             <p>O mecanismo de ação da tirzepatida é tão profundo que ela não apenas reduz a fome, mas altera a "recompensa" cerebral associada à comida, ajudando a silenciar o chamado "barulho mental" por alimentos hipercalóricos. Isso explica por que, nos estudos clínicos, os pacientes alcançaram resultados superiores a outros tratamentos injetáveis disponíveis no mercado brasileiro.</p>
-
-         {/* IMAGEM DE CAPA COM SEO OTIMIZADO */}
-          <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-            <img 
-              src={`${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`} 
-              alt="Caixa e caneta injetável de Tirzepatida 5mg, conhecida comercialmente como Mounjaro, utilizada para tratamento metabólico e emagrecimento." 
-              title="Tirzepatida 5mg (Mounjaro) - Medicação para Emagrecimento e Controle Metabólico"
-              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
-            />
-            <div className="bg-green-50 p-4 text-center">
-              <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
-                A tirzepatida representa um marco científico no tratamento da obesidade e saúde metabólica.
-              </p>
-            </div>
-          </div>
 
             <h2 id="indicacoes" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Heart className="text-green-600"/> Quem pode usar Tirzepatida?
@@ -329,6 +335,32 @@ export default function TirzepatidaParaQueServe() {
                   <h3 className="text-xl font-black text-slate-800 mb-2">Atividade Física e Farmacologia</h3>
                   <p className="m-0 text-slate-600 leading-relaxed">Aumento progressivo para 300 min/semana de aeróbico e mínimo de 3 sessões de treinamento resistido. Na parte farmacológica, considerar a manutenção do GLP-1 na dose efetiva mínima ou um plano de descontinuação gradual.</p>
                 </div>
+              </div>
+            </div>
+
+            {/* VÍDEO RECOMENDADO EM DESTAQUE */}
+            <h2 id="video-especialista" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <PlayCircle className="text-green-600"/> Palavra do Especialista: Multiplicando os Efeitos
+            </h2>
+
+            <p>Para aprofundar ainda mais o seu entendimento e descobrir estratégias práticas para potencializar os resultados do tratamento com Mounjaro (Tirzepatida), assista a este excelente material explicativo feito pelo Dr. Stocker abordando as principais dúvidas sobre os medicamentos injetáveis.</p>
+
+            <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                  <PlayCircle size={24} />
+                </div>
+                <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Como Multiplicar o Efeito do Mounjaro</h3>
+              </div>
+              <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
+                <iframe 
+                  src="https://www.youtube.com/embed/TBPP_wa087k" 
+                  title="Como Multiplicar o Efeito do Mounjaro - Dr Stocker" 
+                  className="absolute top-0 left-0 w-full h-full"
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                ></iframe>
               </div>
             </div>
 
