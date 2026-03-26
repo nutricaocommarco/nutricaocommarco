@@ -324,6 +324,39 @@ export default function TirzepatidaParaQueServe() {
 
             <p>O treinamento de força sinaliza ao corpo que ele deve preservar o tecido muscular, mantendo a "máquina" metabólica ativa. Para monitorar corretamente se a sua perda de peso está sendo focada em gordura e não em massa magra, é útil entender como funcionam ferramentas como a <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 font-semibold hover:underline">bioimpedância</Link> ou exames de <Link to="/o_que_e_antropometria" className="text-green-600 font-semibold hover:underline">antropometria</Link>. Sem exercício resistido, você corre o risco de se tornar um "falso magro" com metabolismo lento.</p>
 
+            {/* TABELA DE EFEITOS COLATERAIS */}
+            <div className="my-12 bg-white border border-slate-100 shadow-xl rounded-[2.5rem] overflow-hidden">
+              <div className="bg-green-50 p-6 md:p-8 border-b border-green-100/60">
+                <h3 className="text-xl font-black text-green-900 uppercase italic m-0 flex items-center gap-3">
+                  <Activity className="text-green-600 shrink-0" /> Efeitos Colaterais da Tirzepatida
+                </h3>
+              </div>
+              <div className="p-0">
+                <div className="grid grid-cols-1 md:grid-cols-3 border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors">
+                  <div className="p-6 md:border-r border-slate-100 font-black text-slate-800 flex items-center">Náuseas e Vômitos</div>
+                  <div className="p-6 md:col-span-2 text-slate-600 font-medium leading-relaxed">Comuns, mas geralmente bem tolerados com titulação lenta. [span_0](start_span)Podem ser menos intensos em algumas pessoas.[span_0](end_span)</div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors">
+                  <div className="p-6 md:border-r border-slate-100 font-black text-slate-800 flex items-center">Diarreia</div>
+                  [span_1](start_span)<div className="p-6 md:col-span-2 text-slate-600 font-medium leading-relaxed">Relatada por uma parcela dos pacientes.[span_1](end_span)</div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors">
+                  <div className="p-6 md:border-r border-slate-100 font-black text-slate-800 flex items-center">Constipação</div>
+                  [span_2](start_span)<div className="p-6 md:col-span-2 text-slate-600 font-medium leading-relaxed">Observada em alguns pacientes.[span_2](end_span)</div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors">
+                  <div className="p-6 md:border-r border-slate-100 font-black text-slate-800 flex items-center">Hipoglicemia</div>
+                  <div className="p-6 md:col-span-2 text-slate-600 font-medium leading-relaxed">Baixo risco em monoterapia. [span_3](start_span)Aumenta quando combinado com sulfonilureias ou insulina.[span_3](end_span)</div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors">
+                  <div className="p-6 md:border-r border-slate-100 font-black text-slate-800 flex items-center">Outros (Menos Comuns)</div>
+                  [span_4](start_span)<div className="p-6 md:col-span-2 text-slate-600 font-medium leading-relaxed">Dispepsia, dor abdominal, fadiga.[span_4](end_span)</div>
+                </div>
+              </div>
+            </div>
+            {/* FIM DA TABELA DE EFEITOS COLATERAIS */}
+
+
             <h2 id="efeito-rebote" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Activity className="text-green-600"/> O medo do Efeito Rebote e a importância do Desmame
             </h2>
