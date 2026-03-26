@@ -13,6 +13,10 @@ const dateModifiedISO = "2026-03-26";
 // Converte "YYYY-MM-DD" para "DD/MM/YYYY"
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
+// Caminhos das imagens
+const tirzepatidaCapa = `${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`;
+const tirzepatidaGrafico = `${githubImgBase}Blog/Tirzepatida-Grafico.jpg`;
+
 export default function TirzepatidaParaQueServe() {
   const { pathname } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
@@ -59,7 +63,7 @@ export default function TirzepatidaParaQueServe() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Tirzepatida: Para que serve? Emagrecimento, Mounjaro e Rebote | Nutrição com Marco" />
         <meta property="og:description" content="Tudo sobre a Tirzepatida: mecanismo de ação, perda de peso esperada, necessidade de musculação, desmame e alertas sobre falsificações." />
-        <meta property="og:image" content={`${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`} />
+        <meta property="og:image" content={tirzepatidaCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         {/* SCHEMA.ORG PARA ARTIGO OTIMIZADO */}
@@ -68,7 +72,7 @@ export default function TirzepatidaParaQueServe() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Tirzepatida: Para que serve e como funciona no corpo?",
-            "image": `${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`,
+            "image": tirzepatidaCapa,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
             "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png`}},
             "datePublished": datePublishedISO,
@@ -153,7 +157,7 @@ export default function TirzepatidaParaQueServe() {
           {/* IMAGEM DE CAPA COM SEO OTIMIZADO */}
           <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
             <img 
-              src={`${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`} 
+              src={tirzepatidaCapa} 
               alt="Caixa e caneta injetável de Tirzepatida 5mg, conhecida comercialmente como Mounjaro, utilizada para tratamento metabólico e emagrecimento." 
               title="Tirzepatida 5mg (Mounjaro) - Medicação para Emagrecimento e Controle Metabólico"
               className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
@@ -270,7 +274,7 @@ export default function TirzepatidaParaQueServe() {
             <h2 id="mecanismo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Zap className="text-green-600"/> O Mecanismo no Corpo
             </h2>
-            <p>A tirzepatida é uma medicação inovadora aprovada pela Anvisa inicialmente para o tratamento do diabetes tipo 2, mas que ganhou destaque global pelo seu potente efeito no controle da obesidade. Diferente de medicações mais antigas, ela é um duplo agonista, o que significa que ela imita dois hormônios naturais do nosso intestino: o GLP-1 (peptídeo semelhante ao glucagon 1) e o GIP (polipeptídeo insulinotrópico dependente de glicose). Enquanto o GLP-1 é amplamente conhecido por retardar o esvaziamento gástrico e sinalizar saciedade ao cérebro, o GIP atua de forma complementar melhorando a sensibilidade à insulina e a maneira como o corpo processa a gordura.</p>
+            <p>A tirzepatida é uma medicação inovadora aprovada pela Anvisa inicialmente para o tratamento do diabetes tipo 2, mas que ganhou destaque global pelo seu potente effect no controle da obesidade. Diferente de medicações mais antigas, ela é um duplo agonista, o que significa que ela imita dois hormônios naturais do nosso intestino: o GLP-1 (peptídeo semelhante ao glucagon 1) e o GIP (polipeptídeo insulinotrópico dependente de glicose). Enquanto o GLP-1 é amplamente conhecido por retardar o esvaziamento gástrico e sinalizar saciedade ao cérebro, o GIP atua de forma complementar melhorando a sensibilidade à insulina e a maneira como o corpo processa a gordura.</p>
 
             <p>O mecanismo de ação da tirzepatida é tão profundo que ela não apenas reduz a fome, mas altera a "recompensa" cerebral associada à comida, ajudando a silenciar o chamado "barulho mental" por alimentos hipercalóricos. Isso explica por que, nos estudos clínicos, os pacientes alcançaram resultados superiores a outros tratamentos injetáveis disponíveis no mercado brasileiro.</p>
 
@@ -306,7 +310,32 @@ export default function TirzepatidaParaQueServe() {
 
             <p className="font-semibold text-slate-800 bg-slate-100 p-6 rounded-2xl border border-slate-200">Aqui é importante dizer que a prescrição de GLP-1 não cura a obesidade, mas a trata de forma muito semelhante à que um medicamento para pressão arterial atenua a hipertensão. Remova a medicação e, na ausência de uma intervenção significativa e contínua de medicina do estilo de vida, o reganho de peso ocorrerá no paciente obeso com a mesma certeza que a pressão arterial cronicamente alta retornará no paciente hipertenso.</p>
 
-            <p>Isso foi claramente demonstrado no artigo <em>Tirzepatide after intensive lifestyle intervention in adults with overweight or obesity: the SURMOUNT-3 phase 3 trial</em> (<a href="https://www.nature.com/articles/s41591-023-02597-w" target="_blank" rel="noreferrer" className="text-green-600 hover:underline">acesse o estudo na Nature</a>). O estudo acompanhou a mudança de peso corporal ao longo das semanas após uma intervenção intensiva de estilo de vida. Os resultados mostraram que a medicação foi crucial para manter a perda de peso alcançada, reforçando que o tratamento crônico ou a vigilância estrita dos hábitos é indispensável para evitar que o paciente volte a engordar.</p>
+            {/* Inserção do Gráfico SURMOUNT-3 */}
+            <div className="my-10 rounded-2xl overflow-hidden border border-slate-100 shadow-xl group">
+                <img
+                    src={tirzepatidaGrafico}
+                    alt="Gráfico mostrando a variação percentual média de peso corporal ao longo de 84 semanas no estudo SURMOUNT-3, comparando o grupo que continuou com Tirzepatida versus o grupo que mudou para Placebo após 12 semanas de intervenção intensiva de estilo de vida. Fonte: Nature Medicine, 2023."
+                    title="Evidência SURMOUNT-3: Tirzepatida previne o reganho de peso após intervenção de estilo de vida"
+                    className="w-full h-auto group-hover:scale-105 transition-transform duration-700"
+                />
+                 <div className="p-4 bg-slate-50 text-center text-xs text-slate-500 font-medium">
+                    Gráfico adaptado de Jastreboff et al., 2023 (Nature Medicine). Mostra a variação percentual média de peso desde o início da fase de intervenção intensiva de estilo de vida lead-in (semana -12) até a semana 72 do período de tratamento randomizado duplo-cego (totalizando 84 semanas). O grupo placebo demonstra a rápida recuperação de peso comum no "efeito sanfona".
+                </div>
+            </div>
+
+            {/* Explicação baseada no PDF com link interno */}
+            <p>Os dados científicos do estudo **SURMOUNT-3** (Jastreboff et al., 2023), publicado na prestigiada revista *Nature Medicine* (conforme o PDF analisado), trazem evidências visuais devastadoramente claras sobre a necessidade de gerenciamento contínuo da obesidade.</p>
+
+            <p>O gráfico acima ilustra os resultados de participantes que alcançaram uma perda de peso média de ~6.9% durante um período "lead-in" de 12 semanas de intervenção intensiva de estilo de vida (dieta de baixas calorias, exercícios e aconselhamento). Após essas 12 semanas, eles foram randomizados para continuar o tratamento com Tirzepatida (dose máxima tolerada) ou mudar para um Placebo.</p>
+
+            <p>Observe as trajetórias após a randomização (Semana 0):
+              <ul className="list-disc pl-6 space-y-2 mt-2">
+                <li>O grupo que continuou com **Tirzepatida (linha azul escura)** experimentou uma perda de peso adicional e significativa de **18.4%**. No final das 84 semanas de estudo, a redução total de peso desde o início do estilo de vida foi de **~24.3%**.</li>
+                <li>Em contraste, o grupo que mudou para **Placebo (linha cinza)**, que parou a intervenção farmacológica ativa mas continuou com aconselhamento de estilo de vida, rapidamente começou a recuperar o peso perdido, terminando o estudo com apenas ~2.2% de redução total desde o início.</li>
+              </ul>
+            </p>
+
+            <p className="bg-slate-100 p-6 rounded-2xl border border-slate-200 font-semibold">Este gráfico prova visualmente que a obesidade é uma doença crônica e que os esforços puramente comportamentais, embora essenciais, muitas vezes são sobrecarregados por contra-adaptações biológicas quando a intervenção principal (neste caso, farmacológica) é removida. A curva do grupo placebo é o exemplo clássico e documentado cientificamente do <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-semibold hover:underline">efeito sanfona</Link>. Provando que sem uma intervenção significativa e contínua de medicina do estilo de vida ou suporte farmacológico, o reganho de peso ocorrerá no paciente obeso.</p>
 
             <h2 id="estrategias" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <FileText className="text-green-600"/> Estratégias para minimizar o reganho de peso
