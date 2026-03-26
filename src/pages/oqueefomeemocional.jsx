@@ -248,6 +248,106 @@ export default function FomeEmocional() {
               <p className="m-0"><strong>• Nível 10 (Fome Voraz):</strong> Irritabilidade extrema. Aqui as chances de escolhas impulsivas e descontrole são máximas.</p>
             </div>
 
+            {/* EXERCÍCIO PRÁTICO ROBUSTO: TABELA DE FOME E SACIEDADE DO DIÁRIO */}
+<h2 id="exercicio" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+  <Activity className="text-green-600"/> Exercício Prático: Conectando com a Escala Biológica
+</h2>
+<p>
+  Para colocar a teoria em prática e quebrar o ciclo da fome emocional, apresento a ferramenta mais poderosa no controle do comportamento alimentar: a <strong>Escala de Fome e Saciedade Biológica</strong>. Este exercício ajuda você a reconectar-se com os sinais reais que o seu corpo envia, que muitas vezes são ignorados pelos impulsos emocionais. O segredo não é ter força de vontade, mas sim autopercepção.
+</p>
+<p className="font-semibold text-slate-700 bg-slate-100 p-6 rounded-2xl border border-slate-200 mt-6 mb-10">
+  <strong>Como usar:</strong> Antes e depois de cada refeição, consulte esta tabela e avalie: <em>"Onde meu corpo está agora?"</em>. O objetivo é tentar se manter na <strong>"Zona de Conforto"</strong> (níveis 3 a 6), evitando chegar nos extremos de fome ou de plenitude física dolorosa.
+</p>
+
+<div className="my-10 bg-white border border-slate-100 shadow-xl rounded-[2.5rem] overflow-hidden overflow-x-auto">
+  <table className="w-full text-left border-collapse min-w-[600px]">
+    <thead>
+      <tr className="bg-slate-50 border-b border-slate-100">
+        <th className="p-6 md:p-8 font-black uppercase tracking-widest text-[11px] text-slate-500 text-center w-24">Nível</th>
+        <th className="p-6 md:p-8 font-black uppercase tracking-widest text-[11px] text-slate-500 w-48">Classificação</th>
+        <th className="p-6 md:p-8 font-black uppercase tracking-widest text-[11px] text-slate-500">Sinais Físicos (O que você sente)</th>
+        <th className="p-6 md:p-8 font-black uppercase tracking-widest text-[11px] text-slate-500 text-center w-40">Ação Sugerida</th>
+      </tr>
+    </thead>
+    <tbody className="text-base font-medium">
+      {/* FOME VORAZ */}
+      <tr className="border-b border-slate-100">
+        <td className="p-6 md:p-8 text-center font-black text-xl text-red-600 bg-red-50/50">1 - 2</td>
+        <td className="p-6 md:p-8 font-bold text-red-700 uppercase tracking-wide">Fome Voraz / Dolorosa</td>
+        <td className="p-6 md:p-8 text-slate-700 space-y-1">
+          <p>• Tontura forte, dor de cabeça súbita ou visão turva.</p>
+          <p>• Estômago dolorido, contraindo-se ("nó no estômago").</p>
+          <p>• Náusea de jejum, irritabilidade extrema ("hangry").</p>
+        </td>
+        <td className="p-6 md:p-8 text-center"><span className="bg-red-100 text-red-700 px-3 py-1.5 rounded-full text-[10px] font-black uppercase whitespace-nowrap">Perigo de Compulsão</span></td>
+      </tr>
+      
+      {/* MOMENTO IDEAL */}
+      <tr className="border-b border-slate-100">
+        <td className="p-6 md:p-8 text-center font-black text-xl text-green-600 bg-green-50">3 - 4</td>
+        <td className="p-6 md:p-8 font-bold text-green-700 uppercase tracking-wide">Hora Ideal de Comer</td>
+        <td className="p-6 md:p-8 text-slate-700 space-y-1">
+          <p>• Estômago vazio, sensação de "buraco".</p>
+          <p>• Barulhos leves e constantes no estômago.</p>
+          <p>• Pensamento persistente focado em comida.</p>
+          <p>• Leve queda na energia geral.</p>
+        </td>
+        <td className="p-6 md:p-8 text-center"><span className="bg-green-600 text-white px-3 py-1.5 rounded-full text-[10px] font-black uppercase whitespace-nowrap">Momento Ideal</span></td>
+      </tr>
+      
+      {/* NEUTRO */}
+      <tr className="border-b border-slate-100">
+        <td className="p-6 md:p-8 text-center font-black text-xl text-slate-400 bg-slate-50">5</td>
+        <td className="p-6 md:p-8 font-bold text-slate-500 uppercase tracking-wide">Zona Neutra</td>
+        <td className="p-6 md:p-8 text-slate-700 space-y-1 italic">
+          <p>• Ausência total de sinais físicos.</p>
+          <p>• Sem fome e sem saciedade.</p>
+          <p>• Sensação de conforto pleno.</p>
+        </td>
+        <td className="p-6 md:p-8 text-center text-slate-400 font-bold italic">Sinal de Alerta</td>
+      </tr>
+      
+      {/* SATISFEITO */}
+      <tr className="border-b border-slate-100">
+        <td className="p-6 md:p-8 text-center font-black text-xl text-green-600 bg-green-50">6</td>
+        <td className="p-6 md:p-8 font-bold text-green-700 uppercase tracking-wide">Satisfeito</td>
+        <td className="p-6 md:p-8 text-slate-700 space-y-1">
+          <p>• Sensação de leveza e bem-estar.</p>
+          <p>• Estômago confortavelmente preenchido.</p>
+          <p>• Satisfação e felicidade com a refeição.</p>
+          <p>• O pensamento em comida desaparece.</p>
+        </td>
+        <td className="p-6 md:p-8 text-center"><span className="bg-green-600 text-white px-3 py-1.5 rounded-full text-[10px] font-black uppercase whitespace-nowrap">Hora de Parar</span></td>
+      </tr>
+      
+      {/* EXCESSO */}
+      <tr className="border-b border-slate-100">
+        <td className="p-6 md:p-8 text-center font-black text-xl text-orange-600 bg-orange-50/50">7 - 8</td>
+        <td className="p-6 md:p-8 font-bold text-orange-700 uppercase tracking-wide">Passou um Pouquinho</td>
+        <td className="p-6 md:p-8 text-slate-700 space-y-1">
+          <p>• Estômago pesado e estufado.</p>
+          <p>• Início de desconforto respiratório suave.</p>
+          <p>• Leve sonolência após a refeição.</p>
+        </td>
+        <td className="p-6 md:p-8 text-center"><span className="bg-orange-100 text-orange-700 px-3 py-1.5 rounded-full text-[10px] font-black uppercase whitespace-nowrap">Atenção</span></td>
+      </tr>
+      
+      {/* PASSANDO MAL */}
+      <tr>
+        <td className="p-6 md:p-8 text-center font-black text-xl text-red-600 bg-red-50/50">9 - 10</td>
+        <td className="p-6 md:p-8 font-bold text-red-700 uppercase tracking-wide">Empanturrado / Passando Mal</td>
+        <td className="p-6 md:p-8 text-slate-700 space-y-1">
+          <p>• Náusea forte e sono avassalador.</p>
+          <p>• Dor de estômago intensa por excesso de comida.</p>
+          <p>• Sensação de estar 'prestes a estourar'.</p>
+          <p>• Dificuldade real em se mover.</p>
+        </td>
+        <td className="p-6 md:p-8 text-center"><span className="bg-red-100 text-red-700 px-3 py-1.5 rounded-full text-[10px] font-black uppercase whitespace-nowrap">Desconforto Real</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
             <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <PlayCircle className="text-green-600"/> Palavra da Especialista: Nutrição Consciente
             </h2>
