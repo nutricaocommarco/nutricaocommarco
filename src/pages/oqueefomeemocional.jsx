@@ -13,7 +13,7 @@ const dateModifiedISO = "2026-03-27";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Caminho da imagem de capa com o Pingus
-const fomeEmocionalCapa = `${githubImgBase}Blog/Fome-Emocional-Capa.jpg`;
+const fomeEmocionalCapa = `${githubImgBase}Blog/Fome-Emocional-Pingus.jpg`;
 
 export default function FomeEmocional() {
   const { pathname } = useLocation();
@@ -24,31 +24,29 @@ export default function FomeEmocional() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  // FAQ baseado nos seus materiais de Nutrição Comportamental
   const faqs = [
     {
       pergunta: "É normal sentir fome emocional de vez em quando?",
-      resposta: "Sim, é perfeitamente normal. O comer é um ato biopsicossociocultural e a comida possui um papel afetivo e social em nossas vidas. O problema surge apenas quando a comida se torna a sua única válvula de escape para lidar com sentimentos, ignorando os sinais biológicos de saciedade."
+      resposta: "Sim, é perfeitamente normal. O comer é um ato biopsicossociocultural e a comida possui um papel afetivo. O problema surge quando a comida se torna a sua única válvula de escape para lidar com sentimentos, ignorando os sinais biológicos de saciedade."
     },
     {
       pergunta: "Como diferenciar a fome emocional da vontade de comer?",
-      resposta: "A fome emocional manifesta-se como uma urgência súbita e 'sequestradora' da atenção, focada em aliviar um mal-estar. A vontade de comer (fome específica) é um desejo que pode esperar e não vem acompanhado daquela sensação de 'buraco emocional' ou urgência por alívio."
+      resposta: "A fome emocional manifesta-se como uma urgência súbita e 'sequestradora' da atenção. A vontade de comer (fome específica) é um desejo que pode esperar e não vem acompanhado daquela sensação de 'buraco emocional' ou urgência por alívio."
     },
     {
       pergunta: "Fazer jejum ou dietas restritivas piora a fome emocional?",
-      resposta: "Com certeza. A restrição gera compulsão. Quando você se priva severamente, o cérebro aumenta o valor de recompensa dos alimentos. No momento em que o estresse aparece, o impulso de comer emocionalmente torna-se muito mais difícil de controlar devido à privação prévia."
+      resposta: "Com certeza. A restrição gera compulsão. Quando você se priva severamente, o cérebro aumenta o valor de recompensa dos alimentos. No momento de estresse, o impulso de comer emocionalmente torna-se muito mais difícil de controlar."
     },
     {
       pergunta: "O que fazer no exato momento em que o impulso vem?",
-      resposta: "A estratégia recomendada é a pausa consciente. Tente aguardar de 5 a 10 minutos antes de ceder ao impulso. Utilize técnicas de distração, respiração profunda ou mude de ambiente. Durante essa pausa, tente avaliar seu real nível na Escala de Fome e Saciedade."
+      resposta: "Use a Técnica do Atraso Estratégico. Tente aguardar 10 minutos antes de ceder ao impulso. Utilize técnicas de distração ou mude de ambiente. Durante essa pausa, tente avaliar seu real nível na Escala de Fome e Saciedade."
     },
     {
       pergunta: "Como a Escala de Fome ajuda na prática?",
-      resposta: "Ela traduz sensações subjetivas em números. Ajuda a identificar se você está realmente precisando de energia (nível 7 ou 8) ou se está buscando comida por hábito, tédio ou estresse (níveis de saciedade entre 1 e 4)."
+      resposta: "Ela traduz sensações subjetivas em números. Ajuda a identificar se você está realmente precisando de energia (nível 7 ou 8) ou se está buscando comida por hábito, tédio ou estresse (níveis 1 a 4)."
     }
   ];
 
-  // Tabela Comparativa
   const comparativoFome = [
     {
       id: 1,
@@ -75,8 +73,8 @@ export default function FomeEmocional() {
   return (
     <>
       <Helmet>
-        <title>O que é Fome Emocional? Diferenças e Como Controlar | Nutrição com Marco</title>
-        <meta name="description" content="Entenda o que é fome emocional, como diferenciá-la da fome física, seus principais gatilhos e estratégias práticas baseadas na Nutrição Comportamental." />
+        <title>O que é Fome Emocional? Sintomas, Como Parar e Controlar | Nutrição com Marco</title>
+        <meta name="description" content="Você come e continua sentindo um vazio? Descubra os sintomas da fome emocional, como controlar o ciclo da compulsão e a neurociência por trás do impulso." />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="O que é Fome Emocional? Como Identificar e Controlar o Impulso | Nutrição com Marco" />
         <meta property="og:image" content={fomeEmocionalCapa} />
@@ -106,7 +104,7 @@ export default function FomeEmocional() {
       </Helmet>
 
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
-      <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
+      <div className="bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
         <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
           <ChevronLeft size={20} /> Voltar para o Blog
@@ -114,7 +112,6 @@ export default function FomeEmocional() {
 
         <article className="prose prose-lg max-w-none text-left">
 
-          {/* TAG E DATA */}
           <div className="mb-8 flex flex-col items-start gap-2">
             <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Nutrição Comportamental</span>
             <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
@@ -124,17 +121,20 @@ export default function FomeEmocional() {
             O que é Fome Emocional? Como Identificar e Controlar o Impulso
           </h1>
 
-          {/* RESPOSTA DIRETA */}
+          {/* COPY FORTE: IDENTIFICAÇÃO PROFUNDA */}
+          <p className="text-xl md:text-2xl font-medium text-slate-600 leading-relaxed mb-10">
+            Você abre a geladeira à noite sem saber exatamente o que quer? Come até não aguentar mais, mas continua com uma sensação de vazio inexplicável? Acredite, o seu estômago não está roncando — é o seu cérebro pedindo socorro. Conhecer os verdadeiros <strong>fome emocional sintomas</strong> é o primeiro passo para retomar o controle da sua vida.
+          </p>
+
           <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-4 text-left">
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                 O que é fome emocional? Resposta Direta
               </h2>
               <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
-                A fome emocional é o impulso de utilizar a comida para aliviar sentimentos — como estresse, ansiedade ou tédio — em vez de suprir uma necessidade física de nutrientes. Ela costuma ser súbita, urgente e focada em alimentos específicos e altamente palatáveis, agindo como um mecanismo de compensação psicológica.
+                A fome emocional é o impulso de utilizar a comida para anestesiar sentimentos — como estresse, ansiedade ou tédio — em vez de suprir uma necessidade biológica de nutrientes. Ela é súbita, urgente, focada em alimentos específicos (como doces e gorduras) e não cessa quando o estômago está cheio, gerando a temida <strong>compulsão alimentar emocional</strong>.
             </p>
           </div>
 
-          {/* AUDIO E ÍNDICE */}
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
@@ -165,12 +165,12 @@ export default function FomeEmocional() {
 
               <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[1000px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                 <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
-                  <li><a href="#biopsico" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Heart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Comer Biopsicossociocultural</a></li>
-                  <li><a href="#comparativo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Diferenças: Física vs Emocional</a></li>
-                  <li><a href="#ciclo-restricao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O Ciclo da Restrição</a></li>
-                  <li><a href="#escala" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Escala de Fome e Saciedade</a></li>
-                  <li><a href="#video" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><PlayCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Palavra da Especialista</a></li>
-                  <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes (FAQ)</a></li>
+                  <li><a href="#fisiologia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A Fisiologia Oculta</a></li>
+                  <li><a href="#ciclo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Por que você não consegue parar?</a></li>
+                  <li><a href="#comparativo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Diferenças Físicas e Emocionais</a></li>
+                  <li><a href="#estrategias" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Estratégias Práticas de Controle</a></li>
+                  <li><a href="#exercicio" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Leaf size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Escala de Fome Diária</a></li>
+                  <li><a href="#video" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><PlayCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Palavra do Especialista</a></li>
                 </ul>
               </div>
             </nav>
@@ -178,36 +178,52 @@ export default function FomeEmocional() {
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
-            <h2 id="biopsico" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Heart className="text-green-600"/> O Comer Biopsicossociocultural
+            {/* SEÇÃO 1: FISIOLOGIA (O DIFERENCIAL) */}
+            <h2 id="fisiologia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Zap className="text-green-600"/> A Fisiologia Oculta: Cérebro, Dopamina e Estresse
             </h2>
-            <p>Nosso relacionamento com a comida é muito mais profundo do que a simples contagem de calorias. Como explorei em meus estudos de Nutrição Comportamental, o comer é um ato <strong>biopsicossociocultural</strong>. Comemos por necessidade biológica, mas também por herança cultural, memórias de infância e conexão social. Sentir prazer ao comer é fundamental; o risco aparece quando a comida se torna o único recurso para lidar com emoções difíceis.</p>
+            <p>
+              A fome emocional não é uma falha de caráter ou mera "falta de vergonha na cara". Ela é uma cascata fisiológica complexa. Quando você está cronicamente estressado, seu corpo inunda a corrente sanguínea com <strong>Cortisol</strong>. O Hipotálamo (área do cérebro) interpreta esse estresse como uma ameaça à sobrevivência e exige energia rápida.
+            </p>
+            <p>
+              Qual é a forma mais rápida de energia? Carboidratos refinados e gorduras. Ao consumir esses alimentos, o seu <strong>Sistema de Recompensa Dopaminérgico</strong> é ativado, disparando <em>Dopamina</em> e anestesiando temporariamente a dor emocional. Isso é bem diferente da fome biológica, que é orquestrada de forma compassada pela <Link to="/hormonios_da_fome_emagrecimento" className="text-green-600 font-semibold hover:underline">Grelina e Leptina (os hormônios da fome)</Link>.
+            </p>
+            
+            <p className="bg-slate-100 p-6 rounded-2xl border border-slate-200 text-slate-700 italic mt-6">
+              Hoje, a medicina moderna utiliza fármacos potentes para silenciar esse "ruído mental" por comida, como explicamos nos artigos sobre <Link to="/tirzepatida-para-que-serve" className="text-green-600 font-semibold hover:underline">para que serve a Tirzepatida</Link> e <Link to="/retatrutida_o_que_e" className="text-green-600 font-semibold hover:underline">o que é a Retatrutida</Link>. Contudo, sem tratar a raiz emocional, o fim do uso da medicação frequentemente resulta no temido <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-semibold hover:underline">Efeito Sanfona</Link>.
+            </p>
 
-            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img 
-                src={fomeEmocionalCapa} 
-                alt="Pingus mascote reflexivo diante de um pote de sorvete, ilustrando o desafio da fome emocional." 
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
-              />
-              <div className="bg-green-50 p-4 text-center">
-                <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
-                  A fome emocional usa a comida como um curativo temporário para emoções, ignorando a saciedade do corpo.
-                </p>
-              </div>
+            {/* SEÇÃO 2: O CICLO DO VÍCIO */}
+            <h2 id="ciclo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Activity className="text-green-600"/> Por que você não consegue parar? O Ciclo Vicioso
+            </h2>
+            <p>Se você se pergunta <strong>fome emocional como parar</strong>, precisa primeiro entender a armadilha na qual o seu cérebro está preso. O ciclo da compulsão alimentar emocional funciona como um loop inquebrável se você não intervir no momento certo:</p>
+
+            <div className="flex flex-col gap-3 my-8 max-w-2xl mx-auto">
+              <div className="bg-red-50 text-red-800 p-4 rounded-2xl font-black text-center border border-red-100">1. GATILHO (Estresse, Tédio, Ansiedade)</div>
+              <div className="text-center text-slate-400">⬇️</div>
+              <div className="bg-orange-50 text-orange-800 p-4 rounded-2xl font-black text-center border border-orange-100">2. COMPULSÃO (Comer descontrolado)</div>
+              <div className="text-center text-slate-400">⬇️</div>
+              <div className="bg-green-50 text-green-800 p-4 rounded-2xl font-black text-center border border-green-100">3. ALÍVIO (Pico temporário de Dopamina)</div>
+              <div className="text-center text-slate-400">⬇️</div>
+              <div className="bg-slate-800 text-white p-4 rounded-2xl font-black text-center shadow-lg">4. CULPA E FRUSTRAÇÃO</div>
+              <div className="text-center text-slate-400">⬇️ (Gera mais estresse, voltando ao passo 1)</div>
             </div>
 
-            <h2 id="comparativo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Scale className="text-green-600"/> Diferenciando Fome Física de Fome Emocional
-            </h2>
-            <p>A fome física é paciente e cresce aos poucos. Se você estiver com fome real, uma maçã ou um prato de feijão serão bem-vindos. Já a fome emocional é caprichosa: ela quer 'exatamente' aquele chocolate ou aquela pizza, e quer agora. Ela não aceita substitutos nutritivos e geralmente persiste mesmo após o estômago estar fisicamente cheio.</p>
+            <p>A culpa no dia seguinte muitas vezes faz a pessoa subir na balança de forma punitiva. É crucial entender <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-600 font-semibold hover:underline">qual o melhor horário para se pesar</Link> e como a retenção de líquidos pós-compulsão afeta os números. Para não pirar, foque na composição corporal real (entenda <Link to="/o_que_e_antropometria" className="text-green-600 font-semibold hover:underline">o que é antropometria</Link> e se <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 font-semibold hover:underline">a bioimpedância é confiável</Link>) em vez de se julgar por flutuações diárias.</p>
 
-            {/* TABELA COMPARATIVA */}
+            {/* SEÇÃO 3: DIFERENCIAÇÃO */}
+            <h2 id="comparativo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Scale className="text-green-600"/> Diferenciação: Física vs Emocional
+            </h2>
+            <p>A nossa necessidade de energia varia. O corpo de um atleta se preparando para um <Link to="/nutricao_para_ironman_703" className="text-green-600 font-semibold hover:underline">Ironman 70.3</Link> ou sofrendo hipóxia por <Link to="/o_dilema_do_sangue_na_altitude" className="text-green-600 font-semibold hover:underline">estresse na altitude</Link> exige calorias reais para sobrevivência (Fome Física). Já no sedentarismo do escritório, a busca por um bolo de chocolate é quase sempre emocional. Veja as diferenças na linha do tempo e na intensidade:</p>
+
             <div className="my-10 bg-white border border-slate-100 shadow-2xl rounded-[3rem] overflow-hidden hidden md:block">
               <div className="grid grid-cols-12 text-center font-black uppercase tracking-widest text-[10px] border-b border-slate-100 items-stretch bg-slate-50">
-                <div className="p-4 border-r border-slate-100 col-span-3">Característica</div>
-                <div className="p-4 border-r border-slate-100 col-span-4">Como se Manifesta</div>
-                <div className="p-4 border-r border-slate-100 col-span-3">O que você busca</div>
-                <div className="p-4 col-span-2">Sensação Pós</div>
+                <div className="p-4 border-r border-slate-100 col-span-3">Linha do Tempo</div>
+                <div className="p-4 border-r border-slate-100 col-span-4">Intensidade do Desejo</div>
+                <div className="p-4 border-r border-slate-100 col-span-3">Foco do Alimento</div>
+                <div className="p-4 col-span-2">Pós-Refeição</div>
               </div>
 
               {comparativoFome.map((fome) => (
@@ -228,35 +244,44 @@ export default function FomeEmocional() {
               ))}
             </div>
 
-            <h2 id="ciclo-restricao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Activity className="text-green-600"/> O Perigoso Ciclo: Restrição gera Compulsão
+            {/* SEÇÃO 4: ESTRATÉGIAS REAIS */}
+            <h2 id="estrategias" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <FileText className="text-green-600"/> Fome emocional: Como controlar com Estratégias Práticas
             </h2>
-            <p>Um dos maiores erros no tratamento da fome emocional é tentar resolvê-la com mais restrição. Quando você proíbe um alimento, o seu cérebro automaticamente aumenta o valor de recompensa dele. O resultado? No primeiro momento de estresse, a sua barreira mental cai e você come em excesso, gerando um ciclo de culpa que alimenta novamente a fome emocional.</p>
-            
-            <p className="font-semibold text-slate-800 bg-slate-100 p-6 rounded-2xl border border-slate-200 text-center italic text-xl my-8">
-              "O desafio não é parar de sentir, mas aprender a acolher suas emoções sem que a comida precise ser o seu único curativo disponível."
-            </p>
+            <p>Se você procura saber <strong>fome emocional como controlar</strong>, esqueça as dicas genéricas de "beba água e respire". Precisamos de estratégias de alto nível:</p>
 
-            <h2 id="escala" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <FileText className="text-green-600"/> Ferramenta: Escala de Fome e Saciedade
-            </h2>
-            <p>Para retomar o controle, utilize a Escala de Fome (1 a 10) antes de cada refeição. Isso ajuda a trazer consciência ao ato de comer:</p>
-            <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-4 marker:text-green-600">
-              <p className="m-0"><strong>• Nível 1 a 3 (Empanturrado):</strong> Você já está muito cheio. Comer aqui é puramente por impulso emocional.</p>
-              <p className="m-0"><strong>• Nível 5 (Neutro):</strong> Nem fome, nem cheio. Cuidado com o comer por tédio.</p>
-              <p className="m-0"><strong>• Nível 7 a 8 (Fome Ideal):</strong> O corpo sinaliza necessidade real de energia. É o momento certo para começar a comer.</p>
-              <p className="m-0"><strong>• Nível 10 (Fome Voraz):</strong> Irritabilidade extrema. Aqui as chances de escolhas impulsivas e descontrole são máximas.</p>
+            <div className="flex flex-col gap-6 my-8">
+              <div className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-16 h-16 bg-blue-100 text-blue-700 rounded-2xl flex items-center justify-center shrink-0 font-black text-2xl shadow-inner">1</div>
+                <div>
+                  <h3 className="text-xl font-black text-slate-800 mb-2">A Técnica do Atraso (Regra dos 10 Minutos)</h3>
+                  <p className="m-0 text-slate-600 leading-relaxed">A compulsão exige urgência. Diga ao seu cérebro: "Eu posso comer isso, mas vou esperar 10 minutos". Nesse intervalo, o pico impulsivo do sistema nervoso simpático começa a baixar, permitindo que o córtex pré-frontal (área da razão) retome o controle da decisão.</p>
+                </div>
+              </div>
+
+              <div className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-16 h-16 bg-purple-100 text-purple-700 rounded-2xl flex items-center justify-center shrink-0 font-black text-2xl shadow-inner">2</div>
+                <div>
+                  <h3 className="text-xl font-black text-slate-800 mb-2">Estrutura Nutricional Anti-Gatilho</h3>
+                  <p className="m-0 text-slate-600 leading-relaxed">Se o seu corpo estiver bem nutrido, a barreira contra a emoção é maior. Monte refeições com alta densidade de proteínas (ovos são excelentes, veja se <Link to="/comer-ovo-todo-dia-aumenta-o-colesterol" className="text-green-600 font-semibold hover:underline">ovo aumenta o colesterol</Link>) e fibras (entenda <Link to="/por_que_o_feijao_da_gases" className="text-green-600 font-semibold hover:underline">por que o feijão dá gases</Link> e como prepará-lo). Isso amortece a fome fisiológica.</p>
+                </div>
+              </div>
+
+              <div className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-16 h-16 bg-orange-100 text-orange-700 rounded-2xl flex items-center justify-center shrink-0 font-black text-2xl shadow-inner">3</div>
+                <div>
+                  <h3 className="text-xl font-black text-slate-800 mb-2">Substituição Sensorial (Não Restrição)</h3>
+                  <p className="m-0 text-slate-600 leading-relaxed">Se o cérebro quer "crocância" por estresse, mastigar gelo ou cenoura ajuda na tensão mandibular. Se o corpo pede doce, alimentos da natureza como a beterraba (sim, <Link to="/diabetico_pode_comer_beterraba" className="text-green-600 font-semibold hover:underline">diabético pode comer beterraba</Link>), fontes de <Link to="/vitamina_a_para_que_serve" className="text-green-600 font-semibold hover:underline">Vitamina A</Link>, ou entender <Link to="/quantas_frutas_posso_comer" className="text-green-600 font-semibold hover:underline">quantas frutas comer no dia</Link> pode fornecer a frutose necessária sem o pico viciante de insulina dos ultraprocessados.</p>
+                </div>
+              </div>
             </div>
 
-{/* TABELA ROBUSTA - DIÁRIO DA FOME OTIMIZADA PARA DESKTOP */}
+            {/* SEÇÃO 5: TABELA DO DIÁRIO */}
             <h2 id="exercicio" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Activity className="text-green-600"/> Exercício Prático: Conectando com a Escala Biológica
+              <Leaf className="text-green-600"/> Exercício Prático: O Diário da Fome
             </h2>
             <p>
-              Para colocar a teoria em prática e quebrar o ciclo da fome emocional, apresento a ferramenta mais poderosa no controle do comportamento alimentar: a <strong>Escala de Fome e Saciedade Biológica</strong>. Este exercício ajuda você a reconectar-se com os sinais reais que o seu corpo envia, que muitas vezes são ignorados pelos impulsos emocionais. O segredo não é ter força de vontade, mas sim autopercepção.
-            </p>
-            <p className="font-semibold text-slate-700 bg-slate-100 p-6 rounded-2xl border border-slate-200 mt-6 mb-10">
-              <strong>Como usar:</strong> Antes e depois de cada refeição, consulte esta tabela e avalie: <em>"Onde meu corpo está agora?"</em>. O objetivo é tentar se manter na <strong>"Zona de Conforto"</strong> (níveis 3 a 6), evitando chegar nos extremos de fome ou de plenitude física dolorosa.
+              Para quebrar o ciclo, você precisa de autopercepção. Use a <strong>Escala de Fome e Saciedade</strong> antes de abrir a geladeira. Pergunte-se: <em>"Onde meu corpo está agora?"</em>. O objetivo é manter-se na "Zona de Conforto" (níveis 3 a 6).
             </p>
 
             <div className="my-10 bg-white border border-slate-100 shadow-xl rounded-[2.5rem] overflow-hidden overflow-x-auto">
@@ -348,67 +373,8 @@ export default function FomeEmocional() {
               </table>
             </div>
 
-{/* PERFIS DE COMEDOR */}
-<h2 id="perfis-comedor" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-  <Activity className="text-green-600"/> Perfis de Comedor: Qual é o seu?
-</h2>
-<p>
-  A forma como nos relacionamos com a comida é altamente influenciada pelo nosso estilo de vida, crenças e pelas informações que consumimos. Na prática, observamos diferentes tipos de comedores, cada um com suas particularidades e desafios. Identificar o seu perfil é um grande passo para fazer ajustes que promovam uma alimentação mais consciente.
-</p>
-
-<div className="my-10 bg-white border border-slate-100 shadow-xl rounded-[2.5rem] overflow-hidden overflow-x-auto">
-  <table className="w-full text-left border-collapse min-w-[700px]">
-    <thead>
-      <tr className="bg-slate-50 border-b border-slate-100">
-        <th className="p-4 md:p-5 font-black uppercase tracking-widest text-[11px] text-slate-500 w-[20%]">Perfil</th>
-        <th className="p-4 md:p-5 font-black uppercase tracking-widest text-[11px] text-slate-500 w-[45%]">Características Principais</th>
-        <th className="p-4 md:p-5 font-black uppercase tracking-widest text-[11px] text-slate-500 w-[35%]">Riscos e Consequências</th>
-      </tr>
-    </thead>
-    <tbody className="text-base font-medium">
-      {/* O CUIDADOSO */}
-      <tr className="border-b border-slate-100 hover:bg-green-50 transition-colors">
-        <td className="p-4 md:p-5 font-bold text-green-700 uppercase tracking-wide text-sm bg-green-50/30">O Cuidadoso</td>
-        <td className="p-4 md:p-5 text-slate-600 text-sm space-y-2">
-          <p>• Interessa-se profundamente por nutrição e alimentação saudável.</p>
-          <p>• Lê rótulos com atenção, questiona os preparos e preocupa-se excessivamente com a qualidade dos alimentos.</p>
-          <p>• Costuma ingerir menos do que precisa e adota dietas de forma inconsciente por obsessão pelas escolhas "certas".</p>
-        </td>
-        <td className="p-4 md:p-5 text-slate-600 text-sm">
-          A rigidez transforma o comer em uma tarefa estressante. Pode gerar alta ansiedade e abrir portas para transtornos alimentares como a ortorexia.
-        </td>
-      </tr>
-      
-      {/* O EM DIETA */}
-      <tr className="border-b border-slate-100 hover:bg-green-50 transition-colors">
-        <td className="p-4 md:p-5 font-bold text-green-700 uppercase tracking-wide text-sm bg-green-50/30">O Em Dieta</td>
-        <td className="p-4 md:p-5 text-slate-600 text-sm space-y-2">
-          <p>• Está sempre à procura da próxima solução mágica (jejum, cetogênica, etc).</p>
-          <p>• Sua alimentação é ditada por calorias, porções e horários específicos.</p>
-          <p>• Vive no extremo: alternando entre "estar em dieta" e "não estar em dieta".</p>
-        </td>
-        <td className="p-4 md:p-5 text-slate-600 text-sm">
-          Esse comportamento é insustentável e gera frustração, cansaço e insatisfação corporal crônica. Pode desencadear compulsões alimentares e bulimia.
-        </td>
-      </tr>
-      
-      {/* O DESATENTO */}
-      <tr className="hover:bg-green-50 transition-colors">
-        <td className="p-4 md:p-5 font-bold text-green-700 uppercase tracking-wide text-sm bg-green-50/30">O Desatento</td>
-        <td className="p-4 md:p-5 text-slate-600 text-sm space-y-2">
-          <p>• Não prioriza o ato de comer, alimentando-se enquanto assiste TV, trabalha ou dirige.</p>
-          <p>• É altamente vulnerável a emoções e ambientes (como rodízios ou almoços em família).</p>
-          <p>• Come no "piloto automático" e sai da rotina com extrema facilidade.</p>
-        </td>
-        <td className="p-4 md:p-5 text-slate-600 text-sm">
-          A desatenção impede a percepção da saciedade, causando ingestão excessiva. A longo prazo, desenvolve compulsão alimentar crônica e usa a comida como fuga.
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+            {/* SEÇÃO 6: PERFIS E VÍDEO MUZY */}
+            <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <PlayCircle className="text-green-600"/> Palavra do Especialista: Paulo Muzy
             </h2>
             <p>Entender o comportamento alimentar é o primeiro passo para uma vida mais equilibrada. Confira essa explicação essencial sobre por que fazemos o que fazemos com a comida, assista o vídeo do Dr. Paulo Muzy.</p>
