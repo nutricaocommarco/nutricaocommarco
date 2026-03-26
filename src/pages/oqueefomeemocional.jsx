@@ -284,6 +284,7 @@ export default function FomeEmocional() {
             </h2>
             <p>A nossa necessidade de energia varia. O corpo de um atleta se preparando para um <Link to="/nutricao_para_ironman_703" className="text-green-600 font-semibold hover:underline">Ironman 70.3</Link> exige repor um gasto extremo de calorias reais para sobrevivência (Fome Física). Já no sedentarismo do escritório, a busca repentina por um bolo de chocolate após uma reunião tensa é quase sempre emocional. Veja as diferenças na linha do tempo e na intensidade:</p>
 
+            {/* TABELA COMPARATIVA (APENAS DESKTOP) */}
             <div className="my-10 bg-white border border-slate-100 shadow-2xl rounded-[3rem] overflow-hidden hidden md:block">
               <div className="grid grid-cols-12 text-center font-black uppercase tracking-widest text-[10px] border-b border-slate-100 items-stretch bg-slate-50">
                 <div className="p-4 border-r border-slate-100 col-span-3">Linha do Tempo</div>
@@ -309,6 +310,38 @@ export default function FomeEmocional() {
                 </div>
               ))}
             </div>
+
+            {/* CARDS COMPARATIVOS (APENAS MOBILE) */}
+            <div className="md:hidden space-y-6 my-10">
+              {comparativoFome.map((fome) => (
+                <div key={fome.id} className={`${fome.cor} ${fome.textColor} p-8 rounded-[2.5rem] shadow-xl border border-white/10`}>
+                  <div className="flex items-center gap-3 mb-6 border-b border-white/20 pb-4">
+                    <div className="bg-white/20 p-2 rounded-lg">
+                      <Activity size={20} />
+                    </div>
+                    <span className="font-black text-xl italic uppercase tracking-tight">{fome.tipo}</span>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div>
+                      <span className="block text-[10px] uppercase tracking-widest opacity-60 font-black mb-1">Linha do Tempo</span>
+                      <span className="text-base font-bold leading-tight">{fome.surgimento}</span>
+                    </div>
+                    
+                    <div>
+                      <span className="block text-[10px] uppercase tracking-widest opacity-60 font-black mb-1">Foco do Alimento</span>
+                      <span className="text-lg font-black italic">{fome.desejo}</span>
+                    </div>
+                    
+                    <div>
+                      <span className="block text-[10px] uppercase tracking-widest opacity-60 font-black mb-1">Pós-Refeição</span>
+                      <span className="inline-block bg-white/20 px-3 py-1 rounded-full text-xs font-black uppercase">{fome.posRefeicao}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
 
             {/* SEÇÃO 4: ESTRATÉGIAS REAIS */}
             <h2 id="estrategias" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
