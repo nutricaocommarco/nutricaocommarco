@@ -154,21 +154,6 @@ export default function TirzepatidaParaQueServe() {
             </p>
           </div>
 
-          {/* IMAGEM DE CAPA COM SEO OTIMIZADO */}
-          <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-            <img 
-              src={tirzepatidaCapa} 
-              alt="Caixa e caneta injetável de Tirzepatida 5mg, conhecida comercialmente como Mounjaro, utilizada para tratamento metabólico e emagrecimento." 
-              title="Tirzepatida 5mg (Mounjaro) - Medicação para Emagrecimento e Controle Metabólico"
-              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
-            />
-            <div className="bg-green-50 p-4 text-center">
-              <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
-                A tirzepatida representa um marco científico no tratamento da obesidade e saúde metabólica.
-              </p>
-            </div>
-          </div>
-
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
@@ -275,6 +260,21 @@ export default function TirzepatidaParaQueServe() {
               <Zap className="text-green-600"/> O Mecanismo no Corpo
             </h2>
             <p>A tirzepatida é uma medicação inovadora aprovada pela Anvisa inicialmente para o tratamento do diabetes tipo 2, mas que ganhou destaque global pelo seu potente efeito no controle da obesidade. Diferente de medicações mais antigas, ela é um duplo agonista, o que significa que ela imita dois hormônios naturais do nosso intestino: o GLP-1 (peptídeo semelhante ao glucagon 1) e o GIP (polipeptídeo insulinotrópico dependente de glicose). Enquanto o GLP-1 é amplamente conhecido por retardar o esvaziamento gástrico e sinalizar saciedade ao cérebro, o GIP atua de forma complementar melhorando a sensibilidade à insulina e a maneira como o corpo processa a gordura.</p>
+
+        {/* IMAGEM DE CAPA COM SEO OTIMIZADO */}
+          <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
+            <img 
+              src={tirzepatidaCapa} 
+              alt="Caixa e caneta injetável de Tirzepatida 5mg, conhecida comercialmente como Mounjaro, utilizada para tratamento metabólico e emagrecimento." 
+              title="Tirzepatida 5mg (Mounjaro) - Medicação para Emagrecimento e Controle Metabólico"
+              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+            />
+            <div className="bg-green-50 p-4 text-center">
+              <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
+                A tirzepatida representa um marco científico no tratamento da obesidade e saúde metabólica.
+              </p>
+            </div>
+          </div>
 
             <p>O mecanismo de ação da tirzepatida é tão profundo que ela não apenas reduz a fome, mas altera a "recompensa" cerebral associada à comida, ajudando a silenciar o chamado "barulho mental" por alimentos hipercalóricos. Se você quer entender mais a fundo como a fome é regulada no cérebro, recomendo a leitura do nosso artigo sobre os <Link to="/hormonios_da_fome_emagrecimento" className="text-green-600 font-semibold hover:underline">hormônios da fome no emagrecimento</Link>. Isso explica por que, nos estudos clínicos, os pacientes alcançaram resultados superiores a outros tratamentos injetáveis disponíveis no mercado brasileiro.</p>
 
