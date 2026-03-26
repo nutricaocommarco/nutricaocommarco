@@ -252,6 +252,13 @@ export default function FomeEmocional() {
               Hoje, a medicina moderna utiliza fármacos potentes para silenciar esse "ruído mental" por comida, como explicamos nos artigos sobre <Link to="/tirzepatida-para-que-serve" className="text-green-600 font-semibold hover:underline">para que serve a Tirzepatida</Link> e <Link to="/retatrutida_o_que_e" className="text-green-600 font-semibold hover:underline">o que é a Retatrutida</Link>. Contudo, sem tratar a raiz emocional, o fim do uso da medicação frequentemente resulta no temido <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-semibold hover:underline">Efeito Sanfona</Link>.
             </p>
 
+            {/* BLOCO CITÁVEL - DEFINIÇÃO CIENTÍFICA */}
+            <blockquote className="my-10 border-l-4 border-green-600 bg-green-50 p-6 md:p-8 rounded-r-3xl shadow-sm">
+              <p className="m-0 text-xl md:text-2xl font-black text-green-900 italic leading-relaxed">
+                "Do ponto de vista científico, a fome emocional é caracterizada por um padrão de ingestão alimentar desencadeado por estados emocionais, e não por necessidades energéticas reais do organismo."
+              </p>
+            </blockquote>
+
             {/* SEÇÃO 2: O CICLO DO VÍCIO */}
             <h2 id="ciclo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Activity className="text-green-600"/> Por que você não consegue parar? O Ciclo Vicioso
