@@ -485,7 +485,7 @@ export default function TirzepatidaParaQueServe() {
             </div>
 
             {/* Explicação baseada no PDF com link interno */}
-            <p>Os dados científicos do estudo <strong>SURMOUNT-3</strong> (Jastreboff et al., 2023), publicado na prestigiada revista <em>Nature Medicine</em>, trazem evidências visuais devastadoramente claras sobre a necessidade de gerenciamento contínuo da obesidade.</p>
+            <p>Os dados científicos do estudo <a href="https://pubmed.ncbi.nlm.nih.gov/37840095/" target="_blank" rel="noopener noreferrer" className="text-green-600 font-semibold hover:underline"><strong>SURMOUNT-3</strong></a> (Jastreboff et al., 2023), publicado na prestigiada revista <em>Nature Medicine</em>, trazem evidências visuais devastadoramente claras sobre a necessidade de gerenciamento contínuo da obesidade.</p>
 
             <p>O gráfico acima ilustra os resultados de participantes que alcançaram uma perda de peso média de ~6.9% durante um período "lead-in" de 12 semanas de intervenção intensiva de estilo de vida (dieta de baixas calorias, exercícios e aconselhamento). Após essas 12 semanas, eles foram randomizados para continuar o tratamento com Tirzepatida (dose máxima tolerada) ou mudar para um Placebo.</p>
 
