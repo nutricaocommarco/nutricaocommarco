@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, Activity, Leaf, Scale, Heart, FileText, Zap, ChevronRight, PlayCircle, Headphones } from 'lucide-react';
+import { ChevronLeft, HelpCircle, Activity, Leaf, Scale, Heart, FileText, Zap, ChevronRight, PlayCircle, Headphones, ChevronDown } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
@@ -20,10 +20,31 @@ const tirzepatidaGrafico = `${githubImgBase}Blog/Tirzepatida-Grafico.jpg`;
 export default function TirzepatidaParaQueServe() {
   const { pathname } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  // Array de dados para o FAQ
+  const faqs = [
+    {
+      pergunta: "Qual o melhor horário para tomar a Tirzepatida?",
+      resposta: "Não há um horário obrigatório, mas muitas pessoas preferem aplicar à noite para 'dormir' durante os possíveis efeitos colaterais iniciais, como náuseas. O importante é manter sempre o mesmo dia da semana."
+    },
+    {
+      pergunta: "A tirzepatida faz mal para os rins?",
+      resposta: "Geralmente não, mas a desidratação causada por efeitos colaterais como vômitos ou diarreia pode sobrecarregar a função renal. Manter-se adequadamente hidratado bebendo água é fundamental durante o tratamento."
+    },
+    {
+      pergunta: "Mounjaro é seguro para quem não tem diabetes?",
+      resposta: "Sim, a molécula da tirzepatida já é aprovada em vários países (comercializada sob o nome Zepbound) especificamente para o controle da obesidade, demonstrando um perfil de segurança bem estabelecido quando o uso é acompanhado por profissionais."
+    },
+    {
+      pergunta: "O que comer se eu sentir muita náusea?",
+      resposta: "Se as náuseas ocorrerem, priorize o consumo de alimentos mais secos, como torradas integrais ou biscoitos de água e sal. Evite rigorosamente frituras ou alimentos muito temperados e gordurosos, pois eles demoram mais para sair do estômago."
+    }
+  ];
 
   // Array de dados para a Tabela Comparativa
   const comparativoTratamentos = [
@@ -482,24 +503,37 @@ export default function TirzepatidaParaQueServe() {
 
             {/* INÍCIO DO FAQ VISUAL OTIMIZADO COM PERGUNTAS EXATAS */}
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
-              <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
-              <div className="space-y-6">
-                <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Qual o melhor horário para tomar a Tirzepatida?</h3>
-                  <p className="text-slate-600 m-0 leading-relaxed">Não há um horário obrigatório, mas muitas pessoas preferem aplicar à noite para "dormir" durante os possíveis efeitos colaterais iniciais, como náuseas. O importante é manter sempre o mesmo dia da semana.</p>
-                </div>
-                <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">A tirzepatida faz mal para os rins?</h3>
-                  <p className="text-slate-600 m-0 leading-relaxed">Geralmente não, mas a desidratação causada por efeitos colaterais como vômitos ou diarreia pode sobrecarregar a função renal. Manter-se adequadamente hidratado bebendo água é fundamental durante o tratamento.</p>
-                </div>
-                <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">Mounjaro é seguro para quem não tem diabetes?</h3>
-                  <p className="text-slate-600 m-0 leading-relaxed">Sim, a molécula da tirzepatida já é aprovada em vários países (comercializada sob o nome Zepbound) especificamente para o controle da obesidade, demonstrando um perfil de segurança bem estabelecido quando o uso é acompanhado por profissionais.</p>
-                </div>
-                <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
-                  <h3 className="text-lg font-black text-slate-800 mb-2 italic">O que comer se eu sentir muita náusea?</h3>
-                  <p className="text-slate-600 m-0 leading-relaxed">Se as náuseas ocorrerem, priorize o consumo de alimentos mais secos, como torradas integrais ou biscoitos de água e sal. Evite rigorosamente frituras ou alimentos muito temperados e gordurosos, pois eles demoram mais para sair do estômago.</p>
-                </div>
+              <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
+                <HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)
+              </h2>
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <div key={index} className="bg-slate-50 rounded-3xl border border-green-100 overflow-hidden transition-all duration-300">
+                    <button
+                      onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                      className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
+                    >
+                      <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-600' : 'text-slate-800 group-hover:text-green-600'}`}>
+                        {faq.pergunta}
+                      </h3>
+                      <ChevronDown
+                        className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-600' : ''}`}
+                        size={24}
+                      />
+                    </button>
+                    <div
+                      className={`transition-all duration-500 ease-in-out ${
+                        openFaqIndex === index
+                          ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8'
+                          : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'
+                      }`}
+                    >
+                      <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">
+                        {faq.resposta}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
             {/* FIM DO FAQ VISUAL OTIMIZADO */}
