@@ -24,7 +24,8 @@ import BeterrabaDiabetes from './pages/BeterrabaDiabetes';
 import ConfirmacaoPendente from './pages/kitkit'; 
 import RetatrutidaOQueE from './pages/Retatrutida';
 import InscricaoConfirmada from './pages/InscricaoConfirmada';
-import OvoColesterol from './pages/ovoecolesterol'; // Importação do novo artigo
+import OvoColesterol from './pages/ovoecolesterol'; 
+import tirzepatidapraqueserve from './pages/tirzepatidapraqueserve'; // Importação do novo artigo
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -192,6 +193,7 @@ export default function App() {
             <Route path="/inscricao-confirmada" element={<InscricaoConfirmada />} />
             <Route path="/retatrutida_o_que_e" element={<RetatrutidaOQueE />} />
             <Route path="/comer-ovo-todo-dia-aumenta-o-colesterol" element={<OvoColesterol />} />
+            <Route path="/tirzepatida-para-que-serve" element={<tirzepatidapraqueserve />} />
           </Routes>
         </Layout>
       </Router>
