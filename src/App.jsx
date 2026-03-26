@@ -25,7 +25,8 @@ import ConfirmacaoPendente from './pages/kitkit';
 import RetatrutidaOQueE from './pages/Retatrutida';
 import InscricaoConfirmada from './pages/InscricaoConfirmada';
 import OvoColesterol from './pages/ovoecolesterol'; 
-import tirzepatidapraqueserve from './pages/tirzepatidapraqueserve'; // Importação do novo artigo
+import TirzepatidaParaQueServe from './pages/tirzepatidapraqueserve'; 
+// (O nome do arquivo './pages/tirzepatidapraqueserve' pode ficar minúsculo se o arquivo estiver assim, mas a variável importada deve ser maiúscula)
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -81,9 +82,13 @@ function Layout({ children }) {
         title: 'Retatrutida o que é? A nova fronteira da ciência | Nutrição com Marco',
         desc: 'Descubra o que é a retatrutida, o novo medicamento agonista triplo (GLP-1, GIP e Glucagon) e seus resultados na perda de peso.'
       },
-      '/ovo_e_colesterol': {
+'/ovo_e_colesterol': {
         title: 'Ovo e Colesterol: Benefícios, Mitos e Verdades Científicas | Nutrição com Marco',
         desc: 'Comer ovo todo dia faz mal? Quem tem gordura no fígado pode comer? Desvendamos tudo com base em estudos científicos atualizados.'
+      },
+      '/tirzepatida-para-que-serve': {
+        title: 'Tirzepatida: Para que serve? Emagrecimento, Mounjaro e Rebote | Nutrição com Marco',
+        desc: 'Descubra para que serve a Tirzepatida (Mounjaro), como funciona no emagrecimento, quanto peso se perde e como evitar o temido efeito rebote.'
       }
     };
 
@@ -193,7 +198,7 @@ export default function App() {
             <Route path="/inscricao-confirmada" element={<InscricaoConfirmada />} />
             <Route path="/retatrutida_o_que_e" element={<RetatrutidaOQueE />} />
             <Route path="/comer-ovo-todo-dia-aumenta-o-colesterol" element={<OvoColesterol />} />
-            <Route path="/tirzepatida-para-que-serve" element={<tirzepatidapraqueserve />} />
+            <Route path="/tirzepatida-para-que-serve" element={<TirzepatidaParaQueServe />} />
           </Routes>
         </Layout>
       </Router>
