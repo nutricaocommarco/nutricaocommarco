@@ -26,7 +26,7 @@ import RetatrutidaOQueE from './pages/Retatrutida';
 import InscricaoConfirmada from './pages/InscricaoConfirmada';
 import OvoColesterol from './pages/ovoecolesterol'; 
 import TirzepatidaParaQueServe from './pages/tirzepatidapraqueserve'; 
-// (O nome do arquivo './pages/tirzepatidapraqueserve' pode ficar minúsculo se o arquivo estiver assim, mas a variável importada deve ser maiúscula)
+import FomeEmocional from './pages/FomeEmocional'; // Nova Página
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -89,6 +89,10 @@ function Layout({ children }) {
       '/tirzepatida-para-que-serve': {
         title: 'Tirzepatida: Para que serve? Emagrecimento, Mounjaro e Rebote | Nutrição com Marco',
         desc: 'Descubra para que serve a Tirzepatida (Mounjaro), como funciona no emagrecimento, quanto peso se perde e como evitar o temido efeito rebote.'
+      },
+      '/o_que_e_fome_emocional': {
+        title: 'O que é Fome Emocional? Diferenças e Como Controlar | Nutrição com Marco',
+        desc: 'Entenda o que é fome emocional, como diferenciá-la da fome física e estratégias práticas para lidar com o impulso de comer por emoção.'
       }
     };
 
@@ -199,6 +203,7 @@ export default function App() {
             <Route path="/retatrutida_o_que_e" element={<RetatrutidaOQueE />} />
             <Route path="/comer-ovo-todo-dia-aumenta-o-colesterol" element={<OvoColesterol />} />
             <Route path="/tirzepatida-para-que-serve" element={<TirzepatidaParaQueServe />} />
+            <Route path="/o_que_e_fome_emocional" element={<FomeEmocional />} />
           </Routes>
         </Layout>
       </Router>
