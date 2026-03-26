@@ -13,6 +13,10 @@ const dateModifiedISO = "2026-03-26";
 // Converte "YYYY-MM-DD" para "DD/MM/YYYY"
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
+// Caminhos das imagens
+const tirzepatidaCapa = `${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`;
+const tirzepatidaGrafico = `${githubImgBase}Blog/Tirzepatida-Grafico.jpg`;
+
 export default function TirzepatidaParaQueServe() {
   const { pathname } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
@@ -59,7 +63,7 @@ export default function TirzepatidaParaQueServe() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Tirzepatida: Para que serve? Emagrecimento, Mounjaro e Rebote | Nutrição com Marco" />
         <meta property="og:description" content="Tudo sobre a Tirzepatida: mecanismo de ação, perda de peso esperada, necessidade de musculação, desmame e alertas sobre falsificações." />
-        <meta property="og:image" content={`${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`} />
+        <meta property="og:image" content={tirzepatidaCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         {/* SCHEMA.ORG PARA ARTIGO OTIMIZADO */}
@@ -68,7 +72,7 @@ export default function TirzepatidaParaQueServe() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Tirzepatida: Para que serve e como funciona no corpo?",
-            "image": `${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`,
+            "image": tirzepatidaCapa,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
             "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png`}},
             "datePublished": datePublishedISO,
@@ -150,6 +154,20 @@ export default function TirzepatidaParaQueServe() {
             </p>
           </div>
 
+          {/* IMAGEM DE CAPA COM SEO OTIMIZADO */}
+          <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
+            <img 
+              src={tirzepatidaCapa} 
+              alt="Caixa e caneta injetável de Tirzepatida 5mg, conhecida comercialmente como Mounjaro, utilizada para tratamento metabólico e emagrecimento." 
+              title="Tirzepatida 5mg (Mounjaro) - Medicação para Emagrecimento e Controle Metabólico"
+              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+            />
+            <div className="bg-green-50 p-4 text-center">
+              <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
+                A tirzepatida representa um marco científico no tratamento da obesidade e saúde metabólica.
+              </p>
+            </div>
+          </div>
 
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
@@ -258,23 +276,7 @@ export default function TirzepatidaParaQueServe() {
             </h2>
             <p>A tirzepatida é uma medicação inovadora aprovada pela Anvisa inicialmente para o tratamento do diabetes tipo 2, mas que ganhou destaque global pelo seu potente efeito no controle da obesidade. Diferente de medicações mais antigas, ela é um duplo agonista, o que significa que ela imita dois hormônios naturais do nosso intestino: o GLP-1 (peptídeo semelhante ao glucagon 1) e o GIP (polipeptídeo insulinotrópico dependente de glicose). Enquanto o GLP-1 é amplamente conhecido por retardar o esvaziamento gástrico e sinalizar saciedade ao cérebro, o GIP atua de forma complementar melhorando a sensibilidade à insulina e a maneira como o corpo processa a gordura.</p>
 
-
-          {/* IMAGEM DE CAPA COM SEO OTIMIZADO */}
-          <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-            <img 
-              src={`${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`} 
-              alt="Caixa e caneta injetável de Tirzepatida 5mg, conhecida comercialmente como Mounjaro, utilizada para tratamento metabólico e emagrecimento." 
-              title="Tirzepatida 5mg (Mounjaro) - Medicação para Emagrecimento e Controle Metabólico"
-              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
-            />
-            <div className="bg-green-50 p-4 text-center">
-              <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
-                A tirzepatida representa um marco científico no tratamento da obesidade e saúde metabólica.
-              </p>
-            </div>
-          </div>
-
-            <p>O mecanismo de ação da tirzepatida é tão profundo que ela não apenas reduz a fome, mas altera a "recompensa" cerebral associada à comida, ajudando a silenciar o chamado "barulho mental" por alimentos hipercalóricos. Isso explica por que, nos estudos clínicos, os pacientes alcançaram resultados superiores a outros tratamentos injetáveis disponíveis no mercado brasileiro.</p>
+            <p>O mecanismo de ação da tirzepatida é tão profundo que ela não apenas reduz a fome, mas altera a "recompensa" cerebral associada à comida, ajudando a silenciar o chamado "barulho mental" por alimentos hipercalóricos. Se você quer entender mais a fundo como a fome é regulada no cérebro, recomendo a leitura do nosso artigo sobre os <Link to="/hormonios_da_fome_emagrecimento" className="text-green-600 font-semibold hover:underline">hormônios da fome no emagrecimento</Link>. Isso explica por que, nos estudos clínicos, os pacientes alcançaram resultados superiores a outros tratamentos injetáveis disponíveis no mercado brasileiro.</p>
 
             <h2 id="indicacoes" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Heart className="text-green-600"/> Quem pode usar Tirzepatida?
@@ -299,7 +301,7 @@ export default function TirzepatidaParaQueServe() {
 
             <p className="bg-green-50/50 p-6 rounded-2xl border border-green-100 border-dashed text-green-950 font-medium">A musculação é inegociável. A perda de peso rápida pode induzir a sarcopenia (perda de massa muscular), o que reduz o metabolismo basal e facilita o efeito rebote no futuro.</p>
 
-            <p>O treinamento de força sinaliza ao corpo que ele deve preservar o tecido muscular, mantendo a "máquina" metabólica ativa. Sem exercício resistido, você corre o risco de se tornar um "falso magro" com metabolismo lento.</p>
+            <p>O treinamento de força sinaliza ao corpo que ele deve preservar o tecido muscular, mantendo a "máquina" metabólica ativa. Para monitorar corretamente se a sua perda de peso está sendo focada em gordura e não em massa magra, é útil entender como funcionam ferramentas como a <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 font-semibold hover:underline">bioimpedância</Link> ou exames de <Link to="/o_que_e_antropometria" className="text-green-600 font-semibold hover:underline">antropometria</Link>. Sem exercício resistido, você corre o risco de se tornar um "falso magro" com metabolismo lento.</p>
 
             <h2 id="efeito-rebote" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Activity className="text-green-600"/> O medo do Efeito Rebote e a importância do Desmame
@@ -311,7 +313,7 @@ export default function TirzepatidaParaQueServe() {
            {/* Inserção do Gráfico SURMOUNT-3 */}
             <div className="my-10 rounded-2xl overflow-hidden border border-slate-100 shadow-xl group">
                 <img
-                    src={`${githubImgBase}Blog/Tirzepatida-Grafico.jpg`}
+                    src={tirzepatidaGrafico}
                     alt="Gráfico mostrando a variação percentual média de peso corporal ao longo de 84 semanas no estudo SURMOUNT-3, comparando o grupo que continuou com Tirzepatida versus o grupo que mudou para Placebo após 12 semanas de intervenção intensiva de estilo de vida. Fonte: Nature Medicine, 2023."
                     title="Evidência SURMOUNT-3: Tirzepatida previne o reganho de peso após intervenção de estilo de vida"
                     className="w-full h-auto group-hover:scale-105 transition-transform duration-700"
@@ -345,7 +347,7 @@ export default function TirzepatidaParaQueServe() {
                 <div className="w-16 h-16 bg-blue-100 text-blue-700 rounded-2xl flex items-center justify-center shrink-0 font-black text-2xl shadow-inner">1</div>
                 <div>
                   <h3 className="text-xl font-black text-slate-800 mb-2">Monitoramento Contínuo</h3>
-                  <p className="m-0 text-slate-600 leading-relaxed">Envolve pesagem semanal durante a manutenção, ajuste imediato caso haja reganho maior que 2kg, acompanhamento trimestral com a equipe e avaliação periódica da composição corporal.</p>
+                  <p className="m-0 text-slate-600 leading-relaxed">Envolve monitorar flutuações através da <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-600 font-semibold hover:underline">pesagem regular e adequada</Link> durante a manutenção, ajuste imediato caso haja reganho maior que 2kg, acompanhamento trimestral com a equipe e avaliação periódica da composição corporal.</p>
                 </div>
               </div>
 
@@ -395,7 +397,7 @@ export default function TirzepatidaParaQueServe() {
             <h2 id="comparacao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Scale className="text-green-600"/> Comparação Tirzepatida x Retatrutida (LY3437943)
             </h2>
-            <p>Enquanto a tirzepatida é um duplo agonista atuando no GLP-1 e GIP, a ciência já estuda o próximo passo: a Retatrutida. Esta nova molécula é um triplo agonista (GIP, GLP-1 e Glucagon). Os estudos de fase 2 mostram que a retatrutida pode levar a uma redução média de peso ainda maior (cerca de 24,2% após 48 semanas) e atua de forma muito potente na redução da gordura hepática e níveis de LDL. A tirzepatida já é uma realidade impressionante, mas a evolução dos tratamentos aponta para resultados ainda mais expressivos no futuro.</p>
+            <p>Enquanto a tirzepatida é um duplo agonista atuando no GLP-1 e GIP, a ciência já estuda o próximo passo: a <Link to="/retatrutida_o_que_e" className="text-green-600 font-semibold hover:underline">Retatrutida</Link>. Esta nova molécula é um triplo agonista (GIP, GLP-1 e Glucagon). Os estudos de fase 2 mostram que a retatrutida pode levar a uma redução média de peso ainda maior (cerca de 24,2% após 48 semanas) e atua de forma muito potente na redução da gordura hepática e níveis de LDL. A tirzepatida já é uma realidade impressionante, mas a evolução dos tratamentos aponta para resultados ainda mais expressivos no futuro.</p>
 
             {/* TABELA COMPARATIVA (DESKTOP) OTIMIZADA PARA NAO QUEBRAR */}
             <div className="my-10 bg-white border border-slate-100 shadow-2xl rounded-[3rem] overflow-hidden hidden md:block">
