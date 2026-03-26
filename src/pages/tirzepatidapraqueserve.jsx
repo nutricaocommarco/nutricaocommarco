@@ -29,12 +29,28 @@ export default function TirzepatidaParaQueServe() {
   // Array de dados para o FAQ
   const faqs = [
     {
+      pergunta: "Tirzepatida emagrece mesmo?",
+      resposta: "Sim. Estudos clínicos demonstraram que pacientes utilizando a dose máxima podem perder entre 15% e 22,5% do peso corporal total, especialmente quando o uso é associado a um déficit calórico, treinamento de força e mudanças no estilo de vida."
+    },
+    {
+      pergunta: "Como funciona no corpo?",
+      resposta: "Ela atua como um duplo agonista, imitando os hormônios intestinais GLP-1 e GIP. Isso retarda o esvaziamento gástrico, aumenta significativamente a saciedade, reduz o 'barulho mental' por comida e melhora a forma como o corpo processa a insulina e a gordura."
+    },
+    {
+      pergunta: "Vale a pena usar?",
+      resposta: "Para pacientes com obesidade ou sobrepeso com comorbidades que não tiveram sucesso apenas com dieta e exercícios, a tirzepatida tem se mostrado uma ferramenta extremamente eficaz e segura. No entanto, seu uso deve ser sempre prescrito e acompanhado por um médico, aliado ao suporte de um nutricionista."
+    },
+    {
+      pergunta: "Quais são os efeitos colaterais da Tirzepatida?",
+      resposta: "Os efeitos mais comuns são gastrointestinais, incluindo náuseas, vômitos, diarreia e constipação. Geralmente, são de intensidade leve a moderada e ocorrem com mais frequência durante as semanas de aumento da dose. A hidratação e o fracionamento das refeições ajudam no controle."
+    },
+    {
       pergunta: "Qual o melhor horário para tomar a Tirzepatida?",
       resposta: "Não há um horário obrigatório, mas muitas pessoas preferem aplicar à noite para 'dormir' durante os possíveis efeitos colaterais iniciais, como náuseas. O importante é manter sempre o mesmo dia da semana."
     },
     {
       pergunta: "A tirzepatida faz mal para os rins?",
-      resposta: "Geralmente não, mas a desidratação causada por efeitos colaterais como vômitos ou diarreia pode sobrecarregar a função renal. Manter-se adequadamente hidratado bebendo água é fundamental durante o tratamento."
+      resposta: "Geralmente não, mas a desidratação causada por efeitos colaterais como vômitos ou diarreia pode sobrecarregar a função renal. Manter-se adequadamente hidratado bebendo muita água é fundamental durante o tratamento."
     },
     {
       pergunta: "Mounjaro é seguro para quem não tem diabetes?",
@@ -87,63 +103,97 @@ export default function TirzepatidaParaQueServe() {
         <meta property="og:image" content={tirzepatidaCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
-        {/* SCHEMA.ORG PARA ARTIGO OTIMIZADO */}
+        {/* SCHEMA.ORG 1: ARTIGO OTIMIZADO (COM AUTORIDADE E-E-A-T) */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Tirzepatida: Para que serve e como funciona no corpo?",
             "image": tirzepatidaCapa,
-            "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
-            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png`}},
+            "author": {
+              "@type": "Person",
+              "name": "Marco Aurélio Jr.",
+              "url": "https://www.nutricaocommarco.com.br/sobre",
+              "jobTitle": "Estudante de Nutrição",
+              "knowsAbout": ["Nutrição", "Emagrecimento", "Obesidade", "Composição Corporal", "Medicina do Estilo de Vida"]
+            },
+            "publisher": {
+              "@type": "Organization", 
+              "name": "Nutrição com Marco", 
+              "logo": {
+                "@type": "ImageObject", 
+                "url": `${githubImgBase}logoN_pingus.png`
+              }
+            },
             "datePublished": datePublishedISO,
             "dateModified": dateModifiedISO,
             "description": "Guia completo sobre a Tirzepatida, princípio ativo do Mounjaro. Entenda seu mecanismo, efeitos no emagrecimento, como evitar o efeito rebote e os riscos de falsificações."
           })}
         </script>
 
-        {/* INÍCIO DO SCHEMA.ORG PARA FAQ */}
+        {/* SCHEMA.ORG 2: MEDICAL WEB PAGE (AVANÇADO PARA YMYL) */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
+            "@type": "MedicalWebPage",
+            "name": "Tirzepatida: Para que serve? Emagrecimento, Mounjaro e Rebote",
+            "url": `https://www.nutricaocommarco.com.br${pathname}`,
+            "about": [
+              {"@type": "MedicalEntity", "name": "Tirzepatida"},
+              {"@type": "MedicalEntity", "name": "Obesidade"},
+              {"@type": "MedicalEntity", "name": "Emagrecimento"},
+              {"@type": "MedicalEntity", "name": "Mounjaro"}
+            ],
+            "audience": {
+              "@type": "MedicalAudience",
+              "audienceType": "Pacientes"
+            }
+          })}
+        </script>
+
+        {/* SCHEMA.ORG 3: BREADCRUMB LIST */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
               {
-                "@type": "Question",
-                "name": "Qual o melhor horário para tomar a Tirzepatida?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Não há um horário obrigatório, mas muitas pessoas preferem aplicar à noite para 'dormir' durante os possíveis efeitos colaterais iniciais, como náuseas. O importante é manter o mesmo dia da semana."
-                }
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.nutricaocommarco.com.br/"
               },
               {
-                "@type": "Question",
-                "name": "A tirzepatida faz mal para os rins?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Geralmente não, mas a desidratação causada por vômitos ou diarreia (efeitos colaterais) pode sobrecarregar os rins. Beber água é fundamental."
-                }
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.nutricaocommarco.com.br/blog"
               },
               {
-                "@type": "Question",
-                "name": "Mounjaro é seguro para quem não tem diabetes?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Sim, a tirzepatida já é aprovada em vários países (sob o nome Zepbound) especificamente para obesidade, com um perfil de segurança bem estabelecido quando acompanhado por profissionais."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "O que comer se eu sentir muita náusea?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Priorize alimentos secos, como torradas integrais, e evite frituras ou alimentos muito temperados, que demoram mais para sair do estômago."
-                }
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Tirzepatida: Para que serve?",
+                "item": `https://www.nutricaocommarco.com.br${pathname}`
               }
             ]
           })}
         </script>
-        {/* FIM DO SCHEMA.ORG PARA FAQ */}
+
+        {/* SCHEMA.ORG 4: FAQ PAGE (SINCRONIZADO COM O ARRAY) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.pergunta,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.resposta
+              }
+            }))
+          })}
+        </script>
       </Helmet>
 
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
@@ -166,12 +216,13 @@ export default function TirzepatidaParaQueServe() {
             Tirzepatida: Para que serve e como funciona no corpo?
           </h1>
 
+          {/* CAIXA DE RESPOSTA DIRETA OTIMIZADA PARA GEO/SEO */}
           <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-4 text-left">
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
-                A revolução do Mounjaro
+                Tirzepatida o que é? Resposta Direta
               </h2>
               <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
-                Este guia completo foi desenvolvido para responder às principais dúvidas sobre a <strong>tirzepatida</strong>, o princípio ativo do Mounjaro, que se tornou a grande revolução no tratamento metabólico e de emagrecimento no Brasil em 2026. Entenda como funciona, os riscos e como evitar o reganho de peso com base científica.
+                A tirzepatida é um medicamento de ponta utilizado para tratar diabetes tipo 2 e obesidade, promovendo emagrecimento expressivo ao reduzir o apetite e melhorar o controle da glicose através de sua ação direta nos hormônios intestinais GLP-1 e GIP.
             </p>
           </div>
 
@@ -232,6 +283,12 @@ export default function TirzepatidaParaQueServe() {
                     <a href="#base-sucesso" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
                       <Leaf size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Alimentação e Musculação
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#efeitos-colaterais" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
+                      Efeitos colaterais da Tirzepatida
                     </a>
                   </li>
                   <li>
@@ -325,37 +382,36 @@ export default function TirzepatidaParaQueServe() {
             <p>O treinamento de força sinaliza ao corpo que ele deve preservar o tecido muscular, mantendo a "máquina" metabólica ativa. Para monitorar corretamente se a sua perda de peso está sendo focada em gordura e não em massa magra, é útil entender como funcionam ferramentas como a <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 font-semibold hover:underline">bioimpedância</Link> ou exames de <Link to="/o_que_e_antropometria" className="text-green-600 font-semibold hover:underline">antropometria</Link>. Sem exercício resistido, você corre o risco de se tornar um "falso magro" com metabolismo lento.</p>
 
             {/* TABELA DE EFEITOS COLATERAIS */}
-            <div className="my-12 bg-white border border-slate-100 shadow-xl rounded-[2.5rem] overflow-hidden">
+            <div id="efeitos-colaterais" className="my-12 bg-white border border-slate-100 shadow-xl rounded-[2.5rem] overflow-hidden">
               <div className="bg-green-50 p-6 md:p-8 border-b border-green-100/60">
-                <h3 className="text-xl font-black text-green-900 uppercase italic m-0 flex items-center gap-3">
+                <h2 className="text-xl font-black text-green-900 uppercase italic m-0 flex items-center gap-3">
                   <Activity className="text-green-600 shrink-0" /> Efeitos Colaterais da Tirzepatida
-                </h3>
+                </h2>
               </div>
               <div className="p-0">
                 <div className="grid grid-cols-1 md:grid-cols-3 border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors">
                   <div className="p-6 md:border-r border-slate-100 font-black text-slate-800 flex items-center">Náuseas e Vômitos</div>
-                  <div className="p-6 md:col-span-2 text-slate-600 font-medium leading-relaxed">Comuns, mas geralmente bem tolerados com titulação lenta. [span_0](start_span)Podem ser menos intensos em algumas pessoas.[span_0](end_span)</div>
+                  <div className="p-6 md:col-span-2 text-slate-600 font-medium leading-relaxed">Comuns, mas geralmente bem tolerados com titulação lenta. Podem ser menos intensos em algumas pessoas.</div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors">
                   <div className="p-6 md:border-r border-slate-100 font-black text-slate-800 flex items-center">Diarreia</div>
-                  [span_1](start_span)<div className="p-6 md:col-span-2 text-slate-600 font-medium leading-relaxed">Relatada por uma parcela dos pacientes.[span_1](end_span)</div>
+                  <div className="p-6 md:col-span-2 text-slate-600 font-medium leading-relaxed">Relatada por uma parcela dos pacientes.</div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors">
                   <div className="p-6 md:border-r border-slate-100 font-black text-slate-800 flex items-center">Constipação</div>
-                  [span_2](start_span)<div className="p-6 md:col-span-2 text-slate-600 font-medium leading-relaxed">Observada em alguns pacientes.[span_2](end_span)</div>
+                  <div className="p-6 md:col-span-2 text-slate-600 font-medium leading-relaxed">Observada em alguns pacientes.</div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors">
                   <div className="p-6 md:border-r border-slate-100 font-black text-slate-800 flex items-center">Hipoglicemia</div>
-                  <div className="p-6 md:col-span-2 text-slate-600 font-medium leading-relaxed">Baixo risco em monoterapia. [span_3](start_span)Aumenta quando combinado com sulfonilureias ou insulina.[span_3](end_span)</div>
+                  <div className="p-6 md:col-span-2 text-slate-600 font-medium leading-relaxed">Baixo risco em monoterapia. Aumenta quando combinado com sulfonilureias ou insulina.</div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors">
                   <div className="p-6 md:border-r border-slate-100 font-black text-slate-800 flex items-center">Outros (Menos Comuns)</div>
-                  [span_4](start_span)<div className="p-6 md:col-span-2 text-slate-600 font-medium leading-relaxed">Dispepsia, dor abdominal, fadiga.[span_4](end_span)</div>
+                  <div className="p-6 md:col-span-2 text-slate-600 font-medium leading-relaxed">Dispepsia, dor abdominal, fadiga.</div>
                 </div>
               </div>
             </div>
             {/* FIM DA TABELA DE EFEITOS COLATERAIS */}
-
 
             <h2 id="efeito-rebote" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Activity className="text-green-600"/> O medo do Efeito Rebote e a importância do Desmame
