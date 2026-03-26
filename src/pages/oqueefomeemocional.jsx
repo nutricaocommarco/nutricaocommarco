@@ -451,6 +451,37 @@ export default function FomeEmocional() {
               </div>
             </div>
 
+            {/* DESTAQUE E-BOOK */}
+            <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl overflow-hidden flex flex-col md:flex-row items-center gap-8 p-8 md:p-10 group">
+              <div className="w-full md:w-1/3 shrink-0 rounded-2xl overflow-hidden shadow-lg border border-slate-100">
+                <img 
+                  src={`${githubImgBase}capa_fome.jpg`} 
+                  alt="Capa do E-book Entendendo a Fome" 
+                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+                <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest w-fit mx-auto md:mx-0 mb-4">
+                  Material de Apoio
+                </span>
+                <h3 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic leading-tight mb-3">
+                  E-book: Entendendo a Fome
+                </h3>
+                <p className="text-slate-600 font-medium leading-relaxed mb-8">
+                  Quer se aprofundar ainda mais? Baixe meu e-book exclusivo e aprenda o passo a passo definitivo para diferenciar a fome física da emocional, dominando seus sinais de saciedade com ferramentas práticas.
+                </p>
+                <a 
+                  href="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Fome_Ebook.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center justify-center gap-2 bg-green-600 text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                >
+                  <FileText size={18} />
+                  Baixar E-book Agora
+                </a>
+              </div>
+            </div>
+
             {/* RESUMO FINAL */}
             <h2 id="resumo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Heart className="text-green-600"/> Resumo Final: Como vencer a fome emocional
