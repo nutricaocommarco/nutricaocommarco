@@ -62,10 +62,21 @@ export default function TirzepatidaParaQueServe() {
     }
   ];
 
-  // Array de dados para a Tabela Comparativa
+  // Array de dados para a Tabela Comparativa (Atualizado com Semaglutida)
   const comparativoTratamentos = [
     {
       id: 1,
+      molecula: 'Semaglutida',
+      nomeComercial: 'Ozempic / Wegovy',
+      mecanismo: 'Agonista Único (GLP-1)',
+      frequencia: 'Injeção Semanal',
+      perdaPeso: 'Até 15%',
+      fase: 'Aprovado (Anvisa)',
+      cor: 'bg-blue-600',
+      textColor: 'text-white'
+    },
+    {
+      id: 2,
       molecula: 'Tirzepatida',
       nomeComercial: 'Mounjaro / Zepbound',
       mecanismo: 'Duplo Agonista (GLP-1 + GIP)',
@@ -76,7 +87,7 @@ export default function TirzepatidaParaQueServe() {
       textColor: 'text-white'
     },
     {
-      id: 2,
+      id: 3,
       molecula: 'Retatrutida',
       nomeComercial: 'Em Desenvolvimento',
       mecanismo: 'Triplo Agonista (GLP-1 + GIP + Glucagon)',
@@ -312,7 +323,7 @@ export default function TirzepatidaParaQueServe() {
                   <li>
                     <a href="#comparacao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
                       <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
-                      Tirzepatida x Retatrutida
+                      Comparação de Fármacos
                     </a>
                   </li>
                   <li>
@@ -504,10 +515,16 @@ export default function TirzepatidaParaQueServe() {
               </div>
             </div>
 
+            {/* SEÇÃO DE COMPARAÇÃO ATUALIZADA */}
             <h2 id="comparacao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Scale className="text-green-600"/> Comparação Tirzepatida x Retatrutida (LY3437943)
+              <Scale className="text-green-600"/> Comparação: Semaglutida, Tirzepatida e Retatrutida
             </h2>
-            <p>Enquanto a tirzepatida é um duplo agonista atuando no GLP-1 e GIP, a ciência já estuda o próximo passo: a <Link to="/retatrutida_o_que_e" className="text-green-600 font-semibold hover:underline">Retatrutida</Link>. Esta nova molécula é um triplo agonista (GIP, GLP-1 e Glucagon). Os estudos de fase 2 mostram que a retatrutida pode levar a uma redução média de peso ainda maior (cerca de 24,2% após 48 semanas) e atua de forma muito potente na redução da gordura hepática e níveis de LDL. A tirzepatida já é uma realidade impressionante, mas a evolução dos tratamentos aponta para resultados ainda mais expressivos no futuro.</p>
+            
+            <p><strong>Evolução: Semaglutida x Tirzepatida</strong><br/>
+            A <strong>Semaglutida</strong> (princípio ativo do Ozempic e Wegovy) foi a grande pioneira dessa geração, atuando como um agonista único do receptor de GLP-1 e entregando uma perda de peso média de até 15%. A <strong>Tirzepatida</strong> (Mounjaro) deu um passo científico além ao se tornar o primeiro "duplo agonista" (GLP-1 e GIP). Essa combinação não só elevou a eficácia da perda de peso para a casa dos 22,5%, como também, na prática clínica, tem demonstrado uma melhor tolerância no trato gastrointestinal para muitos pacientes durante a fase de adaptação.</p>
+            
+            <p><strong>O Futuro: Tirzepatida x Retatrutida (LY3437943)</strong><br/>
+            Enquanto a tirzepatida já é uma realidade potente e revolucionária, a ciência estuda o próximo salto metabólico: a <Link to="/retatrutida_o_que_e" className="text-green-600 font-semibold hover:underline">Retatrutida</Link>. Esta nova molécula em fase de testes é um triplo agonista (GIP, GLP-1 e Glucagon). Os estudos mostram que ela pode levar a uma redução média de peso ainda maior (cerca de 24,2% após 48 semanas) e atua de forma muito mais agressiva na redução da gordura hepática. A evolução aponta para resultados cada vez mais individualizados e expressivos.</p>
 
             {/* TABELA COMPARATIVA (DESKTOP) OTIMIZADA PARA NAO QUEBRAR */}
             <div className="my-10 bg-white border border-slate-100 shadow-2xl rounded-[3rem] overflow-hidden hidden md:block">
@@ -519,7 +536,7 @@ export default function TirzepatidaParaQueServe() {
               </div>
 
               {comparativoTratamentos.map((farmaco) => (
-                <div key={farmaco.id} className={`grid grid-cols-12 items-stretch ${farmaco.cor === 'bg-green-600' ? 'bg-green-600 text-white' : farmaco.cor === 'bg-slate-800' ? 'bg-slate-800 text-white' : 'hover:bg-slate-50' } transition-colors border-b border-slate-100 last:border-b-0`}>
+                <div key={farmaco.id} className={`grid grid-cols-12 items-stretch ${farmaco.cor === 'bg-green-600' ? 'bg-green-600 text-white' : farmaco.cor === 'bg-blue-600' ? 'bg-blue-600 text-white' : farmaco.cor === 'bg-slate-800' ? 'bg-slate-800 text-white' : 'hover:bg-slate-50 bg-white text-slate-800' } transition-colors border-b border-slate-100 last:border-b-0`}>
 
                   {/* Molécula/Tratamento */}
                   <div className="p-4 border-r border-slate-100 flex flex-col justify-center items-center text-center col-span-3">
@@ -557,7 +574,7 @@ export default function TirzepatidaParaQueServe() {
             {/* CARDS COMPARATIVOS (MOBILE) - HIDDEN ON DESKTOP */}
             <div className="space-y-6 md:hidden my-10">
               {comparativoTratamentos.map((farmaco) => (
-                <div key={farmaco.id} className={`${farmaco.cor} ${farmaco.textColor} p-6 rounded-3xl shadow-lg border ${farmaco.cor === 'bg-green-600' ? 'border-green-500' : farmaco.cor === 'bg-slate-800' ? 'border-slate-700' : 'border-slate-100'}`}>
+                <div key={farmaco.id} className={`${farmaco.cor} ${farmaco.textColor} p-6 rounded-3xl shadow-lg border ${farmaco.cor === 'bg-green-600' ? 'border-green-500' : farmaco.cor === 'bg-blue-600' ? 'border-blue-500' : farmaco.cor === 'bg-slate-800' ? 'border-slate-700' : 'border-slate-100'}`}>
                   <div className="flex justify-between items-center mb-4 border-b pb-3 gap-3 border-opacity-20">
                     <div className="flex flex-col">
                       <span className="font-black text-xl italic uppercase">{farmaco.molecula}</span>
