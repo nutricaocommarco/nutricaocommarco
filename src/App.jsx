@@ -26,7 +26,7 @@ import RetatrutidaOQueE from './pages/Retatrutida';
 import InscricaoConfirmada from './pages/InscricaoConfirmada';
 import OvoColesterol from './pages/ovoecolesterol'; 
 import TirzepatidaParaQueServe from './pages/tirzepatidapraqueserve'; 
-import FomeEmocional from './pages/FomeEmocional'; // Nova Página
+import FomeEmocional from './pages/oqueefomeemocional'; // Nova Página
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
