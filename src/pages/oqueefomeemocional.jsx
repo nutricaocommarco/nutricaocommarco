@@ -13,7 +13,7 @@ const dateModifiedISO = "2026-03-27";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Caminho da imagem de capa com o Pingus
-const fomeEmocionalCapa = `${githubImgBase}Blog/Fome-Emocional-Pingus.jpg`;
+const fomeEmocionalCapa = `${githubImgBase}Blog/Fome-Emocional-Capa.jpg`;
 
 export default function FomeEmocional() {
   const { pathname } = useLocation();
@@ -72,7 +72,7 @@ export default function FomeEmocional() {
 
   return (
     <>
-      <Helmet>
+<Helmet>
         <title>O que é Fome Emocional? Sintomas, Como Parar e Controlar | Nutrição com Marco</title>
         <meta name="description" content="Você come e continua sentindo um vazio? Descubra os sintomas da fome emocional, como controlar o ciclo da compulsão e a neurociência por trás do impulso." />
         <meta property="og:type" content="article" />
@@ -80,6 +80,7 @@ export default function FomeEmocional() {
         <meta property="og:image" content={fomeEmocionalCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
         
+        {/* SCHEMA.ORG 1: ARTICLE */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -99,6 +100,50 @@ export default function FomeEmocional() {
             "datePublished": datePublishedISO,
             "dateModified": dateModifiedISO,
             "description": "Guia completo sobre fome emocional, comportamento alimentar e estratégias de controle."
+          })}
+        </script>
+
+        {/* SCHEMA.ORG 2: BREADCRUMB LIST */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.nutricaocommarco.com.br/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.nutricaocommarco.com.br/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "O que é Fome Emocional?",
+                "item": `https://www.nutricaocommarco.com.br${pathname}`
+              }
+            ]
+          })}
+        </script>
+
+        {/* SCHEMA.ORG 3: FAQ PAGE */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.pergunta,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.resposta
+              }
+            }))
           })}
         </script>
       </Helmet>
