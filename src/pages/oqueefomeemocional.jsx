@@ -121,11 +121,6 @@ export default function FomeEmocional() {
             O que é Fome Emocional? Como Identificar e Controlar o Impulso
           </h1>
 
-          {/* COPY FORTE: IDENTIFICAÇÃO PROFUNDA */}
-          <p className="text-xl md:text-2xl font-medium text-slate-600 leading-relaxed mb-10">
-            Você abre a geladeira à noite sem saber exatamente o que quer? Come até não aguentar mais, mas continua com uma sensação de vazio inexplicável? Acredite, o seu estômago não está roncando — é o seu cérebro pedindo socorro. Conhecer os verdadeiros <strong>fome emocional sintomas</strong> é o primeiro passo para retomar o controle da sua vida.
-          </p>
-
           <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-4 text-left">
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                 O que é fome emocional? Resposta Direta
@@ -171,12 +166,31 @@ export default function FomeEmocional() {
                   <li><a href="#estrategias" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Estratégias Práticas de Controle</a></li>
                   <li><a href="#exercicio" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Leaf size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Escala de Fome Diária</a></li>
                   <li><a href="#video" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><PlayCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Palavra do Especialista</a></li>
+                  <li><a href="#resumo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Heart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Resumo Final</a></li>
                 </ul>
               </div>
             </nav>
           </div>
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
+
+            <p>
+              Você abre a geladeira à noite sem saber exatamente o que quer? Come até não aguentar mais, mas continua com uma sensação de vazio inexplicável? Acredite, o seu estômago não está roncando — é o seu cérebro pedindo socorro. Conhecer os verdadeiros <strong>fome emocional sintomas</strong> é o primeiro passo para retomar o controle da sua vida.
+            </p>
+
+            {/* IMAGEM DE CAPA */}
+            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
+              <img 
+                src={fomeEmocionalCapa} 
+                alt="Pingus mascote reflexivo diante de um pote de sorvete, ilustrando o desafio da fome emocional." 
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+              />
+              <div className="bg-green-50 p-4 text-center">
+                <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
+                  A fome emocional usa a comida como um curativo temporário para emoções, ignorando a saciedade do corpo.
+                </p>
+              </div>
+            </div>
 
             {/* SEÇÃO 1: FISIOLOGIA (O DIFERENCIAL) */}
             <h2 id="fisiologia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
@@ -186,7 +200,7 @@ export default function FomeEmocional() {
               A fome emocional não é uma falha de caráter ou mera "falta de vergonha na cara". Ela é uma cascata fisiológica complexa. Quando você está cronicamente estressado, seu corpo inunda a corrente sanguínea com <strong>Cortisol</strong>. O Hipotálamo (área do cérebro) interpreta esse estresse como uma ameaça à sobrevivência e exige energia rápida.
             </p>
             <p>
-              Qual é a forma mais rápida de energia? Carboidratos refinados e gorduras. Ao consumir esses alimentos, o seu <strong>Sistema de Recompensa Dopaminérgico</strong> é ativado, disparando <em>Dopamina</em> e anestesiando temporariamente a dor emocional. Isso é bem diferente da fome biológica, que é orquestrada de forma compassada pela <Link to="/hormonios_da_fome_emagrecimento" className="text-green-600 font-semibold hover:underline">Grelina e Leptina (os hormônios da fome)</Link>.
+              Qual é a forma mais rápida de energia? Carboidratos refinados e gorduras. Ao consumir esses alimentos, o seu <strong>Sistema de Recompensa Dopaminérgico</strong> é ativado, disparando <em>Dopamina</em> e anestesiando temporariamente a dor emocional. Isso é bem diferente da fome biológica, que é orquestrada de forma compassada pela <Link to="/hormonioss_da_fome_emagrecimento" className="text-green-600 font-semibold hover:underline">Grelina e Leptina (os hormônios da fome)</Link>.
             </p>
             
             <p className="bg-slate-100 p-6 rounded-2xl border border-slate-200 text-slate-700 italic mt-6">
@@ -391,6 +405,35 @@ export default function FomeEmocional() {
                 ></iframe>
               </div>
             </div>
+
+            {/* RESUMO FINAL */}
+            <h2 id="resumo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Heart className="text-green-600"/> Resumo Final: Como vencer a fome emocional
+            </h2>
+            <p>
+              Para quebrar o ciclo da fome emocional e retomar o controle da sua relação com a comida, lembre-se destes 3 passos fundamentais:
+            </p>
+
+            <div className="flex flex-col gap-5 my-8">
+              <div className="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-6 transition-all hover:shadow-md hover:border-green-100">
+                <div className="w-12 h-12 bg-green-100 text-green-700 rounded-2xl flex items-center justify-center font-black text-xl shrink-0 shadow-inner">1</div>
+                <p className="m-0 text-slate-700"><strong>Pause e Avalie:</strong> Use a regra dos 10 minutos e a Escala de Fome antes de ceder ao impulso.</p>
+              </div>
+              
+              <div className="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-6 transition-all hover:shadow-md hover:border-green-100">
+                <div className="w-12 h-12 bg-green-100 text-green-700 rounded-2xl flex items-center justify-center font-black text-xl shrink-0 shadow-inner">2</div>
+                <p className="m-0 text-slate-700"><strong>Nutrição Inteligente:</strong> Evite dietas altamente restritivas e garanta boa ingestão de proteínas e fibras ao longo do dia.</p>
+              </div>
+              
+              <div className="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-6 transition-all hover:shadow-md hover:border-green-100">
+                <div className="w-12 h-12 bg-green-100 text-green-700 rounded-2xl flex items-center justify-center font-black text-xl shrink-0 shadow-inner">3</div>
+                <p className="m-0 text-slate-700"><strong>Acolhimento Emocional:</strong> Busque conforto real para a sua mente (descanso, conversa, distração), em vez de tentar anestesiar a emoção com comida.</p>
+              </div>
+            </div>
+
+            <p className="font-medium text-lg text-slate-700 leading-relaxed bg-green-50 p-6 md:p-8 rounded-3xl border border-green-100 mt-8 mb-12">
+              <strong>Você não está sozinho nessa jornada.</strong> Recaídas fazem parte do processo de aprendizagem e a culpa punitiva deve ficar no passado. A comida é sua aliada, fonte de saúde e de prazer, não um esconderijo para dores emocionais. Seja gentil com você e com o seu próprio corpo enquanto desenvolve essa nova consciência.
+            </p>
 
             {/* FAQ OTIMIZADO */}
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
