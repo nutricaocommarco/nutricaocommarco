@@ -167,12 +167,109 @@ export default function Prebioticos() {
   return (
     <>
       <Helmet>
-        <title>O que são Prebióticos? Alimentos, Benefícios e Para Que Servem</title>
+        {/* SEO OTIMIZADO - TÍTULO DO SNIPPET */}
+        <title>O que são Prebióticos? Alimentos, Benefícios e Para Que Servem | Nutrição com Marco</title>
+
+        {/* META DESCRIPTION OTIMIZADA */}
         <meta name="description" content="Descubra o que são prebióticos, para que servem no seu intestino, quais alimentos são ricos em FOS e inulina, e como eles alimentam sua flora intestinal." />
+
         <meta property="og:type" content="article" />
         <meta property="og:title" content="O que são Prebióticos? Alimentos, Benefícios e Para Que Servem | Nutrição com Marco" />
+        <meta property="og:description" content="Guia completo sobre prebióticos: mecanismo de ação na microbiota, benefícios práticos para a saúde, doses recomendadas e a lista definitiva de alimentos." />
         <meta property="og:image" content={prebioticosCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
+
+        {/* SCHEMA.ORG 1: ARTIGO OTIMIZADO (COM AUTORIDADE E-E-A-T) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "O que são Prebióticos? Alimentos, Benefícios e Para Que Servem",
+            "image": prebioticosCapa,
+            "author": {
+              "@type": "Person",
+              "name": "Marco Aurélio Jr.",
+              "url": "https://www.nutricaocommarco.com.br/sobre",
+              "jobTitle": "Estudante de Nutrição",
+              "knowsAbout": ["Nutrição", "Saúde Intestinal", "Microbiota", "Fibras Alimentares", "Medicina do Estilo de Vida"]
+            },
+            "publisher": {
+              "@type": "Organization", 
+              "name": "Nutrição com Marco", 
+              "logo": {
+                "@type": "ImageObject", 
+                "url": `${githubImgBase}logoN_pingus.png`
+              }
+            },
+            "datePublished": datePublishedISO,
+            "dateModified": dateModifiedISO,
+            "description": "Descubra o que são prebióticos, para que servem no seu intestino, quais alimentos são ricos em FOS e inulina, e como eles alimentam sua flora intestinal."
+          })}
+        </script>
+
+        {/* SCHEMA.ORG 2: MEDICAL WEB PAGE (AVANÇADO PARA YMYL) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalWebPage",
+            "name": "O que são Prebióticos? Alimentos, Benefícios e Para Que Servem",
+            "url": `https://www.nutricaocommarco.com.br${pathname}`,
+            "about": [
+              {"@type": "MedicalEntity", "name": "Prebiótico"},
+              {"@type": "MedicalEntity", "name": "Microbiota Intestinal"},
+              {"@type": "MedicalEntity", "name": "Fibra Alimentar"},
+              {"@type": "MedicalEntity", "name": "Saúde Gastrointestinal"}
+            ],
+            "audience": {
+              "@type": "MedicalAudience",
+              "audienceType": "Pacientes"
+            }
+          })}
+        </script>
+
+        {/* SCHEMA.ORG 3: BREADCRUMB LIST */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.nutricaocommarco.com.br/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.nutricaocommarco.com.br/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "O que são Prebióticos?",
+                "item": `https://www.nutricaocommarco.com.br${pathname}`
+              }
+            ]
+          })}
+        </script>
+
+        {/* SCHEMA.ORG 4: FAQ PAGE (SINCRONIZADO COM O ARRAY) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.pergunta,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.resposta
+              }
+            }))
+          })}
+        </script>
       </Helmet>
 
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
