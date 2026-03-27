@@ -544,7 +544,6 @@ export default function Prebioticos() {
               Você precisa de pelo menos 4g de prebióticos por dia para promover o crescimento das culturas probióticas no intestino. A Sociedade Brasileira de Nutrição Parenteral e Enteral indica que quantidades entre 5g e 10g são muito bem toleradas e recomendadas para a manutenção da saúde. Para recuperação de bifidobactérias, as doses podem subir, mas cuidado: doses maiores que 14g por dia de uma só vez podem causar desconforto intestinal severo. O equilíbrio é a chave! Para medir seus resultados reais durante o processo de emagrecimento ou ganho de massa magra, descubra se sua <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 font-semibold hover:underline">balança de bioimpedância é confiável</Link> e entenda os conceitos de composição corporal no nosso artigo sobre <Link to="/o_que_e_antropometria" className="text-green-600 font-semibold hover:underline">o que é antropometria</Link>.
             </p>
             
-// Inicio do Vídeo do Youtube
             <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <PlayCircle className="text-green-600"/> Aprofunde-se: 6 Alimentos Prebióticos
             </h2>
@@ -570,7 +569,7 @@ export default function Prebioticos() {
                 ></iframe>
               </div>
             </div>
-// Fim do Vìdeo do Youtube
+
 
             {/* Inicio da Lista de alimentos inserida */}
             <div className="bg-slate-50 py-16 px-4 md:px-8 font-sans rounded-[3rem] my-10 shadow-sm border border-slate-100">
