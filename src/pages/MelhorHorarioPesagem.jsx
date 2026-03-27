@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, Scale, Clock, Activity, Droplets, Headphones, PlayCircle, AlertTriangle, ChevronRight } from 'lucide-react';
+import { ChevronLeft, HelpCircle, Scale, Clock, Activity, Droplets, Headphones, PlayCircle, AlertTriangle, ChevronRight, ShoppingCart } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
@@ -358,6 +358,64 @@ export default function MelhorHorarioPesagem() {
               </h2>
 
               <p>Muitos especialistas divergem sobre isso. A resposta baseada em evidências é: <strong>Sim, você pode se pesar todos os dias</strong>, contanto que obedeça o Checklist Padrão Ouro e anote o peso para tirar a <strong>média semanal</strong>. A média dilui as flutuações diárias de água e intestino e te mostra a real tendência do seu corpo (seja de emagrecimento ou hipertrofia).</p>
+
+{/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (BALANÇA SIMPLES) */}
+<div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
+    {/* SELO NO CANTO SUPERIOR */}
+    <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+        <Zap size={14} className="fill-white" />
+        <span>O Pingus Aprova!</span>
+    </div>
+
+    <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
+        {/* FOTO DO PINGUS (AUTORIDADE) */}
+        <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
+            <img 
+                src={`${githubImgBase}logoN_pingus.png`} 
+                alt="Selo de Qualidade Pingus" 
+                className="w-full h-full object-contain" 
+            />
+        </div>
+
+        <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+            <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                Balança Digital de Banheiro <span className="text-green-700">Custo-Benefício</span>
+            </h4>
+            
+            {/* IMAGEM DO PRODUTO */}
+            <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
+                <img 
+                    src={`${githubImgBase}Afiliado/BalancaSimples.jpg`} 
+                    alt="Balança Digital de Banheiro Simples" 
+                    className="w-full h-auto object-contain" 
+                />
+            </div>
+
+            <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
+                Você não precisa de uma balança cara e cheia de funções em casa para se pesar. O segredo do sucesso é a padronização: use uma balança digital simples e <strong>pese-se sempre nela, nas mesmas condições</strong> (em jejum, ao acordar). O maior erro é ficar usando a balança da farmácia ou da academia como parâmetro de comparação. Tenha o seu próprio equipamento de referência e confie no processo!
+            </p>
+
+            {/* BOTÃO COM LINK AFILIADO */}
+            <a 
+                href="https://meli.la/2LEpbfH" 
+                rel="sponsored noopener noreferrer" 
+                target="_blank"
+                className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+            >
+                <ShoppingCart size={16} />
+                Comprar no Mercado Livre
+            </a>
+        </div>
+    </div>
+
+    {/* DISCLOSURE OBRIGATÓRIO */}
+    <div className="mt-12 pt-6 border-t border-green-50 text-center">
+        <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
+            Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece o apoio.
+        </p>
+    </div>
+</div>
+
 
               <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
                 “O peso corporal isolado é uma medida extremamente limitada. Avaliar a sua composição corporal e as tendências ao longo das semanas é muito mais relevante do que o desespero de um número único.”
