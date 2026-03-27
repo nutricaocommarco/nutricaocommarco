@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, HelpCircle, Activity, Leaf, Shield, Heart, FileText, Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart } from 'lucide-react';
+import ArtigosRecomendados from '../components/ArtigosRecomendados';
+import Newsletter from '../components/Newsletter';
 
 // Simulações para as bibliotecas externas e componentes do projeto
 const Link = ({ to, className, children }) => <a href={to} className={className}>{children}</a>;
