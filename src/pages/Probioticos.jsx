@@ -300,6 +300,24 @@ export default function Probioticos() {
               As cepas mais estudadas e utilizadas na nutrição clínica pertencem aos gêneros <em>Lactobacillus</em> e <em>Bifidobacterium</em>. Ao aderirem à mucosa intestinal, eles não apenas formam uma barreira física de proteção, mas também produzem substâncias bactericidas (como as bacteriocinas) que atacam os invasores de forma direta. É uma linha de defesa crucial, tão importante para o bem-estar quanto entender os <Link to="/hormonios_da_fome_emagrecimento" className="text-green-600 font-semibold hover:underline">hormônios da fome e do emagrecimento</Link> para conseguir controlar o peso corporal sem sofrimento diário.
             </p>
 
+            {/* LINK CRUZADO PARA PREBIÓTICOS */}
+            <div className="my-12 p-8 md:p-10 bg-emerald-50 border border-emerald-100 rounded-[3rem] shadow-inner text-left">
+              <div className="flex items-center gap-3 mb-4">
+                <Leaf className="text-emerald-600 w-8 h-8" />
+                <h2 className="text-2xl font-black text-emerald-900 uppercase italic m-0">Você está alimentando seus Probióticos?</h2>
+              </div>
+              <p className="text-emerald-800 text-lg leading-relaxed mb-6 font-medium">
+                Não adianta tomar os melhores probióticos (desta lista) se você não der "comida" para eles sobreviverem no seu intestino. Essa comida são os <strong>Prebióticos</strong>. Se você quer que eles façam efeito, você precisa consumi-los juntos.
+              </p>
+              <Link 
+                to="/o-que-sao-prebioticos" 
+                className="inline-flex items-center gap-2 bg-emerald-600 text-white px-8 py-3 rounded-full font-black uppercase text-sm hover:bg-emerald-700 transition-colors shadow-md w-full md:w-fit justify-center"
+              >
+                Acesse a Lista de Prebióticos <ChevronRight size={18} />
+              </Link>
+            </div>
+            {/* FIM DO LINK CRUZADO */}
+            
             {/* Nova Seção: Fatores que afetam a Microbiota */}
             <h2 id="fatores-microbiota" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <AlertCircle className="text-red-500"/> O que afeta e destrói a sua Microbiota Intestinal?
