@@ -308,7 +308,7 @@ export default function App() {
                         
                         <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
                             <img 
-                                src={`${githubImgBase}/Imagens/Afiliado/Potes.jpg`} 
+                                src={`${githubImgBase}/Imagens/Afiliado/Potes.JPG`} 
                                 alt="Kit de Potes Herméticos de Vidro para conservação de alimentos" 
                                 className="w-full h-auto" 
                             />
