@@ -6,13 +6,21 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 const postsData = [
 {
+    id: 14,
+    link: "/tirzepatida-para-que-serve",
+    imgSrc: `${githubImgBase}Blog/tirzepatida-para-que-serve.jpg`,
+    tag: "Tratamento Farmacológico",
+    title: "Tirzepatida: Para Que Serve, Como Funciona e Seus Efeitos",
+    desc: "Descubra para que serve a Tirzepatida, entenda seu mecanismo de ação duplo (GLP-1 e GIP), os principais efeitos colaterais e o potencial na perda de peso.",
+    isNew: true
+},
+{
     id: 13,
     link: "/comer-ovo-todo-dia-aumenta-o-colesterol",
     imgSrc: `${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.jpg`,
     tag: "Nutrição Clínica",
     title: "Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Científica",
-    desc: "Descubra a verdade científica, entenda o impacto no HDL/LDL e quantos ovos você pode consumir com segurança.",
-    isNew: true
+    desc: "Descubra a verdade científica, entenda o impacto no HDL/LDL e quantos ovos você pode consumir com segurança."
   },
   {
     id: 12,
