@@ -1,43 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, HelpCircle, Activity, Leaf, Shield, Heart, FileText, Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
-
-// Simulações para as bibliotecas externas e componentes do projeto
-const Link = ({ to, className, children }) => <a href={to} className={className}>{children}</a>;
-const useLocation = () => ({ pathname: '/blog/o-que-sao-prebioticos' });
-const Helmet = ({ children }) => <>{children}</>;
-
-// Componente para a subscrição da Newsletter
-const Newsletter = () => (
-  <div className="mt-16 p-8 md:p-12 bg-green-600 rounded-[3rem] text-center text-white shadow-xl">
-    <h3 className="text-2xl md:text-3xl font-black mb-4 italic uppercase">Assine nossa Newsletter</h3>
-    <p className="text-green-100 font-medium mb-6">Receba as melhores dicas de saúde intestinal e emagrecimento direto no seu e-mail.</p>
-    <div className="flex flex-col md:flex-row gap-3 justify-center max-w-lg mx-auto">
-      <input type="email" placeholder="Seu melhor e-mail" className="px-6 py-3 rounded-full text-slate-900 outline-none w-full" />
-      <button className="bg-slate-900 text-white px-8 py-3 rounded-full font-black uppercase text-sm hover:bg-slate-800 transition-colors">Assinar</button>
-    </div>
-  </div>
-);
-
-// Componente de recomendação de leitura
-const ArtigosRecomendados = () => (
-  <div className="mt-16 border-t border-slate-200 pt-16">
-    <h3 className="text-2xl font-black text-slate-800 mb-8 italic uppercase text-center md:text-left">Artigos Recomendados</h3>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div className="bg-slate-50 p-6 rounded-3xl border border-slate-200">
-        <span className="text-xs font-bold text-green-600 uppercase tracking-widest">Emagrecimento</span>
-        <h4 className="text-lg font-black text-slate-800 mt-2 mb-2 italic">O que é a Tirzepatida?</h4>
-        <p className="text-sm text-slate-500">Descubra como funciona a nova medicação.</p>
-      </div>
-      <div className="bg-slate-50 p-6 rounded-3xl border border-slate-200">
-        <span className="text-xs font-bold text-green-600 uppercase tracking-widest">Comportamento</span>
-        <h4 className="text-lg font-black text-slate-800 mt-2 mb-2 italic">Fome Emocional: Como Parar</h4>
-        <p className="text-sm text-slate-500">Aprenda a diferenciar a fome física da emocional.</p>
-      </div>
-    </div>
-  </div>
-);
+import { Helmet } from 'react-helmet-async';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -50,7 +16,7 @@ const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 const prebioticosCapa = `${githubImgBase}Blog/Prebioticos.jpg`;
 
 // Componente principal da página
-export default function App() {
+export default function Prebioticos() {
   const { pathname } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
