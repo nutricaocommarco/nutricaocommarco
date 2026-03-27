@@ -499,6 +499,24 @@ export default function Prebioticos() {
               Em relação ao peso e apetite, a fermentação das fibras libera os hormônios GLP-1 e PYY, aumentando a saciedade de forma natural. Manter a microbiota bem alimentada auxilia no controle do colesterol e evita picos glicêmicos, fundamentais para a saúde a longo prazo.
             </p>
 
+            {/* LINK CRUZADO PARA PROBIÓTICOS */}
+            <div className="my-12 p-8 md:p-10 bg-blue-50 border border-blue-100 rounded-[3rem] shadow-inner text-left">
+              <div className="flex items-center gap-3 mb-4">
+                <Shield className="text-blue-600 w-8 h-8" />
+                <h2 className="text-2xl font-black text-blue-900 uppercase italic m-0">E os Probióticos? Qual a diferença?</h2>
+              </div>
+              <p className="text-blue-800 text-lg leading-relaxed mb-6 font-medium">
+                Se os prebióticos (desta lista) são o "alimento" ou o "adubo" do seu intestino, os <strong>probióticos</strong> são as próprias bactérias vivas e ativas (as "sementes"). Para ter uma saúde de ferro, você precisa dos dois trabalhando juntos. 
+              </p>
+              <Link 
+                to="/o-que-sao-probioticos" 
+                className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-full font-black uppercase text-sm hover:bg-blue-700 transition-colors shadow-md w-full md:w-fit justify-center"
+              >
+                Conheça a Lista de Probióticos <ChevronRight size={18} />
+              </Link>
+            </div>
+            {/* FIM DO LINK CRUZADO */}
+            
             <h2 id="recomendacoes" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <FileText className="text-green-600"/> Doses e Recomendações: Quanto consumir?
             </h2>
