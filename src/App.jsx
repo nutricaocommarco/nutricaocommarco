@@ -214,6 +214,7 @@ export default function App() {
             <Route path="/comer-ovo-todo-dia-aumenta-o-colesterol" element={<OvoColesterol />} />
             <Route path="/tirzepatida-para-que-serve" element={<TirzepatidaParaQueServe />} />
             <Route path="/o-que-e-fome-emocional" element={<FomeEmocional />} />
+            <Route path="/o-que-sao-prebioticos" element={<Prebioticos />} />
             <Route path="/o-que-sao-probioticos" element={<Probioticos />} />
           </Routes>
         </Layout>
