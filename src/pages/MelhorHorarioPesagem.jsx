@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, Scale, Clock, Activity, Droplets, Headphones, PlayCircle, AlertTriangle, ChevronRight, ShoppingCart } from 'lucide-react';
+import { ChevronLeft, HelpCircle, Scale, Clock, Activity, Droplets, Headphones, PlayCircle, AlertTriangle, ChevronRight, ShoppingCart, Zap } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
