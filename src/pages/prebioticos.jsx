@@ -268,7 +268,7 @@ export default function Prebioticos() {
             </div>
 
             <h2 id="fisiologia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Zap className="text-green-600"/> A Viagem da Fibra: Como os prebióticos funcionam
+              <Zap className="text-green-600"/> Como os prebióticos funcionam no intestino
             </h2>
             <p>
               Muitos componentes alimentares têm sido descritos como prebióticos, com grande destaque para os oligossacarídeos e alguns tipos de polissacarídeos. Para que um alimento ganhe esse título de nobreza na nutrição, ele precisa cumprir uma missão difícil: resistir bravamente ao pH ácido do nosso estômago e alcançar o intestino grosso intacto, onde será fermentado e estimulará de forma seletiva as bactérias benéficas. É durante essa mágica da fermentação pela microbiota que ocorre a produção de Ácidos Graxos de Cadeia Curta (AGCC), com destaque para o acetato, propionato e o butirato.
@@ -393,7 +393,7 @@ export default function Prebioticos() {
             </div>
 
             <h2 id="beneficios" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Shield className="text-green-600"/> Para que serve o prebiótico? Benefícios Práticos
+              <Shield className="text-green-600"/> Para que serve prebiótico? Benefícios Práticos
             </h2>
             <p>
               Os benefícios sistêmicos de manter a microbiota bem alimentada com prebióticos são extensos. Eles melhoram a integridade da barreira intestinal, auxiliam no controle do perfil glicêmico e lipídico e possuem efeitos imunomodulatórios e até antitumorais, atuando na quimioprevenção do câncer colorretal. Além disso, ajudam a prevenir alergias e promovem alívio contra diarreias e infecções entéricas.
@@ -447,7 +447,7 @@ export default function Prebioticos() {
                     Guia Prático
                   </span>
                   <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase italic tracking-tight mb-6">
-                    A Lista Definitiva de <span className="text-green-600">Prebióticos</span>
+                    A Lista Definitiva de alimentos <span className="text-green-600">Prebióticos</span>
                   </h2>
                   <p className="text-lg text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
                     Nossa saúde começa na feira e na organização da dieta. Abaixo você encontra os melhores alimentos e suplementos para nutrir as suas bactérias boas, organizados para facilitar a sua próxima ida ao mercado.
