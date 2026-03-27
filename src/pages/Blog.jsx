@@ -8,7 +8,7 @@ const postsData = [
 {
     id: 14,
     link: "/tirzepatida-para-que-serve",
-    imgSrc: `${githubImgBase}Blog/tirzepatida-para-que-serve.jpg`,
+    imgSrc: `${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`,
     tag: "Tratamento Farmacológico",
     title: "Tirzepatida: Para Que Serve, Como Funciona e Seus Efeitos",
     desc: "Descubra para que serve a Tirzepatida, entenda seu mecanismo de ação duplo (GLP-1 e GIP), os principais efeitos colaterais e o potencial na perda de peso.",
