@@ -1,83 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, Activity, Leaf, Shield, Heart, FileText, Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, Leaf, Apple, Coffee, Wheat, Flame, Beaker, CheckCircle2 } from 'lucide-react';
+import { ChevronLeft, HelpCircle, Activity, Leaf, Shield, Heart, FileText, Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, Apple, Coffee, Wheat, Flame, Beaker, CheckCircle2 } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
 
-const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
-
-// Variáveis de data centralizadas para SEO
-const datePublishedISO = "2026-03-27";
-const dateModifiedISO = "2026-03-27";
-const formattedDate = dateModifiedISO.split('-').reverse().join('/');
-
-// Caminho oficial da imagem de capa
-const prebioticosCapa = `${githubImgBase}Blog/Prebioticos.jpg`;
-
-// Componente principal da página
-export default function Prebioticos() {
-  const { pathname } = useLocation();
-  const [isTocOpen, setIsTocOpen] = useState(false);
-  const [openFaqIndex, setOpenFaqIndex] = useState(null);
-
-  // Efeito para rolar para o topo ao carregar
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  const faqs = [
-    {
-      pergunta: "Qual a diferença entre prebiótico e probiótico?",
-      resposta: "De forma simples, o prebiótico é o 'alimento' que nutre as bactérias boas, enquanto os probióticos são os próprios microrganismos vivos (as bactérias benéficas em si). Você precisa do prebiótico para manter o probiótico vivo e forte no seu intestino."
-    },
-    {
-      pergunta: "Prebiótico engorda?",
-      resposta: "Não. Na verdade, a fermentação dos prebióticos pelas bactérias intestinais produz ácidos graxos de cadeia curta que ajudam a aumentar a saciedade (estimulando hormônios como PYY e GLP-1) e podem até reduzir o acúmulo de gordura corporal."
-    },
-    {
-      pergunta: "Faz mal tomar prebiótico todos os dias?",
-      resposta: "Não faz mal, muito pelo contrário. O consumo diário é recomendado para manter a microbiota intestinal saudável. Apenas atente-se à dose: quantidades entre 5g e 10g são bem toleradas, mas doses acima de 14g por dia podem causar desconfortos como excesso de gases e estufamento."
-    },
-    {
-      pergunta: "Posso usar prebióticos enquanto tomo antibióticos?",
-      resposta: "Sim, e é uma excelente estratégia. Os antibióticos costumam varrer tanto as bactérias ruins quanto as boas do intestino. Fornecer prebióticos ajuda a nutrir as bactérias benéficas sobreviventes, acelerando a recuperação da sua flora intestinal e prevenindo diarreias associadas ao medicamento."
-    },
-    {
-      pergunta: "Quanto tempo demora para o prebiótico fazer efeito?",
-      resposta: "Os efeitos na regularidade intestinal podem ser notados em poucos dias. No entanto, para uma modulação real da microbiota, melhoria da imunidade e efeitos metabólicos (como auxílio no controle do colesterol e glicemia), o uso contínuo por algumas semanas é necessário para que as colônias de bactérias boas se estabeleçam firmemente."
-    }
-  ];
-
-  const comparativoAlimentos = [
-    {
-      id: 1,
-      tipo: 'Oligossacarídeos (FOS e Inulina)',
-      fontes: 'Batata yacon, aveia, cebola, alho, banana, grão de bico e beterraba.',
-      acao: 'Altamente fermentáveis, excelente substrato para bifidobactérias.',
-      cor: 'bg-green-600',
-      textColor: 'text-white'
-    },
-    {
-      id: 2,
-      tipo: 'Polissacarídeos (Pectinas e Betaglucanas)',
-      fontes: 'Bagaço de frutas cítricas, maçã, biomassa de banana verde.',
-      acao: 'Formam géis viscosos, ajudando no controle do colesterol e glicemia.',
-      cor: 'bg-slate-800',
-      textColor: 'text-white'
-    },
-    {
-      id: 3,
-      tipo: 'Compostos Fenólicos',
-      fontes: 'Chá verde, mirtilos, casca de jabuticaba.',
-      acao: 'Potente ação antioxidante aliada à modulação da microbiota.',
-      cor: 'bg-emerald-700',
-      textColor: 'text-white'
-    }
-  ];
-
-  // Componente Prebioticos lista
-  const prebioticosDados = [
+// Componente Prebioticos lista
+const prebioticosDados = [
   {
     id: 1,
     nome: "Batata Yacon",
@@ -163,6 +92,77 @@ export default function Prebioticos() {
     icone: <Beaker className="w-6 h-6 text-blue-500" />
   }
 ];
+
+const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+
+// Variáveis de data centralizadas para SEO
+const datePublishedISO = "2026-03-27";
+const dateModifiedISO = "2026-03-27";
+const formattedDate = dateModifiedISO.split('-').reverse().join('/');
+
+// Caminho oficial da imagem de capa
+const prebioticosCapa = `${githubImgBase}Blog/Prebioticos.jpg`;
+
+// Componente principal da página
+export default function Prebioticos() {
+  const { pathname } = useLocation();
+  const [isTocOpen, setIsTocOpen] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
+  // Efeito para rolar para o topo ao carregar
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  const faqs = [
+    {
+      pergunta: "Qual a diferença entre prebiótico e probiótico?",
+      resposta: "De forma simples, o prebiótico é o 'alimento' que nutre as bactérias boas, enquanto os probióticos são os próprios microrganismos vivos (as bactérias benéficas em si). Você precisa do prebiótico para manter o probiótico vivo e forte no seu intestino."
+    },
+    {
+      pergunta: "Prebiótico engorda?",
+      resposta: "Não. Na verdade, a fermentação dos prebióticos pelas bactérias intestinais produz ácidos graxos de cadeia curta que ajudam a aumentar a saciedade (estimulando hormônios como PYY e GLP-1) e podem até reduzir o acúmulo de gordura corporal."
+    },
+    {
+      pergunta: "Faz mal tomar prebiótico todos os dias?",
+      resposta: "Não faz mal, muito pelo contrário. O consumo diário é recomendado para manter a microbiota intestinal saudável. Apenas atente-se à dose: quantidades entre 5g e 10g são bem toleradas, mas doses acima de 14g por dia podem causar desconfortos como excesso de gases e estufamento."
+    },
+    {
+      pergunta: "Posso usar prebióticos enquanto tomo antibióticos?",
+      resposta: "Sim, e é uma excelente estratégia. Os antibióticos costumam varrer tanto as bactérias ruins quanto as boas do intestino. Fornecer prebióticos ajuda a nutrir as bactérias benéficas sobreviventes, acelerando a recuperação da sua flora intestinal e prevenindo diarreias associadas ao medicamento."
+    },
+    {
+      pergunta: "Quanto tempo demora para o prebiótico fazer efeito?",
+      resposta: "Os efeitos na regularidade intestinal podem ser notados em poucos dias. No entanto, para uma modulação real da microbiota, melhoria da imunidade e efeitos metabólicos (como auxílio no controle do colesterol e glicemia), o uso contínuo por algumas semanas é necessário para que as colônias de bactérias boas se estabeleçam firmemente."
+    }
+  ];
+
+  const comparativoAlimentos = [
+    {
+      id: 1,
+      tipo: 'Oligossacarídeos (FOS e Inulina)',
+      fontes: 'Batata yacon, aveia, cebola, alho, banana, grão de bico e beterraba.',
+      acao: 'Altamente fermentáveis, excelente substrato para bifidobactérias.',
+      cor: 'bg-green-600',
+      textColor: 'text-white'
+    },
+    {
+      id: 2,
+      tipo: 'Polissacarídeos (Pectinas e Betaglucanas)',
+      fontes: 'Bagaço de frutas cítricas, maçã, biomassa de banana verde.',
+      acao: 'Formam géis viscosos, ajudando no controle do colesterol e glicemia.',
+      cor: 'bg-slate-800',
+      textColor: 'text-white'
+    },
+    {
+      id: 3,
+      tipo: 'Compostos Fenólicos',
+      fontes: 'Chá verde, mirtilos, casca de jabuticaba.',
+      acao: 'Potente ação antioxidante aliada à modulação da microbiota.',
+      cor: 'bg-emerald-700',
+      textColor: 'text-white'
+    }
+  ];
 
   return (
     <>
@@ -437,67 +437,62 @@ export default function Prebioticos() {
             </div>
 // Fim do Vìdeo do Youtube
 
-            // Inicio da Lista de alimentos
-export default function ListaPrebioticos() {
-  return (
-    <div className="min-h-screen bg-slate-50 py-16 px-4 md:px-8 font-sans">
-      <div className="max-w-6xl mx-auto">
-        
-        {/* Cabeçalho da Lista */}
-        <div className="text-center mb-16">
-          <span className="inline-block bg-green-100 text-green-800 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 shadow-sm">
-            Guia Prático
-          </span>
-          <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase italic tracking-tight mb-6">
-            A Lista Definitiva de <span className="text-green-600">Prebióticos</span>
-          </h2>
-          <p className="text-lg text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
-            Nossa saúde começa na feira e na organização da dieta. Abaixo você encontra os melhores alimentos e suplementos para nutrir as suas bactérias boas, organizados para facilitar a sua próxima ida ao mercado.
-          </p>
-        </div>
-
-        {/* Estrutura em Tabela / Grid de 3 Colunas */}
-        <div className="bg-white rounded-[3rem] border border-slate-200 shadow-2xl overflow-hidden p-2 md:p-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {prebioticosDados.map((item) => (
-              <div 
-                key={item.id} 
-                className="group relative bg-slate-50 rounded-[2rem] p-6 border border-slate-100 hover:border-green-300 hover:bg-green-50 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col h-full"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="bg-white p-3 rounded-2xl shadow-sm border border-slate-100 group-hover:scale-110 transition-transform duration-300">
-                    {item.icone}
-                  </div>
-                  <span className="bg-slate-200 text-slate-600 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full group-hover:bg-green-200 group-hover:text-green-800 transition-colors">
-                    {item.tipo}
+            {/* Inicio da Lista de alimentos inserida */}
+            <div className="bg-slate-50 py-16 px-4 md:px-8 font-sans rounded-[3rem] my-10 shadow-sm border border-slate-100">
+              <div className="max-w-6xl mx-auto">
+                
+                {/* Cabeçalho da Lista */}
+                <div className="text-center mb-16">
+                  <span className="inline-block bg-green-100 text-green-800 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 shadow-sm">
+                    Guia Prático
                   </span>
+                  <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase italic tracking-tight mb-6">
+                    A Lista Definitiva de <span className="text-green-600">Prebióticos</span>
+                  </h2>
+                  <p className="text-lg text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
+                    Nossa saúde começa na feira e na organização da dieta. Abaixo você encontra os melhores alimentos e suplementos para nutrir as suas bactérias boas, organizados para facilitar a sua próxima ida ao mercado.
+                  </p>
                 </div>
-                
-                <h3 className="text-xl font-black text-slate-800 mb-3 italic">
-                  {item.nome}
-                </h3>
-                
-                <p className="text-sm text-slate-600 font-medium leading-relaxed mt-auto">
-                  {item.descricao}
-                </p>
+
+                {/* Estrutura em Tabela / Grid de 3 Colunas */}
+                <div className="bg-white rounded-[3rem] border border-slate-200 shadow-2xl overflow-hidden p-2 md:p-8">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {prebioticosDados.map((item) => (
+                      <div 
+                        key={item.id} 
+                        className="group relative bg-slate-50 rounded-[2rem] p-6 border border-slate-100 hover:border-green-300 hover:bg-green-50 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col h-full"
+                      >
+                        <div className="flex items-start justify-between mb-4">
+                          <div className="bg-white p-3 rounded-2xl shadow-sm border border-slate-100 group-hover:scale-110 transition-transform duration-300">
+                            {item.icone}
+                          </div>
+                          <span className="bg-slate-200 text-slate-600 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full group-hover:bg-green-200 group-hover:text-green-800 transition-colors">
+                            {item.tipo}
+                          </span>
+                        </div>
+                        
+                        <h3 className="text-xl font-black text-slate-800 mb-3 italic">
+                          {item.nome}
+                        </h3>
+                        
+                        <p className="text-sm text-slate-600 font-medium leading-relaxed mt-auto">
+                          {item.descricao}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Rodapé da Lista */}
+                <div className="mt-12 text-center">
+                  <p className="text-sm text-slate-500 font-bold uppercase tracking-widest italic">
+                    Nutrição com Marco • Saúde Intestinal Levada a Sério
+                  </p>
+                </div>
+
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Rodapé da Lista */}
-        <div className="mt-12 text-center">
-          <p className="text-sm text-slate-500 font-bold uppercase tracking-widest italic">
-            Nutrição com Marco • Saúde Intestinal Levada a Sério
-          </p>
-        </div>
-
-      </div>
-    </div>
-  );
-}
-            // Fim da lista de Alimentos
-            
+            </div>
+            {/* Fim da lista de Alimentos inserida */}
 
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
