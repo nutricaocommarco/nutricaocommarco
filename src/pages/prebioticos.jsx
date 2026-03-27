@@ -435,7 +435,8 @@ export default function Prebioticos() {
                 ></iframe>
               </div>
             </div>
-// Fim do Vìdeo do Youtube
+{/* FIM do Vídeo do YouTube */}
+
 
             {/* Inicio da Lista de alimentos inserida */}
             <div className="bg-slate-50 py-16 px-4 md:px-8 font-sans rounded-[3rem] my-10 shadow-sm border border-slate-100">
