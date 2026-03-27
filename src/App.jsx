@@ -27,7 +27,8 @@ import InscricaoConfirmada from './pages/InscricaoConfirmada';
 import OvoColesterol from './pages/ovoecolesterol'; 
 import TirzepatidaParaQueServe from './pages/tirzepatidapraqueserve'; 
 import FomeEmocional from './pages/oqueefomeemocional';
-import Prebioticos from './pages/prebioticos'; // Nova Página
+import Prebioticos from './pages/prebioticos'; 
+import Probioticos from './pages/Probioticos'; // Nova Página
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -98,6 +99,10 @@ function Layout({ children }) {
       '/o-que-sao-prebioticos': { 
         title: 'O que são Prebióticos? Alimentos e Benefícios | Nutrição com Marco', 
         desc: 'Descubra o que são prebióticos, para que servem no seu intestino, quais alimentos são fontes naturais e como eles blindam a sua flora intestinal.' 
+      },
+      '/o-que-sao-probioticos': { 
+        title: 'O que são Probióticos? Lactobacillus e Benefícios | Nutrição com Marco', 
+        desc: 'Descubra o que são probióticos e Lactobacillus, para que servem no intestino, seus benefícios para a imunidade e quais as melhores fontes naturais.' 
       }
     };
 
@@ -209,7 +214,7 @@ export default function App() {
             <Route path="/comer-ovo-todo-dia-aumenta-o-colesterol" element={<OvoColesterol />} />
             <Route path="/tirzepatida-para-que-serve" element={<TirzepatidaParaQueServe />} />
             <Route path="/o-que-e-fome-emocional" element={<FomeEmocional />} />
-            <Route path="/o-que-sao-prebioticos" element={<Prebioticos />} />
+            <Route path="/o-que-sao-probioticos" element={<Probioticos />} />
           </Routes>
         </Layout>
       </Router>
