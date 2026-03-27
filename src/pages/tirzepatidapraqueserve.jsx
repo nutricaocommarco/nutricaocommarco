@@ -9,7 +9,7 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 // Variáveis de data centralizadas para o Schema e para o visual
 const datePublishedISO = "2026-03-26";
-const dateModifiedISO = "2026-03-26";
+const dateModifiedISO = "2026-03-27";
 // Converte "YYYY-MM-DD" para "DD/MM/YYYY"
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
