@@ -372,7 +372,7 @@ export default function Probioticos() {
               <PlayCircle className="text-green-600"/> Aprofunde-se: Prebióticos vs Probióticos
             </h2>
             <p>
-              Ainda confuso sobre quem é a "comida" e quem é o "soldado" dentro do seu intestino? Quer entender de forma visual como esses dois mundos se conectam? Assista a este vídeo curto e super didático da Yakult explicando exatamente como funcionam os prebióticos e os probióticos no seu corpo.
+              Ainda com dúvidas sobre como os verdadeiros 'soldados' do seu intestino agem na prática? Assista a este vídeo curto e super didático da Yakult, que explica de forma visual e direta como os probióticos funcionam, colonizam a sua flora e protegem a sua saúde diariamente.
             </p>
 
             <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
