@@ -26,7 +26,8 @@ import RetatrutidaOQueE from './pages/Retatrutida';
 import InscricaoConfirmada from './pages/InscricaoConfirmada';
 import OvoColesterol from './pages/ovoecolesterol'; 
 import TirzepatidaParaQueServe from './pages/tirzepatidapraqueserve'; 
-import FomeEmocional from './pages/oqueefomeemocional'; // Nova Página
+import FomeEmocional from './pages/oqueefomeemocional';
+import Prebioticos from './pages/prebioticos'; // Nova Página
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -93,6 +94,10 @@ function Layout({ children }) {
       '/o-que-e-fome-emocional': {
         title: 'O que é Fome Emocional? Diferenças e Como Controlar | Nutrição com Marco',
         desc: 'Entenda o que é fome emocional, como diferenciá-la da fome física e estratégias práticas para lidar com o impulso de comer por emoção.'
+      },
+      '/o-que-sao-prebioticos': { 
+        title: 'O que são Prebióticos? Alimentos e Benefícios | Nutrição com Marco', 
+        desc: 'Descubra o que são prebióticos, para que servem no seu intestino, quais alimentos são fontes naturais e como eles blindam a sua flora intestinal.' 
       }
     };
 
@@ -204,6 +209,7 @@ export default function App() {
             <Route path="/comer-ovo-todo-dia-aumenta-o-colesterol" element={<OvoColesterol />} />
             <Route path="/tirzepatida-para-que-serve" element={<TirzepatidaParaQueServe />} />
             <Route path="/o-que-e-fome-emocional" element={<FomeEmocional />} />
+            <Route path="/o-que-sao-prebioticos" element={<Prebioticos />} />
           </Routes>
         </Layout>
       </Router>
