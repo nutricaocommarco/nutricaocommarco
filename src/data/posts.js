@@ -2,6 +2,16 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export const posts = [
 {
+    id: 14,
+    link: "/tirzepatida-para-que-serve",
+    img: `${githubImgBase}Blog/tirzepatida-para-que-serve.jpg`,
+    tag: "Tratamento Farmacológico",
+    titulo: "Tirzepatida: Para Que Serve, Como Funciona e Efeitos | Nutrição com Marco",
+    desc: "Descubra para que serve a Tirzepatida, entenda seu mecanismo de ação duplo (GLP-1 e GIP), os principais efeitos colaterais e o potencial na perda de peso.",
+    data: "2026-03-26",
+    dataMod: "2026-03-27"
+},
+{
     id: 13,
     link: "/comer-ovo-todo-dia-aumenta-o-colesterol",
     img: `${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.jpg`,
@@ -15,7 +25,7 @@ export const posts = [
     id: 12,
     link: "/retatrutida_o_que_e",
     img: `${githubImgBase}Blog/retatrutida_molecula.jpg`,
-    tag: "Tratamento Metabólico",
+    tag: "Tratamento Farmacológico",
     titulo: "Retatrutida o que é? A nova fronteira da ciência | Nutrição com Marco",
     desc: "Descubra o que é a retatrutida, o novo medicamento agonista triplo (GLP-1, GIP e Glucagon) e seus resultados impressionantes na perda de peso.",
     data: "2026-03-24",
