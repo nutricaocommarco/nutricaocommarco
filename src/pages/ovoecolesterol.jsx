@@ -388,6 +388,41 @@ export default function OvoColesterol() {
                 O ovo pochê ou cozido é super saudável. O problema é fritar na manteiga ou óleo todo dia. Para garantir os benefícios do ovo sem adicionar gorduras ruins à sua rotina, <strong>o ideal é uma frigideira de cerâmica de alta qualidade, onde o ovo desliza sem grudar, dispensando o uso de óleo</strong>. É praticidade e saúde na cozinha.
             </p>
 
+            {/* BOTÃO COM LINK AFILIADO */}
+            <a 
+                href="SEU_LINK_DE_AFILIADO_ML_AQUI" 
+                rel="sponsored noopener noreferrer" 
+                target="_blank"
+                className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+            >
+                <ShoppingCart size={16} />
+                Comprar no Mercado Livre
+            </a>
+        </div>
+    </div>
+
+    {/* DISCLOSURE OBRIGATÓRIO */}
+    <div className="mt-12 pt-6 border-t border-green-50 text-center">
+        <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
+            Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Não paga nada a mais por isso! O Pingus agradece o apoio.
+        </p>
+    </div>
+</div>
+
+            
+            {/* IMAGEM DO PRODUTO ATUALIZADA */}
+            <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
+                <img 
+                    src={`${githubImgBase}Afiliado/Frigideira01.jpg`} 
+                    alt="Frigideira Antiaderente de Cerâmica" 
+                    className="w-full h-auto object-contain" 
+                />
+            </div>
+
+            <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
+                O ovo pochê ou cozido é super saudável. O problema é fritar na manteiga ou óleo todo dia. Para garantir os benefícios do ovo sem adicionar gorduras ruins à sua rotina, <strong>o ideal é uma frigideira de cerâmica de alta qualidade, onde o ovo desliza sem grudar, dispensando o uso de óleo</strong>. É praticidade e saúde na cozinha.
+            </p>
+
             {/* BOTÃO COM LINK AFILIADO (Substituir SEU_LINK) */}
             <a 
                 href="SEU_LINK_DE_AFILIADO_ML_AQUI" 
