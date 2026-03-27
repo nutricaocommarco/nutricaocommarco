@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, Activity, Leaf, Shield, Heart, FileText, Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart } from 'lucide-react';
+import { ChevronLeft, HelpCircle, Activity, Leaf, Shield, Heart, FileText, Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, Leaf, Apple, Coffee, Wheat, Flame, Beaker, CheckCircle2 } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
@@ -75,6 +75,94 @@ export default function Prebioticos() {
       textColor: 'text-white'
     }
   ];
+
+  // Componente Prebioticos lista
+  const prebioticosDados = [
+  {
+    id: 1,
+    nome: "Batata Yacon",
+    tipo: "FOS e Inulina",
+    descricao: "Excelente raiz para controle glicêmico e nutrição profunda das bifidobactérias.",
+    icone: <Flame className="w-6 h-6 text-orange-500" />
+  },
+  {
+    id: 2,
+    nome: "Banana Verde (Biomassa)",
+    tipo: "Amido Resistente",
+    descricao: "Chega intacta ao intestino, servindo de banquete para as bactérias boas.",
+    icone: <Leaf className="w-6 h-6 text-green-500" />
+  },
+  {
+    id: 3,
+    nome: "Aveia em Flocos",
+    tipo: "Betaglucanas",
+    descricao: "Fibra formadora de gel, fantástica para redução da absorção de colesterol.",
+    icone: <Wheat className="w-6 h-6 text-amber-600" />
+  },
+  {
+    id: 4,
+    nome: "Cebola",
+    tipo: "Inulina e FOS",
+    descricao: "Tempero de uso diário que fortalece a imunidade e a flora intestinal.",
+    icone: <CheckCircle2 className="w-6 h-6 text-purple-500" />
+  },
+  {
+    id: 5,
+    nome: "Alho",
+    tipo: "Inulina",
+    descricao: "Atua como um potente antimicrobiano natural contra bactérias patogênicas.",
+    icone: <CheckCircle2 className="w-6 h-6 text-slate-500" />
+  },
+  {
+    id: 6,
+    nome: "Maçã (com casca)",
+    tipo: "Pectina",
+    descricao: "A fibra da casca ajuda na regulação do trânsito intestinal de forma suave.",
+    icone: <Apple className="w-6 h-6 text-red-500" />
+  },
+  {
+    id: 7,
+    nome: "Raiz de Chicória",
+    tipo: "Inulina Concentrada",
+    descricao: "Uma das maiores fontes naturais, muito usada na indústria alimentícia.",
+    icone: <Leaf className="w-6 h-6 text-emerald-600" />
+  },
+  {
+    id: 8,
+    nome: "Aspargos",
+    tipo: "Inulina",
+    descricao: "Vegetal nobre que auxilia na desinflamação e nutre o microbioma.",
+    icone: <Leaf className="w-6 h-6 text-green-400" />
+  },
+  {
+    id: 9,
+    nome: "Beterraba",
+    tipo: "Oligossacarídeos",
+    descricao: "Além de prebiótica, melhora a oxigenação sanguínea e o metabolismo.",
+    icone: <CheckCircle2 className="w-6 h-6 text-rose-600" />
+  },
+  {
+    id: 10,
+    nome: "Sementes de Linhaça",
+    tipo: "Mucilagens",
+    descricao: "Formam uma barreira protetora calmante na parede do estômago e intestino.",
+    icone: <Coffee className="w-6 h-6 text-amber-800" />
+  },
+  {
+    id: 11,
+    nome: "Bagaço de Cítricos",
+    tipo: "Pectina Cítrica",
+    descricao: "As fibras brancas da laranja são tesouros desperdiçados na forma de suco.",
+    icone: <Apple className="w-6 h-6 text-orange-400" />
+  },
+  {
+    id: 12,
+    nome: "Suplemento Prebiótico",
+    tipo: "Blend FOS/Inulina em Pó",
+    descricao: "A forma mais prática e dosada de garantir 5g diárias sem esforço.",
+    icone: <Beaker className="w-6 h-6 text-blue-500" />
+  }
+];
 
   return (
     <>
@@ -320,7 +408,8 @@ export default function Prebioticos() {
             <p>
               Você precisa de pelo menos 4g de prebióticos por dia para promover o crescimento das culturas probióticas no intestino. A Sociedade Brasileira de Nutrição Parenteral e Enteral indica que quantidades entre 5g e 10g são muito bem toleradas e recomendadas para a manutenção da saúde. Para recuperação de bifidobactérias, as doses podem subir, mas cuidado: doses maiores que 14g por dia de uma só vez podem causar desconforto intestinal severo. O equilíbrio é a chave! Para medir seus resultados reais durante o processo de emagrecimento ou ganho de massa magra, descubra se sua <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 font-semibold hover:underline">balança de bioimpedância é confiável</Link> e entenda os conceitos de composição corporal no nosso artigo sobre <Link to="/o_que_e_antropometria" className="text-green-600 font-semibold hover:underline">o que é antropometria</Link>.
             </p>
-
+            
+// Inicio do Vídeo do Youtube
             <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <PlayCircle className="text-green-600"/> Aprofunde-se: 6 Alimentos Prebióticos
             </h2>
@@ -346,6 +435,69 @@ export default function Prebioticos() {
                 ></iframe>
               </div>
             </div>
+// Fim do Vìdeo do Youtube
+
+            // Inicio da Lista de alimentos
+export default function ListaPrebioticos() {
+  return (
+    <div className="min-h-screen bg-slate-50 py-16 px-4 md:px-8 font-sans">
+      <div className="max-w-6xl mx-auto">
+        
+        {/* Cabeçalho da Lista */}
+        <div className="text-center mb-16">
+          <span className="inline-block bg-green-100 text-green-800 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 shadow-sm">
+            Guia Prático
+          </span>
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase italic tracking-tight mb-6">
+            A Lista Definitiva de <span className="text-green-600">Prebióticos</span>
+          </h2>
+          <p className="text-lg text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
+            Nossa saúde começa na feira e na organização da dieta. Abaixo você encontra os melhores alimentos e suplementos para nutrir as suas bactérias boas, organizados para facilitar a sua próxima ida ao mercado.
+          </p>
+        </div>
+
+        {/* Estrutura em Tabela / Grid de 3 Colunas */}
+        <div className="bg-white rounded-[3rem] border border-slate-200 shadow-2xl overflow-hidden p-2 md:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {prebioticosDados.map((item) => (
+              <div 
+                key={item.id} 
+                className="group relative bg-slate-50 rounded-[2rem] p-6 border border-slate-100 hover:border-green-300 hover:bg-green-50 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col h-full"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div className="bg-white p-3 rounded-2xl shadow-sm border border-slate-100 group-hover:scale-110 transition-transform duration-300">
+                    {item.icone}
+                  </div>
+                  <span className="bg-slate-200 text-slate-600 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full group-hover:bg-green-200 group-hover:text-green-800 transition-colors">
+                    {item.tipo}
+                  </span>
+                </div>
+                
+                <h3 className="text-xl font-black text-slate-800 mb-3 italic">
+                  {item.nome}
+                </h3>
+                
+                <p className="text-sm text-slate-600 font-medium leading-relaxed mt-auto">
+                  {item.descricao}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Rodapé da Lista */}
+        <div className="mt-12 text-center">
+          <p className="text-sm text-slate-500 font-bold uppercase tracking-widest italic">
+            Nutrição com Marco • Saúde Intestinal Levada a Sério
+          </p>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+            // Fim da lista de Alimentos
+            
 
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
