@@ -464,6 +464,64 @@ export default function TirzepatidaParaQueServe() {
             </div>
             {/* FIM DA TABELA DE EFEITOS COLATERAIS */}
 
+{/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (BALANÇA DE COZINHA) */}
+<div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
+    {/* SELO NO CANTO SUPERIOR */}
+    <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+        <Zap size={14} className="fill-white" />
+        <span>O Pingus Aprova!</span>
+    </div>
+
+    <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
+        {/* FOTO DO PINGUS (AUTORIDADE) */}
+        <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
+            <img 
+                src={`${githubImgBase}logoN_pingus.png`} 
+                alt="Selo de Qualidade Pingus" 
+                className="w-full h-full object-contain" 
+            />
+        </div>
+
+        <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+            <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                Balança de Cozinha Digital <span className="text-green-700">Custo-Benefício</span>
+            </h4>
+            
+            {/* IMAGEM DO PRODUTO */}
+            <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
+                <img 
+                    src={`${githubImgBase}Afiliado/BalancaCozinha.jpg`} 
+                    alt="Balança de Cozinha Digital Simples" 
+                    className="w-full h-auto object-contain" 
+                />
+            </div>
+
+            <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
+                A Tirzepatida vai silenciar a sua fome, mas é aí que mora o perigo: a desnutrição e a perda de massa magra. Ter uma balança de cozinha garante que, <strong>mesmo sem apetite, você bata a meta de proteínas</strong>. Eu usei este modelo simples e barato por muitos anos e garanto: ele entrega toda a precisão que você precisa no dia a dia, sem pesar no bolso!
+            </p>
+
+            {/* BOTÃO COM LINK AFILIADO */}
+            <a 
+                href="https://meli.la/2e8sxv1" 
+                rel="sponsored noopener noreferrer" 
+                target="_blank"
+                className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+            >
+                <ShoppingCart size={16} />
+                Comprar no Mercado Livre
+            </a>
+        </div>
+    </div>
+
+    {/* DISCLOSURE OBRIGATÓRIO */}
+    <div className="mt-12 pt-6 border-t border-green-50 text-center">
+        <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
+            Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece o apoio.
+        </p>
+    </div>
+</div>
+
+
             <h2 id="efeito-rebote" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Activity className="text-green-600"/> O medo do Efeito Rebote e a importância do Desmame
             </h2>
