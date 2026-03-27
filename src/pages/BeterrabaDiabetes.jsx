@@ -9,12 +9,13 @@ import {
   Scale, 
   Heart, 
   HelpCircle,
-ShoppingCart, 
+  ShoppingCart, 
   PlayCircle, 
-  Headphones 
+  Headphones,
+  Zap /* <-- O ÍCONE ZAP QUE FALTAVA FOI ADICIONADO AQUI! */
 } from 'lucide-react';
 
-// Importações dos seus componentes (ajuste o caminho se necessário)
+// Importações dos seus componentes
 import Newsletter from '../components/Newsletter';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 
@@ -30,7 +31,7 @@ export default function DiabeticoPodeComerBeterraba() {
   // O Pingus procura no Cérebro Central qual post corresponde a essa página
   const postAtual = posts.find(post => post.link === pathname);
 
-  // Se por algum motivo não achar, colocamos valores padrão para não quebrar o site
+  // Valores padrão
   const tituloSEO = postAtual ? postAtual.titulo : "Artigo de Nutrição | Nutrição com Marco";
   const descSEO = postAtual ? postAtual.desc : "Leia mais no blog Nutrição com Marco.";
   const imgSEO = postAtual ? postAtual.img : `${githubImgBase}logoN_pingus.png`;
@@ -347,64 +348,6 @@ export default function DiabeticoPodeComerBeterraba() {
                     <div>
                       <h4 className="text-xl font-black text-slate-800 m-0 mb-1">Priorize a versão crua</h4>
                       <p className="text-slate-600 m-0 leading-relaxed">Consumir 100g diárias de beterraba crua na salada preserva a integridade das fibras e folatos essenciais do vegetal. A manutenção das fibras garante a digestão lenta e prolonga o efeito metabólico benéfico no controle do açúcar e dos lipídios.</p>
-
-{/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (RALADOR DE LEGUMES) */}
-<div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
-    {/* SELO NO CANTO SUPERIOR */}
-    <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
-        <Zap size={14} className="fill-white" />
-        <span>O Pingus Aprova!</span>
-    </div>
-
-    <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
-        {/* FOTO DO PINGUS (AUTORIDADE) */}
-        <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-            <img 
-                src={`${githubImgBase}logoN_pingus.png`} 
-                alt="Selo de Qualidade Pingus" 
-                className="w-full h-full object-contain" 
-            />
-        </div>
-
-        <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-            <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                Ralador e Fatiador de Legumes <span className="text-green-700">Praticidade Real</span>
-            </h4>
-            
-            {/* IMAGEM DO PRODUTO */}
-            <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
-                <img 
-                    src={`${githubImgBase}Afiliado/Ralador01.jpg`} 
-                    alt="Ralador e Fatiador de Legumes Prático" 
-                    className="w-full h-auto object-contain" 
-                />
-            </div>
-
-            <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                O segredo para o diabético consumir a beterraba com total segurança é <strong>comê-la crua</strong>, preservando as fibras intactas que seguram a absorção do açúcar. O problema é que ralar na mão dá preguiça e mancha tudo. Eu sempre indico ter um bom fatiador manual em casa: você prepara sua salada rica em fibras em segundos, sem sujeira e protegendo a sua glicemia!
-            </p>
-
-            {/* BOTÃO COM LINK AFILIADO */}
-            <a 
-                href="https://meli.la/289QBjX" 
-                rel="sponsored noopener noreferrer" 
-                target="_blank"
-                className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-            >
-                <ShoppingCart size={16} />
-                Comprar no Mercado Livre
-            </a>
-        </div>
-    </div>
-
-    {/* DISCLOSURE OBRIGATÓRIO */}
-    <div className="mt-12 pt-6 border-t border-green-50 text-center">
-        <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
-            Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece o apoio.
-        </p>
-    </div>
-</div>
-
                     </div>
                   </li>
                   <li className="flex gap-4 items-start">
@@ -429,6 +372,63 @@ export default function DiabeticoPodeComerBeterraba() {
                     </div>
                   </li>
                 </ul>
+              </div>
+
+              {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (RALADOR DE LEGUMES) */}
+              <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
+                  {/* SELO NO CANTO SUPERIOR */}
+                  <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+                      <Zap size={14} className="fill-white" />
+                      <span>O Pingus Aprova!</span>
+                  </div>
+
+                  <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
+                      {/* FOTO DO PINGUS (AUTORIDADE) */}
+                      <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
+                          <img 
+                              src={`${githubImgBase}logoN_pingus.png`} 
+                              alt="Selo de Qualidade Pingus" 
+                              className="w-full h-full object-contain" 
+                          />
+                      </div>
+
+                      <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+                          <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                              Ralador e Fatiador de Legumes <span className="text-green-700">Praticidade Real</span>
+                          </h4>
+
+                          {/* IMAGEM DO PRODUTO */}
+                          <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
+                              <img 
+                                  src={`${githubImgBase}Afiliado/Ralador01.jpg`} 
+                                  alt="Ralador e Fatiador de Legumes Prático" 
+                                  className="w-full h-auto object-contain" 
+                              />
+                          </div>
+
+                          <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
+                              O segredo para o diabético consumir a beterraba com total segurança é <strong>comê-la crua</strong>, preservando as fibras intactas que seguram a absorção do açúcar. O problema é que ralar na mão dá preguiça e mancha tudo. Eu sempre indico ter um bom fatiador manual em casa: você prepara sua salada rica em fibras em segundos, sem sujeira e protegendo a sua glicemia!
+                          </p>
+
+                          {/* BOTÃO COM LINK AFILIADO */}
+                          <a 
+                              href="https://meli.la/289QBjX" 
+                              rel="sponsored noopener noreferrer" 
+                              target="_blank"
+                              className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                          >
+                              <ShoppingCart size={16} />
+                              Comprar no Mercado Livre
+                          </a>
+                      </div>
+                  </div>
+
+                  {/* DISCLOSURE OBRIGATÓRIO */}
+                  <div className="mt-12 pt-6 border-t border-green-50 text-center">
+                      <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
+                          Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece o apoio.
+                      </p>
+                  </div>
               </div>
 
               {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
