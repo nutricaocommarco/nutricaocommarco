@@ -420,7 +420,7 @@ export default function SimbioticosComponent() {
                     </div>
                     <div className="flex-1 text-center md:text-left flex flex-col justify-center">
                         <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                            Liquidificador Portátil <span className="text-green-700">Mix Pro</span>
+                            Liquidificador Multiuso <span className="text-green-700">4 em 1</span>
                         </h4>
                         
                         <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
@@ -436,7 +436,7 @@ export default function SimbioticosComponent() {
                         </div>
 
                         <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                            A melhor forma de criar um simbiótico perfeito de absorção imediata é batendo o seu Kefir ou Iogurte com frutas ricas em fibras (como banana verde ou maçã com casca). Para quem leva uma rotina super agitada, o <strong>Liquidificador Multiuso 4em1 (USB)</strong> é uma ferramenta espetacular. Permite-lhe fazer a sua vitamina simbiótica fresquinha no trabalho ou logo após o treino, garantindo a entrega das bactérias 100% vivas e ativas no estômago!
+                            A melhor forma de criar um simbiótico perfeito de absorção imediata é batendo o seu Kefir ou Iogurte com frutas ricas em fibras (como banana verde ou maçã com casca). Para quem leva uma rotina super agitada, o <strong>Liquidificador Multiuso 4em1 (USB)</strong> é uma ferramenta espetacular. Permite-lhe fazer a sua vitamina simbiótica fresquinha de forma rápida, garantindo a entrega das bactérias 100% vivas e ativas no estômago!
                         </p>
                         
                         <a 
