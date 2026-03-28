@@ -1,26 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, BrowserRouter } from 'react-router-dom';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { Link, useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { 
-  ChevronLeft, HelpCircle, Activity, Leaf, Shield, Heart, FileText, 
+  ChevronLeft, HelpCircle, Activity, Leaf, Shield, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
-  Coffee, Wheat, Flame, Beaker, CheckCircle2, Droplet, Database,
+  Coffee, Wheat, Flame, Beaker, CheckCircle2, Droplet, 
   UtensilsCrossed, Pill, Brain, Wine, Wind, Battery, ShieldAlert, AlertCircle, HeartPulse, Layers, Scale, Dna, Apple
 } from 'lucide-react';
+
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
-// Variáveis de data centralizadas para SEO
-const datePublishedISO = "2026-05-10";
-const dateModifiedISO = "2026-05-10";
+const datePublishedISO = "2026-03-28";
+const dateModifiedISO = "2026-03-28";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
-// Caminho oficial da imagem de capa
 const simbioticosCapa = `${githubImgBase}Blog/Simbioticos.jpg`;
 
-// --- DADOS DAS LISTAS ---
 const fatoresMicrobiota = [
   { id: 1, nome: "Má Alimentação", icone: <UtensilsCrossed className="w-6 h-6 text-red-500" />, desc: "Dietas ricas em ultraprocessados, açúcar refinado e pobres em fibras matam as bactérias boas de fome." },
   { id: 2, nome: "Medicamentos", icone: <Pill className="w-6 h-6 text-blue-500" />, desc: "O uso indiscriminado de antibióticos varre tanto as bactérias ruins quanto as boas, devastando a flora." },
@@ -59,7 +57,6 @@ function SimbioticosComponent() {
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
-  // Efeito para rolar para o topo ao carregar
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -90,19 +87,13 @@ function SimbioticosComponent() {
   return (
     <>
       <Helmet>
-        {/* SEO OTIMIZADO - TÍTULO DO SNIPPET */}
         <title>O que são Simbióticos? A União de Pre e Probióticos | Nutrição com Marco</title>
-
-        {/* META DESCRIPTION OTIMIZADA */}
         <meta name="description" content="Descubra o que são os alimentos simbióticos, como a união de prebióticos e probióticos transforma a sua flora e as melhores combinações para o emagrecimento." />
-
         <meta property="og:type" content="article" />
         <meta property="og:title" content="O que são Simbióticos? A Sinergia Intestinal | Nutrição com Marco" />
         <meta property="og:description" content="Guia definitivo sobre Simbióticos: aprenda a combinar prebióticos e probióticos na mesma refeição para blindar a sua imunidade e microbiota." />
         <meta property="og:image" content={simbioticosCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        {/* SCHEMA.ORG 1: ARTIGO OTIMIZADO (COM AUTORIDADE E-E-A-T) */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -129,8 +120,6 @@ function SimbioticosComponent() {
             "description": "Descubra o que são os alimentos simbióticos e como a união estratégica de prebióticos e probióticos transforma a saúde do seu intestino."
           })}
         </script>
-
-        {/* SCHEMA.ORG 2: MEDICAL WEB PAGE (AVANÇADO PARA YMYL) */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -149,8 +138,6 @@ function SimbioticosComponent() {
             }
           })}
         </script>
-
-        {/* SCHEMA.ORG 3: BREADCRUMB LIST */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -177,8 +164,6 @@ function SimbioticosComponent() {
             ]
           })}
         </script>
-
-        {/* SCHEMA.ORG 4: FAQ PAGE */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -290,7 +275,6 @@ function SimbioticosComponent() {
               </div>
             </div>
 
-            {/* --- BLOCO DE LINKS CRUZADOS (PRE E PRO) --- */}
             <div className="my-12 grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="p-8 bg-emerald-50 border border-emerald-100 rounded-[2.5rem] shadow-sm flex flex-col justify-between">
                 <div>
@@ -318,7 +302,6 @@ function SimbioticosComponent() {
                 </Link>
               </div>
             </div>
-            {/* --- FIM DOS LINKS CRUZADOS --- */}
 
             <h2 id="fisiologia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Zap className="text-green-600"/> A Sinergia Intestinal: Como os Simbióticos funcionam no corpo?
@@ -336,7 +319,6 @@ function SimbioticosComponent() {
               </p>
             </blockquote>
 
-            {/* Fatores que afetam a Microbiota */}
             <h2 id="fatores-microbiota" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <AlertCircle className="text-red-500"/> O que afeta e destrói a sua Microbiota Intestinal?
             </h2>
@@ -362,7 +344,6 @@ function SimbioticosComponent() {
               </div>
             </div>
 
-            {/* Sintomas da Disbiose */}
             <h2 id="sintomas-disbiose" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-orange-200 pb-2 flex items-center gap-3">
               <Wind className="text-orange-500"/> Efeitos Colaterais do Desequilíbrio (Disbiose)
             </h2>
@@ -410,7 +391,6 @@ function SimbioticosComponent() {
               A beleza desta combinação transcende a barriga lisa e o fim do estufamento indesejado que costumamos sentir após uma refeição pesada. Quando garantimos a sinergia entre o prebiótico e o probiótico, conseguimos restaurar as chamadas "tight junctions" — as junções celulares apertadas da parede do intestino. Isto significa que as toxinas diárias que ingerimos através de corantes, conservantes e poluição deixam de vazar indiscriminadamente para a nossa corrente sanguínea. Este bloqueio imediato das toxinas promove uma clareza mental surpreendente, alívio na fadiga crónica, melhora na textura e acne da pele, e claro, o controlo otimizado do perfil glicémico, o que torna as suas dúvidas sobre <Link to="/quantas_frutas_posso_comer" className="text-green-600 font-semibold hover:underline">quantas frutas comer por dia</Link> uma questão muito mais leve e sem fobias alimentares desnecessárias.
             </p>
 
-            {/* --- NOVA SECÇÃO: EXPERIÊNCIAS E CIÊNCIA --- */}
             <h2 id="experimentos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <FileText className="text-green-600"/> A Ciência na Prática: Experimentos com Simbióticos
             </h2>
@@ -420,9 +400,7 @@ function SimbioticosComponent() {
             <p>
               O impacto terapêutico desta união vai muito além da prevenção pediátrica, mostrando-se um verdadeiro salva-vidas em cenários hospitalares de altíssima complexidade. Conforme documentado num estudo detalhado sobre o <a href="https://share.google/ZqKA6oueGUWqsioaB" target="_blank" rel="noopener noreferrer" className="text-green-600 font-semibold hover:underline">uso terapêutico dos simbióticos</a>, ensaios clínicos que avaliaram o período perioperatório de cirurgias de grande porte — como resseções de cancro do esófago e procedimentos hepáticos severos — revelaram uma recuperação surpreendente dos doentes. A introdução de compostos simbióticos antes e após as cirurgias reduziu drasticamente as taxas de complicações infeciosas pós-operatórias. Os dados revelaram que a suplementação restaurou a integridade da barreira intestinal, frequentemente devastada pelo stresse cirúrgico e por antibióticos, além de reequilibrar a produção de ácidos orgânicos vitais na flora biológica. Tais experiências atestam de forma categórica que nutrir as bactérias com o seu combustível correto não é apenas um hábito de bem-estar diário, mas sim uma intervenção clínica poderosa capaz de acelerar a cura e proteger a vida humana em situações extremas.
             </p>
-            {/* --- FIM DA NOVA SECÇÃO --- */}
 
-            {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA */}
             <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
                 <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
@@ -479,7 +457,6 @@ function SimbioticosComponent() {
                 </div>
             </div>
 
-            {/* Inicio da Lista Integrada */}
             <div id="lista-simbioticos" className="my-16 bg-slate-50 py-12 px-4 md:px-8 rounded-[3rem] border border-slate-200 shadow-inner">
               <div className="text-center mb-12">
                 <span className="inline-block bg-green-100 text-green-800 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 shadow-sm">
@@ -524,9 +501,7 @@ function SimbioticosComponent() {
                 </div>
               </div>
             </div>
-            {/* Fim da Lista Integrada */}
 
-            {/* Inicio do Vídeo do Youtube */}
             <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <PlayCircle className="text-green-600"/> Aprofunde-se: A Arte da Combinação Alimentar
             </h2>
@@ -552,7 +527,6 @@ function SimbioticosComponent() {
                 ></iframe>
               </div>
             </div>
-            {/* Fim do Vídeo do Youtube */}
 
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
@@ -612,3 +586,5 @@ function SimbioticosComponent() {
     </>
   );
 }
+
+export default SimbioticosComponent;
