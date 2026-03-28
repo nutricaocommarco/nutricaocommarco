@@ -586,5 +586,3 @@ function SimbioticosComponent() {
     </>
   );
 }
-
-export default SimbioticosComponent;
