@@ -29,7 +29,7 @@ import TirzepatidaParaQueServe from './pages/tirzepatidapraqueserve';
 import FomeEmocional from './pages/oqueefomeemocional';
 import Prebioticos from './pages/prebioticos'; 
 import Probioticos from './pages/Probioticos'; 
-import Simbioticos from './pages/Simbioticos'; // Nova Página
+import Simbioticos from './pages/Simbioticos'; // Nova Página 
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
