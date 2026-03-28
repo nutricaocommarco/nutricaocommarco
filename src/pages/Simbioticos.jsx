@@ -436,7 +436,7 @@ export default function SimbioticosComponent() {
                         </div>
 
                         <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                            A melhor forma de criar um simbiótico perfeito de absorção imediata é batendo o seu Kefir ou Iogurte com frutas ricas em fibras (como banana verde ou maçã com casca). Para quem leva uma rotina super agitada, o <strong>Liquidificador Multiuso 4em1 (USB)</strong> é uma ferramenta espetacular. Permite-lhe fazer a sua vitamina simbiótica fresquinha de forma rápida, garantindo a entrega das bactérias 100% vivas e ativas no estômago!
+                            A melhor forma de criar um simbiótico perfeito de absorção imediata é batendo o seu Kefir ou Iogurte com frutas ricas em fibras (como banana verde ou maçã com casca). Para quem leva uma rotina super agitada, o <strong>Liquidificador Multiuso 4 em 1</strong> é uma ferramenta espetacular. Permite-lhe fazer a sua vitamina simbiótica fresquinha de forma rápida, garantindo a entrega das bactérias 100% vivas e ativas no estômago!
                         </p>
                         
                         <a 
