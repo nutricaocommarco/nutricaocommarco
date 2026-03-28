@@ -5,7 +5,7 @@ import { HelmetProvider } from 'react-helmet-async';
 
 // Importando as páginas exclusivas
 import Home from './pages/Home';
-import Certificacoes from './pages/Certificacoes';
+import Certificacoes from './pages/Certificacoes'; 
 import Sobre from './pages/Sobre';
 import Blog from './pages/Blog';
 import Planos from './pages/Planos';
