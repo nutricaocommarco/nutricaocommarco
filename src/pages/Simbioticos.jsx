@@ -5,7 +5,7 @@ import {
   ChevronLeft, HelpCircle, Activity, Leaf, Shield, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
   Coffee, Wheat, Flame, Beaker, CheckCircle2, Droplet, 
-  UtensilsCrossed, Pill, Brain, Wine, Wind, Battery, ShieldAlert, AlertCircle, HeartPulse, Layers, Scale, Dna, Apple
+  UtensilsCrossed, Pill, Brain, Wine, Wind, Battery, FileText, ShieldAlert, AlertCircle, HeartPulse, Layers, Scale, Dna, Apple
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
