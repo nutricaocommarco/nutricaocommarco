@@ -436,11 +436,11 @@ export default function SimbioticosComponent() {
                         </div>
 
                         <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                            A melhor forma de criar um simbiótico perfeito de absorção imediata é batendo o seu Kefir ou Iogurte com frutas ricas em fibras (como banana verde ou maçã com casca). Para quem leva uma rotina super agitada, o <strong>Liquidificador Portátil Recarregável (USB)</strong> é uma ferramenta espetacular. Permite-lhe fazer a sua vitamina simbiótica fresquinha no trabalho ou logo após o treino, garantindo a entrega das bactérias 100% vivas e ativas no estômago!
+                            A melhor forma de criar um simbiótico perfeito de absorção imediata é batendo o seu Kefir ou Iogurte com frutas ricas em fibras (como banana verde ou maçã com casca). Para quem leva uma rotina super agitada, o <strong>Liquidificador Multiuso 4em1 (USB)</strong> é uma ferramenta espetacular. Permite-lhe fazer a sua vitamina simbiótica fresquinha no trabalho ou logo após o treino, garantindo a entrega das bactérias 100% vivas e ativas no estômago!
                         </p>
                         
                         <a 
-                            href="https://meli.la/link_liquidificador_exemplo" 
+                            href="https://meli.la/1f7vmv6" 
                             rel="sponsored noopener noreferrer" 
                             target="_blank"
                             className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
