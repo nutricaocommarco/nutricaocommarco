@@ -28,7 +28,8 @@ import OvoColesterol from './pages/ovoecolesterol';
 import TirzepatidaParaQueServe from './pages/tirzepatidapraqueserve'; 
 import FomeEmocional from './pages/oqueefomeemocional';
 import Prebioticos from './pages/prebioticos'; 
-import Probioticos from './pages/Probioticos'; // Nova Página
+import Probioticos from './pages/Probioticos'; 
+import Simbioticos from './pages/Simbioticos'; // Nova Página
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -103,7 +104,11 @@ function Layout({ children }) {
       '/o-que-sao-probioticos': { 
         title: 'O que são Probióticos? Lactobacillus e Benefícios | Nutrição com Marco', 
         desc: 'Descubra o que são probióticos e Lactobacillus, para que servem no intestino, seus benefícios para a imunidade e quais as melhores fontes naturais.' 
-      }
+      },
+      '/o-que-sao-simbioticos': { 
+  title: 'O que são Simbióticos? A Sinergia Intestinal | Nutrição com Marco', 
+  desc: 'Descubra o que são os alimentos simbióticos, como a união de prebióticos e probióticos transforma a sua flora e as melhores combinações.' 
+}
     };
 
     const currentSEO = seoData[location.pathname] || seoData['/'];
@@ -216,6 +221,7 @@ export default function App() {
             <Route path="/o-que-e-fome-emocional" element={<FomeEmocional />} />
             <Route path="/o-que-sao-prebioticos" element={<Prebioticos />} />
             <Route path="/o-que-sao-probioticos" element={<Probioticos />} />
+            <Route path="/o-que-sao-simbioticos" element={<Simbioticos />} />
           </Routes>
         </Layout>
       </Router>
