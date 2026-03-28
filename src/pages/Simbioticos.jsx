@@ -52,7 +52,7 @@ const simbioticosDados = [
   { id: 12, nome: "Suplemento Simbiótico", tipo: "Bactérias + FOS em Pó", descricao: "Cápsulas ou sachês que já trazem a bactéria e a sua 'comida' (FOS) misturadas no mesmo produto.", Icone: Beaker, corIcone: "text-purple-500" }
 ];
 
-function SimbioticosComponent() {
+export default function SimbioticosComponent() {
   const { pathname } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
