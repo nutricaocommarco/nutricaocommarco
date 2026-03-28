@@ -10,36 +10,6 @@ import {
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 
-const Newsletter = () => (
-  <div className="mt-16 p-8 md:p-12 bg-green-600 rounded-[3rem] text-center text-white shadow-xl">
-    <h3 className="text-2xl md:text-3xl font-black mb-4 italic uppercase">Assine nossa Newsletter</h3>
-    <p className="text-green-100 font-medium mb-6">Receba as melhores dicas de saúde intestinal e emagrecimento direto no seu e-mail.</p>
-    <div className="flex flex-col md:flex-row gap-3 justify-center max-w-lg mx-auto">
-      <input type="email" placeholder="Seu melhor e-mail" className="px-6 py-3 rounded-full text-slate-900 outline-none w-full" />
-      <button className="bg-slate-900 text-white px-8 py-3 rounded-full font-black uppercase text-sm hover:bg-slate-800 transition-colors">Assinar</button>
-    </div>
-  </div>
-);
-
-const ArtigosRecomendados = () => (
-  <div className="mt-16 border-t border-slate-200 pt-16">
-    <h3 className="text-2xl font-black text-slate-800 mb-8 italic uppercase text-center md:text-left">Artigos Recomendados</h3>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div className="bg-slate-50 p-6 rounded-3xl border border-slate-200">
-        <span className="text-xs font-bold text-green-600 uppercase tracking-widest">Saúde Intestinal</span>
-        <h4 className="text-lg font-black text-slate-800 mt-2 mb-2 italic">O que são Prebióticos?</h4>
-        <p className="text-sm text-slate-500">Descubra como alimentar as suas bactérias boas.</p>
-      </div>
-      <div className="bg-slate-50 p-6 rounded-3xl border border-slate-200">
-        <span className="text-xs font-bold text-green-600 uppercase tracking-widest">Saúde Intestinal</span>
-        <h4 className="text-lg font-black text-slate-800 mt-2 mb-2 italic">O que são Probióticos?</h4>
-        <p className="text-sm text-slate-500">Conheça os soldados que protegem a sua flora.</p>
-      </div>
-    </div>
-  </div>
-);
-// --- FIM DOS COMPONENTES SIMULADOS ---
-
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 // Variáveis de data centralizadas para SEO
