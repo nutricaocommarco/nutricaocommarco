@@ -441,7 +441,7 @@ export default function CicloCircadiano() {
               ))}
             </div>
 
-            {/* VÍDEO DO YOUTUBE */}
+              {/* VÍDEO DO YOUTUBE */}
             <div className="my-16 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
@@ -451,8 +451,8 @@ export default function CicloCircadiano() {
               </div>
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
                 <iframe 
-                  src="https://www.youtube.com/embed/yZwPKVXP7MKYB7jZ" 
-                  title="Vídeo Café da Manhã e Relógio Biológico" 
+                  src="https://www.youtube.com/embed/VPi_MkTHEUo" 
+                  title="5 Melhores Alimentos Para o Café da Manhã" 
                   className="absolute top-0 left-0 w-full h-full"
                   frameBorder="0" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
