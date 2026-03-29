@@ -451,7 +451,7 @@ export default function CicloCircadiano() {
               </div>
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
                 <iframe 
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                  src="https://www.youtube.com/embed/yZwPKVXP7MKYB7jZ" 
                   title="Vídeo Café da Manhã e Relógio Biológico" 
                   className="absolute top-0 left-0 w-full h-full"
                   frameBorder="0" 
