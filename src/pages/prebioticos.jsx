@@ -191,7 +191,7 @@ export default function Prebioticos() {
               "name": "Marco Aurélio Jr.",
               "url": "https://www.nutricaocommarco.com.br/sobre",
               "jobTitle": "Estudante de Nutrição",
-              "knowsAbout": ["Nutrição", "Saúde Intestinal", "Microbiota", "Fibras Alimentares", "Medicina do Estilo de Vida"]
+              "knowsAbout": ["Nutrição", "Saúde Intestinal", "Nutrição Clínica", "Microbiota", "Fibras Alimentares", "Medicina do Estilo de Vida"]
             },
             "publisher": {
               "@type": "Organization", 
@@ -282,7 +282,7 @@ export default function Prebioticos() {
         <article className="prose prose-lg max-w-none text-left">
 
           <div className="mb-8 flex flex-col items-start gap-2">
-            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Saúde Intestinal</span>
+            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Nutrição Clínica</span>
             <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
           </div>
 
