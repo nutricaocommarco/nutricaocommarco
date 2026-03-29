@@ -29,7 +29,8 @@ import TirzepatidaParaQueServe from './pages/tirzepatidapraqueserve';
 import FomeEmocional from './pages/oqueefomeemocional';
 import Prebioticos from './pages/prebioticos'; 
 import Probioticos from './pages/Probioticos'; 
-import Simbioticos from './pages/Simbioticos'; // Nova Página 
+import Simbioticos from './pages/Simbioticos'; 
+import CicloCircadiano from './pages/CicloCircadiano'; // Nova Página 
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -108,7 +109,11 @@ function Layout({ children }) {
       '/o-que-sao-simbioticos': { 
   title: 'O que são Simbióticos? A Sinergia Intestinal | Nutrição com Marco', 
   desc: 'Descubra o que são os alimentos simbióticos, como a união de prebióticos e probióticos transforma a sua flora e as melhores combinações.' 
-}
+      },
+      '/o-que-e-ciclo-circadiano': { 
+  title: 'O Que é Ciclo Circadiano? Relógio Biológico e Emagrecimento | Nutrição com Marco', 
+  desc: 'Guia completo sobre ciclo circadiano: como emagrecer, melhorar o sono, horários corretos das refeições, a verdade sobre a melatonina e controle hormonal.' 
+      }
     };
 
     const currentSEO = seoData[location.pathname] || seoData['/'];
@@ -222,6 +227,7 @@ export default function App() {
             <Route path="/o-que-sao-prebioticos" element={<Prebioticos />} />
             <Route path="/o-que-sao-probioticos" element={<Probioticos />} />
             <Route path="/o-que-sao-simbioticos" element={<Simbioticos />} />
+            <Route path="/o-que-e-ciclo-circadiano" element={<CicloCircadiano />} />
           </Routes>
         </Layout>
       </Router>
