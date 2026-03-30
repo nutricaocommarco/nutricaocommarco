@@ -8,12 +8,11 @@ const postsData = [
         {
     id: 15, 
     link: "/o-que-e-fome-emocional", 
-    img: `${githubImgBase}Blog/Fome-Emocional-Capa.jpg`,
+    imgSrc: `${githubImgBase}Blog/Fome-Emocional-Capa.jpg`,
     tag: "Nutrição Comportamental",
-    titulo: "O que é Fome Emocional? Como Identificar e Controlar o Impulso | Nutrição com Marco",
+    title: "O que é Fome Emocional? Como Identificar e Controlar o Impulso | Nutrição com Marco",
     desc: "Descubra os sintomas da fome emocional, entenda o ciclo da compulsão e aprenda estratégias práticas como a Escala de Fome e a técnica do atraso para retomar o controle.",
-    data: "2026-03-27",
-    dataMod: "2026-03-29"
+        isNew: true
 },
 {
     id: 14,
@@ -22,7 +21,6 @@ const postsData = [
     tag: "Tratamento Farmacológico",
     title: "Tirzepatida: Para Que Serve, Como Funciona e Seus Efeitos",
     desc: "Descubra para que serve a Tirzepatida, entenda seu mecanismo de ação duplo (GLP-1 e GIP), os principais efeitos colaterais e o potencial na perda de peso.",
-    isNew: true
 },
 {
     id: 13,
