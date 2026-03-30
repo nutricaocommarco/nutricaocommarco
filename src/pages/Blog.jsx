@@ -10,7 +10,7 @@ const postsData = [
     link: "/o-que-e-fome-emocional", 
     imgSrc: `${githubImgBase}Blog/Fome-Emocional-Capa.jpg`,
     tag: "Nutrição Comportamental",
-    title: "O que é Fome Emocional? Como Identificar e Controlar o Impulso | Nutrição com Marco",
+    title: "O que é Fome Emocional? Como Identificar e Controlar o Impulso",
     desc: "Descubra os sintomas da fome emocional, entenda o ciclo da compulsão e aprenda estratégias práticas como a Escala de Fome e a técnica do atraso para retomar o controle.",
         isNew: true
 },
