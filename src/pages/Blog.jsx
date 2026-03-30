@@ -5,6 +5,16 @@ import { ChevronRight, Clock, Filter, Tag as TagIcon } from 'lucide-react';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 const postsData = [
+        {
+    id: 15, 
+    link: "/o-que-e-fome-emocional", 
+    img: `${githubImgBase}Blog/Fome-Emocional-Capa.jpg`,
+    tag: "Nutrição Comportamental",
+    titulo: "O que é Fome Emocional? Como Identificar e Controlar o Impulso | Nutrição com Marco",
+    desc: "Descubra os sintomas da fome emocional, entenda o ciclo da compulsão e aprenda estratégias práticas como a Escala de Fome e a técnica do atraso para retomar o controle.",
+    data: "2026-03-27",
+    dataMod: "2026-03-29"
+},
 {
     id: 14,
     link: "/tirzepatida-para-que-serve",
