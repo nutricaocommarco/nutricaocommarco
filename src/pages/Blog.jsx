@@ -5,24 +5,24 @@ import { ChevronRight, Clock, Filter, Tag as TagIcon } from 'lucide-react';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 const postsData = [
-        {
+  {
     id: 15, 
     link: "/o-que-e-fome-emocional", 
     imgSrc: `${githubImgBase}Blog/Fome-Emocional-Capa.jpg`,
     tag: "Nutrição Comportamental",
     title: "O que é Fome Emocional? Como Identificar e Controlar o Impulso",
     desc: "Descubra os sintomas da fome emocional, entenda o ciclo da compulsão e aprenda estratégias práticas como a Escala de Fome e a técnica do atraso para retomar o controle.",
-        isNew: true
-},
-{
+    isNew: true
+  },
+  {
     id: 14,
     link: "/tirzepatida-para-que-serve",
     imgSrc: `${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`,
     tag: "Tratamento Farmacológico",
     title: "Tirzepatida: Para Que Serve, Como Funciona e Seus Efeitos",
     desc: "Descubra para que serve a Tirzepatida, entenda seu mecanismo de ação duplo (GLP-1 e GIP), os principais efeitos colaterais e o potencial na perda de peso.",
-},
-{
+  },
+  {
     id: 13,
     link: "/comer-ovo-todo-dia-aumenta-o-colesterol",
     imgSrc: `${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.jpg`,
@@ -248,24 +248,23 @@ export default function Blog() {
         ))}
       </div>
 
-      {/* Tags Inferiores para Filtro Rápido */}
-      <div className="mt-20 mb-4 flex flex-wrap justify-center gap-2 border-t border-slate-100 pt-10">
-        <div className="w-full mb-4 flex items-center justify-center gap-2 text-slate-400 font-black uppercase text-[10px] tracking-widest">
+      {/* Tags Inferiores para Filtro Rápido - Atualizado para Dropdown */}
+      <div className="mt-20 mb-4 flex flex-col items-center justify-center border-t border-slate-100 pt-10">
+        <div className="mb-4 flex items-center justify-center gap-2 text-slate-400 font-black uppercase text-[10px] tracking-widest">
            <TagIcon size={12} /> Explorar por tema
         </div>
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setSelectedTag(cat)}
-            className={`px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${
-              selectedTag === cat 
-                ? 'bg-green-600 text-white shadow-md' 
-                : 'bg-white text-slate-500 border border-slate-200 hover:text-green-600 hover:border-green-200'
-            }`}
+        <div className="relative inline-flex items-center">
+          <Filter size={14} className="absolute left-3 text-green-600 pointer-events-none" />
+          <select 
+            value={selectedTag}
+            onChange={(e) => setSelectedTag(e.target.value)}
+            className="appearance-none bg-white border border-slate-200 text-slate-600 py-2 pl-9 pr-8 rounded-full text-[10px] font-black uppercase tracking-widest cursor-pointer hover:border-green-300 transition-colors focus:outline-none shadow-sm"
           >
-            {cat}
-          </button>
-        ))}
+            {categories.map(cat => (
+              <option key={cat} value={cat}>{cat}</option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <PaginationControls />
