@@ -90,13 +90,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://www.nutricaocommarco.com.br/tirzepatida-para-que-serve</loc>
+
+  <url>  <loc>https://www.nutricaocommarco.com.br/tirzepatida-para-que-serve</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-    <loc>https://www.nutricaocommarco.com.br/o-que-e-fome-emocional</loc>
+   <url> <loc>https://www.nutricaocommarco.com.br/o-que-e-fome-emocional</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
