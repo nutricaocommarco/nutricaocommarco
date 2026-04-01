@@ -5,7 +5,7 @@ import {
   ChevronLeft, HelpCircle, Activity, Shield, FileText, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
   Brain, Clock, AlertCircle, Moon, EyeOff, BookOpen, Database, 
-  AlertTriangle, XCircle, CheckCircle, Thermometer
+  AlertTriangle, XCircle, CheckCircle, Thermometer, Leaf, Heart, Sun, Coffee
 } from 'lucide-react';
 
 import Newsletter from '../components/Newsletter';
@@ -17,6 +17,7 @@ const datePublishedISO = "2026-04-01";
 const dateModifiedISO = "2026-04-01";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 const melatoninaCapa = `${githubImgBase}Blog/Melatonina.jpg`;
+const cicloCircadianoCapa = `${githubImgBase}Blog/CicloCircadiano.jpg`;
 
 export default function Melatonina() {
   const { pathname } = useLocation();
@@ -68,6 +69,63 @@ export default function Melatonina() {
     { id: 1, inimigo: "Luz Azul e Telas (Celular/TV)", estimulante: "Quarto 100% Escuro e Luz Quente", impacto: "A luz das telas inibe instantaneamente a glândula pineal, parando a produção hormonal. O escuro absoluto é o principal gatilho para o corpo liberar a melatonina endógena." },
     { id: 2, inimigo: "Álcool e Café Noturno", estimulante: "Suco de Cereja (Tart Cherry)", impacto: "Cafeína e álcool bloqueiam a adenosina e fragmentam o sono profundo. A cereja é uma das raras fontes alimentares cientificamente comprovadas com fitomelatonina." },
     { id: 3, inimigo: "Estresse e Agitação Noturna", estimulante: "Banho Quente antes de deitar", impacto: "O cortisol (estresse) destrói a indução do sono. Um banho quente induz a redução da temperatura corporal central, mecanismo que o cérebro exige para começar a adormecer." }
+  ];
+
+  const dicasSono = [
+    { 
+      habito: 'Exposição Solar', 
+      pratica: '30 min de sol ao acordar.', 
+      impacto: 'Zera o relógio biológico e regula o cortisol.', 
+      icone: Sun,
+      color: 'text-amber-600', 
+      bg: 'bg-amber-50',
+      border: 'border-amber-100'
+    },
+    { 
+      habito: 'Higiene de Luz', 
+      pratica: 'Zero ecrãs 2h antes de deitar.', 
+      impacto: 'Permite a liberação natural da melatonina.', 
+      icone: Zap,
+      color: 'text-blue-600', 
+      bg: 'bg-blue-50',
+      border: 'border-blue-100'
+    },
+    { 
+      habito: 'Ambiente Fresco', 
+      pratica: 'Quarto entre 18°C e 20°C.', 
+      impacto: 'Facilita a queda necessária da temperatura corporal.', 
+      icone: Moon,
+      color: 'text-cyan-600', 
+      bg: 'bg-cyan-50',
+      border: 'border-cyan-100'
+    },
+    { 
+      habito: 'Corte da Cafeína', 
+      pratica: 'Evitar estimulantes após as 14h.', 
+      impacto: 'Não bloqueia a pressão de sono (adenosina).', 
+      icone: Coffee,
+      color: 'text-orange-600', 
+      bg: 'bg-orange-50',
+      border: 'border-orange-100'
+    },
+    { 
+      habito: 'Jantar Leve', 
+      pratica: 'Comer 3h antes de dormir.', 
+      impacto: 'Evita picos de insulina que inibem o reparo celular.', 
+      icone: Leaf,
+      color: 'text-green-600', 
+      bg: 'bg-green-50',
+      border: 'border-green-100'
+    },
+    { 
+      habito: 'Rotina de Relaxamento', 
+      pratica: 'Leitura ou meditação à noite.', 
+      impacto: 'Reduz a atividade do sistema nervoso simpático.', 
+      icone: Heart,
+      color: 'text-rose-600', 
+      bg: 'bg-rose-50',
+      border: 'border-rose-100'
+    },
   ];
 
   return (
@@ -235,7 +293,7 @@ export default function Melatonina() {
                   Efeitos Colaterais da Melatonina: Resposta Direta
                 </h2>
                 <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
-                  A <strong>melatonina</strong> é amplamente considerada segura para a maioria das pessoas, mas não é isenta de reações indesejadas. Os <strong>efeitos colaterais da melatonina</strong> mais comuns relatados na literatura científica incluem dores de cabeça, sensação de cansaço ou letargia matinal e desconfortos gastrointestinais. Diferente de medicamentos controlados, ela não causa dependência química clássica. No entanto, o seu uso incorreto pode gerar forte dependência psicológica e mascarar problemas reais de higiene do sono, prejudicando o seu metabolismo.
+                  A <strong>melatonina</strong> é amplamente considerada segura para a maioria das pessoas, mas não é isenta de reações indesejadas. Os <strong>efeitos colaterais da melatonina</strong> mais comuns relatados na literatura científica incluem dores de cabeça, sensação de cansaço ou letargia matinal e desconfortos gastrointestinais. Diferente de medicamentos controlados, ela não causa dependência química clássica. No entanto, o seu uso incorreto pode gerar forte dependência psicológica e mascarar problemas reais de higiene do sono, prejudicando o metabolismo.
               </p>
             </div>
 
@@ -417,7 +475,7 @@ export default function Melatonina() {
                     O que <span className="text-red-500">Destrói</span> vs O que <span className="text-green-600">Estimula</span>
                   </h3>
                   <p className="text-slate-600 mt-3 font-medium max-w-2xl mx-auto">
-                    A produção natural de <strong>melatonina</strong> pelo seu cérebro é extremamente sensível aos seus hábitos noturnos. Entenda como o seu ambiente molda o seu sono:
+                    A produção natural de <strong>melatonina</strong> pelo seu cérebro é extremamente sensível aos seus hábitos noturnos. Entenda como o ambiente molda o sono:
                   </p>
                 </div>
 
@@ -453,7 +511,7 @@ export default function Melatonina() {
                 <Moon className="text-green-600"/> Como dormir rápido sem depender de suplementos
               </h2>
               <p>
-                A estratégia mais inteligente para não sofrer com os <strong>efeitos colaterais da melatonina</strong> sintética sempre será estimular a produção natural do seu próprio corpo. Como a síntese de <strong>melatonina</strong> pode ser bloqueada completamente pela simples presença de luz, especialmente a luz azul emitida pelas telas, garantir um ambiente de escuridão absoluta é inegociável. É exatamente por isso que bloqueadores de luz tornam-se essenciais. Ao eliminar as interferências visuais, você cria o cenário perfeito para que o seu cérebro libere a <strong>melatonina endógena</strong> no volume ideal, garantindo um sono profundo e reparador sem engolir pílulas.
+                A estratégia mais inteligente para não sofrer com os <strong>efeitos colaterais da melatonina</strong> sintética sempre será estimular a produção natural do seu próprio corpo. Como a síntese de <strong>melatonina</strong> pode ser bloqueada completamente pela simples presença de luz, especialmente a luz azul emitida pelas telas, garantir um ambiente de escuridão absoluta é inegociável. É exatamente por isso que bloqueadores de luz tornam-se essenciais. Ao eliminar as interferências visuais, você cria o cenário perfeito para que o cérebro libere a <strong>melatonina endógena</strong> no volume ideal, garantindo um sono profundo e reparador sem engolir pílulas.
               </p>
 
               {/* AFILIADO MERCADO LIVRE (MÁSCARA DE DORMIR) */}
@@ -486,7 +544,7 @@ export default function Melatonina() {
                           </div>
 
                           <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                              Para produzir <strong>melatonina</strong> naturalmente e dormir rápido, o seu cérebro precisa de <strong>escuridão total</strong>. Como nem sempre conseguimos bloquear toda a luz da rua ou dos pequenos LEDs no quarto, usar uma boa máscara de dormir é um investimento barato e 100% seguro para blindar a qualidade do seu sono, evitando o risco de sofrer com os <strong>colaterais da melatonina</strong> em cápsulas.
+                              Para produzir <strong>melatonina</strong> naturalmente e dormir rápido, o seu cérebro precisa de <strong>escuridão total</strong>. Como nem sempre conseguimos bloquear toda a luz da rua ou dos pequenos LEDs no quarto, usar uma boa máscara de dormir é um investimento barato e 100% seguro para blindar a qualidade do sono, evitando o risco de sofrer com os <strong>colaterais da melatonina</strong> em cápsulas.
                           </p>
 
                           <a 
