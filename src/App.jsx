@@ -30,7 +30,8 @@ import FomeEmocional from './pages/oqueefomeemocional';
 import Prebioticos from './pages/prebioticos'; 
 import Probioticos from './pages/Probioticos'; 
 import Simbioticos from './pages/Simbioticos'; 
-import CicloCircadiano from './pages/CicloCircadiano'; // Nova Página 
+import CicloCircadiano from './pages/CicloCircadiano';
+import Melatonina from './pages/Melatonina'; // Nova Página 
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -113,6 +114,10 @@ function Layout({ children }) {
       '/o-que-e-ciclo-circadiano': { 
   title: 'O Que é Ciclo Circadiano? Relógio Biológico e Emagrecimento | Nutrição com Marco', 
   desc: 'Guia completo sobre ciclo circadiano: como emagrecer, melhorar o sono, horários corretos das refeições, a verdade sobre a melatonina e controle hormonal.' 
+      },
+    '/efeitos-colaterais-da-melatonina': {
+    title: 'Efeitos Colaterais da Melatonina: Vicia? Riscos e Doses | Nutrição com Marco',
+    desc: 'Descubra a verdade científica sobre a melatonina: ela vicia? Faz mal? Entenda os efeitos colaterais, riscos psicológicos e como dosar corretamente para dormir bem.'
       }
     };
 
@@ -228,6 +233,7 @@ export default function App() {
             <Route path="/o-que-sao-probioticos" element={<Probioticos />} />
             <Route path="/o-que-sao-simbioticos" element={<Simbioticos />} />
             <Route path="/o-que-e-ciclo-circadiano" element={<CicloCircadiano />} />
+            <Route path="/efeitos-colaterais-da-melatonina" element={<Melatonina />} />
           </Routes>
         </Layout>
       </Router>
