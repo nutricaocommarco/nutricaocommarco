@@ -1,6 +1,16 @@
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 export const posts = [
+{
+  id: 16, 
+  link: "/o-que-sao-prebioticos", 
+  img: `${githubImgBase}Blog/Prebioticos.jpg`,
+  tag: "Nutrição Clínica",
+  titulo: "O que são Prebióticos? Alimentos, Benefícios e Para Que Servem | Nutrição com Marco",
+  desc: "Descubra o que são prebióticos, para que servem no seu intestino, quais alimentos são ricos em FOS e inulina, e como eles alimentam sua flora intestinal.",
+  data: "2026-03-27",
+  dataMod: "2026-04-01"
+},
     {
     id: 15, 
     link: "/o-que-e-fome-emocional", 
