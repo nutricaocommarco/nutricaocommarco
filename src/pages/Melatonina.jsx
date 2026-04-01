@@ -72,14 +72,144 @@ export default function Melatonina() {
 
   return (
     <>
-      <Helmet>
+<Helmet>
+        {/* SEO OTIMIZADO - TÍTULO DO SNIPPET */}
         <title>Efeitos Colaterais da Melatonina: Vicia? Riscos e Doses | Nutrição com Marco</title>
+
+        {/* META DESCRIPTION OTIMIZADA */}
         <meta name="description" content="Descubra a verdade científica sobre a melatonina: ela vicia? Faz mal? Entenda os efeitos colaterais, riscos psicológicos e como dosar corretamente para dormir bem." />
+
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Efeitos Colaterais da Melatonina: Vicia? Riscos e Doses | Nutrição com Marco" />
         <meta property="og:description" content="A ciência por trás do hormônio do sono. Riscos, benefícios, quem não pode tomar e a verdade sobre a dependência psicológica." />
         <meta property="og:image" content={melatoninaCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
+
+        {/* SCHEMA.ORG 1: ARTIGO OTIMIZADO (COM AUTORIDADE E-E-A-T) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Efeitos Colaterais da Melatonina: Vicia? Faz Mal? A Verdade Científica",
+            "image": melatoninaCapa,
+            "author": {
+              "@type": "Person",
+              "name": "Marco Aurélio Jr.",
+              "url": "https://www.nutricaocommarco.com.br/sobre",
+              "jobTitle": "Estudante de Nutrição",
+              "knowsAbout": ["Nutrição", "Fisiologia do Sono", "Endocrinologia Básica", "Metabolismo", "Higiene do Sono"]
+            },
+            "publisher": {
+              "@type": "Organization", 
+              "name": "Nutrição com Marco", 
+              "logo": {
+                "@type": "ImageObject", 
+                "url": `${githubImgBase}logoN_pingus.png`
+              }
+            },
+            "datePublished": datePublishedISO,
+            "dateModified": dateModifiedISO,
+            "description": "Entenda os reais efeitos colaterais da suplementação de melatonina, a diferença entre dependência química e psicológica, e como melhorar a higiene do sono naturalmente."
+          })}
+        </script>
+
+        {/* SCHEMA.ORG 2: MEDICAL WEB PAGE (AVANÇADO PARA YMYL) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalWebPage",
+            "name": "Efeitos Colaterais da Melatonina e Segurança",
+            "url": `https://www.nutricaocommarco.com.br${pathname}`,
+            "about": [
+              {"@type": "MedicalEntity", "name": "Melatonina"},
+              {"@type": "MedicalEntity", "name": "Insônia"},
+              {"@type": "MedicalEntity", "name": "Higiene do Sono"},
+              {"@type": "MedicalEntity", "name": "Efeito Colateral"}
+            ],
+            "audience": {
+              "@type": "MedicalAudience",
+              "audienceType": "Pacientes"
+            }
+          })}
+        </script>
+
+        {/* SCHEMA.ORG 3: BREADCRUMB LIST */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.nutricaocommarco.com.br/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.nutricaocommarco.com.br/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Efeitos Colaterais da Melatonina",
+                "item": `https://www.nutricaocommarco.com.br${pathname}`
+              }
+            ]
+          })}
+        </script>
+
+        {/* SCHEMA.ORG 4: FAQ PAGE (SINCRONIZADO COM O ARRAY) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.pergunta,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.resposta
+              }
+            }))
+          })}
+        </script>
+  
+  {/* SCHEMA.ORG 5: VIDEO OBJECT (Para o vídeo da Fisiologia da Melatonina) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            "name": "Como a melatonina funciona",
+            "description": "Explicação visual detalhando a fisiologia da melatonina e o seu impacto direto na saúde do corpo inteiro e no ciclo circadiano.",
+            "thumbnailUrl": "https://img.youtube.com/vi/g94wfvhMl14/maxresdefault.jpg",
+            "uploadDate": datePublishedISO,
+            "embedUrl": "https://www.youtube.com/embed/g94wfvhMl14",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Nutrição com Marco",
+              "logo": {
+                "@type": "ImageObject",
+                "url": `${githubImgBase}logoN_pingus.png`
+              }
+            }
+          })}
+        </script>
+
+        {/* SCHEMA.ORG 6: AUDIO OBJECT (Para o leitor de mp3 do artigo) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AudioObject",
+            "name": "Áudio: Efeitos Colaterais da Melatonina",
+            "description": "Versão narrada em áudio do artigo completo sobre a fisiologia do sono, os riscos da melatonina e como dormir melhor.",
+            "contentUrl": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Melatonina.mp3",
+            "encodingFormat": "audio/mpeg",
+            "duration": "PT5M" /* Duração opcional em formato ISO 8601 (ex: 5 minutos). Pode ajustar ou remover esta linha se não souber a duração exata */
+          })}
+        </script>
       </Helmet>
 
       <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
