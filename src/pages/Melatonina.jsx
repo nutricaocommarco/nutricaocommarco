@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { 
-  ChevronLeft, HelpCircle, Activity, Shield, FileText, 
-  Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
-  Brain, Clock, AlertCircle, Moon, EyeOff, BookOpen, Database, 
-  AlertTriangle, XCircle, CheckCircle, Thermometer
+  ChevronLeft, HelpCircle, Activity, Leaf, Heart, FileText, 
+  Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, 
+  ShoppingCart, Clock, Sun, Moon, Coffee, AlertCircle, ShieldCheck, CheckCircle
 } from 'lucide-react';
 
 import Newsletter from '../components/Newsletter';
@@ -13,12 +12,15 @@ import ArtigosRecomendados from '../components/ArtigosRecomendados';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
-const datePublishedISO = "2026-04-01";
-const dateModifiedISO = "2026-04-01";
+// Variáveis de data
+const datePublishedISO = "2026-03-29";
+const dateModifiedISO = "2026-03-29";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
-const melatoninaCapa = `${githubImgBase}Blog/Melatonina.jpg`;
 
-export default function Melatonina() {
+// Caminho da imagem de capa
+const cicloCircadianoCapa = `${githubImgBase}Blog/CicloCircadiano.jpg`;
+
+export default function CicloCircadiano() {
   const { pathname } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
@@ -29,60 +31,138 @@ export default function Melatonina() {
 
   const faqs = [
     {
-      pergunta: "A melatonina emagrece ou engorda?",
-      resposta: "A melatonina não tem calorias e não faz você engordar. Pelo contrário, ao regular o seu ciclo circadiano e proporcionar um sono profundo, ela ajuda a controlar hormônios relacionados à fome, como a grelina e a leptina, otimizando o seu metabolismo e auxiliando indiretamente no processo de emagrecimento."
+      pergunta: "O que comer no café da manhã para emagrecer?",
+      resposta: "Para iniciar o dia com o metabolismo alinhado, o ideal é focar numa base proteica forte, acompanhada de fibras. Ovos mexidos, iogurte natural com sementes de chia ou aveia, e frutas de baixo índice glicémico ajudam a controlar os picos de insulina matinais e evitam aquela fome descontrolada que costuma aparecer no meio da tarde."
     },
     {
-      pergunta: "Qual é o melhor horário para tomar melatonina?",
-      resposta: "Para a maioria das pessoas que buscam melhorar a latência do sono (o tempo que se leva para adormecer), a recomendação clínica geral é ingerir o suplemento de 30 a 60 minutos antes do horário desejado para dormir, em um ambiente já com luzes baixas e sem telas."
+      pergunta: "Dormir mal engorda?",
+      resposta: "Sim, a privação de sono afeta diretamente os hormônios reguladores do apetite. Quando dorme mal, o seu corpo produz mais grelina, o hormônio que estimula a fome, e reduz a leptina, o hormônio responsável por sinalizar a saciedade. Além disso, o cansaço excessivo faz com que o seu cérebro busque compensação em alimentos mais calóricos e ricos em açúcar no dia seguinte."
     },
     {
-      pergunta: "Posso tomar melatonina todos os dias?",
-      resposta: "O uso diário a curto e médio prazo é considerado seguro para a maioria dos adultos, mas não deve ser uma muleta para o resto da vida. O objetivo ideal é tratar a causa raiz da insônia através da higiene do sono. O uso crônico sem acompanhamento pode gerar dependência psicológica, onde o paciente acredita que só consegue dormir se tomar a pílula."
+      pergunta: "É obrigatório tomar café da manhã logo ao acordar?",
+      resposta: "Não existe uma regra que obrigue toda a gente a comer imediatamente ao pular da cama, mas prolongar muito o jejum quando o seu corpo já está exigindo energia pode gerar um stresse no organismo. O mais importante é observar os seus sinais de fome e garantir que a sua primeira refeição tenha qualidade nutricional suficiente para sustentar o seu ritmo metabólico."
     },
     {
-      pergunta: "Por que acordo cansado e com dor de cabeça quando tomo melatonina?",
-      resposta: "Esse é o efeito colateral mais comum de superdosagem ou do uso em horários muito tardios da madrugada. Quando você consome uma dose maior do que o seu fígado consegue metabolizar durante a noite, níveis residuais do hormônio continuam na corrente sanguínea pela manhã, causando letargia, tontura e cefaleia."
+      pergunta: "Tomar café à tarde prejudica o emagrecimento?",
+      resposta: "Indiretamente, sim. A cafeína tem uma meia-vida longa (cerca de 5 a 6 horas) e bloqueia os receptores de adenosina, que nos fazem sentir sono. Se consome cafeína tarde demais, o seu sono profundo é prejudicado, o que eleva o cortisol e a resistência à insulina no dia seguinte, sabotando a queima de gordura."
     },
     {
-      pergunta: "Melatonina corta o efeito de outros medicamentos?",
-      resposta: "Ela pode interagir com certas classes de medicamentos. Remédios para pressão alta (como betabloqueadores), imunossupressores, anticoagulantes e medicamentos para diabetes podem ter seus efeitos alterados pela melatonina. Por isso, pacientes com doenças crônicas devem consultar o médico antes de iniciar a suplementação."
+      pergunta: "Treinar à noite atrapalha o ciclo circadiano?",
+      resposta: "Depende da intensidade. Exercícios muito vigorosos tarde da noite elevam a temperatura corporal e os níveis de adrenalina e cortisol, o que pode atrasar a liberação de melatonina. Se só puder treinar à noite, opte por intensidades moderadas e garanta um banho morno para ajudar o corpo a resfriar antes de deitar."
+    },
+    {
+      pergunta: "A suplementação de melatonina causa vício?",
+      resposta: "Diferente de remédios controlados (tarja preta), a melatonina não causa dependência química clássica no cérebro. No entanto, um dos maiores efeitos colaterais da melatonina no aspecto comportamental é a dependência psicológica. A pessoa sente que não consegue dormir sem a melatonina externa, e os efeitos da melatonina mal administrada podem dessincronizar ainda mais o relógio biológico, mascarando hábitos ruins."
+    },
+    {
+      pergunta: "Tomar melatonina diminui a produção natural do corpo?",
+      resposta: "Estudos científicos indicam que a melatonina não possui um mecanismo de retroalimentação estrito que 'desligue' a glândula pineal de forma permanente. Porém, doses exageradas potencializam os efeitos colaterais da melatonina. Para evitar os temidos colaterais da melatonina, como a letargia matinal (ressaca), não se deve atropelar o sinal natural de escuridão, preservando a sensibilidade dos receptores e reduzindo os efeitos colaterais a longo prazo."
     }
   ];
 
-  const referenciasCientificas = [
-    { id: 1, tema: "Segurança e Eficácia", orgao: "ANVISA", desc: "Análise oficial sobre a liberação da melatonina como suplemento alimentar.", link: "https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2021/proposta-de-consulta-publica-inclui-a-melatonina-como-constituinte-autorizado/analise-da-seguranca-e-eficacia-da-melatonina_versao-para-publicacao.pdf" },
-    { id: 2, tema: "Posicionamento Clínico", orgao: "SBEM", desc: "Diretrizes e posicionamento da Sociedade Brasileira de Endocrinologia e Metabologia.", link: "https://www.endocrino.org.br/media/uploads/PDFs/posicionamento_sobre_melatonina_sbem.pdf" },
-    { id: 3, tema: "Ciclo Circadiano", orgao: "PubMed", desc: "Estudo clínico sobre os impactos da melatonina na qualidade do sono.", link: "https://pubmed.ncbi.nlm.nih.gov/36235587/" },
-    { id: 4, tema: "Vias Metabólicas", orgao: "SciELO", desc: "Relação profunda entre a melatonina e a fisiologia do corpo humano.", link: "https://www.scielo.br/j/ramb/a/MNfzLJffHz4vBbMTDcdNWLG/?format=html&lang=pt" },
+  const sincroniaAlimentar = [
+    {
+      id: 1,
+      periodo: 'Manhã (06h - 10h)',
+      status: 'Alta sensibilidade à insulina e cortisol elevado.',
+      estrategia: 'Refeição completa. Proteínas, fibras e carboidratos complexos para gerar saciedade.',
+      icone: Sun,
+      cor: 'bg-amber-50',
+      textColor: 'text-amber-700',
+      borderColor: 'border-amber-200'
+    },
+    {
+      id: 2,
+      periodo: 'Tarde (12h - 16h)',
+      status: 'Metabolismo ativo, excelente digestão.',
+      estrategia: 'Maior volume alimentar do dia. Inclusão de vegetais, leguminosas e carnes magras.',
+      icone: Clock,
+      cor: 'bg-orange-50',
+      textColor: 'text-orange-700',
+      borderColor: 'border-orange-200'
+    },
+    {
+      id: 3,
+      periodo: 'Noite (18h - 22h)',
+      status: 'Queda na digestão, preparação para o sono.',
+      estrategia: 'Refeições leves e de fácil digestão. Foco em proteínas de alto valor biológico e gorduras boas.',
+      icone: Moon,
+      cor: 'bg-indigo-50',
+      textColor: 'text-indigo-700',
+      borderColor: 'border-indigo-200'
+    }
   ];
 
-  const tabelaInteracoes = [
-    { id: 1, condicao: "Doenças Autoimunes (Artrite, Lúpus, etc)", causa: "Possui fortes propriedades imunomoduladoras, podendo superestimular células de defesa e exacerbar a inflamação.", recomendacao: "Uso estritamente contraindicado sem avaliação e acompanhamento médico rigoroso." },
-    { id: 2, condicao: "Uso de Betabloqueadores (Hipertensão)", causa: "Esta classe de medicamentos costuma suprimir a produção natural (endógena) de melatonina pelo corpo.", recomendacao: "A suplementação pode ser muito útil para o sono do paciente, mas exige prescrição médica detalhada." },
-    { id: 3, condicao: "Gestantes e Lactantes", causa: "O hormônio ultrapassa a barreira placentária e vai para o leite materno. Há estudos em animais apontando riscos à prole.", recomendacao: "Evitar a suplementação. Focar 100% em técnicas de higiene do sono naturais." },
-    { id: 4, condicao: "Anticoagulantes e Antiplaquetários", causa: "A combinação pode alterar os parâmetros de coagulação e aumentar as chances de sangramentos leves.", recomendacao: "Exige monitoramento de coagulação frequente e ajuste de dose pelo cardiologista." }
-  ];
-
-  const tabelaEstimulantes = [
-    { id: 1, inimigo: "Luz Azul e Telas (Celular/TV)", estimulante: "Quarto 100% Escuro e Luz Quente", impacto: "A luz das telas inibe instantaneamente a glândula pineal, parando a produção hormonal. O escuro absoluto é o principal gatilho para o corpo liberar a melatonina endógena." },
-    { id: 2, inimigo: "Álcool e Café Noturno", estimulante: "Suco de Cereja (Tart Cherry)", impacto: "Cafeína e álcool bloqueiam a adenosina e fragmentam o sono profundo. A cereja é uma das raras fontes alimentares cientificamente comprovadas com fitomelatonina." },
-    { id: 3, inimigo: "Estresse e Agitação Noturna", estimulante: "Banho Quente antes de deitar", impacto: "O cortisol (estresse) destrói a indução do sono. Um banho quente induz a redução da temperatura corporal central, mecanismo que o cérebro exige para começar a adormecer." }
+  const dicasSono = [
+    { 
+      habito: 'Exposição Solar', 
+      pratica: '30 min de sol ao acordar.', 
+      impacto: 'Zera o relógio biológico e regula o cortisol.', 
+      icone: Sun,
+      color: 'text-amber-600', 
+      bg: 'bg-amber-50',
+      border: 'border-amber-100'
+    },
+    { 
+      habito: 'Higiene de Luz', 
+      pratica: 'Zero ecrãs 2h antes de deitar.', 
+      impacto: 'Permite a liberação natural da melatonina.', 
+      icone: Zap,
+      color: 'text-blue-600', 
+      bg: 'bg-blue-50',
+      border: 'border-blue-100'
+    },
+    { 
+      habito: 'Ambiente Fresco', 
+      pratica: 'Quarto entre 18°C e 20°C.', 
+      impacto: 'Facilita a queda necessária da temperatura corporal.', 
+      icone: Moon,
+      color: 'text-cyan-600', 
+      bg: 'bg-cyan-50',
+      border: 'border-cyan-100'
+    },
+    { 
+      habito: 'Corte da Cafeína', 
+      pratica: 'Evitar estimulantes após as 14h.', 
+      impacto: 'Não bloqueia a pressão de sono (adenosina).', 
+      icone: Coffee,
+      color: 'text-orange-600', 
+      bg: 'bg-orange-50',
+      border: 'border-orange-100'
+    },
+    { 
+      habito: 'Jantar Leve', 
+      pratica: 'Comer 3h antes de dormir.', 
+      impacto: 'Evita picos de insulina que inibem o reparo celular.', 
+      icone: Leaf,
+      color: 'text-green-600', 
+      bg: 'bg-green-50',
+      border: 'border-green-100'
+    },
+    { 
+      habito: 'Rotina de Relaxamento', 
+      pratica: 'Leitura ou meditação à noite.', 
+      impacto: 'Reduz a atividade do sistema nervoso simpático.', 
+      icone: Heart,
+      color: 'text-rose-600', 
+      bg: 'bg-rose-50',
+      border: 'border-rose-100'
+    },
   ];
 
   return (
     <>
-<Helmet>
+      <Helmet>
         {/* SEO OTIMIZADO - TÍTULO DO SNIPPET */}
-        <title>Efeitos Colaterais da Melatonina: Vicia? Riscos e Doses | Nutrição com Marco</title>
+        <title>O Que é Ciclo Circadiano? Relógio Biológico e Emagrecimento | Nutrição com Marco</title>
 
         {/* META DESCRIPTION OTIMIZADA */}
-        <meta name="description" content="Descubra a verdade científica sobre a melatonina: ela vicia? Faz mal? Entenda os efeitos colaterais, riscos psicológicos e como dosar corretamente para dormir bem." />
+        <meta name="description" content="Descubra como o ciclo circadiano e o relógio biológico controlam o emagrecimento. Entenda o papel da melatonina, do cortisol e os horários das refeições." />
 
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Efeitos Colaterais da Melatonina: Vicia? Riscos e Doses | Nutrição com Marco" />
-        <meta property="og:description" content="A ciência por trás do hormônio do sono. Riscos, benefícios, quem não pode tomar e a verdade sobre a dependência psicológica." />
-        <meta property="og:image" content={melatoninaCapa} />
+        <meta property="og:title" content="O Que é Ciclo Circadiano? Relógio Biológico e Emagrecimento | Nutrição com Marco" />
+        <meta property="og:description" content="Guia completo sobre ciclo circadiano: como emagrecer, melhorar o sono, horários corretos das refeições, a verdade sobre a melatonina e controle hormonal." />
+        <meta property="og:image" content={cicloCircadianoCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         {/* SCHEMA.ORG 1: ARTIGO OTIMIZADO (COM AUTORIDADE E-E-A-T) */}
@@ -90,14 +170,14 @@ export default function Melatonina() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Efeitos Colaterais da Melatonina: Vicia? Faz Mal? A Verdade Científica",
-            "image": melatoninaCapa,
+            "headline": "O Que é Ciclo Circadiano? Descubra Como o Seu Relógio Biológico Controla o Emagrecimento",
+            "image": cicloCircadianoCapa,
             "author": {
               "@type": "Person",
               "name": "Marco Aurélio Jr.",
               "url": "https://www.nutricaocommarco.com.br/sobre",
               "jobTitle": "Estudante de Nutrição",
-              "knowsAbout": ["Nutrição", "Fisiologia do Sono", "Endocrinologia Básica", "Metabolismo", "Higiene do Sono"]
+              "knowsAbout": ["Nutrição", "Crononutrição", "Emagrecimento", "Fisiologia", "Higiene do Sono"]
             },
             "publisher": {
               "@type": "Organization", 
@@ -109,7 +189,7 @@ export default function Melatonina() {
             },
             "datePublished": datePublishedISO,
             "dateModified": dateModifiedISO,
-            "description": "Entenda os reais efeitos colaterais da suplementação de melatonina, a diferença entre dependência química e psicológica, e como melhorar a higiene do sono naturalmente."
+            "description": "Entenda o que é o ciclo circadiano, como os hormônios do sono impactam o seu peso e aprenda a regular o seu relógio biológico para emagrecer com saúde."
           })}
         </script>
 
@@ -118,13 +198,13 @@ export default function Melatonina() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "MedicalWebPage",
-            "name": "Efeitos Colaterais da Melatonina e Segurança",
+            "name": "Ciclo Circadiano, Melatonina e Emagrecimento: Como Funciona",
             "url": `https://www.nutricaocommarco.com.br${pathname}`,
             "about": [
+              {"@type": "MedicalEntity", "name": "Ritmo Circadiano"},
               {"@type": "MedicalEntity", "name": "Melatonina"},
-              {"@type": "MedicalEntity", "name": "Insônia"},
-              {"@type": "MedicalEntity", "name": "Higiene do Sono"},
-              {"@type": "MedicalEntity", "name": "Efeito Colateral"}
+              {"@type": "MedicalEntity", "name": "Cortisol"},
+              {"@type": "MedicalEntity", "name": "Perda de Peso"}
             ],
             "audience": {
               "@type": "MedicalAudience",
@@ -154,7 +234,7 @@ export default function Melatonina() {
               {
                 "@type": "ListItem",
                 "position": 3,
-                "name": "Efeitos Colaterais da Melatonina",
+                "name": "O Que é Ciclo Circadiano?",
                 "item": `https://www.nutricaocommarco.com.br${pathname}`
               }
             ]
@@ -176,287 +256,250 @@ export default function Melatonina() {
             }))
           })}
         </script>
-  
-  {/* SCHEMA.ORG 5: VIDEO OBJECT (Para o vídeo da Fisiologia da Melatonina) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "VideoObject",
-            "name": "Como a melatonina funciona",
-            "description": "Explicação visual detalhando a fisiologia da melatonina e o seu impacto direto na saúde do corpo inteiro e no ciclo circadiano.",
-            "thumbnailUrl": "https://img.youtube.com/vi/g94wfvhMl14/maxresdefault.jpg",
-            "uploadDate": datePublishedISO,
-            "embedUrl": "https://www.youtube.com/embed/g94wfvhMl14",
-            "publisher": {
-              "@type": "Organization",
-              "name": "Nutrição com Marco",
-              "logo": {
-                "@type": "ImageObject",
-                "url": `${githubImgBase}logoN_pingus.png`
-              }
-            }
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 6: AUDIO OBJECT (Para o leitor de mp3 do artigo) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "AudioObject",
-            "name": "Áudio: Efeitos Colaterais da Melatonina",
-            "description": "Versão narrada em áudio do artigo completo sobre a fisiologia do sono, os riscos da melatonina e como dormir melhor.",
-            "contentUrl": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Melatonina.mp3",
-            "encodingFormat": "audio/mpeg",
-            "duration": "PT5M" /* Duração opcional em formato ISO 8601 (ex: 5 minutos). Pode ajustar ou remover esta linha se não souber a duração exata */
-          })}
-        </script>
       </Helmet>
 
-      <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
-        <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
+    <div className="min-h-screen bg-slate-50 font-sans">
+    <section className="py-24 px-4 sm:px-6 container mx-auto max-w-4xl text-left">
+      <div className="bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-          <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
-            <ChevronLeft size={20} /> Voltar para o Blog
-          </Link>
+        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+          <ChevronLeft size={20} /> Voltar para o Blog
+        </Link>
 
-          <article className="prose prose-lg max-w-none text-left">
+        <article className="prose prose-lg max-w-none text-left">
 
-            <div className="mb-8 flex flex-col items-start gap-2">
-              <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Fisiologia do Sono</span>
-              <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
+          <div className="mb-8 flex flex-col items-start gap-2">
+            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Fisiologia e Metabolismo</span>
+            <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
+          </div>
+
+          <h1 className="text-3xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
+            O Que é Ciclo Circadiano? Descubra Como o Seu Relógio Biológico Controla o Emagrecimento
+          </h1>
+
+          <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-4 text-left">
+              <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
+                O que é Ciclo Circadiano? Resposta Direta
+              </h2>
+              <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
+                O ciclo circadiano é o relógio biológico interno do nosso corpo, responsável por regular as funções físicas, mentais e metabólicas ao longo de um período de 24 horas. Na nutrição, ele determina como e quando o nosso organismo processa os nutrientes de forma mais eficiente, comprovando que o <strong>horário das refeições impacta diretamente no emagrecimento</strong>, na disposição e no controle hormonal.
+            </p>
+          </div>
+
+          <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+            <div className="p-5 md:p-6 flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <Headphones className="text-green-600 w-6 h-6" />
+                <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+              </div>
+              <audio controls className="w-full h-10 outline-none">
+                <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Ciclo-Circadiano.mp3" type="audio/mpeg" />
+                Seu navegador não suporta o áudio.
+              </audio>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
-              Efeitos Colaterais da Melatonina: Vicia? Faz Mal? A Verdade Científica
-            </h1>
+            <div className="h-px bg-green-100/60 w-full"></div>
 
-            <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-4 text-left">
-                <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
-                  Efeitos Colaterais da Melatonina: Resposta Direta
-                </h2>
-                <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
-                  A melatonina é amplamente considerada segura para a maioria das pessoas, mas não é isenta de reações indesejadas. Os efeitos colaterais mais comuns relatados na literatura científica incluem dores de cabeça, sensação de cansaço ou letargia matinal e desconfortos gastrointestinais. Diferente de medicamentos controlados para dormir, ela não causa dependência química clássica. No entanto, o seu uso incorreto pode gerar uma forte dependência psicológica e mascarar problemas reais de higiene do sono, prejudicando o seu metabolismo a longo prazo.
-              </p>
-            </div>
-
-            <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
-              <div className="p-5 md:p-6 flex flex-col gap-3">
+            <nav className="bg-slate-50">
+              <button 
+                onClick={() => setIsTocOpen(!isTocOpen)}
+                className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
+              >
                 <div className="flex items-center gap-3">
-                  <Headphones className="text-green-600 w-6 h-6" />
-                  <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
-                </div>
-                <audio controls className="w-full h-10 outline-none rounded-full">
-                  <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Melatonina.mp3" type="audio/mpeg" />
-                  O seu navegador não suporta o áudio.
-                </audio>
-              </div>
-
-              <div className="h-px bg-green-100/60 w-full"></div>
-
-              <nav className="bg-slate-50">
-                <button 
-                  onClick={() => setIsTocOpen(!isTocOpen)}
-                  className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
-                      <Activity size={18} />
-                    </div>
-                    <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">Índice do Conteúdo</h3>
+                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                    <Activity size={18} />
                   </div>
-                  <ChevronRight size={20} className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} />
-                </button>
-
-                <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[1000px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
-                  <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
-                    <li><a href="#introducao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Brain size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O que ela faz no corpo</a></li>
-                    <li><a href="#efeitos-colaterais" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><AlertCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Quais são os Riscos?</a></li>
-                    <li><a href="#dependencia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Shield size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Dependência Psicológica</a></li>
-                    <li><a href="#contraindicacoes" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Quem NÃO deve tomar</a></li>
-                    <li><a href="#indicacoes" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Indicações Corretas</a></li>
-                    <li><a href="#dose" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Clock size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A Dose Certa</a></li>
-                    <li><a href="#video" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><PlayCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Vídeo Explicativo</a></li>
-                    <li><a href="#dormir-naturalmente" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Moon size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Dormir Naturalmente</a></li>
-                    <li><a href="#estudos" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><BookOpen size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Tabela de Estudos</a></li>
-                  </ul>
+                  <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">Índice do Conteúdo</h3>
                 </div>
-              </nav>
+                <ChevronRight size={20} className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} />
+              </button>
+
+              <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[1000px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
+                <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
+                  <li><a href="#introducao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Clock size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Ciclo Circadiano e Emagrecimento</a></li>
+                  <li><a href="#fisiologia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como Funciona o Ciclo Circadiano</a></li>
+                  <li><a href="#hormonios" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Hormônios do Emagrecimento</a></li>
+                  <li><a href="#ciencia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Dormir Mal Engorda?</a></li>
+                  <li><a href="#nutricao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Leaf size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Crononutrição O Que É</a></li>
+                  <li><a href="#tabela-sincronia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Sun size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O Que Comer no Café da Manhã</a></li>
+                  <li><a href="#melatonina" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><ShieldCheck size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Efeitos Colaterais da Melatonina</a></li>
+                  <li><a href="#tabela-sono" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Moon size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como Dormir Rápido e Melhor</a></li>
+                  <li><a href="#resumo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><CheckCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Resumo do Artigo</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+
+          <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
+
+            <h2 id="introducao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Clock className="text-green-600"/> Ciclo Circadiano e Emagrecimento: O Tempo a Seu Favor
+            </h2>
+            <p>
+              Já teve a sensação de que, mesmo comendo pouco, a <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-600 font-semibold hover:underline">balança simplesmente não colabora</Link>? Muitas vezes, o vilão não é a quantidade de comida, mas sim o momento em que decide comer. O nosso corpo funciona regido por um relógio biológico fascinante chamado <strong>ciclo circadiano</strong>, que dita o ritmo do nosso metabolismo desde a hora em que acordamos até ao momento de dormir.
+            </p>
+            <p>
+              Se tem o costume de pular o café da manhã e compensar tudo num jantar pesado à noite, o seu corpo provavelmente está a lutar contra a própria natureza. Até o Pingus, o nosso mascote aqui do Nutrição com Marco, já aprendeu que não adianta comer peixe na hora errada e esperar ter energia para nadar o dia todo. Vamos entender como alinhar a sua alimentação ao seu ritmo natural para destravar os seus resultados.
+            </p>
+
+            {/* IMAGEM DE CAPA */}
+            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
+              <img 
+                src={cicloCircadianoCapa} 
+                alt="Café da manhã saudável ao lado de um relógio analógico sob luz matinal, ilustrando o ciclo circadiano." 
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+                onError={(e) => { e.target.src = "https://via.placeholder.com/800x450?text=Ciclo+Circadiano"; }}
+              />
+              <div className="bg-green-50 p-4 text-center">
+                <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
+                  Sincronizar as suas refeições com a luz do dia otimiza a digestão e a queima de gordura.
+                </p>
+              </div>
             </div>
 
-<div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
+            {/* SEÇÃO FISIOLOGIA */}
+            <h2 id="fisiologia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Zap className="text-green-600"/> Como Funciona o Ciclo Circadiano no Nosso Corpo
+            </h2>
+            <p>
+              Para entender o ciclo circadiano a fundo, precisamos mergulhar na fisiologia do nosso corpo e descobrir como ele reage ao ambiente. Tudo começa no hipotálamo, mais especificamente numa região chamada <em>núcleo supraquiasmático</em>, que funciona como o maestro do nosso relógio biológico central.
+            </p>
+            <p>
+              Quando a luz natural da manhã entra pelas nossas retinas, ela envia um sinal direto para o cérebro cortar a produção de melatonina e liberar o cortisol, o hormônio responsável por nos dar estado de alerta e energia para começar o dia. Conforme as horas passam e a luz solar diminui no fim da tarde, o nível de cortisol cai gradativamente e a glândula pineal volta a secretar a melatonina, preparando o organismo para o reparo celular noturno.
+            </p>
 
-              <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
-                <img 
-                  src={melatoninaCapa} 
-                  alt="Pingus, o pinguim mascote do portal Nutrição com Marco, com cara de sono e máscara de dormir na cabeça, pingando gotas de um frasco de Melatonina na boca ao lado de sua cama." 
-                  title="Pingus tomando sua dose em gotas de Melatonina antes de deitar"
-                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
-                  onError={(e) => {
-                    e.target.onerror = null; 
-                    e.target.src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&q=80&w=800";
-                  }}
-                />
-                <div className="bg-green-50/90 backdrop-blur-sm p-4 text-center absolute bottom-0 w-full border-t border-green-100">
-                  <p className="text-xs text-green-800 font-bold uppercase tracking-widest text-center m-0">
-                    O hormônio do sono orquestra o nosso relógio biológico: a dose certa faz toda a diferença.
-                  </p>
-                </div>
-              </div>
+            {/* SEÇÃO ORQUESTRA HORMONAL */}
+            <h2 id="hormonios" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Activity className="text-green-600"/> Hormônios do Emagrecimento: Como Baixar o Cortisol Naturalmente
+            </h2>
+            <p>
+              Para entender como a fisiologia afeta o seu peso, você precisa conhecer os músicos dessa orquestra endócrina. O <strong>Cortisol</strong> é o nosso despertador natural; ele deve atingir o pico pela manhã para nos dar foco, mas se continuar elevado à noite devido ao stress crônico ou luzes fortes, ele inibe a regeneração celular. O <strong>GH (Hormônio do Crescimento)</strong>, por outro lado, é liberado massivamente no sono profundo, atuando na reparação dos tecidos, no aumento de massa magra e na queima de gordura.
+            </p>
+            <p>
+              Quando o ciclo está desalinhado (por dormir tarde ou comer em excesso à noite), a dupla dinâmica que controla a sua fome entra em colapso: a <strong>Leptina</strong> (o hormônio que avisa ao cérebro que você está saciado) cai drasticamente, enquanto a <strong>Ghrelina</strong> (o hormônio da fome voraz) dispara. É exatamente por essa <Link to="/hormonios_da_fome_emagrecimento" className="text-green-600 font-semibold hover:underline">desregulação dos hormônios da fome</Link> que uma noite mal dormida resulta em um desejo quase incontrolável por pães, doces e alimentos ultraprocessados no dia seguinte. O seu corpo está literalmente a tentar compensar quimicamente a falta de energia do sono.
+            </p>
 
-              <h2 id="introducao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Brain className="text-green-600"/> O que a Melatonina faz no corpo
-              </h2>
-              <p>
-                Antes de falarmos dos riscos, é fundamental entender que a melatonina não é um simples "sedativo". Ela é um hormônio produzido naturalmente pela nossa glândula pineal quase que exclusivamente na ausência de luz. A sua principal função é atuar como um mensageiro químico que avisa a todo o seu corpo que a noite chegou, orquestrando com precisão o nosso <Link to="/o-que-e-ciclo-circadiano" className="text-green-600 font-bold hover:underline">ciclo circadiano</Link> (relógio biológico). Muito além de apenas induzir o sono, ela desempenha um papel essencial na sincronização do nosso metabolismo, ajudando a regular o balanço energético e a forma como armazenamos ou gastamos energia, agindo em sintonia com outros <Link to="/hormonios_da_fome_emagrecimento" className="text-green-600 font-bold hover:underline">hormônios do emagrecimento</Link>.
+            {/* SEÇÃO CIÊNCIA */}
+            <h2 id="ciencia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <FileText className="text-green-600"/> Dormir Mal Engorda? O Que a Ciência Nos Ensina
+            </h2>
+            <p>
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4377487/" target="_blank" rel="noopener noreferrer" className="text-green-600 font-semibold hover:underline">A ciência já comprovou na prática</a> o poder avassalador desse relógio biológico através de diversos experimentos marcantes na área da crononutrição. Um dos estudos mais famosos e reveladores envolveu grupos de camundongos que receberam exatamente a mesma dieta rica em gorduras e calorias, mas com janelas de alimentação totalmente diferentes.
+            </p>
+            <div className="bg-slate-100 p-6 rounded-2xl border border-slate-200 text-slate-700 italic mt-6 mb-6">
+              O grupo que teve acesso livre à comida 24 horas por dia desenvolveu obesidade, gordura no fígado e problemas metabólicos graves. Por outro lado, o grupo que consumiu <strong>as mesmas calorias</strong> restritas apenas ao seu período ativo de vigília manteve o peso e a saúde metabólica intactos.
+            </div>
+            <p>
+              Pesquisas observacionais semelhantes com trabalhadores noturnos humanos também demonstram que a inversão crônica do ciclo natural de alimentação e sono aumenta drasticamente o risco de resistência à insulina, reganho de peso e o temido <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-semibold hover:underline">efeito sanfona</Link>.
+            </p>
+
+            {/* SEÇÃO NUTRIÇÃO */}
+            <h2 id="nutricao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Leaf className="text-green-600"/> Crononutrição O Que É: A Relação Entre Horários e Peso
+            </h2>
+            <p>
+              O nosso metabolismo não tem a mesma velocidade o dia inteiro. Durante a manhã e o início da tarde, a sensibilidade à insulina está no seu pico, o que significa que o seu corpo é muito mais eficiente em utilizar os carboidratos como energia em vez de estocá-los como gordura.
+            </p>
+            <p>
+              Quando o sol se põe, a produção de melatonina começa a subir para preparar o corpo para o sono, e o sistema digestivo reduz o seu ritmo. É exatamente por isso que refeições volumosas à noite tendem a prejudicar a qualidade do sono e propiciar o armazenamento energético.
+            </p>
+
+            {/* BLOCO CITÁVEL */}
+            <blockquote className="my-10 border-l-4 border-green-600 bg-green-50 p-6 md:p-8 rounded-r-3xl shadow-sm">
+              <p className="m-0 text-xl md:text-2xl font-black text-green-900 italic leading-relaxed">
+                "Emagrecer de forma sustentável não é apenas uma questão de quanto você come, mas de quando você come. Respeitar o seu ciclo circadiano é o primeiro passo para fazer o seu metabolismo trabalhar a seu favor, e não contra você."
               </p>
+            </blockquote>
 
-              <blockquote className="border-l-4 border-green-500 pl-6 py-4 my-8 bg-slate-50 rounded-r-2xl italic text-slate-700 shadow-sm relative">
-                <span className="absolute -left-3 -top-3 bg-green-500 text-white w-8 h-8 flex items-center justify-center rounded-full font-serif text-2xl">"</span>
-                <p className="mb-2">A melatonina é um neuro-hormônio que atua como cronobiótico e não um hipnótico clássico... Seu uso requer prescrição cautelosa, focada na real necessidade fisiológica de sincronização circadiana.</p>
-                <footer className="text-sm font-bold text-green-700 not-italic uppercase tracking-wider">— Posicionamento da SBEM (Sociedade Brasileira de Endocrinologia e Metabologia)</footer>
-              </blockquote>
+            {/* TEXTO INTRODUTÓRIO TABELA SINCRONIA */}
+            <h2 id="tabela-sincronia" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Sun className="text-green-600"/> O Que Comer no Café da Manhã Para Emagrecer? (Tabela de Sincronia)
+            </h2>
+            <p className="text-lg text-slate-600 leading-relaxed italic mb-8">
+              A sincronia alimentar não é sobre restrição, mas sobre oportunidade. Ao entendermos que o nosso corpo possui "janelas metabólicas" específicas, podemos usar a luz e a escuridão como guias para nutrir as nossas células no momento em que elas estão mais prontas para processar energia. Veja como organizar o seu dia priorizando um <strong>jantar leve para emagrecer</strong> e um bom aporte proteico logo cedo:
+            </p>
 
-              <h2 id="efeitos-colaterais" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <AlertCircle className="text-red-500"/> Quais são os Efeitos Colaterais da Melatonina?
-              </h2>
-              <p>
-                Embora possua um perfil de segurança bastante favorável, referendado por análises rigorosas da Anvisa, o uso indiscriminado da melatonina suplementar pode trazer consequências indesejadas. Quando ingerida em dosagens inadequadas ou horários errados, os pacientes frequentemente relatam dores de cabeça intensas, episódios de tontura e uma letargia persistente no dia seguinte. Além desses sintomas físicos, o maior perigo silencioso é a cronorruptura. Isso ocorre quando a suplementação artificial confunde o relógio biológico interno, causando um desalinhamento total entre o seu ciclo natural de sono e o seu metabolismo diário.
-              </p>
-
-              <h2 id="dependencia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Shield className="text-green-600"/> Melatonina Vicia? Entenda a Dependência Psicológica
-              </h2>
-              <p>
-                A ciência é clara ao afirmar que a melatonina não causa o mesmo tipo de dependência química que os remédios tarja preta, como os tradicionais benzodiazepínicos. O corpo não sofre crises de abstinência física ao interromper o uso. Contudo, o grande risco mora na dependência psicológica. O paciente começa a acreditar que perdeu a capacidade de adormecer naturalmente e passa a depender do comprimido todas as noites. Esse hábito perigoso acaba por mascarar a verdadeira raiz da insônia, como a falta de rotina, o excesso de telas antes de deitar ou o estresse crônico, fatores que muitas vezes também servem de gatilho para a <Link to="/o-que-e-fome-emocional" className="text-green-600 font-bold hover:underline">fome emocional</Link>.
-              </p>
-
-              <h2 id="contraindicacoes" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Zap className="text-green-600"/> Interações e Perigos: Quem NÃO deve tomar
-              </h2>
-              <p>
-                A suplementação requer cuidados especiais e avaliação profissional para determinados grupos. Gestantes e lactantes devem ter extrema cautela, pois alguns estudos em animais mostraram riscos preocupantes. Pessoas com doenças autoimunes também precisam de acompanhamento rigoroso, dado que a melatonina possui fortes propriedades imunomoduladoras, estimulando células de defesa e a liberação de <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-bold hover:underline">citocinas inflamatórias</Link>. Além disso, indivíduos em uso de certos medicamentos anti-hipertensivos, como os betabloqueadores, sofrem supressão da produção natural do hormônio, exigindo uma estratégia médica detalhada.
-              </p>
-
-              {/* TABELA: INTERAÇÕES MEDICAMENTOSAS */}
-              <div className="my-10 bg-white rounded-[2rem] border border-amber-200 shadow-xl overflow-hidden">
-                <div className="bg-amber-50 text-amber-900 font-black uppercase tracking-widest text-sm p-5 border-b border-amber-200 flex items-center gap-3">
-                   <AlertTriangle size={20} className="text-amber-600" /> Interações Medicamentosas e Grupos de Risco
-                </div>
-                
-                <div className="hidden md:grid grid-cols-12 bg-slate-50 text-slate-500 font-bold uppercase tracking-widest text-[10px] p-4 border-b border-slate-100">
-                  <div className="col-span-3">Condição / Medicamento</div>
-                  <div className="col-span-5">O que a Melatonina Causa no Corpo</div>
-                  <div className="col-span-4">Recomendação Clínica</div>
-                </div>
-
-                <div className="divide-y divide-slate-100">
-                  {tabelaInteracoes.map((item) => (
-                    <div key={item.id} className="grid grid-cols-1 md:grid-cols-12 gap-4 p-5 md:p-4 items-start hover:bg-slate-50 transition-colors">
-                      <div className="col-span-3 font-bold text-slate-800 text-sm md:text-base">
-                        <span className="md:hidden text-amber-600 font-black uppercase tracking-widest text-[10px] block mb-1">Condição ou Uso</span>
-                        {item.condicao}
-                      </div>
-                      <div className="col-span-5 text-sm text-slate-600 leading-relaxed">
-                        <span className="md:hidden text-slate-400 font-bold uppercase tracking-widest text-[10px] block mb-1">Risco e Efeito</span>
-                        {item.causa}
-                      </div>
-                      <div className="col-span-4 bg-amber-50/50 p-3 rounded-xl border border-amber-100/50 text-sm text-amber-900 font-medium">
-                        <span className="md:hidden text-amber-600 font-bold uppercase tracking-widest text-[10px] block mb-1">Recomendação</span>
-                        {item.recomendacao}
-                      </div>
+            {/* TABELA SINCRONIA ALIMENTAR CARDS */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+              {sincroniaAlimentar.map((item) => (
+                <div key={item.id} className={`${item.cor} ${item.textColor} border ${item.borderColor} p-6 md:p-8 rounded-[2rem] shadow-sm flex flex-col h-full hover:shadow-md transition-shadow`}>
+                  <div className="flex items-center gap-3 mb-6 border-b border-black/10 pb-4">
+                    <item.icone size={24} className="shrink-0" />
+                    <span className="font-black text-lg italic uppercase tracking-tight">{item.periodo}</span>
+                  </div>
+                  <div className="space-y-4 flex-1">
+                    <div>
+                      <span className="block text-[10px] uppercase tracking-widest opacity-70 font-black mb-1">Status do Metabolismo</span>
+                      <span className="text-sm font-bold leading-snug">{item.status}</span>
                     </div>
-                  ))}
+                    <div>
+                      <span className="block text-[10px] uppercase tracking-widest opacity-70 font-black mb-1">Estratégia Ideal</span>
+                      <span className="text-base font-black italic leading-snug">{item.estrategia}</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-
-              <h2 id="indicacoes" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <FileText className="text-green-600"/> Para quem a Melatonina é indicada?
-              </h2>
-              <p>
-                A indicação clínica mais sólida e com o maior grau de evidência científica foca na população idosa, especialmente a partir dos 55 anos de idade, fase em que a produção natural desse hormônio costuma despencar significativamente. Outro uso clássico e amplamente validado é no tratamento do famoso "jet lag" e para auxiliar trabalhadores de turnos noturnos. Nesses casos específicos, a melatonina age como um poderoso cronobiótico, ajudando o cérebro a ressincronizar o relógio biológico com o novo fuso horário ou com a rotina de trabalho invertida.
-              </p>
-
-              <h2 id="dose" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Clock className="text-green-600"/> A Dose Certa: Tomar muito diminui a produção natural?
-              </h2>
-              <p>
-                Um mito extremamente comum é o de que tomar o suplemento faz a sua glândula pineal "ficar preguiçosa" e parar de trabalhar. Na realidade, a produção de melatonina não obedece a mecanismos de retroalimentação negativa, o que significa que a alta concentração do hormônio no sangue não inibe a sua própria fabricação endógena. O verdadeiro problema das superdosagens é que o corpo demora muito mais para metabolizar o excesso da substância, resultando em sonolência no dia seguinte. Por isso, abordagens clínicas assertivas recomendam iniciar o tratamento com doses muito baixas, na casa de 1 mg por dia.
-              </p>
+              ))}
+            </div>
 
               {/* VÍDEO DO YOUTUBE */}
-              <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <PlayCircle className="text-green-600"/> Aprofunde-se: A Fisiologia da Melatonina
-              </h2>
-              <p>
-                Quer entender exatamente como o seu cérebro produz esse hormônio e por que a luz é a sua maior inimiga? Assista a esta excelente explicação visual detalhando a fisiologia da melatonina e o seu impacto direto na saúde do corpo inteiro.
-              </p>
+            <div className="my-16 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                  <PlayCircle size={24} />
+                </div>
+                <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">O que comer no café da manhã para emagrecer?</h3>
+              </div>
+              <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
+                <iframe 
+                  src="https://www.youtube.com/embed/VPi_MkTHEUo" 
+                  title="5 Melhores Alimentos Para o Café da Manhã" 
+                  className="absolute top-0 left-0 w-full h-full"
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
 
-              <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
-                    <PlayCircle size={24} />
+            {/* SEÇÃO: MELATONINA APROFUNDADA - OTIMIZADA COM KEYWORDS */}
+            <h2 id="melatonina" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <ShieldCheck className="text-green-600"/> Efeitos Colaterais da Melatonina: Vicia? A Verdade
+            </h2>
+            <p>
+              Muitas pessoas tratam a <strong>melatonina</strong> de forma banal, como se fosse apenas uma "vitamina mágica para dormir", ignorando os reais <strong>efeitos colaterais da melatonina</strong> quando usada sem indicação ou critério. Contudo, é fundamental lembrar que a melatonina é um hormônio extremamente poderoso, produzido de forma rítmica pela glândula pineal. Como evidenciado em pesquisas da Universidade de São Paulo e nos documentos oficiais da <a href="https://www.endocrino.org.br/media/uploads/PDFs/posicionamento_sobre_melatonina_sbem.pdf" target="_blank" rel="noopener noreferrer" className="text-green-600 font-semibold hover:underline">Sociedade Brasileira de Endocrinologia e Metabologia (SBEM)</a>, para garantir os bons <strong>efeitos da melatonina</strong> no corpo, é preciso entender que a sua principal função não é simplesmente atuar como um sedativo que "apaga" você, mas sim sinalizar quimicamente para todo o organismo que é noite.
+            </p>
+            <div className="bg-amber-50 border-l-4 border-amber-400 p-6 my-6 rounded-r-2xl">
+              <div className="flex items-center gap-3 mb-2">
+                <AlertCircle className="text-amber-600" />
+                <span className="font-black text-amber-800 uppercase tracking-tight italic">Efeitos Colaterais e Dependência</span>
+              </div>
+              <p className="text-amber-900 m-0 text-base">
+                O uso recorrente da <strong>melatonina</strong> em gotas ou cápsulas pode criar uma forte dependência psicológica, o que é frequentemente um dos <strong>efeitos colaterais da melatonina</strong> mais perigosos a longo prazo. O paciente simplesmente perde a confiança na sua própria capacidade de adormecer de forma natural. Além disso, embora ela não "desligue" a sua produção natural de forma irreversível, os piores <strong>colaterais da melatonina</strong> ocorrem devido a dosagens mal calculadas ou tomadas na hora errada, causando a terrível <em>cronorruptura</em>. Ficar alheio aos <strong>efeitos colaterais</strong> apenas mascara péssimos hábitos de higiene do sono e confunde ainda mais o seu relógio interno, prejudicando os verdadeiros <strong>efeitos da melatonina</strong> e o balanço do seu emagrecimento.
+              </p>
+            </div>
+
+            {/* DICAS PARA DORMIR CARDS */}
+            <h2 id="tabela-sono" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Moon className="text-green-600"/> Como Regular o Ciclo Circadiano e Dormir Rápido Naturalmente
+            </h2>
+            <p className="mb-8">Para que o seu relógio biológico funcione com precisão suíça sem depender de suplementos para dormir, pequenos hábitos diários fazem toda a diferença. Siga este roteiro:</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
+              {dicasSono.map((dica, index) => (
+                <div key={index} className={`p-6 rounded-[2.5rem] border ${dica.border} ${dica.bg} flex flex-col gap-4 hover:shadow-lg transition-all duration-300 group`}>
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center bg-white shadow-sm transition-transform group-hover:scale-110`}>
+                    <dica.icone size={24} className={dica.color} />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight">Como a melatonina funciona</h3>
+                  <div>
+                    <h4 className={`text-sm font-black uppercase tracking-widest ${dica.color} mb-1 italic`}>{dica.habito}</h4>
+                    <p className="text-slate-900 font-bold text-sm mb-2">{dica.pratica}</p>
+                    <p className="text-slate-500 text-xs italic leading-relaxed">{dica.impacto}</p>
+                  </div>
                 </div>
-                <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                  <iframe 
-                    src="https://www.youtube.com/embed/g94wfvhMl14" 
-                    title="Vídeo sobre a Fisiologia da Melatonina" 
-                    className="absolute top-0 left-0 w-full h-full"
-                    frameBorder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowFullScreen
-                  ></iframe>
-                </div>
-              </div>
+              ))}
+            </div>
 
-              {/* TABELA: INIMIGOS VS ESTIMULANTES */}
-              <div className="my-14 bg-slate-50 p-6 md:p-10 rounded-[3rem] border border-slate-200 shadow-inner">
-                <div className="text-center mb-10">
-                  <h3 className="text-2xl md:text-3xl font-black text-slate-900 uppercase italic tracking-tight m-0">
-                    O que <span className="text-red-500">Destrói</span> vs O que <span className="text-green-600">Estimula</span>
-                  </h3>
-                  <p className="text-slate-600 mt-3 font-medium max-w-2xl mx-auto">
-                    A produção natural de melatonina pelo seu cérebro é extremamente sensível aos seus hábitos noturnos. Entenda como o seu ambiente molda o seu sono:
-                  </p>
-                </div>
-
-                <div className="space-y-6">
-                  {tabelaEstimulantes.map((fator) => (
-                    <div key={fator.id} className="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden flex flex-col lg:flex-row">
-                      <div className="flex-1 p-5 md:p-6 bg-red-50/50 border-b lg:border-b-0 lg:border-r border-slate-100 flex flex-col gap-3">
-                        <div className="flex items-center gap-2 text-red-600 font-black uppercase text-[11px] tracking-widest">
-                          <XCircle size={16} /> O que Destrói
-                        </div>
-                        <h4 className="font-bold text-slate-800 text-lg m-0">{fator.inimigo}</h4>
-                      </div>
-                      <div className="flex-1 p-5 md:p-6 bg-green-50/50 border-b lg:border-b-0 lg:border-r border-slate-100 flex flex-col gap-3">
-                        <div className="flex items-center gap-2 text-green-600 font-black uppercase text-[11px] tracking-widest">
-                          <CheckCircle size={16} /> O que Estimula
-                        </div>
-                        <h4 className="font-bold text-slate-800 text-lg m-0">{fator.estimulante}</h4>
-                      </div>
-                      <div className="flex-[1.5] p-5 md:p-6 flex flex-col gap-3 bg-white">
-                        <div className="flex items-center gap-2 text-slate-400 font-black uppercase text-[11px] tracking-widest">
-                          <Thermometer size={16} /> O Impacto no Corpo
-                        </div>
-                        <p className="text-sm text-slate-600 leading-relaxed font-medium m-0">
-                          {fator.impacto}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <h2 id="dormir-naturalmente" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Moon className="text-green-600"/> Como dormir rápido sem depender de suplementos
-              </h2>
-              <p>
-                A estratégia mais inteligente e duradoura para o seu metabolismo sempre será estimular a produção natural do seu próprio corpo. Como a síntese de melatonina pode ser bloqueada completamente pela simples presença de luz, especialmente a luz azul emitida pelas telas, garantir um ambiente de escuridão absoluta é inegociável. É exatamente por isso que bloqueadores de luz tornam-se essenciais. Ao eliminar as interferências visuais, você cria o cenário perfeito para que o seu cérebro libere a melatonina endógena no volume ideal, garantindo um sono profundo e reparador sem a necessidade de engolir pílulas diariamente.
-              </p>
-
-           {/* AFILIADO MERCADO LIVRE (MÁSCARA DE DORMIR) */}
+            {/* AFILIADO MERCADO LIVRE (MÁSCARA DE DORMIR) */}
             <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
                 <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
@@ -508,99 +551,105 @@ export default function Melatonina() {
                 </div>
             </div>
 
-              {/* TABELA DE REFERÊNCIAS CIENTÍFICAS */}
-              <div id="estudos" className="my-16 bg-slate-50 py-12 px-4 md:px-8 rounded-[3rem] border border-slate-200 shadow-inner">
-                <div className="text-center mb-10">
-                  <span className="inline-block bg-green-100 text-green-800 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 shadow-sm">
-                    Revisão Baseada em Evidências
-                  </span>
-                  <h2 className="text-2xl md:text-3xl font-black text-slate-900 uppercase italic tracking-tight mb-4 flex justify-center items-center gap-3">
-                    <Database className="text-green-600" /> Tabela de Referências e Estudos
-                  </h2>
-                  <p className="text-sm text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
-                    Este artigo foi embasado nos documentos oficiais e publicações mais rigorosas disponíveis na literatura médica. Acesse as fontes originais abaixo:
-                  </p>
-                </div>
-
-                <div className="bg-white rounded-[2rem] border border-slate-200 shadow-lg overflow-hidden">
-                  <div className="hidden md:grid grid-cols-4 bg-green-600 text-white font-black uppercase tracking-widest text-[11px] p-4">
-                    <div>Foco de Estudo</div>
-                    <div>Órgão / Fonte</div>
-                    <div className="col-span-2">Descrição e Link de Acesso</div>
-                  </div>
-                  
-                  {referenciasCientificas.map((ref, idx) => (
-                    <div key={ref.id} className={`grid grid-cols-1 md:grid-cols-4 gap-4 p-5 md:p-4 items-center border-b border-slate-100 last:border-0 hover:bg-green-50 transition-colors ${idx % 2 === 0 ? 'bg-white' : 'bg-slate-50'}`}>
-                      <div className="font-bold text-slate-800 text-sm md:text-base"><span className="md:hidden text-green-600 font-black uppercase text-xs block mb-1">Foco</span>{ref.tema}</div>
-                      <div className="text-sm font-black text-green-700 bg-green-100 px-3 py-1 rounded-full w-fit"><span className="md:hidden text-slate-500 uppercase text-[10px] mr-2">Fonte:</span>{ref.orgao}</div>
-                      <div className="col-span-2 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
-                        <p className="text-sm text-slate-600 leading-snug m-0">{ref.desc}</p>
-                        <a href={ref.link} target="_blank" rel="noopener noreferrer" className="shrink-0 bg-slate-800 text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-green-600 transition-colors flex items-center gap-1">
-                          <BookOpen size={14} /> Ler
-                        </a>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+            {/* DESTAQUE E-BOOK */}
+            <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl overflow-hidden flex flex-col md:flex-row items-center gap-8 p-8 md:p-10 group">
+              <div className="w-full md:w-1/3 shrink-0 rounded-2xl overflow-hidden shadow-lg border border-slate-100">
+                <img 
+                  src={`${githubImgBase}capa_fome.jpg`} 
+                  alt="Capa do E-book Entendendo a Fome" 
+                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                />
               </div>
-
-              {/* FAQ SECTION */}
-              <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
-                <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
-                  <HelpCircle className="text-green-600" /> Perguntas Frequentes sobre Melatonina
-                </h2>
-                <div className="space-y-4">
-                  {faqs.map((faq, index) => (
-                    <div key={index} className="bg-slate-50 rounded-3xl border border-green-100 overflow-hidden transition-all duration-300">
-                      <button
-                        onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                        className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
-                      >
-                        <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-600' : 'text-slate-800 group-hover:text-green-600'}`}>
-                          {faq.pergunta}
-                        </h3>
-                        <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-600' : ''}`} size={24} />
-                      </button>
-                      <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
-                        <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">{faq.resposta}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+                <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest w-fit mx-auto md:mx-0 mb-4">
+                  Material de Apoio
+                </span>
+                <h3 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic leading-tight mb-3">
+                  E-book: Entendendo a Fome
+                </h3>
+                <p className="text-slate-600 font-medium leading-relaxed mb-8">
+                  Dormiu mal e acordou com vontade de comer tudo pela frente? Baixe o meu e-book exclusivo e aprenda a diferenciar a fome física da <Link to="/o-que-e-fome-emocional" className="text-green-600 font-semibold hover:underline">fome emocional</Link>, dominando os seus sinais de saciedade.
+                </p>
+                <a 
+                  href="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Fome_Ebook.pdf" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-green-600 text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                >
+                  <FileText size={18} />
+                  Baixar E-book Agora
+                </a>
               </div>
-
-              <Newsletter />
             </div>
-          </article>
 
-          <ArtigosRecomendados currentPath={pathname} />
-
-          {/* AUTHOR BLOCK */}
-          <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
-            <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
-              <img 
-                src={`${githubImgBase}Eu_1.png`} 
-                alt="Marco Aurélio Jr." 
-                className="w-full h-full object-cover" 
-                onError={(e) => {
-                  e.target.onerror = null; 
-                  e.target.src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>👨‍⚕️</text></svg>";
-                }}
-              />
-            </div>
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
-              <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK 1</p>
-              <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
-                Apaixonado pela fisiologia e pelo comportamento humano, Marco foca em traduzir o rigor científico para a prática do dia a dia, ajudando você a construir uma relação mais leve e sem radicalismos com a comida, cuidando do corpo desde o intestino até a mente.
+            {/* RESUMO / CONCLUSÃO */}
+            <h2 id="resumo" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
+              <CheckCircle className="text-green-600"/> Resumo: O Seu Próximo Passo
+            </h2>
+            <div className="bg-slate-50 p-6 md:p-8 rounded-[2rem] border border-slate-200 shadow-sm mb-12 text-slate-700 italic font-medium leading-relaxed">
+              <p className="mb-4">
+                Emagrecer de forma sustentável e otimizar o metabolismo vai muito além de contar calorias. Como vimos, <strong>o momento em que comemos</strong> e <strong>a qualidade do nosso descanso</strong> desempenham papéis tão cruciais quanto os próprios alimentos que ingerimos.
               </p>
-              <a href="https://instagram.com/Nutricao_com_Marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
-                Siga @Nutricao_com_Marco
-              </a>
+              <ul className="list-disc pl-5 space-y-3 mb-6">
+                <li><strong>A Luz Dita as Regras:</strong> Use a luz solar matinal para ativar o cortisol na hora certa e aposte na escuridão noturna para blindar a sua produção natural de melatonina.</li>
+                <li><strong>Orquestra Hormonal:</strong> Um ciclo bem regulado mantém a leptina (hormona da saciedade) em alta e a ghrelina (hormona da fome) sob controlo rigoroso.</li>
+                <li><strong>Sincronia Alimentar:</strong> Concentre a maior parte da sua ingestão calórica durante o dia, quando a sensibilidade à insulina está no pico, e opte por jantares mais leves e de fácil digestão.</li>
+              </ul>
+              <p className="m-0 font-black text-green-800 text-xl border-t border-slate-200 pt-4">
+                Lembre-se: pequenos ajustes na sua rotina de sono e horários das refeições são o segredo para colocar o seu relógio biológico a trabalhar a seu favor!
+              </p>
             </div>
+
+            {/* FAQ OTIMIZADO */}
+            <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
+              <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
+                <HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)
+              </h2>
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <div key={index} className="bg-slate-50 rounded-3xl border border-green-100 overflow-hidden transition-all duration-300">
+                    <button
+                      onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                      className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
+                    >
+                      <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-600' : 'text-slate-800 group-hover:text-green-600'}`}>
+                        {faq.pergunta}
+                      </h3>
+                      <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-600' : ''}`} size={24} />
+                    </button>
+                    <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
+                      <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">{faq.resposta}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <Newsletter />
+          </div>
+        </article>
+
+        <ArtigosRecomendados />
+
+        {/* AUTOR */}
+        <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
+          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+            <img src={`${githubImgBase}Eu_1.png`} alt="Marco Aurélio Jr." className="w-full h-full object-cover" />
+          </div>
+          <div className="flex-1 text-center md:text-left">
+            <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
+            <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK 1</p>
+            <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
+              Apaixonado pela fisiologia e pelo comportamento humano, Marco foca em traduzir o rigor científico para a prática do dia a dia, ajudando a construir uma relação mais leve com a comida.
+            </p>
+            <a href="https://instagram.com/Nutricao_com_Marco" target="_blank" rel="noopener noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+              Siga @Nutricao_com_Marco
+            </a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+    </div>
     </>
   );
 }
