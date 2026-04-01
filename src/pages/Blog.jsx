@@ -6,13 +6,21 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 const postsData = [
   {
+  id: 16, 
+  link: "/o-que-sao-prebioticos", 
+  imgSrc: `${githubImgBase}Blog/Prebioticos.jpg`,
+  tag: "Nutrição Clínica",
+  title: "O que são Prebióticos? Alimentos, Benefícios e Para Que Servem",
+  desc: "Descubra o que são prebióticos, para que servem no seu intestino, quais alimentos são ricos em FOS e inulina, e como eles alimentam sua flora intestinal.",
+  isNew: true
+},
+  {
     id: 15, 
     link: "/o-que-e-fome-emocional", 
     imgSrc: `${githubImgBase}Blog/Fome-Emocional-Capa.jpg`,
     tag: "Nutrição Comportamental",
     title: "O que é Fome Emocional? Como Identificar e Controlar o Impulso",
     desc: "Descubra os sintomas da fome emocional, entenda o ciclo da compulsão e aprenda estratégias práticas como a Escala de Fome e a técnica do atraso para retomar o controle.",
-    isNew: true
   },
   {
     id: 14,
