@@ -30,23 +30,23 @@ export default function Melatonina() {
   const faqs = [
     {
       pergunta: "A melatonina emagrece ou engorda?",
-      resposta: "A melatonina não tem calorias e não faz você engordar. Pelo contrário, ao regular o seu ciclo circadiano e proporcionar um sono profundo, ela ajuda a controlar hormônios relacionados à fome, como a grelina e a leptina, otimizando o seu metabolismo e auxiliando indiretamente no processo de emagrecimento."
+      resposta: "A melatonina não tem calorias e não faz você engordar. Pelo contrário, ao regular o seu ciclo circadiano e proporcionar um sono profundo, os efeitos da melatonina ajudam a controlar hormônios relacionados à fome, como a grelina e a leptina, otimizando o seu metabolismo e auxiliando indiretamente no processo de emagrecimento."
     },
     {
       pergunta: "Qual é o melhor horário para tomar melatonina?",
-      resposta: "Para a maioria das pessoas que buscam melhorar a latência do sono (o tempo que se leva para adormecer), a recomendação clínica geral é ingerir o suplemento de 30 a 60 minutos antes do horário desejado para dormir, em um ambiente já com luzes baixas e sem telas."
+      resposta: "Para a maioria das pessoas que buscam melhorar a latência do sono sem sofrer com os colaterais da melatonina no dia seguinte, a recomendação clínica geral é ingerir o suplemento de 30 a 60 minutos antes do horário desejado para dormir, em um ambiente já com luzes baixas e sem telas."
     },
     {
       pergunta: "Posso tomar melatonina todos os dias?",
-      resposta: "O uso diário a curto e médio prazo é considerado seguro para a maioria dos adultos, mas não deve ser uma muleta para o resto da vida. O objetivo ideal é tratar a causa raiz da insônia através da higiene do sono. O uso crônico sem acompanhamento pode gerar dependência psicológica, onde o paciente acredita que só consegue dormir se tomar a pílula."
+      resposta: "O uso diário a curto e médio prazo é considerado seguro, mas não deve ser uma muleta para o resto da vida. O uso crônico sem acompanhamento pode gerar dependência psicológica, que é um dos efeitos colaterais da melatonina comportamentais mais frequentes, onde o paciente acredita que só consegue dormir se tomar a pílula."
     },
     {
       pergunta: "Por que acordo cansado e com dor de cabeça quando tomo melatonina?",
-      resposta: "Esse é o efeito colateral mais comum de superdosagem ou do uso em horários muito tardios da madrugada. Quando você consome uma dose maior do que o seu fígado consegue metabolizar durante a noite, níveis residuais do hormônio continuam na corrente sanguínea pela manhã, causando letargia, tontura e cefaleia."
+      resposta: "Esse é o efeito colateral da melatonina mais clássico associado à superdosagem ou ao uso em horários muito tardios da madrugada. Quando você consome uma dose maior do que o fígado metaboliza, níveis residuais do hormônio continuam no sangue, causando letargia, tontura e cefaleia."
     },
     {
       pergunta: "Melatonina corta o efeito de outros medicamentos?",
-      resposta: "Ela pode interagir com certas classes de medicamentos. Remédios para pressão alta (como betabloqueadores), imunossupressores, anticoagulantes e medicamentos para diabetes podem ter seus efeitos alterados pela melatonina. Por isso, pacientes com doenças crônicas devem consultar o médico antes de iniciar a suplementação."
+      resposta: "Sim, e esse é um dos efeitos da melatonina que exige cuidado. Ela pode interagir com remédios para pressão alta (betabloqueadores), imunossupressores e anticoagulantes. Por isso, evitar os efeitos colaterais em pacientes com doenças crônicas exige sempre uma consulta médica antes de suplementar."
     }
   ];
 
@@ -72,7 +72,7 @@ export default function Melatonina() {
 
   return (
     <>
-<Helmet>
+      <Helmet>
         {/* SEO OTIMIZADO - TÍTULO DO SNIPPET */}
         <title>Efeitos Colaterais da Melatonina: Vicia? Riscos e Doses | Nutrição com Marco</title>
 
@@ -85,7 +85,7 @@ export default function Melatonina() {
         <meta property="og:image" content={melatoninaCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
-        {/* SCHEMA.ORG 1: ARTIGO OTIMIZADO (COM AUTORIDADE E-E-A-T) */}
+        {/* SCHEMA.ORG 1: ARTIGO OTIMIZADO */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -113,7 +113,7 @@ export default function Melatonina() {
           })}
         </script>
 
-        {/* SCHEMA.ORG 2: MEDICAL WEB PAGE (AVANÇADO PARA YMYL) */}
+        {/* SCHEMA.ORG 2: MEDICAL WEB PAGE */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -161,7 +161,7 @@ export default function Melatonina() {
           })}
         </script>
 
-        {/* SCHEMA.ORG 4: FAQ PAGE (SINCRONIZADO COM O ARRAY) */}
+        {/* SCHEMA.ORG 4: FAQ PAGE */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -176,8 +176,8 @@ export default function Melatonina() {
             }))
           })}
         </script>
-  
-  {/* SCHEMA.ORG 5: VIDEO OBJECT (Para o vídeo da Fisiologia da Melatonina) */}
+        
+        {/* SCHEMA.ORG 5: VIDEO OBJECT */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -198,7 +198,7 @@ export default function Melatonina() {
           })}
         </script>
 
-        {/* SCHEMA.ORG 6: AUDIO OBJECT (Para o leitor de mp3 do artigo) */}
+        {/* SCHEMA.ORG 6: AUDIO OBJECT */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -207,7 +207,7 @@ export default function Melatonina() {
             "description": "Versão narrada em áudio do artigo completo sobre a fisiologia do sono, os riscos da melatonina e como dormir melhor.",
             "contentUrl": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Melatonina.mp3",
             "encodingFormat": "audio/mpeg",
-            "duration": "PT5M" /* Duração opcional em formato ISO 8601 (ex: 5 minutos). Pode ajustar ou remover esta linha se não souber a duração exata */
+            "duration": "PT5M"
           })}
         </script>
       </Helmet>
@@ -235,7 +235,7 @@ export default function Melatonina() {
                   Efeitos Colaterais da Melatonina: Resposta Direta
                 </h2>
                 <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
-                  A melatonina é amplamente considerada segura para a maioria das pessoas, mas não é isenta de reações indesejadas. Os efeitos colaterais mais comuns relatados na literatura científica incluem dores de cabeça, sensação de cansaço ou letargia matinal e desconfortos gastrointestinais. Diferente de medicamentos controlados para dormir, ela não causa dependência química clássica. No entanto, o seu uso incorreto pode gerar uma forte dependência psicológica e mascarar problemas reais de higiene do sono, prejudicando o seu metabolismo a longo prazo.
+                  A <strong>melatonina</strong> é amplamente considerada segura para a maioria das pessoas, mas não é isenta de reações indesejadas. Os <strong>efeitos colaterais da melatonina</strong> mais comuns relatados na literatura científica incluem dores de cabeça, sensação de cansaço ou letargia matinal e desconfortos gastrointestinais. Diferente de medicamentos controlados, ela não causa dependência química clássica. No entanto, o seu uso incorreto pode gerar forte dependência psicológica e mascarar problemas reais de higiene do sono, prejudicando o seu metabolismo.
               </p>
             </div>
 
@@ -283,7 +283,7 @@ export default function Melatonina() {
               </nav>
             </div>
 
-<div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
+            <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
                 <img 
@@ -307,7 +307,7 @@ export default function Melatonina() {
                 <Brain className="text-green-600"/> O que a Melatonina faz no corpo
               </h2>
               <p>
-                Antes de falarmos dos riscos, é fundamental entender que a melatonina não é um simples "sedativo". Ela é um hormônio produzido naturalmente pela nossa glândula pineal quase que exclusivamente na ausência de luz. A sua principal função é atuar como um mensageiro químico que avisa a todo o seu corpo que a noite chegou, orquestrando com precisão o nosso <Link to="/o-que-e-ciclo-circadiano" className="text-green-600 font-bold hover:underline">ciclo circadiano</Link> (relógio biológico). Muito além de apenas induzir o sono, ela desempenha um papel essencial na sincronização do nosso metabolismo, ajudando a regular o balanço energético e a forma como armazenamos ou gastamos energia, agindo em sintonia com outros <Link to="/hormonios_da_fome_emagrecimento" className="text-green-600 font-bold hover:underline">hormônios do emagrecimento</Link>.
+                Antes de falarmos dos riscos e dos principais <strong>efeitos colaterais da melatonina</strong>, é fundamental entender que a <strong>melatonina</strong> não é um simples "sedativo". Ela é um hormônio produzido naturalmente pela nossa glândula pineal quase que exclusivamente na ausência de luz. A sua principal função é atuar como um mensageiro químico que avisa a todo o seu corpo que a noite chegou, orquestrando com precisão o nosso <Link to="/o-que-e-ciclo-circadiano" className="text-green-600 font-bold hover:underline">ciclo circadiano</Link> (relógio biológico). Muito além de apenas induzir o sono, ela desempenha um papel essencial na sincronização do nosso metabolismo, ajudando a regular o balanço energético e a forma como armazenamos energia, agindo em sintonia com os <Link to="/hormonios_da_fome_emagrecimento" className="text-green-600 font-bold hover:underline">hormônios do emagrecimento</Link>.
               </p>
 
               <blockquote className="border-l-4 border-green-500 pl-6 py-4 my-8 bg-slate-50 rounded-r-2xl italic text-slate-700 shadow-sm relative">
@@ -320,21 +320,21 @@ export default function Melatonina() {
                 <AlertCircle className="text-red-500"/> Quais são os Efeitos Colaterais da Melatonina?
               </h2>
               <p>
-                Embora possua um perfil de segurança bastante favorável, referendado por análises rigorosas da Anvisa, o uso indiscriminado da melatonina suplementar pode trazer consequências indesejadas. Quando ingerida em dosagens inadequadas ou horários errados, os pacientes frequentemente relatam dores de cabeça intensas, episódios de tontura e uma letargia persistente no dia seguinte. Além desses sintomas físicos, o maior perigo silencioso é a cronorruptura. Isso ocorre quando a suplementação artificial confunde o relógio biológico interno, causando um desalinhamento total entre o seu ciclo natural de sono e o seu metabolismo diário.
+                Embora possua um perfil de segurança bastante favorável, referendado por análises rigorosas da Anvisa, ignorar os potenciais <strong>efeitos colaterais da melatonina</strong> suplementar pode trazer consequências indesejadas. Quando ingerida em dosagens inadequadas ou horários errados, os <strong>colaterais da melatonina</strong> mais frequentes incluem dores de cabeça intensas, episódios de tontura e uma letargia persistente no dia seguinte. Além desses sintomas físicos, um dos piores <strong>efeitos da melatonina</strong> mal administrada é a cronorruptura. Isso ocorre quando a suplementação artificial confunde o relógio biológico interno, causando um desalinhamento total entre o seu ciclo natural de sono e o seu metabolismo diário.
               </p>
 
               <h2 id="dependencia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Shield className="text-green-600"/> Melatonina Vicia? Entenda a Dependência Psicológica
               </h2>
               <p>
-                A ciência é clara ao afirmar que a melatonina não causa o mesmo tipo de dependência química que os remédios tarja preta, como os tradicionais benzodiazepínicos. O corpo não sofre crises de abstinência física ao interromper o uso. Contudo, o grande risco mora na dependência psicológica. O paciente começa a acreditar que perdeu a capacidade de adormecer naturalmente e passa a depender do comprimido todas as noites. Esse hábito perigoso acaba por mascarar a verdadeira raiz da insônia, como a falta de rotina, o excesso de telas antes de deitar ou o estresse crônico, fatores que muitas vezes também servem de gatilho para a <Link to="/o-que-e-fome-emocional" className="text-green-600 font-bold hover:underline">fome emocional</Link>.
+                A ciência é clara ao afirmar que a <strong>melatonina</strong> não causa o mesmo tipo de dependência química que os remédios tarja preta, como os tradicionais benzodiazepínicos. O corpo não sofre crises de abstinência física ao interromper o uso. Contudo, um dos maiores <strong>efeitos colaterais da melatonina</strong> no aspecto comportamental é a forte dependência psicológica. O paciente começa a acreditar que perdeu a capacidade de adormecer naturalmente e passa a depender da <strong>melatonina</strong> em comprimido ou gotas todas as noites. Esse hábito perigoso acaba por mascarar a verdadeira raiz da insônia, como a falta de rotina, o excesso de telas antes de deitar ou o estresse crônico, fatores que também servem de gatilho para a <Link to="/o-que-e-fome-emocional" className="text-green-600 font-bold hover:underline">fome emocional</Link>.
               </p>
 
               <h2 id="contraindicacoes" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Zap className="text-green-600"/> Interações e Perigos: Quem NÃO deve tomar
               </h2>
               <p>
-                A suplementação requer cuidados especiais e avaliação profissional para determinados grupos. Gestantes e lactantes devem ter extrema cautela, pois alguns estudos em animais mostraram riscos preocupantes. Pessoas com doenças autoimunes também precisam de acompanhamento rigoroso, dado que a melatonina possui fortes propriedades imunomoduladoras, estimulando células de defesa e a liberação de <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-bold hover:underline">citocinas inflamatórias</Link>. Além disso, indivíduos em uso de certos medicamentos anti-hipertensivos, como os betabloqueadores, sofrem supressão da produção natural do hormônio, exigindo uma estratégia médica detalhada.
+                A suplementação exige atenção aos <strong>efeitos colaterais da melatonina</strong> para determinados grupos. Gestantes e lactantes devem ter extrema cautela, pois alguns estudos em animais mostraram riscos preocupantes. Pessoas com doenças autoimunes também precisam de acompanhamento rigoroso, dado que os <strong>efeitos da melatonina</strong> incluem fortes propriedades imunomoduladoras, estimulando células de defesa e a liberação de <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-bold hover:underline">citocinas inflamatórias</Link>. Além disso, indivíduos em uso de certos medicamentos anti-hipertensivos, como os betabloqueadores, sofrem supressão da produção natural do hormônio, exigindo uma estratégia médica detalhada para não agravarem os <strong>colaterais da melatonina</strong>.
               </p>
 
               {/* TABELA: INTERAÇÕES MEDICAMENTOSAS */}
@@ -373,14 +373,14 @@ export default function Melatonina() {
                 <FileText className="text-green-600"/> Para quem a Melatonina é indicada?
               </h2>
               <p>
-                A indicação clínica mais sólida e com o maior grau de evidência científica foca na população idosa, especialmente a partir dos 55 anos de idade, fase em que a produção natural desse hormônio costuma despencar significativamente. Outro uso clássico e amplamente validado é no tratamento do famoso "jet lag" e para auxiliar trabalhadores de turnos noturnos. Nesses casos específicos, a melatonina age como um poderoso cronobiótico, ajudando o cérebro a ressincronizar o relógio biológico com o novo fuso horário ou com a rotina de trabalho invertida.
+                A indicação clínica mais sólida e com o maior grau de evidência científica foca na população idosa, especialmente a partir dos 55 anos de idade, fase em que a produção natural desse hormônio costuma despencar significativamente. Outro uso clássico e amplamente validado é no tratamento do famoso "jet lag" e para auxiliar trabalhadores de turnos noturnos. Nesses casos específicos, a <strong>melatonina</strong> age como um poderoso cronobiótico, ajudando o cérebro a ressincronizar o relógio biológico com o novo fuso horário ou com a rotina de trabalho invertida.
               </p>
 
               <h2 id="dose" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Clock className="text-green-600"/> A Dose Certa: Tomar muito diminui a produção natural?
               </h2>
               <p>
-                Um mito extremamente comum é o de que tomar o suplemento faz a sua glândula pineal "ficar preguiçosa" e parar de trabalhar. Na realidade, a produção de melatonina não obedece a mecanismos de retroalimentação negativa, o que significa que a alta concentração do hormônio no sangue não inibe a sua própria fabricação endógena. O verdadeiro problema das superdosagens é que o corpo demora muito mais para metabolizar o excesso da substância, resultando em sonolência no dia seguinte. Por isso, abordagens clínicas assertivas recomendam iniciar o tratamento com doses muito baixas, na casa de 1 mg por dia.
+                Um mito extremamente comum é o de que tomar o suplemento faz a sua glândula pineal "ficar preguiçosa" e parar de trabalhar. Na realidade, a produção de <strong>melatonina</strong> não obedece a mecanismos de retroalimentação negativa, o que significa que a alta concentração do hormônio no sangue não inibe a sua própria fabricação endógena. O verdadeiro problema das superdosagens é que elas potencializam os <strong>colaterais da melatonina</strong>, pois o corpo demora muito mais para metabolizar o excesso da substância, resultando em forte letargia no dia seguinte. Por isso, para evitar <strong>efeitos colaterais</strong>, abordagens clínicas assertivas recomendam iniciar o tratamento com doses muito baixas, na casa de 1 mg por dia.
               </p>
 
               {/* VÍDEO DO YOUTUBE */}
@@ -388,7 +388,7 @@ export default function Melatonina() {
                 <PlayCircle className="text-green-600"/> Aprofunde-se: A Fisiologia da Melatonina
               </h2>
               <p>
-                Quer entender exatamente como o seu cérebro produz esse hormônio e por que a luz é a sua maior inimiga? Assista a esta excelente explicação visual detalhando a fisiologia da melatonina e o seu impacto direto na saúde do corpo inteiro.
+                Quer entender exatamente como o seu cérebro produz esse hormônio e por que a luz é a sua maior inimiga? Assista a esta excelente explicação visual detalhando a fisiologia da <strong>melatonina</strong> e o seu impacto direto na saúde do corpo inteiro.
               </p>
 
               <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
@@ -417,7 +417,7 @@ export default function Melatonina() {
                     O que <span className="text-red-500">Destrói</span> vs O que <span className="text-green-600">Estimula</span>
                   </h3>
                   <p className="text-slate-600 mt-3 font-medium max-w-2xl mx-auto">
-                    A produção natural de melatonina pelo seu cérebro é extremamente sensível aos seus hábitos noturnos. Entenda como o seu ambiente molda o seu sono:
+                    A produção natural de <strong>melatonina</strong> pelo seu cérebro é extremamente sensível aos seus hábitos noturnos. Entenda como o seu ambiente molda o seu sono:
                   </p>
                 </div>
 
@@ -453,60 +453,60 @@ export default function Melatonina() {
                 <Moon className="text-green-600"/> Como dormir rápido sem depender de suplementos
               </h2>
               <p>
-                A estratégia mais inteligente e duradoura para o seu metabolismo sempre será estimular a produção natural do seu próprio corpo. Como a síntese de melatonina pode ser bloqueada completamente pela simples presença de luz, especialmente a luz azul emitida pelas telas, garantir um ambiente de escuridão absoluta é inegociável. É exatamente por isso que bloqueadores de luz tornam-se essenciais. Ao eliminar as interferências visuais, você cria o cenário perfeito para que o seu cérebro libere a melatonina endógena no volume ideal, garantindo um sono profundo e reparador sem a necessidade de engolir pílulas diariamente.
+                A estratégia mais inteligente para não sofrer com os <strong>efeitos colaterais da melatonina</strong> sintética sempre será estimular a produção natural do seu próprio corpo. Como a síntese de <strong>melatonina</strong> pode ser bloqueada completamente pela simples presença de luz, especialmente a luz azul emitida pelas telas, garantir um ambiente de escuridão absoluta é inegociável. É exatamente por isso que bloqueadores de luz tornam-se essenciais. Ao eliminar as interferências visuais, você cria o cenário perfeito para que o seu cérebro libere a <strong>melatonina endógena</strong> no volume ideal, garantindo um sono profundo e reparador sem engolir pílulas.
               </p>
 
-           {/* AFILIADO MERCADO LIVRE (MÁSCARA DE DORMIR) */}
-            <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
-                <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
-                    <Zap size={14} className="fill-white" />
-                    <span>O Pingus Aprova!</span>
-                </div>
+              {/* AFILIADO MERCADO LIVRE (MÁSCARA DE DORMIR) */}
+              <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
+                  <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+                      <Zap size={14} className="fill-white" />
+                      <span>O Pingus Aprova!</span>
+                  </div>
 
-                <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
-                    <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-                        <img 
-                            src={`${githubImgBase}logoN_pingus.png`} 
-                            alt="Selo de Qualidade Pingus" 
-                            className="w-full h-full object-contain" 
-                        />
-                    </div>
+                  <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
+                      <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
+                          <img 
+                              src={`${githubImgBase}logoN_pingus.png`} 
+                              alt="Selo de Qualidade Pingus" 
+                              className="w-full h-full object-contain" 
+                          />
+                      </div>
 
-                    <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-                        <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                            Máscara de Dormir <span className="text-green-700">Premium 3D Blackout</span>
-                        </h4>
+                      <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+                          <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                              Máscara de Dormir <span className="text-green-700">Premium 3D Blackout</span>
+                          </h4>
 
-                        <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
-                            <img 
-                              src={`${githubImgBase}Afiliado/MascaraDormir.jpg`} 
-                              alt="Máscara de Dormir Premium 3D Blackout" 
-                              className="w-full h-auto object-cover" 
-                            />
-                        </div>
+                          <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
+                              <img 
+                                src={`${githubImgBase}Afiliado/MascaraDormir.jpg`} 
+                                alt="Máscara de Dormir Premium 3D Blackout" 
+                                className="w-full h-auto object-cover" 
+                              />
+                          </div>
 
-                        <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                            Para produzir melatonina naturalmente e dormir rápido, o seu cérebro precisa de <strong>escuridão total</strong>. Como nem sempre conseguimos bloquear toda a luz da rua ou dos pequenos LEDs no quarto, usar uma boa máscara de dormir é um investimento barato e 100% seguro (sem contraindicações) para blindar a qualidade do seu sono profundo.
-                        </p>
+                          <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
+                              Para produzir <strong>melatonina</strong> naturalmente e dormir rápido, o seu cérebro precisa de <strong>escuridão total</strong>. Como nem sempre conseguimos bloquear toda a luz da rua ou dos pequenos LEDs no quarto, usar uma boa máscara de dormir é um investimento barato e 100% seguro para blindar a qualidade do seu sono, evitando o risco de sofrer com os <strong>colaterais da melatonina</strong> em cápsulas.
+                          </p>
 
-                        <a 
-                            href="https://meli.la/1Jn51p4" 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-                        >
-                            <ShoppingCart size={16} />
-                            Comprar no Mercado Livre
-                        </a>
-                    </div>
-                </div>
+                          <a 
+                              href="https://meli.la/1Jn51p4" 
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                          >
+                              <ShoppingCart size={16} />
+                              Comprar no Mercado Livre
+                          </a>
+                      </div>
+                  </div>
 
-                <div className="mt-12 pt-6 border-t border-green-50 text-center">
-                    <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
-                        Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso!
-                    </p>
-                </div>
-            </div>
+                  <div className="mt-12 pt-6 border-t border-green-50 text-center">
+                      <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
+                          Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso!
+                      </p>
+                  </div>
+              </div>
 
               {/* TABELA DE REFERÊNCIAS CIENTÍFICAS */}
               <div id="estudos" className="my-16 bg-slate-50 py-12 px-4 md:px-8 rounded-[3rem] border border-slate-200 shadow-inner">
@@ -518,7 +518,7 @@ export default function Melatonina() {
                     <Database className="text-green-600" /> Tabela de Referências e Estudos
                   </h2>
                   <p className="text-sm text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
-                    Este artigo foi embasado nos documentos oficiais e publicações mais rigorosas disponíveis na literatura médica. Acesse as fontes originais abaixo:
+                    Este artigo foi embasado nos documentos oficiais e publicações mais rigorosas disponíveis na literatura médica sobre os <strong>efeitos da melatonina</strong>. Acesse as fontes originais abaixo:
                   </p>
                 </div>
 
