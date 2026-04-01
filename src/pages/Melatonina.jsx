@@ -153,13 +153,13 @@ export default function Melatonina() {
               </nav>
             </div>
 
-            <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
+<div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
                 <img 
                   src={melatoninaCapa} 
-                  alt="Pingus, o pinguim mascote, dormindo profundamente abraçado a um travesseiro com o relógio biológico ao fundo." 
-                  title="Pingus regulando o ciclo circadiano"
+                  alt="Pingus, o pinguim mascote do portal Nutrição com Marco, com cara de sono e máscara de dormir na cabeça, pingando gotas de um frasco de Melatonina na boca ao lado de sua cama." 
+                  title="Pingus tomando sua dose em gotas de Melatonina antes de deitar"
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
                   onError={(e) => {
                     e.target.onerror = null; 
@@ -168,7 +168,7 @@ export default function Melatonina() {
                 />
                 <div className="bg-green-50/90 backdrop-blur-sm p-4 text-center absolute bottom-0 w-full border-t border-green-100">
                   <p className="text-xs text-green-800 font-bold uppercase tracking-widest text-center m-0">
-                    O hormônio do sono orquestra o nosso relógio biológico com precisão.
+                    O hormônio do sono orquestra o nosso relógio biológico: a dose certa faz toda a diferença.
                   </p>
                 </div>
               </div>
@@ -326,54 +326,57 @@ export default function Melatonina() {
                 A estratégia mais inteligente e duradoura para o seu metabolismo sempre será estimular a produção natural do seu próprio corpo. Como a síntese de melatonina pode ser bloqueada completamente pela simples presença de luz, especialmente a luz azul emitida pelas telas, garantir um ambiente de escuridão absoluta é inegociável. É exatamente por isso que bloqueadores de luz tornam-se essenciais. Ao eliminar as interferências visuais, você cria o cenário perfeito para que o seu cérebro libere a melatonina endógena no volume ideal, garantindo um sono profundo e reparador sem a necessidade de engolir pílulas diariamente.
               </p>
 
-              {/* AFILIADO MERCADO LIVRE - MÁSCARA DE DORMIR */}
-              <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
-                  <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
-                      <Zap size={14} className="fill-white" />
-                      <span>O Pingus Aprova!</span>
-                  </div>
-                  <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
-                      <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-slate-200">
-                          <img 
-                              src={`${githubImgBase}logoN_pingus.png`} 
-                              alt="Selo de Qualidade Pingus" 
-                              className="w-full h-full object-contain" 
-                              onError={(e) => {
-                                e.target.onerror = null; 
-                                e.target.src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>🐧</text></svg>";
-                              }}
-                          />
-                      </div>
-                      <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-                          <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                              Máscara de Dormir <span className="text-green-700">Premium 3D Blackout</span>
-                          </h4>
-                          
-                          <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm bg-slate-100 p-2 flex justify-center items-center h-32">
-                             <EyeOff size={48} className="text-green-400 opacity-50" />
-                          </div>
+           {/* AFILIADO MERCADO LIVRE (MÁSCARA DE DORMIR) */}
+            <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
+                <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+                    <Zap size={14} className="fill-white" />
+                    <span>O Pingus Aprova!</span>
+                </div>
 
-                          <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                              A luz inibe completamente a sua glândula pineal. Eu indico fortemente o uso desta <strong>Máscara de Dormir 3D Blackout</strong> porque ela bloqueia 100% da claridade sem pressionar os olhos, criando o breu absoluto necessário para o seu corpo liberar a melatonina natural, combater a insônia e acordar com total disposição.
-                          </p>
-                          
-                          <a 
-                              href="https://meli.la/1KZ7JYY" 
-                              rel="sponsored noopener noreferrer" 
-                              target="_blank"
-                              className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-                          >
-                              <ShoppingCart size={16} />
-                              Comprar no Mercado Livre
-                          </a>
-                      </div>
-                  </div>
-                  <div className="mt-12 pt-6 border-t border-green-50 text-center">
-                      <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
-                          Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece o apoio.
-                      </p>
-                  </div>
-              </div>
+                <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
+                    <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
+                        <img 
+                            src={`${githubImgBase}logoN_pingus.png`} 
+                            alt="Selo de Qualidade Pingus" 
+                            className="w-full h-full object-contain" 
+                        />
+                    </div>
+
+                    <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+                        <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                            Máscara de Dormir <span className="text-green-700">Premium 3D Blackout</span>
+                        </h4>
+
+                        <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
+                            <img 
+                              src={`${githubImgBase}Afiliado/MascaraDormir.jpg`} 
+                              alt="Máscara de Dormir Premium 3D Blackout" 
+                              className="w-full h-auto object-cover" 
+                            />
+                        </div>
+
+                        <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
+                            Para produzir melatonina naturalmente e dormir rápido, o seu cérebro precisa de <strong>escuridão total</strong>. Como nem sempre conseguimos bloquear toda a luz da rua ou dos pequenos LEDs no quarto, usar uma boa máscara de dormir é um investimento barato e 100% seguro (sem contraindicações) para blindar a qualidade do seu sono profundo.
+                        </p>
+
+                        <a 
+                            href="https://meli.la/1Jn51p4" 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                        >
+                            <ShoppingCart size={16} />
+                            Comprar no Mercado Livre
+                        </a>
+                    </div>
+                </div>
+
+                <div className="mt-12 pt-6 border-t border-green-50 text-center">
+                    <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
+                        Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso!
+                    </p>
+                </div>
+            </div>
 
               {/* TABELA DE REFERÊNCIAS CIENTÍFICAS */}
               <div id="estudos" className="my-16 bg-slate-50 py-12 px-4 md:px-8 rounded-[3rem] border border-slate-200 shadow-inner">
