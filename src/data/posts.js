@@ -2,6 +2,17 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export const posts = [
 {
+  id: 17,
+  link: "/o-que-sao-probioticos", 
+  img: `${githubImgBase}Blog/Probioticos.jpg`,
+  tag: "Nutrição Clínica",
+  titulo: "O que são Probióticos? Lactobacillus e Benefícios | Nutrição com Marco",
+  desc: "Descubra o que são probióticos e Lactobacillus, para que servem no intestino, seus benefícios para a imunidade e quais as melhores fontes naturais.",
+  data: "2026-03-31",
+  dataMod: "2026-04-02"
+}
+
+{
   id: 16, 
   link: "/o-que-sao-prebioticos", 
   img: `${githubImgBase}Blog/Prebioticos.jpg`,
