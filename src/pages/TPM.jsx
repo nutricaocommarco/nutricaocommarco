@@ -114,7 +114,7 @@ export default function TPMeEmagrecimento() {
               "name": "Marco Aurélio Jr.",
               "url": "https://www.nutricaocommarco.com.br/sobre",
               "jobTitle": "Estudante de Nutrição",
-              "knowsAbout": ["Nutrição Feminina", "Metabolismo", "Emagrecimento"]
+              "knowsAbout": ["Nutrição Feminina", "Metabolismo", "Emagrecimento", "Antropometria"]
             },
             "publisher": {
               "@type": "Organization", 
@@ -242,7 +242,7 @@ export default function TPMeEmagrecimento() {
               <blockquote className="border-l-4 border-green-500 pl-6 py-4 my-8 bg-slate-50 rounded-r-2xl italic text-slate-700 shadow-sm relative">
                 <span className="absolute -left-3 -top-3 bg-green-500 text-white w-8 h-8 flex items-center justify-center rounded-full font-serif text-2xl">"</span>
                 <p className="mb-2">Durante a vida reprodutiva, uma mulher chega a menstruar, em média, mais de 460 vezes. Ignorar o impacto metabólico de quase quinhentos ciclos na nutrição é ignorar a base da fisiologia feminina.</p>
-                <footer className="text-sm font-bold text-green-700 not-italic uppercase tracking-wider">— Esp. Thaís Essu, Clinic Day</footer>
+                <footer className="text-sm font-bold text-green-700 not-italic uppercase tracking-wider">— Atualizações em Saúde da Mulher</footer>
               </blockquote>
 
               <p>
@@ -261,14 +261,12 @@ export default function TPMeEmagrecimento() {
                 <div className="bg-green-50 text-green-900 font-black uppercase tracking-widest text-sm p-5 border-b border-green-200 flex items-center gap-3">
                    <AlertTriangle size={20} className="text-green-600" /> O que a Ciência Diz
                 </div>
-                <div className="divide-y divide-slate-100">
+                <div className="divide-y divide-slate-100 text-left">
                   {tabelaMitosVerdades.map((item) => (
-                    <div key={item.id} className="grid grid-cols-1 md:grid-cols-12 gap-4 p-5 md:p-4 items-start hover:bg-slate-50 transition-colors">
-                      <div className="col-span-2 font-bold text-slate-800 text-sm">
-                        {item.mitoVerdade === "Verdade" ? <span className="text-green-600 uppercase">Verdade</span> : <span className="text-red-600 uppercase">Mito</span>}
-                      </div>
-                      <div className="col-span-4 font-bold text-slate-800 text-sm md:text-base leading-snug">{item.ponto}</div>
-                      <div className="col-span-6 text-sm text-slate-600 font-medium leading-relaxed">{item.explicacao}</div>
+                    <div key={item.id} className="grid grid-cols-1 md:grid-cols-12 gap-4 p-5 md:p-4 items-start hover:bg-slate-50 transition-colors text-sm">
+                      <div className="col-span-2 font-bold uppercase">{item.mitoVerdade === "Verdade" ? <span className="text-green-600">Verdade</span> : <span className="text-red-600">Mito</span>}</div>
+                      <div className="col-span-4 font-bold text-slate-800">{item.ponto}</div>
+                      <div className="col-span-6 text-slate-600">{item.explicacao}</div>
                     </div>
                   ))}
                 </div>
@@ -300,11 +298,18 @@ export default function TPMeEmagrecimento() {
                   ))}
               </div>
 
+              {/* AQUI ESTÃO OS 3 PARÁGRAFOS DO TREINO RESTAURADOS */}
               <h2 id="treino-constancia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Dumbbell className="text-green-600"/> O Papel do Treino e a Constância
               </h2>
               <p>
-                A ciência mais atualizada mostra que a síntese de proteína muscular <a href="https://pubmed.ncbi.nlm.nih.gov/39630025/" target="_blank" rel="noopener noreferrer" className="text-green-600 font-bold hover:underline">não sofre influência significativa da fase do ciclo menstrual</a>. Isso significa que você constrói músculos com a mesma eficiência o mês inteiro. A constância inteligente é a chave: descanse se a dor for incapacitante, mas não engavete o treino apenas pelo calendário.
+                Se você consome conteúdo de fitness nas redes sociais, muito provavelmente já foi bombardeada com a ideia de que precisa "sincronizar" o seu treino para cada fase do ciclo menstrual — fazendo apenas yoga e alongamentos na TPM e guardando os treinos pesados exclusivamente para o período de ovulação. Mas será que isso é realmente essencial para você ter resultados estéticos e de saúde?
+              </p>
+              <p>
+                A ciência mais atualizada do esporte mostra que <strong>não</strong>. Um estudo recentíssimo de 2025, publicado na <em>The Journal of Physiology</em>, investigou a fundo as respostas do nosso corpo ao exercício resistido (musculação) e chegou a uma conclusão contundente: a nossa capacidade de construir massa muscular (a síntese de proteína muscular) <a href="https://pubmed.ncbi.nlm.nih.gov/39630025/" target="_blank" rel="noopener noreferrer" className="text-green-600 font-bold hover:underline">não sofre nenhuma influência significativa da fase do ciclo menstrual</a>. Isso significa que o seu corpo constrói músculos e processa proteínas com a mesma eficiência tanto na fase folicular quanto na fase lútea.
+              </p>
+              <p>
+                Além disso, revisões focadas no desempenho geral apontam que não há evidências robustas o suficiente que justifiquem a periodização rigorosa do treinamento baseada apenas na montanha-russa dos hormônios femininos. O que realmente dita o sucesso do seu emagrecimento e da sua saúde a longo prazo é a <strong>constância</strong>. É evidente que se você está com cólicas incapacitantes no primeiro dia da menstruação, não há problema algum em pegar mais leve ou descansar. O acolhimento é fundamental. Mas você não precisa (e nem deve) engavetar o seu treino inteiro só porque o calendário virou. O melhor treino sempre será aquele que você consegue manter de forma consistente durante todo o mês!
               </p>
 
               {/* AFILIADO MERCADO LIVRE (XIAOMI BAND 9 PRO) */}
@@ -313,17 +318,17 @@ export default function TPMeEmagrecimento() {
                       <Zap size={14} className="fill-white" />
                       <span>O Pingus Escolheu a Melhor!</span>
                   </div>
-                  <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
+                  <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0 text-center md:text-left">
                       <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-                          <img src={`${githubImgBase}logoN_pingus.png`} alt="Mascote Pingus" className="w-full h-full object-contain" />
+                          <img src={`${githubImgBase}logoN_pingus.png`} alt="Selo de Qualidade Pingus" className="w-full h-full object-contain" />
                       </div>
-                      <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-                          <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">Xiaomi Smart Band 9 Pro: <span className="text-green-600 text-center">Monitoramento de Alta Precisão</span></h4>
+                      <div className="flex-1 flex flex-col justify-center">
+                          <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic text-left">Xiaomi Smart Band 9 Pro: <span className="text-green-600">Alta Precisão no seu Pulso</span></h4>
                           <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
                               <img src={`${githubImgBase}Afiliado/Band9Pro.JPG`} alt="Xiaomi Smart Band 9 Pro" className="w-full h-auto object-cover opacity-90" />
                           </div>
-                          <p className="text-slate-600 text-[15px] mb-8 leading-relaxed font-medium">
-                              Emagrecimento cíclico exige dados reais. A <strong>Smart Band 9 Pro</strong> oferece monitoramento do ciclo, sono e estresse em uma tela nítida. Como seu avaliador, recomendo esta ferramenta para dominarmos seu metabolismo.
+                          <p className="text-slate-600 text-[15px] mb-8 leading-relaxed font-medium text-left">
+                              Emagrecimento cíclico exige dados precisos. A <strong>Smart Band 9 Pro</strong> oferece monitorização avançada do ciclo menstrual, sono e stress. Como seu <Link to="/o_que_e_antropometria" className="text-green-600 font-bold hover:underline">avaliador antropométrico</Link>, recomendo esta ferramenta para trazer dados reais para a nossa análise.
                           </p>
                           <a href="https://meli.la/2eEQ8VF" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all italic">
                               <ShoppingCart size={16} /> Comprar no Mercado Livre
@@ -342,12 +347,11 @@ export default function TPMeEmagrecimento() {
                 </div>
               </div>
 
-              <p className="mt-10">
-                O emagrecimento feminino definitivo mora na <strong>constância inteligente</strong>. Aceite que o corpo é biológico e que a retenção líquida na TPM fará a balança subir temporariamente — e isso não é gordura. Mantenha a nutrição equilibrada o mês inteiro e veja a mágica acontecer.
-              </p>
-
-              {/* FORMULÁRIO RETRÁTIL DETALHADO */}
+              {/* FORMULÁRIO DE CAPTAÇÃO RETRÁTIL DETALHADO */}
               <div id="avaliacao" className="mt-20 p-8 md:p-12 bg-white rounded-[3rem] border border-green-100 shadow-2xl relative overflow-hidden transition-all duration-500">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-green-50 rounded-full blur-3xl opacity-50 -mr-20 -mt-20 pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-40 h-40 bg-green-100 rounded-full blur-2xl opacity-40 -ml-10 -mb-10 pointer-events-none"></div>
+
                 <div className="relative z-10 text-center mb-8">
                   <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm rotate-3">
                     <ClipboardList size={32} className="text-green-600" />
@@ -383,20 +387,86 @@ export default function TPMeEmagrecimento() {
                           </div>
                         </div>
 
-                        {/* Blocos do formulário detalhado (Ciclo, Apetite, etc) seguindo a estrutura anterior */}
+                        {/* Ciclo Menstrual */}
                         <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
-                          <h4 className="font-black text-slate-800 uppercase tracking-widest mb-6 border-b pb-3 text-sm">2. Seu Perfil</h4>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-sm">
-                            <select required value={formData.cicloRegular} onChange={(e) => setFormData({...formData, cicloRegular: e.target.value})} className="bg-white border rounded-xl px-3 py-3 text-slate-800">
+                          <h4 className="font-black text-slate-800 uppercase tracking-widest mb-6 border-b pb-3 text-sm text-left">2. Ciclo Menstrual</h4>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-sm text-left">
+                            <select required value={formData.cicloRegular} onChange={(e) => setFormData({...formData, cicloRegular: e.target.value})} className="bg-white border rounded-xl px-3 py-3 text-slate-800 outline-none">
                                 <option value="" disabled>Ciclo regular?</option>
-                                <option value="sim">Sim</option>
+                                <option value="sim">Sim, regular</option>
+                                <option value="nao">Não, irregular</option>
+                            </select>
+                            <select required value={formData.fluxoColicas} onChange={(e) => setFormData({...formData, fluxoColicas: e.target.value})} className="bg-white border rounded-xl px-3 py-3 text-slate-800 outline-none">
+                                <option value="" disabled>Fluxo e Cólicas?</option>
+                                <option value="ambos">Ambos intensos</option>
+                                <option value="tranquilo">Tranquilo</option>
+                            </select>
+                            <select required value={formData.anticoncepcional} onChange={(e) => setFormData({...formData, anticoncepcional: e.target.value})} className="bg-white border rounded-xl px-3 py-3 text-slate-800 outline-none">
+                                <option value="" disabled>Usa Hormônios?</option>
+                                <option value="sim">Sim (Pílula/DIU)</option>
                                 <option value="nao">Não</option>
                             </select>
-                            <select required value={formData.fomeAumenta} onChange={(e) => setFormData({...formData, fomeAumenta: e.target.value})} className="bg-white border rounded-xl px-3 py-3 text-slate-800">
-                                <option value="" disabled>Fome aumenta na TPM?</option>
-                                <option value="sim_muito">Aumenta muito</option>
-                                <option value="sim_pouco">Aumenta pouco</option>
-                                <option value="nao">Não muda</option>
+                          </div>
+                        </div>
+
+                        {/* Apetite */}
+                        <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
+                          <h4 className="font-black text-slate-800 uppercase tracking-widest mb-6 border-b pb-3 text-sm text-left">3. Apetite e Alimentação</h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5 text-sm text-left">
+                            <select required value={formData.apetiteMuda} onChange={(e) => setFormData({...formData, apetiteMuda: e.target.value})} className="bg-white border rounded-xl px-3 py-3 text-slate-800 outline-none">
+                                <option value="" disabled>Apetite muda?</option>
+                                <option value="sim">Sim, muda bastante</option>
+                                <option value="nao">Quase não muda</option>
+                            </select>
+                            <select required value={formData.fomeAumenta} onChange={(e) => setFormData({...formData, fomeAumenta: e.target.value})} className="bg-white border rounded-xl px-3 py-3 text-slate-800 outline-none">
+                                <option value="" disabled>A fome aumenta?</option>
+                                <option value="sim_muito">Muito na TPM</option>
+                                <option value="nao">Não noto diferença</option>
+                            </select>
+                          </div>
+                          <input type="text" required placeholder="Vontades específicas? (Ex: Chocolate...)" value={formData.vontadesEspecificas} onChange={(e) => setFormData({...formData, vontadesEspecificas: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none" />
+                        </div>
+
+                        {/* Energia */}
+                        <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
+                          <h4 className="font-black text-slate-800 uppercase tracking-widest mb-6 border-b pb-3 text-sm text-left">4. Energia e Humor</h4>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-sm text-left">
+                            <select required value={formData.disposicaoMensal} onChange={(e) => setFormData({...formData, disposicaoMensal: e.target.value})} className="bg-white border rounded-xl px-3 py-3 outline-none">
+                                <option value="" disabled>Disposição?</option>
+                                <option value="cai_tpm">Cai na TPM</option>
+                                <option value="estavel">Sempre estável</option>
+                            </select>
+                            <select required value={formData.mudancaHumor} onChange={(e) => setFormData({...formData, mudancaHumor: e.target.value})} className="bg-white border rounded-xl px-3 py-3 outline-none">
+                                <option value="" disabled>Humor?</option>
+                                <option value="irritada">Irritada/Triste</option>
+                                <option value="estavel">Estável</option>
+                            </select>
+                            <select required value={formData.sonoPiora} onChange={(e) => setFormData({...formData, sonoPiora: e.target.value})} className="bg-white border rounded-xl px-3 py-3 outline-none">
+                                <option value="" disabled>Sono piora?</option>
+                                <option value="sim">Sim, na TPM</option>
+                                <option value="nao">Durmo bem</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        {/* Peso */}
+                        <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
+                          <h4 className="font-black text-slate-800 uppercase tracking-widest mb-6 border-b pb-3 text-sm text-left">5. Peso e Exercício</h4>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-sm text-left">
+                            <select required value={formData.pesoFlutua} onChange={(e) => setFormData({...formData, pesoFlutua: e.target.value})} className="bg-white border rounded-xl px-3 py-3 outline-none">
+                                <option value="" disabled>Peso flutua?</option>
+                                <option value="mais2">Até 2kg ou mais</option>
+                                <option value="nao">Não flutua</option>
+                            </select>
+                            <select required value={formData.inchacoRetencao} onChange={(e) => setFormData({...formData, inchacoRetencao: e.target.value})} className="bg-white border rounded-xl px-3 py-3 outline-none">
+                                <option value="" disabled>Tem inchaço?</option>
+                                <option value="sim">Sim, bastante</option>
+                                <option value="nao">Raramente</option>
+                            </select>
+                            <select required value={formData.praticaExercicio} onChange={(e) => setFormData({...formData, praticaExercicio: e.target.value})} className="bg-white border rounded-xl px-3 py-3 outline-none">
+                                <option value="" disabled>Exercício?</option>
+                                <option value="musculacao">Sim, musculação/cardio</option>
+                                <option value="sedentaria">Não treino</option>
                             </select>
                           </div>
                         </div>
@@ -405,12 +475,15 @@ export default function TPMeEmagrecimento() {
                           <label className="flex items-start gap-4 cursor-pointer text-left">
                             <input type="checkbox" required checked={formData.aceitaTermos} onChange={(e) => setFormData({...formData, aceitaTermos: e.target.checked})} className="mt-1 w-5 h-5 text-green-600 rounded" />
                             <span className="text-[11px] leading-relaxed text-slate-500 font-medium">
-                              <strong>Aviso Legal:</strong> Esta é uma ferramenta educativa e não substitui uma consulta clínica. Ao enviar, aceito receber meu feedback educacional por e-mail e integrar a lista de contatos do portal.
+                              <strong>Aviso Legal:</strong> Esta é uma ferramenta educativa e não substitui uma consulta clínica. Ao enviar, aceito receber meu feedback educacional por e-mail.
                             </span>
                           </label>
                         </div>
-                        <button type="submit" disabled={formStatus === 'submitting'} className="w-full bg-green-600 text-white p-5 rounded-2xl font-black uppercase shadow-xl hover:bg-green-700 transition-all">
-                          {formStatus === 'submitting' ? <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin mx-auto"></div> : "Solicitar Minha Análise"}
+
+                        {formStatus === 'error' && <div className="text-red-600 text-sm text-center font-bold">Erro ao enviar. Tente novamente mais tarde.</div>}
+
+                        <button type="submit" disabled={formStatus === 'submitting'} className="w-full flex items-center justify-center gap-3 bg-green-600 hover:bg-green-700 text-white p-5 rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl transition-all">
+                          {formStatus === 'submitting' ? <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div> : <><Send size={18} /> Solicitar Minha Análise Gratuita</>}
                         </button>
                       </form>
                     </div>
@@ -420,8 +493,8 @@ export default function TPMeEmagrecimento() {
 
               {/* FAQ */}
               <div id="faq" className="mt-20 pt-10 border-t border-slate-100 text-left">
-                <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
-                  <HelpCircle className="text-green-600" /> Dúvidas Frequentes sobre TPM e Dieta
+                <h2 className="text-2xl font-black text-slate-800 mb-8 italic flex items-center gap-3">
+                  <HelpCircle className="text-green-600" /> Dúvidas Frequentes
                 </h2>
                 <div className="space-y-4">
                   {faqs.map((faq, index) => (
