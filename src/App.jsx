@@ -31,7 +31,8 @@ import Prebioticos from './pages/prebioticos';
 import Probioticos from './pages/Probioticos'; 
 import Simbioticos from './pages/Simbioticos'; 
 import CicloCircadiano from './pages/CicloCircadiano';
-import Melatonina from './pages/Melatonina'; // Nova Página 
+import Melatonina from './pages/Melatonina';
+import TPM from './pages/TPM'; // Nova Página
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -118,7 +119,11 @@ function Layout({ children }) {
     '/efeitos-colaterais-da-melatonina': {
     title: 'Efeitos Colaterais da Melatonina: Vicia? Riscos e Doses | Nutrição com Marco',
     desc: 'Descubra a verdade científica sobre a melatonina: ela vicia? Faz mal? Entenda os efeitos colaterais, riscos psicológicos e como dosar corretamente para dormir bem.'
-      }
+      },
+      '/o-que-comer-na-tpm': {
+      title: 'O Que Comer na TPM: Emagrecimento e Metabolismo Feminino | Nutrição com Marco',
+      desc: 'Descubra por que a vontade de doce aumenta na TPM, a verdade científica sobre o metabolismo feminino, o papel do treino e estratégias para emagrecer sem sofrimento.'
+    }
     };
 
     const currentSEO = seoData[location.pathname] || seoData['/'];
@@ -234,6 +239,7 @@ export default function App() {
             <Route path="/o-que-sao-simbioticos" element={<Simbioticos />} />
             <Route path="/o-que-e-ciclo-circadiano" element={<CicloCircadiano />} />
             <Route path="/efeitos-colaterais-da-melatonina" element={<Melatonina />} />
+            <Route path="/o-que-comer-na-tpm" element={<TPM />} />
           </Routes>
         </Layout>
       </Router>
