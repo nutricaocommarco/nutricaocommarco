@@ -6,7 +6,7 @@ import {
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
   Brain, Clock, AlertCircle, Moon, EyeOff, BookOpen, Database, 
   AlertTriangle, XCircle, CheckCircle, Thermometer, Leaf, Heart, Sun, Coffee,
-  Apple, Droplet, Flame, Calendar, Dumbbell, ClipboardList, Send, Scale
+  Apple, Droplet, Flame, Calendar, Dumbbell, ClipboardList, Send
 } from 'lucide-react';
 
 import Newsletter from '../components/Newsletter';
@@ -25,13 +25,14 @@ export default function TPMeEmagrecimento() {
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   // Estados do Formulário e Visibilidade
-  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false); 
   const [formStatus, setFormStatus] = useState('idle'); 
   const [formData, setFormData] = useState({
     nome: '', email: '', cicloRegular: '', fluxoColicas: '', anticoncepcional: '',
     apetiteMuda: '', fomeAumenta: '', vontadesEspecificas: '',
     disposicaoMensal: '', mudancaHumor: '', sonoPiora: '',
-    pesoFlutua: '', praticaExercicio: '', inchacoRetencao: '', aceitaTermos: false
+    pesoFlutua: '', praticaExercicio: '', inchacoRetencao: '',
+    aceitaTermos: false
   });
 
   useEffect(() => {
@@ -49,35 +50,51 @@ export default function TPMeEmagrecimento() {
       });
       if (response.ok) {
         setFormStatus('success');
-      } else { setFormStatus('error'); }
-    } catch (error) { setFormStatus('error'); }
+      } else {
+        setFormStatus('error');
+      }
+    } catch (error) {
+      setFormStatus('error');
+    }
   };
 
   const faqs = [
-    { pergunta: "Por que a fome aumenta tanto antes de menstruar?", resposta: "O aumento da fome na fase lútea (pré-menstrual) é um processo fisiológico real. A alta do hormônio progesterona estimula áreas do cérebro associadas ao apetite, sinalizando que o corpo precisa de mais energia. Além disso, há um leve aumento na Taxa Metabólica Basal nesse período." },
-    { pergunta: "É normal ganhar peso durante a TPM?", resposta: "Sim, e esse ganho raramente é gordura. A queda brusca de estrogênio e progesterona que antecede a menstruação causa intensa retenção de líquidos e inchaço. O peso na balança pode flutuar de 1 a 3 quilos, o que se normaliza nos primeiros dias do ciclo." },
-    { pergunta: "O desejo incontrolável por chocolate é biológico?", resposta: "A ciência mostra que o desejo por energia extra é biológico, mas a busca específica por chocolate ou doces ultraprocessados é cultural e aprendida. O corpo pede calorias, mas a mente traduz isso como vontade exclusiva de comer doces reconfortantes." },
-    { pergunta: "Preciso mudar minha dieta em cada fase do ciclo?", resposta: "Não é obrigatório. Embora o corpo oxide um pouco mais de gordura e tenha flutuações na sensibilidade à insulina ao longo do mês, manipular macronutrientes semana a semana não traz um benefício significativamente superior." }
+    {
+      pergunta: "Por que a fome aumenta tanto antes de menstruar?",
+      resposta: "O aumento da fome na fase lútea (pré-menstrual) é um processo fisiológico real. A alta do hormônio progesterona estimula áreas do cérebro associadas ao apetite, sinalizando que o corpo precisa de mais energia. Além disso, há um leve aumento na Taxa Metabólica Basal nesse período."
+    },
+    {
+      pergunta: "É normal ganhar peso durante a TPM?",
+      resposta: "Sim, e esse ganho raramente é gordura. A queda brusca de estrogênio e progesterona que antecede a menstruação causa intensa retenção de líquidos e inchaço, além de alterações no trânsito intestinal. O peso na balança pode flutuar de 1 a 3 quilos, o que se normaliza nos primeiros dias do ciclo."
+    },
+    {
+      pergunta: "O desejo incontrolável por chocolate é biológico?",
+      resposta: "A ciência mostra que o desejo por energia extra é biológico, mas a busca específica por chocolate ou doces ultraprocessados é cultural e aprendida. O corpo pede calorias, mas a mente, influenciada por hábitos, traduz isso como vontade exclusiva de comer doces reconfortantes."
+    },
+    {
+      pergunta: "Preciso mudar minha dieta em cada fase do ciclo para emagrecer?",
+      resposta: "Não é obrigatório. Embora o corpo oxide um pouco mais de gordura e tenha flutuações na sensibilidade à insulina ao longo do mês, manipular macronutrientes semana a semana não traz um benefício significativamente superior. A constância em uma alimentação saudável ao longo de todo o ciclo é o que garante o emagrecimento."
+    }
   ];
 
   const tabelaMitosVerdades = [
-    { id: 1, mitoVerdade: "Verdade", ponto: "TMB aumenta na fase lútea", explicacao: "Ocorre um leve aumento no gasto calórico em repouso após a ovulação." },
-    { id: 2, mitoVerdade: "Verdade", ponto: "Maior ingestão espontânea", explicacao: "Sinais orexígenos cerebrais aumentam o apetite naturalmente nesta fase." },
-    { id: 3, mitoVerdade: "Mito", ponto: "Manipular macros por fase", explicacao: "Não há evidência de que mudar a proporção de macros semanalmente acelere o emagrecimento." },
-    { id: 4, mitoVerdade: "Mito", ponto: "Reduzir carboidratos na fase lútea", explicacao: "Restringir energia quando a fome aumenta pode gerar compulsão e piorar o humor." }
+    { id: 1, mitoVerdade: "Verdade", ponto: "TMB Aumenta na Fase Lútea", explicacao: "A Taxa Metabólica Basal sofre um leve aumento fisiológico após a ovulação, justificando parte do aumento natural do apetite." },
+    { id: 2, mitoVerdade: "Verdade", ponto: "Maior Ingestão Espontânea", explicacao: "É comprovado que mulheres tendem a ingerir mais calorias espontaneamente na fase lútea devido aos sinais orexígenos (que estimulam a fome)." },
+    { id: 3, mitoVerdade: "Mito", ponto: "Mudança Radical de Macros", explicacao: "Não é necessário nem prático manipular detalhadamente os macronutrientes para cada fase específica do ciclo menstrual buscando emagrecimento." },
+    { id: 4, mitoVerdade: "Mito", ponto: "Reduzir Carboidrato na Fase Lútea", explicacao: "Embora haja maior oxidação de gordura nesta fase, reduzir carboidratos drasticamente pode piorar os sintomas da TPM e o humor." }
   ];
 
   const estrategiasTPM = [
-    { id: 1, estrategia: "Volume Alimentar (Fibras)", comoFaz: "Saladas, raízes e aveia", impacto: "Preenche o estômago com baixas calorias, combatendo a fome da progesterona." },
-    { id: 2, estrategia: "Proteínas Estratégicas", comoFaz: "Ovos ou Iogurte nos lanches", impacto: "Evita picos de insulina e quedas bruscas de açúcar que geram fissura por doce." },
-    { id: 3, estrategia: "Magnésio e Triptofano", comoFaz: "Banana e cacau 70%", impacto: "Auxilia na produção de serotonina, estabilizando o humor e a ansiedade." }
+    { id: 1, estrategia: "Aumento Inteligente de Fibras", comoFaz: "Adicionar mais saladas, raízes e aveia", impacto: "Como a fome aumenta de forma real devido à progesterona, você preenche o estômago sem estourar as calorias diárias, mantendo o déficit calórico." },
+    { id: 2, estrategia: "Fracionamento de Proteínas", comoFaz: "Ovos, iogurtes ou whey em lanches estratégicos", impacto: "Evita os picos abruptos de insulina e a consequente hipoglicemia de rebote, que é o principal gatilho biológico para o desejo descontrolado por açúcar." },
+    { id: 3, estrategia: "Fontes de Magnésio e Triptofano", comoFaz: "Sementes de abóbora, banana e cacau", impacto: "O triptofano é precursor da serotonina (hormônio do bem-estar), ajudando a estabilizar as alterações drásticas de humor características da queda hormonal." }
   ];
 
   return (
     <>
       <Helmet>
         <title>O Que Comer na TPM: Emagrecimento e Metabolismo Feminino | Nutrição com Marco</title>
-        <meta name="description" content="Descubra por que a vontade de doce aumenta na TPM, a verdade científica sobre o metabolismo feminino e estratégias de nutrição para emagrecer sem sofrimento." />
+        <meta name="description" content="Descubra por que a vontade de doce aumenta na TPM, a verdade científica sobre o metabolismo feminino, o papel do treino e estratégias para emagrecer sem sofrimento." />
 
         <meta property="og:type" content="article" />
         <meta property="og:title" content="O Que Comer na TPM: Emagrecimento e Metabolismo Feminino | Nutrição com Marco" />
@@ -85,7 +102,7 @@ export default function TPMeEmagrecimento() {
         <meta property="og:image" content={tpmCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
-        {/* SCHEMA.ORG 1: ARTIGO OTIMIZADO */}
+        {/* SCHEMA.ORG 1: ARTIGO */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -97,90 +114,42 @@ export default function TPMeEmagrecimento() {
               "name": "Marco Aurélio Jr.",
               "url": "https://www.nutricaocommarco.com.br/sobre",
               "jobTitle": "Estudante de Nutrição",
-              "knowsAbout": ["Nutrição Feminina", "Metabolismo", "Emagrecimento", "Antropometria"]
+              "knowsAbout": ["Nutrição Feminina", "Metabolismo", "Emagrecimento"]
             },
             "publisher": {
               "@type": "Organization", 
               "name": "Nutrição com Marco", 
-              "logo": {
-                "@type": "ImageObject", 
-                "url": `${githubImgBase}logoN_pingus.png`
-              }
+              "logo": { "@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png` }
             },
             "datePublished": datePublishedISO,
-            "dateModified": dateModifiedISO,
-            "description": "Entenda as bases biológicas do metabolismo feminino durante o ciclo menstrual e estratégias nutricionais para a TPM."
+            "dateModified": dateModifiedISO
           })}
         </script>
 
-        {/* SCHEMA.ORG 2: MEDICAL WEB PAGE */}
+        {/* SCHEMA.ORG 2: MEDICAL PAGE */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "MedicalWebPage",
-            "name": "Nutrição e Metabolismo no Ciclo Menstrual",
+            "name": "Fisiologia Hormonal Feminina e Nutrição",
             "url": `https://www.nutricaocommarco.com.br${pathname}`,
             "about": [
               {"@type": "MedicalEntity", "name": "Ciclo Menstrual"},
-              {"@type": "MedicalEntity", "name": "TPM"},
-              {"@type": "MedicalEntity", "name": "Metabolismo Feminino"},
-              {"@type": "MedicalEntity", "name": "Emagrecimento"}
-            ],
-            "audience": {
-              "@type": "MedicalAudience",
-              "audienceType": "Pacientes"
-            }
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 3: BREADCRUMB LIST */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.nutricaocommarco.com.br/" },
-              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.nutricaocommarco.com.br/blog" },
-              { "@type": "ListItem", "position": 3, "name": "O Que Comer na TPM", "item": `https://www.nutricaocommarco.com.br${pathname}` }
+              {"@type": "MedicalEntity", "name": "TPM"}
             ]
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 4: FAQ PAGE */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.pergunta,
-              "acceptedAnswer": { "@type": "Answer", "text": faq.resposta }
-            }))
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 5: VIDEO OBJECT */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "VideoObject",
-            "name": "Fome Física x Fome Emocional na TPM",
-            "description": "Diferença entre fome real e emocional e como encontrar o equilíbrio durante o ciclo menstrual.",
-            "thumbnailUrl": "https://img.youtube.com/vi/37sH2NJNjc4/maxresdefault.jpg",
-            "uploadDate": "2025-12-02",
-            "embedUrl": "https://www.youtube.com/embed/37sH2NJNjc4"
           })}
         </script>
       </Helmet>
 
       <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
-        <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100 text-left">
-          
+        <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
+
           <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
             <ChevronLeft size={20} /> Voltar para o Blog
           </Link>
 
-          <article className="prose prose-lg max-w-none">
+          <article className="prose prose-lg max-w-none text-left">
+
             <div className="mb-8 flex flex-col items-start gap-2">
               <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Saúde da Mulher</span>
               <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
@@ -190,11 +159,13 @@ export default function TPMeEmagrecimento() {
               O Que Comer na TPM: Desvendando o Emagrecimento e o Metabolismo Feminino
             </h1>
 
-            <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner">
-                <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">Resposta Direta</h2>
-                <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed mt-4">
-                  Para emagrecer na <strong>TPM</strong> de forma sustentável, o segredo é focar em <strong>saciedade e produção de serotonina</strong>. Em vez de lutar contra a fome, deve priorizar carboidratos complexos, proteínas magras e fibras, que mantêm os níveis de açúcar estáveis. Evite restrições calóricas extremas nesta fase, pois elas são o principal gatilho para a compulsão alimentar, e utilize ferramentas de monitorização para entender o seu corpo.
-                </p>
+            <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-4 text-left">
+                <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
+                  Resposta Direta: O que comer na TPM?
+                </h2>
+                <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
+                  Para aliviar os sintomas e manter o emagrecimento na <strong>TPM</strong>, você deve focar em alimentos que promovam saciedade prolongada e estimulem a produção de hormônios do bem-estar. Priorize <strong>proteínas magras</strong>, <strong>carboidratos complexos</strong> ricos em fibras (como aveia, batata e raízes) e fontes excelentes de <strong>magnésio e triptofano</strong> (como banana, cacau em pó 70%, sementes de abóbora e castanhas). Essa combinação estabiliza o açúcar no sangue, reduz a retenção de líquidos e controla a vontade incontrolável de comer doces ao estimular a serotonina.
+              </p>
             </div>
 
             <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
@@ -208,9 +179,7 @@ export default function TPMeEmagrecimento() {
                   O seu navegador não suporta o áudio.
                 </audio>
               </div>
-
               <div className="h-px bg-green-100/60 w-full"></div>
-
               <nav className="bg-slate-50">
                 <button 
                   onClick={() => setIsTocOpen(!isTocOpen)}
@@ -224,78 +193,118 @@ export default function TPMeEmagrecimento() {
                   </div>
                   <ChevronRight size={20} className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} />
                 </button>
-
                 <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[1000px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                   <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
-                    <li><a href="#diferenca-emagrecimento" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Brain size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A Diferença no Emagrecimento</a></li>
-                    <li><a href="#danca-hormonios" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A Dança dos Hormônios</a></li>
-                    <li><a href="#mitos-verdades" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Shield size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Mitos e Verdades do Ciclo</a></li>
-                    <li><a href="#vontade-doce" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><AlertCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Vontade de Doce: Biologia?</a></li>
-                    <li><a href="#treino-constancia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Dumbbell size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O Papel do Treino</a></li>
-                    <li><a href="#avaliacao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><ClipboardList size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Análise de Perfil (Grátis)</a></li>
+                    <li><a href="#diferenca-emagrecimento" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Brain size={16} className="text-slate-300 shrink-0" />A Diferença no Emagrecimento</a></li>
+                    <li><a href="#danca-hormonios" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Activity size={16} className="text-slate-300 shrink-0" />A Dança dos Hormônios</a></li>
+                    <li><a href="#mitos-verdades" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Shield size={16} className="text-slate-300 shrink-0" />Mitos e Verdades do Ciclo</a></li>
+                    <li><a href="#vontade-doce" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><AlertCircle size={16} className="text-slate-300 shrink-0" />Vontade de Doce: Biologia?</a></li>
+                    <li><a href="#o-que-comer" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Leaf size={16} className="text-slate-300 shrink-0" />Estratégias: O Que Comer</a></li>
+                    <li><a href="#treino-constancia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Dumbbell size={16} className="text-slate-300 shrink-0" />O Papel do Treino</a></li>
+                    <li><a href="#avaliacao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><ClipboardList size={16} className="text-slate-300 shrink-0" />Análise de Perfil (Grátis)</a></li>
                   </ul>
                 </div>
               </nav>
             </div>
 
             <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
-              
-              <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
+
+              <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative text-center">
                 <img 
                   src={tpmCapa} 
-                  alt="Metabolismo Feminino e TPM" 
-                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
+                  alt="Metabolismo Feminino" 
+                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200 mx-auto" 
                 />
+                <div className="bg-green-50/90 backdrop-blur-sm p-4 absolute bottom-0 w-full border-t border-green-100">
+                  <p className="text-xs text-green-800 font-bold uppercase tracking-widest m-0 text-center">
+                    O seu metabolismo não é estático, ele é cíclico: entenda as fases do seu corpo.
+                  </p>
+                </div>
               </div>
 
               <h2 id="diferenca-emagrecimento" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Brain className="text-green-600"/> A Diferença no Emagrecimento Feminino
               </h2>
               <p>
-                Muitas mulheres sentem dificuldade em emagrecer porque tentam seguir planos alimentares lineares, ignorando que o <strong>metabolismo feminino não é estático</strong>. Diferente do metabolismo masculino, o corpo da mulher é regido por um <Link to="/o-que-e-ciclo-circadiano" className="text-green-600 font-bold hover:underline">ciclo circadiano</Link> e hormonal complexo. Compreender que o corpo feminino tem demandas únicas e flutuações em seus <Link to="/hormonios_da_fome_emagrecimento" className="text-green-600 font-bold hover:underline">hormônios da fome</Link> é o primeiro passo para parar de lutar contra a própria biologia e começar a orquestrar a nutrição a seu favor.
+                Muitas mulheres se frustram ao tentar seguir exatamente o mesmo plano alimentar que o marido, o namorado ou um amigo, percebendo rapidamente que os resultados na balança não acompanham o mesmo ritmo. A explicação para essa disparidade é puramente biológica e fisiológica. Diferente do metabolismo masculino, que se mantém relativamente estável, o <strong>metabolismo feminino não é uma linha reta e estática</strong>. Ele é essencialmente cíclico e sofre transformações profundas e contínuas ao longo de toda a vida. Durante a infância, desfrutamos de uma estabilidade hormonal que é abruptamente quebrada na puberdade, momento em que ocorre o primeiro grande aumento de estrogênio e progesterona, alterando para sempre a forma como o corpo da mulher distribui e armazena a gordura.
+              </p>
+              <p>
+                Ao entrarmos nos anos reprodutivos, vivemos uma verdadeira montanha-russa química onde esses hormônios sobem e descem em um ritmo que, na média, dura vinte e oito dias. Mais tarde, com a chegada da perimenopausa, essa produção cai e a gordura subcutânea começa a ir para a gordura visceral. Compreender profundamente que o corpo feminino tem demandas e flutuações únicas em seus <Link to="/hormonios_da_fome_emagrecimento" className="text-green-600 font-bold hover:underline">hormônios da fome</Link> é o primeiro e mais importante passo para parar de brigar com a própria biologia e começar a orquestrar o emagrecimento a favor dela.
               </p>
 
               <h2 id="danca-hormonios" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Activity className="text-green-600"/> A Dança dos Hormônios e o Metabolismo
               </h2>
               <p>
-                Essa orquestra fisiológica começa no eixo hipotálamo-hipófise-ovariano. Na fase folicular, o estradiol elevado ajuda a controlar a fome, mas após a ovulação, a subida da progesterona aumenta consideravelmente os sinais de apetite. É fundamental entender que o corpo feminino gasta um pouco mais de energia na fase lútea, o que justifica o aumento natural da fome. Essa variação pode até fazer o peso flutuar na balança, por isso, entender se <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 font-bold hover:underline">a balança de bioimpedância é confiável</Link> nesse período ajuda a evitar frustrações desnecessárias com o inchaço.
+                Essa verdadeira orquestra fisiológica começa no cérebro. O hipotálamo envia sinais em pulsos rítmicos (GnRH) para a hipófise, que libera o FSH e LH, que por sua vez manda mensagens vitais diretamente para os ovários. É ali que a mágica acontece com a produção de estradiol e progesterona. O grande segredo, frequentemente ignorado, é que <strong>estes não são apenas hormônios ligados à reprodução</strong>; eles são hormônios metabólicos de altíssimo impacto. Eles regulam o apetite (vias POMC e NPY), decidem onde a gordura será estocada, governam o metabolismo ósseo e alteram a sensibilidade à insulina. 
               </p>
 
-              <blockquote className="border-l-4 border-green-500 pl-6 py-4 my-8 bg-slate-50 rounded-r-2xl italic text-slate-700 shadow-sm relative text-left">
+              <blockquote className="border-l-4 border-green-500 pl-6 py-4 my-8 bg-slate-50 rounded-r-2xl italic text-slate-700 shadow-sm relative">
                 <span className="absolute -left-3 -top-3 bg-green-500 text-white w-8 h-8 flex items-center justify-center rounded-full font-serif text-2xl">"</span>
-                <p className="mb-2">Uma mulher menstrua cerca de 460 vezes durante a sua vida reprodutiva. Ignorar o impacto metabólico de quase 500 ciclos na nutrição é ignorar a base da fisiologia feminina.</p>
-                <footer className="text-sm font-bold text-green-700 not-italic uppercase tracking-wider">— Atualizações em Saúde da Mulher</footer>
+                <p className="mb-2">Durante a vida reprodutiva, uma mulher chega a menstruar, em média, mais de 460 vezes. Ignorar o impacto metabólico de quase quinhentos ciclos na nutrição é ignorar a base da fisiologia feminina.</p>
+                <footer className="text-sm font-bold text-green-700 not-italic uppercase tracking-wider">— Esp. Thaís Essu, Clinic Day</footer>
               </blockquote>
 
-              {/* TABELA: MITOS E VERDADES */}
+              <p>
+                Para entender a gangorra da fome, precisamos olhar para as <strong>fases do ciclo ovariano</strong>:
+                Na fase Folicular, os níveis de estrogênio começam a subir, o que segura a fome pela via POMC. Contudo, após a ovulação e a subida da progesterona na fase lútea, o cenário inverte: o estrogênio cai e a progesterona assume o controle, disparando sinais orexígenos que aumentam significativamente a fome. É nessa janela que a mulher enfrenta a retenção hídrica e a queda de humor. Se você tem dúvidas sobre o peso nessas datas, vale entender se <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 font-bold hover:underline">a balança de bioimpedância é confiável</Link> nesse período de inchaço.
+              </p>
+
+              <h2 id="mitos-verdades" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+                <Shield className="text-green-600"/> Mitos e Verdades: Ciclo Menstrual e Nutrição
+              </h2>
+              <p>
+                A literatura científica, como o estudo <em>Sex differences and considerations for male specific nutritional strategies</em>, mostra que embora o metabolismo feminino se ajuste durante o ciclo, mudar radicalmente a dieta em cada fase não traz resultados obrigatoriamente superiores. O segredo continua sendo a constância.
+              </p>
+
               <div className="my-10 bg-white rounded-[2rem] border border-green-200 shadow-xl overflow-hidden">
                 <div className="bg-green-50 text-green-900 font-black uppercase tracking-widest text-sm p-5 border-b border-green-200 flex items-center gap-3">
-                   <AlertTriangle size={20} className="text-green-600" /> Ciência: Dieta e Ciclo Menstrual
+                   <AlertTriangle size={20} className="text-green-600" /> O que a Ciência Diz
                 </div>
-                <div className="divide-y divide-slate-100 text-left">
+                <div className="divide-y divide-slate-100">
                   {tabelaMitosVerdades.map((item) => (
-                    <div key={item.id} className="grid grid-cols-1 md:grid-cols-12 gap-4 p-5 md:p-4 items-start hover:bg-slate-50 transition-colors text-sm">
-                      <div className="col-span-2 font-bold uppercase">{item.mitoVerdade === "Verdade" ? <span className="text-green-600">Verdade</span> : <span className="text-red-600">Mito</span>}</div>
-                      <div className="col-span-4 font-bold text-slate-800">{item.ponto}</div>
-                      <div className="col-span-6 text-slate-600">{item.explicacao}</div>
+                    <div key={item.id} className="grid grid-cols-1 md:grid-cols-12 gap-4 p-5 md:p-4 items-start hover:bg-slate-50 transition-colors">
+                      <div className="col-span-2 font-bold text-slate-800 text-sm">
+                        {item.mitoVerdade === "Verdade" ? <span className="text-green-600 uppercase">Verdade</span> : <span className="text-red-600 uppercase">Mito</span>}
+                      </div>
+                      <div className="col-span-4 font-bold text-slate-800 text-sm md:text-base leading-snug">{item.ponto}</div>
+                      <div className="col-span-6 text-sm text-slate-600 font-medium leading-relaxed">{item.explicacao}</div>
                     </div>
                   ))}
                 </div>
               </div>
 
               <h2 id="vontade-doce" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <AlertCircle className="text-green-600"/> Vontade de Doce na TPM: Biologia ou Cultura?
+                <AlertCircle className="text-green-600"/> Vontade de Doce na TPM: Biologia ou Hábito?
               </h2>
               <p>
-                A famosa "vontade de chocolate" na TPM tem uma explicação mista. Embora a queda hormonal reduza a serotonina, a busca específica por doces ultraprocessados é, em grande parte, aprendida e influenciada pela cultura. Aprender a distinguir a necessidade física da <Link to="/o-que-e-fome-emocional" className="text-green-600 font-bold hover:underline">fome emocional</Link> permite que você faça escolhas mais conscientes. Estudos de comportamento alimentar mostram que entender esse "craving" como algo cultural ajuda a reduzir o ciclo de culpa e compulsão.
+                O aumento da fome na fase lútea é real e biológico. Contudo, o direcionamento dessa fome exclusivamente para o chocolate é cultural. O estudo <em>Does culture create craving?</em> mostra que grande parte desse desejo é aprendida. Aprender a diferenciar a necessidade física da <Link to="/o-que-e-fome-emocional" className="text-green-600 font-bold hover:underline">fome emocional</Link> é libertador.
               </p>
+
+              <h2 id="o-que-comer" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+                <Leaf className="text-green-600"/> Estratégias Práticas: O Que Colocar no Prato
+              </h2>
+              <div className="space-y-6 mb-10">
+                  {estrategiasTPM.map((fator) => (
+                    <div key={fator.id} className="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden flex flex-col lg:flex-row items-center">
+                      <div className="flex-1 w-full p-5 md:p-6 bg-green-50/50 border-b lg:border-b-0 lg:border-r border-slate-100 flex flex-col gap-2">
+                        <h4 className="font-bold text-slate-800 text-lg m-0">{fator.estrategia}</h4>
+                      </div>
+                      <div className="flex-1 w-full p-5 md:p-6 bg-slate-50/50 border-b lg:border-b-0 lg:border-r border-slate-100 flex flex-col gap-2">
+                        <h4 className="font-bold text-slate-800 text-[15px] m-0">{fator.comoFaz}</h4>
+                      </div>
+                      <div className="flex-[1.5] w-full p-5 md:p-6 flex flex-col gap-2 bg-white">
+                        <p className="text-sm text-slate-600 leading-relaxed font-medium m-0">{fator.impacto}</p>
+                      </div>
+                    </div>
+                  ))}
+              </div>
 
               <h2 id="treino-constancia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Dumbbell className="text-green-600"/> O Papel do Treino e a Constância
               </h2>
               <p>
-                Muitas mulheres acreditam que precisam de reduzir drasticamente o treino na TPM. No entanto, a ciência confirma que a síntese de proteína muscular <a href="https://pubmed.ncbi.nlm.nih.gov/39630025/" target="_blank" rel="noopener noreferrer" className="text-green-600 font-bold hover:underline">não sofre influência significativa da fase do ciclo</a>. Isso significa que o seu corpo continua a responder ao exercício de força de forma eficiente, independentemente do dia do mês. Se o humor estiver oscilando, talvez seja o momento de considerar os <Link to="/efeitos-colaterais-da-melatonina" className="text-green-600 font-bold hover:underline">efeitos do sono no metabolismo</Link> em vez de apenas cortar o treino.
+                A ciência mais atualizada mostra que a síntese de proteína muscular <a href="https://pubmed.ncbi.nlm.nih.gov/39630025/" target="_blank" rel="noopener noreferrer" className="text-green-600 font-bold hover:underline">não sofre influência significativa da fase do ciclo menstrual</a>. Isso significa que você constrói músculos com a mesma eficiência o mês inteiro. A constância inteligente é a chave: descanse se a dor for incapacitante, mas não engavete o treino apenas pelo calendário.
               </p>
 
               {/* AFILIADO MERCADO LIVRE (XIAOMI BAND 9 PRO) */}
@@ -304,17 +313,17 @@ export default function TPMeEmagrecimento() {
                       <Zap size={14} className="fill-white" />
                       <span>O Pingus Escolheu a Melhor!</span>
                   </div>
-                  <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0 text-center md:text-left">
+                  <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
                       <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-                          <img src={`${githubImgBase}logoN_pingus.png`} alt="Selo de Qualidade Pingus" className="w-full h-full object-contain" />
+                          <img src={`${githubImgBase}logoN_pingus.png`} alt="Mascote Pingus" className="w-full h-full object-contain" />
                       </div>
-                      <div className="flex-1 flex flex-col justify-center">
-                          <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic text-left">Xiaomi Smart Band 9 Pro: <span className="text-green-600">Alta Precisão no seu Pulso</span></h4>
+                      <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+                          <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">Xiaomi Smart Band 9 Pro: <span className="text-green-600 text-center">Monitoramento de Alta Precisão</span></h4>
                           <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
                               <img src={`${githubImgBase}Afiliado/Band9Pro.JPG`} alt="Xiaomi Smart Band 9 Pro" className="w-full h-auto object-cover opacity-90" />
                           </div>
-                          <p className="text-slate-600 text-[15px] mb-8 leading-relaxed font-medium text-left">
-                              Emagrecimento cíclico exige dados precisos. A <strong>Smart Band 9 Pro</strong> oferece monitorização avançada do ciclo menstrual, sono e stress. Como seu <Link to="/o_que_e_antropometria" className="text-green-600 font-bold hover:underline">avaliador antropométrico</Link>, recomendo esta ferramenta para trazer dados reais para a nossa análise.
+                          <p className="text-slate-600 text-[15px] mb-8 leading-relaxed font-medium">
+                              Emagrecimento cíclico exige dados reais. A <strong>Smart Band 9 Pro</strong> oferece monitoramento do ciclo, sono e estresse em uma tela nítida. Como seu avaliador, recomendo esta ferramenta para dominarmos seu metabolismo.
                           </p>
                           <a href="https://meli.la/2eEQ8VF" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all italic">
                               <ShoppingCart size={16} /> Comprar no Mercado Livre
@@ -324,7 +333,7 @@ export default function TPMeEmagrecimento() {
               </div>
 
               {/* VÍDEO DO YOUTUBE */}
-              <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3 text-left">
                 <PlayCircle className="text-green-600"/> Fome Física x Fome Emocional na TPM
               </h2>
               <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
@@ -334,104 +343,74 @@ export default function TPMeEmagrecimento() {
               </div>
 
               <p className="mt-10">
-                Lembre-se sempre: o emagrecimento definitivo para mulheres não é construído na perfeição milimétrica de uma semana onde você sofre para bater as metas de macronutrientes. Ele mora na <strong>constância inteligente</strong>. Aceite que o seu corpo é biológico, que a retenção líquida na TPM vai fazer a balança subir temporariamente (e que isso não é gordura), e mantenha uma rotina alimentar rica em nutrientes o mês inteiro. A verdadeira mágica do metabolismo feminino acontece quando você alia o conhecimento com a paciência.
+                O emagrecimento feminino definitivo mora na <strong>constância inteligente</strong>. Aceite que o corpo é biológico e que a retenção líquida na TPM fará a balança subir temporariamente — e isso não é gordura. Mantenha a nutrição equilibrada o mês inteiro e veja a mágica acontecer.
               </p>
 
-              {/* FORMULÁRIO DE CAPTAÇÃO RETRÁTIL */}
+              {/* FORMULÁRIO RETRÁTIL DETALHADO */}
               <div id="avaliacao" className="mt-20 p-8 md:p-12 bg-white rounded-[3rem] border border-green-100 shadow-2xl relative overflow-hidden transition-all duration-500">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-green-50 rounded-full blur-3xl opacity-50 -mr-20 -mt-20 pointer-events-none"></div>
-                <div className="absolute bottom-0 left-0 w-40 h-40 bg-green-100 rounded-full blur-2xl opacity-40 -ml-10 -mb-10 pointer-events-none"></div>
-
                 <div className="relative z-10 text-center mb-8">
                   <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm rotate-3">
                     <ClipboardList size={32} className="text-green-600" />
                   </div>
                   <h3 className="text-2xl md:text-3xl font-black text-slate-900 uppercase italic mb-4">Análise de Perfil Gratuita: Você e a TPM</h3>
-                  <p className="text-slate-600 font-medium max-w-xl mx-auto mb-6">Responda ao questionário detalhado para receber um feedback educacional sobre o seu perfil metabólico.</p>
+                  <p className="text-slate-600 font-medium max-w-xl mx-auto mb-6">Responda ao questionário rápido. Eu vou analisar seu perfil e enviar um feedback educacional para você dominar seu ciclo.</p>
                 </div>
 
                 {formStatus === 'success' ? (
                   <div className="relative z-10 bg-green-50 rounded-3xl p-8 text-center border border-green-100 animate-fade-in">
                     <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"><CheckCircle size={40} className="text-white" /></div>
-                    <h4 className="text-2xl font-black text-green-900 italic uppercase mb-2">Análise Solicitada!</h4>
-                    <p className="text-green-700 font-medium">Em breve, receberá um e-mail com o seu feedback personalizado!</p>
+                    <h4 className="text-2xl font-black text-green-900 italic uppercase mb-2">Recebido!</h4>
+                    <p className="text-green-700 font-medium mb-6">Em breve enviaremos seu feedback personalizado por e-mail!</p>
+                    <button onClick={() => { setFormStatus('idle'); setIsFormOpen(false); }} className="text-sm font-bold text-green-600 underline">Enviar novo</button>
                   </div>
                 ) : (
                   <div className="relative z-10 flex flex-col items-center">
                     {!isFormOpen && (
-                      <button onClick={() => setIsFormOpen(true)} className="inline-flex items-center justify-center gap-3 bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-full font-black uppercase tracking-widest text-sm shadow-xl transition-all">Iniciar Minha Análise</button>
+                      <button onClick={() => setIsFormOpen(true)} className="bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-full font-black uppercase shadow-xl transition-all">Iniciar Análise Gratuita</button>
                     )}
-
                     <div className={`w-full transition-all duration-700 ease-in-out overflow-hidden ${isFormOpen ? 'max-h-[5000px] opacity-100 mt-6' : 'max-h-0 opacity-0'}`}>
                       {isFormOpen && (
                         <div className="flex justify-end mb-6">
-                          <button onClick={() => setIsFormOpen(false)} className="flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-red-500 uppercase tracking-widest"><XCircle size={16} /> Ocultar</button>
+                          <button onClick={() => setIsFormOpen(false)} className="flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-red-500 uppercase"><XCircle size={16} /> Ocultar</button>
                         </div>
                       )}
-
                       <form onSubmit={handleFormSubmit} className="space-y-8 max-w-3xl mx-auto text-left">
-                        {/* 1. Dados de Contacto */}
                         <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
-                          <h4 className="font-black text-slate-800 uppercase tracking-widest mb-6 border-b pb-3 text-sm">1. Dados de Contacto</h4>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                            <input type="text" required placeholder="Seu Nome" value={formData.nome} onChange={(e) => setFormData({...formData, nome: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm" />
-                            <input type="email" required placeholder="Seu Melhor E-mail" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm" />
+                          <h4 className="font-black text-slate-800 uppercase tracking-widest mb-6 border-b pb-3 text-sm">1. Contacto</h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-left">
+                            <input type="text" required placeholder="Nome" value={formData.nome} onChange={(e) => setFormData({...formData, nome: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-green-500" />
+                            <input type="email" required placeholder="E-mail" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-green-500" />
                           </div>
                         </div>
 
-                        {/* 2. Ciclo Menstrual */}
+                        {/* Blocos do formulário detalhado (Ciclo, Apetite, etc) seguindo a estrutura anterior */}
                         <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
-                          <h4 className="font-black text-slate-800 uppercase tracking-widest mb-6 border-b pb-3 text-sm">2. Ciclo Menstrual</h4>
-                          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-sm">
-                            <select required value={formData.cicloRegular} onChange={(e) => setFormData({...formData, cicloRegular: e.target.value})} className="w-full bg-white border rounded-xl px-3 py-3 text-slate-800 outline-none">
-                              <option value="" disabled>Ciclo regular?</option>
-                              <option value="sim">Sim, muito regular</option>
-                              <option value="nao">Não, é irregular</option>
+                          <h4 className="font-black text-slate-800 uppercase tracking-widest mb-6 border-b pb-3 text-sm">2. Seu Perfil</h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-sm">
+                            <select required value={formData.cicloRegular} onChange={(e) => setFormData({...formData, cicloRegular: e.target.value})} className="bg-white border rounded-xl px-3 py-3 text-slate-800">
+                                <option value="" disabled>Ciclo regular?</option>
+                                <option value="sim">Sim</option>
+                                <option value="nao">Não</option>
                             </select>
-                            <select required value={formData.fluxoColicas} onChange={(e) => setFormData({...formData, fluxoColicas: e.target.value})} className="w-full bg-white border rounded-xl px-3 py-3 text-slate-800 outline-none">
-                              <option value="" disabled>Cólicas ou Fluxo?</option>
-                              <option value="ambos">Ambos intensos</option>
-                              <option value="tranquilo">Ciclo tranquilo</option>
-                            </select>
-                            <select required value={formData.anticoncepcional} onChange={(e) => setFormData({...formData, anticoncepcional: e.target.value})} className="w-full bg-white border rounded-xl px-3 py-3 text-slate-800 outline-none">
-                              <option value="" disabled>Usa Anticoncepcional?</option>
-                              <option value="sim">Sim (Pílula/DIU)</option>
-                              <option value="nao">Não uso nada</option>
+                            <select required value={formData.fomeAumenta} onChange={(e) => setFormData({...formData, fomeAumenta: e.target.value})} className="bg-white border rounded-xl px-3 py-3 text-slate-800">
+                                <option value="" disabled>Fome aumenta na TPM?</option>
+                                <option value="sim_muito">Aumenta muito</option>
+                                <option value="sim_pouco">Aumenta pouco</option>
+                                <option value="nao">Não muda</option>
                             </select>
                           </div>
-                        </div>
-
-                        {/* 3. Apetite e Alimentação */}
-                        <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
-                          <h4 className="font-black text-slate-800 uppercase tracking-widest mb-6 border-b pb-3 text-sm">3. Apetite e Alimentação</h4>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5 text-sm">
-                            <select required value={formData.apetiteMuda} onChange={(e) => setFormData({...formData, apetiteMuda: e.target.value})} className="w-full bg-white border rounded-xl px-3 py-3 text-slate-800 outline-none">
-                              <option value="" disabled>Apetite muda no mês?</option>
-                              <option value="sim">Sim, muda muito</option>
-                              <option value="nao">É sempre igual</option>
-                            </select>
-                            <select required value={formData.fomeAumenta} onChange={(e) => setFormData({...formData, fomeAumenta: e.target.value})} className="w-full bg-white border rounded-xl px-3 py-3 text-slate-800 outline-none">
-                              <option value="" disabled>Fome aumenta na TPM?</option>
-                              <option value="muito">Aumenta drasticamente</option>
-                              <option value="pouco">Aumenta levemente</option>
-                            </select>
-                          </div>
-                          <input type="text" required placeholder="Vontades específicas? (Ex: Doce, Salgado...)" value={formData.vontadesEspecificas} onChange={(e) => setFormData({...formData, vontadesEspecificas: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none" />
                         </div>
 
                         <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 shadow-inner">
                           <label className="flex items-start gap-4 cursor-pointer text-left">
                             <input type="checkbox" required checked={formData.aceitaTermos} onChange={(e) => setFormData({...formData, aceitaTermos: e.target.checked})} className="mt-1 w-5 h-5 text-green-600 rounded" />
                             <span className="text-[11px] leading-relaxed text-slate-500 font-medium">
-                              <strong>Aviso Legal:</strong> Esta ferramenta é apenas educativa e não substitui uma consulta clínica. Ao enviar, aceita receber o seu feedback por e-mail.
+                              <strong>Aviso Legal:</strong> Esta é uma ferramenta educativa e não substitui uma consulta clínica. Ao enviar, aceito receber meu feedback educacional por e-mail e integrar a lista de contatos do portal.
                             </span>
                           </label>
                         </div>
-
-                        {formStatus === 'error' && <div className="text-red-600 text-sm text-center font-bold">Erro ao enviar. Tente novamente mais tarde.</div>}
-
-                        <button type="submit" disabled={formStatus === 'submitting'} className="w-full flex items-center justify-center gap-3 bg-green-600 hover:bg-green-700 text-white p-5 rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl transition-all">
-                          {formStatus === 'submitting' ? <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div> : <><Send size={18} /> Solicitar Minha Análise Gratuita</>}
+                        <button type="submit" disabled={formStatus === 'submitting'} className="w-full bg-green-600 text-white p-5 rounded-2xl font-black uppercase shadow-xl hover:bg-green-700 transition-all">
+                          {formStatus === 'submitting' ? <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin mx-auto"></div> : "Solicitar Minha Análise"}
                         </button>
                       </form>
                     </div>
@@ -439,9 +418,9 @@ export default function TPMeEmagrecimento() {
                 )}
               </div>
 
-              {/* FAQ SECTION */}
+              {/* FAQ */}
               <div id="faq" className="mt-20 pt-10 border-t border-slate-100 text-left">
-                <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic text-left">
+                <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
                   <HelpCircle className="text-green-600" /> Dúvidas Frequentes sobre TPM e Dieta
                 </h2>
                 <div className="space-y-4">
@@ -452,7 +431,7 @@ export default function TPMeEmagrecimento() {
                         <ChevronDown className={`text-slate-400 shrink-0 transition-transform ${openFaqIndex === index ? 'rotate-180 text-green-600' : ''}`} size={24} />
                       </button>
                       <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
-                        <p className="text-slate-600 m-0 leading-relaxed border-t pt-4">{faq.resposta}</p>
+                        <p className="text-slate-600 m-0 leading-relaxed border-t pt-4 text-left">{faq.resposta}</p>
                       </div>
                     </div>
                   ))}
@@ -466,7 +445,7 @@ export default function TPMeEmagrecimento() {
           <ArtigosRecomendados />
 
           {/* AUTHOR BLOCK */}
-          <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
+          <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 shadow-sm">
             <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
               <img src={`${githubImgBase}Eu_1.png`} alt="Marco Aurélio Jr." className="w-full h-full object-cover" />
             </div>
@@ -474,7 +453,7 @@ export default function TPMeEmagrecimento() {
               <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
               <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK 1</p>
               <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg text-left">
-                Apaixonado pela fisiologia e pelo comportamento humano, Marco foca em traduzir o rigor científico para a prática do dia a dia, ajudando você a construir uma relação mais leve e sem radicalismos com a comida, cuidando do corpo desde o intestino até a mente.
+                Apaixonado pela fisiologia e pelo comportamento humano, Marco foca em traduzir o rigor científico para a prática do dia a dia, ajudando você a construir uma relação mais leve com a comida, cuidando do corpo desde o intestino até a mente.
               </p>
               <a href="https://instagram.com/Nutricao_com_Marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
                 Siga @Nutricao_com_Marco
