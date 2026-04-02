@@ -5,7 +5,7 @@ import { ChevronRight, Clock, Filter, Tag as TagIcon } from 'lucide-react';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 const postsData = [
-{
+  {
   id: 17, 
   link: "/o-que-sao-probioticos", 
   imgSrc: `${githubImgBase}Blog/Probioticos.jpg`,
@@ -14,6 +14,7 @@ const postsData = [
   desc: "Descubra o que são probióticos e Lactobacillus, para que servem no intestino, seus benefícios para a imunidade e quais as melhores fontes naturais.",
   isNew: true
 },
+
   {
   id: 16, 
   link: "/o-que-sao-prebioticos", 
