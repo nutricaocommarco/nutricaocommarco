@@ -5,6 +5,15 @@ import { ChevronRight, Clock, Filter, Tag as TagIcon } from 'lucide-react';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 const postsData = [
+{
+  id: 17, 
+  link: "/o-que-sao-probioticos", 
+  imgSrc: `${githubImgBase}Blog/Probioticos.jpg`,
+  tag: "Nutrição Clínica",
+  title: "O que são Probióticos? Lactobacillus e Benefícios | Nutrição com Marco",
+  desc: "Descubra o que são probióticos e Lactobacillus, para que servem no intestino, seus benefícios para a imunidade e quais as melhores fontes naturais.",
+  isNew: true
+},
   {
   id: 16, 
   link: "/o-que-sao-prebioticos", 
@@ -12,7 +21,6 @@ const postsData = [
   tag: "Nutrição Clínica",
   title: "O que são Prebióticos? Alimentos, Benefícios e Para Que Servem",
   desc: "Descubra o que são prebióticos, para que servem no seu intestino, quais alimentos são ricos em FOS e inulina, e como eles alimentam sua flora intestinal.",
-  isNew: true
 },
   {
     id: 15, 
