@@ -10,7 +10,7 @@ export const posts = [
   desc: "Descubra o que são probióticos e Lactobacillus, para que servem no intestino, seus benefícios para a imunidade e quais as melhores fontes naturais.",
   data: "2026-03-31",
   dataMod: "2026-04-02"
-}
+},
 
 {
   id: 16, 
