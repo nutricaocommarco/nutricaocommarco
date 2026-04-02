@@ -355,6 +355,9 @@ export default function TPMeEmagrecimento() {
               <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3 text-left">
                 <PlayCircle className="text-green-600"/> Fome Física x Fome Emocional na TPM
               </h2>
+              <p>
+                Não basta saber o que comer; é fundamental entender os gatilhos invisíveis que nos fazem comer. Entenda visualmente a diferença brutal entre estar com fome de verdade e estar sendo engolida pelas emoções em nosso vídeo explicativo.
+              </p>
               <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
                 <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
                   <iframe src="https://www.youtube.com/embed/37sH2NJNjc4" title="Fome Física x Emocional" className="absolute top-0 left-0 w-full h-full" frameBorder="0" allowFullScreen></iframe>
