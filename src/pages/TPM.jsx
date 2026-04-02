@@ -385,23 +385,24 @@ export default function TPMeEmagrecimento() {
 
         <div className="flex-1 text-center md:text-left flex flex-col justify-center">
             <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                Xiaomi Smart Band 9 Pro: <span className="text-green-600">Alta Precisão no seu Bolso (e Pulso)</span>
+                Xiaomi Smart Band 9 Pro: <span className="text-green-600">Sua Central de Medição de Alta Precisão</span>
             </h4>
 
+            {/* SUA IMAGEM ESPECÍFICA AQUI */}
             <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
                 <img 
-                    src="https://images.unsplash.com/photo-1510017803434-a899398421b3?auto=format&fit=crop&q=80&w=400" 
-                    alt="Xiaomi Smart Band 9 Pro" 
+                    src={`${githubImgBase}Afiliado/Band9Pro.JPG`} // Caminho atualizado para sua imagem
+                    alt="Xiaomi Smart Band 9 Pro em detalhe" 
                     className="w-full h-auto object-cover opacity-90" 
                 />
             </div>
 
             <p className="text-slate-600 text-[15px] mb-8 leading-relaxed font-medium">
-                Para um emagrecimento de precisão, não basta estimar: é preciso medir. A <strong>Smart Band 9 Pro</strong> oferece um monitoramento avançado do <strong>ciclo menstrual, qualidade do sono e níveis de estresse</strong> com uma tela ampla e nítida. É a ferramenta ideal para você trazer dados reais para a nossa análise metabólica.
+                Emagrecimento cíclico exige dados precisos. A <strong>Smart Band 9 Pro</strong> oferece monitoramento avançado do <strong>ciclo menstrual, sono e estresse</strong> em uma tela ampla e nítida. Como seu avaliador, recomendo esta ferramenta para você coletar dados reais para a nossa análise metabólica.
             </p>
 
             <a 
-                href="https://meli.la/2eEQ8VF" 
+                href="https://meli.la/2eEQ8VF" // Seu link afiliado
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
