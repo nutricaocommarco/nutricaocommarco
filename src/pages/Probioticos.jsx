@@ -14,8 +14,8 @@ import ArtigosRecomendados from '../components/ArtigosRecomendados';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 // Variáveis de data centralizadas para SEO
-const datePublishedISO = "2026-04-15";
-const dateModifiedISO = "2026-04-15";
+const datePublishedISO = "2026-03-31";
+const dateModifiedISO = "2026-04-02";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Caminho oficial da imagem de capa
