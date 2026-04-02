@@ -24,6 +24,8 @@ export default function TPMeEmagrecimento() {
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
+  // Estados do Formulário e Visibilidade
+  const [isFormOpen, setIsFormOpen] = useState(false); // NOVO ESTADO: Controla se o form está visível
   const [formStatus, setFormStatus] = useState('idle'); 
   const [formData, setFormData] = useState({
     nome: '',
@@ -449,242 +451,270 @@ export default function TPMeEmagrecimento() {
               </p>
 
 
-              {/* FORMULÁRIO DE CAPTAÇÃO / TRIAGEM DETALHADA */}
-              <div id="avaliacao" className="mt-20 p-8 md:p-12 bg-white rounded-[3rem] border border-green-100 shadow-2xl relative overflow-hidden">
+              {/* FORMULÁRIO DE CAPTAÇÃO / TRIAGEM DETALHADA - RETRÁTIL */}
+              <div id="avaliacao" className="mt-20 p-8 md:p-12 bg-white rounded-[3rem] border border-green-100 shadow-2xl relative overflow-hidden transition-all duration-500">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-green-50 rounded-full blur-3xl opacity-50 -mr-20 -mt-20 pointer-events-none"></div>
                 <div className="absolute bottom-0 left-0 w-40 h-40 bg-green-100 rounded-full blur-2xl opacity-40 -ml-10 -mb-10 pointer-events-none"></div>
 
-                <div className="relative z-10 text-center mb-10">
+                <div className="relative z-10 text-center mb-8">
                   <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm rotate-3">
                     <ClipboardList size={32} className="text-green-600" />
                   </div>
                   <h3 className="text-2xl md:text-3xl font-black text-slate-900 uppercase italic leading-tight mb-4">
                     Análise de Perfil Gratuita: Você e a TPM
                   </h3>
-                  <p className="text-slate-600 font-medium max-w-xl mx-auto">
+                  <p className="text-slate-600 font-medium max-w-xl mx-auto mb-6">
                     Responda o questionário rápido abaixo. Eu vou analisar as suas respostas e te enviar um <strong>feedback educacional gratuito</strong> com os primeiros passos para você lidar melhor com a sua TPM e o seu metabolismo.
                   </p>
                 </div>
 
                 {formStatus === 'success' ? (
-                  <div className="bg-green-50 rounded-3xl p-8 text-center border border-green-100 transform transition-all animate-fade-in">
+                  <div className="relative z-10 bg-green-50 rounded-3xl p-8 text-center border border-green-100 transform transition-all animate-fade-in">
                     <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-200">
                       <CheckCircle size={40} className="text-white" />
                     </div>
                     <h4 className="text-2xl font-black text-green-900 italic uppercase mb-2">Questionário Recebido!</h4>
                     <p className="text-green-700 font-medium mb-6">Suas respostas foram registradas. Em breve, enviaremos um feedback educacional personalizado para o seu e-mail!</p>
                     <button 
-                      onClick={() => setFormStatus('idle')}
+                      onClick={() => { setFormStatus('idle'); setIsFormOpen(false); }}
                       className="text-sm font-bold text-green-600 hover:text-green-800 uppercase tracking-widest underline underline-offset-4"
                     >
                       Enviar nova análise
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleFormSubmit} className="space-y-8 max-w-3xl mx-auto relative z-10">
+                  <div className="relative z-10 flex flex-col items-center">
                     
-                    {/* 1. SEU PERFIL */}
-                    <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
-                      <h4 className="flex items-center gap-3 font-black text-slate-800 uppercase tracking-widest mb-6 border-b border-slate-200 pb-3">
-                        <FileText size={20} className="text-green-600"/> 1. Contato Básico
-                      </h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div>
-                          <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Seu Nome</label>
-                          <input type="text" required value={formData.nome} onChange={(e) => setFormData({...formData, nome: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm" placeholder="Como gostaria de ser chamada?" />
-                        </div>
-                        <div>
-                          <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Seu Melhor E-mail</label>
-                          <input type="email" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm" placeholder="seu.email@exemplo.com" />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* 2. CICLO MENSTRUAL */}
-                    <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
-                      <h4 className="flex items-center gap-3 font-black text-slate-800 uppercase tracking-widest mb-6 border-b border-slate-200 pb-3">
-                        <Calendar size={20} className="text-green-600"/> 2. Ciclo Menstrual
-                      </h4>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                        <div>
-                          <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">Seu ciclo é regular?</label>
-                          <select required value={formData.cicloRegular} onChange={(e) => setFormData({...formData, cicloRegular: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
-                            <option value="" disabled>Selecione...</option>
-                            <option value="sim">Sim, muito regular</option>
-                            <option value="nao">Não, é irregular</option>
-                            <option value="varia">Varia de vez em quando</option>
-                          </select>
-                        </div>
-                        <div>
-                          <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">Fluxo ou Cólicas?</label>
-                          <select required value={formData.fluxoColicas} onChange={(e) => setFormData({...formData, fluxoColicas: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
-                            <option value="" disabled>Selecione...</option>
-                            <option value="ambos">Fluxo intenso e cólicas fortes</option>
-                            <option value="so_fluxo">Apenas fluxo intenso</option>
-                            <option value="so_colica">Apenas cólicas fortes</option>
-                            <option value="tranquilo">Ciclo super tranquilo</option>
-                          </select>
-                        </div>
-                        <div>
-                          <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">Usa Anticoncepcional?</label>
-                          <select required value={formData.anticoncepcional} onChange={(e) => setFormData({...formData, anticoncepcional: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
-                            <option value="" disabled>Selecione...</option>
-                            <option value="pilula">Sim (Pílula)</option>
-                            <option value="diu_hormonal">Sim (DIU hormonal/Mirena)</option>
-                            <option value="injecao_implante">Sim (Injeção/Implante)</option>
-                            <option value="diu_cobre">Não (Uso DIU de Cobre/Prata)</option>
-                            <option value="nao">Não uso nada</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* 3. APETITE & ALIMENTAÇÃO */}
-                    <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
-                      <h4 className="flex items-center gap-3 font-black text-slate-800 uppercase tracking-widest mb-6 border-b border-slate-200 pb-3">
-                        <Apple size={20} className="text-green-600"/> 3. Apetite & Alimentação
-                      </h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
-                        <div>
-                          <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">O apetite muda no mês?</label>
-                          <select required value={formData.apetiteMuda} onChange={(e) => setFormData({...formData, apetiteMuda: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
-                            <option value="" disabled>Selecione...</option>
-                            <option value="sim_muito">Muda completamente</option>
-                            <option value="sim_pouco">Muda um pouco</option>
-                            <option value="nao_muda">É sempre igual</option>
-                          </select>
-                        </div>
-                        <div>
-                          <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">A fome aumenta ou diminui?</label>
-                          <select required value={formData.fomeAumenta} onChange={(e) => setFormData({...formData, fomeAumenta: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
-                            <option value="" disabled>Selecione...</option>
-                            <option value="aumenta_tpm">Aumenta MUITO na TPM</option>
-                            <option value="aumenta_menstruacao">Aumenta durante a menstruação</option>
-                            <option value="diminui">Costumo perder a fome</option>
-                            <option value="constante">Não percebo oscilação</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div>
-                        <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">Tem vontades específicas em algum período?</label>
-                        <input type="text" required value={formData.vontadesEspecificas} onChange={(e) => setFormData({...formData, vontadesEspecificas: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm" placeholder="Ex: Doce, salgado, chocolate, fast food na TPM..." />
-                      </div>
-                    </div>
-
-                    {/* 4. ENERGIA & HUMOR */}
-                    <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
-                      <h4 className="flex items-center gap-3 font-black text-slate-800 uppercase tracking-widest mb-6 border-b border-slate-200 pb-3">
-                        <Heart size={20} className="text-green-600"/> 4. Energia & Humor
-                      </h4>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                        <div>
-                          <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">Como é a disposição?</label>
-                          <select required value={formData.disposicaoMensal} onChange={(e) => setFormData({...formData, disposicaoMensal: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
-                            <option value="" disabled>Selecione...</option>
-                            <option value="cai_tpm">Despenca na TPM</option>
-                            <option value="cai_menstruacao">Cai durante a menstruação</option>
-                            <option value="alta">Sempre com energia</option>
-                            <option value="baixa">Sempre cansada</option>
-                          </select>
-                        </div>
-                        <div>
-                          <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">O humor muda na TPM?</label>
-                          <select required value={formData.mudancaHumor} onChange={(e) => setFormData({...formData, mudancaHumor: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
-                            <option value="" disabled>Selecione...</option>
-                            <option value="irritada">Fico muito irritada/estressada</option>
-                            <option value="triste">Fico mais triste/chorosa</option>
-                            <option value="ansiosa">Fico muito ansiosa</option>
-                            <option value="nao">Não percebo mudança</option>
-                          </select>
-                        </div>
-                        <div>
-                          <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">O sono piora em alguma fase?</label>
-                          <select required value={formData.sonoPiora} onChange={(e) => setFormData({...formData, sonoPiora: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
-                            <option value="" disabled>Selecione...</option>
-                            <option value="tpm">Sim, piora na TPM</option>
-                            <option value="menstruacao">Sim, piora na menstruação</option>
-                            <option value="nao">Durmo bem sempre</option>
-                            <option value="insonia">Tenho insônia frequentemente</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* 5. PESO & COMPOSIÇÃO */}
-                    <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
-                      <h4 className="flex items-center gap-3 font-black text-slate-800 uppercase tracking-widest mb-6 border-b border-slate-200 pb-3">
-                        <Activity size={20} className="text-green-600"/> 5. Peso & Composição
-                      </h4>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                        <div>
-                          <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">O peso flutua no mês?</label>
-                          <select required value={formData.pesoFlutua} onChange={(e) => setFormData({...formData, pesoFlutua: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
-                            <option value="" disabled>Selecione...</option>
-                            <option value="ate2">Sim, flutua até 2kg</option>
-                            <option value="mais2">Sim, flutua mais de 2kg</option>
-                            <option value="nao_flutua">Quase não flutua</option>
-                            <option value="nao_se_pesa">Não costumo me pesar</option>
-                          </select>
-                        </div>
-                        <div>
-                          <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">Tem muito Inchaço?</label>
-                          <select required value={formData.inchacoRetencao} onChange={(e) => setFormData({...formData, inchacoRetencao: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
-                            <option value="" disabled>Selecione...</option>
-                            <option value="pernas_barriga">Sim, retenho nas pernas/barriga</option>
-                            <option value="mamas">Sim, inchaço/dor nas mamas</option>
-                            <option value="pouco">Tenho muito pouco inchaço</option>
-                            <option value="nenhum">Não sinto inchaço nenhum</option>
-                          </select>
-                        </div>
-                        <div>
-                          <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">Pratica exercício?</label>
-                          <select required value={formData.praticaExercicio} onChange={(e) => setFormData({...formData, praticaExercicio: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
-                            <option value="" disabled>Selecione...</option>
-                            <option value="musculacao">Sim, musculação regular</option>
-                            <option value="cardio">Sim, cardio/aeróbico</option>
-                            <option value="as_vezes">Treino de vez em quando</option>
-                            <option value="sedentaria">Não treino no momento</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 shadow-inner">
-                      <label className="flex items-start gap-4 cursor-pointer">
-                        <input 
-                          type="checkbox" 
-                          required
-                          checked={formData.aceitaTermos}
-                          onChange={(e) => setFormData({...formData, aceitaTermos: e.target.checked})}
-                          className="mt-1 w-5 h-5 text-green-600 rounded border-slate-300 focus:ring-green-500"
-                        />
-                        <span className="text-[11px] leading-relaxed text-slate-500 font-medium">
-                          <strong>Aviso Legal de Triagem:</strong> Declaro estar ciente de que esta é uma ferramenta de <strong>Educação Nutricional e Triagem de Perfil</strong>. Este formulário não substitui, em hipótese alguma, uma consulta clínica ou diagnóstico médico/nutricional, e não oferece prescrição de dietas. Ao enviar, aceito receber meu feedback educacional por e-mail e integrar a lista de contatos do portal.
-                        </span>
-                      </label>
-                    </div>
-
-                    {formStatus === 'error' && (
-                      <div className="text-red-600 text-sm text-center font-bold bg-red-50 p-3 rounded-xl border border-red-200">
-                        Ocorreu um erro ao enviar. Por favor, verifique sua conexão ou tente novamente mais tarde.
-                      </div>
+                    {/* BOTÃO PARA ABRIR O FORMULÁRIO */}
+                    {!isFormOpen && (
+                      <button 
+                        onClick={() => setIsFormOpen(true)}
+                        className="inline-flex items-center justify-center gap-3 bg-green-600 hover:bg-green-700 text-white px-8 py-5 rounded-full font-black uppercase tracking-widest text-sm shadow-xl hover:shadow-green-500/30 hover:-translate-y-1 transition-all duration-300"
+                      >
+                        <ClipboardList size={20} />
+                        Iniciar Análise Gratuita
+                      </button>
                     )}
 
-                    <button 
-                      type="submit" 
-                      disabled={formStatus === 'submitting'}
-                      className="w-full flex items-center justify-center gap-3 bg-green-600 hover:bg-green-700 text-white p-5 rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl hover:shadow-green-500/30 hover:-translate-y-1 transition-all duration-300 disabled:opacity-70 disabled:hover:transform-none"
-                    >
-                      {formStatus === 'submitting' ? (
-                        <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                      ) : (
-                        <>
-                          <Send size={18} />
-                          Enviar Questionário e Receber Feedback
-                        </>
+                    {/* CONTAINER DO FORMULÁRIO (RETRÁTIL) */}
+                    <div className={`w-full transition-all duration-700 ease-in-out overflow-hidden ${isFormOpen ? 'max-h-[3000px] opacity-100 mt-6' : 'max-h-0 opacity-0 mt-0'}`}>
+                      
+                      {isFormOpen && (
+                        <div className="flex justify-end mb-6">
+                          <button 
+                            onClick={() => setIsFormOpen(false)}
+                            className="flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-red-500 uppercase tracking-widest transition-colors bg-white px-4 py-2 rounded-full border border-slate-200 shadow-sm"
+                          >
+                            <XCircle size={16} /> Ocultar Questionário
+                          </button>
+                        </div>
                       )}
-                    </button>
-                  </form>
+
+                      <form onSubmit={handleFormSubmit} className="space-y-8 max-w-3xl mx-auto">
+                        {/* 1. SEU PERFIL */}
+                        <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
+                          <h4 className="flex items-center gap-3 font-black text-slate-800 uppercase tracking-widest mb-6 border-b border-slate-200 pb-3">
+                            <FileText size={20} className="text-green-600"/> 1. Contato Básico
+                          </h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Seu Nome</label>
+                              <input type="text" required value={formData.nome} onChange={(e) => setFormData({...formData, nome: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm" placeholder="Como gostaria de ser chamada?" />
+                            </div>
+                            <div>
+                              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Seu Melhor E-mail</label>
+                              <input type="email" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm" placeholder="seu.email@exemplo.com" />
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* 2. CICLO MENSTRUAL */}
+                        <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
+                          <h4 className="flex items-center gap-3 font-black text-slate-800 uppercase tracking-widest mb-6 border-b border-slate-200 pb-3">
+                            <Calendar size={20} className="text-green-600"/> 2. Ciclo Menstrual
+                          </h4>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                            <div>
+                              <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">Seu ciclo é regular?</label>
+                              <select required value={formData.cicloRegular} onChange={(e) => setFormData({...formData, cicloRegular: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
+                                <option value="" disabled>Selecione...</option>
+                                <option value="sim">Sim, muito regular</option>
+                                <option value="nao">Não, é irregular</option>
+                                <option value="varia">Varia de vez em quando</option>
+                              </select>
+                            </div>
+                            <div>
+                              <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">Fluxo ou Cólicas?</label>
+                              <select required value={formData.fluxoColicas} onChange={(e) => setFormData({...formData, fluxoColicas: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
+                                <option value="" disabled>Selecione...</option>
+                                <option value="ambos">Fluxo intenso e cólicas fortes</option>
+                                <option value="so_fluxo">Apenas fluxo intenso</option>
+                                <option value="so_colica">Apenas cólicas fortes</option>
+                                <option value="tranquilo">Ciclo super tranquilo</option>
+                              </select>
+                            </div>
+                            <div>
+                              <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">Usa Anticoncepcional?</label>
+                              <select required value={formData.anticoncepcional} onChange={(e) => setFormData({...formData, anticoncepcional: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
+                                <option value="" disabled>Selecione...</option>
+                                <option value="pilula">Sim (Pílula)</option>
+                                <option value="diu_hormonal">Sim (DIU hormonal/Mirena)</option>
+                                <option value="injecao_implante">Sim (Injeção/Implante)</option>
+                                <option value="diu_cobre">Não (Uso DIU de Cobre/Prata)</option>
+                                <option value="nao">Não uso nada</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* 3. APETITE & ALIMENTAÇÃO */}
+                        <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
+                          <h4 className="flex items-center gap-3 font-black text-slate-800 uppercase tracking-widest mb-6 border-b border-slate-200 pb-3">
+                            <Apple size={20} className="text-green-600"/> 3. Apetite & Alimentação
+                          </h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                            <div>
+                              <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">O apetite muda no mês?</label>
+                              <select required value={formData.apetiteMuda} onChange={(e) => setFormData({...formData, apetiteMuda: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
+                                <option value="" disabled>Selecione...</option>
+                                <option value="sim_muito">Muda completamente</option>
+                                <option value="sim_pouco">Muda um pouco</option>
+                                <option value="nao_muda">É sempre igual</option>
+                              </select>
+                            </div>
+                            <div>
+                              <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">A fome aumenta ou diminui?</label>
+                              <select required value={formData.fomeAumenta} onChange={(e) => setFormData({...formData, fomeAumenta: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
+                                <option value="" disabled>Selecione...</option>
+                                <option value="aumenta_tpm">Aumenta MUITO na TPM</option>
+                                <option value="aumenta_menstruacao">Aumenta durante a menstruação</option>
+                                <option value="diminui">Costumo perder a fome</option>
+                                <option value="constante">Não percebo oscilação</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div>
+                            <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">Tem vontades específicas em algum período?</label>
+                            <input type="text" required value={formData.vontadesEspecificas} onChange={(e) => setFormData({...formData, vontadesEspecificas: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm" placeholder="Ex: Doce, salgado, chocolate, fast food na TPM..." />
+                          </div>
+                        </div>
+
+                        {/* 4. ENERGIA & HUMOR */}
+                        <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
+                          <h4 className="flex items-center gap-3 font-black text-slate-800 uppercase tracking-widest mb-6 border-b border-slate-200 pb-3">
+                            <Heart size={20} className="text-green-600"/> 4. Energia & Humor
+                          </h4>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                            <div>
+                              <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">Como é a disposição?</label>
+                              <select required value={formData.disposicaoMensal} onChange={(e) => setFormData({...formData, disposicaoMensal: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
+                                <option value="" disabled>Selecione...</option>
+                                <option value="cai_tpm">Despenca na TPM</option>
+                                <option value="cai_menstruacao">Cai durante a menstruação</option>
+                                <option value="alta">Sempre com energia</option>
+                                <option value="baixa">Sempre cansada</option>
+                              </select>
+                            </div>
+                            <div>
+                              <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">O humor muda na TPM?</label>
+                              <select required value={formData.mudancaHumor} onChange={(e) => setFormData({...formData, mudancaHumor: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
+                                <option value="" disabled>Selecione...</option>
+                                <option value="irritada">Fico muito irritada/estressada</option>
+                                <option value="triste">Fico mais triste/chorosa</option>
+                                <option value="ansiosa">Fico muito ansiosa</option>
+                                <option value="nao">Não percebo mudança</option>
+                              </select>
+                            </div>
+                            <div>
+                              <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">O sono piora em alguma fase?</label>
+                              <select required value={formData.sonoPiora} onChange={(e) => setFormData({...formData, sonoPiora: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
+                                <option value="" disabled>Selecione...</option>
+                                <option value="tpm">Sim, piora na TPM</option>
+                                <option value="menstruacao">Sim, piora na menstruação</option>
+                                <option value="nao">Durmo bem sempre</option>
+                                <option value="insonia">Tenho insônia frequentemente</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* 5. PESO & COMPOSIÇÃO */}
+                        <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
+                          <h4 className="flex items-center gap-3 font-black text-slate-800 uppercase tracking-widest mb-6 border-b border-slate-200 pb-3">
+                            <Activity size={20} className="text-green-600"/> 5. Peso & Composição
+                          </h4>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                            <div>
+                              <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">O peso flutua no mês?</label>
+                              <select required value={formData.pesoFlutua} onChange={(e) => setFormData({...formData, pesoFlutua: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
+                                <option value="" disabled>Selecione...</option>
+                                <option value="ate2">Sim, flutua até 2kg</option>
+                                <option value="mais2">Sim, flutua mais de 2kg</option>
+                                <option value="nao_flutua">Quase não flutua</option>
+                                <option value="nao_se_pesa">Não costumo me pesar</option>
+                              </select>
+                            </div>
+                            <div>
+                              <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">Tem muito Inchaço?</label>
+                              <select required value={formData.inchacoRetencao} onChange={(e) => setFormData({...formData, inchacoRetencao: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
+                                <option value="" disabled>Selecione...</option>
+                                <option value="pernas_barriga">Sim, retenho nas pernas/barriga</option>
+                                <option value="mamas">Sim, inchaço/dor nas mamas</option>
+                                <option value="pouco">Tenho muito pouco inchaço</option>
+                                <option value="nenhum">Não sinto inchaço nenhum</option>
+                              </select>
+                            </div>
+                            <div>
+                              <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">Pratica exercício?</label>
+                              <select required value={formData.praticaExercicio} onChange={(e) => setFormData({...formData, praticaExercicio: e.target.value})} className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 focus:ring-2 focus:ring-green-500 outline-none text-slate-800 text-sm">
+                                <option value="" disabled>Selecione...</option>
+                                <option value="musculacao">Sim, musculação regular</option>
+                                <option value="cardio">Sim, cardio/aeróbico</option>
+                                <option value="as_vezes">Treino de vez em quando</option>
+                                <option value="sedentaria">Não treino no momento</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 shadow-inner">
+                          <label className="flex items-start gap-4 cursor-pointer">
+                            <input 
+                              type="checkbox" 
+                              required
+                              checked={formData.aceitaTermos}
+                              onChange={(e) => setFormData({...formData, aceitaTermos: e.target.checked})}
+                              className="mt-1 w-5 h-5 text-green-600 rounded border-slate-300 focus:ring-green-500"
+                            />
+                            <span className="text-[11px] leading-relaxed text-slate-500 font-medium">
+                              <strong>Aviso Legal de Triagem:</strong> Declaro estar ciente de que esta é uma ferramenta de <strong>Educação Nutricional e Triagem de Perfil</strong>. Este formulário não substitui, em hipótese alguma, uma consulta clínica ou diagnóstico médico/nutricional, e não oferece prescrição de dietas. Ao enviar, aceito receber meu feedback educacional por e-mail e integrar a lista de contatos do portal.
+                            </span>
+                          </label>
+                        </div>
+
+                        {formStatus === 'error' && (
+                          <div className="text-red-600 text-sm text-center font-bold bg-red-50 p-3 rounded-xl border border-red-200">
+                            Ocorreu um erro ao enviar. Por favor, verifique sua conexão ou tente novamente mais tarde.
+                          </div>
+                        )}
+
+                        <button 
+                          type="submit" 
+                          disabled={formStatus === 'submitting'}
+                          className="w-full flex items-center justify-center gap-3 bg-green-600 hover:bg-green-700 text-white p-5 rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl hover:shadow-green-500/30 hover:-translate-y-1 transition-all duration-300 disabled:opacity-70 disabled:hover:transform-none"
+                        >
+                          {formStatus === 'submitting' ? (
+                            <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                          ) : (
+                            <>
+                              <Send size={18} />
+                              Enviar Questionário e Receber Feedback
+                            </>
+                          )}
+                        </button>
+                      </form>
+                    </div>
+                  </div>
                 )}
               </div>
 
