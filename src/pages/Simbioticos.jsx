@@ -14,7 +14,7 @@ import Newsletter from '../components/Newsletter';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 const datePublishedISO = "2026-03-28";
-const dateModifiedISO = "2026-03-28";
+const dateModifiedISO = "2026-04-03";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 const simbioticosCapa = `${githubImgBase}Blog/Simbioticos.jpg`;
