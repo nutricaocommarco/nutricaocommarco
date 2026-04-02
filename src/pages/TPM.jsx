@@ -32,14 +32,14 @@ export default function TPMeEmagrecimento() {
     apetiteMuda: '', fomeAumenta: '', vontadesEspecificas: '',
     disposicaoMensal: '', mudancaHumor: '', sonoPiora: '',
     pesoFlutua: '', praticaExercicio: '', inchacoRetencao: '',
-    aceitaTermos: false
+    aceitaTermos: false, promptInstrucoes: "Interprete os dados acima para o blog 'Nutrição com Marco'. Escreva um e-mail empático e científico para a paciente. Diretrizes: 1. Use autoridade de avaliador ISAK 1 e estudante de nutrição. 2. Mencione o pinguim Pingus. 3. Não prescreva dieta ou suplementos. 4. Explique a fisiologia do inchaço, sono e apetite na TPM. 5. Seja acolhedor e sugira o acompanhamento do ciclo (Xiaomi Band 9 Pro)."
   });
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const handleFormSubmit = async (e) => {
+const handleFormSubmit = async (e) => {
     e.preventDefault();
     setFormStatus('submitting');
     try {
@@ -50,6 +50,14 @@ export default function TPMeEmagrecimento() {
       });
       if (response.ok) {
         setFormStatus('success');
+        // 👇 AQUI: Limpamos as respostas da usuária, mas MANTEMOS o prompt intocado
+        setFormData({
+          nome: '', email: '', cicloRegular: '', fluxoColicas: '', anticoncepcional: '',
+          apetiteMuda: '', fomeAumenta: '', vontadesEspecificas: '',
+          disposicaoMensal: '', mudancaHumor: '', sonoPiora: '',
+          pesoFlutua: '', praticaExercicio: '', inchacoRetencao: '', aceitaTermos: false,
+          promptInstrucoes: "Interprete os dados acima para o blog 'Nutrição com Marco'. Escreva um e-mail empático e científico para a paciente. Diretrizes: 1. Use autoridade de avaliador ISAK 1 e estudante de nutrição. 2. Mencione o pinguim Pingus. 3. Não prescreva dieta ou suplementos. 4. Explique a fisiologia do inchaço, sono e apetite na TPM. 5. Seja acolhedor e sugira o acompanhamento do ciclo (Xiaomi Band 9 Pro)."
+        });
       } else {
         setFormStatus('error');
       }
