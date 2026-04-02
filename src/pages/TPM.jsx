@@ -276,9 +276,23 @@ export default function TPMeEmagrecimento() {
                 <AlertCircle className="text-green-600"/> Vontade de Doce na TPM: Biologia ou Hábito?
               </h2>
               <p>
-                O aumento da fome na fase lútea é real e biológico. Contudo, o direcionamento dessa fome exclusivamente para o chocolate é cultural. O estudo <em>Does culture create craving?</em> mostra que grande parte desse desejo é aprendida. Aprender a diferenciar a necessidade física da <Link to="/o-que-e-fome-emocional" className="text-green-600 font-bold hover:underline">fome emocional</Link> é libertador.
+                Chegamos ao grande vilão do emagrecimento feminino: a fissura por açúcar nos dias que antecedem a menstruação. Se você sente que perde completamente o controle da sua vontade, saiba que essa batalha tem dois lados muito distintos. Como vimos, o aumento da fome é <strong>absolutamente biológico</strong>. O seu corpo está sendo banhado por progesterona e isso ativa o seu cérebro para buscar mais substrato energético. Contudo, a escolha do que você quer comer é uma história bem diferente.
+              </p>
+              <p>
+                Estudiosos comportamentais investigaram a fundo o famoso "craving" menstrual (o desejo incontrolável) e chegaram a uma conclusão fascinante. A resposta biológica é a fome pura, mas o direcionamento exclusivo dessa fome para o <strong>chocolate</strong> ou doces ultraprocessados é uma construção social. 
               </p>
 
+              <p className="bg-slate-50 p-6 rounded-3xl border border-slate-200 text-slate-700 italic font-medium shadow-inner relative">
+                <span className="absolute -left-3 -top-3 bg-green-500 text-white w-8 h-8 flex items-center justify-center rounded-full font-serif text-2xl">"</span>
+                "Pesquisas indicam que uma parte significativa do desejo pré-menstrual por chocolate é aprendida e amplamente influenciada pela nossa cultura, e não puramente uma necessidade biológica do organismo."
+                <span className="block mt-4 text-sm font-bold text-green-700 not-italic uppercase tracking-wider">
+                  — <a href="https://pubmed.ncbi.nlm.nih.gov/28723930/" target="_blank" rel="noopener noreferrer" className="hover:underline">Hormes et al., 2017 (Does culture create craving?)</a>
+                </span>
+              </p>
+
+              <p>
+                Em resumo, o seu corpo grita por energia e acolhimento, e a sua mente, que foi treinada pela cultura e pelo marketing ao longo de anos, traduz instantaneamente esse grito em "preciso de uma barra inteira de chocolate para me acalmar". Entender essa diferença é libertador.
+              </p>
               <h2 id="o-que-comer" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Leaf className="text-green-600"/> Estratégias Práticas: O Que Colocar no Prato
               </h2>
