@@ -217,6 +217,10 @@ const handleFormSubmit = async (e) => {
 
             <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
+              <p className="text-xl text-slate-700 font-medium leading-relaxed mb-4">
+                Se você já sentiu que a sua dieta parece parar de funcionar misteriosamente em algumas semanas do mês, saiba que o problema não é a sua força de vontade. A grande verdade é que a imensa maioria dos planos alimentares tradicionais ignora um dos fatores mais determinantes na fisiologia da mulher: a flutuação hormonal ao longo do ciclo menstrual. Entender como o seu corpo metaboliza energia, lida com o apetite e estoca líquidos durante a Tensão Pré-Menstrual (TPM) é o verdadeiro segredo para parar de lutar contra a própria biologia e alcançar um emagrecimento sustentável, inteligente e sem sofrimento.
+              </p>
+
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative text-center">
                 <img 
                   src={tpmCapa} 
