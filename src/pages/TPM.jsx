@@ -246,15 +246,15 @@ export default function TPMeEmagrecimento() {
               </blockquote>
 
               <p>
-                Para entender a gangorra da fome, precisamos olhar para as <strong>fases do ciclo ovariano</strong>:
-                Na fase Folicular, os níveis de estrogênio começam a subir, o que segura a fome pela via POMC. Contudo, após a ovulação e a subida da progesterona na fase lútea, o cenário inverte: o estrogênio cai e a progesterona assume o controle, disparando sinais orexígenos que aumentam significativamente a fome. É nessa janela que a mulher enfrenta a retenção hídrica e a queda de humor. Se você tem dúvidas sobre o peso nessas datas, vale entender se <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 font-bold hover:underline">a balança de bioimpedância é confiável</Link> nesse período de inchaço.
+                Para entender a gangorra da fome e do peso, precisamos olhar para as <strong>fases do ciclo ovariano</strong>:
+                Na fase Folicular (pós-menstruação), os níveis de estrogênio começam a subir. Esse hormônio é um excelente aliado, pois ajuda a segurar a fome e aumenta a nossa disposição. Contudo, assim que a ovulação acontece e entramos na fase Secretora, o cenário inverte: o estrogênio cai e a progesterona assume o controle. Esse aumento expressivo de progesterona dispara um forte sinal de alerta no cérebro, ativando gatilhos que aumentam significativamente a percepção de fome. É exatamente nessa janela, e logo depois com a queda brusca de ambos na TPM, que a mulher enfrenta a retenção hídrica, a alteração de humor e o pico absoluto de apetite.
               </p>
 
               <h2 id="mitos-verdades" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Shield className="text-green-600"/> Mitos e Verdades: Ciclo Menstrual e Nutrição
+                <Shield className="text-green-600"/> Mitos e Verdades: O Ciclo Menstrual na Nutrição
               </h2>
               <p>
-                A literatura científica, como o estudo <em>Sex differences and considerations for male specific nutritional strategies</em>, mostra que embora o metabolismo feminino se ajuste durante o ciclo, mudar radicalmente a dieta em cada fase não traz resultados obrigatoriamente superiores. O segredo continua sendo a constância.
+                Diante de tamanha complexidade hormonal, a internet foi inundada por protocolos rigorosos que prometem o corpo perfeito se você comer "exatamente o macronutriente X na fase Y". No entanto, a literatura científica baseada em evidências é muito mais pé no chão. Estudos robustos analisando as diferenças sexuais nas estratégias nutricionais demonstraram que, embora o corpo feminino realmente passe por flutuações na forma de gastar energia e saibamos que as <a href="https://pubmed.ncbi.nlm.nih.gov/2179207/" target="_blank" rel="noopener noreferrer" className="text-green-600 font-bold hover:underline">mulheres utilizam substratos de energia de forma diferente dos homens durante o exercício</a>, <strong>não é obrigatório nem altamente vantajoso</strong> mudar toda a estrutura da sua dieta a cada nova fase da lua para conseguir emagrecer.
               </p>
 
               <div className="my-10 bg-white rounded-[2rem] border border-green-200 shadow-xl overflow-hidden">
