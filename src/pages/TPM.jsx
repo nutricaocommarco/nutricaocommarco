@@ -14,8 +14,8 @@ import ArtigosRecomendados from '../components/ArtigosRecomendados';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
-const datePublishedISO = "2026-05-15";
-const dateModifiedISO = "2026-05-15";
+const datePublishedISO = "2026-04-02";
+const dateModifiedISO = "2026-04-02";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 const tpmCapa = `${githubImgBase}Blog/TPM.jpg`;
 
