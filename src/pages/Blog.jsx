@@ -10,7 +10,7 @@ const postsData = [
   link: "/o-que-sao-probioticos", 
   imgSrc: `${githubImgBase}Blog/Probioticos.jpg`,
   tag: "Nutrição Clínica",
-  title: "O que são Probióticos? Lactobacillus e Benefícios | Nutrição com Marco",
+  title: "O que são Probióticos? Lactobacillus e Benefícios",
   desc: "Descubra o que são probióticos e Lactobacillus, para que servem no intestino, seus benefícios para a imunidade e quais as melhores fontes naturais.",
   isNew: true
 },
