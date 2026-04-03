@@ -1,6 +1,16 @@
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 export const posts = [
+  {
+  id: 18,
+  link: "/o-que-sao-simbioticos", 
+  img: `${githubImgBase}Blog/Simbioticos.jpg`,
+  tag: "Nutrição Clínica",
+  titulo: "O que são Simbióticos? A Sinergia Intestinal | Nutrição com Marco",
+  desc: "Descubra o que são os alimentos simbióticos, como a união de prebióticos e probióticos transforma a sua flora e as melhores combinações.",
+  data: "2026-03-28",
+  dataMod: "2026-04-03"
+},
 {
   id: 17,
   link: "/o-que-sao-probioticos", 
