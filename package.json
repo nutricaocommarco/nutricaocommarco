@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "node gerar-rss.js && vite build",
-    "postbuild": "react-snap",
+    "postbuild": "node prerender.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -25,21 +25,6 @@
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.27",
     "tailwindcss": "^3.3.3",
-    "vite": "^4.4.5",
-    "react-snap": "^1.23.0"
-  },
-  "reactSnap": {
-    "source": "dist",
-    "include": [
-      "/",
-      "/sobre",
-      "/planos",
-      "/blog",
-      "/tirzepatida-para-que-serve"
-    ],
-    "puppeteerArgs": [
-      "--no-sandbox",
-      "--disable-setuid-sandbox"
-    ]
+    "vite": "^4.4.5"
   }
 }
