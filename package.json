@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "node gerar-rss.js && vite build",
-    "postbuild": "node prerender.mjs",
+    "postbuild": "react-snap",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -18,7 +18,7 @@
     "react-router-dom": "^6.22.0",
     "react-helmet-async": "^2.0.4"
   },
-"devDependencies": {
+  "devDependencies": {
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
@@ -26,6 +26,19 @@
     "postcss": "^8.4.27",
     "tailwindcss": "^3.3.3",
     "vite": "^4.4.5",
-  "react-snap": "^1.23.0"
+    "react-snap": "^1.23.0"
+  },
+  "reactSnap": {
+    "include": [
+      "/",
+      "/sobre",
+      "/planos",
+      "/blog",
+      "/tirzepatida-para-que-serve"
+    ],
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   }
 }
