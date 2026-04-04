@@ -28,7 +28,8 @@
     "vite": "^4.4.5",
     "react-snap": "^1.23.0"
   },
-  "reactSnap": {
+    "reactSnap": {
+    "source": "dist",
     "include": [
       "/",
       "/sobre",
@@ -41,4 +42,3 @@
       "--disable-setuid-sandbox"
     ]
   }
-}
