@@ -300,7 +300,7 @@ export default function CalculadoraGastoCalorico() {
                 </div>
               </section>
 
-              {/* ETAPA 3: FATOR DE ATIVIDADE (NOVA LÓGICA) */}
+              {/* ETAPA 3: FATOR DE ATIVIDADE */}
               <section>
                 <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
                   <HeartPulse className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 3. Rotina e Movimento (Nível de Atividade)
@@ -368,9 +368,10 @@ export default function CalculadoraGastoCalorico() {
 
                   {formData.activityCalcMethod === 'mets' && (
                     <div className="space-y-6 animate-in fade-in duration-300">
-                      <div className="bg-slate-900 text-white p-4 md:p-5 rounded-2xl mb-6 shadow-md">
+                      <div className="bg-slate-900 text-white p-4 md:p-5 rounded-2xl mb-6 shadow-md border-l-4 border-yellow-400">
                         <p className="text-sm font-medium leading-relaxed">
-                          <strong className="text-green-400">Cálculo de Alta Precisão:</strong> O sistema assumirá que você é sedentário no restante do dia (Fator Base 1.2) e somará as calorias exatas torradas no seu treino baseado no equivalente metabólico da tarefa (MET).
+                          <strong className="text-green-400">Cálculo de Alta Precisão (Diário):</strong> O sistema assumirá que você é sedentário no restante do dia (Fator Base 1.2) e somará as calorias exatas torradas no seu treino baseado no equivalente metabólico da tarefa (MET). <br/><br/>
+                          <strong className="text-yellow-400 uppercase tracking-wide bg-yellow-400/20 px-2 py-1 rounded inline-block">Atenção:</strong> Preencha o tempo gasto em um <strong>ÚNICO DIA</strong>, e não a soma da semana inteira!
                         </p>
                       </div>
                       
@@ -386,14 +387,14 @@ export default function CalculadoraGastoCalorico() {
                               {metOptions.map(opt => <option key={opt.label} value={opt.value}>{opt.label}</option>)}
                             </select>
                           </div>
-                          <div className="w-full sm:w-1/3">
-                            <label className="block text-xs font-bold text-slate-600 mb-2 uppercase tracking-wide">Tempo (Minutos)</label>
+                          <div className="w-full sm:w-1/3 relative">
+                            <label className="block text-xs font-black text-green-700 mb-2 uppercase tracking-wide">Tempo POR DIA (Minutos)</label>
                             <input 
                               type="number" 
                               placeholder="Ex: 60" 
                               value={formData.metActivities[index].minutes} 
                               onChange={(e) => handleMetChange(index, 'minutes', e.target.value)} 
-                              className="w-full p-3 border-2 border-slate-200 rounded-xl focus:ring-2 focus:ring-slate-900 bg-white font-medium text-slate-700 outline-none" 
+                              className="w-full p-3 border-2 border-green-200 rounded-xl focus:ring-2 focus:ring-green-500 bg-white font-medium text-slate-700 outline-none" 
                             />
                           </div>
                         </div>
