@@ -359,58 +359,62 @@ export default function QuantasCaloriasGastoComponent() {
               O método mais confiável, constante e palpável. A avaliação por dobras cutâneas, especialmente quando realizada seguindo os rigorosos padrões internacionais da certificação ISAK Nível 1, entrega uma precisão cirúrgica sobre a sua composição corporal. Através do uso de um adipômetro, o avaliador mede os milímetros exatos de gordura subcutânea em pontos estratégicos do corpo. Esse método não sofre interferência da hidratação diária, refletindo a verdadeira arquitetura do seu físico.
             </p>
 
-            {/* Bloco de Afiliado Adaptado para Balança de Cozinha / Dieta */}
-            <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
-                <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
-                    <Zap size={14} className="fill-white" />
-                    <span>O Pingus Indica!</span>
-                </div>
-                <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
-                    <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-slate-200">
-                        <img 
-                            src={`${githubImgBase}logoN_pingus.png`} 
-                            alt="Selo de Qualidade Pingus" 
-                            className="w-full h-full object-contain" 
-                            onError={(e) => {
-                              e.target.onerror = null; 
-                              e.target.src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>🐧</text></svg>";
-                            }}
-                        />
-                    </div>
-                    <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-                        <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                            Balança Digital <span className="text-green-700">de Precisão</span>
-                        </h4>
-                        
-                        <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
-                            <img 
-                                src="https://images.unsplash.com/photo-1594970420790-252f48375eec?auto=format&fit=crop&q=80&w=400" 
-                                alt="Balança digital de cozinha para pesar alimentos e contar calorias" 
-                                className="w-full h-auto object-cover aspect-square" 
-                            />
-                        </div>
+{/* AFILIADO MERCADO LIVRE - O PINGUS APROVA */}
+<div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
+    {/* SELO NO CANTO SUPERIOR */}
+    <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+        <Zap size={14} className="fill-white" />
+        <span>O Pingus Aprova!</span>
+    </div>
 
-                        <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                            Não adianta descobrir a sua TMB e o seu TDEE exatos se você errar nas porções na hora de comer. O "olhômetro" é o maior inimigo do déficit calórico! Uma <strong>Balança de Cozinha de Alta Precisão</strong> é o investimento mais barato e eficiente que você pode fazer para garantir que a matemática do seu emagrecimento ou ganho de massa funcione na vida real.
-                        </p>
-                        
-                        <a 
-                            href="https://meli.la/1f7vmv6" 
-                            rel="sponsored noopener noreferrer" 
-                            target="_blank"
-                            className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-                        >
-                            <ShoppingCart size={16} />
-                            Ver no Mercado Livre
-                        </a>
-                    </div>
-                </div>
-                <div className="mt-12 pt-6 border-t border-green-50 text-center">
-                    <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
-                        Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece.
-                    </p>
-                </div>
+    <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
+        {/* FOTO DO PINGUS (AUTORIDADE) */}
+        <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
+            <img 
+                src={`${githubImgBase}logoN_pingus.png`} 
+                alt="Selo de Qualidade Pingus" 
+                className="w-full h-full object-contain" 
+            />
+        </div>
+
+        <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+            <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                Balança de Bioimpedância <span className="text-green-700">8 Eletrodos</span>
+            </h4>
+            
+            {/* IMAGEM DO PRODUTO */}
+            <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
+                <img 
+                    src={`${githubImgBase}Afiliado/Bia.jpg`} 
+                    alt="Balança de Bioimpedância 8 eletrodos e dupla frequência" 
+                    className="w-full h-auto" 
+                />
             </div>
+
+            <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
+                Para descobrir seu <strong>percentual de gordura corporal</strong> eu indico este modelo de dupla frequência pela sua precisão clínica.
+            </p>
+
+            {/* BOTÃO COM LINK AFILIADO */}
+            <a 
+                href="https://meli.la/1aBg9YM" 
+                rel="sponsored noopener noreferrer" 
+                target="_blank"
+                className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+            >
+                <ShoppingCart size={16} />
+                Comprar no Mercado Livre
+            </a>
+        </div>
+    </div>
+
+    {/* DISCLOSURE OBRIGATÓRIO */}
+    <div className="mt-12 pt-6 border-t border-green-50 text-center">
+        <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
+            Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece o apoio.
+        </p>
+    </div>
+</div>
 
             <h2 id="fator-atividade" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <HeartPulse className="text-green-600"/> Como calcular o Fator de Atividade Física
