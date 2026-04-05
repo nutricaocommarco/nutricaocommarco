@@ -273,7 +273,6 @@ export default function QuantasCaloriasGastoComponent() {
               />
               <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
                 <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
-                  <strong className="text-slate-800 uppercase not-italic block mb-1">O Confronto de Atividades</strong> 
                   O Pingus ilustra o impacto do seu estilo de vida no Gasto Energético Total (TDEE): a brutal diferença calórica entre uma rotina de baixo gasto no sofá e o esforço vigoroso no parque.
                 </p>
               </figcaption>
