@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Calculator, Activity, Info, CheckCircle2, User, HeartPulse, AlertTriangle, Settings, Zap } from 'lucide-react';
+import { Calculator, Activity, Info, CheckCircle2, User, HeartPulse, AlertTriangle, Settings, Zap, Dumbbell, Timer } from 'lucide-react';
 
 const CalculatorImage = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Calculadora-de-Gasto-Calorico.jpg";
 
@@ -42,7 +42,8 @@ export default function CalculadoraGastoCalorico() {
     // Novos campos de Atividade
     activityCalcMethod: 'auto', // 'auto' | 'manual' | 'mets'
     routine: 'sedentary',
-    exercise: 'none',
+    exerciseCardio: 'none', // Cardio separado
+    exerciseStrength: 'none', // Força separada
     manualFA: '1.55',
     metActivities: [
       { id: 1, met: '0', minutes: '' },
@@ -88,27 +89,33 @@ export default function CalculadoraGastoCalorico() {
     if (formData.routine === 'standing') base = 1.35;
     if (formData.routine === 'physical') base = 1.50;
 
-    let exerciseBonus = 0;
-    if (formData.exercise === 'light') exerciseBonus = 0.15; // 1-3h
-    if (formData.exercise === 'moderate') exerciseBonus = 0.25; // 4-5h
-    if (formData.exercise === 'intense') exerciseBonus = 0.40; // 6-9h (Musculação + aeróbio padrão)
-    if (formData.exercise === 'endurance') exerciseBonus = 0.60; // 10h+ (Endurance, Triatlo, Ciclismo longo)
+    let cardioBonus = 0;
+    if (formData.exerciseCardio === 'light') cardioBonus = 0.15; // 1-2h
+    if (formData.exerciseCardio === 'moderate') cardioBonus = 0.25; // 3-5h
+    if (formData.exerciseCardio === 'intense') cardioBonus = 0.40; // 6-9h
+    if (formData.exerciseCardio === 'endurance') cardioBonus = 0.60; // 10h+
 
-    return base + exerciseBonus;
+    let strengthBonus = 0;
+    if (formData.exerciseStrength === 'light') strengthBonus = 0.05; // 1-2h
+    if (formData.exerciseStrength === 'moderate') strengthBonus = 0.10; // 3-5h
+    if (formData.exerciseStrength === 'intense') strengthBonus = 0.15; // 6h+
+
+    return base + cardioBonus + strengthBonus;
   };
 
   const determineBestFormula = (hasBF, bfValue, isMale, userSelectedBodyType) => {
     let bodyType = userSelectedBodyType;
 
     // Inteligência Artificial: Correção de incongruências
-    // Se ele tem o %GC, sabemos a verdade sobre o corpo dele
     if (hasBF) {
       const isActuallyObese = (isMale && bfValue > 25) || (!isMale && bfValue > 32);
       if (bodyType === 'obese' && !isActuallyObese) {
         bodyType = 'average'; // Sobrescreve para não usar Mifflin como padrão obeso atoa
       }
-      // Se tem %GC, Cunningham é quase sempre soberana, especialmente para ativos
-      if (formData.exercise === 'intense' || formData.exercise === 'endurance' || bodyType === 'bodybuilder') {
+      
+      const isVeryActive = formData.exerciseCardio === 'intense' || formData.exerciseCardio === 'endurance' || formData.exerciseStrength === 'intense';
+      
+      if (isVeryActive || bodyType === 'bodybuilder') {
         return 'cunningham';
       }
     }
@@ -195,14 +202,11 @@ export default function CalculadoraGastoCalorico() {
         const metVal = parseFloat(act.met);
         const mins = parseFloat(act.minutes);
         if (metVal > 0 && mins > 0) {
-          // Fórmula Padrão METs: kcal = MET * Peso(kg) * Tempo(h)
           metCalories += metVal * weight * (mins / 60);
         }
       });
-      // GET = BMR + NEAT (estimado em BMR * 0.2) + Calorias do Treino
       const baselineTdee = bmr * 1.2; 
       tdee = baselineTdee + metCalories;
-      // Calcula o FA equivalente para mostrar ao usuário
       finalFA = tdee / bmr;
     }
 
@@ -235,18 +239,18 @@ export default function CalculadoraGastoCalorico() {
             <div className="space-y-4 md:space-y-6 text-base md:text-lg text-slate-600 font-medium leading-relaxed">
               <p>Se você está se perguntando como calcular meu gasto calórico diário de forma precisa, a resposta mais eficiente e segura é utilizar uma calculadora de gasto calórico desenvolvida com base científica. Entender exatamente a quantidade de energia que o seu corpo consome todos os dias é o primeiro passo absoluto para qualquer objetivo estético ou de saúde, seja ele emagrecer de forma sustentável, manter o peso atual ou focar no ganho de massa muscular. Muitas pessoas tentam adivinhar a sua taxa metabólica basal ou o seu gasto energético total e acabam frustradas com a falta de resultados práticos na balança ou no espelho por estarem consumindo a quantidade errada de nutrientes.</p>
 
-{/* IMAGEM INTEGRADA COM SEO E LEGENDA */}
-<figure className="mb-10 flex flex-col items-center">
-  <img 
-    src={CalculatorImage} 
-    alt="Mascote Pingus vestido de nutricionista apontando para uma tela digital transparente com a mensagem: Sistema Inteligente Ativado e Cálculo de Gasto Calórico em Andamento." 
-    title="Calculadora Inteligente de Gasto Calórico e Taxa Metabólica Basal"
-    className="max-w-full h-auto rounded-3xl shadow-lg border border-slate-100" 
-  />
-  <figcaption className="mt-4 text-sm text-slate-500 font-medium italic text-center max-w-lg">
-    Deixe o Pingus analisar o seu perfil físico e nível de atividade para descobrir a sua necessidade energética exata.
-  </figcaption>
-</figure>
+              {/* IMAGEM INTEGRADA COM SEO E LEGENDA */}
+              <figure className="mb-10 flex flex-col items-center">
+                <img 
+                  src={CalculatorImage} 
+                  alt="Mascote Pingus vestido de nutricionista apontando para uma tela digital transparente com a mensagem: Sistema Inteligente Ativado e Cálculo de Gasto Calórico em Andamento." 
+                  title="Calculadora Inteligente de Gasto Calórico e Taxa Metabólica Basal"
+                  className="max-w-full h-auto rounded-3xl shadow-lg border border-slate-100" 
+                />
+                <figcaption className="mt-4 text-sm text-slate-500 font-medium italic text-center max-w-lg">
+                  Deixe o Pingus analisar o seu perfil físico e nível de atividade para descobrir a sua necessidade energética exata.
+                </figcaption>
+              </figure>
               
               <p>Nossa ferramenta gratuita foi desenhada para acabar de vez com essas dúvidas e facilitar a sua vida, agindo como uma verdadeira calculadora TDEE inteligente que se adapta à sua realidade biológica. Ao invés de exigir que você escolha multiplicadores confusos em tabelas genéricas, o nosso sistema cruza os seus dados básicos com o seu nível real de atividade física diária e o seu perfil corporal específico. Com essas informações em mãos, a inteligência da plataforma seleciona automaticamente a equação matemática mais adequada para o seu biotipo, podendo utilizar a fórmula de Mifflin-St Jeor para a população geral e pessoas com sobrepeso, a clássica equação de Harris-Benedict, ou até mesmo os métodos avançados de Cunningham e Tinsley, que são perfeitos para atletas de musculação e fisiculturistas que buscam o máximo de precisão na dieta.</p>
               
@@ -338,11 +342,11 @@ export default function CalculadoraGastoCalorico() {
 
                   {/* Conteúdo Dinâmico da Etapa 3 */}
                   {formData.activityCalcMethod === 'auto' && (
-                    <div className="space-y-6 md:space-y-8 animate-in fade-in duration-300">
+                    <div className="space-y-8 animate-in fade-in duration-300">
                       <div>
-                        <label className="block font-bold text-slate-800 mb-3 md:mb-4">Trabalho ou rotina principal:</label>
+                        <label className="block font-bold text-slate-800 mb-3 md:mb-4">Como é a sua rotina de trabalho diária?</label>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-                          {[{id: 'sedentary', label: 'Sentado a maior parte do dia'},
+                          {[{id: 'sedentary', label: 'Sentado (Escritório)'},
                             {id: 'standing', label: 'Em pé ou caminhando'},
                             {id: 'physical', label: 'Trabalho físico pesado'}].map(item => (
                             <label key={item.id} className={`p-3 md:p-4 border-2 rounded-xl md:rounded-2xl cursor-pointer transition-all ${formData.routine === item.id ? 'border-green-600 bg-green-50 text-green-800' : 'border-slate-200 bg-slate-50 hover:border-slate-300 text-slate-700'}`}>
@@ -353,16 +357,35 @@ export default function CalculadoraGastoCalorico() {
                         </div>
                       </div>
 
-                      <div>
-                        <label className="block font-bold text-slate-800 mb-3 md:mb-4">Treinos físicos semanais:</label>
+                      <div className="pt-4 border-t border-slate-100">
+                        <label className="block font-bold text-slate-800 mb-3 md:mb-4 flex items-center gap-2">
+                          <Timer className="w-5 h-5 text-blue-500" /> Horas semanais de CARDIO (Corrida, Ciclismo, Natação, etc):
+                        </label>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
-                          {[{id: 'none', label: 'Não treino'},
-                            {id: 'light', label: 'Leve (1 a 3h)'},
-                            {id: 'moderate', label: 'Moderado (4 a 5h)'},
+                          {[{id: 'none', label: 'Não faço'},
+                            {id: 'light', label: 'Leve (1 a 2h)'},
+                            {id: 'moderate', label: 'Moderado (3 a 5h)'},
                             {id: 'intense', label: 'Intenso (6 a 9h)'},
-                            {id: 'endurance', label: 'Muito Intenso (Endurance / 10h+)'}].map(item => (
-                            <label key={item.id} className={`p-3 border-2 rounded-xl md:rounded-2xl cursor-pointer transition-all ${formData.exercise === item.id ? 'border-green-600 bg-green-50 text-green-800' : 'border-slate-200 bg-slate-50 hover:border-slate-300 text-slate-700'}`}>
-                              <input type="radio" name="exercise" value={item.id} checked={formData.exercise === item.id} onChange={handleInputChange} className="hidden" />
+                            {id: 'endurance', label: 'Extremo (10h+)'}].map(item => (
+                            <label key={`cardio-${item.id}`} className={`p-3 border-2 rounded-xl md:rounded-2xl cursor-pointer transition-all ${formData.exerciseCardio === item.id ? 'border-blue-500 bg-blue-50 text-blue-800' : 'border-slate-200 bg-slate-50 hover:border-slate-300 text-slate-700'}`}>
+                              <input type="radio" name="exerciseCardio" value={item.id} checked={formData.exerciseCardio === item.id} onChange={handleInputChange} className="hidden" />
+                              <span className="text-xs md:text-sm font-bold block text-center">{item.label}</span>
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="pt-4 border-t border-slate-100">
+                        <label className="block font-bold text-slate-800 mb-3 md:mb-4 flex items-center gap-2">
+                          <Dumbbell className="w-5 h-5 text-orange-500" /> Horas semanais de FORÇA (Musculação, Crossfit):
+                        </label>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                          {[{id: 'none', label: 'Não faço'},
+                            {id: 'light', label: 'Leve (1 a 2h)'},
+                            {id: 'moderate', label: 'Moderado (3 a 5h)'},
+                            {id: 'intense', label: 'Intenso (6h+)'}].map(item => (
+                            <label key={`strength-${item.id}`} className={`p-3 border-2 rounded-xl md:rounded-2xl cursor-pointer transition-all ${formData.exerciseStrength === item.id ? 'border-orange-500 bg-orange-50 text-orange-800' : 'border-slate-200 bg-slate-50 hover:border-slate-300 text-slate-700'}`}>
+                              <input type="radio" name="exerciseStrength" value={item.id} checked={formData.exerciseStrength === item.id} onChange={handleInputChange} className="hidden" />
                               <span className="text-xs md:text-sm font-bold block text-center">{item.label}</span>
                             </label>
                           ))}
