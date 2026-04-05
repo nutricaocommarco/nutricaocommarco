@@ -194,7 +194,7 @@ export default function QuantasCaloriasGastoComponent() {
           <div className="my-10 p-6 md:p-10 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-6 text-left">
             <div>
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3 flex items-center gap-2">
-                <Zap className="text-green-600" /> Resposta Rápida
+                <Zap className="text-green-600" /> Resposta Rápida - Quantas Calorias Gasto por Dia?
               </h2>
               <p className="mt-4 text-lg md:text-xl text-green-950 font-medium leading-relaxed m-0">
                 Para descobrir o seu gasto calórico diário exato (TDEE), você precisa calcular a sua <strong>Taxa Metabólica Basal (TMB)</strong> e multiplicá-la pelo seu <strong>Fator de Atividade Física</strong>. Fazer isso na mão pode gerar erros grotescos no emagrecimento. A melhor solução é usar ferramentas automáticas que escolhem a fórmula ideal para o seu biotipo.
