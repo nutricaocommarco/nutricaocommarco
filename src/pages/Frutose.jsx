@@ -6,84 +6,178 @@ import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+const datePublishedISO = "2026-03-20";
+const dateModifiedISO = "2026-03-21";
+const frutoseCapa = `${githubImgBase}Blog/frutas.png`;
 
 export default function Frutose() {
   const { pathname } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
+  const pageUrl = `https://www.nutricaocommarco.com.br${pathname}`;
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  const faqs = [
+    {
+      pergunta: "Quem tem diabetes pode comer fruta?",
+      resposta: "Sim, deve comer. O segredo é a moderação e a escolha de frutas com menor índice glicêmico e maior teor de fibras. A insulina é essencial para o transporte da glicose, e o consumo de frutas dentro de um plano alimentar equilibrado ajuda a manter a glicemia estável sem abrir mão dos nutrientes essenciais."
+    },
+    {
+      pergunta: "Comer fruta à noite engorda?",
+      resposta: "Não existe evidência de que o horário mude o impacto calórico da fruta. O ganho de peso está relacionado ao balanço calórico total do dia e ao estado de superávit persistente. Se você está dentro das suas necessidades energéticas, a fruta à noite é uma excelente opção de ceia."
+    },
+    {
+      pergunta: "A frutose da fruta causa gordura no fígado (esteatose)?",
+      resposta: "Em pessoas saudáveis que consomem a fruta inteira, isso é extremamente improvável. A esteatose hepática está muito mais ligada ao sedentarismo, ao consumo excessivo de calorias e de produtos ultraprocessados ricos em xarope de milho, que possuem uma densidade energética muito superior à das frutas."
+    },
+    {
+      pergunta: "Posso substituir uma refeição principal por frutas?",
+      resposta: "Não é recomendado. Embora as frutas sejam ricas em vitaminas e minerais, uma refeição principal precisa de um aporte adequado de proteínas e gorduras boas para garantir a manutenção da massa muscular e a saciedade prolongada. Utilize as frutas como complementos ou lanches intermediários."
+    }
+  ];
+
   return (
     <>
       <Helmet>
         <title>Quantas frutas posso comer por dia? | Nutrição com Marco</title>
-        <meta name="description" content="Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado." />
+        <meta name="description" content="Entenda o metabolismo da frutose, a diferença para o açúcar industrializado e a verdade sobre a fruta e a gordura no fígado." />
+        <link rel="canonical" href={pageUrl} />
 
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Quantas frutas posso comer por dia? | Nutrição com Marco" />
         <meta property="og:description" content="Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado." />
-        <meta property="og:image" content={`${githubImgBase}Blog/frutas.png`} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
+        <meta property="og:image" content={frutoseCapa} />
+        <meta property="og:url" content={pageUrl} />
 
-        {/* SCHEMA.ORG PARA O ARTIGO PRINCIPAL */}
+        {/* SCHEMA.ORG 1: BLOGPOSTING / ARTICLE */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Article",
+            "@type": "BlogPosting",
             "headline": "Afinal, a frutose causa gordura no fígado? Descubra quantas frutas você pode comer por dia",
-            "image": `${githubImgBase}Blog/frutas.png`,
-            "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
-            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png`}},
-            "datePublished": "2026-03-20",
-            "dateModified": "2026-03-21",
-            "description": "Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado."
+            "image": [
+              frutoseCapa,
+              `${githubImgBase}Blog/frutose_bananas.jpg`
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Marco Aurélio Jr.",
+              "url": "https://www.nutricaocommarco.com.br/sobre",
+              "jobTitle": "Estudante de Nutrição e Avaliador Antropométrico ISAK Nível 1",
+              "sameAs": ["https://instagram.com/nutricao_com_marco"]
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Nutrição com Marco",
+              "logo": {
+                "@type": "ImageObject",
+                "url": `${githubImgBase}logoN_pingus.png`
+              }
+            },
+            "datePublished": datePublishedISO,
+            "dateModified": dateModifiedISO,
+            "description": "Entenda o metabolismo da frutose, a diferença para o açúcar industrializado e a verdade sobre a fruta e a gordura no fígado (esteatose)."
           })}
         </script>
 
-        {/* INÍCIO DO SCHEMA.ORG PARA FAQ (ATUALIZADO PARA SEO 950+) */}
+        {/* SCHEMA.ORG 2: MEDICAL WEB PAGE */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
+            "@type": "MedicalWebPage",
+            "name": "Metabolismo da Frutose e Esteatose Hepática",
+            "url": pageUrl,
+            "about": [
+              {"@type": "MedicalEntity", "name": "Frutose"},
+              {"@type": "MedicalEntity", "name": "Esteatose Hepática"},
+              {"@type": "MedicalEntity", "name": "Nutrição Clínica"}
+            ],
+            "audience": {
+              "@type": "MedicalAudience",
+              "audienceType": "Pacientes"
+            }
+          })}
+        </script>
+
+        {/* SCHEMA.ORG 3: BREADCRUMB LIST */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
               {
-                "@type": "Question",
-                "name": "Quem tem diabetes pode comer fruta?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Sim, deve comer. O segredo é a moderação e a escolha de frutas com menor índice glicêmico e maior teor de fibras. A insulina é essencial para o transporte da glicose, e o consumo de frutas dentro de um plano alimentar equilibrado ajuda a manter a glicemia estável sem abrir mão dos nutrientes essenciais."
-                }
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.nutricaocommarco.com.br/"
               },
               {
-                "@type": "Question",
-                "name": "Comer fruta à noite engorda?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Não existe evidência de que o horário mude o impacto calórico da fruta. O ganho de peso está relacionado ao balanço calórico total do dia e ao estado de superávit persistente. Se você está dentro das suas necessidades energéticas, a fruta à noite é uma excelente opção de ceia."
-                }
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.nutricaocommarco.com.br/blog"
               },
               {
-                "@type": "Question",
-                "name": "A frutose da fruta causa gordura no fígado (esteatose)?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Em pessoas saudáveis que consomem a fruta inteira, isso é extremamente improvável. A esteatose hepática está muito mais ligada ao sedentarismo, ao consumo excessivo de calorias e de produtos ultraprocessados ricos em xarope de milho, que possuem uma densidade energética muito superior à das frutas."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Posso substituir uma refeição principal por frutas?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Não é recomendado. Embora as frutas sejam ricas em vitaminas e minerais, uma refeição principal precisa de um aporte adequado de proteínas e gorduras boas para garantir a manutenção da massa muscular e a saciedade prolongada. Utilize as frutas como complementos ou lanches intermediários."
-                }
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Quantas frutas posso comer por dia?",
+                "item": pageUrl
               }
             ]
           })}
         </script>
-        {/* FIM DO SCHEMA.ORG PARA FAQ */}
+
+        {/* SCHEMA.ORG 4: FAQ PAGE (MAPEADO DO ARRAY) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.pergunta,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.resposta
+              }
+            }))
+          })}
+        </script>
+
+        {/* SCHEMA.ORG 5: VIDEO OBJECT */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            "name": "Entenda o metabolismo da Frutose e as frutas no almoço",
+            "description": "Mitos e verdades sobre comer frutas de sobremesa nas grandes refeições como almoço e seu impacto na absorção de nutrientes e digestão.",
+            "thumbnailUrl": "https://img.youtube.com/vi/GjcchiFKBt4/maxresdefault.jpg",
+            "uploadDate": datePublishedISO,
+            "embedUrl": "https://www.youtube.com/embed/GjcchiFKBt4",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Nutrição com Marco",
+              "logo": {
+                "@type": "ImageObject",
+                "url": `${githubImgBase}logoN_pingus.png`
+              }
+            }
+          })}
+        </script>
+
+        {/* SCHEMA.ORG 6: AUDIO OBJECT */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AudioObject",
+            "name": "Áudio: Quantas frutas posso comer por dia?",
+            "description": "Versão narrada em áudio do artigo completo sobre o metabolismo da frutose e seu impacto na saúde.",
+            "contentUrl": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Frutas.mp3",
+            "encodingFormat": "audio/mpeg",
+            "duration": "PT4M"
+          })}
+        </script>
       </Helmet>
 
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl">
