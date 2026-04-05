@@ -84,6 +84,10 @@ export default function QuantasCaloriasGastoComponent() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://www.nutricaocommarco.com.br${pathname}`
+            },    
             "headline": "Quantas Calorias Gasto Por Dia? Pare de Chutar e Entenda o Seu Metabolismo",
             "image": artigoCapa,
             "author": {
