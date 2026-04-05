@@ -2,62 +2,61 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export const posts = [
   {
-  id: 18,
-  link: "/o-que-sao-simbioticos", 
-  img: `${githubImgBase}Blog/Simbioticos.jpg`,
-  tag: "Nutrição Clínica",
-  titulo: "O que são Simbióticos? A Sinergia Intestinal | Nutrição com Marco",
-  desc: "Descubra o que são os alimentos simbióticos, como a união de prebióticos e probióticos transforma a sua flora e as melhores combinações.",
-  data: "2026-03-28",
-  dataMod: "2026-04-03"
-},
-{
-  id: 17,
-  link: "/o-que-sao-probioticos", 
-  img: `${githubImgBase}Blog/Probioticos.jpg`,
-  tag: "Nutrição Clínica",
-  titulo: "O que são Probióticos? Lactobacillus e Benefícios | Nutrição com Marco",
-  desc: "Descubra o que são probióticos e Lactobacillus, para que servem no intestino, seus benefícios para a imunidade e quais as melhores fontes naturais.",
-  data: "2026-03-31",
-  dataMod: "2026-04-02"
-},
-
-{
-  id: 16, 
-  link: "/o-que-sao-prebioticos", 
-  img: `${githubImgBase}Blog/Prebioticos.jpg`,
-  tag: "Nutrição Clínica",
-  titulo: "O que são Prebióticos? Alimentos, Benefícios e Para Que Servem | Nutrição com Marco",
-  desc: "Descubra o que são prebióticos, para que servem no seu intestino, quais alimentos são ricos em FOS e inulina, e como eles alimentam sua flora intestinal.",
-  data: "2026-03-27",
-  dataMod: "2026-04-01"
-},
-    {
+    id: 18,
+    link: "/o-que-sao-simbioticos", 
+    img: `${githubImgBase}Blog/Simbioticos.jpg`,
+    tag: "Nutrição Clínica",
+    titulo: "O que são Simbióticos? A Sinergia Intestinal",
+    desc: "Descubra o que são os alimentos simbióticos, como a união de prebióticos e probióticos transforma a sua flora e as melhores combinações.",
+    data: "2026-03-28",
+    dataMod: "2026-04-03"
+  },
+  {
+    id: 17,
+    link: "/o-que-sao-probioticos", 
+    img: `${githubImgBase}Blog/Probioticos.jpg`,
+    tag: "Nutrição Clínica",
+    titulo: "O que são Probióticos? Lactobacillus e Benefícios",
+    desc: "Descubra o que são probióticos e Lactobacillus, para que servem no intestino, seus benefícios para a imunidade e quais as melhores fontes naturais.",
+    data: "2026-03-31",
+    dataMod: "2026-04-02"
+  },
+  {
+    id: 16, 
+    link: "/o-que-sao-prebioticos", 
+    img: `${githubImgBase}Blog/Prebioticos.jpg`,
+    tag: "Nutrição Clínica",
+    titulo: "O que são Prebióticos? Alimentos, Benefícios e Para Que Servem",
+    desc: "Descubra o que são prebióticos, para que servem no seu intestino, quais alimentos são ricos em FOS e inulina, e como eles alimentam sua flora intestinal.",
+    data: "2026-03-27",
+    dataMod: "2026-04-01"
+  },
+  {
     id: 15, 
     link: "/o-que-e-fome-emocional", 
     img: `${githubImgBase}Blog/Fome-Emocional-Capa.jpg`,
     tag: "Nutrição Comportamental",
-    titulo: "O que é Fome Emocional? Como Identificar e Controlar o Impulso | Nutrição com Marco",
+    titulo: "O que é Fome Emocional? Como Identificar e Controlar o Impulso",
     desc: "Descubra os sintomas da fome emocional, entenda o ciclo da compulsão e aprenda estratégias práticas como a Escala de Fome e a técnica do atraso para retomar o controle.",
     data: "2026-03-27",
     dataMod: "2026-03-29"
-},
-{
+  },
+  {
     id: 14,
     link: "/tirzepatida-para-que-serve",
     img: `${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`,
     tag: "Tratamento Farmacológico",
-    titulo: "Tirzepatida: Para Que Serve, Como Funciona e Efeitos | Nutrição com Marco",
+    titulo: "Tirzepatida: Para Que Serve, Como Funciona e Efeitos",
     desc: "Descubra para que serve a Tirzepatida, entenda seu mecanismo de ação duplo (GLP-1 e GIP), os principais efeitos colaterais e o potencial na perda de peso.",
     data: "2026-03-26",
     dataMod: "2026-03-27"
-},
-{
+  },
+  {
     id: 13,
     link: "/comer-ovo-todo-dia-aumenta-o-colesterol",
     img: `${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.jpg`,
     tag: "Nutrição Clínica",
-    titulo: "Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Científica | Nutrição com Marco",
+    titulo: "Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Científica",
     desc: "Comer ovo todo dia aumenta o colesterol? Descubra a verdade científica, entenda o impacto no HDL/LDL e quantos ovos você pode consumir com segurança.",
     data: "2026-03-25",
     dataMod: "2026-03-25"
@@ -67,7 +66,7 @@ export const posts = [
     link: "/retatrutida_o_que_e",
     img: `${githubImgBase}Blog/retatrutida_molecula.jpg`,
     tag: "Tratamento Farmacológico",
-    titulo: "Retatrutida o que é? A nova fronteira da ciência | Nutrição com Marco",
+    titulo: "Retatrutida o que é? A nova fronteira da ciência",
     desc: "Descubra o que é a retatrutida, o novo medicamento agonista triplo (GLP-1, GIP e Glucagon) e seus resultados impressionantes na perda de peso.",
     data: "2026-03-24",
     dataMod: "2026-03-24"
