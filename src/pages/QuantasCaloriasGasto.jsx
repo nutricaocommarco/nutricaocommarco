@@ -257,18 +257,34 @@ export default function QuantasCaloriasGastoComponent() {
               Você já se pegou olhando para o espelho ou para a balança e se perguntando quantas calorias gasto por dia de verdade? Essa é, sem dúvida, a pergunta número um de quem começa um processo sério de emagrecimento ou de ganho de massa muscular. A grande verdade é que tentar adivinhar o seu gasto energético ou seguir dietas genéricas de gaveta é o caminho mais rápido para a frustração e para o temido efeito sanfona. Para que você tenha resultados estéticos reais, visíveis e sustentáveis, é absolutamente inegociável entender como funciona o gasto calórico do seu próprio corpo, que é único e responde de maneira diferente dependendo da sua composição corporal e da sua rotina diária.
             </p>
 
-            {/* IMAGEM SOLICITADA ACIMA DE TMB */}
-            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
+{/* IMAGEM SOLICITADA ACIMA DE TMB */}
+            <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
+              
+              {/* TAG FLUTUANTE (Badge) */}
+              <div className="absolute top-4 left-4 z-10 bg-green-600 text-white px-4 py-1.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest shadow-md">
+                Metabolismo em Ação
+              </div>
+
               <img 
                 src={`${githubImgBase}Blog/QuantasCaloriasGasto.jpg`} 
-                alt="Ilustração explicativa sobre gasto calórico diário e taxa metabólica" 
+                alt="Mascote Pingus mostrando o contraste de gasto calórico entre assistir TV no sofá e correr intensamente no parque." 
+                title="Entenda seu Gasto Energético Total (TDEE) com o Pingus"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
                 onError={(e) => {
                   e.target.onerror = null; 
                   e.target.src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?auto=format&fit=crop&q=80&w=800";
                 }}
               />
-            </div>
+              
+              {/* LEGENDA E TÍTULO VISUAL DA IMAGEM */}
+              <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+                <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
+                  <strong className="text-slate-800 uppercase not-italic block mb-1">O Confronto de Atividades</strong> 
+                  O Pingus ilustra o impacto do seu estilo de vida no Gasto Energético Total (TDEE): a brutal diferença calórica entre uma rotina de baixo gasto no sofá e o esforço vigoroso no parque.
+                </p>
+              </figcaption>
+            </figure>
+            
 
             <h2 id="o-que-e-tmb" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Battery className="text-green-600"/> O que é TMB?
