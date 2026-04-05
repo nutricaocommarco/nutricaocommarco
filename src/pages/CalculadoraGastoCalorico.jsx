@@ -4,22 +4,36 @@ import { Calculator, Activity, Info, CheckCircle2, User, HeartPulse, AlertTriang
 
 const CalculatorImage = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Calculadora-de-Gasto-Calorico.jpg";
 
+// Dicionário de METs Expandido para o Modo Avançado
 const metOptions = [
   { label: "Selecione a atividade...", value: "0" },
-  { label: "Musculação (Pesada / Intensa)", value: "6.0" },
-  { label: "Musculação (Moderada)", value: "3.5" },
-  { label: "Ciclismo (16-19 km/h - Leve)", value: "6.8" },
-  { label: "Ciclismo (20-22 km/h - Moderado)", value: "8.0" },
-  { label: "Ciclismo (25+ km/h - Vigoroso)", value: "10.0" },
-  { label: "Ciclismo (Pelotão/Competição 30+ km/h)", value: "12.0" },
-  { label: "Corrida (8 km/h - Trote)", value: "8.3" },
-  { label: "Corrida (10 km/h - Moderada)", value: "9.8" },
-  { label: "Corrida (12 km/h - Intensa)", value: "11.5" },
-  { label: "Caminhada Rápida (5-6 km/h)", value: "4.3" },
-  { label: "Natação (Crawl - Moderado)", value: "8.3" },
-  { label: "Crossfit / Funcional", value: "8.0" },
-  { label: "Futebol / Basquete", value: "7.0" },
-  { label: "Yoga / Alongamento", value: "2.5" }
+  { label: "🏋️ Musculação (Pesada / Intensa)", value: "6.0" },
+  { label: "🏋️ Musculação (Moderada)", value: "3.5" },
+  { label: "🏋️ Crossfit / Treino Funcional", value: "8.0" },
+  { label: "🚴 Ciclismo (16-19 km/h - Leve)", value: "6.8" },
+  { label: "🚴 Ciclismo (20-22 km/h - Moderado)", value: "8.0" },
+  { label: "🚴 Ciclismo (25+ km/h - Vigoroso)", value: "10.0" },
+  { label: "🚴 Ciclismo (Pelotão / 30+ km/h)", value: "12.0" },
+  { label: "🚴 Ciclismo Indoor / Spinning", value: "8.9" },
+  { label: "🏃 Corrida (6-7 km/h - Jogging/Leve)", value: "7.0" },
+  { label: "🏃 Corrida (8 km/h - Trote)", value: "8.3" },
+  { label: "🏃 Corrida (10 km/h - Moderada)", value: "9.8" },
+  { label: "🏃 Corrida (12 km/h - Intensa)", value: "11.5" },
+  { label: "🏃 Corrida (15+ km/h - Muito Intensa)", value: "14.0" },
+  { label: "🚶 Caminhada (3-4 km/h - Leve)", value: "3.0" },
+  { label: "🚶 Caminhada Rápida (5-6 km/h)", value: "4.3" },
+  { label: "🚶 Subir Escadas", value: "8.0" },
+  { label: "🏊 Natação (Lazer / Leve)", value: "6.0" },
+  { label: "🏊 Natação (Crawl - Moderado)", value: "8.3" },
+  { label: "🏊 Natação (Borboleta / Vigoroso)", value: "10.0" },
+  { label: "🥊 Artes Marciais (Jiu-Jitsu, Muay Thai, Boxe)", value: "10.3" },
+  { label: "⚽ Futebol / Basquete / Vôlei", value: "8.0" },
+  { label: "🎾 Tênis (Simples)", value: "8.0" },
+  { label: "⚡ Pular Corda (Moderado)", value: "10.0" },
+  { label: "⚡ Pular Corda (Rápido)", value: "12.0" },
+  { label: "💃 Dança Aeróbica / Zumba", value: "7.3" },
+  { label: "🧘 Yoga / Alongamento / Pilates", value: "2.5" },
+  { label: "🧹 Faxina Pesada / Trabalho Doméstico", value: "3.5" }
 ];
 
 export default function CalculadoraGastoCalorico() {
@@ -88,15 +102,15 @@ export default function CalculadoraGastoCalorico() {
     if (formData.routine === 'physical') base = 1.50;
 
     let cardioBonus = 0;
-    if (formData.exerciseCardio === 'light') cardioBonus = 0.15;
-    if (formData.exerciseCardio === 'moderate') cardioBonus = 0.25;
-    if (formData.exerciseCardio === 'intense') cardioBonus = 0.40;
-    if (formData.exerciseCardio === 'endurance') cardioBonus = 0.60;
+    if (formData.exerciseCardio === 'light') cardioBonus = 0.15; 
+    if (formData.exerciseCardio === 'moderate') cardioBonus = 0.25; 
+    if (formData.exerciseCardio === 'intense') cardioBonus = 0.40; 
+    if (formData.exerciseCardio === 'endurance') cardioBonus = 0.60; 
 
     let strengthBonus = 0;
-    if (formData.exerciseStrength === 'light') strengthBonus = 0.05;
-    if (formData.exerciseStrength === 'moderate') strengthBonus = 0.10;
-    if (formData.exerciseStrength === 'intense') strengthBonus = 0.15;
+    if (formData.exerciseStrength === 'light') strengthBonus = 0.05; 
+    if (formData.exerciseStrength === 'moderate') strengthBonus = 0.10; 
+    if (formData.exerciseStrength === 'intense') strengthBonus = 0.15; 
 
     return base + cardioBonus + strengthBonus;
   };
@@ -104,22 +118,28 @@ export default function CalculadoraGastoCalorico() {
   const determineBestFormula = (hasBF, bfValue, isMale, userSelectedBodyType) => {
     let bodyType = userSelectedBodyType;
 
-    if (bodyType === 'endurance') return 'tinsley';
-
+    // LÓGICA COM PERCENTUAL DE GORDURA
     if (hasBF) {
       const isActuallyObese = (isMale && bfValue > 25) || (!isMale && bfValue > 32);
       
-      if (!isActuallyObese) {
-        return 'cunningham';
-      }
+      // Se for obeso de verdade, Mifflin
+      if (isActuallyObese) return 'mifflin';
       
-      return 'mifflin';
+      // Conserta incongruência: marcou obeso mas não é obeso
+      if (bodyType === 'obese') bodyType = 'average';
+
+      // Endurance COM %GC vai para Tinsley (Versão Massa Magra)
+      if (bodyType === 'endurance') return 'tinsley';
+      
+      // Fisiculturista ou Ativo COM %GC vai para Cunningham
+      return 'cunningham';
     }
 
+    // LÓGICA SEM PERCENTUAL DE GORDURA
     if (bodyType === 'obese') return 'mifflin';
-    if (bodyType === 'bodybuilder') return 'tinsley';
-    if (bodyType === 'average') return 'harris';
+    if (bodyType === 'bodybuilder' || bodyType === 'endurance') return 'tinsley'; // Usa a versão Peso Total
     
+    // Biotipo Comum sem %GC cai no Harris-Benedict
     return 'harris'; 
   };
 
@@ -167,9 +187,9 @@ export default function CalculadoraGastoCalorico() {
         break;
       case 'tinsley':
         if (hasBF) {
-          bmr = 25.9 * lbm + 284;
+          bmr = 25.9 * lbm + 284; // Versão LBM (Massa Magra Livre de Gordura)
         } else {
-          bmr = 24.8 * weight + 10;
+          bmr = 24.8 * weight + 10; // Versão TBW (Peso Corporal Total)
         }
         selectedFormulaName = 'Tinsley';
         break;
@@ -256,6 +276,7 @@ export default function CalculadoraGastoCalorico() {
 
             <form onSubmit={handleCalculate} className="space-y-10 md:space-y-12">
               
+              {/* ETAPA 1: SOBRE VOCÊ */}
               <section>
                 <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
                   <User className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 1. Sobre Você
@@ -289,6 +310,7 @@ export default function CalculadoraGastoCalorico() {
                 </div>
               </section>
 
+              {/* ETAPA 2: PERFIL FÍSICO */}
               <section>
                 <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
                   <Activity className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 2. Seu Perfil Físico
@@ -308,6 +330,7 @@ export default function CalculadoraGastoCalorico() {
                 </div>
               </section>
 
+              {/* ETAPA 3: FATOR DE ATIVIDADE */}
               <section>
                 <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
                   <HeartPulse className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 3. Rotina e Movimento (Nível de Atividade)
@@ -345,7 +368,7 @@ export default function CalculadoraGastoCalorico() {
 
                       <div className="pt-4 border-t border-slate-100">
                         <label className="block font-bold text-slate-800 mb-3 md:mb-4 flex items-center gap-2">
-                          <Timer className="w-5 h-5 text-blue-500" /> Horas semanais de CARDIO (Corrida, Ciclismo, Natação, etc):
+                          <Timer className="w-5 h-5 text-blue-500" /> Horas semanais de CARDIO (Corrida, Ciclismo, Natação):
                         </label>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
                           {[{id: 'none', label: 'Não faço'},
@@ -429,6 +452,7 @@ export default function CalculadoraGastoCalorico() {
                 </div>
               </section>
 
+              {/* ETAPA 4: SELEÇÃO DA FÓRMULA */}
               <section className="bg-white p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-slate-100 shadow-sm">
                 <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
                   <CheckCircle2 className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 4. Seleção da Equação Basal
