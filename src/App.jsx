@@ -34,6 +34,7 @@ import CicloCircadiano from './pages/CicloCircadiano';
 import Melatonina from './pages/Melatonina';
 import TPM from './pages/TPM';
 import CalculadoraGastoCalorico from './pages/CalculadoraGastoCalorico'; 
+import QuantasCaloriasGasto from './pages/QuantasCaloriasGasto';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -128,6 +129,11 @@ function Layout({ children }) {
       '/calculadora-de-gasto-calorico': {
         title: 'Calculadora de Gasto Calórico (TDEE e TMB) Inteligente | Nutrição com Marco',
         desc: 'Descubra seu gasto calórico diário e taxa metabólica basal com nossa calculadora inteligente. Fórmulas de Mifflin, Cunningham e Tinsley adaptadas ao seu perfil.'
+      },
+      // 👇 NOVA ROTA DO ARTIGO ADICIONADA AQUI 👇
+      '/quantas-calorias-gasto-por-dia': {
+        title: 'Quantas Calorias Gasto Por Dia? TMB e TDEE | Nutrição com Marco',
+        desc: 'Descubra como calcular seu gasto calórico diário. Entenda a sua Taxa Metabólica Basal (TMB), fator de atividade, METs e as fórmulas de Mifflin e Cunningham.'
       }
     };
 
@@ -170,7 +176,6 @@ function Layout({ children }) {
             <Link to="/blog" className={`py-1 border-b-2 transition-all ${location.pathname.includes('/blog') ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Blog</Link>
             <Link to="/planos" className={`py-1 border-b-2 transition-all ${location.pathname === '/planos' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Planos</Link>
             
-            {/* NOVO DROPDOWN DE CALCULADORAS NO DESKTOP */}
             <div className="relative group">
               <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${location.pathname.includes('/calculadora') ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-600'}`}>
                 Calculadoras <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
@@ -194,7 +199,6 @@ function Layout({ children }) {
             <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Blog</Link>
             <Link to="/planos" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Planos</Link>
             
-            {/* NOVO DROPDOWN DE CALCULADORAS NO MOBILE */}
             <div className="flex flex-col gap-3 pb-2 border-b border-green-50">
               <span className="text-lg font-black uppercase tracking-widest text-slate-800">Calculadoras</span>
               <div className="flex flex-col gap-3 pl-4 border-l-2 border-green-200">
@@ -266,6 +270,8 @@ export default function App() {
             <Route path="/efeitos-colaterais-da-melatonina" element={<Melatonina />} />
             <Route path="/o-que-comer-na-tpm" element={<TPM />} />
             <Route path="/calculadora-de-gasto-calorico" element={<CalculadoraGastoCalorico />} />
+            {/* 👇 NOVA ROTA DO ARTIGO INCLUÍDA 👇 */}
+            <Route path="/quantas-calorias-gasto-por-dia" element={<QuantasCaloriasGasto />} />
           </Routes>
         </Layout>
       </Router>
