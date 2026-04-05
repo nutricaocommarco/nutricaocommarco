@@ -4,7 +4,6 @@ import path from 'path';
 // 🧠 Importando o Cérebro Central!
 import { posts } from './src/data/posts.js';
 
-// 1. ROTAS FIXAS (Páginas do site que não são artigos de blog)
 const rotasEstaticas = [
   { 
     path: 'sobre', 
@@ -32,26 +31,21 @@ const rotasEstaticas = [
   }
 ];
 
-// 2. ROTAS DINÂMICAS (Puxando os artigos e transformando no formato que o WhatsApp gosta)
 const rotasDoBlog = posts.map(post => {
-  // Como o post.link vem com uma barra no começo (ex: "/diabetico_pode_comer_beterraba"),
-  // nós removemos essa primeira barra para não bugar a criação de pastas da Vercel.
   const routePath = post.link.startsWith('/') ? post.link.slice(1) : post.link;
-
   return {
     path: routePath,
-    title: `${post.titulo} | Nutrição com Marco`, // Adicionamos sua marca no final
+    title: `${post.titulo} | Nutrição com Marco`, 
     image: post.img,
-    desc: post.desc
+    desc: post.desc,
+    // Adicionando a data para o robô do Google saber quando foi publicado
+    date: post.data 
   };
 });
 
-// 3. JUNTANDO TUDO (Fixas + Artigos)
 const routes = [...rotasEstaticas, ...rotasDoBlog];
-
 const distPath = path.resolve('dist');
 
-// Se o build falhar porque não achou o dist/index.html, o script avisa no log
 if (!fs.existsSync(path.join(distPath, 'index.html'))) {
     console.error('❌ ERRO: Arquivo index.html não encontrado na pasta dist. O Prerender parou.');
     process.exit(1); 
@@ -59,13 +53,36 @@ if (!fs.existsSync(path.join(distPath, 'index.html'))) {
 
 const template = fs.readFileSync(path.join(distPath, 'index.html'), 'utf-8');
 
-console.log('🚀 Iniciando Robô de SEO e WhatsApp do Marco...');
+console.log('🚀 Iniciando Robô de SEO, WhatsApp e Google do Marco...');
 
 routes.forEach(route => {
   const routePath = path.join(distPath, route.path);
   if (!fs.existsSync(routePath)) fs.mkdirSync(routePath);
 
-  // Injetamos as tags do WhatsApp direto no HTML "congelado"
+  // Criando o "Cérebro" JSON-LD para o Google
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": route.title,
+    "image": route.image,
+    "author": {
+      "@type": "Person",
+      "name": "Marco Aurélio Jr.",
+      "url": "https://www.nutricaocommarco.com.br/sobre"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Nutrição com Marco",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png"
+      }
+    },
+    "description": route.desc,
+    "datePublished": route.date || new Date().toISOString().split('T')[0]
+  };
+
+  // Injetando tudo no HTML (Tags visuais + JSON-LD)
   const html = template
     .replace('<title>Nutrição com Marco</title>', `<title>${route.title}</title>`)
     .replace('</head>', `
@@ -74,8 +91,9 @@ routes.forEach(route => {
       <meta property="og:image" content="${route.image}" />
       <meta property="og:url" content="https://www.nutricaocommarco.com.br/${route.path}" />
       <meta property="og:description" content="${route.desc}" />
+      <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
     </head>`);
 
   fs.writeFileSync(path.join(routePath, 'index.html'), html);
-  console.log(`✅ Página [${route.path}] preparada para o WhatsApp e Google!`);
+  console.log(`✅ Página [${route.path}] preparada com sucesso!`);
 });
