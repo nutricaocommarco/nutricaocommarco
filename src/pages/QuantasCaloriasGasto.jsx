@@ -265,9 +265,7 @@ export default function QuantasCaloriasGastoComponent() {
 
             {/* IMAGEM SOLICITADA ACIMA DE TMB COM FIGURE E BADGE CORRETO */}
             <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
-              <div className="absolute top-4 left-4 z-10 bg-green-600 text-white px-4 py-1.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest shadow-md">
-                Metabolismo em Ação
-              </div>
+         
               <img 
                 src={`${githubImgBase}Blog/QuantasCaloriasGasto.jpg`} 
                 alt="Mascote Pingus mostrando o contraste de gasto calórico entre assistir TV no sofá e correr intensamente no parque." 
@@ -280,7 +278,6 @@ export default function QuantasCaloriasGastoComponent() {
               />
               <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
                 <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
-                  <strong className="text-slate-800 uppercase not-italic block mb-1">O Confronto de Atividades</strong> 
                   O Pingus ilustra o impacto do seu estilo de vida no Gasto Energético Total (TDEE): a brutal diferença calórica entre uma rotina de baixo gasto no sofá e o esforço vigoroso no parque.
                 </p>
               </figcaption>
