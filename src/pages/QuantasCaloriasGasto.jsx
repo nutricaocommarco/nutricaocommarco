@@ -18,7 +18,7 @@ const dateModifiedISO = "2026-04-05";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Capa do Artigo
-const artigoCapa = `${githubImgBase}Blog/GastoCalorico.jpg`; 
+const artigoCapa = `${githubImgBase}Blog/QuantasCaloriasGasto.jpg`; 
 
 // Dados da Tabela de METs transformados em um Array para renderização elegante
 const tabelaMets = [
