@@ -28,6 +28,13 @@ const rotasEstaticas = [
     title: 'Blog de Nutrição e Ciência | Nutrição com Marco',
     image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/ImgBlog.jpg',
     desc: 'Conteúdo científico sobre antropometria, bioimpedância e emagrecimento real.'
+  },
+  // 👇 NOSSA NOVA CALCULADORA AQUI 👇
+  {
+    path: 'calculadora-de-gasto-calorico',
+    title: 'Calculadora de Gasto Calórico (TDEE e TMB) Inteligente | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Calculadora-de-Gasto-Calorico.jpg',
+    desc: 'Descubra seu gasto calórico diário e taxa metabólica basal com nossa calculadora inteligente. Fórmulas de Mifflin, Cunningham e Tinsley adaptadas ao seu perfil.'
   }
 ];
 
@@ -57,7 +64,7 @@ console.log('🚀 Iniciando Robô de SEO, WhatsApp e Google do Marco...');
 
 routes.forEach(route => {
   const routePath = path.join(distPath, route.path);
-  if (!fs.existsSync(routePath)) fs.mkdirSync(routePath);
+  if (!fs.existsSync(routePath)) fs.mkdirSync(routePath, { recursive: true }); // Adicionado recursive: true por segurança
 
   // Criando o "Cérebro" JSON-LD para o Google
   const jsonLd = {
