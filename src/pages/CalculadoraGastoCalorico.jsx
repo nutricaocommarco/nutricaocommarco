@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Calculator, Activity, Info, CheckCircle2, User, HeartPulse, AlertTriangle, Settings, Zap } from 'lucide-react';
 
+const CalculatorImage = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Calculadora-de-Gasto-Calorico.jpg";
+
 // Dicionário de METs para o Modo Avançado
 const metOptions = [
   { label: "Selecione a atividade...", value: "0" },
@@ -232,6 +234,16 @@ export default function CalculadoraGastoCalorico() {
 
             <div className="space-y-4 md:space-y-6 text-base md:text-lg text-slate-600 font-medium leading-relaxed">
               <p>Se você está se perguntando como calcular meu gasto calórico diário de forma precisa, a resposta mais eficiente e segura é utilizar uma calculadora de gasto calórico desenvolvida com base científica. Entender exatamente a quantidade de energia que o seu corpo consome todos os dias é o primeiro passo absoluto para qualquer objetivo estético ou de saúde, seja ele emagrecer de forma sustentável, manter o peso atual ou focar no ganho de massa muscular. Muitas pessoas tentam adivinhar a sua taxa metabólica basal ou o seu gasto energético total e acabam frustradas com a falta de resultados práticos na balança ou no espelho por estarem consumindo a quantidade errada de nutrientes.</p>
+
+{/* IMAGEM INTEGRADA */}
+<div className="mb-10 flex justify-center">
+  <img 
+    src={CalculatorImage} 
+    alt="Calculadora inteligente de Gasto Calórico TDEE do Nutrição com Marco, com o Pinguim Mascote" 
+    title="Calculadora TDEE Inteligente"
+    className="max-w-full h-auto rounded-3xl shadow-lg border border-gray-100" 
+  />
+</div>
               
               <p>Nossa ferramenta gratuita foi desenhada para acabar de vez com essas dúvidas e facilitar a sua vida, agindo como uma verdadeira calculadora TDEE inteligente que se adapta à sua realidade biológica. Ao invés de exigir que você escolha multiplicadores confusos em tabelas genéricas, o nosso sistema cruza os seus dados básicos com o seu nível real de atividade física diária e o seu perfil corporal específico. Com essas informações em mãos, a inteligência da plataforma seleciona automaticamente a equação matemática mais adequada para o seu biotipo, podendo utilizar a fórmula de Mifflin-St Jeor para a população geral e pessoas com sobrepeso, a clássica equação de Harris-Benedict, ou até mesmo os métodos avançados de Cunningham e Tinsley, que são perfeitos para atletas de musculação e fisiculturistas que buscam o máximo de precisão na dieta.</p>
               
