@@ -157,17 +157,17 @@ export default function CalculadoraGastoCalorico() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
-      <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-5xl text-left">
-        <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100 flex flex-col gap-12">
+      <section className="py-16 md:py-24 bg-slate-50 px-4 sm:px-6 container mx-auto max-w-5xl text-left">
+        <div className="bg-white p-6 sm:p-10 md:p-16 rounded-[2rem] md:rounded-[4rem] shadow-2xl border border-slate-100 flex flex-col gap-8 md:gap-12">
 
-          <article className="prose prose-lg max-w-none text-left w-full">
-            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Nutrição • Metabolismo • Precisão</span>
+          <article className="prose prose-base md:prose-lg max-w-none text-left w-full">
+            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 md:mb-6">Nutrição • Metabolismo • Precisão</span>
 
-            <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 md:mb-10 uppercase italic leading-tight text-slate-900">
               A Importância de Usar uma Calculadora de <span className="text-green-600">Gasto Calórico</span>
             </h1>
 
-            <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
+            <div className="space-y-4 md:space-y-6 text-base md:text-lg text-slate-600 font-medium leading-relaxed">
               <p>Se você está se perguntando como calcular meu gasto calórico diário de forma precisa, a resposta mais eficiente e segura é utilizar uma calculadora de gasto calórico desenvolvida com base científica. Entender exatamente a quantidade de energia que o seu corpo consome todos os dias é o primeiro passo absoluto para qualquer objetivo estético ou de saúde, seja ele emagrecer de forma sustentável, manter o peso atual ou focar no ganho de massa muscular. Muitas pessoas tentam adivinhar a sua taxa metabólica basal ou o seu gasto energético total e acabam frustradas com a falta de resultados práticos na balança ou no espelho por estarem consumindo a quantidade errada de nutrientes.</p>
               
               <p>Nossa ferramenta gratuita foi desenhada para acabar de vez com essas dúvidas e facilitar a sua vida, agindo como uma verdadeira calculadora TDEE inteligente que se adapta à sua realidade biológica. Ao invés de exigir que você escolha multiplicadores confusos em tabelas genéricas, o nosso sistema cruza os seus dados básicos com o seu nível real de atividade física diária e o seu perfil corporal específico. Com essas informações em mãos, a inteligência da plataforma seleciona automaticamente a equação matemática mais adequada para o seu biotipo, podendo utilizar a fórmula de Mifflin-St Jeor para a população geral e pessoas com sobrepeso, a clássica equação de Harris-Benedict, ou até mesmo os métodos avançados de Cunningham e Tinsley, que são perfeitos para atletas de musculação e fisiculturistas que buscam o máximo de precisão na dieta.</p>
@@ -176,203 +176,19 @@ export default function CalculadoraGastoCalorico() {
             </div>
           </article>
 
-          <div className="bg-slate-50 rounded-[3.5rem] p-8 md:p-12 border border-slate-200 shadow-inner mt-4">
-            <h2 className="text-3xl font-black text-slate-800 uppercase italic mb-10 border-b border-green-200 pb-4 flex items-center gap-3">
-              <Calculator className="text-green-600 w-8 h-8"/> Ferramenta de Cálculo
+          <div className="bg-slate-50 rounded-[2rem] md:rounded-[3.5rem] p-5 sm:p-8 md:p-12 border border-slate-200 shadow-inner mt-2 md:mt-4">
+            <h2 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mb-8 md:mb-10 border-b border-green-200 pb-4 flex items-center gap-3">
+              <Calculator className="text-green-600 w-6 h-6 md:w-8 md:h-8 flex-shrink-0"/> Ferramenta de Cálculo
             </h2>
 
-            <form onSubmit={handleCalculate} className="space-y-12">
+            <form onSubmit={handleCalculate} className="space-y-10 md:space-y-12">
               
               <section>
-                <h3 className="text-xl font-black text-slate-800 uppercase italic mb-6 flex items-center gap-2">
-                  <User className="text-green-600 w-6 h-6" /> 1. Sobre Você
+                <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
+                  <User className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 1. Sobre Você
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                   <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Sexo</label>
-                    <select name="gender" value={formData.gender} onChange={handleInputChange} className="w-full p-4 border-2 border-slate-200 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none">
-                      <option value="M">Masculino</option>
-                      <option value="F">Feminino</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Idade (anos)</label>
-                    <input type="number" name="age" value={formData.age} onChange={handleInputChange} placeholder="Ex: 30" required className="w-full p-4 border-2 border-slate-200 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Peso (kg)</label>
-                    <input type="number" step="0.1" name="weight" value={formData.weight} onChange={handleInputChange} placeholder="Ex: 75.5" required className="w-full p-4 border-2 border-slate-200 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Altura (cm)</label>
-                    <input type="number" name="height" value={formData.height} onChange={handleInputChange} placeholder="Ex: 175" required className="w-full p-4 border-2 border-slate-200 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none" />
-                  </div>
-                  <div className="md:col-span-2">
-                    <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">
-                      Percentual de Gordura (%) <span className="text-slate-400 font-normal normal-case">- Opcional, aumenta a precisão</span>
-                    </label>
-                    <input type="number" name="bf" value={formData.bf} onChange={handleInputChange} placeholder="Ex: 15" className="w-full p-4 border-2 border-slate-200 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none" />
-                  </div>
-                </div>
-              </section>
-
-              <section>
-                <h3 className="text-xl font-black text-slate-800 uppercase italic mb-6 flex items-center gap-2">
-                  <Activity className="text-green-600 w-6 h-6" /> 2. Seu Perfil Físico
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                  {[
-                    {id: 'average', label: 'Padrão Geral'},
-                    {id: 'obese', label: 'Sobrepeso / Obesidade'},
-                    {id: 'bodybuilder', label: 'Fisiculturista'},
-                    {id: 'endurance', label: 'Atleta Endurance'}
-                  ].map(item => (
-                    <label key={item.id} className={`p-4 border-2 rounded-2xl cursor-pointer transition-all flex items-center justify-center text-center ${formData.bodyType === item.id ? 'border-green-600 bg-green-50 text-green-800 shadow-sm' : 'border-slate-200 text-slate-600 hover:bg-white hover:border-slate-300'}`}>
-                      <input type="radio" name="bodyType" value={item.id} checked={formData.bodyType === item.id} onChange={handleInputChange} className="hidden" />
-                      <span className="font-bold">{item.label}</span>
-                    </label>
-                  ))}
-                </div>
-              </section>
-
-              <section>
-                <h3 className="text-xl font-black text-slate-800 uppercase italic mb-6 flex items-center gap-2">
-                  <HeartPulse className="text-green-600 w-6 h-6" /> 3. Rotina e Movimento
-                </h3>
-                
-                <div className="space-y-8 bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm">
-                  <div>
-                    <label className="block font-bold text-slate-800 mb-4">Trabalho ou rotina principal:</label>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      {[{id: 'sedentary', label: 'Sentado a maior parte do dia'},
-                        {id: 'standing', label: 'Em pé ou caminhando'},
-                        {id: 'physical', label: 'Trabalho físico pesado'}].map(item => (
-                        <label key={item.id} className={`p-4 border-2 rounded-2xl cursor-pointer transition-all ${formData.routine === item.id ? 'border-green-600 bg-green-50 text-green-800' : 'border-slate-200 bg-slate-50 hover:border-slate-300 text-slate-700'}`}>
-                          <input type="radio" name="routine" value={item.id} checked={formData.routine === item.id} onChange={handleInputChange} className="hidden" />
-                          <span className="text-sm font-bold block text-center">{item.label}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block font-bold text-slate-800 mb-4">Treinos físicos semanais:</label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                      {[{id: 'none', label: 'Não treino'},
-                        {id: 'light', label: 'Leve (1 a 3h)'},
-                        {id: 'moderate', label: 'Moderado (4 a 5h)'},
-                        {id: 'intense', label: 'Intenso (6h+)'}].map(item => (
-                        <label key={item.id} className={`p-4 border-2 rounded-2xl cursor-pointer transition-all ${formData.exercise === item.id ? 'border-green-600 bg-green-50 text-green-800' : 'border-slate-200 bg-slate-50 hover:border-slate-300 text-slate-700'}`}>
-                          <input type="radio" name="exercise" value={item.id} checked={formData.exercise === item.id} onChange={handleInputChange} className="hidden" />
-                          <span className="text-sm font-bold block text-center">{item.label}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              <section className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm">
-                <h3 className="text-xl font-black text-slate-800 uppercase italic mb-6 flex items-center gap-2">
-                  <CheckCircle2 className="text-green-600 w-6 h-6" /> 4. Seleção da Fórmula
-                </h3>
-                
-                <div className="flex flex-wrap gap-6 mb-8">
-                  <label className="flex items-center gap-3 cursor-pointer">
-                    <input type="radio" name="calculationMode" value="auto" checked={formData.calculationMode === 'auto'} onChange={handleInputChange} className="w-5 h-5 text-green-600 focus:ring-green-500 accent-green-600" />
-                    <span className="font-bold text-slate-800">Modo Automático</span>
-                  </label>
-                  <label className="flex items-center gap-3 cursor-pointer">
-                    <input type="radio" name="calculationMode" value="manual" checked={formData.calculationMode === 'manual'} onChange={handleInputChange} className="w-5 h-5 text-green-600 focus:ring-green-500 accent-green-600" />
-                    <span className="font-bold text-slate-800">Modo Manual</span>
-                  </label>
-                </div>
-
-                {formData.calculationMode === 'auto' ? (
-                  <div className="bg-green-50 text-green-900 p-6 rounded-2xl border border-green-200 flex items-start gap-4">
-                    <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-1 text-green-600" />
-                    <p className="text-base font-medium leading-relaxed">
-                      <strong>Sistema Inteligente Ativado.</strong> O sistema vai analisar o seu perfil físico, se você preencheu seu percentual de gordura e o seu nível de treino para selecionar matematicamente a equação mais precisa para o seu corpo no momento.
-                    </p>
-                  </div>
-                ) : (
-                  <div className="space-y-4 animate-in fade-in slide-in-from-top-4 duration-300">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {[
-                        { id: 'mifflin', name: 'Mifflin-St Jeor', desc: 'A mais recomendada hoje para a população em geral e pessoas com sobrepeso.' },
-                        { id: 'harris', name: 'Harris-Benedict', desc: 'A fórmula mais antiga e famosa, boa para estimativas gerais.' },
-                        { id: 'cunningham', name: 'Cunningham', desc: 'Excelente para atletas. Utiliza a massa muscular livre de gordura.' },
-                        { id: 'tinsley', name: 'Tinsley', desc: 'Ótima para praticantes de musculação e endurance.' }
-                      ].map(formula => (
-                        <label key={formula.id} className={`p-6 border-2 rounded-2xl cursor-pointer flex flex-col gap-2 transition-all ${formData.manualFormula === formula.id ? 'border-green-600 bg-green-50 shadow-md' : 'border-slate-200 bg-slate-50 hover:border-green-300'}`}>
-                          <div className="flex items-center gap-3">
-                            <input type="radio" name="manualFormula" value={formula.id} checked={formData.manualFormula === formula.id} onChange={handleInputChange} className="w-5 h-5 text-green-600 focus:ring-green-500 accent-green-600" />
-                            <span className="font-black text-slate-900 text-lg uppercase italic">{formula.name}</span>
-                          </div>
-                          <p className="text-sm text-slate-600 pl-8 font-medium leading-relaxed">{formula.desc}</p>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </section>
-
-              <button type="submit" className="w-full bg-slate-900 hover:bg-green-600 text-white font-black py-6 px-8 rounded-full shadow-xl transform transition-all hover:-translate-y-1 hover:shadow-2xl text-xl uppercase tracking-widest flex justify-center items-center gap-3">
-                Calcular Meu Gasto Calórico
-              </button>
-            </form>
-
-            {results && (
-              <div className="mt-16 bg-slate-900 text-white p-8 md:p-12 rounded-[3rem] animate-in fade-in slide-in-from-bottom-8 duration-500 shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 to-green-600"></div>
-                
-                <h2 className="text-3xl font-black mb-10 text-center uppercase italic flex items-center justify-center gap-3">
-                  <CheckCircle2 className="text-green-500 w-8 h-8" /> Seus Resultados Prontos
-                </h2>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-                  <div className="bg-slate-800/50 p-8 rounded-[2rem] border border-slate-700 text-center flex flex-col justify-center">
-                    <h3 className="text-slate-400 font-bold mb-4 uppercase tracking-widest text-xs">Taxa Metabólica Basal (TMB)</h3>
-                    <div className="text-6xl font-black text-white mb-2">{results.bmr}</div>
-                    <span className="text-lg text-slate-500 font-medium mb-6">kcal / dia</span>
-                    <p className="text-sm text-slate-400 text-left pt-6 border-t border-slate-700 font-medium leading-relaxed">
-                      A energia exata que o seu corpo queima parado em repouso absoluto, apenas para manter os órgãos vitais funcionando.
-                    </p>
-                  </div>
-
-                  <div className="bg-green-900/40 p-8 rounded-[2rem] border border-green-800 text-center flex flex-col justify-center relative">
-                    <span className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-xs font-black px-6 py-2 rounded-full tracking-widest uppercase shadow-lg">Meta Principal</span>
-                    <h3 className="text-green-300 font-bold mb-4 uppercase tracking-widest text-xs mt-4">Gasto Energético Total (GET)</h3>
-                    <div className="text-6xl font-black text-green-400 mb-2">{results.tdee}</div>
-                    <span className="text-lg text-green-600 font-medium mb-6">kcal / dia</span>
-                    <p className="text-sm text-green-200/80 text-left pt-6 border-t border-green-800 font-medium leading-relaxed">
-                      Sua queima total estimada para o dia inteiro. Consuma esse valor para manter o peso atual.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row justify-between items-center bg-slate-800 p-6 rounded-2xl text-sm border border-slate-700 gap-4">
-                  <div className="flex items-center gap-3">
-                    <Info className="w-6 h-6 text-green-500 flex-shrink-0" />
-                    <span className="font-medium text-slate-300">Equação matemática utilizada: <strong className="text-white ml-1">{results.formulaUsed}</strong></span>
-                  </div>
-                  <div className="bg-slate-900 px-5 py-2.5 rounded-full text-green-400 font-black text-xs uppercase tracking-widest border border-slate-700 flex-shrink-0">
-                    Fator: x{results.activityFactor}
-                  </div>
-                </div>
-
-                <div className="mt-8 bg-slate-800/80 border-l-4 border-green-500 p-6 rounded-2xl flex items-start gap-5">
-                  <AlertTriangle className="w-8 h-8 text-green-500 flex-shrink-0 mt-1" />
-                  <p className="text-sm text-slate-300 font-medium leading-relaxed">
-                    <strong className="text-white block mb-2 text-base uppercase tracking-wider">Atenção Profissional:</strong> 
-                    Esta calculadora matemática entrega uma estimativa científica confiável. No entanto, para um plano alimentar de excelência, focado nos seus resultados reais e totalmente adaptado à sua biologia única e exames bioquímicos, é indispensável procurar a orientação e o acompanhamento de um nutricionista.
-                  </p>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-    </>
-  );
-}
+                    <label className="block text-xs md:text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Sexo</label>
+                    <select name="gender" value={formData.gender} onChange={handleInputChange} className="w-full p-3 md:p-4 border-2 border-slate-200 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none">
+                      <option value="
