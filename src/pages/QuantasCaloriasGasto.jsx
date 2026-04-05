@@ -190,13 +190,23 @@ export default function QuantasCaloriasGastoComponent() {
             Quantas Calorias Gasto Por Dia? Pare de Chutar e Entenda o Seu Metabolismo
           </h1>
 
-          <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-4 text-left">
-              <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
-                O Erro Número 1 do Emagrecimento
+          {/* NOVA RESPOSTA RÁPIDA COM LINK PARA CALCULADORA */}
+          <div className="my-10 p-6 md:p-10 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-6 text-left">
+            <div>
+              <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3 flex items-center gap-2">
+                <Zap className="text-green-600" /> Resposta Rápida
               </h2>
-              <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
-                A grande verdade é que tentar adivinhar o seu gasto energético ou seguir dietas genéricas de gaveta é o caminho mais rápido para a frustração e para o temido efeito sanfona. Para que você tenha resultados estéticos reais, é inegociável entender como funciona a matemática do seu próprio corpo.
-            </p>
+              <p className="mt-4 text-lg md:text-xl text-green-950 font-medium leading-relaxed m-0">
+                Para descobrir o seu gasto calórico diário exato (TDEE), você precisa calcular a sua <strong>Taxa Metabólica Basal (TMB)</strong> e multiplicá-la pelo seu <strong>Fator de Atividade Física</strong>. Fazer isso na mão pode gerar erros grotescos no emagrecimento. A melhor solução é usar ferramentas automáticas que escolhem a fórmula ideal para o seu biotipo.
+              </p>
+            </div>
+            <Link 
+              to="/calculadora-de-gasto-calorico" 
+              className="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm shadow-xl hover:bg-green-600 hover:-translate-y-1 transition-all duration-300 w-full md:w-fit italic"
+            >
+              <Calculator size={18} />
+              Acessar Calculadora Gratuita
+            </Link>
           </div>
 
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
@@ -206,7 +216,6 @@ export default function QuantasCaloriasGastoComponent() {
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
               <audio controls className="w-full h-10 outline-none">
-                {/* Alterado o nome do MP3 para um fictício focado em Gasto Calorico */}
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/GastoCalorico.mp3" type="audio/mpeg" />
                 O seu navegador não suporta o áudio.
               </audio>
@@ -248,6 +257,19 @@ export default function QuantasCaloriasGastoComponent() {
               Você já se pegou olhando para o espelho ou para a balança e se perguntando quantas calorias gasto por dia de verdade? Essa é, sem dúvida, a pergunta número um de quem começa um processo sério de emagrecimento ou de ganho de massa muscular. A grande verdade é que tentar adivinhar o seu gasto energético ou seguir dietas genéricas de gaveta é o caminho mais rápido para a frustração e para o temido efeito sanfona. Para que você tenha resultados estéticos reais, visíveis e sustentáveis, é absolutamente inegociável entender como funciona o gasto calórico do seu próprio corpo, que é único e responde de maneira diferente dependendo da sua composição corporal e da sua rotina diária.
             </p>
 
+            {/* IMAGEM SOLICITADA ACIMA DE TMB */}
+            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
+              <img 
+                src={`${githubImgBase}Blog/QuantasCaloriasGasto.jpg`} 
+                alt="Ilustração explicativa sobre gasto calórico diário e taxa metabólica" 
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
+                onError={(e) => {
+                  e.target.onerror = null; 
+                  e.target.src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?auto=format&fit=crop&q=80&w=800";
+                }}
+              />
+            </div>
+
             <h2 id="o-que-e-tmb" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Battery className="text-green-600"/> O que é TMB?
             </h2>
@@ -281,6 +303,44 @@ export default function QuantasCaloriasGastoComponent() {
             <p>
               Uma das equações mais recentes e validadas para populações altamente ativas. É a escolha perfeita para fisiculturistas e atletas de endurance. O grande diferencial da Tinsley é que ela possui duas versões incrivelmente precisas: uma que utiliza a massa magra, semelhante à Cunningham (<strong>TMB = 25.9 x Massa Magra + 284</strong>), e outra excelente alternativa que utiliza apenas o peso total corporal caso você não saiba o seu percentual de gordura.
             </p>
+
+            {/* NOVA TABELA DE FÓRMULAS */}
+            <div className="my-10 overflow-x-auto bg-white rounded-3xl border border-slate-200 shadow-sm">
+              <table className="w-full text-left min-w-[600px] m-0">
+                <thead className="bg-slate-50 border-b border-slate-200 text-slate-800 uppercase tracking-widest text-xs font-black">
+                  <tr>
+                    <th className="p-5">Nome da Fórmula</th>
+                    <th className="p-5">Recomendação Principal</th>
+                    <th className="p-5 text-center">Precisa de %GC?</th>
+                  </tr>
+                </thead>
+                <tbody className="text-sm font-medium text-slate-600 divide-y divide-slate-100">
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800">Mifflin-St Jeor</td>
+                    <td className="p-5">População geral, sobrepeso e obesidade.</td>
+                    <td className="p-5 text-center text-red-500 font-bold">Não</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800">Harris-Benedict</td>
+                    <td className="p-5">Estimativas rápidas, biotipo comum.</td>
+                    <td className="p-5 text-center text-red-500 font-bold">Não</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800">Cunningham</td>
+                    <td className="p-5">Atletas e pessoas com muita massa magra.</td>
+                    <td className="p-5 text-center text-green-600 font-bold">Sim</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800">Tinsley</td>
+                    <td className="p-5">Fisiculturistas e atletas de endurance.</td>
+                    <td className="p-5 text-center text-blue-600 font-bold">Sim / Não*</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className="bg-slate-50 p-4 text-xs text-slate-500 font-medium border-t border-slate-200 text-center">
+                * A equação de Tinsley possui validação clínica em duas versões distintas: uma baseada no Peso Total e outra na Massa Magra.
+              </div>
+            </div>
 
             <h2 id="percentual-gordura" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Scale className="text-green-600"/> Como descobrir meu percentual de gordura?
@@ -359,8 +419,48 @@ export default function QuantasCaloriasGastoComponent() {
               Saber a sua TMB é apenas o começo. Para chegar ao seu Gasto Energético Total (GET) em uma calculadora TDEE, nós precisamos multiplicar o seu metabolismo basal pelo seu Fator de Atividade (FA). O Fator de Atividade é um número que representa todo o movimento que você faz no dia, desde o seu trabalho no escritório até aquele treino intenso de crossfit. 
             </p>
             <p>
-              Para calcular o consumo de calorias reais da sua rotina, multiplicamos a TMB por índices que variam de acordo com o seu esforço. Por exemplo, uma pessoa totalmente sedentária que trabalha sentada usará um multiplicador próximo de 1.2. Já alguém levemente ativo usará 1.375, enquanto uma rotina de exercícios moderados pede um multiplicador de 1.55. Para atletas que treinam pesado todos os dias, o fator salta para 1.725, e no caso de competidores de endurance ou fisiculturistas com múltiplas sessões diárias, esse multiplicador pode ultrapassar a marca de 1.9. O maior erro no emagrecimento ocorre quando as pessoas superestimam esse fator, achando que uma caminhada de trinta minutos as transforma em atletas de elite.
+              Para calcular o consumo de calorias reais da sua rotina, multiplicamos a TMB por índices que variam de acordo com o seu esforço. O maior erro no emagrecimento ocorre quando as pessoas superestimam esse fator, achando que uma caminhada de trinta minutos as transforma em atletas de elite.
             </p>
+
+            {/* NOVA TABELA DE FATOR DE ATIVIDADE */}
+            <div className="my-10 overflow-x-auto bg-white rounded-3xl border border-slate-200 shadow-sm">
+              <table className="w-full text-left min-w-[600px] m-0">
+                <thead className="bg-slate-50 border-b border-slate-200 text-slate-800 uppercase tracking-widest text-xs font-black">
+                  <tr>
+                    <th className="p-5 w-1/4">Classificação</th>
+                    <th className="p-5 w-1/4">Fator (FA)</th>
+                    <th className="p-5 w-2/4">Rotina Diária Prática</th>
+                  </tr>
+                </thead>
+                <tbody className="text-sm font-medium text-slate-600 divide-y divide-slate-100">
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800">Sedentário</td>
+                    <td className="p-5 font-black text-green-600">1.2</td>
+                    <td className="p-5">Trabalho sentado em mesa, pouco ou nenhum exercício estruturado na semana.</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800">Leve</td>
+                    <td className="p-5 font-black text-green-600">1.375</td>
+                    <td className="p-5">Exercício ou esporte leve, variando de 1 a 3 dias por semana.</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800">Moderado</td>
+                    <td className="p-5 font-black text-green-600">1.55</td>
+                    <td className="p-5">Treinamento estruturado e moderado de 3 a 5 dias por semana.</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800">Intenso</td>
+                    <td className="p-5 font-black text-green-600">1.725</td>
+                    <td className="p-5">Esportes intensos ou musculação pesada de 6 a 7 dias por semana.</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800">Extremo / Atleta</td>
+                    <td className="p-5 font-black text-green-600">1.9 a 2.2</td>
+                    <td className="p-5">Treinos diários muito pesados (ex: triatlo), sessões duplas ou trabalho braçal extremo (construção).</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
             <h2 id="o-que-sao-mets" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Flame className="text-green-600"/> O que são os METs?
