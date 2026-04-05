@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { 
   ChevronLeft, HelpCircle, Activity, Leaf, Shield, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
-  Flame, CheckCircle2, Brain, Wind, Battery, FileText, AlertCircle, HeartPulse, Scale, Dna, Calculator, Target, Ruler
+  Flame, CheckCircle2, Brain, Wind, Battery, FileText, AlertCircle, HeartPulse, Scale, Dna, Calculator, Target, Ruler, UtensilsCrossed
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
@@ -242,6 +242,7 @@ export default function QuantasCaloriasGastoComponent() {
                   <li><a href="#o-que-e-tmb" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O que é TMB?</a></li>
                   <li><a href="#formulas" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Calculator size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Fórmulas de Gastos</a></li>
                   <li><a href="#percentual-gordura" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Percentual de Gordura</a></li>
+                  <li><a href="#efeito-termico" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><UtensilsCrossed size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Efeito Térmico (ETA)</a></li>
                   <li><a href="#fator-atividade" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><HeartPulse size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Fator de Atividade Física</a></li>
                   <li><a href="#o-que-sao-mets" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Flame size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O que são os METs?</a></li>
                   <li><a href="#tabela-mets" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Target size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Tabela de METs</a></li>
@@ -257,14 +258,9 @@ export default function QuantasCaloriasGastoComponent() {
               Você já se pegou olhando para o espelho ou para a balança e se perguntando quantas calorias gasto por dia de verdade? Essa é, sem dúvida, a pergunta número um de quem começa um processo sério de emagrecimento ou de ganho de massa muscular. A grande verdade é que tentar adivinhar o seu gasto energético ou seguir dietas genéricas de gaveta é o caminho mais rápido para a frustração e para o temido efeito sanfona. Para que você tenha resultados estéticos reais, visíveis e sustentáveis, é absolutamente inegociável entender como funciona o gasto calórico do seu próprio corpo, que é único e responde de maneira diferente dependendo da sua composição corporal e da sua rotina diária.
             </p>
 
-{/* IMAGEM SOLICITADA ACIMA DE TMB */}
+            {/* IMAGEM SOLICITADA ACIMA DE TMB COM FIGURE E BADGE CORRETO */}
             <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
-              
-              {/* TAG FLUTUANTE (Badge) */}
-              <div className="absolute top-4 left-4 z-10 bg-green-600 text-white px-4 py-1.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest shadow-md">
-                Metabolismo em Ação
-              </div>
-
+           
               <img 
                 src={`${githubImgBase}Blog/QuantasCaloriasGasto.jpg`} 
                 alt="Mascote Pingus mostrando o contraste de gasto calórico entre assistir TV no sofá e correr intensamente no parque." 
@@ -275,8 +271,6 @@ export default function QuantasCaloriasGastoComponent() {
                   e.target.src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?auto=format&fit=crop&q=80&w=800";
                 }}
               />
-              
-              {/* LEGENDA E TÍTULO VISUAL DA IMAGEM */}
               <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
                 <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
                   <strong className="text-slate-800 uppercase not-italic block mb-1">O Confronto de Atividades</strong> 
@@ -284,7 +278,6 @@ export default function QuantasCaloriasGastoComponent() {
                 </p>
               </figcaption>
             </figure>
-            
 
             <h2 id="o-que-e-tmb" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Battery className="text-green-600"/> O que é TMB?
@@ -320,7 +313,7 @@ export default function QuantasCaloriasGastoComponent() {
               Uma das equações mais recentes e validadas para populações altamente ativas. É a escolha perfeita para fisiculturistas e atletas de endurance. O grande diferencial da Tinsley é que ela possui duas versões incrivelmente precisas: uma que utiliza a massa magra, semelhante à Cunningham (<strong>TMB = 25.9 x Massa Magra + 284</strong>), e outra excelente alternativa que utiliza apenas o peso total corporal caso você não saiba o seu percentual de gordura.
             </p>
 
-            {/* NOVA TABELA DE FÓRMULAS */}
+            {/* TABELA DE FÓRMULAS */}
             <div className="my-10 overflow-x-auto bg-white rounded-3xl border border-slate-200 shadow-sm">
               <table className="w-full text-left min-w-[600px] m-0">
                 <thead className="bg-slate-50 border-b border-slate-200 text-slate-800 uppercase tracking-widest text-xs font-black">
@@ -375,62 +368,94 @@ export default function QuantasCaloriasGastoComponent() {
               O método mais confiável, constante e palpável. A avaliação por dobras cutâneas, especialmente quando realizada seguindo os rigorosos padrões internacionais da certificação ISAK Nível 1, entrega uma precisão cirúrgica sobre a sua composição corporal. Através do uso de um adipômetro, o avaliador mede os milímetros exatos de gordura subcutânea em pontos estratégicos do corpo. Esse método não sofre interferência da hidratação diária, refletindo a verdadeira arquitetura do seu físico.
             </p>
 
-{/* AFILIADO MERCADO LIVRE - O PINGUS APROVA */}
-<div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
-    {/* SELO NO CANTO SUPERIOR */}
-    <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
-        <Zap size={14} className="fill-white" />
-        <span>O Pingus Aprova!</span>
-    </div>
+            {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA */}
+            <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
+                <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+                    <Zap size={14} className="fill-white" />
+                    <span>O Pingus Aprova!</span>
+                </div>
 
-    <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
-        {/* FOTO DO PINGUS (AUTORIDADE) */}
-        <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-            <img 
-                src={`${githubImgBase}logoN_pingus.png`} 
-                alt="Selo de Qualidade Pingus" 
-                className="w-full h-full object-contain" 
-            />
-        </div>
+                <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
+                    <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
+                        <img 
+                            src={`${githubImgBase}logoN_pingus.png`} 
+                            alt="Selo de Qualidade Pingus" 
+                            className="w-full h-full object-contain" 
+                        />
+                    </div>
 
-        <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-            <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                Balança de Bioimpedância <span className="text-green-700">8 Eletrodos</span>
-            </h4>
-            
-            {/* IMAGEM DO PRODUTO */}
-            <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
-                <img 
-                    src={`${githubImgBase}Afiliado/Bia.jpg`} 
-                    alt="Balança de Bioimpedância 8 eletrodos e dupla frequência" 
-                    className="w-full h-auto" 
-                />
+                    <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+                        <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                            Balança de Bioimpedância <span className="text-green-700">8 Eletrodos</span>
+                        </h4>
+                        
+                        <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
+                            <img 
+                                src={`${githubImgBase}Afiliado/Bia.jpg`} 
+                                alt="Balança de Bioimpedância 8 eletrodos e dupla frequência" 
+                                className="w-full h-auto" 
+                            />
+                        </div>
+
+                        <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
+                            Para descobrir seu <strong>percentual de gordura corporal</strong> eu indico este modelo de dupla frequência pela sua precisão clínica.
+                        </p>
+
+                        <a 
+                            href="https://meli.la/1aBg9YM" 
+                            rel="sponsored noopener noreferrer" 
+                            target="_blank"
+                            className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                        >
+                            <ShoppingCart size={16} />
+                            Comprar no Mercado Livre
+                        </a>
+                    </div>
+                </div>
+
+                <div className="mt-12 pt-6 border-t border-green-50 text-center">
+                    <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
+                        Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece o apoio.
+                    </p>
+                </div>
             </div>
 
-            <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                Para descobrir seu <strong>percentual de gordura corporal</strong> eu indico este modelo de dupla frequência pela sua precisão clínica.
+            {/* NOVA SEÇÃO: EFEITO TÉRMICO DOS ALIMENTOS */}
+            <h2 id="efeito-termico" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <UtensilsCrossed className="text-green-600"/> O que é o Efeito Térmico dos Alimentos?
+            </h2>
+            <p>
+              Além da sua TMB e do seu nível de atividade física, existe um terceiro fator fundamental que compõe o seu Gasto Energético Total: o Efeito Térmico dos Alimentos (ETA), também conhecido pela sigla em inglês TEF (Thermic Effect of Food). Basicamente, o seu corpo gasta energia para mastigar, digerir, absorver e armazenar os nutrientes da comida que você ingere. Esse processo representa, em média, cerca de 10% de todas as calorias que você queima em um dia.
+            </p>
+            <p>
+              O grande pulo do gato na nutrição esportiva e no emagrecimento é que nem todo nutriente exige o mesmo esforço do seu corpo para ser digerido. As proteínas, por exemplo, são moléculas complexas que exigem muita energia termogênica para serem quebradas pelos seus órgãos, enquanto as gorduras são facilmente estocadas. Veja a tabela abaixo com o gasto energético de cada macronutriente:
             </p>
 
-            {/* BOTÃO COM LINK AFILIADO */}
-            <a 
-                href="https://meli.la/1aBg9YM" 
-                rel="sponsored noopener noreferrer" 
-                target="_blank"
-                className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-            >
-                <ShoppingCart size={16} />
-                Comprar no Mercado Livre
-            </a>
-        </div>
-    </div>
-
-    {/* DISCLOSURE OBRIGATÓRIO */}
-    <div className="mt-12 pt-6 border-t border-green-50 text-center">
-        <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
-            Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece o apoio.
-        </p>
-    </div>
-</div>
+            {/* TABELA DE ETA / MACRONUTRIENTES */}
+            <div className="my-10 overflow-x-auto bg-white rounded-3xl border border-slate-200 shadow-sm">
+              <table className="w-full text-left min-w-[500px] m-0">
+                <thead className="bg-slate-50 border-b border-slate-200 text-slate-800 uppercase tracking-widest text-xs font-black">
+                  <tr>
+                    <th className="p-5">Macronutriente</th>
+                    <th className="p-5 text-center">Gasto Energético (ETA)</th>
+                  </tr>
+                </thead>
+                <tbody className="text-sm font-medium text-slate-600 divide-y divide-slate-100">
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800 flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-green-500 shrink-0"></div> Proteínas</td>
+                    <td className="p-5 text-center font-black text-green-600">20% a 30%</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800 flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-blue-500 shrink-0"></div> Carboidratos</td>
+                    <td className="p-5 text-center font-black text-blue-600">5% a 10%</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800 flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-orange-500 shrink-0"></div> Gorduras</td>
+                    <td className="p-5 text-center font-black text-orange-500">0% a 3%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
             <h2 id="fator-atividade" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <HeartPulse className="text-green-600"/> Como calcular o Fator de Atividade Física
@@ -442,7 +467,7 @@ export default function QuantasCaloriasGastoComponent() {
               Para calcular o consumo de calorias reais da sua rotina, multiplicamos a TMB por índices que variam de acordo com o seu esforço. O maior erro no emagrecimento ocorre quando as pessoas superestimam esse fator, achando que uma caminhada de trinta minutos as transforma em atletas de elite.
             </p>
 
-            {/* NOVA TABELA DE FATOR DE ATIVIDADE */}
+            {/* TABELA DE FATOR DE ATIVIDADE */}
             <div className="my-10 overflow-x-auto bg-white rounded-3xl border border-slate-200 shadow-sm">
               <table className="w-full text-left min-w-[600px] m-0">
                 <thead className="bg-slate-50 border-b border-slate-200 text-slate-800 uppercase tracking-widest text-xs font-black">
