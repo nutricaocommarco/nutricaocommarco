@@ -33,7 +33,6 @@ import Simbioticos from './pages/Simbioticos';
 import CicloCircadiano from './pages/CicloCircadiano';
 import Melatonina from './pages/Melatonina';
 import TPM from './pages/TPM';
-// IMPORT NOVO DA CALCULADORA
 import CalculadoraGastoCalorico from './pages/CalculadoraGastoCalorico'; 
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
@@ -126,7 +125,6 @@ function Layout({ children }) {
         title: 'O Que Comer na TPM: Emagrecimento e Metabolismo Feminino | Nutrição com Marco',
         desc: 'Descubra por que a vontade de doce aumenta na TPM, a verdade científica sobre o metabolismo feminino, o papel do treino e estratégias para emagrecer sem sofrimento.'
       },
-      // SEO DA CALCULADORA ADICIONADO AQUI
       '/calculadora-de-gasto-calorico': {
         title: 'Calculadora de Gasto Calórico (TDEE e TMB) Inteligente | Nutrição com Marco',
         desc: 'Descubra seu gasto calórico diário e taxa metabólica basal com nossa calculadora inteligente. Fórmulas de Mifflin, Cunningham e Tinsley adaptadas ao seu perfil.'
@@ -171,6 +169,8 @@ function Layout({ children }) {
             <Link to="/certificacoes" className={`py-1 border-b-2 transition-all ${location.pathname === '/certificacoes' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Certificações</Link>
             <Link to="/blog" className={`py-1 border-b-2 transition-all ${location.pathname.includes('/blog') ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Blog</Link>
             <Link to="/planos" className={`py-1 border-b-2 transition-all ${location.pathname === '/planos' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Planos</Link>
+            {/* NOVO ITEM NO MENU DESKTOP */}
+            <Link to="/calculadora-de-gasto-calorico" className={`py-1 border-b-2 transition-all ${location.pathname === '/calculadora-de-gasto-calorico' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Calculadora</Link>
             <a href="/#ebooks" className="py-1 border-b-2 border-transparent text-slate-800 hover:text-green-600 transition-all">E-books</a>
             <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-6 py-2.5 rounded-full hover:bg-green-700 transition-all shadow-md italic">Instagram</a>
           </div>
@@ -184,6 +184,8 @@ function Layout({ children }) {
             <Link to="/certificacoes" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Certificações</Link>
             <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Blog</Link>
             <Link to="/planos" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Planos</Link>
+            {/* NOVO ITEM NO MENU MOBILE */}
+            <Link to="/calculadora-de-gasto-calorico" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Calculadora</Link>
             <a href="/#ebooks" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">E-books</a>
           </div>
         )}
@@ -247,7 +249,6 @@ export default function App() {
             <Route path="/o-que-e-ciclo-circadiano" element={<CicloCircadiano />} />
             <Route path="/efeitos-colaterais-da-melatonina" element={<Melatonina />} />
             <Route path="/o-que-comer-na-tpm" element={<TPM />} />
-            {/* ROTA DA CALCULADORA ADICIONADA AQUI */}
             <Route path="/calculadora-de-gasto-calorico" element={<CalculadoraGastoCalorico />} />
           </Routes>
         </Layout>
