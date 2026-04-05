@@ -4,7 +4,6 @@ import { Calculator, Activity, Info, CheckCircle2, User, HeartPulse, AlertTriang
 
 const CalculatorImage = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Calculadora-de-Gasto-Calorico.jpg";
 
-// Dicionário de METs para o Modo Avançado
 const metOptions = [
   { label: "Selecione a atividade...", value: "0" },
   { label: "Musculação (Pesada / Intensa)", value: "6.0" },
@@ -84,20 +83,20 @@ export default function CalculadoraGastoCalorico() {
   };
 
   const calculateAutoActivityFactor = () => {
-    let base = 1.2; // Sedentário base (NEAT + TEF basais)
+    let base = 1.2; 
     if (formData.routine === 'standing') base = 1.35;
     if (formData.routine === 'physical') base = 1.50;
 
     let cardioBonus = 0;
-    if (formData.exerciseCardio === 'light') cardioBonus = 0.15; // 1-2h
-    if (formData.exerciseCardio === 'moderate') cardioBonus = 0.25; // 3-5h
-    if (formData.exerciseCardio === 'intense') cardioBonus = 0.40; // 6-9h
-    if (formData.exerciseCardio === 'endurance') cardioBonus = 0.60; // 10h+
+    if (formData.exerciseCardio === 'light') cardioBonus = 0.15;
+    if (formData.exerciseCardio === 'moderate') cardioBonus = 0.25;
+    if (formData.exerciseCardio === 'intense') cardioBonus = 0.40;
+    if (formData.exerciseCardio === 'endurance') cardioBonus = 0.60;
 
     let strengthBonus = 0;
-    if (formData.exerciseStrength === 'light') strengthBonus = 0.05; // 1-2h
-    if (formData.exerciseStrength === 'moderate') strengthBonus = 0.10; // 3-5h
-    if (formData.exerciseStrength === 'intense') strengthBonus = 0.15; // 6h+
+    if (formData.exerciseStrength === 'light') strengthBonus = 0.05;
+    if (formData.exerciseStrength === 'moderate') strengthBonus = 0.10;
+    if (formData.exerciseStrength === 'intense') strengthBonus = 0.15;
 
     return base + cardioBonus + strengthBonus;
   };
@@ -105,24 +104,21 @@ export default function CalculadoraGastoCalorico() {
   const determineBestFormula = (hasBF, bfValue, isMale, userSelectedBodyType) => {
     let bodyType = userSelectedBodyType;
 
-    // LÓGICA COM PERCENTUAL DE GORDURA
+    if (bodyType === 'endurance') return 'tinsley';
+
     if (hasBF) {
       const isActuallyObese = (isMale && bfValue > 25) || (!isMale && bfValue > 32);
       
-      // Se não é obeso de fato, a Cunningham é soberana por usar a Massa Magra
       if (!isActuallyObese) {
         return 'cunningham';
       }
       
-      // Se for obeso de fato, a Mifflin é cientificamente superior mesmo sabendo o %GC
       return 'mifflin';
     }
 
-    // LÓGICA SEM PERCENTUAL DE GORDURA
     if (bodyType === 'obese') return 'mifflin';
     if (bodyType === 'bodybuilder') return 'tinsley';
-    if (bodyType === 'endurance') return 'tinsley';
-    if (bodyType === 'average') return 'harris'; // Harris-Benedict para a população geral sem %GC
+    if (bodyType === 'average') return 'harris';
     
     return 'harris'; 
   };
@@ -260,7 +256,6 @@ export default function CalculadoraGastoCalorico() {
 
             <form onSubmit={handleCalculate} className="space-y-10 md:space-y-12">
               
-              {/* ETAPA 1: SOBRE VOCÊ */}
               <section>
                 <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
                   <User className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 1. Sobre Você
@@ -294,7 +289,6 @@ export default function CalculadoraGastoCalorico() {
                 </div>
               </section>
 
-              {/* ETAPA 2: PERFIL FÍSICO */}
               <section>
                 <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
                   <Activity className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 2. Seu Perfil Físico
@@ -314,7 +308,6 @@ export default function CalculadoraGastoCalorico() {
                 </div>
               </section>
 
-              {/* ETAPA 3: FATOR DE ATIVIDADE */}
               <section>
                 <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
                   <HeartPulse className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 3. Rotina e Movimento (Nível de Atividade)
@@ -322,7 +315,6 @@ export default function CalculadoraGastoCalorico() {
                 
                 <div className="bg-white p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-slate-100 shadow-sm">
                   
-                  {/* Abas de Seleção de Método */}
                   <div className="flex flex-wrap gap-2 md:gap-4 mb-8 border-b border-slate-100 pb-6">
                     <button type="button" onClick={() => setFormData({...formData, activityCalcMethod: 'auto'})} className={`px-4 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all flex items-center gap-2 ${formData.activityCalcMethod === 'auto' ? 'bg-green-600 text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
                       <Zap className="w-4 h-4"/> Automático
@@ -335,7 +327,6 @@ export default function CalculadoraGastoCalorico() {
                     </button>
                   </div>
 
-                  {/* Conteúdo Dinâmico da Etapa 3 */}
                   {formData.activityCalcMethod === 'auto' && (
                     <div className="space-y-8 animate-in fade-in duration-300">
                       <div>
@@ -438,7 +429,6 @@ export default function CalculadoraGastoCalorico() {
                 </div>
               </section>
 
-              {/* ETAPA 4: SELEÇÃO DA FÓRMULA */}
               <section className="bg-white p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-slate-100 shadow-sm">
                 <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
                   <CheckCircle2 className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 4. Seleção da Equação Basal
