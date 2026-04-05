@@ -73,6 +73,7 @@ export default function QuantasCaloriasGastoComponent() {
       <Helmet>
         <title>Quantas Calorias Gasto Por Dia? TMB e TDEE | Nutrição com Marco</title>
         <meta name="description" content="Descubra como calcular seu gasto calórico diário. Entenda a sua Taxa Metabólica Basal (TMB), fator de atividade, METs e as fórmulas de Mifflin e Cunningham." />
+        <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Quantas Calorias Gasto Por Dia? Pare de Chutar! | Nutrição com Marco" />
         <meta property="og:description" content="Guia definitivo: entenda o seu metabolismo, descubra a fórmula certa para o seu biotipo e aprenda a calcular o seu Gasto Energético Total com precisão." />
@@ -87,7 +88,7 @@ export default function QuantasCaloriasGastoComponent() {
             "mainEntityOfPage": {
               "@type": "WebPage",
               "@id": `https://www.nutricaocommarco.com.br${pathname}`
-            },    
+            },   
             "headline": "Quantas Calorias Gasto Por Dia? Pare de Chutar e Entenda o Seu Metabolismo",
             "image": artigoCapa,
             "author": {
@@ -259,12 +260,14 @@ export default function QuantasCaloriasGastoComponent() {
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
             <p>
-              Você já se pegou olhando para o espelho ou para a balança e se perguntando quantas calorias gasto por dia de verdade? Essa é, sem dúvida, a pergunta número um de quem começa um processo sério de emagrecimento ou de ganho de massa muscular. A grande verdade é que tentar adivinhar o seu gasto energético ou seguir dietas genéricas de gaveta é o caminho mais rápido para a frustração e para o temido efeito sanfona. Para que você tenha resultados estéticos reais, visíveis e sustentáveis, é absolutamente inegociável entender como funciona o gasto calórico do seu próprio corpo, que é único e responde de maneira diferente dependendo da sua composição corporal e da sua rotina diária.
+              Você já se pegou olhando para o espelho ou para a balança e se perguntando quantas calorias gasto por dia de verdade? Essa é, sem dúvida, a pergunta número um de quem começa um processo sério de emagrecimento ou de ganho de massa muscular. A grande verdade é que tentar adivinhar o seu gasto energético ou seguir dietas genéricas de gaveta é o caminho mais rápido para a frustração e para o temido <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-semibold hover:underline">efeito sanfona</Link>. Para que você tenha resultados estéticos reais, visíveis e sustentáveis, é absolutamente inegociável entender como funciona o gasto calórico do seu próprio corpo, que é único e responde de maneira diferente dependendo da sua composição corporal e da sua rotina diária.
             </p>
 
             {/* IMAGEM SOLICITADA ACIMA DE TMB COM FIGURE E BADGE CORRETO */}
             <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
-           
+              <div className="absolute top-4 left-4 z-10 bg-green-600 text-white px-4 py-1.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest shadow-md">
+                Metabolismo em Ação
+              </div>
               <img 
                 src={`${githubImgBase}Blog/QuantasCaloriasGasto.jpg`} 
                 alt="Mascote Pingus mostrando o contraste de gasto calórico entre assistir TV no sofá e correr intensamente no parque." 
@@ -277,6 +280,7 @@ export default function QuantasCaloriasGastoComponent() {
               />
               <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
                 <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
+                  <strong className="text-slate-800 uppercase not-italic block mb-1">O Confronto de Atividades</strong> 
                   O Pingus ilustra o impacto do seu estilo de vida no Gasto Energético Total (TDEE): a brutal diferença calórica entre uma rotina de baixo gasto no sofá e o esforço vigoroso no parque.
                 </p>
               </figcaption>
@@ -313,7 +317,7 @@ export default function QuantasCaloriasGastoComponent() {
 
             <h3 className="text-xl font-black text-slate-800 italic mt-8 mb-3 text-green-700">Tinsley</h3>
             <p>
-              Uma das equações mais recentes e validadas para populações altamente ativas. É a escolha perfeita para fisiculturistas e atletas de endurance. O grande diferencial da Tinsley é que ela possui duas versões incrivelmente precisas: uma que utiliza a massa magra, semelhante à Cunningham (<strong>TMB = 25.9 x Massa Magra + 284</strong>), e outra excelente alternativa que utiliza apenas o peso total corporal caso você não saiba o seu percentual de gordura.
+              Uma das equações mais recentes e validadas para populações altamente ativas. É a escolha perfeita para fisiculturistas e <Link to="/nutricao_para_ironman_703" className="text-green-600 font-semibold hover:underline">atletas de endurance</Link>. O grande diferencial da Tinsley é que ela possui duas versões incrivelmente precisas: uma que utiliza a massa magra, semelhante à Cunningham (<strong>TMB = 25.9 x Massa Magra + 284</strong>), e outra excelente alternativa que utiliza apenas o peso total corporal caso você não saiba o seu percentual de gordura.
             </p>
 
             {/* TABELA DE FÓRMULAS */}
@@ -363,12 +367,12 @@ export default function QuantasCaloriasGastoComponent() {
 
             <h3 className="text-xl font-black text-slate-800 italic mt-6 mb-2">Balança de Bioimpedância</h3>
             <p>
-              A bioimpedância é um método muito prático e rápido, geralmente encontrado em consultórios e academias. Ela envia uma corrente elétrica imperceptível pelo seu corpo e calcula a resistência que essa corrente encontra para separar o que é músculo, água e gordura. O único ponto de atenção é que os resultados de como calcular dieta por bioimpedância podem oscilar bastante dependendo do seu nível de hidratação, ingestão de cafeína ou se você treinou horas antes de subir na balança.
+              A <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 font-semibold hover:underline">bioimpedância</Link> é um método muito prático e rápido, geralmente encontrado em consultórios e academias. Ela envia uma corrente elétrica imperceptível pelo seu corpo e calcula a resistência que essa corrente encontra para separar o que é músculo, água e gordura. O único ponto de atenção é que os resultados de como calcular dieta por bioimpedância podem oscilar bastante dependendo do seu nível de hidratação, ingestão de cafeína ou se você treinou horas antes de <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-600 font-semibold hover:underline">subir na balança</Link>.
             </p>
 
             <h3 className="text-xl font-black text-slate-800 italic mt-6 mb-2">Antropometria</h3>
             <p>
-              O método mais confiável, constante e palpável. A avaliação por dobras cutâneas, especialmente quando realizada seguindo os rigorosos padrões internacionais da certificação ISAK Nível 1, entrega uma precisão cirúrgica sobre a sua composição corporal. Através do uso de um adipômetro, o avaliador mede os milímetros exatos de gordura subcutânea em pontos estratégicos do corpo. Esse método não sofre interferência da hidratação diária, refletindo a verdadeira arquitetura do seu físico.
+              O método mais confiável, constante e palpável. A <Link to="/o_que_e_antropometria" className="text-green-600 font-semibold hover:underline">avaliação por dobras cutâneas</Link>, especialmente quando realizada seguindo os rigorosos padrões internacionais da certificação ISAK Nível 1, entrega uma precisão cirúrgica sobre a sua composição corporal. Através do uso de um adipômetro, o avaliador mede os milímetros exatos de gordura subcutânea em pontos estratégicos do corpo. Esse método não sofre interferência da hidratação diária, refletindo a verdadeira arquitetura do seu físico.
             </p>
 
             {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA */}
@@ -504,7 +508,7 @@ export default function QuantasCaloriasGastoComponent() {
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-bold text-slate-800">Extremo / Atleta</td>
                     <td className="p-5 font-black text-green-600">1.9 a 2.2</td>
-                    <td className="p-5">Treinos diários muito pesados (ex: triatlo), sessões duplas ou trabalho braçal extremo (construção).</td>
+                    <td className="p-5">Treinos diários muito pesados (ex: <Link to="/nutricao_para_ironman_703" className="text-green-600 font-semibold hover:underline">triatlo</Link>), sessões duplas ou trabalho braçal extremo (construção).</td>
                   </tr>
                 </tbody>
               </table>
