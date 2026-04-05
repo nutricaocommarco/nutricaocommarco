@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Instagram, Menu, X, Mail } from 'lucide-react';
+import { Instagram, Menu, X, Mail, ChevronDown } from 'lucide-react';
 import { HelmetProvider } from 'react-helmet-async';
 
 // Importando as páginas exclusivas
@@ -169,8 +169,17 @@ function Layout({ children }) {
             <Link to="/certificacoes" className={`py-1 border-b-2 transition-all ${location.pathname === '/certificacoes' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Certificações</Link>
             <Link to="/blog" className={`py-1 border-b-2 transition-all ${location.pathname.includes('/blog') ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Blog</Link>
             <Link to="/planos" className={`py-1 border-b-2 transition-all ${location.pathname === '/planos' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Planos</Link>
-            {/* NOVO ITEM NO MENU DESKTOP */}
-            <Link to="/calculadora-de-gasto-calorico" className={`py-1 border-b-2 transition-all ${location.pathname === '/calculadora-de-gasto-calorico' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Calculadora</Link>
+            
+            {/* NOVO DROPDOWN DE CALCULADORAS NO DESKTOP */}
+            <div className="relative group">
+              <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${location.pathname.includes('/calculadora') ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-600'}`}>
+                Calculadoras <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
+              </span>
+              <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-white border border-green-100 shadow-xl rounded-xl py-3 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col z-50">
+                <Link to="/calculadora-de-gasto-calorico" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/calculadora-de-gasto-calorico' ? 'text-green-600 bg-green-50' : 'text-slate-700 hover:text-green-600 hover:bg-slate-50'}`}>Gasto Calórico</Link>
+              </div>
+            </div>
+
             <a href="/#ebooks" className="py-1 border-b-2 border-transparent text-slate-800 hover:text-green-600 transition-all">E-books</a>
             <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-6 py-2.5 rounded-full hover:bg-green-700 transition-all shadow-md italic">Instagram</a>
           </div>
@@ -178,14 +187,21 @@ function Layout({ children }) {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-green-100 shadow-xl py-6 px-6 flex flex-col gap-6">
+          <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-green-100 shadow-xl py-6 px-6 flex flex-col gap-6 max-h-[85vh] overflow-y-auto">
             <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Início</Link>
             <Link to="/sobre" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Sobre</Link>
             <Link to="/certificacoes" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Certificações</Link>
             <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Blog</Link>
             <Link to="/planos" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Planos</Link>
-            {/* NOVO ITEM NO MENU MOBILE */}
-            <Link to="/calculadora-de-gasto-calorico" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Calculadora</Link>
+            
+            {/* NOVO DROPDOWN DE CALCULADORAS NO MOBILE */}
+            <div className="flex flex-col gap-3 pb-2 border-b border-green-50">
+              <span className="text-lg font-black uppercase tracking-widest text-slate-800">Calculadoras</span>
+              <div className="flex flex-col gap-3 pl-4 border-l-2 border-green-200">
+                <Link to="/calculadora-de-gasto-calorico" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-600">Gasto Calórico</Link>
+              </div>
+            </div>
+
             <a href="/#ebooks" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">E-books</a>
           </div>
         )}
