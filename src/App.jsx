@@ -32,7 +32,9 @@ import Probioticos from './pages/Probioticos';
 import Simbioticos from './pages/Simbioticos'; 
 import CicloCircadiano from './pages/CicloCircadiano';
 import Melatonina from './pages/Melatonina';
-import TPM from './pages/TPM'; // Nova Página
+import TPM from './pages/TPM';
+// IMPORT NOVO DA CALCULADORA
+import CalculadoraGastoCalorico from './pages/CalculadoraGastoCalorico'; 
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -88,7 +90,7 @@ function Layout({ children }) {
         title: 'Retatrutida o que é? A nova fronteira da ciência | Nutrição com Marco',
         desc: 'Descubra o que é a retatrutida, o novo medicamento agonista triplo (GLP-1, GIP e Glucagon) e seus resultados na perda de peso.'
       },
-'/ovo_e_colesterol': {
+      '/ovo_e_colesterol': {
         title: 'Ovo e Colesterol: Benefícios, Mitos e Verdades Científicas | Nutrição com Marco',
         desc: 'Comer ovo todo dia faz mal? Quem tem gordura no fígado pode comer? Desvendamos tudo com base em estudos científicos atualizados.'
       },
@@ -109,21 +111,26 @@ function Layout({ children }) {
         desc: 'Descubra o que são probióticos e Lactobacillus, para que servem no intestino, seus benefícios para a imunidade e quais as melhores fontes naturais.' 
       },
       '/o-que-sao-simbioticos': { 
-  title: 'O que são Simbióticos? A Sinergia Intestinal | Nutrição com Marco', 
-  desc: 'Descubra o que são os alimentos simbióticos, como a união de prebióticos e probióticos transforma a sua flora e as melhores combinações.' 
+        title: 'O que são Simbióticos? A Sinergia Intestinal | Nutrição com Marco', 
+        desc: 'Descubra o que são os alimentos simbióticos, como a união de prebióticos e probióticos transforma a sua flora e as melhores combinações.' 
       },
       '/o-que-e-ciclo-circadiano': { 
-  title: 'O Que é Ciclo Circadiano? Relógio Biológico e Emagrecimento | Nutrição com Marco', 
-  desc: 'Guia completo sobre ciclo circadiano: como emagrecer, melhorar o sono, horários corretos das refeições, a verdade sobre a melatonina e controle hormonal.' 
+        title: 'O Que é Ciclo Circadiano? Relógio Biológico e Emagrecimento | Nutrição com Marco', 
+        desc: 'Guia completo sobre ciclo circadiano: como emagrecer, melhorar o sono, horários corretos das refeições, a verdade sobre a melatonina e controle hormonal.' 
       },
-    '/efeitos-colaterais-da-melatonina': {
-    title: 'Efeitos Colaterais da Melatonina: Vicia? Riscos e Doses | Nutrição com Marco',
-    desc: 'Descubra a verdade científica sobre a melatonina: ela vicia? Faz mal? Entenda os efeitos colaterais, riscos psicológicos e como dosar corretamente para dormir bem.'
+      '/efeitos-colaterais-da-melatonina': {
+        title: 'Efeitos Colaterais da Melatonina: Vicia? Riscos e Doses | Nutrição com Marco',
+        desc: 'Descubra a verdade científica sobre a melatonina: ela vicia? Faz mal? Entenda os efeitos colaterais, riscos psicológicos e como dosar corretamente para dormir bem.'
       },
       '/o-que-comer-na-tpm': {
-      title: 'O Que Comer na TPM: Emagrecimento e Metabolismo Feminino | Nutrição com Marco',
-      desc: 'Descubra por que a vontade de doce aumenta na TPM, a verdade científica sobre o metabolismo feminino, o papel do treino e estratégias para emagrecer sem sofrimento.'
-    }
+        title: 'O Que Comer na TPM: Emagrecimento e Metabolismo Feminino | Nutrição com Marco',
+        desc: 'Descubra por que a vontade de doce aumenta na TPM, a verdade científica sobre o metabolismo feminino, o papel do treino e estratégias para emagrecer sem sofrimento.'
+      },
+      // SEO DA CALCULADORA ADICIONADO AQUI
+      '/calculadora-de-gasto-calorico': {
+        title: 'Calculadora de Gasto Calórico (TDEE e TMB) Inteligente | Nutrição com Marco',
+        desc: 'Descubra seu gasto calórico diário e taxa metabólica basal com nossa calculadora inteligente. Fórmulas de Mifflin, Cunningham e Tinsley adaptadas ao seu perfil.'
+      }
     };
 
     const currentSEO = seoData[location.pathname] || seoData['/'];
@@ -240,6 +247,8 @@ export default function App() {
             <Route path="/o-que-e-ciclo-circadiano" element={<CicloCircadiano />} />
             <Route path="/efeitos-colaterais-da-melatonina" element={<Melatonina />} />
             <Route path="/o-que-comer-na-tpm" element={<TPM />} />
+            {/* ROTA DA CALCULADORA ADICIONADA AQUI */}
+            <Route path="/calculadora-de-gasto-calorico" element={<CalculadoraGastoCalorico />} />
           </Routes>
         </Layout>
       </Router>
