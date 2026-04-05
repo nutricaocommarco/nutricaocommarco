@@ -39,11 +39,10 @@ export default function CalculadoraGastoCalorico() {
     calculationMode: 'auto',
     manualFormula: 'mifflin',
     bodyType: 'average',
-    // Novos campos de Atividade
-    activityCalcMethod: 'auto', // 'auto' | 'manual' | 'mets'
+    activityCalcMethod: 'auto',
     routine: 'sedentary',
-    exerciseCardio: 'none', // Cardio separado
-    exerciseStrength: 'none', // Força separada
+    exerciseCardio: 'none',
+    exerciseStrength: 'none',
     manualFA: '1.55',
     metActivities: [
       { id: 1, met: '0', minutes: '' },
@@ -106,26 +105,26 @@ export default function CalculadoraGastoCalorico() {
   const determineBestFormula = (hasBF, bfValue, isMale, userSelectedBodyType) => {
     let bodyType = userSelectedBodyType;
 
-    // Inteligência Artificial: Correção de incongruências
+    // LÓGICA COM PERCENTUAL DE GORDURA
     if (hasBF) {
       const isActuallyObese = (isMale && bfValue > 25) || (!isMale && bfValue > 32);
-      if (bodyType === 'obese' && !isActuallyObese) {
-        bodyType = 'average'; // Sobrescreve para não usar Mifflin como padrão obeso atoa
-      }
       
-      const isVeryActive = formData.exerciseCardio === 'intense' || formData.exerciseCardio === 'endurance' || formData.exerciseStrength === 'intense';
-      
-      if (isVeryActive || bodyType === 'bodybuilder') {
+      // Se não é obeso de fato, a Cunningham é soberana por usar a Massa Magra
+      if (!isActuallyObese) {
         return 'cunningham';
       }
+      
+      // Se for obeso de fato, a Mifflin é cientificamente superior mesmo sabendo o %GC
+      return 'mifflin';
     }
 
+    // LÓGICA SEM PERCENTUAL DE GORDURA
     if (bodyType === 'obese') return 'mifflin';
-    if (bodyType === 'bodybuilder' && hasBF) return 'cunningham';
-    if (bodyType === 'bodybuilder' && !hasBF) return 'tinsley';
+    if (bodyType === 'bodybuilder') return 'tinsley';
     if (bodyType === 'endurance') return 'tinsley';
+    if (bodyType === 'average') return 'harris'; // Harris-Benedict para a população geral sem %GC
     
-    return 'mifflin'; 
+    return 'harris'; 
   };
 
   const calculateCalories = () => {
@@ -147,7 +146,6 @@ export default function CalculadoraGastoCalorico() {
 
     let bmr = 0;
     
-    // Escolha da Fórmula
     let activeFormula = formData.calculationMode === 'manual' 
       ? formData.manualFormula 
       : determineBestFormula(hasBF, bf, isMale, formData.bodyType);
@@ -183,7 +181,6 @@ export default function CalculadoraGastoCalorico() {
         bmr = 0;
     }
 
-    // Cálculo do GET (Gasto Energético Total)
     let tdee = 0;
     let finalFA = 0;
 
@@ -196,7 +193,6 @@ export default function CalculadoraGastoCalorico() {
       tdee = bmr * finalFA;
     } 
     else if (formData.activityCalcMethod === 'mets') {
-      // Cálculo Avançado por METs
       let metCalories = 0;
       formData.metActivities.forEach(act => {
         const metVal = parseFloat(act.met);
@@ -239,7 +235,6 @@ export default function CalculadoraGastoCalorico() {
             <div className="space-y-4 md:space-y-6 text-base md:text-lg text-slate-600 font-medium leading-relaxed">
               <p>Se você está se perguntando como calcular meu gasto calórico diário de forma precisa, a resposta mais eficiente e segura é utilizar uma calculadora de gasto calórico desenvolvida com base científica. Entender exatamente a quantidade de energia que o seu corpo consome todos os dias é o primeiro passo absoluto para qualquer objetivo estético ou de saúde, seja ele emagrecer de forma sustentável, manter o peso atual ou focar no ganho de massa muscular. Muitas pessoas tentam adivinhar a sua taxa metabólica basal ou o seu gasto energético total e acabam frustradas com a falta de resultados práticos na balança ou no espelho por estarem consumindo a quantidade errada de nutrientes.</p>
 
-              {/* IMAGEM INTEGRADA COM SEO E LEGENDA */}
               <figure className="mb-10 flex flex-col items-center">
                 <img 
                   src={CalculatorImage} 
@@ -306,7 +301,7 @@ export default function CalculadoraGastoCalorico() {
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                   {[
-                    {id: 'average', label: 'Padrão Geral'},
+                    {id: 'average', label: 'Biotipo Comum / Médio'},
                     {id: 'obese', label: 'Sobrepeso / Obesidade'},
                     {id: 'bodybuilder', label: 'Musculoso / Fisiculturista'},
                     {id: 'endurance', label: 'Atleta Endurance'}
