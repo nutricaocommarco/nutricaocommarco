@@ -1,6 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Calculator, Activity, Info, CheckCircle2, User, HeartPulse, AlertTriangle } from 'lucide-react';
+import { Calculator, Activity, Info, CheckCircle2, User, HeartPulse, AlertTriangle, Settings, Zap } from 'lucide-react';
+
+// Dicionário de METs para o Modo Avançado
+const metOptions = [
+  { label: "Selecione a atividade...", value: "0" },
+  { label: "Musculação (Pesada / Intensa)", value: "6.0" },
+  { label: "Musculação (Moderada)", value: "3.5" },
+  { label: "Ciclismo (16-19 km/h - Leve)", value: "6.8" },
+  { label: "Ciclismo (20-22 km/h - Moderado)", value: "8.0" },
+  { label: "Ciclismo (25+ km/h - Vigoroso)", value: "10.0" },
+  { label: "Ciclismo (Pelotão/Competição 30+ km/h)", value: "12.0" },
+  { label: "Corrida (8 km/h - Trote)", value: "8.3" },
+  { label: "Corrida (10 km/h - Moderada)", value: "9.8" },
+  { label: "Corrida (12 km/h - Intensa)", value: "11.5" },
+  { label: "Caminhada Rápida (5-6 km/h)", value: "4.3" },
+  { label: "Natação (Crawl - Moderado)", value: "8.3" },
+  { label: "Crossfit / Funcional", value: "8.0" },
+  { label: "Futebol / Basquete", value: "7.0" },
+  { label: "Yoga / Alongamento", value: "2.5" }
+];
 
 export default function CalculadoraGastoCalorico() {
   const { pathname } = useLocation();
@@ -17,9 +36,18 @@ export default function CalculadoraGastoCalorico() {
     bf: '',
     calculationMode: 'auto',
     manualFormula: 'mifflin',
+    bodyType: 'average',
+    // Novos campos de Atividade
+    activityCalcMethod: 'auto', // 'auto' | 'manual' | 'mets'
     routine: 'sedentary',
     exercise: 'none',
-    bodyType: 'average'
+    manualFA: '1.55',
+    metActivities: [
+      { id: 1, met: '0', minutes: '' },
+      { id: 2, met: '0', minutes: '' },
+      { id: 3, met: '0', minutes: '' },
+      { id: 4, met: '0', minutes: '' }
+    ]
   });
 
   const [results, setResults] = useState(null);
@@ -31,29 +59,12 @@ export default function CalculadoraGastoCalorico() {
         "@type": "WebApplication",
         "name": "Calculadora de Gasto Calórico",
         "url": "https://nutricaocommarco.com.br/calculadora-de-gasto-calorico",
-        "description": "Ferramenta inteligente para calcular o gasto energético total (GET) e a taxa metabólica basal (TMB) de forma precisa e adaptada ao seu perfil físico.",
+        "description": "Ferramenta inteligente para calcular o gasto energético total (GET) e a taxa metabólica basal (TMB) de forma precisa, incluindo cálculo avançado por METs e Fator de Atividade personalizado.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "All",
         "author": {
           "@type": "Person",
           "name": "Marco Aurélio Jr."
-        }
-      },
-      {
-        "@type": "Article",
-        "headline": "A Importância de Usar uma Calculadora de Gasto Calórico",
-        "author": {
-          "@type": "Person",
-          "name": "Marco Aurélio Jr.",
-          "url": "https://nutricaocommarco.com.br"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Nutrição com Marco",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Pingus.png"
-          }
         }
       }
     ]
@@ -64,25 +75,47 @@ export default function CalculadoraGastoCalorico() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const calculateActivityFactor = () => {
-    let base = 1.1;
-    if (formData.routine === 'sedentary') base = 1.15;
-    if (formData.routine === 'standing') base = 1.30;
+  const handleMetChange = (index, field, value) => {
+    const newMets = [...formData.metActivities];
+    newMets[index][field] = value;
+    setFormData({ ...formData, metActivities: newMets });
+  };
+
+  const calculateAutoActivityFactor = () => {
+    let base = 1.2; // Sedentário base (NEAT + TEF basais)
+    if (formData.routine === 'standing') base = 1.35;
     if (formData.routine === 'physical') base = 1.50;
 
     let exerciseBonus = 0;
-    if (formData.exercise === 'light') exerciseBonus = 0.15;
-    if (formData.exercise === 'moderate') exerciseBonus = 0.25;
-    if (formData.exercise === 'intense') exerciseBonus = 0.45;
+    if (formData.exercise === 'light') exerciseBonus = 0.15; // 1-3h
+    if (formData.exercise === 'moderate') exerciseBonus = 0.25; // 4-5h
+    if (formData.exercise === 'intense') exerciseBonus = 0.40; // 6-9h (Musculação + aeróbio padrão)
+    if (formData.exercise === 'endurance') exerciseBonus = 0.60; // 10h+ (Endurance, Triatlo, Ciclismo longo)
 
     return base + exerciseBonus;
   };
 
-  const determineBestFormula = (hasBF, bodyType) => {
+  const determineBestFormula = (hasBF, bfValue, isMale, userSelectedBodyType) => {
+    let bodyType = userSelectedBodyType;
+
+    // Inteligência Artificial: Correção de incongruências
+    // Se ele tem o %GC, sabemos a verdade sobre o corpo dele
+    if (hasBF) {
+      const isActuallyObese = (isMale && bfValue > 25) || (!isMale && bfValue > 32);
+      if (bodyType === 'obese' && !isActuallyObese) {
+        bodyType = 'average'; // Sobrescreve para não usar Mifflin como padrão obeso atoa
+      }
+      // Se tem %GC, Cunningham é quase sempre soberana, especialmente para ativos
+      if (formData.exercise === 'intense' || formData.exercise === 'endurance' || bodyType === 'bodybuilder') {
+        return 'cunningham';
+      }
+    }
+
     if (bodyType === 'obese') return 'mifflin';
     if (bodyType === 'bodybuilder' && hasBF) return 'cunningham';
     if (bodyType === 'bodybuilder' && !hasBF) return 'tinsley';
     if (bodyType === 'endurance') return 'tinsley';
+    
     return 'mifflin'; 
   };
 
@@ -91,6 +124,7 @@ export default function CalculadoraGastoCalorico() {
     const height = parseFloat(formData.height);
     const age = parseInt(formData.age);
     const bf = parseFloat(formData.bf);
+    const isMale = formData.gender === 'M';
     
     if (!weight || !height || !age) return;
 
@@ -103,21 +137,23 @@ export default function CalculadoraGastoCalorico() {
     }
 
     let bmr = 0;
-    let selectedFormulaName = '';
-
+    
+    // Escolha da Fórmula
     let activeFormula = formData.calculationMode === 'manual' 
       ? formData.manualFormula 
-      : determineBestFormula(hasBF, formData.bodyType);
+      : determineBestFormula(hasBF, bf, isMale, formData.bodyType);
+
+    let selectedFormulaName = '';
 
     switch (activeFormula) {
       case 'mifflin':
-        bmr = formData.gender === 'M' 
+        bmr = isMale
           ? (10 * weight) + (6.25 * height) - (5 * age) + 5
           : (10 * weight) + (6.25 * height) - (5 * age) - 161;
         selectedFormulaName = 'Mifflin-St Jeor';
         break;
       case 'harris':
-        bmr = formData.gender === 'M'
+        bmr = isMale
           ? 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age)
           : 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
         selectedFormulaName = 'Harris-Benedict';
@@ -138,13 +174,40 @@ export default function CalculadoraGastoCalorico() {
         bmr = 0;
     }
 
-    const activityFactor = calculateActivityFactor();
-    const tdee = bmr * activityFactor;
+    // Cálculo do GET (Gasto Energético Total)
+    let tdee = 0;
+    let finalFA = 0;
+
+    if (formData.activityCalcMethod === 'auto') {
+      finalFA = calculateAutoActivityFactor();
+      tdee = bmr * finalFA;
+    } 
+    else if (formData.activityCalcMethod === 'manual') {
+      finalFA = parseFloat(formData.manualFA) || 1.2;
+      tdee = bmr * finalFA;
+    } 
+    else if (formData.activityCalcMethod === 'mets') {
+      // Cálculo Avançado por METs
+      let metCalories = 0;
+      formData.metActivities.forEach(act => {
+        const metVal = parseFloat(act.met);
+        const mins = parseFloat(act.minutes);
+        if (metVal > 0 && mins > 0) {
+          // Fórmula Padrão METs: kcal = MET * Peso(kg) * Tempo(h)
+          metCalories += metVal * weight * (mins / 60);
+        }
+      });
+      // GET = BMR + NEAT (estimado em BMR * 0.2) + Calorias do Treino
+      const baselineTdee = bmr * 1.2; 
+      tdee = baselineTdee + metCalories;
+      // Calcula o FA equivalente para mostrar ao usuário
+      finalFA = tdee / bmr;
+    }
 
     setResults({
       bmr: Math.round(bmr),
       tdee: Math.round(tdee),
-      activityFactor: activityFactor.toFixed(2),
+      activityFactor: finalFA.toFixed(2),
       formulaUsed: selectedFormulaName
     });
   };
@@ -161,7 +224,7 @@ export default function CalculadoraGastoCalorico() {
         <div className="bg-white p-6 sm:p-10 md:p-16 rounded-[2rem] md:rounded-[4rem] shadow-2xl border border-slate-100 flex flex-col gap-8 md:gap-12">
 
           <article className="prose prose-base md:prose-lg max-w-none text-left w-full">
-            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 md:mb-6">Nutrição • Metabolismo • Precisão</span>
+            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 md:mb-6">Nutrição • Metabolismo • Alta Precisão</span>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 md:mb-10 uppercase italic leading-tight text-slate-900">
               A Importância de Usar uma Calculadora de <span className="text-green-600">Gasto Calórico</span>
@@ -183,6 +246,7 @@ export default function CalculadoraGastoCalorico() {
 
             <form onSubmit={handleCalculate} className="space-y-10 md:space-y-12">
               
+              {/* ETAPA 1: SOBRE VOCÊ */}
               <section>
                 <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
                   <User className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 1. Sobre Você
@@ -209,13 +273,14 @@ export default function CalculadoraGastoCalorico() {
                   </div>
                   <div className="md:col-span-2">
                     <label className="block text-xs md:text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">
-                      Percentual de Gordura (%) <span className="text-slate-400 font-normal normal-case block sm:inline mt-1 sm:mt-0">- Opcional, aumenta a precisão</span>
+                      Percentual de Gordura (%) <span className="text-slate-400 font-normal normal-case block sm:inline mt-1 sm:mt-0">- Opcional, aumenta muito a precisão</span>
                     </label>
                     <input type="number" name="bf" value={formData.bf} onChange={handleInputChange} placeholder="Ex: 15" className="w-full p-3 md:p-4 border-2 border-slate-200 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none" />
                   </div>
                 </div>
               </section>
 
+              {/* ETAPA 2: PERFIL FÍSICO */}
               <section>
                 <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
                   <Activity className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 2. Seu Perfil Físico
@@ -224,7 +289,7 @@ export default function CalculadoraGastoCalorico() {
                   {[
                     {id: 'average', label: 'Padrão Geral'},
                     {id: 'obese', label: 'Sobrepeso / Obesidade'},
-                    {id: 'bodybuilder', label: 'Fisiculturista'},
+                    {id: 'bodybuilder', label: 'Musculoso / Fisiculturista'},
                     {id: 'endurance', label: 'Atleta Endurance'}
                   ].map(item => (
                     <label key={item.id} className={`p-3 md:p-4 border-2 rounded-xl md:rounded-2xl cursor-pointer transition-all flex items-center justify-center text-center ${formData.bodyType === item.id ? 'border-green-600 bg-green-50 text-green-800 shadow-sm' : 'border-slate-200 text-slate-600 hover:bg-white hover:border-slate-300'}`}>
@@ -235,46 +300,114 @@ export default function CalculadoraGastoCalorico() {
                 </div>
               </section>
 
+              {/* ETAPA 3: FATOR DE ATIVIDADE (NOVA LÓGICA) */}
               <section>
                 <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
-                  <HeartPulse className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 3. Rotina e Movimento
+                  <HeartPulse className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 3. Rotina e Movimento (Nível de Atividade)
                 </h3>
                 
-                <div className="space-y-6 md:space-y-8 bg-white p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-slate-100 shadow-sm">
-                  <div>
-                    <label className="block font-bold text-slate-800 mb-3 md:mb-4">Trabalho ou rotina principal:</label>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-                      {[{id: 'sedentary', label: 'Sentado a maior parte do dia'},
-                        {id: 'standing', label: 'Em pé ou caminhando'},
-                        {id: 'physical', label: 'Trabalho físico pesado'}].map(item => (
-                        <label key={item.id} className={`p-3 md:p-4 border-2 rounded-xl md:rounded-2xl cursor-pointer transition-all ${formData.routine === item.id ? 'border-green-600 bg-green-50 text-green-800' : 'border-slate-200 bg-slate-50 hover:border-slate-300 text-slate-700'}`}>
-                          <input type="radio" name="routine" value={item.id} checked={formData.routine === item.id} onChange={handleInputChange} className="hidden" />
-                          <span className="text-sm font-bold block text-center">{item.label}</span>
-                        </label>
-                      ))}
-                    </div>
+                <div className="bg-white p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-slate-100 shadow-sm">
+                  
+                  {/* Abas de Seleção de Método */}
+                  <div className="flex flex-wrap gap-2 md:gap-4 mb-8 border-b border-slate-100 pb-6">
+                    <button type="button" onClick={() => setFormData({...formData, activityCalcMethod: 'auto'})} className={`px-4 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all flex items-center gap-2 ${formData.activityCalcMethod === 'auto' ? 'bg-green-600 text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
+                      <Zap className="w-4 h-4"/> Automático
+                    </button>
+                    <button type="button" onClick={() => setFormData({...formData, activityCalcMethod: 'manual'})} className={`px-4 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all flex items-center gap-2 ${formData.activityCalcMethod === 'manual' ? 'bg-green-600 text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
+                      <Settings className="w-4 h-4"/> Inserir Manual
+                    </button>
+                    <button type="button" onClick={() => setFormData({...formData, activityCalcMethod: 'mets'})} className={`px-4 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all flex items-center gap-2 ${formData.activityCalcMethod === 'mets' ? 'bg-slate-900 text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
+                      <Activity className="w-4 h-4"/> Avançado (METs)
+                    </button>
                   </div>
 
-                  <div>
-                    <label className="block font-bold text-slate-800 mb-3 md:mb-4">Treinos físicos semanais:</label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-                      {[{id: 'none', label: 'Não treino'},
-                        {id: 'light', label: 'Leve (1 a 3h)'},
-                        {id: 'moderate', label: 'Moderado (4 a 5h)'},
-                        {id: 'intense', label: 'Intenso (6h+)'}].map(item => (
-                        <label key={item.id} className={`p-3 md:p-4 border-2 rounded-xl md:rounded-2xl cursor-pointer transition-all ${formData.exercise === item.id ? 'border-green-600 bg-green-50 text-green-800' : 'border-slate-200 bg-slate-50 hover:border-slate-300 text-slate-700'}`}>
-                          <input type="radio" name="exercise" value={item.id} checked={formData.exercise === item.id} onChange={handleInputChange} className="hidden" />
-                          <span className="text-sm font-bold block text-center">{item.label}</span>
-                        </label>
+                  {/* Conteúdo Dinâmico da Etapa 3 */}
+                  {formData.activityCalcMethod === 'auto' && (
+                    <div className="space-y-6 md:space-y-8 animate-in fade-in duration-300">
+                      <div>
+                        <label className="block font-bold text-slate-800 mb-3 md:mb-4">Trabalho ou rotina principal:</label>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+                          {[{id: 'sedentary', label: 'Sentado a maior parte do dia'},
+                            {id: 'standing', label: 'Em pé ou caminhando'},
+                            {id: 'physical', label: 'Trabalho físico pesado'}].map(item => (
+                            <label key={item.id} className={`p-3 md:p-4 border-2 rounded-xl md:rounded-2xl cursor-pointer transition-all ${formData.routine === item.id ? 'border-green-600 bg-green-50 text-green-800' : 'border-slate-200 bg-slate-50 hover:border-slate-300 text-slate-700'}`}>
+                              <input type="radio" name="routine" value={item.id} checked={formData.routine === item.id} onChange={handleInputChange} className="hidden" />
+                              <span className="text-sm font-bold block text-center">{item.label}</span>
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block font-bold text-slate-800 mb-3 md:mb-4">Treinos físicos semanais:</label>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
+                          {[{id: 'none', label: 'Não treino'},
+                            {id: 'light', label: 'Leve (1 a 3h)'},
+                            {id: 'moderate', label: 'Moderado (4 a 5h)'},
+                            {id: 'intense', label: 'Intenso (6 a 9h)'},
+                            {id: 'endurance', label: 'Muito Intenso (Endurance / 10h+)'}].map(item => (
+                            <label key={item.id} className={`p-3 border-2 rounded-xl md:rounded-2xl cursor-pointer transition-all ${formData.exercise === item.id ? 'border-green-600 bg-green-50 text-green-800' : 'border-slate-200 bg-slate-50 hover:border-slate-300 text-slate-700'}`}>
+                              <input type="radio" name="exercise" value={item.id} checked={formData.exercise === item.id} onChange={handleInputChange} className="hidden" />
+                              <span className="text-xs md:text-sm font-bold block text-center">{item.label}</span>
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {formData.activityCalcMethod === 'manual' && (
+                    <div className="animate-in fade-in duration-300">
+                      <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Fator de Atividade (FA)</label>
+                      <input type="number" step="0.01" min="1.0" max="2.5" name="manualFA" value={formData.manualFA} onChange={handleInputChange} placeholder="Ex: 1.55" className="w-full md:w-1/2 p-3 md:p-4 border-2 border-slate-200 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none" />
+                      <p className="mt-4 text-sm text-slate-500 leading-relaxed max-w-2xl">
+                        <strong>Guia Rápido:</strong> 1.2 (Sedentário) • 1.375 (Leve) • 1.55 (Moderado) • 1.725 (Intenso) • 1.9 a 2.2 (Extremo / Atleta)
+                      </p>
+                    </div>
+                  )}
+
+                  {formData.activityCalcMethod === 'mets' && (
+                    <div className="space-y-6 animate-in fade-in duration-300">
+                      <div className="bg-slate-900 text-white p-4 md:p-5 rounded-2xl mb-6 shadow-md">
+                        <p className="text-sm font-medium leading-relaxed">
+                          <strong className="text-green-400">Cálculo de Alta Precisão:</strong> O sistema assumirá que você é sedentário no restante do dia (Fator Base 1.2) e somará as calorias exatas torradas no seu treino baseado no equivalente metabólico da tarefa (MET).
+                        </p>
+                      </div>
+                      
+                      {[0, 1, 2, 3].map(index => (
+                        <div key={index} className="flex flex-col sm:flex-row gap-4 items-end bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                          <div className="w-full sm:w-2/3">
+                            <label className="block text-xs font-bold text-slate-600 mb-2 uppercase tracking-wide">Atividade {index + 1}</label>
+                            <select 
+                              value={formData.metActivities[index].met} 
+                              onChange={(e) => handleMetChange(index, 'met', e.target.value)} 
+                              className="w-full p-3 border-2 border-slate-200 rounded-xl focus:ring-2 focus:ring-slate-900 bg-white font-medium text-slate-700 outline-none"
+                            >
+                              {metOptions.map(opt => <option key={opt.label} value={opt.value}>{opt.label}</option>)}
+                            </select>
+                          </div>
+                          <div className="w-full sm:w-1/3">
+                            <label className="block text-xs font-bold text-slate-600 mb-2 uppercase tracking-wide">Tempo (Minutos)</label>
+                            <input 
+                              type="number" 
+                              placeholder="Ex: 60" 
+                              value={formData.metActivities[index].minutes} 
+                              onChange={(e) => handleMetChange(index, 'minutes', e.target.value)} 
+                              className="w-full p-3 border-2 border-slate-200 rounded-xl focus:ring-2 focus:ring-slate-900 bg-white font-medium text-slate-700 outline-none" 
+                            />
+                          </div>
+                        </div>
                       ))}
                     </div>
-                  </div>
+                  )}
+
                 </div>
               </section>
 
+              {/* ETAPA 4: SELEÇÃO DA FÓRMULA */}
               <section className="bg-white p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-slate-100 shadow-sm">
                 <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
-                  <CheckCircle2 className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 4. Seleção da Fórmula
+                  <CheckCircle2 className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 4. Seleção da Equação Basal
                 </h3>
                 
                 <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 mb-6 md:mb-8">
@@ -284,7 +417,7 @@ export default function CalculadoraGastoCalorico() {
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer">
                     <input type="radio" name="calculationMode" value="manual" checked={formData.calculationMode === 'manual'} onChange={handleInputChange} className="w-5 h-5 text-green-600 focus:ring-green-500 accent-green-600 flex-shrink-0" />
-                    <span className="font-bold text-slate-800">Modo Manual</span>
+                    <span className="font-bold text-slate-800">Escolher Manualmente</span>
                   </label>
                 </div>
 
@@ -292,7 +425,7 @@ export default function CalculadoraGastoCalorico() {
                   <div className="bg-green-50 text-green-900 p-5 md:p-6 rounded-2xl border border-green-200 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 md:gap-4">
                     <CheckCircle2 className="w-6 h-6 flex-shrink-0 sm:mt-1 text-green-600" />
                     <p className="text-sm md:text-base font-medium leading-relaxed">
-                      <strong>Sistema Inteligente Ativado.</strong> O sistema vai analisar o seu perfil físico, se você preencheu seu percentual de gordura e o seu nível de treino para selecionar matematicamente a equação mais precisa para o seu corpo no momento.
+                      <strong>Inteligência Artifical Ativada.</strong> O sistema analisa a relação do seu % de Gordura com o seu Perfil Físico, filtrando incongruências, para selecionar a equação metabólica mais confiável para o seu biotipo real.
                     </p>
                   </div>
                 ) : (
@@ -301,8 +434,8 @@ export default function CalculadoraGastoCalorico() {
                       {[
                         { id: 'mifflin', name: 'Mifflin-St Jeor', desc: 'A mais recomendada hoje para a população em geral e pessoas com sobrepeso.' },
                         { id: 'harris', name: 'Harris-Benedict', desc: 'A fórmula mais antiga e famosa, boa para estimativas gerais.' },
-                        { id: 'cunningham', name: 'Cunningham', desc: 'Excelente para atletas. Utiliza a massa muscular livre de gordura.' },
-                        { id: 'tinsley', name: 'Tinsley', desc: 'Ótima para praticantes de musculação e endurance.' }
+                        { id: 'cunningham', name: 'Cunningham', desc: 'Padrão ouro para atletas. Requer o % de gordura para usar a massa magra.' },
+                        { id: 'tinsley', name: 'Tinsley', desc: 'Ótima para praticantes de musculação e endurance (com ou sem %GC).' }
                       ].map(formula => (
                         <label key={formula.id} className={`p-4 md:p-6 border-2 rounded-xl md:rounded-2xl cursor-pointer flex flex-col gap-2 transition-all ${formData.manualFormula === formula.id ? 'border-green-600 bg-green-50 shadow-md' : 'border-slate-200 bg-slate-50 hover:border-green-300'}`}>
                           <div className="flex items-center gap-3">
@@ -357,7 +490,7 @@ export default function CalculadoraGastoCalorico() {
                     <span className="font-medium text-slate-300">Equação matemática utilizada: <strong className="text-white ml-1 block sm:inline">{results.formulaUsed}</strong></span>
                   </div>
                   <div className="bg-slate-900 px-4 md:px-5 py-2 md:py-2.5 rounded-full text-green-400 font-black text-[10px] md:text-xs uppercase tracking-widest border border-slate-700 flex-shrink-0">
-                    Fator: x{results.activityFactor}
+                    Fator Equivalente: x{results.activityFactor}
                   </div>
                 </div>
 
@@ -365,7 +498,7 @@ export default function CalculadoraGastoCalorico() {
                   <AlertTriangle className="w-8 h-8 text-green-500 flex-shrink-0 sm:mt-1" />
                   <p className="text-xs md:text-sm text-slate-300 font-medium leading-relaxed">
                     <strong className="text-white block mb-1 md:mb-2 text-sm md:text-base uppercase tracking-wider">Atenção Profissional:</strong> 
-                    Esta calculadora matemática entrega uma estimativa científica confiável. No entanto, para um plano alimentar de excelência, focado nos seus resultados reais e totalmente adaptado à sua biologia única e exames bioquímicos, é indispensável procurar a orientação e o acompanhamento de um nutricionista.
+                    Esta calculadora matemática entrega uma estimativa científica de alta precisão. No entanto, para um plano alimentar de excelência focado na sua periodização de treinos e adaptado à sua biologia única, é indispensável procurar a orientação de um nutricionista.
                   </p>
                 </div>
               </div>
