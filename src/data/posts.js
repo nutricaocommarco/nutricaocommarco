@@ -2,6 +2,17 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export const posts = [
   {
+    id: 19,
+    link: "/o-que-e-ciclo-circadiano", 
+    img: `${githubImgBase}Blog/CicloCircadiano.jpg`,
+    tag: "Fisiologia e Metabolismo",
+    titulo: "O Que é Ciclo Circadiano? Relógio Biológico e Emagrecimento",
+    desc: "Guia completo sobre ciclo circadiano: como emagrecer, melhorar o sono, horários corretos das refeições, a verdade sobre a melatonina e controle hormonal.",
+    data: "2026-03-29",
+    dataMod: "2026-04-06"
+  },
+  
+  {
     id: 18,
     link: "/o-que-sao-simbioticos", 
     img: `${githubImgBase}Blog/Simbioticos.jpg`,
