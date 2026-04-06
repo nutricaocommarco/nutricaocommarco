@@ -127,5 +127,11 @@
   <priority>0.7</priority>
 </url>
 
+  <url>
+    <loc>https://www.nutricaocommarco.com.br/o-que-e-ciclo-circadiano</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
 
