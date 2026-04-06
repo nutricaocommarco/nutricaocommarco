@@ -5,6 +5,16 @@ import { ChevronRight, Clock, Filter, Tag as TagIcon } from 'lucide-react';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 const postsData = [
+{
+    id: 19, 
+    link: "/o-que-e-ciclo-circadiano", 
+    imgSrc: `${githubImgBase}Blog/CicloCircadiano.jpg`,
+    tag: "Fisiologia e Metabolismo",
+    title: "O Que é Ciclo Circadiano? Relógio Biológico e Emagrecimento",
+    desc: "Guia completo sobre ciclo circadiano: como emagrecer, melhorar o sono, horários corretos das refeições, a verdade sobre a melatonina e controle hormonal.",
+    isNew: true
+  },
+  
   {
   id: 18, 
   link: "/o-que-sao-simbioticos", 
@@ -12,7 +22,6 @@ const postsData = [
   tag: "Nutrição Clínica",
   title: "O que são Simbióticos? A Sinergia Intestinal",
   desc: "Descubra o que são os alimentos simbióticos, como a união de prebióticos e probióticos transforma a sua flora e as melhores combinações.",
-  isNew: true
 },
   
   {
