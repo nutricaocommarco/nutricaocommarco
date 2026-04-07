@@ -19,7 +19,6 @@ const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Imagens do Artigo
 const artigoCapa = `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.jpg`; 
-const imagemCorpo = `${githubImgBase}Blog/PercentualGorduraFeminino_Corpo.jpg`;
 
 // Dados baseados no material clínico fornecido (Emagrecimento em Mulheres - Pós EMA.pdf)
 const tabelaGordura = [
@@ -98,7 +97,7 @@ export default function PercentualGorduraFemininoComponent() {
               "@id": `https://www.nutricaocommarco.com.br${pathname}`
             },   
             "headline": "Qual o Percentual de Gordura Feminino Ideal? A Ciência Explica",
-            "image": [artigoCapa, imagemCorpo],
+            "image": [artigoCapa],
             "author": {
               "@type": "Person",
               "name": "Marco Aurélio Jr.",
@@ -273,7 +272,7 @@ export default function PercentualGorduraFemininoComponent() {
 
             <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
               <img 
-                src={imagemCapa} 
+                src={artigoCapa} 
                 alt="Diagrama visual demonstrando a variação da composição corporal feminina através de diferentes métodos de avaliação antropométrica." 
                 title="A Composição Corporal Feminina na Avaliação Física"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
