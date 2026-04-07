@@ -253,6 +253,7 @@ export default function PercentualGorduraFemininoComponent() {
               <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[1000px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                 <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
                   <li><a href="#a-verdade" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Dna size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A Fisiologia Feminina</a></li>
+                  <li><a href="#ginoide-androide" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Ginoide x Androide</a></li>
                   <li><a href="#video-explicativo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Video size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Vídeo Explicativo</a></li>
                   <li><a href="#tabela-oficial" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Target size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Tabela de Referência</a></li>
                   <li><a href="#como-medir" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Ruler size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como Medir Corretamente?</a></li>
@@ -287,6 +288,78 @@ export default function PercentualGorduraFemininoComponent() {
                 </p>
               </figcaption>
             </figure>
+
+            <h2 id="a-verdade" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Dna className="text-green-600"/> A Fisiologia Feminina e a Gordura Essencial
+            </h2>
+            <p>
+              Para desmistificar de vez os padrões irreais da internet, é fundamental entender que o corpo feminino foi primorosamente desenhado pela evolução para carregar mais tecido adiposo do que o corpo masculino. Enquanto os homens possuem uma cota de gordura essencial na casa dos três a cinco por cento, as mulheres precisam manter um mínimo absoluto entre dez a doze por cento de gordura apenas para garantir que os seus órgãos vitais e sistema reprodutivo não entrem em colapso total.
+            </p>
+            <p>
+              Essa camada de gordura não é uma falha, mas sim uma proteção vital orquestrada pelos hormônios reprodutivos. Durante os anos férteis, o hormônio estradiol dita as regras do jogo, direcionando estrategicamente o acúmulo de gordura para os glúteos e coxas. Conhecido clinicamente como padrão ginoide, esse tipo de tecido adiposo é um escudo formidável que confere um privilégio metabólico incrível para as mulheres na pré-menopausa. Diferente da perigosa gordura visceral acumulada no abdômen, a gordura localizada na região do quadril apresenta baixíssimos níveis inflamatórios, preserva a sensibilidade do corpo à insulina e age como um fator de proteção poderoso contra doenças cardiovasculares.
+            </p>
+
+            {/* NOVA SEÇÃO E TABELA GINOIDE X ANDROIDE */}
+            <h2 id="ginoide-androide" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Scale className="text-green-600"/> Distribuição de Gordura: Ginoide x Androide
+            </h2>
+            <p>
+              A forma como o corpo feminino armazena gordura diz muito mais sobre a sua saúde metabólica do que a quantidade total de massa adiposa em si. Essa distribuição é fortemente influenciada pelas fases da vida e pelo perfil hormonal de cada mulher. Durante a fase reprodutiva, o estrogênio elevado atua como um escudo protetor, direcionando o estoque de energia para a região inferior do corpo, caracterizando um tecido subcutâneo com baixa vascularização e muito menos propenso à inflamação. Por outro lado, com a chegada da menopausa e a consequente queda do estradiol, ocorre uma realocação perigosa dessa gordura para a região abdominal. Esse novo perfil visceral é altamente vascularizado, agrava a resistência à insulina e eleva drasticamente os marcadores de inflamação crônica, prejudicando o perfil lipídico.
+            </p>
+
+            <div className="my-10 overflow-x-auto bg-white rounded-3xl border border-slate-200 shadow-sm">
+              <table className="w-full text-left min-w-[700px] m-0">
+                <thead className="bg-slate-50 border-b border-slate-200 text-slate-800 uppercase tracking-widest text-xs font-black">
+                  <tr>
+                    <th className="p-5 w-1/4">Característica Clínica</th>
+                    <th className="p-5 w-1/3 text-green-700 bg-green-50/50">Padrão Ginoide (Pera)</th>
+                    <th className="p-5 w-1/3 text-red-700 bg-red-50/50">Padrão Androide (Maçã)</th>
+                  </tr>
+                </thead>
+                <tbody className="text-sm font-medium text-slate-600 divide-y divide-slate-100">
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800">Fase da Vida</td>
+                    <td className="p-5">Fase Reprodutiva</td>
+                    <td className="p-5">Pós-Menopausa</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800">Cenário Hormonal</td>
+                    <td className="p-5">Estradiol Elevado</td>
+                    <td className="p-5">Hipoestrogenismo</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800">Local de Acúmulo</td>
+                    <td className="p-5">Glúteos e Coxas</td>
+                    <td className="p-5 font-bold text-red-600">Região Abdominal (Visceral)</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800">Tipo de Tecido</td>
+                    <td className="p-5">Subcutâneo, baixa vascularização</td>
+                    <td className="p-5">Visceral, altamente vascularizado</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800">Grau de Inflamação</td>
+                    <td className="p-5 text-green-600">Menor inflamação crônica</td>
+                    <td className="p-5 text-red-600 font-bold">Maior inflamação (TNF-alfa, IL-6)</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800">Resistência à Insulina</td>
+                    <td className="p-5">Menor risco de IR</td>
+                    <td className="p-5">Maior IR e aumento no risco de DM2</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800">Perfil Lipídico</td>
+                    <td className="p-5">Mais favorável</td>
+                    <td className="p-5">Aumento de LDL e Triglicerídeos, Queda de HDL</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-bold text-slate-800">Risco Cardiovascular</td>
+                    <td className="p-5 text-green-600 font-bold">Baixo Risco</td>
+                    <td className="p-5 text-red-600 font-bold">Alto Risco</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
             <h2 id="a-verdade" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Dna className="text-green-600"/> A Fisiologia Feminina e a Gordura Essencial
