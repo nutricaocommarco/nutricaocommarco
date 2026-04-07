@@ -242,6 +242,7 @@ export default function PercentualGorduraFemininoComponent() {
                   <li><a href="#video-explicativo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Video size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Vídeo Explicativo</a></li>
                   <li><a href="#tabela-oficial" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Target size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Tabela de Referência</a></li>
                   <li><a href="#como-medir" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Ruler size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como Medir Corretamente?</a></li>
+                 <li><a href="#relacao-cintura-estatura" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><HeartPulse size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A Importância da RCE</a></li>
                   <li><a href="#extremos" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Shield size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Os Riscos dos Extremos</a></li>
                   <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes</a></li>
                 </ul>
@@ -400,6 +401,43 @@ export default function PercentualGorduraFemininoComponent() {
                 <div className="mt-12 pt-6 border-t border-green-50 text-center">
                     <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
                         Ao adquirir o seu equipamento avaliativo através do link acima, o blog recebe uma pequena comissão que financia nossos conteúdos científicos sem gerar custo adicional para você. O Pingus e eu agradecemos o imenso apoio.
+                    </p>
+                </div>
+            </div>
+
+            {/* H2: RELAÇÃO CINTURA ESTATURA */}
+            <h2 id="relacao-cintura-estatura" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <HeartPulse className="text-green-600"/> A Importância da Relação Cintura-Estatura (RCE)
+            </h2>
+            <p>
+              Além do percentual de gordura e das dobras cutâneas, a <strong>Relação Cintura-Estatura (RCE)</strong> tem ganhado um destaque formidável na comunidade científica. Diversos estudos e consensos médicos atuais demonstram que a RCE é um marcador preditivo muito superior ao IMC para identificar riscos cardiometabólicos reais.
+            </p>
+            <p>
+              O cálculo é incrivelmente simples: basta dividir a medida da circunferência da sua cintura pela sua altura. A ciência estabelece um ponto de corte universal e rigoroso de <strong>0,5</strong>. Ou seja, se a medida da sua cintura for maior que a metade da sua altura total, isso indica um acúmulo patológico de gordura visceral, servindo como um alerta vermelho para a sua saúde metabólica e resistência à insulina, independentemente de você parecer magra na balança.
+            </p>
+
+            {/* VIDEO: COMO MEDIR A CINTURA (LÓGICAMENTE LOGO ABAIXO DA RCE) */}
+            <div className="my-10 p-6 md:p-8 bg-green-50 border border-green-100 rounded-[2.5rem] shadow-sm flex flex-col md:flex-row items-center gap-8">
+                <div className="w-full md:w-1/3 aspect-[9/16] max-w-[280px] rounded-2xl overflow-hidden shadow-xl shrink-0 bg-slate-900 mx-auto md:mx-0 border-4 border-white">
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/qg6cSQaJhKs"
+                        title="Como medir a circunferência da cintura"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                    ></iframe>
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-2xl font-black text-slate-800 italic uppercase mb-4 flex items-center justify-center md:justify-start gap-2">
+                        <PlayCircle className="text-green-600" /> Como Medir a Sua Cintura
+                    </h3>
+                    <p className="text-slate-700 font-medium leading-relaxed mb-4">
+                        A fita métrica é a sua maior aliada para acompanhar a verdadeira evolução da sua composição corporal em casa e calcular a sua RCE de forma precisa.
+                    </p>
+                    <p className="text-slate-700 font-medium leading-relaxed">
+                        Assista a este vídeo rápido onde te ensino exatamente <strong>onde posicionar a fita</strong> e como realizar a leitura correta do perímetro abdominal, garantindo que os seus dados sejam tão consistentes quanto os de um consultório nutricional.
                     </p>
                 </div>
             </div>
