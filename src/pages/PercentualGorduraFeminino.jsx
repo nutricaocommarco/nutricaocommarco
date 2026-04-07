@@ -361,16 +361,6 @@ export default function PercentualGorduraFemininoComponent() {
               </table>
             </div>
 
-            <h2 id="a-verdade" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Dna className="text-green-600"/> A Fisiologia Feminina e a Gordura Essencial
-            </h2>
-            <p>
-              Para desmistificar de vez os padrões irreais da internet, é fundamental entender que o corpo feminino foi primorosamente desenhado pela evolução para carregar mais tecido adiposo do que o corpo masculino. Enquanto os homens possuem uma cota de gordura essencial na casa dos três a cinco por cento, as mulheres precisam manter um mínimo absoluto entre dez a doze por cento de gordura apenas para garantir que os seus órgãos vitais e sistema reprodutivo não entrem em colapso total.
-            </p>
-            <p>
-              Essa camada de gordura não é uma falha, mas sim uma proteção vital orquestrada pelos hormônios reprodutivos. Durante os anos férteis, o hormônio estradiol dita as regras do jogo, direcionando estrategicamente o acúmulo de gordura para os glúteos e coxas. Conhecido clinicamente como padrão ginoide, esse tipo de tecido adiposo é um escudo formidável que confere um privilégio metabólico incrível para as mulheres na pré-menopausa. Diferente da perigosa gordura visceral acumulada no abdômen, a gordura localizada na região do quadril apresenta baixíssimos níveis inflamatórios, preserva a sensibilidade do corpo à insulina e age como um fator de proteção poderoso contra doenças cardiovasculares.
-            </p>
-
 {/* NOVO VÍDEO DO YOUTUBE - GINOIDE X ANDROIDE */}
             <h2 id="video-explicativo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Video className="text-green-600"/> Biotipos: Gordura Ginoide x Androide
