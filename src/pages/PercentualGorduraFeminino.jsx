@@ -273,7 +273,7 @@ export default function PercentualGorduraFemininoComponent() {
 
             <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
               <img 
-                src={imagemCorpo} 
+                src={imagemCapa} 
                 alt="Diagrama visual demonstrando a variação da composição corporal feminina através de diferentes métodos de avaliação antropométrica." 
                 title="A Composição Corporal Feminina na Avaliação Física"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
