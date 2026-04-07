@@ -348,11 +348,11 @@ export default function PercentualGorduraFemininoComponent() {
               Por esse exato motivo, o método antropométrico tradicional através do somatório de dobras cutâneas ainda reina absoluto como uma bússola inabalável para monitorar resultados ao longo dos meses. Utilizando pinças de alta precisão científica, o profissional avalia o tecido subcutâneo real com os próprios dedos, blindando a avaliação de oscilações ilusórias de líquidos. Quando complementado com métricas matemáticas independentes e altamente eficientes, como a formidável Relação Cintura-Estatura (RCE), onde o limite saudável estipula que a sua cintura deve medir obrigatoriamente menos da metade da sua altura total, obtemos um arsenal clínico invencível contra a obesidade.
             </p>
 
-            {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (Adipômetro Clínico) */}
+{/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (Fita Antropométrica Cescorf) */}
             <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
                 <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
-                    <span>Recomendação Profissional</span>
+                    <span>Pingus Aprova</span>
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
@@ -366,13 +366,13 @@ export default function PercentualGorduraFemininoComponent() {
 
                     <div className="flex-1 text-center md:text-left flex flex-col justify-center">
                         <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                            Adipômetro Clínico <span className="text-green-700">Científico</span>
+                            Fita Antropométrica <span className="text-green-700">Cescorf</span>
                         </h4>
                         
                         <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
                             <img 
-                                src={`${githubImgBase}Afiliado/Adipometro.jpg`} 
-                                alt="Adipômetro Clínico de precisão para avaliação física" 
+                                src={`${githubImgBase}Afiliado/FitaCescorf.JPG`} 
+                                alt="Fita Antropométrica Cescorf indicada no padrão ISAK" 
                                 className="w-full h-auto" 
                                 onError={(e) => {
                                   e.target.onerror = null; 
@@ -382,11 +382,11 @@ export default function PercentualGorduraFemininoComponent() {
                         </div>
 
                         <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                            Seja você estudante da área da saúde ou alguém em busca do controle absoluto dos próprios resultados em casa, um adipômetro de leitura clínica com pressão constante é o equipamento definitivo para não depender das falhas da balança e mensurar a gordura subcutânea real.
+                            Seja você estudante da área da saúde ou alguém em busca do controle absoluto dos próprios resultados em casa, a Fita Antropométrica Cescorf é a ferramenta indicada no rigoroso padrão ISAK para mensurar circunferências corporais e calcular métricas cruciais como a RCE com máxima exatidão.
                         </p>
 
                         <a 
-                            href="https://meli.la/1aBg9YM" 
+                            href="https://meli.la/2atz1Hu" 
                             rel="sponsored noopener noreferrer" 
                             target="_blank"
                             className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
