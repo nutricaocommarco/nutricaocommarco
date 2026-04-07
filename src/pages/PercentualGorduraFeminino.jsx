@@ -12,12 +12,15 @@ import Newsletter from '../components/Newsletter';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
+// Atualizando datas para a postagem e SEO
 const datePublishedISO = "2026-04-07";
 const dateModifiedISO = "2026-04-07";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
+// Imagens do Artigo
 const artigoCapa = `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.jpg`; 
 
+// Dados baseados no material clínico fornecido (Emagrecimento em Mulheres - Pós EMA.pdf)
 const tabelaGordura = [
   { id: 1, categoria: "Gordura Essencial", percentual: "10% a 12%", status: "Risco se ultrapassar o limite inferior", icone: <AlertCircle className="text-red-500 w-6 h-6" /> },
   { id: 2, categoria: "Atletas de Elite", percentual: "10% a 15%", status: "Exige acompanhamento rigoroso", icone: <Flame className="text-orange-500 w-6 h-6" /> },
@@ -31,6 +34,7 @@ export default function PercentualGorduraFemininoComponent() {
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
+  // Estados para a Calculadora de RCE
   const [cintura, setCintura] = useState('');
   const [altura, setAltura] = useState('');
   const [resultadoRce, setResultadoRce] = useState(null);
@@ -38,6 +42,7 @@ export default function PercentualGorduraFemininoComponent() {
   const calcularRce = (e) => {
     e.preventDefault();
     if (cintura > 0 && altura > 0) {
+      // Cálculo simples: Cintura / Altura (ambos na mesma unidade, ex: cm)
       const calculo = parseFloat(cintura) / parseFloat(altura);
       setResultadoRce(calculo.toFixed(2));
     }
@@ -189,6 +194,7 @@ export default function PercentualGorduraFemininoComponent() {
             Qual o Percentual de Gordura Feminino Ideal? A Ciência Explica
           </h1>
 
+          {/* RESPOSTA DIRETA (Direct Answer / Featured Snippet) */}
           <div className="my-10 p-6 md:p-10 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-6 text-left">
             <div>
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3 flex items-center gap-2">
@@ -284,11 +290,12 @@ export default function PercentualGorduraFemininoComponent() {
               Essa camada de gordura não é uma falha, mas sim uma proteção vital orquestrada pelos hormônios reprodutivos. Durante os anos férteis, o hormônio estradiol dita as regras do jogo, direcionando estrategicamente o acúmulo de gordura para os glúteos e coxas. Conhecido clinicamente como padrão ginoide, esse tipo de tecido adiposo é um escudo formidável que confere um privilégio metabólico incrível para as mulheres na pré-menopausa. Diferente da perigosa gordura visceral acumulada no abdômen, a gordura localizada na região do quadril apresenta baixíssimos níveis inflamatórios, preserva a sensibilidade do corpo à insulina e age como um fator de proteção poderoso contra doenças cardiovasculares.
             </p>
 
+            {/* NOVA SEÇÃO E TABELA GINOIDE X ANDROIDE */}
             <h2 id="ginoide-androide" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Scale className="text-green-600"/> Distribuição de Gordura: Ginoide x Androide
             </h2>
             <p>
-              A forma como o corpo feminino armazena gordura diz muito mais sobre a sua saúde metabólica do que a quantidade total de massa adiposa em si. Essa distribuição é fortemente influenciada pelas fases da vida e pelo perfil hormonal de cada mulher. Durante a fase reprodutiva, o estrogênio elevado atua como um escudo protetor, direcionando o estoque de energia para a região inferior do corpo, caracterizando um tecido subcutâneo com baixa vascularização e muito menos propenso à inflamação. Por outro lado, com a chegada da menopausa e a consequente queda do estradiol, ocorre uma realocação perigosa dessa gordura para a região abdominal. Esse novo perfil visceral é altamente vascularizado, agrava a resistência à insulina e eleva drasticamente os marcadores de <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 hover:text-green-800 font-semibold underline decoration-green-300 decoration-2 underline-offset-2">inflamação crônica</Link>, prejudicando o perfil lipídico.
+              A forma como o corpo feminino armazena gordura diz muito mais sobre a sua saúde metabólica do que a quantidade total de massa adiposa em si. Essa distribuição é fortemente influenciada pelas fases da vida e pelo perfil hormonal de cada mulher. Durante a fase reprodutiva, o estrogênio elevado atua como um escudo protetor, direcionando o estoque de energia para a região inferior do corpo, caracterizando um tecido subcutâneo com baixa vascularização e muito menos propenso à inflamação. Por outro lado, com a chegada da menopausa e a consequente queda do estradiol, ocorre uma realocação perigosa dessa gordura para a região abdominal. Esse novo perfil visceral é altamente vascularizado, agrava a resistência à insulina e eleva drasticamente os marcadores de <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-bold hover:underline">inflamação crônica</Link>, prejudicando o perfil lipídico.
             </p>
 
             <div className="my-10 overflow-x-auto bg-white rounded-3xl border border-slate-200 shadow-sm">
@@ -345,6 +352,7 @@ export default function PercentualGorduraFemininoComponent() {
               </table>
             </div>
 
+{/* NOVO VÍDEO DO YOUTUBE - GINOIDE X ANDROIDE */}
             <h2 id="video-explicativo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Video className="text-green-600"/> Biotipos: Gordura Ginoide x Androide
             </h2>
@@ -389,6 +397,7 @@ export default function PercentualGorduraFemininoComponent() {
               Com base nos mais recentes compêndios de avaliação clínica e fisiologia do exercício, estruturamos a tabela referencial de adiposidade para guiar a sua jornada de hipertrofia ou emagrecimento com segurança absoluta. Utilize esses parâmetros como o farol da sua estratégia nutricional e esportiva.
             </p>
 
+            {/* TABELA DE GORDURA RENDERIZADA COMO CARDS MODERNOS */}
             <div className="bg-slate-100 rounded-[2rem] p-6 border border-slate-200 shadow-inner mb-12">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {tabelaGordura.map((item) => (
@@ -407,7 +416,7 @@ export default function PercentualGorduraFemininoComponent() {
                 ))}
               </div>
               <div className="mt-4 p-4 bg-white rounded-xl border border-slate-200 text-sm text-slate-600 font-medium text-center">
-                <strong>Nota Clínica:</strong> Mulheres que buscam a otimização máxima para iniciarem um processo limpo de hipertrofia muscular encontram um ambiente fisiológico muito favorável quando estabilizadas na faixa de <strong>18% a 20%</strong>. Valores acima de 25% indicam que um <Link to="/calculadora-de-gasto-calorico" className="text-green-600 hover:text-green-800 font-semibold underline decoration-green-300 decoration-2 underline-offset-2">déficit calórico planejado</Link> deve preceder qualquer fase de superávit.
+                <strong>Nota Clínica:</strong> Mulheres que buscam a otimização máxima para iniciarem um processo limpo de hipertrofia muscular encontram um ambiente fisiológico muito favorável quando estabilizadas na faixa de <strong>18% a 20%</strong>. Valores acima de 25% indicam que um <Link to="/calculadora-de-gasto-calorico" className="text-green-600 font-bold hover:underline">déficit calórico planejado</Link> deve preceder qualquer fase de superávit.
               </div>
             </div>
 
@@ -418,12 +427,13 @@ export default function PercentualGorduraFemininoComponent() {
               Ignorar o temido Índice de Massa Corporal (IMC) em mulheres ativas é uma obrigação para qualquer profissional atualizado, visto que o IMC é dolorosamente incapaz de discernir se aquele volume extra na balança provém de músculos densos e hidratados construídos na academia ou de um acúmulo patológico de tecido adiposo decorrente do sedentarismo. Para acessar os números reais que definem a sua estética e saúde, dependemos de métodos avaliativos sérios.
             </p>
             <p>
-              A <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 hover:text-green-800 font-semibold underline decoration-green-300 decoration-2 underline-offset-2">bioimpedância elétrica transformou-se em uma febre</Link> nos consultórios modernos. Trata-se de um equipamento que mapeia a sua composição ao disparar correntes elétricas sutis pelo corpo, interpretando a resistência que essas correntes sofrem ao passar pela água dos seus músculos em contraste com a barreira isolante da gordura. O desafio monumental da bioimpedância nas mulheres é a implacável flutuação hídrica provocada pelas fases do ciclo menstrual (período em que muitas buscam saber <Link to="/o-que-comer-na-tpm" className="text-green-600 hover:text-green-800 font-semibold underline decoration-green-300 decoration-2 underline-offset-2">o que comer na TPM</Link>) e alterações na temperatura corporal, que podem facilmente distorcer o percentual real, mascarar o seu progresso da dieta e deixar dúvidas sobre <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-600 hover:text-green-800 font-semibold underline decoration-green-300 decoration-2 underline-offset-2">qual o melhor horário para se pesar</Link>.
+              A <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 font-bold hover:underline">bioimpedância elétrica transformou-se em uma febre</Link> nos consultórios modernos. Trata-se de um equipamento que mapeia a sua composição ao disparar correntes elétricas sutis pelo corpo, interpretando a resistência que essas correntes sofrem ao passar pela água dos seus músculos em contraste com a barreira isolante da gordura. O desafio monumental da bioimpedância nas mulheres é a implacável flutuação hídrica provocada pelas fases do ciclo menstrual (período em que muitas buscam saber <Link to="/o-que-comer-na-tpm" className="text-green-600 font-bold hover:underline">o que comer na TPM</Link>) e alterações na temperatura corporal, que podem facilmente distorcer o percentual real, mascarar o seu progresso da dieta e deixar dúvidas sobre <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-600 font-bold hover:underline">qual o melhor horário para se pesar</Link>.
             </p>
             <p>
-              Por esse exato motivo, o <Link to="/o_que_e_antropometria" className="text-green-600 hover:text-green-800 font-semibold underline decoration-green-300 decoration-2 underline-offset-2">método antropométrico tradicional através do somatório de dobras cutâneas</Link> ainda reina absoluto como uma bússola inabalável para monitorar resultados ao longo dos meses. Utilizando pinças de alta precisão científica, o profissional avalia o tecido subcutâneo real com os próprios dedos, blindando a avaliação de oscilações ilusórias de líquidos. Quando complementado com métricas matemáticas independentes e altamente eficientes, como a formidável Relação Cintura-Estatura (RCE), onde o limite saudável estipula que a sua cintura deve medir obrigatoriamente menos da metade da sua altura total, obtemos um arsenal clínico invencível contra a obesidade.
+              Por esse exato motivo, o <Link to="/o_que_e_antropometria" className="text-green-600 font-bold hover:underline">método antropométrico tradicional através do somatório de dobras cutâneas</Link> ainda reina absoluto como uma bússola inabalável para monitorar resultados ao longo dos meses. Utilizando pinças de alta precisão científica, o profissional avalia o tecido subcutâneo real com os próprios dedos, blindando a avaliação de oscilações ilusórias de líquidos. Quando complementado com métricas matemáticas independentes e altamente eficientes, como a formidável Relação Cintura-Estatura (RCE), onde o limite saudável estipula que a sua cintura deve medir obrigatoriamente menos da metade da sua altura total, obtemos um arsenal clínico invencível contra a obesidade.
             </p>
 
+{/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (Fita Antropométrica Cescorf) */}
             <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
                 <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
@@ -479,6 +489,7 @@ export default function PercentualGorduraFemininoComponent() {
                 </div>
             </div>
 
+            {/* H2: RELAÇÃO CINTURA ESTATURA */}
             <h2 id="relacao-cintura-estatura" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <HeartPulse className="text-green-600"/> A Importância da Relação Cintura-Estatura (RCE)
             </h2>
@@ -489,6 +500,7 @@ export default function PercentualGorduraFemininoComponent() {
               O cálculo é incrivelmente simples: basta dividir a medida da circunferência da sua cintura pela sua altura. A ciência estabelece um ponto de corte universal e rigoroso de <strong>0,5</strong>. Ou seja, se a medida da sua cintura for maior que a metade da sua altura total, isso indica um acúmulo patológico de gordura visceral, servindo como um alerta vermelho para a sua saúde metabólica e resistência à insulina, independentemente de você parecer magra na balança.
             </p>
 
+            {/* VIDEO: COMO MEDIR A CINTURA (LÓGICAMENTE LOGO ABAIXO DA RCE) */}
             <div className="my-10 p-6 md:p-8 bg-green-50 border border-green-100 rounded-[2.5rem] shadow-sm flex flex-col md:flex-row items-center gap-8">
                 <div className="w-full md:w-1/3 aspect-[9/16] max-w-[280px] rounded-2xl overflow-hidden shadow-xl shrink-0 bg-slate-900 mx-auto md:mx-0 border-4 border-white">
                     <iframe
@@ -514,6 +526,7 @@ export default function PercentualGorduraFemininoComponent() {
                 </div>
             </div>
 
+            {/* CALCULADORA DE RCE INTERATIVA */}
             <div className="my-12 bg-white rounded-[3rem] border border-slate-200 shadow-xl overflow-hidden">
                 <div className="bg-slate-900 p-6 md:p-8 text-center">
                     <h3 className="text-2xl font-black text-white italic uppercase flex items-center justify-center gap-3 m-0">
@@ -559,6 +572,7 @@ export default function PercentualGorduraFemininoComponent() {
                         </div>
                     </form>
 
+                    {/* ÁREA DE RESULTADO DA CALCULADORA */}
                     {resultadoRce && (
                         <div className={`mt-10 p-6 md:p-8 rounded-[2rem] border-2 flex flex-col items-center text-center transition-all duration-500 ${resultadoRce <= 0.5 ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
                             <span className="text-xs font-black uppercase tracking-widest mb-2 text-slate-500">Seu Índice RCE</span>
