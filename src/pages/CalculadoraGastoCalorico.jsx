@@ -26,6 +26,7 @@ const metOptions = [
   { label: "🏊 Natação (Lazer / Leve)", value: "6.0" },
   { label: "🏊 Natação (Crawl - Moderado)", value: "8.3" },
   { label: "🏊 Natação (Borboleta / Vigoroso)", value: "10.0" },
+  { label: "🏊 Hidroginastica", value: "4.0" },
   { label: "🥊 Artes Marciais (Jiu-Jitsu, Muay Thai, Boxe)", value: "10.3" },
   { label: "⚽ Futebol / Basquete / Vôlei", value: "8.0" },
   { label: "🎾 Tênis (Simples)", value: "8.0" },
