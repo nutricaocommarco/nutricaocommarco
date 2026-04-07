@@ -198,7 +198,7 @@ export default function PercentualGorduraFemininoComponent() {
           <div className="my-10 p-6 md:p-10 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-6 text-left">
             <div>
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3 flex items-center gap-2">
-                <Target className="text-green-600" /> Resposta Rápida
+                <Target className="text-green-600" /> Qual o Percentual de Gordura Feminino Ideal? - Resposta Direta
               </h2>
               <p className="mt-4 text-lg md:text-xl text-green-950 font-medium leading-relaxed m-0">
                 O percentual de gordura feminino ideal para a saúde e boa forma física geral varia entre <strong>15% e 25%</strong>. Valores entre 10% e 15% são classificados para atletas de elite e exigem rigoroso controle nutricional. Mulheres possuem naturalmente mais gordura que os homens, pois uma faixa entre 10% e 12% é considerada <strong>gordura essencial</strong>, vital para o funcionamento hormonal, proteção dos órgãos e regulação do ciclo menstrual.
