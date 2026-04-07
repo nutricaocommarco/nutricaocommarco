@@ -35,6 +35,7 @@ import Melatonina from './pages/Melatonina';
 import TPM from './pages/TPM';
 import CalculadoraGastoCalorico from './pages/CalculadoraGastoCalorico'; 
 import QuantasCaloriasGasto from './pages/QuantasCaloriasGasto';
+import PercentualGorduraFeminino from './pages/PercentualGorduraFeminino';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -130,11 +131,14 @@ function Layout({ children }) {
         title: 'Calculadora de Gasto Calórico (TDEE e TMB) Inteligente | Nutrição com Marco',
         desc: 'Descubra seu gasto calórico diário e taxa metabólica basal com nossa calculadora inteligente. Fórmulas de Mifflin, Cunningham e Tinsley adaptadas ao seu perfil.'
       },
-      // 👇 NOVA ROTA DO ARTIGO ADICIONADA AQUI 👇
       '/quantas-calorias-gasto-por-dia': {
         title: 'Quantas Calorias Gasto Por Dia? TMB e TDEE | Nutrição com Marco',
         desc: 'Descubra como calcular seu gasto calórico diário. Entenda a sua Taxa Metabólica Basal (TMB), fator de atividade, METs e as fórmulas de Mifflin e Cunningham.'
-      }
+      },
+        '/percentual-gordura-feminino-ideal': {
+    title: 'Qual o Percentual de Gordura Feminino Ideal? | Nutrição com Marco',
+    desc: 'Descubra qual é o percentual de gordura feminino ideal para a saúde e estética. Entenda as tabelas de referência, os hormônios femininos e os métodos de avaliação.'
+  }
     };
 
     const currentSEO = seoData[location.pathname] || seoData['/'];
@@ -270,8 +274,8 @@ export default function App() {
             <Route path="/efeitos-colaterais-da-melatonina" element={<Melatonina />} />
             <Route path="/o-que-comer-na-tpm" element={<TPM />} />
             <Route path="/calculadora-de-gasto-calorico" element={<CalculadoraGastoCalorico />} />
-            {/* 👇 NOVA ROTA DO ARTIGO INCLUÍDA 👇 */}
             <Route path="/quantas-calorias-gasto-por-dia" element={<QuantasCaloriasGasto />} />
+            <Route path="/percentual-gordura-feminino-ideal" element={<PercentualGorduraFeminino />}
           </Routes>
         </Layout>
       </Router>
