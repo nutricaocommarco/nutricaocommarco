@@ -298,7 +298,7 @@ export default function PercentualGorduraFemininoComponent() {
               Essa camada de gordura não é uma falha, mas sim uma proteção vital orquestrada pelos hormônios reprodutivos. Durante os anos férteis, o hormônio estradiol dita as regras do jogo, direcionando estrategicamente o acúmulo de gordura para os glúteos e coxas. Conhecido clinicamente como padrão ginoide, esse tipo de tecido adiposo é um escudo formidável que confere um privilégio metabólico incrível para as mulheres na pré-menopausa. Diferente da perigosa gordura visceral acumulada no abdômen, a gordura localizada na região do quadril apresenta baixíssimos níveis inflamatórios, preserva a sensibilidade do corpo à insulina e age como um fator de proteção poderoso contra doenças cardiovasculares.
             </p>
 
-            {/* SEÇÃO DE VÍDEO CONFORME REQUISITADO */}
+{/* SEÇÃO DE VÍDEO CONFORME REQUISITADO */}
             <h2 id="video-explicativo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Video className="text-green-600"/> Entenda os Métodos na Prática
             </h2>
@@ -306,17 +306,38 @@ export default function PercentualGorduraFemininoComponent() {
               Assista ao nosso conteúdo visual detalhado onde explico as diferenças abissais entre o que a balança de banheiro comum te diz e o que a ciência antropométrica revela sobre a sua verdadeira estrutura corporal.
             </p>
             
-            <div className="relative w-full rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200 aspect-video bg-slate-900 flex items-center justify-center group cursor-pointer my-10">
-                {/* Fallback visual placeholder for video */}
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1594882645126-14020914d58d?auto=format&fit=crop&q=80&w=1200')] bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
-                <div className="relative z-10 flex flex-col items-center gap-4 text-white p-6 text-center">
-                    <PlayCircle size={64} className="text-green-500 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg" />
-                    <h3 className="text-xl md:text-2xl font-black italic uppercase tracking-widest drop-shadow-md">
-                        Composição Corporal Explicada
+            {/* VÍDEO DO INSTAGRAM (REELS) INCORPORADO */}
+            <div className="my-10 p-6 md:p-8 bg-green-50 border border-green-100 rounded-[2.5rem] shadow-sm flex flex-col md:flex-row items-center gap-8">
+                <div className="w-full md:w-auto flex justify-center shrink-0">
+                    <div className="w-[320px] h-[540px] rounded-2xl overflow-hidden shadow-xl bg-white border-4 border-white">
+                        <iframe
+                            src="https://www.instagram.com/p/DU8gZUaDJAa/embed"
+                            width="320"
+                            height="540"
+                            frameBorder="0"
+                            scrolling="no"
+                            allowTransparency="true"
+                            allow="encrypted-media"
+                            title="Composição Corporal na Prática - Instagram Reels"
+                            className="w-full h-full"
+                        ></iframe>
+                    </div>
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-2xl font-black text-slate-800 italic uppercase mb-4 flex items-center justify-center md:justify-start gap-2">
+                        <PlayCircle className="text-green-600" /> Composição Corporal Explicada
                     </h3>
-                    <p className="text-sm font-medium text-slate-200 max-w-md">
-                        Clique para reproduzir o vídeo detalhado sobre o padrão ginoide e a interpretação de dobras cutâneas.
+                    <p className="text-slate-700 font-medium leading-relaxed mb-6">
+                        Neste vídeo rápido, explico detalhadamente sobre o padrão ginoide e mostro na prática como a interpretação correta das dobras cutâneas muda completamente a visão sobre os seus resultados reais, indo muito além do peso na balança.
                     </p>
+                    <a 
+                        href="https://www.instagram.com/p/DU8gZUaDJAa/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-black text-green-600 uppercase tracking-widest hover:text-green-800 transition-colors"
+                    >
+                        Assistir direto no Instagram <ChevronRight size={16} />
+                    </a>
                 </div>
             </div>
 
