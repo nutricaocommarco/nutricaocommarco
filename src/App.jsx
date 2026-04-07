@@ -275,7 +275,7 @@ export default function App() {
             <Route path="/o-que-comer-na-tpm" element={<TPM />} />
             <Route path="/calculadora-de-gasto-calorico" element={<CalculadoraGastoCalorico />} />
             <Route path="/quantas-calorias-gasto-por-dia" element={<QuantasCaloriasGasto />} />
-            <Route path="/percentual-gordura-feminino-ideal" element={<PercentualGorduraFeminino />}
+            <Route path="/percentual-gordura-feminino-ideal" element={<PercentualGorduraFeminino />} />
           </Routes>
         </Layout>
       </Router>
