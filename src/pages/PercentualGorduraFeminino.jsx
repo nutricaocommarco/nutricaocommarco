@@ -298,45 +298,40 @@ export default function PercentualGorduraFemininoComponent() {
               Essa camada de gordura não é uma falha, mas sim uma proteção vital orquestrada pelos hormônios reprodutivos. Durante os anos férteis, o hormônio estradiol dita as regras do jogo, direcionando estrategicamente o acúmulo de gordura para os glúteos e coxas. Conhecido clinicamente como padrão ginoide, esse tipo de tecido adiposo é um escudo formidável que confere um privilégio metabólico incrível para as mulheres na pré-menopausa. Diferente da perigosa gordura visceral acumulada no abdômen, a gordura localizada na região do quadril apresenta baixíssimos níveis inflamatórios, preserva a sensibilidade do corpo à insulina e age como um fator de proteção poderoso contra doenças cardiovasculares.
             </p>
 
-{/* SEÇÃO DE VÍDEO CONFORME REQUISITADO */}
+{/* NOVO VÍDEO DO YOUTUBE - GINOIDE X ANDROIDE */}
             <h2 id="video-explicativo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Video className="text-green-600"/> Entenda os Métodos na Prática
+              <Video className="text-green-600"/> Biotipos: Gordura Ginoide x Androide
             </h2>
             <p className="mb-6">
-              Assista ao nosso conteúdo visual detalhado onde explico as diferenças abissais entre o que a balança de banheiro comum te diz e o que a ciência antropométrica revela sobre a sua verdadeira estrutura corporal.
+              Compreender a diferença na distribuição da sua gordura é o primeiro grande passo para parar de se comparar e adotar a estratégia correta.
             </p>
             
-            {/* VÍDEO DO INSTAGRAM (REELS) INCORPORADO */}
             <div className="my-10 p-6 md:p-8 bg-green-50 border border-green-100 rounded-[2.5rem] shadow-sm flex flex-col md:flex-row items-center gap-8">
-                <div className="w-full md:w-auto flex justify-center shrink-0">
-                    <div className="w-[320px] h-[540px] rounded-2xl overflow-hidden shadow-xl bg-white border-4 border-white">
-                        <iframe
-                            src="https://www.instagram.com/p/DU8gZUaDJAa/embed"
-                            width="320"
-                            height="540"
-                            frameBorder="0"
-                            scrolling="no"
-                            allowTransparency="true"
-                            allow="encrypted-media"
-                            title="Composição Corporal na Prática - Instagram Reels"
-                            className="w-full h-full"
-                        ></iframe>
-                    </div>
+                <div className="w-full md:w-1/2 aspect-video rounded-2xl overflow-hidden shadow-xl shrink-0 bg-slate-900 border-4 border-white">
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/7HxdNxnlFLM"
+                        title="Diferenças entre obesidade Ginoide e Androide"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                    ></iframe>
                 </div>
                 <div className="flex-1 text-center md:text-left">
                     <h3 className="text-2xl font-black text-slate-800 italic uppercase mb-4 flex items-center justify-center md:justify-start gap-2">
-                        <PlayCircle className="text-green-600" /> Composição Corporal Explicada
+                        <PlayCircle className="text-green-600" /> A Ciência da Gordura
                     </h3>
                     <p className="text-slate-700 font-medium leading-relaxed mb-6">
-                        Neste vídeo rápido, explico detalhadamente sobre o padrão ginoide e mostro na prática como a interpretação correta das dobras cutâneas muda completamente a visão sobre os seus resultados reais, indo muito além do peso na balança.
+                        Neste vídeo, nos aprofundamos na diferença vital entre o acúmulo de gordura <strong>Ginoide</strong> (formato de pera, mais comum e protetor nas mulheres) e o <strong>Androide</strong> (formato de maçã, com maior acúmulo de gordura visceral). Entenda como isso reflete no seu risco cardiometabólico.
                     </p>
                     <a 
-                        href="https://www.instagram.com/p/DU8gZUaDJAa/" 
+                        href="https://www.youtube.com/watch?v=7HxdNxnlFLM" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-sm font-black text-green-600 uppercase tracking-widest hover:text-green-800 transition-colors"
                     >
-                        Assistir direto no Instagram <ChevronRight size={16} />
+                        Assistir no YouTube <ChevronRight size={16} />
                     </a>
                 </div>
             </div>
