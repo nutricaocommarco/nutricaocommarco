@@ -30,6 +30,20 @@ const tabelaGordura = [
   { id: 5, categoria: "Obesidade", percentual: "≥ 32%", status: "Alto risco cardiometabólico", icone: <HeartPulse className="text-red-600 w-6 h-6" /> }
 ];
 
+// Estados para a Calculadora de RCE
+  const [cintura, setCintura] = useState('');
+  const [altura, setAltura] = useState('');
+  const [resultadoRce, setResultadoRce] = useState(null);
+
+  const calcularRce = (e) => {
+    e.preventDefault();
+    if (cintura > 0 && altura > 0) {
+      // Cálculo simples: Cintura / Altura (ambos na mesma unidade, ex: cm)
+      const calculo = parseFloat(cintura) / parseFloat(altura);
+      setResultadoRce(calculo.toFixed(2));
+    }
+  };
+
 export default function PercentualGorduraFemininoComponent() {
   const { pathname } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
@@ -439,6 +453,79 @@ export default function PercentualGorduraFemininoComponent() {
                     <p className="text-slate-700 font-medium leading-relaxed">
                         Assista a este vídeo rápido onde te ensino exatamente <strong>onde posicionar a fita</strong> e como realizar a leitura correta do perímetro abdominal, garantindo que os seus dados sejam tão consistentes quanto os de um consultório nutricional.
                     </p>
+                </div>
+            </div>
+
+            {/* CALCULADORA DE RCE INTERATIVA */}
+            <div className="my-12 bg-white rounded-[3rem] border border-slate-200 shadow-xl overflow-hidden">
+                <div className="bg-slate-900 p-6 md:p-8 text-center">
+                    <h3 className="text-2xl font-black text-white italic uppercase flex items-center justify-center gap-3 m-0">
+                        <Calculator className="text-green-500" /> Calculadora de RCE
+                    </h3>
+                    <p className="text-slate-300 font-medium mt-2 m-0 text-sm md:text-base">
+                        Descubra o seu risco metabólico em segundos
+                    </p>
+                </div>
+                <div className="p-6 md:p-10">
+                    <form onSubmit={calcularRce} className="flex flex-col md:flex-row gap-6 items-center justify-center">
+                        <div className="w-full md:w-1/3">
+                            <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 text-center">Cintura (cm)</label>
+                            <input
+                                type="number"
+                                step="0.1"
+                                value={cintura}
+                                onChange={(e) => setCintura(e.target.value)}
+                                className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-xl font-black rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 block p-4 text-center outline-none transition-all shadow-inner"
+                                placeholder="Ex: 75"
+                                required
+                            />
+                        </div>
+                        <div className="w-full md:w-1/3">
+                            <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 text-center">Altura (cm)</label>
+                            <input
+                                type="number"
+                                step="0.1"
+                                value={altura}
+                                onChange={(e) => setAltura(e.target.value)}
+                                className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-xl font-black rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 block p-4 text-center outline-none transition-all shadow-inner"
+                                placeholder="Ex: 165"
+                                required
+                            />
+                        </div>
+                        <div className="w-full md:w-1/3 flex items-end">
+                            <button
+                                type="submit"
+                                className="w-full bg-green-600 text-white h-[60px] rounded-2xl font-black uppercase text-sm tracking-widest shadow-lg hover:bg-green-700 hover:-translate-y-1 transition-all duration-300"
+                            >
+                                Calcular Risco
+                            </button>
+                        </div>
+                    </form>
+
+                    {/* ÁREA DE RESULTADO DA CALCULADORA */}
+                    {resultadoRce && (
+                        <div className={`mt-10 p-6 md:p-8 rounded-[2rem] border-2 flex flex-col items-center text-center transition-all duration-500 ${resultadoRce <= 0.5 ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
+                            <span className="text-xs font-black uppercase tracking-widest mb-2 text-slate-500">Seu Índice RCE</span>
+                            <span className={`text-6xl font-black italic mb-4 drop-shadow-sm ${resultadoRce <= 0.5 ? 'text-green-600' : 'text-red-600'}`}>
+                                {resultadoRce}
+                            </span>
+                            {resultadoRce <= 0.5 ? (
+                                <div className="flex items-start gap-3 bg-white p-4 rounded-2xl shadow-sm border border-green-100">
+                                    <CheckCircle2 className="text-green-600 w-6 h-6 shrink-0 mt-0.5" />
+                                    <p className="text-green-900 font-medium text-sm md:text-base m-0 text-left">
+                                        <strong>Excelente!</strong> O seu resultado está dentro da zona saudável (≤ 0.50). Isso indica um baixo risco para doenças cardiovasculares e metabólicas. Continue cuidando da sua saúde!
+                                    </p>
+                                </div>
+                            ) : (
+                                <div className="flex items-start gap-3 bg-white p-4 rounded-2xl shadow-sm border border-red-100">
+                                    <AlertCircle className="text-red-600 w-6 h-6 shrink-0 mt-0.5" />
+                                    <p className="text-red-900 font-medium text-sm md:text-base m-0 text-left">
+                                        <strong>Sinal de Alerta!</strong> Um resultado superior a 0.50 indica maior concentração de gordura visceral, o que eleva o risco metabólico. É o momento ideal para ajustar a nutrição e treinos!
+                                    </p>
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </div>
             </div>
 
