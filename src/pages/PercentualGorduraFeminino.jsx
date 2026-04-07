@@ -30,7 +30,12 @@ const tabelaGordura = [
   { id: 5, categoria: "Obesidade", percentual: "≥ 32%", status: "Alto risco cardiometabólico", icone: <HeartPulse className="text-red-600 w-6 h-6" /> }
 ];
 
-// Estados para a Calculadora de RCE
+export default function PercentualGorduraFemininoComponent() {
+  const { pathname } = useLocation();
+  const [isTocOpen, setIsTocOpen] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
+  // Estados para a Calculadora de RCE
   const [cintura, setCintura] = useState('');
   const [altura, setAltura] = useState('');
   const [resultadoRce, setResultadoRce] = useState(null);
@@ -43,11 +48,6 @@ const tabelaGordura = [
       setResultadoRce(calculo.toFixed(2));
     }
   };
-
-export default function PercentualGorduraFemininoComponent() {
-  const { pathname } = useLocation();
-  const [isTocOpen, setIsTocOpen] = useState(false);
-  const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
