@@ -1,6 +1,17 @@
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 export const posts = [
+{
+    id: 20,
+    link: "/efeitos-colaterais-da-melatonina",
+    img: `${githubImgBase}Blog/Melatonina.jpg`,
+    tag: "Nutrição Clínica",
+    titulo: "Efeitos Colaterais da Melatonina: Vicia? Faz Mal? A Verdade Científica",
+    desc: "Descubra a verdade científica sobre a melatonina: ela vicia? Faz mal? Entenda os efeitos colaterais, riscos psicológicos e como dosar corretamente para dormir bem.",
+    data: "2026-04-01",
+    dataMod: "2026-04-08"
+  },
+  
   {
     id: 19,
     link: "/o-que-e-ciclo-circadiano", 
