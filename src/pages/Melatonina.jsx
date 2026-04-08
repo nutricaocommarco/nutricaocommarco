@@ -14,7 +14,7 @@ import ArtigosRecomendados from '../components/ArtigosRecomendados';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 const datePublishedISO = "2026-04-01";
-const dateModifiedISO = "2026-04-01";
+const dateModifiedISO = "2026-04-08";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 const melatoninaCapa = `${githubImgBase}Blog/Melatonina.jpg`;
 const cicloCircadianoCapa = `${githubImgBase}Blog/CicloCircadiano.jpg`;
@@ -280,7 +280,7 @@ export default function Melatonina() {
           <article className="prose prose-lg max-w-none text-left">
 
             <div className="mb-8 flex flex-col items-start gap-2">
-              <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Fisiologia do Sono</span>
+              <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Nutrição Clínica</span>
               <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
             </div>
 
