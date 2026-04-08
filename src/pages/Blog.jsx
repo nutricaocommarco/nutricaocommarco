@@ -5,6 +5,15 @@ import { ChevronRight, Clock, Filter, Tag as TagIcon } from 'lucide-react';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 const postsData = [
+    {
+    id: 20,
+    link: "/efeitos-colaterais-da-melatonina",
+    imgSrc: `${githubImgBase}Blog/Melatonina.jpg`,
+    tag: "Nutrição Clínica",
+    title: "Efeitos Colaterais da Melatonina: Vicia? Faz Mal? A Verdade Científica",
+    desc: "Descubra a verdade científica sobre a melatonina: ela vicia? Faz mal? Entenda os efeitos colaterais, riscos psicológicos e como dosar corretamente para dormir bem.",
+    isNew: true
+  },
 {
     id: 19, 
     link: "/o-que-e-ciclo-circadiano", 
@@ -12,7 +21,7 @@ const postsData = [
     tag: "Fisiologia e Metabolismo",
     title: "O Que é Ciclo Circadiano? Relógio Biológico e Emagrecimento",
     desc: "Guia completo sobre ciclo circadiano: como emagrecer, melhorar o sono, horários corretos das refeições, a verdade sobre a melatonina e controle hormonal.",
-    isNew: true
+    isNew: false
   },
   
   {
@@ -22,6 +31,7 @@ const postsData = [
   tag: "Nutrição Clínica",
   title: "O que são Simbióticos? A Sinergia Intestinal",
   desc: "Descubra o que são os alimentos simbióticos, como a união de prebióticos e probióticos transforma a sua flora e as melhores combinações.",
+       isNew: false
 },
   
   {
@@ -31,6 +41,7 @@ const postsData = [
   tag: "Nutrição Clínica",
   title: "O que são Probióticos? Lactobacillus e Benefícios",
   desc: "Descubra o que são probióticos e Lactobacillus, para que servem no intestino, seus benefícios para a imunidade e quais as melhores fontes naturais.",
+       isNew: false
 },
 
   {
@@ -40,6 +51,7 @@ const postsData = [
   tag: "Nutrição Clínica",
   title: "O que são Prebióticos? Alimentos, Benefícios e Para Que Servem",
   desc: "Descubra o que são prebióticos, para que servem no seu intestino, quais alimentos são ricos em FOS e inulina, e como eles alimentam sua flora intestinal.",
+       isNew: false
 },
   {
     id: 15, 
