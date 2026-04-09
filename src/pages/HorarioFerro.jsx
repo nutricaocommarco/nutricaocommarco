@@ -185,6 +185,7 @@ export default function MelhorHorarioFerro() {
                   <li><a href="#como-age" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Heart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como o Ferro Age no Organismo</a></li>
                   <li><a href="#tempo-tratamento" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Duração do Tratamento</a></li>
                   <li><a href="#inibidores" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><XCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Alimentos que Inibem a Absorção</a></li>
+                  <li><a href="#ferro-calcio" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><AlertCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Ferro e Cálcio</a></li>
                   <li><a href="#vitamina-c" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Leaf size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Ferro e Vitamina C</a></li>
                   <li><a href="#ferro-zinco" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Ferro e Zinco Juntos?</a></li>
                   <li><a href="#depois-almoco" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Utensils size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Tomar Depois do Almoço</a></li>
@@ -269,6 +270,13 @@ export default function MelhorHorarioFerro() {
                 </tbody>
               </table>
             </div>
+
+            <h3 id="ferro-calcio" className="text-xl font-black text-slate-800 uppercase italic mt-10 mb-3 flex items-center gap-2">
+              <AlertCircle className="text-green-500 w-5 h-5"/> A Competição Desleal: Ferro e Cálcio
+            </h3>
+            <p>
+              Você já sabe que os laticínios inibem a absorção, mas é importante entender a fisiologia por trás disso. O cálcio é o único nutriente dietético conhecido que bloqueia clinicamente a absorção tanto do ferro heme (carnes) quanto do ferro não-heme (vegetais). Ele atua de forma diretamente competitiva nas células intestinais (enterócitos), o que significa que se houver uma alta concentração de cálcio disponível, o ferro será deixado de lado. Se você tem o hábito de comer uma sobremesa à base de leite logo após o almoço ou tomar o seu suplemento de ferro matinal junto com um copo de leite ou iogurte, você está literalmente sabotando o seu tratamento. A regra clínica é afastar fontes de cálcio da sua suplementação de ferro por pelo menos duas horas.
+            </p>
 
             <h3 id="vitamina-c" className="text-xl font-black text-slate-800 uppercase italic mt-10 mb-3 flex items-center gap-2">
               <Leaf className="text-green-500 w-5 h-5"/> A Poderosa Combinação de Ferro e Vitamina C
