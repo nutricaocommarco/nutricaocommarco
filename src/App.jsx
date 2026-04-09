@@ -36,6 +36,8 @@ import TPM from './pages/TPM';
 import CalculadoraGastoCalorico from './pages/CalculadoraGastoCalorico'; 
 import QuantasCaloriasGasto from './pages/QuantasCaloriasGasto';
 import PercentualGorduraFeminino from './pages/PercentualGorduraFeminino';
+import HorarioFerro from './pages/HorarioFerro';
+
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -138,7 +140,11 @@ function Layout({ children }) {
         '/percentual-gordura-feminino-ideal': {
     title: 'Qual o Percentual de Gordura Feminino Ideal? | Nutrição com Marco',
     desc: 'Descubra qual é o percentual de gordura feminino ideal para a saúde e estética. Entenda as tabelas de referência, os hormônios femininos e os métodos de avaliação.'
-  }
+      },
+        '/melhor_horario_para_tomar_ferro': {
+        title: 'Melhor Horário Para Tomar Ferro e Curar a Anemia | Nutrição com Marco',
+        desc: 'Descubra o melhor horário para tomar ferro, sintomas de falta no organismo, o que inibe a absorção e quanto tempo dura o tratamento para anemia.'
+      } 
     };
 
     const currentSEO = seoData[location.pathname] || seoData['/'];
@@ -276,6 +282,7 @@ export default function App() {
             <Route path="/calculadora-de-gasto-calorico" element={<CalculadoraGastoCalorico />} />
             <Route path="/quantas-calorias-gasto-por-dia" element={<QuantasCaloriasGasto />} />
             <Route path="/percentual-gordura-feminino-ideal" element={<PercentualGorduraFeminino />} />
+            <Route path="/melhor_horario_para_tomar_ferro" element={<HorarioFerro />} />
           </Routes>
         </Layout>
       </Router>
