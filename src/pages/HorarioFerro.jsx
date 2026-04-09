@@ -8,6 +8,9 @@ import {
   Coffee, Utensils, XCircle, Check
 } from 'lucide-react';
 
+import Newsletter from '../components/Newsletter';
+import ArtigosRecomendados from '../components/ArtigosRecomendados';
+
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 // Variáveis de data
@@ -17,34 +20,6 @@ const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Caminho da imagem de capa (Placeholder estilizado para o tema)
 const capaArtigo = "https://images.unsplash.com/photo-1576073719676-aa95576eb2ce?q=80&w=2000&auto=format&fit=crop";
-
-// Componentes substitutos inline para evitar o erro de resolução de arquivos externos
-const Newsletter = () => (
-  <div className="bg-slate-100 p-8 rounded-3xl mt-10 text-center border border-slate-200">
-    <h3 className="text-xl font-black text-slate-800 uppercase italic mb-2">Assine nossa Newsletter</h3>
-    <p className="text-slate-600 mb-4">Receba dicas exclusivas sobre nutrição e saúde diretamente no seu e-mail.</p>
-    <div className="flex flex-col md:flex-row gap-3 justify-center max-w-md mx-auto">
-      <input type="email" placeholder="Seu melhor e-mail" className="px-4 py-3 rounded-xl border border-slate-300 w-full outline-none focus:border-green-500" />
-      <button className="bg-green-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-green-700 transition-colors">Assinar</button>
-    </div>
-  </div>
-);
-
-const ArtigosRecomendados = () => (
-  <div className="mt-16 pt-10 border-t border-slate-100">
-    <h3 className="text-2xl font-black text-slate-800 uppercase italic mb-6">Artigos Recomendados</h3>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <Link to="/o_dilema_do_sangue_na_altitude" className="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-green-300 transition-colors group">
-        <h4 className="font-bold text-slate-800 mb-2 group-hover:text-green-600 transition-colors">O Dilema do Sangue na Altitude</h4>
-        <span className="text-green-600 text-sm font-bold">Ler artigo &rarr;</span>
-      </Link>
-      <Link to="/por_que_o_feijao_da_gases" className="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-green-300 transition-colors group">
-        <h4 className="font-bold text-slate-800 mb-2 group-hover:text-green-600 transition-colors">Por que o feijão dá gases?</h4>
-        <span className="text-green-600 text-sm font-bold">Ler artigo &rarr;</span>
-      </Link>
-    </div>
-  </div>
-);
 
 export default function MelhorHorarioFerro() {
   const { pathname } = useLocation();
