@@ -327,49 +327,49 @@ export default function MelhorHorarioFerro() {
               Definitivamente sim. Sob a ótica puramente fisiológica da máxima eficiência, questionar se pode tomar ferro em jejum é confirmar a regra de ouro do tratamento da anemia. Ao ingerir o suplemento logo cedo, cerca de uma hora antes do seu café da manhã, o ambiente do estômago está altamente ácido e livre de substâncias quelantes que inibem o mineral. Combinar essa cápsula matinal com meio copo de água com limão potencializa ainda mais a eficácia do protocolo, garantindo que praticamente cada miligrama da medicação seja enviado direto para a sua medula óssea para a fabricação de novas células sanguíneas.
             </p>
 
-            {/* AFILIADO MERCADO LIVRE (PORTA COMPRIMIDOS) */}
-            <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
-                <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
-                  <Zap size={14} className="fill-white" />
-                  <span>O Pingus Aprova!</span>
-                </div>
+{/* AFILIADO MERCADO LIVRE (PORTA COMPRIMIDOS) */}
+<div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
+  <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+    <Zap size={14} className="fill-white" />
+    <span>O Pingus Aprova!</span>
+  </div>
 
-                <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
-                  <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-                    <img 
-                      src={`${githubImgBase}logoN_pingus.png`} 
-                      alt="Selo de Qualidade Pingus" 
-                      className="w-full h-full object-contain" 
-                    />
-                  </div>
+  <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
+    <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-[2rem] overflow-hidden flex items-center justify-center shadow-inner border-4 border-white">
+      <img 
+        src={`${githubImgBase}Afiliado/PortaComprimidos.JPG`} 
+        alt="Porta Comprimidos Semanal Organizador recomendado para separar suplementos" 
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+      />
+    </div>
 
-                  <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-                    <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                      Porta Comprimidos <span className="text-green-700">Semanal Organizador</span>
-                    </h4>
+    <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+      <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+        Porta Comprimidos <span className="text-green-700">Semanal Organizador</span>
+      </h4>
 
-                    <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                      O tratamento da anemia exige disciplina diária e a separação correta dos suplementos (lembra da regra de afastar o ferro do zinco e do cálcio?). Para não se perder nos horários nem esquecer a sua dose em jejum, um organizador semanal é o investimento mais prático e inteligente para garantir o sucesso da sua recuperação.
-                    </p>
+      <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
+        O tratamento da anemia exige disciplina diária e a separação correta dos suplementos (lembra da regra de afastar o ferro do zinco e do cálcio?). Para não se perder nos horários nem esquecer a sua dose em jejum, um organizador semanal é o investimento mais prático e inteligente para garantir o sucesso da sua recuperação.
+      </p>
 
-                    <a 
-                      href="https://meli.la/1Jn51p4" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-                    >
-                      <ShoppingCart size={16} />
-                      Ver Organizador no Mercado Livre
-                    </a>
-                  </div>
-                </div>
+      <a 
+        href="https://meli.la/2s3yv1e" 
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+      >
+        <ShoppingCart size={16} />
+        Ver Organizador no Mercado Livre
+      </a>
+    </div>
+  </div>
 
-                <div className="mt-12 pt-6 border-t border-green-50 text-center">
-                  <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
-                    Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso!
-                  </p>
-                </div>
-            </div>
+  <div className="mt-12 pt-6 border-t border-green-50 text-center">
+    <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
+      Ao comprar pelo link, recebo uma pequena comissão que apoia este blog de nutrição. Você não paga nada a mais por isso!
+    </p>
+  </div>
+</div>
 
             <h2 id="alimentos-ricos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Leaf className="text-green-600"/> Alimentos que possuem ferro
