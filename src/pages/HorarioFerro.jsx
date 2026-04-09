@@ -121,6 +121,26 @@ export default function MelhorHorarioFerro() {
             }))
           })}
         </script>
+
+        {/* SCHEMA.ORG: IMAGE OBJECT */}
+<script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "contentUrl": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/HorarioFerro.jpg",
+    "creator": {
+      "@type": "Person",
+      "name": "Marco"
+    },
+    "creditText": "Nutrição com Marco",
+    "copyrightNotice": "Nutrição com Marco",
+    "license": "https://nutricaocommarco.com.br",
+    "caption": "Mascote Pingus descobrindo o melhor horário para tomar suplemento de ferro.",
+    "description": "Ilustração 3D do mascote Pingus com roupa de explorador olhando assustado para uma barra de ferro em um prato, representando de forma bem-humorada a dieta e suplementação de ferro.",
+    "name": "Horário ideal para tomar suplemento de ferro"
+  })}
+</script>
+        
       </Helmet>
 
     <div className="min-h-screen bg-slate-50 font-sans">
@@ -199,26 +219,27 @@ export default function MelhorHorarioFerro() {
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
-            {/* IMAGEM DE CAPA */}
-            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img 
-                src={capaArtigo} 
-                alt="Glóbulos vermelhos ilustrando o metabolismo do ferro no sangue" 
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
-              />
-              <div className="bg-green-50 p-4 text-center">
-                <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
-                  O ferro é o motor da oxigenação celular: entenda como otimizar seus estoques.
-                </p>
-              </div>
-            </div>
-
             <h2 id="sintomas" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Droplet className="text-green-600"/> Sintomas de falta de ferro no organismo
             </h2>
             <p>
               Quando os seus estoques começam a cair, o corpo acende um alerta vermelho que afeta praticamente toda a sua rotina. Os sintomas de falta de ferro no organismo costumam surgir de forma silenciosa e vão se agravando conforme a anemia ferropriva se instala. O sinal mais clássico é um cansaço esmagador e inexplicável, acompanhado de palidez na pele e nas mucosas, principalmente na parte interna dos olhos. Como o mineral é fundamental para a saúde estrutural, é muito comum observar queda de cabelo acentuada e unhas quebradiças, um quadro que muitas vezes confunde os pacientes que tentam tratar o problema apenas com cosméticos ou investigando a <Link to="/vitamina_a_para_que_serve" className="text-green-600 font-semibold hover:underline">vitamina A</Link> sem olhar para a ferritina. Além disso, a falta de oxigenação no cérebro causa dores de cabeça frequentes, tonturas ao levantar rápido e dificuldade extrema de concentração.
             </p>
+
+            {/* IMAGEM DE CAPA */}
+<div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
+  <img 
+    src={`${githubImgBase}Blog/HorarioFerro.jpg`} 
+    alt="Mascote Pingus assustado ao tentar comer uma barra de ferro em um prato, ilustrando de forma humorada a suplementação e absorção de ferro" 
+    title="Qual o melhor horário para tomar suplemento de ferro? O Pingus te explica!"
+    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+  />
+  <div className="bg-green-50 p-4 text-center">
+    <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
+      Afinal, quando tomar ferro sem prejudicar a absorção? O Pingus descobriu que não é tão simples quanto parece!
+    </p>
+  </div>
+</div>
 
             <h2 id="como-age" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Heart className="text-green-600"/> Como o ferro age no organismo
