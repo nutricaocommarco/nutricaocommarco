@@ -35,7 +35,13 @@ const rotasEstaticas = [
     title: 'Calculadora de Gasto Calórico (TDEE e TMB) Inteligente | Nutrição com Marco',
     image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Calculadora-de-Gasto-Calorico.jpg',
     desc: 'Descubra seu gasto calórico diário e taxa metabólica basal com nossa calculadora inteligente. Fórmulas de Mifflin, Cunningham e Tinsley adaptadas ao seu perfil.'
-  }
+  },
+  {
+    path: 'parceria-inatividade-zero',
+    title: 'Agende sua Avaliação Antropométrica Grátis - Parceria Inatividade Zero | Nutrição com Marco',
+    image: 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/PingusReserva.jpg',
+    desc: 'Agende sua avaliação antropométrica gratuita na Academia Inatividade Zero (Rua Rio Sangrador, 260) em parceria com Nutrição com Marco. Descubra sua composição corporal real com precisão ISAK.'
+  }
 ];
 
 const rotasDoBlog = posts.map(post => {
