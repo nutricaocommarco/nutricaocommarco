@@ -12,12 +12,20 @@ export default function App() {
     window.scrollTo(0, 0);
   }, []);
 
+  const handleAgendamentoClick = (e) => {
+    e.preventDefault();
+    // Abre o link do Google Agenda num novo separador
+    window.open('https://calendar.app.google/QvidzZySZxBgdQA2A', '_blank');
+    // Redireciona a página atual para a rota de confirmação
+    window.location.href = 'https://www.nutricaocommarco.com.br/Confirmacao-av-antropometrica';
+  };
+
   return (
     <div className="bg-slate-50 min-h-screen font-sans text-slate-900 selection:bg-green-200 selection:text-green-900">
       
-      {/* HEADER / HERO SECTION */}
+      {/* SECÇÃO HERO / CABEÇALHO */}
       <section className="relative px-4 md:px-6 pt-12 pb-20 overflow-hidden">
-        {/* Background Elements */}
+        {/* Elementos de Fundo */}
         <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
         <div className="absolute top-[20%] right-[-10%] w-96 h-96 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
 
@@ -53,7 +61,7 @@ export default function App() {
           
           <a href="#agendamento" className="mt-12 animate-bounce flex flex-col items-center gap-2 text-green-600 hover:text-green-700 transition-colors">
             <span className="text-xs font-black uppercase tracking-widest">Ir para a agenda</span>
-            <ArrowDownCircle w-8 h-8 />
+            <ArrowDownCircle className="w-8 h-8" />
           </a>
         </div>
       </section>
@@ -64,7 +72,7 @@ export default function App() {
           
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-slate-800 uppercase italic mb-4">
-              O que você precisa saber
+              O que precisa de saber
             </h2>
             <p className="text-lg text-slate-600 font-medium">
               A avaliação segue o rigoroso padrão internacional ISAK. Para garantir que os seus resultados sejam exatos e o seu relatório reflita a realidade, é obrigatório seguir o protocolo de preparação abaixo antes de comparecer à academia.
@@ -126,7 +134,7 @@ export default function App() {
 
           </div>
 
-          {/* SESSÃO DE AGENDAMENTO GOOGLE CALENDAR */}
+          {/* SECÇÃO DE AGENDAMENTO GOOGLE CALENDAR */}
           <div id="agendamento" className="bg-slate-900 rounded-[3rem] p-8 md:p-12 text-white relative overflow-hidden">
             
             {/* Efeito visual dentro da caixa escura */}
@@ -146,19 +154,21 @@ export default function App() {
                 Os horários para as avaliações gratuitas na Inatividade Zero são limitados e disponibilizados através da nossa agenda oficial. Confirme se atende a todos os requisitos do protocolo acima e garanta a sua vaga.
               </p>
 
-              {/* CONTAINER DO GOOGLE CALENDAR (Placeholder pronto para receber o Iframe real) */}
+              {/* CONTAINER COM O BOTÃO DO GOOGLE CALENDAR */}
               <div className="bg-white rounded-3xl p-2 shadow-2xl overflow-hidden mb-6">
-                <div className="bg-slate-50 w-full h-[400px] rounded-[1.5rem] border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-center p-6">
+                <div className="bg-slate-50 w-full py-12 px-6 rounded-[1.5rem] border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-center">
                   
-                  {/* Este bloco será substituído pelo código de incorporação (Iframe) do Google Calendar Appointment Scheduling */}
-                  <Calendar className="text-slate-300 w-16 h-16 mb-4" />
-                  <h3 className="text-xl font-black text-slate-700 uppercase italic mb-2">Agenda do Google</h3>
-                  <p className="text-slate-500 font-medium mb-6 max-w-sm">
-                    A integração com os horários da academia está a ser finalizada. O calendário interativo aparecerá aqui em breve.
+                  <Calendar className="text-green-600 w-16 h-16 mb-4" />
+                  <h3 className="text-xl font-black text-slate-700 uppercase italic mb-2">Agenda Oficial</h3>
+                  <p className="text-slate-500 font-medium mb-8 max-w-sm">
+                    Clique no botão abaixo para abrir a nossa agenda no Google Calendar e escolher o melhor horário para a sua avaliação.
                   </p>
                   
-                  {/* Botão provisório enquanto o iframe não é colocado */}
-                  <button className="bg-green-600 text-white px-8 py-4 rounded-full font-black uppercase text-sm tracking-widest shadow-xl hover:bg-green-700 transition-all flex items-center gap-2">
+                  {/* Botão que aciona as duas ações simultaneamente */}
+                  <button 
+                    onClick={handleAgendamentoClick}
+                    className="bg-green-600 text-white px-8 py-4 rounded-full font-black uppercase text-sm tracking-widest shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                  >
                     Visualizar Horários Disponíveis <ArrowRight size={18} />
                   </button>
                   
