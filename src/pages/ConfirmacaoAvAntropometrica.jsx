@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { 
   CheckCircle2, CalendarCheck, Shirt, Coffee, 
-  Dumbbell, Droplet, User, ChevronLeft, ShieldCheck, FileText, MessageCircle
+  Dumbbell, Droplet, User, ChevronLeft, ShieldCheck, FileText, MessageCircle, Clock
 } from 'lucide-react';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
@@ -54,6 +54,12 @@ export default function ConfirmacaoInscricao() {
             </div>
 
             <article className="prose prose-lg max-w-none text-left">
+              
+              <div className="flex items-center gap-2 text-green-700 bg-green-100 w-fit px-5 py-3 rounded-full font-bold mb-6 shadow-sm border border-green-200 uppercase tracking-wide text-sm">
+                <Clock size={20} className="text-green-600" />
+                <span>Duração Aproximada: 40 Minutos</span>
+              </div>
+
               <p className="text-xl text-slate-700 font-medium leading-relaxed mb-10">
                 Olá, aqui é o Marco! Parabéns por tomar a decisão de parar de se guiar por achismos e buscar entender a verdadeira composição do seu corpo. A avaliação antropométrica que realizaremos segue o rigoroso padrão internacional ISAK, o que significa que cada dobra cutânea, diâmetro ósseo e perímetro será aferido com precisão milimétrica. Para que esses dados reflitam perfeitamente a sua realidade fisiológica, eu preciso da sua colaboração seguindo um protocolo de preparo muito simples, mas absolutamente fundamental para o sucesso da nossa consulta.
               </p>
