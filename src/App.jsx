@@ -17,6 +17,7 @@ import EfeitoSanfona from './pages/EfeitoSanfona';
 import Eritropoetina from './pages/Eritropoetina';
 import Feijao from './pages/Feijao';
 import HormoniosFome from './pages/HormoniosFome';
+import ConfirmacaoAvAntropometrica from './pages/ConfirmacaoAvAntropometrica';
 import Ironman703 from './pages/Ironman703';
 import GeradorEmailSecreto from './pages/GeradorEmailSecreto';
 import MelhorHorarioPesagem from './pages/MelhorHorarioPesagem';
@@ -283,6 +284,7 @@ export default function App() {
             <Route path="/quantas-calorias-gasto-por-dia" element={<QuantasCaloriasGasto />} />
             <Route path="/percentual-gordura-feminino-ideal" element={<PercentualGorduraFeminino />} />
             <Route path="/melhor_horario_para_tomar_ferro" element={<HorarioFerro />} />
+            <Route path="/Confirmacao-av-antropometrica" element={<ConfirmacaoAvAntropometrica />} />
           </Routes>
         </Layout>
       </Router>
