@@ -38,6 +38,7 @@ import CalculadoraGastoCalorico from './pages/CalculadoraGastoCalorico';
 import QuantasCaloriasGasto from './pages/QuantasCaloriasGasto';
 import PercentualGorduraFeminino from './pages/PercentualGorduraFeminino';
 import HorarioFerro from './pages/HorarioFerro';
+import InatividadeZero from './pages/InatividadeZero';
 
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
@@ -285,6 +286,7 @@ export default function App() {
             <Route path="/percentual-gordura-feminino-ideal" element={<PercentualGorduraFeminino />} />
             <Route path="/melhor_horario_para_tomar_ferro" element={<HorarioFerro />} />
             <Route path="/Confirmacao-av-antropometrica" element={<ConfirmacaoAvAntropometrica />} />
+            <Route path="/parceria-inatividade-zero" element={<InatividadeZero />} />
           </Routes>
         </Layout>
       </Router>
