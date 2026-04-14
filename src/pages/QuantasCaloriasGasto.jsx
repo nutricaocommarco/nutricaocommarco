@@ -78,6 +78,10 @@ export default function QuantasCaloriasGastoComponent() {
         <meta property="og:title" content="Quantas Calorias Gasto Por Dia? Pare de Chutar! | Nutrição com Marco" />
         <meta property="og:description" content="Guia definitivo: entenda o seu metabolismo, descubra a fórmula certa para o seu biotipo e aprenda a calcular o seu Gasto Energético Total com precisão." />
         <meta property="og:image" content={artigoCapa} />
+        <meta property="og:image:secure_url" content={artigoCapa} />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
         
         {/* Schema 1: Article */}
