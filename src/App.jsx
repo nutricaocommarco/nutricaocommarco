@@ -38,6 +38,7 @@ import CalculadoraGastoCalorico from './pages/CalculadoraGastoCalorico';
 import QuantasCaloriasGasto from './pages/QuantasCaloriasGasto';
 import PercentualGorduraFeminino from './pages/PercentualGorduraFeminino';
 import HorarioFerro from './pages/HorarioFerro';
+import ConfirmacaoAvAntropometrica from './pages/ConfirmacaoAvAntropometrica';
 import InatividadeZero from './pages/InatividadeZero';
 
 
