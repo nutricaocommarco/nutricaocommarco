@@ -285,7 +285,7 @@ export default function App() {
             <Route path="/quantas-calorias-gasto-por-dia" element={<QuantasCaloriasGasto />} />
             <Route path="/percentual-gordura-feminino-ideal" element={<PercentualGorduraFeminino />} />
             <Route path="/melhor_horario_para_tomar_ferro" element={<HorarioFerro />} />
-            <Route path="/Confirmacao-av-antropometrica" element={<ConfirmacaoAvAntropometrica />} />
+            <Route path="/confirmacao-av-antropometrica" element={<ConfirmacaoAvAntropometrica />} />
             <Route path="/parceria-inatividade-zero" element={<InatividadeZero />} />
           </Routes>
         </Layout>
