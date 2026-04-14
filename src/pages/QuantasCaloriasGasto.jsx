@@ -14,7 +14,7 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 // Atualizando datas para a postagem
 const datePublishedISO = "2026-04-05";
-const dateModifiedISO = "2026-04-05";
+const dateModifiedISO = "2026-04-14";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Capa do Artigo
