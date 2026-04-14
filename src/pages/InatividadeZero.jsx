@@ -17,7 +17,7 @@ export default function App() {
     // Abre o link do Google Agenda num novo separador
     window.open('https://calendar.app.google/QvidzZySZxBgdQA2A', '_blank');
     // Redireciona a página atual para a rota de confirmação
-    window.location.href = 'https://www.nutricaocommarco.com.br/Confirmacao-av-antropometrica';
+    window.location.href = 'https://www.nutricaocommarco.com.br/confirmacao-av-antropometrica';
   };
 
   return (
