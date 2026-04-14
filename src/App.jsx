@@ -17,7 +17,6 @@ import EfeitoSanfona from './pages/EfeitoSanfona';
 import Eritropoetina from './pages/Eritropoetina';
 import Feijao from './pages/Feijao';
 import HormoniosFome from './pages/HormoniosFome';
-import ConfirmacaoAvAntropometrica from './pages/ConfirmacaoAvAntropometrica';
 import Ironman703 from './pages/Ironman703';
 import GeradorEmailSecreto from './pages/GeradorEmailSecreto';
 import MelhorHorarioPesagem from './pages/MelhorHorarioPesagem';
