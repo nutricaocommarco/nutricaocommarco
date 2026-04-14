@@ -5,6 +5,16 @@ import { ChevronRight, Clock, Filter, Tag as TagIcon } from 'lucide-react';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 const postsData = [
+{
+    id: 21,
+    link: "/quantas-calorias-gasto-por-dia",
+    imgSrc: `${githubImgBase}Blog/QuantasCaloriasGasto.jpg`,
+    tag: "Fisiologia e Metabolismo",
+    title: "Quantas Calorias Gasto Por Dia? Pare de Chutar e Entenda o Seu Metabolismo",
+    desc: "Descubra como calcular seu gasto calórico diário. Entenda a sua Taxa Metabólica Basal (TMB), fator de atividade, METs e as fórmulas de Mifflin e Cunningham.",
+    isNew: true
+  },
+    
     {
     id: 20,
     link: "/efeitos-colaterais-da-melatonina",
@@ -12,7 +22,6 @@ const postsData = [
     tag: "Nutrição Clínica",
     title: "Efeitos Colaterais da Melatonina: Vicia? Faz Mal? A Verdade Científica",
     desc: "Descubra a verdade científica sobre a melatonina: ela vicia? Faz mal? Entenda os efeitos colaterais, riscos psicológicos e como dosar corretamente para dormir bem.",
-    isNew: true
   },
 {
     id: 19, 
