@@ -143,6 +143,10 @@ function Layout({ children }) {
     title: 'Qual o Percentual de Gordura Feminino Ideal? | Nutrição com Marco',
     desc: 'Descubra qual é o percentual de gordura feminino ideal para a saúde e estética. Entenda as tabelas de referência, os hormônios femininos e os métodos de avaliação.'
       },
+      '/confirmacao-av-antropometrica': {
+  title: 'Avaliação Agendada! | Nutrição com Marco',
+  desc: 'Sua avaliação antropométrica foi agendada com sucesso. Verifique as instruções enviadas para o seu e-mail.'
+},
         '/melhor_horario_para_tomar_ferro': {
         title: 'Melhor Horário Para Tomar Ferro e Curar a Anemia | Nutrição com Marco',
         desc: 'Descubra o melhor horário para tomar ferro, sintomas de falta no organismo, o que inibe a absorção e quanto tempo dura o tratamento para anemia.'
