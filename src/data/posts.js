@@ -1,6 +1,16 @@
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 export const posts = [
+    {
+    id: 21,
+    link: "/quantas-calorias-gasto-por-dia",
+    img: `${githubImgBase}Blog/QuantasCaloriasGasto.jpg`,
+    tag: "Fisiologia e Metabolismo",
+    titulo: "Quantas Calorias Gasto Por Dia? Pare de Chutar e Entenda o Seu Metabolismo",
+    desc: "Descubra como calcular seu gasto calórico diário. Entenda a sua Taxa Metabólica Basal (TMB), fator de atividade, METs e as fórmulas de Mifflin e Cunningham.",
+    data: "2026-04-05",
+    dataMod: "2026-04-14"
+  },
 {
     id: 20,
     link: "/efeitos-colaterais-da-melatonina",
