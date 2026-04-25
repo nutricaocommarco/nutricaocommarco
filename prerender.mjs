@@ -36,12 +36,14 @@ const rotasEstaticas = [
     image: `${githubImgBase}Calculadora-de-Gasto-Calorico.jpg`,
     desc: 'Descubra seu gasto calórico diário e taxa metabólica basal com nossa calculadora inteligente.'
   },
+  
   {
     path: 'parceria-inatividade-zero',
-    title: 'Avaliação Antropométrica Grátis - Parceria Inatividade Zero | Nutrição com Marco',
+    title: 'Avaliação Antropométrica de Precisão - Parceria Inatividade Zero | Nutrição com Marco',
     image: `${githubImgBase}PingusReserva.jpg`,
-    desc: 'Agende sua avaliação antropométrica de precisão na Academia Inatividade Zero em parceria com Nutrição com Marco e descubra sua composição corporal real.'
+    desc: 'Agende sua avaliação antropométrica avançada na Academia Inatividade Zero em parceria com Nutrição com Marco e descubra sua composição corporal real.'
   },
+
   { 
     path: 'confirmacao-av-antropometrica', 
     title: 'Avaliação Agendada! | Nutrição com Marco', 
