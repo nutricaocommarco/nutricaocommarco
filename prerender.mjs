@@ -40,7 +40,7 @@ const rotasEstaticas = [
     path: 'parceria-inatividade-zero',
     title: 'Avaliação Antropométrica Grátis - Parceria Inatividade Zero | Nutrição com Marco',
     image: `${githubImgBase}PingusReserva.jpg`,
-    desc: 'Agende sua avaliação antropométrica gratuita na Academia Inatividade Zero em parceria com Nutrição com Marco.'
+    desc: 'Agende sua avaliação antropométrica de precisão na Academia Inatividade Zero em parceria com Nutrição com Marco e descubra sua composição corporal real.'
   },
   { 
     path: 'confirmacao-av-antropometrica', 
