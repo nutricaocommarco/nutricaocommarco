@@ -2,6 +2,16 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export const posts = [
     {
+    id: 22,
+    link: "/o-que-comer-na-tpm",
+    img: `${githubImgBase}Blog/TPM.jpg`,
+    tag: "Saúde da Mulher",
+    titulo: "O Que Comer na TPM: Emagrecimento e Metabolismo Feminino",
+    desc: "Descubra por que a vontade de doce aumenta na TPM, a verdade científica sobre o metabolismo feminino, o papel do treino e estratégias para emagrecer sem sofrimento.",
+    data: "2026-04-20",
+    dataMod: "2026-04-25"
+  },
+    {
     id: 21,
     link: "/quantas-calorias-gasto-por-dia",
     img: `${githubImgBase}Blog/QuantasCaloriasGasto.jpg`,
