@@ -4,7 +4,7 @@ import path from 'path';
 // 🔗 Link base das imagens no seu GitHub
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
-// 📝 1. TODAS AS ROTAS ESTÁTICAS (Institucional)
+// 📝 1. TODAS AS ROTAS ESTÁTICAS E DE SISTEMA
 const rotasEstaticas = [
   { 
     path: 'sobre', 
@@ -36,24 +36,43 @@ const rotasEstaticas = [
     image: `${githubImgBase}Calculadora-de-Gasto-Calorico.jpg`,
     desc: 'Descubra seu gasto calórico diário e taxa metabólica basal com nossa calculadora inteligente.'
   },
-  
   {
     path: 'parceria-inatividade-zero',
     title: 'Avaliação Antropométrica de Precisão - Parceria Inatividade Zero | Nutrição com Marco',
     image: `${githubImgBase}PingusReserva.jpg`,
     desc: 'Agende sua avaliação antropométrica avançada na Academia Inatividade Zero em parceria com Nutrição com Marco e descubra sua composição corporal real.'
   },
-
   { 
     path: 'confirmacao-av-antropometrica', 
     title: 'Avaliação Agendada! | Nutrição com Marco', 
     image: `${githubImgBase}logoN_pingus.png`, 
     desc: 'Sua avaliação antropométrica foi agendada com sucesso.' 
+  },
+  {
+    path: 'confirmacao-pendente',
+    title: 'Quase lá! Confirme seu e-mail | Nutrição com Marco',
+    image: `${githubImgBase}logoN_pingus.png`,
+    desc: 'Falta apenas um clique para confirmar sua inscrição e receber nossos conteúdos exclusivos.'
+  },
+  {
+    path: 'inscricao-confirmada',
+    title: 'Inscrição Confirmada! | Nutrição com Marco',
+    image: `${githubImgBase}logoN_pingus.png`,
+    desc: 'Tudo pronto! Você agora faz parte da nossa comunidade de nutrição e antropometria.'
+  },
+  {
+    path: 'admin-pingus-email',
+    title: 'Painel Administrativo | Nutrição com Marco',
+    image: `${githubImgBase}logoN_pingus.png`,
+    desc: 'Acesso restrito.'
   }
 ];
 
-// 📝 2. TODOS OS POSTS DO BLOG (Atualizado)
+// 📝 2. TODOS OS POSTS DO BLOG (Atualizado com as novidades)
 const postsBlog = [
+  { id: 24, link: "/melhor_horario_para_tomar_ferro", img: `${githubImgBase}Blog/HorarioFerro.jpg`, titulo: "Melhor Horário Para Tomar Ferro e Curar a Anemia", desc: "Descubra o melhor horário para tomar ferro, sintomas de falta no organismo, o que inibe a absorção e tratamento.", data: "2026-04-26" },
+  { id: 23, link: "/percentual-gordura-feminino-ideal", img: `${githubImgBase}Blog/PercentualGorduraFeminino.jpg`, titulo: "Qual o Percentual de Gordura Feminino Ideal?", desc: "Descubra qual é o percentual de gordura feminino ideal para a saúde e estética. Entenda as tabelas de referência.", data: "2026-04-24" },
+  { id: 22, link: "/o-que-comer-na-tpm", img: `${githubImgBase}Blog/TPM.jpg`, titulo: "O Que Comer na TPM: Emagrecimento e Metabolismo Feminino", desc: "Descubra por que a vontade de doce aumenta na TPM, a verdade científica sobre o metabolismo feminino e estratégias.", data: "2026-04-20" },
   { id: 21, link: "/quantas-calorias-gasto-por-dia", img: `${githubImgBase}Blog/QuantasCaloriasGasto.jpg`, titulo: "Quantas Calorias Gasto Por Dia? Pare de Chutar e Entenda o Seu Metabolismo", desc: "Descubra como calcular seu gasto calórico diário. Entenda a sua TMB, fator de atividade, METs e as fórmulas científicas.", data: "2026-04-05" },
   { id: 20, link: "/efeitos-colaterais-da-melatonina", img: `${githubImgBase}Blog/Melatonina.jpg`, titulo: "Efeitos Colaterais da Melatonina: Vicia? Faz Mal?", desc: "Descubra a verdade científica sobre a melatonina: ela vicia? Faz mal? Entenda os riscos psicológicos e a dosagem.", data: "2026-04-01" },
   { id: 19, link: "/o-que-e-ciclo-circadiano", img: `${githubImgBase}Blog/CicloCircadiano.jpg`, titulo: "O Que é Ciclo Circadiano? Relógio Biológico e Emagrecimento", desc: "Como emagrecer e melhorar o sono ajustando seu relógio biológico e hormônios.", data: "2026-03-29" },
@@ -81,7 +100,7 @@ const postsBlog = [
 const rotasDoBlog = postsBlog.map(post => ({
   path: post.link.startsWith('/') ? post.link.slice(1) : post.link,
   title: `${post.titulo} | Nutrição com Marco`,
-  image: post.img,
+  image: post.img || `${githubImgBase}logoN_pingus.png`,
   desc: post.desc,
   date: post.data
 }));
