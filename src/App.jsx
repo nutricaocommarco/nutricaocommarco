@@ -139,7 +139,7 @@ function Layout({ children }) {
         title: 'Efeitos Colaterais da Melatonina: Vicia? Riscos e Doses | Nutrição com Marco',
         desc: 'Descubra a verdade científica sobre a melatonina: ela vicia? Faz mal? Entenda os efeitos colaterais, riscos psicológicos e como dosar corretamente para dormir bem.'
       },
-      '/o-que-comer-na-tpm-alimentacao': {
+      '/o-que-comer-na-tpm': {
         title: 'O Que Comer na TPM: Emagrecimento e Metabolismo Feminino | Nutrição com Marco',
         desc: 'Descubra por que a vontade de doce aumenta na TPM, a verdade científica sobre o metabolismo feminino, o papel do treino e estratégias para emagrecer sem sofrimento.'
       },
@@ -344,7 +344,7 @@ export default function App() {
             <Route path="/o-que-sao-simbioticos" element={<Simbioticos />} />
             <Route path="/o-que-e-ciclo-circadiano" element={<CicloCircadiano />} />
             <Route path="/efeitos-colaterais-da-melatonina" element={<Melatonina />} />
-            <Route path="/o-que-comer-na-tpm-alimentacao" element={<TpmeAlimentacao />} />
+            <Route path="/o-que-comer-na-tpm" element={<TpmeAlimentacao />} />
             <Route path="/calculadora-de-gasto-calorico" element={<CalculadoraGastoCalorico />} />
             <Route path="/quantas-calorias-gasto-por-dia" element={<QuantasCaloriasGasto />} />
             <Route path="/percentual-gordura-feminino-ideal" element={<PercentualGorduraFeminino />} />
