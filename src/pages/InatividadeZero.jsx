@@ -66,17 +66,17 @@ export default function App() {
         </div>
       </section>
 
-      {/* SECÇÃO DE ESCASSEZ E VALORES */}
+    {/* 1. SECÇÃO DE ESCASSEZ E VALORES */}
       <section className="px-4 md:px-6 pb-12 relative z-20 -mt-8">
         <div className="container mx-auto max-w-4xl">
           <div className="bg-slate-900 rounded-[3rem] p-8 md:p-12 shadow-2xl relative overflow-hidden border-4 border-green-500/20">
             
             {/* Badge de Alerta */}
-            <div className="absolute top-0 right-0 bg-red-500 text-white px-6 py-2 rounded-bl-2xl font-black uppercase text-xs md:text-sm tracking-widest shadow-lg">
+            <div className="absolute top-0 right-0 bg-red-500 text-white px-6 py-2 rounded-bl-2xl font-black uppercase text-xs md:text-sm tracking-widest shadow-lg z-10">
               Últimas Vagas Gratuitas
             </div>
 
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 relative z-10">
               
               {/* Informação Esquerda */}
               <div className="flex-1 text-center md:text-left pt-6 md:pt-0">
@@ -88,7 +88,7 @@ export default function App() {
                 </p>
                 <div className="inline-flex items-center gap-2 bg-slate-800 text-slate-300 px-4 py-2 rounded-full text-sm font-bold border border-slate-700">
                   <Activity size={16} className="text-green-400" />
-                  Avaliação Padrão ISAK
+                  Avaliação Técnica Especializada
                 </div>
               </div>
 
@@ -108,6 +108,66 @@ export default function App() {
                 
                 <p className="text-green-600 font-black text-sm uppercase bg-green-50 py-2 px-4 rounded-xl inline-block mt-2">
                   Valor Promocional
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. SECÇÃO O QUE ESTÁ INCLUSO */}
+      <section className="px-4 md:px-6 pb-12 relative z-20">
+        <div className="container mx-auto max-w-4xl">
+          <div className="bg-white rounded-[3rem] p-8 md:p-12 shadow-xl border border-slate-100">
+            
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-black text-slate-800 uppercase italic mb-3">
+                O que você leva?
+              </h2>
+              <p className="text-lg text-slate-600 font-medium">
+                Muito mais do que números, você recebe um raio-x completo do seu progresso.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              {/* Item 1 */}
+              <div className="bg-slate-50 rounded-3xl p-6 border border-slate-100 hover:border-green-200 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-5 text-green-600 shadow-sm group-hover:scale-110 transition-transform">
+                  <Activity size={28} />
+                </div>
+                <h3 className="text-lg font-black text-slate-800 uppercase italic mb-3">
+                  Relatório Completo
+                </h3>
+                <p className="text-sm text-slate-600 font-medium leading-relaxed">
+                  Padrão ISAK ou Clínico (Dependendo da idade e de outros fatores fisiológicos).
+                </p>
+              </div>
+
+              {/* Item 2 */}
+              <div className="bg-slate-50 rounded-3xl p-6 border border-slate-100 hover:border-green-200 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-5 text-green-600 shadow-sm group-hover:scale-110 transition-transform">
+                  <CheckCircle2 size={28} />
+                </div>
+                <h3 className="text-lg font-black text-slate-800 uppercase italic mb-3">
+                  Somatotipo e Somatocarta
+                </h3>
+                <p className="text-sm text-slate-600 font-medium leading-relaxed">
+                  O mapa visual da sua estrutura corporal e genética (Conforme a avaliação).
+                </p>
+              </div>
+
+              {/* Item 3 */}
+              <div className="bg-slate-50 rounded-3xl p-6 border border-slate-100 hover:border-green-200 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-5 text-green-600 shadow-sm group-hover:scale-110 transition-transform">
+                  <Clock size={28} />
+                </div>
+                <h3 className="text-lg font-black text-slate-800 uppercase italic mb-3">
+                  Comparativo Evolutivo
+                </h3>
+                <p className="text-sm text-slate-600 font-medium leading-relaxed">
+                  Para acompanhar a sua evolução ao longo do tempo com gráficos lado a lado.
                 </p>
               </div>
 
