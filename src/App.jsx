@@ -32,7 +32,7 @@ import Probioticos from './pages/Probioticos';
 import Simbioticos from './pages/Simbioticos'; 
 import CicloCircadiano from './pages/CicloCircadiano';
 import Melatonina from './pages/Melatonina';
-import TPM from './pages/TPM';
+import TpmeAlimentacao from './pages/TpmeAlimentacao';
 import CalculadoraGastoCalorico from './pages/CalculadoraGastoCalorico'; 
 import QuantasCaloriasGasto from './pages/QuantasCaloriasGasto';
 import PercentualGorduraFeminino from './pages/PercentualGorduraFeminino';
@@ -344,7 +344,7 @@ export default function App() {
             <Route path="/o-que-sao-simbioticos" element={<Simbioticos />} />
             <Route path="/o-que-e-ciclo-circadiano" element={<CicloCircadiano />} />
             <Route path="/efeitos-colaterais-da-melatonina" element={<Melatonina />} />
-            <Route path="/o-que-comer-na-tpm" element={<TPM />} />
+            <Route path="/o-que-comer-na-tpm" element={<TpmeAlimentacao />} />
             <Route path="/calculadora-de-gasto-calorico" element={<CalculadoraGastoCalorico />} />
             <Route path="/quantas-calorias-gasto-por-dia" element={<QuantasCaloriasGasto />} />
             <Route path="/percentual-gordura-feminino-ideal" element={<PercentualGorduraFeminino />} />
