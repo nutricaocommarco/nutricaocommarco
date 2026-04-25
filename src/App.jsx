@@ -83,6 +83,18 @@ function Layout({ children }) {
         title: 'Sobre Marco Aurélio Jr. | Nutrição com Marco', 
         desc: 'Conheça a história de Marco Aurélio Jr., futuro nutricionista, fotógrafo esportivo e especialista em avaliação física ISAK 1 no Rio de Janeiro.' 
       },
+      '/certificacoes': {
+        title: 'Certificações e Formação | Nutrição com Marco',
+        desc: 'Confira as certificações e especializações de Marco Aurélio Jr., incluindo o selo internacional ISAK Nível 1 em antropometria.'
+      },
+      '/blog': {
+        title: 'Blog | Nutrição com Marco',
+        desc: 'Artigos baseados em ciência sobre nutrição, emagrecimento, suplementação, antropometria e saúde.'
+      },
+      '/planos': {
+        title: 'Planos e Avaliações | Nutrição com Marco',
+        desc: 'Conheça os planos de acompanhamento nutricional e avaliação antropométrica focados nos seus resultados.'
+      },
       '/confirmacao-pendente': {
         title: 'Quase lá! Confirme seu e-mail | Nutrição com Marco',
         desc: 'Falta apenas um clique para confirmar sua inscrição e receber nossos conteúdos exclusivos.'
@@ -95,7 +107,7 @@ function Layout({ children }) {
         title: 'Retatrutida o que é? A nova fronteira da ciência | Nutrição com Marco',
         desc: 'Descubra o que é a retatrutida, o novo medicamento agonista triplo (GLP-1, GIP e Glucagon) e seus resultados na perda de peso.'
       },
-      '/ovo_e_colesterol': {
+      '/comer-ovo-todo-dia-aumenta-o-colesterol': {
         title: 'Ovo e Colesterol: Benefícios, Mitos e Verdades Científicas | Nutrição com Marco',
         desc: 'Comer ovo todo dia faz mal? Quem tem gordura no fígado pode comer? Desvendamos tudo com base em estudos científicos atualizados.'
       },
@@ -139,18 +151,66 @@ function Layout({ children }) {
         title: 'Quantas Calorias Gasto Por Dia? TMB e TDEE | Nutrição com Marco',
         desc: 'Descubra como calcular seu gasto calórico diário. Entenda a sua Taxa Metabólica Basal (TMB), fator de atividade, METs e as fórmulas de Mifflin e Cunningham.'
       },
-        '/percentual-gordura-feminino-ideal': {
-    title: 'Qual o Percentual de Gordura Feminino Ideal? | Nutrição com Marco',
-    desc: 'Descubra qual é o percentual de gordura feminino ideal para a saúde e estética. Entenda as tabelas de referência, os hormônios femininos e os métodos de avaliação.'
+      '/percentual-gordura-feminino-ideal': {
+        title: 'Qual o Percentual de Gordura Feminino Ideal? | Nutrição com Marco',
+        desc: 'Descubra qual é o percentual de gordura feminino ideal para a saúde e estética. Entenda as tabelas de referência, os hormônios femininos e os métodos de avaliação.'
       },
       '/confirmacao-av-antropometrica': {
-  title: 'Avaliação Agendada! | Nutrição com Marco',
-  desc: 'Sua avaliação antropométrica foi agendada com sucesso. Verifique as instruções enviadas para o seu e-mail.'
-},
-        '/melhor_horario_para_tomar_ferro': {
+        title: 'Avaliação Agendada! | Nutrição com Marco',
+        desc: 'Sua avaliação antropométrica foi agendada com sucesso. Verifique as instruções enviadas para o seu e-mail.'
+      },
+      '/melhor_horario_para_tomar_ferro': {
         title: 'Melhor Horário Para Tomar Ferro e Curar a Anemia | Nutrição com Marco',
         desc: 'Descubra o melhor horário para tomar ferro, sintomas de falta no organismo, o que inibe a absorção e quanto tempo dura o tratamento para anemia.'
-      } 
+      },
+      '/efeito_sanfona_inflamacao_invisivel': {
+        title: 'Efeito Sanfona e Inflamação Invisível | Nutrição com Marco',
+        desc: 'Entenda como o efeito sanfona prejudica seu metabolismo e gera inflamações invisíveis no organismo.'
+      },
+      '/quantas_frutas_posso_comer': {
+        title: 'Frutose: Quantas frutas posso comer por dia? | Nutrição com Marco',
+        desc: 'Descubra a verdade sobre a frutose, se fruta engorda e qual a quantidade ideal para o seu dia a dia.'
+      },
+      '/vitamina_a_para_que_serve': {
+        title: 'Vitamina A: Para que serve e benefícios | Nutrição com Marco',
+        desc: 'Saiba tudo sobre a Vitamina A, sua importância para a visão, imunidade e onde encontrá-la na alimentação.'
+      },
+      '/o_que_e_antropometria': {
+        title: 'O que é Antropometria? Avaliação Física ISAK | Nutrição com Marco',
+        desc: 'Entenda o que é a avaliação antropométrica, como ela mede sua composição corporal e por que é melhor que a balança comum.'
+      },
+      '/a_balanca_de_bioimpedancia_e_confiavel': {
+        title: 'A Balança de Bioimpedância é Confiável? | Nutrição com Marco',
+        desc: 'Descubra como funciona a balança de bioimpedância, seus erros comuns e se ela é realmente confiável para medir gordura.'
+      },
+      '/o_dilema_do_sangue_na_altitude': {
+        title: 'O Dilema do Sangue na Altitude e Eritropoetina | Nutrição com Marco',
+        desc: 'Como a altitude afeta a produção de eritropoetina e o desempenho atlético. A ciência por trás do sangue.'
+      },
+      '/por_que_o_feijao_da_gases': {
+        title: 'Por que o feijão dá gases? Como evitar | Nutrição com Marco',
+        desc: 'Aprenda a técnica correta do remolho para eliminar os fitatos e evitar os gases e desconforto ao comer feijão.'
+      },
+      '/hormonios_da_fome_emagrecimento': {
+        title: 'Hormônios da Fome e Emagrecimento | Nutrição com Marco',
+        desc: 'Grelina e Leptina: como esses hormônios controlam sua fome e saciedade, e como regulá-los para emagrecer.'
+      },
+      '/nutricao_para_ironman_703': {
+        title: 'Nutrição para Ironman 70.3 | Nutrição com Marco',
+        desc: 'Estratégias nutricionais, carboidratos e hidratação para atletas de alta performance no Triathlon.'
+      },
+      '/qual_melhor_horario_para_se_pesar': {
+        title: 'Qual o melhor horário para se pesar? | Nutrição com Marco',
+        desc: 'Descubra o momento ideal do dia para subir na balança e ter o reflexo real do seu peso sem flutuações.'
+      },
+      '/diabetico_pode_comer_beterraba': {
+        title: 'Diabético pode comer beterraba? | Nutrição com Marco',
+        desc: 'Entenda o índice glicêmico da beterraba e se pessoas com diabetes podem incluí-la na alimentação com segurança.'
+      },
+      '/parceria-inatividade-zero': {
+        title: 'Parceria Inatividade Zero | Nutrição com Marco',
+        desc: 'Conheça nossa parceria focada em combater o sedentarismo com ciência, nutrição e movimento.'
+      }
     };
 
     const currentSEO = seoData[location.pathname] || seoData['/'];
