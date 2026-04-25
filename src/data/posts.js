@@ -3,7 +3,7 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 export const posts = [
     {
     id: 22,
-    link: "/o-que-comer-na-tpm",
+    link: "/o-que-comer-na-tpm-alimentacao",
     img: `${githubImgBase}Blog/TPM.jpg`,
     tag: "Saúde da Mulher",
     titulo: "O Que Comer na TPM: Emagrecimento e Metabolismo Feminino",
