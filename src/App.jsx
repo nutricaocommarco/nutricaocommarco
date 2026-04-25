@@ -139,7 +139,7 @@ function Layout({ children }) {
         title: 'Efeitos Colaterais da Melatonina: Vicia? Riscos e Doses | Nutrição com Marco',
         desc: 'Descubra a verdade científica sobre a melatonina: ela vicia? Faz mal? Entenda os efeitos colaterais, riscos psicológicos e como dosar corretamente para dormir bem.'
       },
-      '/o-que-comer-na-tpm': {
+      '/o-que-comer-na-tpm-alimentacao': {
         title: 'O Que Comer na TPM: Emagrecimento e Metabolismo Feminino | Nutrição com Marco',
         desc: 'Descubra por que a vontade de doce aumenta na TPM, a verdade científica sobre o metabolismo feminino, o papel do treino e estratégias para emagrecer sem sofrimento.'
       },
