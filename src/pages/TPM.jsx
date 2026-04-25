@@ -19,7 +19,7 @@ const dateModifiedISO = "2026-04-02";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 const tpmCapa = `${githubImgBase}Blog/TPM.jpg`;
 
-export default function TPMeEmagrecimento() {
+export default function TPM() {
   const { pathname } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
