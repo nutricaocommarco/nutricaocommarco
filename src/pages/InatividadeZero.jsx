@@ -66,6 +66,57 @@ export default function App() {
         </div>
       </section>
 
+      {/* SECÇÃO DE ESCASSEZ E VALORES */}
+      <section className="px-4 md:px-6 pb-12 relative z-20 -mt-8">
+        <div className="container mx-auto max-w-4xl">
+          <div className="bg-slate-900 rounded-[3rem] p-8 md:p-12 shadow-2xl relative overflow-hidden border-4 border-green-500/20">
+            
+            {/* Badge de Alerta */}
+            <div className="absolute top-0 right-0 bg-red-500 text-white px-6 py-2 rounded-bl-2xl font-black uppercase text-xs md:text-sm tracking-widest shadow-lg">
+              Últimas Vagas Gratuitas
+            </div>
+
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+              
+              {/* Informação Esquerda */}
+              <div className="flex-1 text-center md:text-left pt-6 md:pt-0">
+                <h2 className="text-3xl md:text-4xl font-black text-white uppercase italic mb-4">
+                  Aproveite antes da <span className="text-green-400">virada de lote</span>
+                </h2>
+                <p className="text-slate-300 font-medium text-lg leading-relaxed mb-6">
+                  Estamos a encerrar a nossa fase de mapeamento gratuito. Garanta a sua vaga agora para não pagar nada. <strong className="text-white">A cobrança oficial inicia apenas em Junho.</strong>
+                </p>
+                <div className="inline-flex items-center gap-2 bg-slate-800 text-slate-300 px-4 py-2 rounded-full text-sm font-bold border border-slate-700">
+                  <Activity size={16} className="text-green-400" />
+                  Avaliação Padrão ISAK
+                </div>
+              </div>
+
+              {/* Box de Preço Direita */}
+              <div className="bg-white rounded-3xl p-6 md:p-8 text-center min-w-[280px] shadow-inner transform md:rotate-2">
+                <p className="text-slate-500 font-bold uppercase tracking-widest text-xs mb-2">A partir de Junho</p>
+                
+                {/* Preço Ancorado (Riscado) */}
+                <div className="text-slate-400 font-bold text-lg line-through decoration-red-500 decoration-2 mb-1">
+                  R$ 199,90
+                </div>
+                
+                {/* Preço Novo */}
+                <div className="text-5xl font-black text-slate-800 italic tracking-tighter mb-2">
+                  <span className="text-2xl text-green-600 mr-1">R$</span>130<span className="text-2xl text-green-600">,00</span>
+                </div>
+                
+                <p className="text-green-600 font-black text-sm uppercase bg-green-50 py-2 px-4 rounded-xl inline-block mt-2">
+                  Valor Promocional
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       {/* CONTEÚDO PRINCIPAL (PROTOCOLO E AGENDA) */}
       <section className="px-4 md:px-6 pb-24 relative z-20">
         <div className="container mx-auto max-w-4xl bg-white p-6 md:p-12 lg:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
