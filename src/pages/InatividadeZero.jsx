@@ -166,7 +166,7 @@ export default function App() {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-slate-800 uppercase italic mb-4">O que precisa de saber</h2>
             <p className="text-lg text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
-              A avaliação segue o rigoroso padrão internacional ISAK. Para garantir que os seus resultados sejam exatos, é obrigatório seguir o protocolo abaixo.
+              A avaliação segue o rigoroso padrão internacional ISAK. Para garantir que os seus resultados sejam exatos e o seu relatório reflita a realidade, é obrigatório seguir o protocolo de preparação abaixo antes de comparecer à academia.
             </p>
           </div>
 
@@ -174,22 +174,27 @@ export default function App() {
             <div className="bg-green-50/50 rounded-3xl p-8 border border-green-100">
               <Coffee className="text-green-600 w-7 h-7 mb-4" />
               <h3 className="text-xl font-black text-slate-800 uppercase italic mb-3">Jejum e Digestão</h3>
-              <p className="text-green-900/70 font-medium leading-relaxed text-sm">Evite refeições volumosas 2 horas antes do encontro. A distensão abdominal prejudica a medição da cintura e das dobras cutâneas.</p>
+              <p className="text-green-900/70 font-medium leading-relaxed text-sm">Preciso que evite realizar refeições volumosas ou muito pesadas nas duas horas que antecedem o nosso encontro. Estar com o estômago cheio causa uma distensão abdominal natural que prejudica a medição correta da sua cintura e das dobras cutâneas da região, podendo alterar o cálculo final do seu risco metabólico.</p>
             </div>
             <div className="bg-green-50/50 rounded-3xl p-8 border border-green-100">
               <Dumbbell className="text-green-600 w-7 h-7 mb-4" />
               <h3 className="text-xl font-black text-slate-800 uppercase italic mb-3">Treino e Suor</h3>
-              <p className="text-green-900/70 font-medium leading-relaxed text-sm">Sem treino de força ou aeróbico intenso 12h antes. O "pump" infla perímetros musculares e mascara a compressibilidade da gordura.</p>
+              <p className="text-green-900/70 font-medium leading-relaxed text-sm">É fundamental que não realize nenhum treino de força hipertrófico ou exercício aeróbico intenso nas doze horas anteriores à sua marcação. O exercício físico direciona um imenso fluxo de fluidos para a musculatura (o famoso "pump"), o que infla os seus perímetros musculares e mascara a verdadeira compressibilidade da sua camada de gordura.</p>
             </div>
             <div className="bg-green-50/50 rounded-3xl p-8 border border-green-100">
               <Shirt className="text-green-600 w-7 h-7 mb-4" />
               <h3 className="text-xl font-black text-slate-800 uppercase italic mb-3">O Seu Vestuário</h3>
-              <p className="text-green-900/70 font-medium leading-relaxed text-sm">Roupas desportivas leves. Homens: calções curtos/sunga. Mulheres: shorts de ginástica e top aberto nas costas para acesso às dobras.</p>
+              <p className="text-green-900/70 font-medium leading-relaxed text-sm">Como os instrumentos de precisão precisam entrar em contacto direto com o seu corpo, venha com roupas desportivas muito leves e curtas. Os homens devem vir de calções curtos ou sunga. Para as mulheres, é estritamente necessário utilizar uns calções curtos de ginástica ou biquíni e um top desportivo que seja aberto nas costas, garantindo assim o acesso livre às dobras cutâneas dessa região.</p>
             </div>
             <div className="bg-green-50/50 rounded-3xl p-8 border border-green-100">
               <Droplets className="text-green-600 w-7 h-7 mb-4" />
               <h3 className="text-xl font-black text-slate-800 uppercase italic mb-3">Cremes e Loções</h3>
-              <p className="text-green-900/70 font-medium leading-relaxed text-sm">Não aplique hidratantes ou óleos no dia. A pele deve estar seca para que o plicómetro não escorregue e a medição seja exata.</p>
+              <p className="text-green-900/70 font-medium leading-relaxed text-sm">Para garantir que a pinça do plicómetro consiga agarrar corretamente o tecido adiposo sem escorregar, peço encarecidamente que não aplique nenhum tipo de creme hidratante, loção corporal, óleo ou gel na pele no dia da nossa consulta. A pele deve estar completamente limpa e seca para que a medição seja exata e livre de erros de deslizamento do equipamento.</p>
+            </div>
+            <div className="bg-green-50/50 rounded-3xl p-8 border border-green-100 md:col-span-2">
+              <Activity className="text-green-600 w-7 h-7 mb-4" />
+              <h3 className="text-xl font-black text-slate-800 uppercase italic mb-3">Para as Mulheres</h3>
+              <p className="text-green-900/70 font-medium leading-relaxed text-sm">Se for possível, recomendo fortemente que não agende a sua avaliação durante o período ativo do seu ciclo menstrual. A cascata de alterações hormonais desta fase provoca uma grande retenção hídrica que altera o peso total na balança e expande temporariamente o tecido subcutâneo, escondendo os seus resultados reais por baixo desse inchaço temporário.</p>
             </div>
           </div>
 
