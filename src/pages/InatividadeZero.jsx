@@ -15,14 +15,15 @@ export default function App() {
 
   const handleAgendamentoClick = (e) => {
     e.preventDefault();
-    // Link da Avaliação Antropométrica (Presencial)
+    // Abre o link da Avaliação Antropométrica (Presencial)
     window.open('https://calendar.app.google/QvidzZySZxBgdQA2A', '_blank');
+    // Redireciona para confirmação
     window.location.href = 'https://www.nutricaocommarco.com.br/confirmacao-av-antropometrica';
   };
 
   const handleNutricionalClick = (e) => {
     e.preventDefault();
-    // Link do Atendimento Nutricional (Online)
+    // Abre o link do Atendimento Nutricional (Online)
     window.open('https://calendar.app.google/qMez5TTin17RnRhe7', '_blank');
   };
 
@@ -109,7 +110,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 2. SECÇÃO O QUE ESTÁ INCLUSO */}
+      {/* 2. SECÇÃO O QUE ESTÁ INCLUSO NA AVALIAÇÃO */}
       <section className="px-4 md:px-6 pb-12 relative z-20">
         <div className="container mx-auto max-w-4xl">
           <div className="bg-white rounded-[3rem] p-8 md:p-12 shadow-xl border border-slate-100">
@@ -128,7 +129,7 @@ export default function App() {
                   <Activity size={28} />
                 </div>
                 <h3 className="text-lg font-black text-slate-800 uppercase italic mb-3">Relatório Completo</h3>
-                <p className="text-sm text-slate-600 font-medium leading-relaxed">Padrão ISAK ou Clínico (Dependendo da idade e fatores fisiológicos).</p>
+                <p className="text-sm text-slate-600 font-medium leading-relaxed">Padrão ISAK ou Clínico (Dependendo da idade e de outros fatores fisiológicos).</p>
               </div>
 
               <div className="bg-slate-50 rounded-3xl p-6 border border-slate-100 hover:border-green-200 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
@@ -136,7 +137,7 @@ export default function App() {
                   <CheckCircle2 size={28} />
                 </div>
                 <h3 className="text-lg font-black text-slate-800 uppercase italic mb-3">Somatotipo</h3>
-                <p className="text-sm text-slate-600 font-medium leading-relaxed">O mapa visual da sua estrutura corporal e genética.</p>
+                <p className="text-sm text-slate-600 font-medium leading-relaxed">O mapa visual da sua estrutura corporal e genética (Conforme a avaliação).</p>
               </div>
 
               <div className="bg-slate-50 rounded-3xl p-6 border border-slate-100 hover:border-green-200 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
@@ -144,7 +145,7 @@ export default function App() {
                   <Clock size={28} />
                 </div>
                 <h3 className="text-lg font-black text-slate-800 uppercase italic mb-3">Evolução</h3>
-                <p className="text-sm text-slate-600 font-medium leading-relaxed">Acompanhe seu progresso com gráficos comparativos.</p>
+                <p className="text-sm text-slate-600 font-medium leading-relaxed">Acompanhe seu progresso ao longo do tempo com gráficos lado a lado.</p>
               </div>
             </div>
           </div>
@@ -197,32 +198,69 @@ export default function App() {
       {/* CONTEÚDO PRINCIPAL (PROTOCOLO E AGENDA) */}
       <section className="px-4 md:px-6 pb-24 relative z-20">
         <div className="container mx-auto max-w-4xl bg-white p-6 md:p-12 lg:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
+
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-800 uppercase italic mb-4">O que precisa de saber</h2>
-            <p className="text-lg text-slate-600 font-medium">Protocolo rigoroso internacional ISAK para resultados exatos.</p>
+            <h2 className="text-3xl md:text-4xl font-black text-slate-800 uppercase italic mb-4">
+              O que precisa de saber
+            </h2>
+            <p className="text-lg text-slate-600 font-medium">
+              A avaliação segue o rigoroso padrão internacional ISAK. Para garantir que os seus resultados sejam exatos e o seu relatório reflita a realidade, é obrigatório seguir o protocolo de preparação abaixo antes de comparecer à academia.
+            </p>
           </div>
 
+          {/* CARTÕES DE PREPARAÇÃO COM TEXTO COMPLETO */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-            <div className="bg-green-50 rounded-3xl p-8 border border-green-200">
-              <Coffee className="text-green-600 w-7 h-7 mb-4" />
+
+            <div className="bg-green-50 rounded-3xl p-8 border border-green-200 shadow-sm hover:shadow-md transition-all">
+              <div className="bg-white w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-sm">
+                <Coffee className="text-green-600 w-7 h-7" />
+              </div>
               <h3 className="text-xl font-black text-slate-800 uppercase italic mb-3">Jejum e Digestão</h3>
-              <p className="text-green-900/80 font-medium">Evite refeições pesadas nas 2 horas que antecedem a avaliação.</p>
+              <p className="text-green-900/80 font-medium leading-relaxed m-0 text-base">
+                Preciso que evite realizar refeições volumosas ou muito pesadas nas duas horas que antecedem o nosso encontro. Estar com o estômago cheio causa uma distensão abdominal natural que prejudica a medição correta da sua cintura e das dobras cutâneas da região, podendo alterar o cálculo final do seu risco metabólico.
+              </p>
             </div>
-            <div className="bg-green-50 rounded-3xl p-8 border border-green-200">
-              <Dumbbell className="text-green-600 w-7 h-7 mb-4" />
+
+            <div className="bg-green-50 rounded-3xl p-8 border border-green-200 shadow-sm hover:shadow-md transition-all">
+              <div className="bg-white w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-sm">
+                <Dumbbell className="text-green-600 w-7 h-7" />
+              </div>
               <h3 className="text-xl font-black text-slate-800 uppercase italic mb-3">Treino e Suor</h3>
-              <p className="text-green-900/80 font-medium">Não treine intensamente nas 12 horas anteriores à marcação.</p>
+              <p className="text-green-900/80 font-medium leading-relaxed m-0 text-base">
+                É fundamental que não realize nenhum treino de força hipertrófico ou exercício aeróbico intenso nas doze horas anteriores à sua marcação. O exercício físico direciona um imenso fluxo de fluidos para a musculatura (o famoso "pump"), o que infla os seus perímetros musculares e mascara a verdadeira compressibilidade da sua camada de gordura.
+              </p>
             </div>
-            <div className="bg-green-50 rounded-3xl p-8 border border-green-200">
-              <Shirt className="text-green-600 w-7 h-7 mb-4" />
+
+            <div className="bg-green-50 rounded-3xl p-8 border border-green-200 shadow-sm hover:shadow-md transition-all">
+              <div className="bg-white w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-sm">
+                <Shirt className="text-green-600 w-7 h-7" />
+              </div>
               <h3 className="text-xl font-black text-slate-800 uppercase italic mb-3">O Seu Vestuário</h3>
-              <p className="text-green-900/80 font-medium">Venha com roupas desportivas curtas (sunga ou top/shorts curtos).</p>
+              <p className="text-green-900/80 font-medium leading-relaxed m-0 text-base">
+                Como os instrumentos de precisão precisam entrar em contacto direto com o seu corpo, venha com roupas desportivas muito leves e curtas. Os homens devem vir de calções curtos ou sunga. Para as mulheres, é estritamente necessário utilizar uns calções curtos de ginástica ou biquíni e um top desportivo que seja aberto nas costas, garantindo assim o acesso livre às dobras cutâneas dessa região.
+              </p>
             </div>
-            <div className="bg-green-50 rounded-3xl p-8 border border-green-200">
-              <Droplets className="text-green-600 w-7 h-7 mb-4" />
+
+            <div className="bg-green-50 rounded-3xl p-8 border border-green-200 shadow-sm hover:shadow-md transition-all">
+              <div className="bg-white w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-sm">
+                <Droplets className="text-green-600 w-7 h-7" />
+              </div>
               <h3 className="text-xl font-black text-slate-800 uppercase italic mb-3">Cremes e Loções</h3>
-              <p className="text-green-900/80 font-medium">Não utilize hidratantes ou óleos para não escorregar o plicómetro.</p>
+              <p className="text-green-900/80 font-medium leading-relaxed m-0 text-base">
+                Para garantir que a pinça do plicómetro consiga agarrar corretamente o tecido adiposo sem escorregar, peço encarecidamente que não aplique nenhum tipo de creme hidratante, loção corporal, óleo ou gel na pele no dia da nossa consulta. A pele deve estar completamente limpa e seca para que a medição seja exata e livre de erros de deslizamento do equipamento.
+              </p>
             </div>
+
+            <div className="bg-green-50 rounded-3xl p-8 border border-green-200 shadow-sm hover:shadow-md transition-all md:col-span-2 lg:max-w-3xl lg:mx-auto w-full">
+              <div className="bg-white w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-sm">
+                <Activity className="text-green-600 w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-black text-slate-800 uppercase italic mb-3">Para as Mulheres</h3>
+              <p className="text-green-900/80 font-medium leading-relaxed m-0 text-base">
+                Se for possível, recomendo fortemente que não agende a sua avaliação durante o período ativo do seu ciclo menstrual. A cascata de alterações hormonais desta fase provoca uma grande retenção hídrica que altera o peso total na balança e expande temporariamente o tecido subcutâneo, escondendo os seus resultados reais por baixo desse inchaço temporário.
+              </p>
+            </div>
+
           </div>
 
           {/* SECÇÃO DE AGENDAMENTO AVALIAÇÃO */}
@@ -230,19 +268,29 @@ export default function App() {
             <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
               <Calendar size={200} strokeWidth={1} />
             </div>
-            <div className="relative z-10 text-center md:text-left">
-              <h2 className="text-3xl font-black uppercase italic mb-4">Agende a Avaliação</h2>
-              <p className="text-slate-300 font-medium text-lg max-w-xl mb-8">Horários limitados para a academia Inatividade Zero.</p>
-              
-              <div className="bg-white rounded-3xl p-8 border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-center">
-                <Calendar className="text-green-600 w-16 h-16 mb-4" />
-                <h3 className="text-xl font-black text-slate-700 uppercase italic mb-2">Agenda Oficial de Avaliação</h3>
-                <button 
-                  onClick={handleAgendamentoClick}
-                  className="mt-6 bg-green-600 text-white px-8 py-4 rounded-full font-black uppercase text-sm tracking-widest shadow-xl hover:bg-green-700 transition-all flex items-center gap-2"
-                >
-                  Ver Horários da Avaliação <ArrowRight size={18} />
-                </button>
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                  <CheckCircle2 className="text-white w-6 h-6" />
+                </div>
+                <h2 className="text-3xl font-black uppercase italic m-0">Agende a Avaliação</h2>
+              </div>
+
+              <p className="text-slate-300 font-medium text-lg max-w-xl leading-relaxed mb-8">
+                Os horários para as avaliações gratuitas na Inatividade Zero são limitados e disponibilizados através da nossa agenda oficial.
+              </p>
+
+              <div className="bg-white rounded-3xl p-2 shadow-2xl overflow-hidden mb-6">
+                <div className="bg-slate-50 w-full py-12 px-6 rounded-[1.5rem] border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-center">
+                  <Calendar className="text-green-600 w-16 h-16 mb-4" />
+                  <h3 className="text-xl font-black text-slate-700 uppercase italic mb-2">Agenda de Avaliação</h3>
+                  <button 
+                    onClick={handleAgendamentoClick}
+                    className="bg-green-600 text-white px-8 py-4 rounded-full font-black uppercase text-sm tracking-widest shadow-xl hover:bg-green-700 transition-all flex items-center gap-2"
+                  >
+                    Ver Horários Disponíveis <ArrowRight size={18} />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
