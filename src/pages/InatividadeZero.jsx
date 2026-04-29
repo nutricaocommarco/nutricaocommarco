@@ -198,20 +198,49 @@ export default function App() {
             </div>
           </div>
 
-          <div id="agendamento" className="bg-slate-900 rounded-[3rem] p-10 text-white relative overflow-hidden text-center md:text-left">
-            <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none">
+          {/* SECÇÃO DE AGENDAMENTO GOOGLE CALENDAR (RESTAURADA) */}
+          <div id="agendamento" className="bg-slate-900 rounded-[3rem] p-8 md:p-12 text-white relative overflow-hidden">
+
+            {/* Efeito visual dentro da caixa escura */}
+            <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
               <Calendar size={200} strokeWidth={1} />
             </div>
+
             <div className="relative z-10">
-              <h2 className="text-3xl font-black uppercase italic mb-6">Agendar Minha Avaliação</h2>
-              <div className="bg-white rounded-3xl p-8 border-2 border-dashed border-slate-700 flex flex-col items-center">
-                <Calendar className="text-green-600 w-12 h-12 mb-4" />
-                <button 
-                  onClick={handleAgendamentoClick}
-                  className="bg-green-600 text-white px-10 py-5 rounded-full font-black uppercase text-sm tracking-widest shadow-xl hover:bg-green-700 transition-all flex items-center gap-3"
-                >
-                  Visualizar Horários <ArrowRight size={18} />
-                </button>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                  <CheckCircle2 className="text-white w-6 h-6" />
+                </div>
+                <h2 className="text-3xl font-black uppercase italic m-0">Agende a Avaliação</h2>
+              </div>
+
+              <p className="text-slate-300 font-medium text-lg max-w-xl leading-relaxed mb-8">
+                Os horários para as avaliações gratuitas na Inatividade Zero são limitados e disponibilizados através da nossa agenda oficial. Confirme se atende a todos os requisitos do protocolo acima e garanta a sua vaga.
+              </p>
+
+              {/* CONTAINER COM O BOTÃO DO GOOGLE CALENDAR */}
+              <div className="bg-white rounded-3xl p-2 shadow-2xl overflow-hidden mb-6">
+                <div className="bg-slate-50 w-full py-12 px-6 rounded-[1.5rem] border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-center">
+
+                  <Calendar className="text-green-600 w-16 h-16 mb-4" />
+                  <h3 className="text-xl font-black text-slate-700 uppercase italic mb-2">Agenda Oficial</h3>
+                  <p className="text-slate-500 font-medium mb-8 max-w-sm">
+                    Clique no botão abaixo para abrir a nossa agenda no Google Calendar e escolher o melhor horário para a sua avaliação.
+                  </p>
+
+                  <button 
+                    onClick={handleAgendamentoClick}
+                    className="bg-green-600 text-white px-8 py-4 rounded-full font-black uppercase text-sm tracking-widest shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                  >
+                    Visualizar Horários Disponíveis <ArrowRight size={18} />
+                  </button>
+
+                </div>
+              </div>
+
+              <div className="flex items-center justify-center gap-2 text-slate-400 text-sm font-medium">
+                <ShieldCheck size={16} className="text-green-500" />
+                <span>Os seus dados estão seguros. Marcação rápida e sem burocracia.</span>
               </div>
             </div>
           </div>
