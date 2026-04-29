@@ -15,12 +15,15 @@ export default function App() {
 
   const handleAgendamentoClick = (e) => {
     e.preventDefault();
+    // Link da Avaliação Antropométrica (Presencial)
     window.open('https://calendar.app.google/QvidzZySZxBgdQA2A', '_blank');
+    // Redireciona para confirmação
     window.location.href = 'https://www.nutricaocommarco.com.br/confirmacao-av-antropometrica';
   };
 
   const handleNutricionalClick = (e) => {
     e.preventDefault();
+    // Link do Atendimento Nutricional (Online)
     window.open('https://calendar.app.google/qMez5TTin17RnRhe7', '_blank');
   };
 
@@ -62,8 +65,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* 1. SECÇÃO AVALIAÇÃO PRESENCIAL (COM INTEGRADO) */}
-      <section className="px-4 md:px-6 pb-12 relative z-20">
+      {/* 1. SECÇÃO AVALIAÇÃO PRESENCIAL */}
+      <section className="px-4 md:px-6 pb-6 relative z-20">
         <div className="container mx-auto max-w-4xl">
           <div className="bg-slate-900 rounded-[3.5rem] p-8 md:p-14 shadow-2xl relative overflow-hidden border-4 border-green-500/20">
             <div className="absolute top-0 right-0 bg-red-500 text-white px-6 py-2 rounded-bl-2xl font-black uppercase text-xs tracking-widest shadow-lg">
@@ -79,7 +82,6 @@ export default function App() {
                   Mapeamento <span className="text-green-400">Corporal de Elite</span>
                 </h2>
                 
-                {/* O QUE VOCÊ LEVA INTEGRADO */}
                 <ul className="space-y-4 mb-8">
                   {[
                     "Relatório Completo (Padrão ISAK ou Clínico)",
@@ -105,10 +107,18 @@ export default function App() {
               </div>
             </div>
           </div>
+
+          {/* SETA PARA AGENDAMENTO ABAIXO DA CAIXA PRESENCIAL */}
+          <div className="flex justify-center mt-8 mb-4">
+            <a href="#agendamento" className="animate-bounce flex flex-col items-center gap-2 text-green-600 hover:text-green-700 transition-colors group">
+              <span className="text-xs font-black uppercase tracking-widest group-hover:tracking-[0.2em] transition-all">Ir para a agenda de avaliação</span>
+              <ArrowDownCircle className="w-8 h-8" />
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* 2. SECÇÃO ATENDIMENTO ONLINE (COM INTEGRADO) */}
+      {/* 2. SECÇÃO ATENDIMENTO ONLINE */}
       <section className="px-4 md:px-6 pb-20 relative z-20">
         <div className="container mx-auto max-w-4xl">
           <div className="bg-emerald-900 rounded-[3.5rem] p-8 md:p-14 shadow-2xl relative overflow-hidden border-4 border-emerald-500/20">
@@ -125,7 +135,6 @@ export default function App() {
                   Consulta <span className="text-emerald-400">Nutricional Online</span>
                 </h2>
 
-                {/* O QUE VOCÊ LEVA INTEGRADO */}
                 <ul className="space-y-4 mb-8">
                   {[
                     "Plano Alimentar Estratégico e Individual",
@@ -170,6 +179,7 @@ export default function App() {
             </p>
           </div>
 
+          {/* CARTÕES DE PREPARAÇÃO - TEXTOS INTEGRAIS */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             <div className="bg-green-50/50 rounded-3xl p-8 border border-green-100">
               <Coffee className="text-green-600 w-7 h-7 mb-4" />
@@ -198,10 +208,8 @@ export default function App() {
             </div>
           </div>
 
-          {/* SECÇÃO DE AGENDAMENTO GOOGLE CALENDAR (RESTAURADA) */}
+          {/* SECÇÃO DE AGENDAMENTO GOOGLE CALENDAR */}
           <div id="agendamento" className="bg-slate-900 rounded-[3rem] p-8 md:p-12 text-white relative overflow-hidden">
-
-            {/* Efeito visual dentro da caixa escura */}
             <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
               <Calendar size={200} strokeWidth={1} />
             </div>
@@ -218,10 +226,8 @@ export default function App() {
                 Os horários para as avaliações gratuitas na Inatividade Zero são limitados e disponibilizados através da nossa agenda oficial. Confirme se atende a todos os requisitos do protocolo acima e garanta a sua vaga.
               </p>
 
-              {/* CONTAINER COM O BOTÃO DO GOOGLE CALENDAR */}
               <div className="bg-white rounded-3xl p-2 shadow-2xl overflow-hidden mb-6">
                 <div className="bg-slate-50 w-full py-12 px-6 rounded-[1.5rem] border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-center">
-
                   <Calendar className="text-green-600 w-16 h-16 mb-4" />
                   <h3 className="text-xl font-black text-slate-700 uppercase italic mb-2">Agenda Oficial</h3>
                   <p className="text-slate-500 font-medium mb-8 max-w-sm">
@@ -234,7 +240,6 @@ export default function App() {
                   >
                     Visualizar Horários Disponíveis <ArrowRight size={18} />
                   </button>
-
                 </div>
               </div>
 
@@ -245,6 +250,7 @@ export default function App() {
             </div>
           </div>
 
+          {/* CONTACTO PINGUS */}
           <div className="mt-12 p-10 bg-green-50 border border-green-200 rounded-[3.5rem] flex flex-col md:flex-row items-center gap-10">
             <img src={`${githubImgBase}logoN_pingus.png`} alt="Pingus" className="w-32 md:w-40" />
             <div className="flex-1 text-center md:text-left">
