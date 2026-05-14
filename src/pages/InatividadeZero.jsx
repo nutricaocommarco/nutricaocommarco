@@ -51,8 +51,8 @@ export default function App() {
 
           <div className="flex flex-col sm:flex-row items-center gap-6 bg-white p-4 rounded-[2rem] shadow-xl border border-slate-100">
             <div className="bg-green-600 text-white px-8 py-4 rounded-3xl flex flex-col items-center justify-center min-w-[200px]">
-              <span className="text-xs font-black uppercase tracking-widest opacity-80 mb-1">Por tempo limitado</span>
-              <span className="text-3xl font-black italic tracking-tight">100% GRÁTIS</span>
+              <span className="text-xs font-black uppercase tracking-widest opacity-80 mb-1">Menos de 15 dias</span>
+              <span className="text-2xl font-black italic tracking-tight">ÚLTIMAS VAGAS</span>
             </div>
             <div className="px-6 text-left flex flex-col gap-2">
               <div className="flex items-center gap-3 text-slate-700">
@@ -70,7 +70,7 @@ export default function App() {
         <div className="container mx-auto max-w-4xl">
           <div className="bg-slate-900 rounded-[3.5rem] p-8 md:p-14 shadow-2xl relative overflow-hidden border-4 border-green-500/20">
             <div className="absolute top-0 right-0 bg-red-500 text-white px-6 py-2 rounded-bl-2xl font-black uppercase text-xs tracking-widest shadow-lg">
-              Últimas Vagas Gratuitas
+              Fim da Gratuidade Próximo
             </div>
             
             <div className="flex flex-col md:flex-row items-start gap-10 relative z-10">
@@ -98,22 +98,18 @@ export default function App() {
               </div>
 
               <div className="bg-white rounded-[2.5rem] p-8 text-center min-w-full md:min-w-[300px] shadow-2xl transform md:rotate-2">
-                <p className="text-slate-500 font-bold uppercase tracking-widest text-xs mb-2">Valor Oficial em Junho</p>
-                <div className="text-slate-400 font-bold text-lg line-through decoration-red-500 decoration-2 mb-1">R$ 199,90</div>
-                <div className="text-5xl font-black text-slate-800 italic tracking-tighter mb-4">
+                <p className="text-slate-500 font-bold uppercase tracking-widest text-xs mb-3">Atenção aos Prazos</p>
+                <div className="bg-green-100 text-green-800 font-bold text-xs py-1.5 px-3 rounded-lg mb-2 uppercase tracking-wide">Datas em Maio: 100% Grátis</div>
+                <div className="bg-red-100 text-red-800 font-bold text-xs py-1.5 px-3 rounded-lg mb-4 uppercase tracking-wide">Datas em Junho: Valor Fixo</div>
+                <div className="text-slate-400 font-bold text-sm mb-1 uppercase tracking-widest">Valor para Junho</div>
+                <div className="text-5xl font-black text-slate-800 italic tracking-tighter mb-6">
                   <span className="text-2xl text-green-600 mr-1">R$</span>130<span className="text-2xl text-green-600">,00</span>
                 </div>
-                <a href="#agendamento" className="block w-full bg-slate-900 text-white py-4 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-green-600 transition-colors">Agendar Agora</a>
+                <button onClick={handleAgendamentoClick} className="block w-full bg-slate-900 text-white py-4 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-green-600 transition-colors flex items-center justify-center gap-2">
+                  <Calendar size={16} /> Abrir Agenda
+                </button>
               </div>
             </div>
-          </div>
-
-          {/* SETA PARA AGENDAMENTO ABAIXO DA CAIXA PRESENCIAL */}
-          <div className="flex justify-center mt-8 mb-4">
-            <a href="#agendamento" className="animate-bounce flex flex-col items-center gap-2 text-green-600 hover:text-green-700 transition-colors group">
-              <span className="text-xs font-black uppercase tracking-widest group-hover:tracking-[0.2em] transition-all">Ir para a agenda de avaliação</span>
-              <ArrowDownCircle className="w-8 h-8" />
-            </a>
           </div>
         </div>
       </section>
@@ -168,7 +164,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* SECÇÃO PROTOCOLO E AGENDA */}
+      {/* SECÇÃO PROTOCOLO E CONTACTO */}
       <section className="px-4 md:px-6 pb-24 relative z-20">
         <div className="container mx-auto max-w-4xl bg-white p-6 md:p-12 lg:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
           
@@ -180,7 +176,7 @@ export default function App() {
           </div>
 
           {/* CARTÕES DE PREPARAÇÃO - TEXTOS INTEGRAIS */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             <div className="bg-green-50/50 rounded-3xl p-8 border border-green-100">
               <Coffee className="text-green-600 w-7 h-7 mb-4" />
               <h3 className="text-xl font-black text-slate-800 uppercase italic mb-3">Jejum e Digestão</h3>
@@ -208,50 +204,8 @@ export default function App() {
             </div>
           </div>
 
-          {/* SECÇÃO DE AGENDAMENTO GOOGLE CALENDAR */}
-          <div id="agendamento" className="bg-slate-900 rounded-[3rem] p-8 md:p-12 text-white relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-              <Calendar size={200} strokeWidth={1} />
-            </div>
-
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
-                  <CheckCircle2 className="text-white w-6 h-6" />
-                </div>
-                <h2 className="text-3xl font-black uppercase italic m-0">Agende a Avaliação</h2>
-              </div>
-
-              <p className="text-slate-300 font-medium text-lg max-w-xl leading-relaxed mb-8">
-                Os horários para as avaliações gratuitas na Inatividade Zero são limitados e disponibilizados através da nossa agenda oficial. Confirme se atende a todos os requisitos do protocolo acima e garanta a sua vaga.
-              </p>
-
-              <div className="bg-white rounded-3xl p-2 shadow-2xl overflow-hidden mb-6">
-                <div className="bg-slate-50 w-full py-12 px-6 rounded-[1.5rem] border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-center">
-                  <Calendar className="text-green-600 w-16 h-16 mb-4" />
-                  <h3 className="text-xl font-black text-slate-700 uppercase italic mb-2">Agenda Oficial</h3>
-                  <p className="text-slate-500 font-medium mb-8 max-w-sm">
-                    Clique no botão abaixo para abrir a nossa agenda no Google Calendar e escolher o melhor horário para a sua avaliação.
-                  </p>
-
-                  <button 
-                    onClick={handleAgendamentoClick}
-                    className="bg-green-600 text-white px-8 py-4 rounded-full font-black uppercase text-sm tracking-widest shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 flex items-center gap-2"
-                  >
-                    Visualizar Horários Disponíveis <ArrowRight size={18} />
-                  </button>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-center gap-2 text-slate-400 text-sm font-medium">
-                <ShieldCheck size={16} className="text-green-500" />
-                <span>Os seus dados estão seguros. Marcação rápida e sem burocracia.</span>
-              </div>
-            </div>
-          </div>
-
           {/* CONTACTO PINGUS */}
-          <div className="mt-12 p-10 bg-green-50 border border-green-200 rounded-[3.5rem] flex flex-col md:flex-row items-center gap-10">
+          <div className="p-10 bg-green-50 border border-green-200 rounded-[3.5rem] flex flex-col md:flex-row items-center gap-10">
             <img src={`${githubImgBase}logoN_pingus.png`} alt="Pingus" className="w-32 md:w-40" />
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-2xl font-black text-slate-800 uppercase italic mb-3">Ficou com alguma dúvida?</h3>
