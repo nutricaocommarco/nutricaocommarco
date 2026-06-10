@@ -51,8 +51,8 @@ export default function App() {
 
           <div className="flex flex-col sm:flex-row items-center gap-6 bg-white p-4 rounded-[2rem] shadow-xl border border-slate-100">
             <div className="bg-green-600 text-white px-8 py-4 rounded-3xl flex flex-col items-center justify-center min-w-[200px]">
-              <span className="text-xs font-black uppercase tracking-widest opacity-80 mb-1">Menos de 15 dias</span>
-              <span className="text-2xl font-black italic tracking-tight">ÚLTIMAS VAGAS</span>
+              <span className="text-xs font-black uppercase tracking-widest opacity-80 mb-1">Garanta seu Horário</span>
+              <span className="text-2xl font-black italic tracking-tight">VAGAS ABERTAS</span>
             </div>
             <div className="px-6 text-left flex flex-col gap-2">
               <div className="flex items-center gap-3 text-slate-700">
@@ -69,8 +69,8 @@ export default function App() {
       <section className="px-4 md:px-6 pb-6 relative z-20">
         <div className="container mx-auto max-w-4xl">
           <div className="bg-slate-900 rounded-[3.5rem] p-8 md:p-14 shadow-2xl relative overflow-hidden border-4 border-green-500/20">
-            <div className="absolute top-0 right-0 bg-red-500 text-white px-6 py-2 rounded-bl-2xl font-black uppercase text-xs tracking-widest shadow-lg">
-              Fim da Gratuidade Próximo
+            <div className="absolute top-0 right-0 bg-green-600 text-white px-6 py-2 rounded-bl-2xl font-black uppercase text-xs tracking-widest shadow-lg">
+              Agendas Abertas
             </div>
             
             <div className="flex flex-col md:flex-row items-start gap-10 relative z-10">
@@ -98,10 +98,9 @@ export default function App() {
               </div>
 
               <div className="bg-white rounded-[2.5rem] p-8 text-center min-w-full md:min-w-[300px] shadow-2xl transform md:rotate-2">
-                <p className="text-slate-500 font-bold uppercase tracking-widest text-xs mb-3">Atenção aos Prazos</p>
-                <div className="bg-green-100 text-green-800 font-bold text-xs py-1.5 px-3 rounded-lg mb-2 uppercase tracking-wide">Datas em Maio: 100% Grátis</div>
-                <div className="bg-red-100 text-red-800 font-bold text-xs py-1.5 px-3 rounded-lg mb-4 uppercase tracking-wide">Datas em Junho: Valor Fixo</div>
-                <div className="text-slate-400 font-bold text-sm mb-1 uppercase tracking-widest">Valor para Junho</div>
+                <p className="text-slate-500 font-bold uppercase tracking-widest text-xs mb-3">Investimento</p>
+                <div className="bg-green-100 text-green-800 font-bold text-xs py-1.5 px-3 rounded-lg mb-4 uppercase tracking-wide">Avaliação Completa</div>
+                <div className="text-slate-400 font-bold text-sm mb-1 uppercase tracking-widest">Valor da Sessão</div>
                 <div className="text-5xl font-black text-slate-800 italic tracking-tighter mb-6">
                   <span className="text-2xl text-green-600 mr-1">R$</span>130<span className="text-2xl text-green-600">,00</span>
                 </div>
