@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-serif-dom';
-import { Calculator, Activity, Info, CheckCircle2, User, HeartPulse, ShieldCheck, Sparkles, Flame, Dumbbell, Percent, CreditCard, Tag, Video, GitBranch, Target, Layers } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
+import { Calculator, Activity, Info, CheckCircle2, User, HeartPulse, ShieldCheck, Sparkles, Flame, Dumbbell, Percent, CreditCard, Tag, Video, GitBranch, Target, Layers, RefreshCw } from 'lucide-react';
 
 export default function PlanilhaAntropometriaVendas() {
   const { pathname } = useLocation();
@@ -74,7 +74,7 @@ export default function PlanilhaAntropometriaVendas() {
 
             <div className="space-y-4 md:space-y-6 text-base md:text-lg text-slate-600 font-medium leading-relaxed">
               <p>
-                Se você busca um system completo, rápido e visualmente impactante para os seus atendimentos de consultório sem ter que ficar preso a mensalidades caras de softwares de nutrição, a <strong>Planilha Antropométrica Inteligente PRO</strong> é a solução definitiva. Desenvolvida sob o rigor científico dos protocolos internacionais e a inteligência de macros automáticas, ela eleva o nível técnico dos seus relatórios e gera uma experiência visual incrível para os seus pacientes.
+                Se você busca um sistema completo, rápido e visualmente impactante para os seus atendimentos de consultório sem ter que ficar preso a mensalidades caras de softwares de nutrição, a <strong>Planilha Antropométrica Inteligente PRO</strong> é a solução definitiva. Desenvolvida sob o rigor científico dos protocolos internacionais e a inteligência de macros automáticas, ela eleva o nível técnico dos seus relatórios e gera uma experiência visual incrível para os seus pacientes.
               </p>
             </div>
           </article>
@@ -118,7 +118,7 @@ export default function PlanilhaAntropometriaVendas() {
               <Sparkles className="text-green-600 w-6 h-6 md:w-8 md:h-8 flex-shrink-0"/> Diferenciais do Sistema
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-4">
                 <HeartPulse className="text-green-600 w-8 h-8 flex-shrink-0" />
                 <div>
@@ -127,11 +127,12 @@ export default function PlanilhaAntropometriaVendas() {
                 </div>
               </div>
 
+              {/* 🔄 NOVA CAIXINHA: EVOLUÇÃO CONSTANTE */}
               <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-4">
-                <ShieldCheck className="text-green-600 w-8 h-8 flex-shrink-0" />
+                <RefreshCw className="text-green-600 w-8 h-8 flex-shrink-0 animate-[spin_4s_linear_infinite]" />
                 <div>
-                  <h4 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Proteção Total por Senha</h4>
-                  <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">Sua ferramenta está blindada. As macros trabalham desprotegendo e protegendo as abas em milissegundos para evitar que fórmulas sejam apagadas por acidente.</p>
+                  <h4 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Constante Evolução</h4>
+                  <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">Este projeto não está estagnado. A ferramenta recebe melhorias e novas funções de forma contínua para entregar sempre a melhor experiência técnica do mercado.</p>
                 </div>
               </div>
 
@@ -139,7 +140,7 @@ export default function PlanilhaAntropometriaVendas() {
                 <Activity className="text-green-600 w-8 h-8 flex-shrink-0" />
                 <div>
                   <h4 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Mais de 30 Equações de Regressão</h4>
-                  <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">Todos os principais protocolos da literatura reunidos em um só lugar (Jackson & Pollock, Petroski, Guedes, Durnin, Slaughter, Faulkner, entre outros).</p>
+                  <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">Todos os principais protocolos da literatura reuniu em um só lugar (Jackson & Pollock, Petroski, Guedes, Durnin, Slaughter, Faulkner, entre outros).</p>
                 </div>
               </div>
 
@@ -152,12 +153,12 @@ export default function PlanilhaAntropometriaVendas() {
               </div>
             </div>
 
-            {/* 🚀 NOVA SEÇÃO: DESENVOLVIMENTO CONSTANTE */}
+            {/* PROJETO EM EVOLUÇÃO CONSTANTE (DETALHADO) */}
             <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 flex items-center gap-2">
-              <GitBranch className="text-orange-500 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> Projeto em Evolução Constante
+              <GitBranch className="text-orange-500 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> Próximos Passos & Upgrades Inclusos
             </h3>
             <p className="text-xs md:text-sm text-slate-500 mb-6 leading-relaxed font-medium">
-              Adquirindo a ferramenta hoje, você garante todas as futuras atualizações e melhorias na sua área de membros **sem custo adicional**. Nosso ecossistema está sendo aprimorado ativamente com os seguintes recursos em breve:
+              Adquirindo a ferramenta hoje pelo valor de lançamento, você garante todas as futuras atualizações listadas abaixo diretamente na sua área de membros **sem custo adicional**:
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
