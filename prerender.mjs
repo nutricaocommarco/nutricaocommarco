@@ -9,7 +9,7 @@ const rotasEstaticas = [
   { 
     path: 'planilha-antropometrica-marco-aurelio', 
     title: 'Planilha Antropométrica Inteligente PRO | Nutrição com Marco',
-    image: `${githubImgBase}Calculadora-de-Gasto-Calorico.jpg`, // Altere se subir uma imagem específica da planilha
+    image: `${githubImgBase}PlanilhaImagem/Capa.JPG`,
     desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.'
   },
   { 
