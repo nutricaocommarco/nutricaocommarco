@@ -19,7 +19,7 @@ import Feijao from './pages/Feijao';
 import HormoniosFome from './pages/HormoniosFome';
 import Ironman703 from './pages/Ironman703';
 import GeradorEmailSecreto from './pages/GeradorEmailSecreto';
-import MejorHorarioPesagem from './pages/MelhorHorarioPesagem';
+import MelhorHorarioPesagem from './pages/MelhorHorarioPesagem';
 import BeterrabaDiabetes from './pages/BeterrabaDiabetes';
 import ConfirmacaoPendente from './pages/kitkit'; 
 import RetatrutidaOQueE from './pages/Retatrutida';
