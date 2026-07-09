@@ -19,7 +19,7 @@ import Feijao from './pages/Feijao';
 import HormoniosFome from './pages/HormoniosFome';
 import Ironman703 from './pages/Ironman703';
 import GeradorEmailSecreto from './pages/GeradorEmailSecreto';
-import MelhorHorarioPesagem from './pages/MelhorHorarioPesagem';
+import MejorHorarioPesagem from './pages/MelhorHorarioPesagem';
 import BeterrabaDiabetes from './pages/BeterrabaDiabetes';
 import ConfirmacaoPendente from './pages/kitkit'; 
 import RetatrutidaOQueE from './pages/Retatrutida';
@@ -79,6 +79,14 @@ function Layout({ children }) {
       '/': { 
         title: 'Nutrição com Marco | Performance e Ciência', 
         desc: 'Especialista em Nutrição e Antropometria no RJ e Online. Performance física e saúde baseada em evidências científicas.' 
+      },
+      '/planilha': {
+        title: 'Planilha Antropométrica Inteligente PRO | Nutrição com Marco',
+        desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.'
+      },
+      '/planilha-antropometrica-marco-aurelio': {
+        title: 'Planilha Antropométrica Inteligente PRO | Nutrição com Marco',
+        desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.'
       },
       '/sobre': { 
         title: 'Sobre Marco Aurélio Jr. | Nutrição com Marco', 
@@ -263,11 +271,21 @@ function Layout({ children }) {
             </div>
 
             <a href="/#ebooks" className="py-1 border-b-2 border-transparent text-slate-800 hover:text-green-600 transition-all">E-books</a>
+
+            {/* 💎 COMPUTAÇÃO: Link de Vendas da Planilha no Menu Principal */}
+            <Link 
+              to="/planilha" 
+              className={`py-1 border-b-2 transition-all font-black text-green-600 ${location.pathname === '/planilha' ? 'border-green-600' : 'border-transparent hover:text-green-700'}`}
+            >
+              🔥 Planilha PRO
+            </Link>
+
             <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-6 py-2.5 rounded-full hover:bg-green-700 transition-all shadow-md italic">Instagram</a>
           </div>
           <button className="md:hidden text-slate-800 p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <X size={28} /> : <Menu size={28} />}</button>
         </div>
 
+        {/* MENU MOBILE / CELULAR */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-green-100 shadow-xl py-6 px-6 flex flex-col gap-6 max-h-[85vh] overflow-y-auto">
             <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Início</Link>
@@ -276,6 +294,9 @@ function Layout({ children }) {
             <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Blog</Link>
             <Link to="/planos" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Planos</Link>
             
+            {/* 💎 MOBILE: Link de Vendas da Planilha no Menu de Celular */}
+            <Link to="/planilha" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-green-600 flex items-center gap-1">🔥 Planilha PRO</Link>
+
             <div className="flex flex-col gap-3 pb-2 border-b border-green-50">
               <span className="text-lg font-black uppercase tracking-widest text-slate-800">Calculadoras</span>
               <div className="flex flex-col gap-3 pl-4 border-l-2 border-green-200">
