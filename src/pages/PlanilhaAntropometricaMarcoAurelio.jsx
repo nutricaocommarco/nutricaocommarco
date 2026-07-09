@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { Calculator, Activity, Info, CheckCircle2, User, HeartPulse, ShieldCheck, Sparkles, Flame, Dumbbell, Percent, CreditCard, Tag } from 'lucide-react';
+import { useLocation } from 'react-serif-dom';
+import { Calculator, Activity, Info, CheckCircle2, User, HeartPulse, ShieldCheck, Sparkles, Flame, Dumbbell, Percent, CreditCard, Tag, Video, GitBranch, Target, Layers } from 'lucide-react';
 
 export default function PlanilhaAntropometriaVendas() {
   const { pathname } = useLocation();
@@ -74,7 +74,7 @@ export default function PlanilhaAntropometriaVendas() {
 
             <div className="space-y-4 md:space-y-6 text-base md:text-lg text-slate-600 font-medium leading-relaxed">
               <p>
-                Se você busca um sistema completo, rápido e visualmente impactante para os seus atendimentos de consultório sem ter que ficar preso a mensalidades caras de softwares de nutrição, a <strong>Planilha Antropométrica Inteligente PRO</strong> é a solução definitiva. Desenvolvida sob o rigor científico dos protocolos internacionais e a inteligência de macros automáticas, ela eleva o nível técnico dos seus relatórios e gera uma experiência visual incrível para os seus pacientes.
+                Se você busca um system completo, rápido e visualmente impactante para os seus atendimentos de consultório sem ter que ficar preso a mensalidades caras de softwares de nutrição, a <strong>Planilha Antropométrica Inteligente PRO</strong> é a solução definitiva. Desenvolvida sob o rigor científico dos protocolos internacionais e a inteligência de macros automáticas, ela eleva o nível técnico dos seus relatórios e gera uma experiência visual incrível para os seus pacientes.
               </p>
             </div>
           </article>
@@ -118,7 +118,7 @@ export default function PlanilhaAntropometriaVendas() {
               <Sparkles className="text-green-600 w-6 h-6 md:w-8 md:h-8 flex-shrink-0"/> Diferenciais do Sistema
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
               <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-4">
                 <HeartPulse className="text-green-600 w-8 h-8 flex-shrink-0" />
                 <div>
@@ -152,9 +152,59 @@ export default function PlanilhaAntropometriaVendas() {
               </div>
             </div>
 
+            {/* 🚀 NOVA SEÇÃO: DESENVOLVIMENTO CONSTANTE */}
+            <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 flex items-center gap-2">
+              <GitBranch className="text-orange-500 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> Projeto em Evolução Constante
+            </h3>
+            <p className="text-xs md:text-sm text-slate-500 mb-6 leading-relaxed font-medium">
+              Adquirindo a ferramenta hoje, você garante todas as futuras atualizações e melhorias na sua área de membros **sem custo adicional**. Nosso ecossistema está sendo aprimorado ativamente com os seguintes recursos em breve:
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+              <div className="bg-orange-50/60 p-4 rounded-xl border border-orange-100 flex items-start gap-3">
+                <Video className="text-orange-600 w-5 h-5 mt-0.5 flex-shrink-0" />
+                <div>
+                  <h5 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Vídeos Explicativos Clássicos</h5>
+                  <p className="text-[11px] md:text-xs text-slate-600 mt-0.5">Tutoriais passo a passo em vídeo demonstrando o uso correto das macros e navegação no Excel.</p>
+                </div>
+              </div>
+
+              <div className="bg-orange-50/60 p-4 rounded-xl border border-orange-100 flex items-start gap-3">
+                <Layers className="text-orange-600 w-5 h-5 mt-0.5 flex-shrink-0" />
+                <div>
+                  <h5 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Hiper-Filtragem de Regressões</h5>
+                  <p className="text-[11px] md:text-xs text-slate-600 mt-0.5">Aprimoramento do algoritmo VBA para sugerir automaticamente a melhor equação com base na etnia e idade.</p>
+                </div>
+              </div>
+
+              <div className="bg-orange-50/60 p-4 rounded-xl border border-orange-100 flex items-start gap-3">
+                <Target className="text-orange-600 w-5 h-5 mt-0.5 flex-shrink-0" />
+                <div>
+                  <h5 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Módulo de Metas Físicas</h5>
+                  <p className="text-[11px] md:text-xs text-slate-600 mt-0.5">Área integrada para estipular metas de perda de gordura ou ganho de massa magra direto no gráfico.</p>
+                </div>
+              </div>
+
+              <div className="bg-orange-50/60 p-4 rounded-xl border border-orange-100 flex items-start gap-3">
+                <Calculator className="text-orange-600 w-5 h-5 mt-0.5 flex-shrink-0" />
+                <div>
+                  <h5 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Cálculo de Gasto Calórico</h5>
+                  <p className="text-[11px] md:text-xs text-slate-600 mt-0.5">Integração da matemática de TMB e TDEE (Mifflin, Cunningham, Tinsley) direto no relatório do paciente.</p>
+                </div>
+              </div>
+              
+              <div className="bg-orange-50/60 p-4 rounded-xl border border-orange-100 flex items-start gap-3 sm:col-span-2">
+                <Activity className="text-orange-600 w-5 h-5 mt-0.5 flex-shrink-0" />
+                <div>
+                  <h5 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Relatório Comparativo Avançado</h5>
+                  <p className="text-[11px] md:text-xs text-slate-600 mt-0.5">Evolução visual aprimorada comparando dados históricos de perímetros e dobras lado a lado com gráficos dinâmicos de alta definição.</p>
+                </div>
+              </div>
+            </div>
+
             {/* CONTEÚDO DETALHADO DO RELATÓRIO */}
             <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic mb-6 flex items-center gap-2">
-              <User className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> Parâmetros Inclusos no Relatório
+              <User className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> Parâmetros Inclusos no Relatório Atual
             </h3>
 
             <div className="space-y-6 bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm mb-12">
@@ -221,7 +271,7 @@ export default function PlanilhaAntropometriaVendas() {
             <div className="mt-16 text-center max-w-2xl mx-auto border-t border-slate-200 pt-12">
               <h2 className="text-2xl md:text-3xl font-black mb-4 text-slate-900 uppercase italic">Garanta seu desconto de lançamento!</h2>
               <p className="text-sm text-slate-500 mb-8 leading-relaxed font-medium">
-                Aproveite o preço reduzido de <strong>R$ 80,00 por apenas R$ 50,00</strong> (ou em até 2x sem juros) e eleve o patamar das suas avaliações corporais hoje mesmo.
+                Aproveite o preço reduzido de <strong>R$ 80,00 por apenas R$ 50,00</strong> (ou em até 2x sem juros) e garanta acesso vitalício a todas as futuras atualizações inclusas.
               </p>
               
               <a 
