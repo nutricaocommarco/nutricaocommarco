@@ -39,7 +39,7 @@ import PercentualGorduraFeminino from './pages/PercentualGorduraFeminino';
 import HorarioFerro from './pages/HorarioFerro';
 import ConfirmacaoAvAntropometrica from './pages/ConfirmacaoAvAntropometrica';
 import InatividadeZero from './pages/InatividadeZero';
-import PlanilhaAntropometriaVendas from './pages/PlanilhaAntropométricaMarcoAurelio';
+import PlanilhaAntropometriaVendas from './pages/PlanilhaAntropometricaMarcoAurelio';
 
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
