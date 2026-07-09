@@ -39,6 +39,7 @@ import PercentualGorduraFeminino from './pages/PercentualGorduraFeminino';
 import HorarioFerro from './pages/HorarioFerro';
 import ConfirmacaoAvAntropometrica from './pages/ConfirmacaoAvAntropometrica';
 import InatividadeZero from './pages/InatividadeZero';
+import PlanilhaAntropometriaVendas from './pages/PlanilhaAntropométricaMarcoAurelio';
 
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
@@ -351,6 +352,8 @@ export default function App() {
             <Route path="/melhor_horario_para_tomar_ferro" element={<HorarioFerro />} />
             <Route path="/confirmacao-av-antropometrica" element={<ConfirmacaoAvAntropometrica />} />
             <Route path="/parceria-inatividade-zero" element={<InatividadeZero />} />
+            <Route path="/planilha-antropometrica-marco-aurelio" element={<PlanilhaAntropometriaVendas />} />
+            <Route path="/planilha" element={<PlanilhaAntropometriaVendas />} />
           </Routes>
         </Layout>
       </Router>
