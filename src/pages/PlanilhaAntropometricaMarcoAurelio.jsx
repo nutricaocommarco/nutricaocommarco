@@ -20,8 +20,8 @@ export default function PlanilhaAntropometriaVendas() {
     { src: `${githubImgBase}5.png`, alt: "Parte 5: Classificação do somatotipo e gráfico de somatocarta" }
   ];
 
-  // 🔗 Link oficial do seu checkout Hotmart
-  const linkCheckoutHotmart = "https://pay.hotmart.com/D106679715Y";
+  // 🔗 Link oficial do seu checkout Hotmart (Atualizado com Cupom de Desconto)
+  const linkCheckoutHotmart = "https://pay.hotmart.com/D106679715Y?off=4vrhshe3";
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -123,11 +123,11 @@ export default function PlanilhaAntropometriaVendas() {
                 <HeartPulse className="text-green-600 w-8 h-8 flex-shrink-0" />
                 <div>
                   <h4 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Automação Inteligente via VBA</h4>
-                  <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">A planilha reconhece o sexo do paciente e oculta automaticamente as linhas, colunas e equações irrelevantes para aquele atendimento, mantendo a tela limpa.</p>
+                  <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">A planilha reconhece o sexo do paciente e oculta automaticamente as lines, colunas e equações irrelevantes para aquele atendimento, mantendo a tela limpa.</p>
                 </div>
               </div>
 
-              {/* 🔄 NOVA CAIXINHA: EVOLUÇÃO CONSTANTE */}
+              {/* 🔄 CAIXINHA: EVOLUÇÃO CONSTANTE */}
               <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-4">
                 <RefreshCw className="text-green-600 w-8 h-8 flex-shrink-0 animate-[spin_4s_linear_infinite]" />
                 <div>
@@ -140,7 +140,7 @@ export default function PlanilhaAntropometriaVendas() {
                 <Activity className="text-green-600 w-8 h-8 flex-shrink-0" />
                 <div>
                   <h4 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Mais de 30 Equações de Regressão</h4>
-                  <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">Todos os principais protocolos da literatura reuniu em um só lugar (Jackson & Pollock, Petroski, Guedes, Durnin, Slaughter, Faulkner, entre outros).</p>
+                  <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">Todos os principais protocolos da literatura reunidos em um só lugar (Jackson & Pollock, Petroski, Guedes, Durnin, Slaughter, Faulkner, entre outros).</p>
                 </div>
               </div>
 
