@@ -213,6 +213,7 @@ export default function PercentualGorduraFemininoComponent() {
             </a>
           </div>
 
+{/* PLAYER DE ÁUDIO ATUALIZADO */}
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
@@ -220,7 +221,7 @@ export default function PercentualGorduraFemininoComponent() {
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
               <audio controls className="w-full h-10 outline-none">
-                <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/PercentualGorduraMulher.mp3" type="audio/mpeg" />
+                <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/percentual-gordura-feminino-ideal.mp3" type="audio/mpeg" />
                 O seu navegador não suporta o áudio.
               </audio>
             </div>
