@@ -112,6 +112,23 @@ export default function PlanilhaAntropometriaVendas() {
             </div>
           </section>
 
+          {/* 📺 SEÇÃO VÍDEO EXPLICATIVO */}
+          <div className="w-full bg-slate-900 rounded-[2rem] p-4 sm:p-6 md:p-8 border border-slate-800 shadow-xl flex flex-col gap-4 text-center">
+            <h3 className="text-lg md:text-xl font-black text-white uppercase italic flex justify-center items-center gap-2">
+              <Video className="text-green-400 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> Conheça todos os recursos em vídeo
+            </h3>
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg border border-slate-800">
+              <iframe
+                className="absolute top-0 left-0 w-full height-full"
+                src="https://www.youtube.com/embed/8F-6dO7A2eY"
+                title="Vídeo Explicativo - Planilha Antropométrica Inteligente PRO"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+
           {/* DIFERENCIAIS DA PLANILHA */}
           <div className="bg-slate-50 rounded-[2rem] md:rounded-[3.5rem] p-5 sm:p-8 md:p-12 border border-slate-200 shadow-inner">
             <h2 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mb-8 md:mb-10 border-b border-green-200 pb-4 flex items-center gap-3">
