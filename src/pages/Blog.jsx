@@ -5,6 +5,15 @@ import { ChevronRight, Clock, Filter, Tag as TagIcon } from 'lucide-react';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 const postsData = [
+    {
+    id: 22,
+    link: "/qual-percentual-gordura-feminino-ideal",
+    imgSrc: `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.jpg`,
+    tag: "Saúde da Mulher",
+    title: "Qual o Percentual de Gordura Feminino Ideal? A Ciência Explica",
+    desc: "Pare de brigar com a balança. Descubra qual é a faixa ideal para sua saúde e estética, e entenda como hormônios, ciclo menstrual e idade influenciam sua composição corporal.",
+    isNew: true
+  },
 {
     id: 21,
     link: "/quantas-calorias-gasto-por-dia",
@@ -12,7 +21,6 @@ const postsData = [
     tag: "Fisiologia e Metabolismo",
     title: "Quantas Calorias Gasto Por Dia? Pare de Chutar e Entenda o Seu Metabolismo",
     desc: "Descubra como calcular seu gasto calórico diário. Entenda a sua Taxa Metabólica Basal (TMB), fator de atividade, METs e as fórmulas de Mifflin e Cunningham.",
-    isNew: true
   },
     
     {
