@@ -113,13 +113,13 @@ export default function PlanilhaAntropometriaVendas() {
           </section>
 
           {/* 📺 SEÇÃO VÍDEO EXPLICATIVO */}
-          <div className="w-full bg-slate-900 rounded-[2rem] p-4 sm:p-6 md:p-8 border border-slate-800 shadow-xl flex flex-col gap-4 text-center">
-            <h3 className="text-lg md:text-xl font-black text-white uppercase italic flex justify-center items-center gap-2">
-              <Video className="text-green-400 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> Conheça todos os recursos em vídeo
+          <div className="w-full bg-white rounded-3xl p-5 md:p-8 border border-slate-100 shadow-md flex flex-col gap-5 text-left">
+            <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic flex items-center gap-2 border-b border-green-100 pb-4">
+              <Video className="text-green-600 w-6 h-6 flex-shrink-0" /> Conheça todos os recursos em vídeo
             </h3>
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg border border-slate-800">
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-sm border border-slate-200">
               <iframe
-                className="absolute top-0 left-0 w-full height-full"
+                className="absolute top-0 left-0 w-full h-full"
                 src="https://www.youtube.com/embed/8F-6dO7A2eY"
                 title="Vídeo Explicativo - Planilha Antropométrica Inteligente PRO"
                 frameBorder="0"
@@ -228,7 +228,7 @@ export default function PlanilhaAntropometriaVendas() {
             <div className="space-y-6 bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm mb-12">
               <div className="border-b border-slate-100 pb-4">
                 <h4 className="font-black text-slate-900 text-sm md:text-base flex items-center gap-2 uppercase italic text-green-700">
-                  <CheckCircle2 className="w-4 h-4 text-green-600" /> Dados Avaliados e Índices Avançados
+                  <CheckCircle2 className="w-4 h-4 text-green-600" /> Dados Evaluados e Índices Avançados
                 </h4>
                 <p className="text-xs md:text-sm text-slate-600 mt-1 pl-6 leading-relaxed">
                   Massa Corporal (kg), IMC, Gordura (%), Massa de Gordura (kg), Massa Magra (kg), Massa Muscular (kg), Circunferência da Cintura, Relação Cintura/Estatura, Cintura/Quadril, <strong>IMO</strong> (Massa Óssea), <strong>apVAT</strong> (Área de Gordura Visceral) e Índice Adiposo-Muscular.
