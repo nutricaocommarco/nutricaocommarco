@@ -7,7 +7,7 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 const postsData = [
     {
     id: 22,
-    link: "/qual-percentual-gordura-feminino-ideal",
+    link: "/percentual-gordura-feminino-ideal",
     imgSrc: `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.jpg`,
     tag: "Saúde da Mulher",
     title: "Qual o Percentual de Gordura Feminino Ideal? A Ciência Explica",
