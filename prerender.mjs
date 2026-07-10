@@ -13,6 +13,12 @@ const rotasEstaticas = [
     desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.'
   },
   { 
+    path: 'planilha', 
+    title: 'Planilha Antropométrica Inteligente PRO | Nutrição com Marco',
+    image: `${githubImgBase}PlanilhaImagem/Capa.JPG`,
+    desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.'
+  },
+  { 
     path: 'sobre', 
     title: 'Sobre Marco Aurélio Jr. | Nutrição com Marco',
     image: `${githubImgBase}logoN_pingus.png`,
