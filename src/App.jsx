@@ -168,7 +168,7 @@ function Layout({ children }) {
         title: 'Avaliação Agendada! | Nutrição com Marco',
         desc: 'Sua avaliação antropométrica foi agendada com sucesso. Verifique as instruções enviadas para o seu e-mail.'
       },
-      '/melhor_horario_para_tomar_ferro': {
+      '/melhor-horario-para-tomar-ferro': {
         title: 'Melhor Horário Para Tomar Ferro e Curar a Anemia | Nutrição com Marco',
         desc: 'Descubra o melhor horário para tomar ferro, sintomas de falta no organismo, o que inibe a absorção e quanto tempo dura o tratamento para anemia.'
       },
@@ -368,7 +368,7 @@ export default function App() {
             <Route path="/calculadora-de-gasto-calorico" element={<CalculadoraGastoCalorico />} />
             <Route path="/quantas-calorias-gasto-por-dia" element={<QuantasCaloriasGasto />} />
             <Route path="/percentual-gordura-feminino-ideal" element={<PercentualGorduraFeminino />} />
-            <Route path="/melhor_horario_para_tomar_ferro" element={<HorarioFerro />} />
+            <Route path="/melhor-horario-para-tomar-ferro" element={<HorarioFerro />} />
             <Route path="/confirmacao-av-antropometrica" element={<ConfirmacaoAvAntropometrica />} />
             <Route path="/parceria-inatividade-zero" element={<InatividadeZero />} />
             <Route path="/planilha-antropometrica-marco-aurelio" element={<PlanilhaAntropometriaVendas />} />
