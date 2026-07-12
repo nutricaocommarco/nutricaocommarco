@@ -5,6 +5,15 @@ import { ChevronRight, Clock, Filter, Tag as TagIcon } from 'lucide-react';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 const postsData = [
+{
+    id: 23,
+    link: "/melhor-horario-para-tomar-ferro",
+    imgSrc: `${githubImgBase}Blog/HorarioFerro.jpg`,
+    tag: "Nutrição Clínica",
+    title: "Melhor Horário Para Tomar Ferro: O Guia Definitivo Contra a Anemia",
+    desc: "Descubra o melhor horário para tomar ferro, sintomas de falta no organismo, o que inibe a absorção e quanto tempo dura o tratamento para anemia ferropriva.",
+    isNew: true
+  },
     {
     id: 22,
     link: "/percentual-gordura-feminino-ideal",
