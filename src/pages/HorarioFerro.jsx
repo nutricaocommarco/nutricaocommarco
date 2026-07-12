@@ -178,7 +178,7 @@ export default function MelhorHorarioFerro() {
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
               <audio controls className="w-full h-10 outline-none">
-                <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Melhor-Horario-Tomar-Ferro.mp3" type="audio/mpeg" />
+                <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/MelhorHorarioFerro.mp3" type="audio/mpeg" />
                 Seu navegador não suporta o áudio.
               </audio>
             </div>
