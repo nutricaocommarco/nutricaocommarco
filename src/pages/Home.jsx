@@ -61,7 +61,7 @@ export default function Home() {
                 </div>
                 <div className="bg-white p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-3 animate-bounce-slow" style={{ animationDelay: '1.5s' }}>
                   <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-xl md:rounded-2xl flex items-center justify-center font-black shadow-inner p-1.5 border border-slate-50"><img src={`${githubImgBase}oficial-uniguacu_vertical-edited.png`} className="w-full h-full object-contain" alt="Uniguacu" /></div>
-                  <div className="text-left"><p className="text-[9px] md:text-[10px] font-black uppercase text-slate-400">Pós-Graduando</p><p className="font-black text-slate-800 text-xs md:text-sm leading-tight">Uniguaçú - Metabolismo</p></div>
+                  <div className="text-left"><p className="text-[9px] md:text-[10px] font-black uppercase text-slate-400">Pós-Graduando</p><p className="font-black text-slate-800 text-xs md:text-sm leading-tight">Uniguaçú - Emagrecimento e Metabolismo</p></div>
                 </div>
               </div>
             </div>
