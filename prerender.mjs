@@ -82,7 +82,7 @@ const rotasEstaticas = [
 
 // 📝 2. TODOS OS POSTS DO BLOG (Atualizado com as novidades)
 const postsBlog = [
-  { id: 24, link: "/melhor_horario_para_tomar_ferro", img: `${githubImgBase}Blog/HorarioFerro.jpg`, titulo: "Melhor Horário Para Tomar Ferro e Curar a Anemia", desc: "Descubra o melhor horário para tomar ferro, sintomas de falta no organismo, o que inibe a absorção e tratamento.", data: "2026-04-26" },
+  { id: 24, link: "/melhor-horario-para-tomar-ferro", img: `${githubImgBase}Blog/HorarioFerro.jpg`, titulo: "Melhor Horário Para Tomar Ferro e Curar a Anemia", desc: "Descubra o melhor horário para tomar ferro, sintomas de falta no organismo, o que inibe a absorção e tratamento.", data: "2026-04-26" },
   { id: 23, link: "/percentual-gordura-feminino-ideal", img: `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.jpg`, titulo: "Qual o Percentual de Gordura Feminino Ideal?", desc: "Descubra qual é o percentual de gordura feminino ideal para a saúde e estética. Entenda as tabelas de referência.", data: "2026-04-24" },
   { id: 22, link: "/o-que-comer-na-tpm", img: `${githubImgBase}Blog/TPM.jpg`, titulo: "O Que Comer na TPM: Emagrecimento e Metabolismo Feminino", desc: "Descubra por que a vontade de doce aumenta na TPM, a verdade científica sobre o metabolismo feminino e estratégias.", data: "2026-04-20" },
   { id: 21, link: "/quantas-calorias-gasto-por-dia", img: `${githubImgBase}Blog/QuantasCaloriasGasto.jpg`, titulo: "Quantas Calorias Gasto Por Dia? Pare de Chutar e Entenda o Seu Metabolismo", desc: "Descubra como calcular seu gasto calórico diário. Entenda a sua TMB, fator de atividade, METs e as fórmulas científicas.", data: "2026-04-05" },
