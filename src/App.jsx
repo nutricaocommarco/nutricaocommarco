@@ -277,7 +277,7 @@ function Layout({ children }) {
               to="/planilha" 
               className={`py-1 border-b-2 transition-all font-black text-green-600 ${location.pathname === '/planilha' ? 'border-green-600' : 'border-transparent hover:text-green-700'}`}
             >
-              🔥 Planilha PRO
+              🔥 Planilha Antropométrica PRO
             </Link>
 
             <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-6 py-2.5 rounded-full hover:bg-green-700 transition-all shadow-md italic">Instagram</a>
