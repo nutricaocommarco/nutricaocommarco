@@ -7,7 +7,7 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 const postsData = [
 {
     id: 23,
-    link: "/melhor_horario_para_tomar_ferro",
+    link: "/melhor-horario-para-tomar-ferro",
     imgSrc: `${githubImgBase}Blog/HorarioFerro.jpg`,
     tag: "Nutrição Clínica",
     title: "Melhor Horário Para Tomar Ferro: O Guia Definitivo Contra a Anemia",
