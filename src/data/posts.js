@@ -2,6 +2,26 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export const posts = [
     {
+    id: 24,
+    link: "/melhor-horario-para-tomar-ferro",
+    img: `${githubImgBase}Blog/HorarioFerro.jpg`,
+    tag: "Nutrição Clínica",
+    titulo: "Melhor Horário Para Tomar Ferro: O Guia Definitivo Contra a Anemia",
+    desc: "Descubra o melhor horário para tomar ferro, sintomas de falta no organismo, o que inibe a absorção e quanto tempo dura o tratamento para anemia ferropriva.",
+    data: "2026-07-12", // Hoje
+    dataMod: "2026-07-11"
+  },
+    {
+    id: 23,
+    link: "/percentual-gordura-feminino-ideal",
+    img: `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.jpg`,
+    tag: "Saúde da Mulher",
+    titulo: "Qual o Percentual de Gordura Feminino Ideal? A Ciência Explica",
+    desc: "Pare de brigar com a balança. Descubra qual é a faixa ideal para sua saúde e estética, e entenda como hormônios, ciclo menstrual e idade influenciam sua composição corporal.",
+    data: "2026-07-11", // Ontem
+    dataMod: "2026-07-11"
+  },
+    {
     id: 22,
     link: "/o-que-comer-na-tpm",
     img: `${githubImgBase}Blog/TPM.jpg`,
