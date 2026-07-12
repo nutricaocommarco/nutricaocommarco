@@ -270,8 +270,6 @@ function Layout({ children }) {
               </div>
             </div>
 
-            <a href="/#ebooks" className="py-1 border-b-2 border-transparent text-slate-800 hover:text-green-600 transition-all">E-books</a>
-
             {/* 💎 COMPUTAÇÃO: Link de Vendas da Planilha no Menu Principal */}
             <Link 
               to="/planilha" 
