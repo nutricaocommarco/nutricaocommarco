@@ -295,7 +295,7 @@ function Layout({ children }) {
             <Link to="/planos" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Planos</Link>
             
             {/* 💎 MOBILE: Link de Vendas da Planilha no Menu de Celular */}
-            <Link to="/planilha" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-green-600 flex items-center gap-1">🔥 Planilha PRO</Link>
+            <Link to="/planilha" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-green-600 flex items-center gap-1">🔥 Planilha Antropométrica PRO</Link>
 
             <div className="flex flex-col gap-3 pb-2 border-b border-green-50">
               <span className="text-lg font-black uppercase tracking-widest text-slate-800">Calculadoras</span>
