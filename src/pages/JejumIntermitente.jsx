@@ -176,18 +176,14 @@ export default function JejumIntermitente() {
             O Que é Jejum Intermitente? Guia Simples e Direto
           </h1>
           
-          <p className="text-xl text-slate-600 font-medium mb-10">
-            Se você quer entender o jejum intermitente sem complicações, veio ao lugar certo. Essa estratégia virou uma febre no mundo do emagrecimento, mas muita gente ainda se confunde com tanta informação misturada na internet. Em vez de focar no tipo de alimento que você coloca no prato, o jejum intermitente foca em <strong>quando você come</strong>[cite: 9]. 
-          </p>
-
-          {/* 1. RESPOSTA DIRETA NO TOPO */}
-          <div className="my-10 p-6 md:p-10 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-6 text-left">
+          {/* 1. RESPOSTA DIRETA NO TOPO (Agora antes do parágrafo de introdução) */}
+          <div className="mb-10 p-6 md:p-10 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-6 text-left">
             <div>
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3 flex items-center gap-2">
                 <Target className="text-green-600 shrink-0" /> Resposta Direta: O que é e como funciona?
               </h2>
               <p className="mt-4 text-lg md:text-xl text-green-950 font-medium leading-relaxed m-0">
-                O jejum intermitente não é uma dieta, mas sim um estilo de organização de horários onde você alterna períodos de alimentação com períodos de privação calórica total[cite: 9]. Ele funciona reduzindo drasticamente os níveis do hormônio insulina e elevando o glucagon[cite: 9]. Essa virada hormonal força o seu organismo a esgotar os estoques de açúcar (glicogênio) e a quebrar as células de gordura para usá-las como combustível principal, produzindo energia em forma de corpos cetônicos[cite: 5, 9].
+                O jejum intermitente não é uma dieta, mas sim um estilo de organização de horários onde você alterna períodos de alimentação com períodos de privação calórica total. Ele funciona reduzindo drasticamente os níveis do hormônio insulina e elevando o glucagon. Essa virada hormonal força o seu organismo a esgotar os estoques de açúcar (glicogênio) e a quebrar as células de gordura para usá-las como combustível principal, produzindo energia em forma de corpos cetônicos.
               </p>
             </div>
           </div>
@@ -240,36 +236,40 @@ export default function JejumIntermitente() {
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
+            <p className="text-xl text-slate-600 font-medium mb-10">
+            Se você quer entender o jejum intermitente sem complicações, veio ao lugar certo. Essa estratégia virou uma febre no mundo do emagrecimento, mas muita gente ainda se confunde com tanta informação misturada na internet. Em vez de focar no tipo de alimento que você coloca no prato, o jejum intermitente foca em <strong>quando você come</strong>. 
+          </p>
+            
             <h2 id="historia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Clock className="text-green-600"/> A História do Jejum: Da Antiguidade aos Dias de Hoje
             </h2>
             <p>
-              Antes de se tornar uma estratégia moderna de emagrecimento, o ato de jejuar já fazia parte da história da humanidade há milhares de anos[cite: 8]. Longe de ser apenas uma moda atual, o jejum tem raízes profundas na nossa evolução e, principalmente, na espiritualidade e na religião[cite: 8].
+              Antes de se tornar uma estratégia moderna de emagrecimento, o ato de jejuar já fazia parte da história da humanidade há milhares de anos. Longe de ser apenas uma moda atual, o jejum tem raízes profundas na nossa evolução e, principalmente, na espiritualidade e na religião.
             </p>
             <p>
-              Praticamente todas as grandes tradições do mundo utilizam a privação de alimentos como uma ferramenta de purificação e conexão mental[cite: 8]. Um dos relatos antigos mais famosos é o de Moisés, que passou 40 dias e 40 noites em jejum[cite: 8]. Outro exemplo clássico desse forte cunho religioso é o Ramadã, onde milhões de pessoas ficam do nascer ao pôr do sol sem consumir calorias por motivos espirituais[cite: 8]. Até mesmo na Grécia Antiga, o pai da medicina, Hipócrates, já defendia o jejum como um remédio natural para tratar o corpo[cite: 8].
+              Praticamente todas as grandes tradições do mundo utilizam a privação de alimentos como uma ferramenta de purificação e conexão mental. Um dos relatos antigos mais famosos é o de Moisés, que passou 40 dias e 40 noites em jejum. Outro exemplo clássico desse forte cunho religioso é o Ramadã, onde milhões de pessoas ficam do nascer ao pôr do sol sem consumir calorias por motivos espirituais. Até mesmo na Grécia Antiga, o pai da medicina, Hipócrates, já defendia o jejum como um remédio natural para tratar o corpo.
             </p>
             <p>
               Hoje em dia, essa ligação com o sagrado deu origem a uma vertente conhecida como <strong>Nutrição Devocional</strong>. Os nutricionistas devocionais atuam unindo a ciência com a espiritualidade, guiando pacientes de forma segura em jejuns super prolongados — que duram dias inteiros — com propósitos de autoconhecimento e jejuns de propósito religioso.
             </p>
             <p>
-              Se você acha que passar 16 horas sem comer é muito, a ciência guarda registros impressionantes sobre o limite do nosso corpo[cite: 4, 5]. Você sabia que <strong>o jejum mais longo da história durou mais de 1 ano?</strong>[cite: 4] A literatura médica documentou o caso de um homem de 207 kg que passou exatamente 382 dias sem comer[cite: 4]. Ele viveu esse período consumindo apenas líquidos sem calorias, vitaminas e minerais sob rigorosa supervisão médica, perdendo 126 kg de forma segura e provando a incrível capacidade de adaptação do metabolismo humano[cite: 4].
+              Se você acha que passar 16 horas sem comer é muito, a ciência guarda registros impressionantes sobre o limite do nosso corpo. Você sabia que <strong>o jejum mais longo da história durou mais de 1 ano?</strong> A literatura médica documentou o caso de um homem de 207 kg que passou exatamente 382 dias sem comer. Ele viveu esse período consumindo apenas líquidos sem calorias, vitaminas e minerais sob rigorosa supervisão médica, perdendo 126 kg de forma segura e provando a incrível capacidade de adaptação do metabolismo humano.
             </p>
 
             <h2 id="como-funciona" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Activity className="text-green-600"/> Como o jejum funciona no corpo de forma simples?
             </h2>
             <p>
-              O modelo mais conhecido nas buscas é o de <strong>16 por 8</strong>[cite: 9]. Nele, você concentra as suas refeições em uma janela de 8 horas (por exemplo, das 12h às 20h) e fica as outras 16 horas seguintes sem comer[cite: 9]. Também existem protocolos onde a pessoa faz o jejum em dias alternados ou reduz bastante as calorias em apenas dois dias da semana, como no método 5:2[cite: 9].
+              O modelo mais conhecido nas buscas é o de <strong>16 por 8</strong>. Nele, você concentra as suas refeições em uma janela de 8 horas (por exemplo, das 12h às 20h) e fica as outras 16 horas seguintes sem comer. Também existem protocolos onde a pessoa faz o jejum em dias alternados ou reduz bastante as calorias em apenas dois dias da semana, como no método 5:2.
             </p>
             <p>
-              Quando você fica horas sem comer, o seu corpo ativa um "botão" interno de sobrevivência. Os níveis de insulina, que é o hormônio que estoca gordura e energia, caem bastante no sangue[cite: 9]. Ao mesmo tempo, um hormônio chamado glucagon entra em ação e aumenta[cite: 9].
+              Quando você fica horas sem comer, o seu corpo ativa um "botão" interno de sobrevivência. Os níveis de insulina, que é o hormônio que estoca gordura e energia, caem bastante no sangue. Ao mesmo tempo, um hormônio chamado glucagon entra em ação e aumenta.
             </p>
             <p>
-              Essa mudança avisa o fígado que é hora de gastar o estoque de energia que já está guardado dentro de você[cite: 9]. Primeiro, o corpo queima o glicogênio, que é o nosso estoque de açúcar mais rápido[cite: 5, 9]. Quando esse açúcar acaba, o organismo começa a quebrar a gordura para usar como combustível principal[cite: 5, 9].
+              Essa mudança avisa o fígado que é hora de gastar o estoque de energia que já está guardado dentro de você. Primeiro, o corpo queima o glicogênio, que é o nosso estoque de açúcar mais rápido. Quando esse açúcar acaba, o organismo começa a quebrar a gordura para usar como combustível principal.
             </p>
             <p>
-              Nesse processo, o fígado transforma a gordura em corpos cetônicos[cite: 1, 9]. Eles funcionam como uma energia extra e muito eficiente, que alimenta o seu cérebro e os seus músculos enquanto a comida não chega[cite: 1, 9].
+              Nesse processo, o fígado transforma a gordura em corpos cetônicos. Eles funcionam como uma energia extra e muito eficiente, que alimenta o seu cérebro e os seus músculos enquanto a comida não chega.
             </p>
 
             <h2 id="cronograma" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
@@ -291,18 +291,18 @@ export default function JejumIntermitente() {
                 <tbody className="text-sm font-medium text-slate-600 divide-y divide-slate-100">
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-bold text-slate-800 flex items-center gap-2"><Clock size={16} className="text-green-600"/> 0 a 4 horas</td>
-                    <td className="p-5">Insulina Alta / Glucagon Baixo[cite: 9]</td>
-                    <td className="p-5">Glicose vinda da última refeição[cite: 9]</td>
+                    <td className="p-5">Insulina Alta / Glucagon Baixo</td>
+                    <td className="p-5">Glicose vinda da última refeição</td>
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-bold text-slate-800 flex items-center gap-2"><Clock size={16} className="text-orange-500"/> 4 a 12 horas</td>
-                    <td className="p-5">Queda da Insulina / Início da Lipólise[cite: 9]</td>
-                    <td className="p-5">Glicogênio (açúcar estocado no fígado e músculos)[cite: 5, 9]</td>
+                    <td className="p-5">Queda da Insulina / Início da Lipólise</td>
+                    <td className="p-5">Glicogênio (açúcar estocado no fígado e músculos)</td>
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-bold text-slate-800 flex items-center gap-2"><Clock size={16} className="text-red-600"/> 12 a 16+ horas</td>
-                    <td className="p-5 font-bold text-green-700">Insulina Baixa / Glucagon Alto[cite: 9]</td>
-                    <td className="p-5 font-bold text-slate-800">Quebra ativa de gordura e produção de Corpos Cetônicos[cite: 1, 5, 9]</td>
+                    <td className="p-5 font-bold text-green-700">Insulina Baixa / Glucagon Alto</td>
+                    <td className="p-5 font-bold text-slate-800">Quebra ativa de gordura e produção de Corpos Cetônicos</td>
                   </tr>
                 </tbody>
               </table>
@@ -342,39 +342,39 @@ export default function JejumIntermitente() {
               <Shield className="text-green-600"/> Os benefícios do jejum segundo a ciência
             </h2>
             <p>
-              Muito além de ajudar a emagrecer, ficar um tempo sem comer traz vantagens excelentes para o metabolismo[cite: 9]. A ciência mostra que o jejum ajuda a melhorar a sensibilidade à insulina, facilitando o controle do açúcar no sangue no dia a dia[cite: 9]. Ele também reduz a inflamação nas células, o que protege o seu coração[cite: 9].
+              Muito além de ajudar a emagrecer, ficar um tempo sem comer traz vantagens excelentes para o metabolismo. A ciência mostra que o jejum ajuda a melhorar a sensibilidade à insulina, facilitando o controle do açúcar no sangue no dia a dia. Ele também reduz a inflamação nas células, o que protege o seu coração.
             </p>
             <p>
-              Outro ponto muito legal é o efeito do jejum sobre o GH, o famoso hormônio do crescimento. Quando passamos períodos sem comer, o corpo aumenta a liberação de GH em pulsos bem mais altos na corrente sanguínea[cite: 5]. Esse hormônio entra em ação para proteger os seus músculos e ajudar a quebrar ainda mais gordura[cite: 5].
+              Outro ponto muito legal é o efeito do jejum sobre o GH, o famoso hormônio do crescimento. Quando passamos períodos sem comer, o corpo aumenta a liberação de GH em pulsos bem mais altos na corrente sanguínea. Esse hormônio entra em ação para proteger os seus músculos e ajudar a quebrar ainda mais gordura.
             </p>
             <p>
-              Mas vale um alerta importante para os leigos. Quando olhamos os estudos de longo prazo, os resultados do jejum na saúde e na balança são iguais aos de uma dieta tradicional com corte de calorias[cite: 2, 9]. Isso significa que o jejum funciona muito bem, mas o segredo real não é nenhuma mágica, e sim a constância em manter a estratégia[cite: 9].
+              Mas vale um alerta importante para os leigos. Quando olhamos os estudos de longo prazo, os resultados do jejum na saúde e na balança são iguais aos de uma dieta tradicional com corte de calorias. Isso significa que o jejum funciona muito bem, mas o segredo real não é nenhuma mágica, e sim a constância em manter a estratégia.
             </p>
 
             <h2 id="emagrecimento" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Flame className="text-green-600"/> O jejum intermitente emagrece mais que a dieta comum?
             </h2>
             <p>
-              A resposta direta é não[cite: 9]. O jejum intermitente ajuda a emagrecer porque, ao encurtar o tempo que você tem disponível para comer, você acaba consumindo menos calorias no balanço final do dia[cite: 9]. É a matemática básica da restrição de energia[cite: 9].
+              A resposta direta é não. O jejum intermitente ajuda a emagrecer porque, ao encurtar o tempo que você tem disponível para comer, você acaba consumindo menos calorias no balanço final do dia. É a matemática básica da restrição de energia.
             </p>
             <p>
-              Se duas pessoas comerem exatamente a mesma quantidade de calorias e proteínas, uma fracionando em várias refeições o dia todo e a outra concentrando no jejum, as duas vão perder a mesma quantidade de gordura[cite: 9]. O jejum é uma ferramenta prática para facilitar a rotina, mas não quebra as leis da física[cite: 9].
+              Se duas pessoas comerem exatamente a mesma quantidade de calorias e proteínas, uma fracionando em várias refeições o dia todo e a outra concentrando no jejum, as duas vão perder a mesma quantidade de gordura. O jejum é uma ferramenta prática para facilitar a rotina, mas não quebra as leis da física.
             </p>
             <p>
-              Aquela perda de peso muito rápida que acontece logo nos primeiros dias de jejum não é pura gordura[cite: 9]. Ela acontece porque você esvaziou o estoque de açúcar do corpo, eliminando junto a água que estava presa a ele[cite: 9]. A gordura mesmo vai queimando de forma constante com o passar das semanas[cite: 9].
+              Aquela perda de peso muito rápida que acontece logo nos primeiros dias de jejum não é pura gordura. Ela acontece porque você esvaziou o estoque de açúcar do corpo, eliminando junto a água que estava presa a ele. A gordura mesmo vai queimando de forma constante com o passar das semanas.
             </p>
 
             <h2 id="cafe" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Coffee className="text-green-600"/> Café sem açúcar quebra o jejum?
             </h2>
             <p>
-              Esta é a maior dúvida de todas, e a resposta vai te agradar. O café preto puro e sem açúcar não quebra o jejum metabólico[cite: 8, 9]. Como ele não tem calorias e nem carboidratos, ele não altera a sua glicose e não gera picos de insulina[cite: 8, 9]. O seu corpo continua queimando gordura normalmente[cite: 9].
+              Esta é a maior dúvida de todas, e a resposta vai te agradar. O café preto puro e sem açúcar não quebra o jejum metabólico. Como ele não tem calorias e nem carboidratos, ele não altera a sua glicose e não gera picos de insulina. O seu corpo continua queimando gordura normalmente.
             </p>
             <p>
-              A cafeína é ótima porque estimula o sistema nervoso a liberar mais gordura para ser usada como energia pelas células[cite: 8, 9]. Estudos mostram que se você associar a cafeína com gorduras do tipo TCM (como o ácido caprílico C8), o fígado acelera ainda mais a produção de corpos cetônicos[cite: 8]. Isso gera energia rápida para o cérebro e ajuda a segurar a fome[cite: 4, 8].
+              A cafeína é ótima porque estimula o sistema nervoso a liberar mais gordura para ser usada como energia pelas células. Estudos mostram que se você associar a cafeína com gorduras do tipo TCM (como o ácido caprílico C8), o fígado acelera ainda mais a produção de corpos cetônicos. Isso gera energia rápida para o cérebro e ajuda a segurar a fome.
             </p>
             <p>
-              Por isso, o café preto ou os chás sem açúcar estão super liberados[cite: 8]. Eles são ótimas ferramentas para te dar foco e disposição naquelas horas finais antes de abrir a sua janela de alimentação[cite: 8].
+              Por isso, o café preto ou os chás sem açúcar estão super liberados. Eles são ótimas ferramentas para te dar foco e disposição naquelas horas finais antes de abrir a sua janela de alimentação.
             </p>
 
             <h2 id="o-que-quebra" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
@@ -402,7 +402,7 @@ export default function JejumIntermitente() {
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-bold text-slate-800">Café e Chás Puros</td>
                     <td className="p-5 font-bold text-green-600 flex items-center gap-2"><Check size={16}/> Liberado</td>
-                    <td className="p-5 text-xs">Aceleram o metabolismo e não estimulam a insulina[cite: 8, 9].</td>
+                    <td className="p-5 text-xs">Aceleram o metabolismo e não estimulam a insulina.</td>
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-bold text-slate-800">Água com Gotas de Limão</td>
@@ -417,12 +417,12 @@ export default function JejumIntermitente() {
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-bold text-slate-800">Óleo de Coco / Manteiga no Café</td>
                     <td className="p-5 font-bold text-red-600 flex items-center gap-2"><X size={16}/> Quebra o Jejum</td>
-                    <td className="p-5 text-xs">Quebra o jejum calórico (tem calorias), embora mantenha o corpo em cetose[cite: 8].</td>
+                    <td className="p-5 text-xs">Quebra o jejum calórico (tem calorias), embora mantenha o corpo em cetose.</td>
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-bold text-slate-800">Whey Protein / BCAA</td>
                     <td className="p-5 font-bold text-red-600 flex items-center gap-2"><X size={16}/> Quebra o Jejum</td>
-                    <td className="p-5 text-xs">Aminoácidos ativam a via mTOR e interrompem o jejum imediatamente[cite: 2, 8].</td>
+                    <td className="p-5 text-xs">Aminoácidos ativam a via mTOR e interrompem o jejum imediatamente.</td>
                   </tr>
                 </tbody>
               </table>
@@ -461,7 +461,7 @@ export default function JejumIntermitente() {
                         </div>
 
                         <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                            Beber água controla a ansiedade e garante o transporte correto dos ácidos graxos livres durante a queima de gordura[cite: 9]. Com um marcador de horários visual na garrafa, fica muito mais fácil bater a meta de líquidos exata durante o período de jejum sem se perder na contagem do tempo!
+                            Beber água controla a ansiedade e garante o transporte correto dos ácidos graxos livres durante a queima de gordura. Com um marcador de horários visual na garrafa, fica muito mais fácil bater a meta de líquidos exata durante o período de jejum sem se perder na contagem do tempo!
                         </p>
 
                         <a 
@@ -487,26 +487,26 @@ export default function JejumIntermitente() {
               <Dumbbell className="text-green-600"/> Jejum intermitente e musculação: dá para conciliar?
             </h2>
             <p>
-              Se o seu objetivo é treinar pesado na academia e ganhar massa muscular, dá sim para usar o jejum, mas com estratégia. Treinar musculação totalmente em jejum faz o corpo usar a gordura e o estoque interno de energia dos músculos[cite: 1, 2, 7, 9]. Porém, o rendimento em treinos muito intensos pode cair um pouco sem o carboidrato por perto[cite: 1, 7].
+              Se o seu objetivo é treinar pesado na academia e ganhar massa muscular, dá sim para usar o jejum, mas com estratégia. Treinar musculação totalmente em jejum faz o corpo usar a gordura e o estoque interno de energia dos músculos. Porém, o rendimento em treinos muito intensos pode cair um pouco sem o carboidrato por perto.
             </p>
             <p>
-              Para o ganho de massa magra, o mais importante é o total de proteínas e calorias que você consome no final do dia[cite: 2, 7, 9]. Você precisa bater a sua meta de proteínas dentro daquela janela de 8 horas em que está liberado para comer[cite: 2, 7, 9].
+              Para o ganho de massa magra, o mais importante é o total de proteínas e calorias que você consome no final do dia. Você precisa bater a sua meta de proteínas dentro daquela janela de 8 horas em que está liberado para comer.
             </p>
             <p>
-              Se você comer pouca proteína ou calorias de menos por causa do tempo restrito, o crescimento muscular vai estagnar[cite: 2, 8]. O corpo desativa a via mTOR, que é o mecanismo celular que faz o músculo crescer[cite: 2, 8]. Por isso, o ideal para quem faz musculação é planejar o treino para acontecer perto do horário de abrir o jejum, garantindo uma boa refeição proteica logo depois[cite: 2, 7].
+              Se você comer pouca proteína ou calorias de menos por causa do tempo restrito, o crescimento muscular vai estagnar. O corpo desativa a via mTOR, que é o mecanismo celular que faz o músculo crescer. Por isso, o ideal para quem faz musculação é planejar o treino para acontecer perto do horário de abrir o jejum, garantindo uma boa refeição proteica logo depois.
             </p>
 
             <h2 id="fome" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Brain className="text-green-600"/> Como controlar a fome no começo do jejum
             </h2>
             <p>
-              Sentir fome nas primeiras semanas é completamente normal e esperado. O nosso corpo funciona com horários programados por um hormônio chamado grelina, que é o hormônio da fome[cite: 9]. Se você estava acostumado a tomar café da manhã às 8h, a grelina vai disparar nesse horário e te dar fome[cite: 9].
+              Sentir fome nas primeiras semanas é completamente normal e esperado. O nosso corpo funciona com horários programados por um hormônio chamado grelina, que é o hormônio da fome. Se você estava acostumado a tomar café da manhã às 8h, a grelina vai disparar nesse horário e te dar fome.
             </p>
             <p>
-              A boa notícia é que o corpo se adapta. Em poucos dias, os picos de grelina mudam e se ajustam à sua nova rotina, fazendo a fome diminuir bastante. Além disso, os próprios corpos cetônicos produzidos na cetose atuam no cérebro reduzindo a grelina e controlando o apetite naturalmente[cite: 1].
+              A boa notícia é que o corpo se adapta. Em poucos dias, os picos de grelina mudam e se ajustam à sua nova rotina, fazendo a fome diminuir bastante. Além disso, os próprios corpos cetônicos produzidos na cetose atuam no cérebro reduzindo a grelina e controlando o apetite naturalmente.
             </p>
             <p>
-              Para vencer os primeiros dias sem sofrimento, abuse da água, use o café preto puro a seu favor e foque em comer alimentos ricos em fibras nas suas refeições[cite: 2, 8]. Isso vai garantir que a sua jornada seja tranquila, saudável e baseada na ciência[cite: 2, 9].
+              Para vencer os primeiros dias sem sofrimento, abuse da água, use o café preto puro a seu favor e foque em comer alimentos ricos em fibras nas suas refeições. Isso vai garantir que a sua jornada seja tranquila, saudável e baseada na ciência.
             </p>
 
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
