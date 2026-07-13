@@ -138,9 +138,9 @@ export default function JejumIntermitente() {
             "@type": "VideoObject",
             "name": "I Didn't Eat Food For 14 Days",
             "description": "Desafio documentado por MrBeast mostrando a experiência fisiológica e os desafios mentais de passar 14 dias em jejum intermitente/prolongado.",
-            "thumbnailUrl": "https://img.youtube.com/vi/xG8b_oOQG8c/maxresdefault.jpg",
+            "thumbnailUrl": "https://img.youtube.com/vi/Kq3dcD3Hnik/maxresdefault.jpg",
             "uploadDate": "2023-01-01T00:00:00Z",
-            "embedUrl": "https://www.youtube.com/embed/xG8b_oOQG8c"
+            "embedUrl": "https://www.youtube.com/embed/Kq3dcD3Hnik"
           }) }} />
 
         {/* SCHEMA 5: FAQPage */}
@@ -176,7 +176,7 @@ export default function JejumIntermitente() {
             O Que é Jejum Intermitente? Guia Simples e Direto
           </h1>
           
-          {/* 1. RESPOSTA DIRETA NO TOPO (Agora antes do parágrafo de introdução) */}
+          {/* 1. RESPOSTA DIRETA NO TOPO */}
           <div className="mb-10 p-6 md:p-10 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-6 text-left">
             <div>
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3 flex items-center gap-2">
@@ -188,7 +188,26 @@ export default function JejumIntermitente() {
             </div>
           </div>
 
-          {/* 2. ÁUDIO */}
+          <p className="text-xl text-slate-600 font-medium mb-10">
+            Se você quer entender o jejum intermitente sem complicações, veio ao lugar certo. Essa estratégia virou uma febre no mundo do emagrecimento, mas muita gente ainda se confunde com tanta informação misturada na internet. Em vez de focar no tipo de alimento que você coloca no prato, o jejum intermitente foca em <strong>quando você come</strong>. 
+          </p>
+
+          {/* 2. IMAGEM DE CAPA COM SEO */}
+          <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
+            <img 
+              src={artigoCapa} 
+              alt="Descubra o que é Jejum Intermitente, como essa estratégia metabólica funciona na prática e seus benefícios para a saúde." 
+              title="O que é Jejum Intermitente"
+              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
+            />
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
+                Entender o que é jejum intermitente e como organizar sua janela de alimentação é o primeiro grande passo para a adaptação do seu metabolismo.
+              </p>
+            </figcaption>
+          </figure>
+
+          {/* 3. ÁUDIO */}
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
@@ -202,7 +221,7 @@ export default function JejumIntermitente() {
             </div>
           </div>
 
-          {/* 3. ÍNDICE (TOC) */}
+          {/* 4. ÍNDICE (TOC) */}
           <div className="mb-12 border border-slate-200 rounded-[2rem] shadow-sm overflow-hidden bg-slate-50">
             <button 
               onClick={() => setIsTocOpen(!isTocOpen)}
@@ -236,10 +255,6 @@ export default function JejumIntermitente() {
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
-            <p className="text-xl text-slate-600 font-medium mb-10">
-            Se você quer entender o jejum intermitente sem complicações, veio ao lugar certo. Essa estratégia virou uma febre no mundo do emagrecimento, mas muita gente ainda se confunde com tanta informação misturada na internet. Em vez de focar no tipo de alimento que você coloca no prato, o jejum intermitente foca em <strong>quando você come</strong>. 
-          </p>
-            
             <h2 id="historia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Clock className="text-green-600"/> A História do Jejum: Da Antiguidade aos Dias de Hoje
             </h2>
@@ -320,7 +335,7 @@ export default function JejumIntermitente() {
                     <iframe
                         width="100%"
                         height="100%"
-                        src="https://www.youtube.com/embed/xG8b_oOQG8c"
+                        src="https://www.youtube.com/embed/Kq3dcD3Hnik"
                         title="I Didn't Eat Food For 14 Days"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -428,6 +443,7 @@ export default function JejumIntermitente() {
               </table>
             </div>
 
+            {/* AFILIADO PINGUS - GARRAFA TÉRMICA */}
             <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
                 <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
@@ -445,13 +461,13 @@ export default function JejumIntermitente() {
 
                     <div className="flex-1 text-center md:text-left flex flex-col justify-center">
                         <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                            Garrafa de Água Motivacional <span className="text-green-700">2 Litros com Marcador</span>
+                            Garrafa Térmica <span className="text-green-700">com Filtro para Gelo</span>
                         </h4>
 
                         <div className="w-full max-w-[180px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm bg-slate-200 aspect-[3/4]">
                             <img 
-                              src={`${githubImgBase}Afiliado/GarrafaMotivacional.JPG`} 
-                              alt="Garrafa de Água Motivacional com Marcador de Horários" 
+                              src={`${githubImgBase}Afiliado/Garrafa.jpg`} 
+                              alt="Garrafa Térmica com Filtro de Gelo para Jejum Intermitente" 
                               className="w-full h-full object-cover" 
                               onError={(e) => {
                                 e.target.onerror = null; 
@@ -461,11 +477,11 @@ export default function JejumIntermitente() {
                         </div>
 
                         <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                            Beber água controla a ansiedade e garante o transporte correto dos ácidos graxos livres durante a queima de gordura. Com um marcador de horários visual na garrafa, fica muito mais fácil bater a meta de líquidos exata durante o período de jejum sem se perder na contagem do tempo!
+                            Beber água gelada ajuda muito a controlar a ansiedade nas horas finais do protocolo. Essa garrafa térmica é perfeita porque possui um <strong>sistema de filtro interno</strong> que impede que as pedras de gelo caiam no bico e atrapalhem na hora de beber. Mantém a água geladíssima durante toda a sua janela de jejum!
                         </p>
 
                         <a 
-                            href="https://meli.la/exemplo_garrafa" 
+                            href="https://meli.la/1scXkdR" 
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
