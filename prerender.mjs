@@ -82,6 +82,7 @@ const rotasEstaticas = [
 
 // 📝 2. TODOS OS POSTS DO BLOG (Atualizado com as novidades)
 const postsBlog = [
+  { id: 25, link: "/o-que-e-jejum-intermitente", img: `${githubImgBase}Blog/JejumIntermitente_Capa.jpg`, titulo: "O Que é Jejum Intermitente? Guia Definitivo e Científico", desc: "Descubra o que é o jejum intermitente, como ele afeta o seu metabolismo, a sua ligação histórica e religiosa, e se ele emagrece mais que a dieta tradicional.", data: "2026-07-12" },
   { id: 24, link: "/melhor-horario-para-tomar-ferro", img: `${githubImgBase}Blog/HorarioFerro.jpg`, titulo: "Melhor Horário Para Tomar Ferro e Curar a Anemia", desc: "Descubra o melhor horário para tomar ferro, sintomas de falta no organismo, o que inibe a absorção e tratamento.", data: "2026-04-26" },
   { id: 23, link: "/percentual-gordura-feminino-ideal", img: `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.jpg`, titulo: "Qual o Percentual de Gordura Feminino Ideal?", desc: "Descubra qual é o percentual de gordura feminino ideal para a saúde e estética. Entenda as tabelas de referência.", data: "2026-04-24" },
   { id: 22, link: "/o-que-comer-na-tpm", img: `${githubImgBase}Blog/TPM.jpg`, titulo: "O Que Comer na TPM: Emagrecimento e Metabolismo Feminino", desc: "Descubra por que a vontade de doce aumenta na TPM, a verdade científica sobre o metabolismo feminino e estratégias.", data: "2026-04-20" },
