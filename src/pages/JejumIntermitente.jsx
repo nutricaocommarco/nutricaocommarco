@@ -183,12 +183,30 @@ export default function JejumIntermitente() {
                 <Target className="text-green-600 shrink-0" /> Resposta Direta: O que é e como funciona?
               </h2>
               <p className="mt-4 text-lg md:text-xl text-green-950 font-medium leading-relaxed m-0">
-                O jejum intermitente não é uma dieta, mas sim um estilo de organização de horários onde você alterna períodos de alimentação com períodos de privação calórica total. Ele funciona reduzindo drasticamente os níveis do hormônio insulina e elevando o glucagon. Essa virada hormonal força o seu organismo a esgotar os estoques de açúcar (glicogênio) e a quebrar as células de gordura para usá-las como combustível principal, produzindo energia em forma de corpos cetônicos.
+                O jejum intermitente não é uma dieta, mas sim um estilo de organização de horários onde você alterna períodos de alimentação com períodos de privação calórica total. Ele funciona reduzindo drasticamente os níveis do hormônio insulina e elevando o glucagon. Essa virada hormonal força o seu organismo a esgotar os estoques de açúcar (glicogênio) e a quebrar ativamente as reservas para diminuir o seu <Link to="/percentual-gordura-feminino-ideal" className="text-green-700 font-bold hover:underline">percentual de gordura</Link>, usando-o como combustível principal e produzindo energia em forma de corpos cetônicos.
               </p>
             </div>
           </div>
 
-        
+          <p className="text-xl text-slate-600 font-medium mb-10">
+            Se você quer entender o jejum intermitente sem complicações, veio ao lugar certo. Essa estratégia virou uma febre no mundo do emagrecimento, mas muita gente ainda se confunde com tanta informação misturada na internet. Em vez de focar apenas no tipo de alimento que você coloca no prato, o jejum intermitente foca em <strong>quando você come</strong>, sendo simplesmente uma forma de alinhar o seu dia respeitando o relógio biológico e o seu <Link to="/o-que-e-ciclo-circadiano" className="text-green-600 font-bold hover:underline">ciclo circadiano</Link>. 
+          </p>
+
+          {/* 2. IMAGEM DE CAPA COM SEO */}
+          <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
+            <img 
+              src={artigoCapa} 
+              alt="Descubra o que é Jejum Intermitente, como essa estratégia metabólica funciona na prática e seus benefícios para a saúde." 
+              title="O que é Jejum Intermitente"
+              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
+            />
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
+                Entender o que é jejum intermitente e como organizar sua janela de alimentação é o primeiro grande passo para a adaptação do seu metabolismo.
+              </p>
+            </figcaption>
+          </figure>
+
           {/* 3. ÁUDIO */}
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
@@ -236,24 +254,6 @@ export default function JejumIntermitente() {
           </div>
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
-  <p className="text-xl text-slate-600 font-medium mb-10">
-            Se você quer entender o jejum intermitente sem complicações, veio ao lugar certo. Essa estratégia virou uma febre no mundo do emagrecimento, mas muita gente ainda se confunde com tanta informação misturada na internet. Em vez de focar no tipo de alimento que você coloca no prato, o jejum intermitente foca em <strong>quando você come</strong>. 
-          </p>
-
-          {/* 2. IMAGEM DE CAPA COM SEO */}
-          <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
-            <img 
-              src={artigoCapa} 
-              alt="Descubra o que é Jejum Intermitente, como essa estratégia metabólica funciona na prática e seus benefícios para a saúde." 
-              title="O que é Jejum Intermitente"
-              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
-            />
-            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
-              <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
-                Entender o que é jejum intermitente e como organizar sua janela de alimentação é o primeiro grande passo para a adaptação do seu metabolismo.
-              </p>
-            </figcaption>
-          </figure>
 
             <h2 id="historia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Clock className="text-green-600"/> A História do Jejum: Da Antiguidade aos Dias de Hoje
@@ -327,7 +327,7 @@ export default function JejumIntermitente() {
               <Video className="text-green-600"/> A Experiência Real: 14 Dias Sem Comer (MrBeast)
             </h2>
             <p className="mb-6">
-              Para sair um pouco da teoria médica e ver como o corpo humano lida com a privação de alimentos na prática, o fenômeno da internet <strong>MrBeast</strong> documentou o seu desafio de passar incríveis 14 dias em jejum consecutivo, ingerindo apenas água e eletrólitos. O vídeo ilustra perfeitamente a barreira mental dos primeiros dias e a adaptação do corpo ao longo do processo.
+              Para sair um pouco da teoria médica e ver como o corpo humano lida com a privação de alimentos na prática, o fenômeno da internet <strong>MrBeast</strong> documentou o seu desafio de passar incríveis 14 dias em jejum consecutivo, ingerindo apenas água e eletrólitos. O vídeo ilustra perfeitamente a verdadeira <Link to="/o-que-e-fome-emocional" className="text-green-600 font-bold hover:underline">fome emocional</Link> e a barreira mental dos primeiros dias.
             </p>
             
             <div className="my-10 p-6 md:p-8 bg-slate-900 rounded-[2.5rem] shadow-2xl flex flex-col md:flex-row items-center gap-8 border border-slate-800">
@@ -357,7 +357,7 @@ export default function JejumIntermitente() {
               <Shield className="text-green-600"/> Os benefícios do jejum segundo a ciência
             </h2>
             <p>
-              Muito além de ajudar a emagrecer, ficar um tempo sem comer traz vantagens excelentes para o metabolismo. A ciência mostra que o jejum ajuda a melhorar a sensibilidade à insulina, facilitando o controle do açúcar no sangue no dia a dia. Ele também reduz a inflamação nas células, o que protege o seu coração.
+              Muito além de ajudar a emagrecer, ficar um tempo sem comer traz vantagens excelentes para o metabolismo. A ciência mostra que o jejum ajuda a melhorar a sensibilidade à insulina, facilitando o controle do açúcar no sangue no dia a dia. Ele também atua no combate à <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-bold hover:underline">inflamação invisível</Link> nas células, o que protege o seu coração.
             </p>
             <p>
               Outro ponto muito legal é o efeito do jejum sobre o GH, o famoso hormônio do crescimento. Quando passamos períodos sem comer, o corpo aumenta a liberação de GH em pulsos bem mais altos na corrente sanguínea. Esse hormônio entra em ação para proteger os seus músculos e ajudar a quebrar ainda mais gordura.
@@ -370,13 +370,13 @@ export default function JejumIntermitente() {
               <Flame className="text-green-600"/> O jejum intermitente emagrece mais que a dieta comum?
             </h2>
             <p>
-              A resposta direta é não. O jejum intermitente ajuda a emagrecer porque, ao encurtar o tempo que você tem disponível para comer, você acaba consumindo menos calorias no balanço final do dia. É a matemática básica da restrição de energia.
+              A resposta direta é não. O jejum intermitente ajuda a emagrecer porque, ao encurtar o tempo que você tem disponível para comer, você acaba <Link to="/quantas-calorias-gasto-por-dia" className="text-green-600 font-bold hover:underline">gastando mais do que ingere</Link> no balanço final do dia. É a matemática básica da restrição de energia.
             </p>
             <p>
-              Se duas pessoas comerem exatamente a mesma quantidade de calorias e proteínas, uma fracionando em várias refeições o dia todo e a outra concentrando no jejum, as duas vão perder a mesma quantidade de gordura. O jejum é uma ferramenta prática para facilitar a rotina, mas não quebra as leis da física.
+              Se duas pessoas comerem exatamente a mesma quantidade de calorias e proteínas, uma fracionando em várias refeições o dia todo e a outra concentrando no jejum, as duas vão perder a mesma quantidade de gordura. O jejum é uma ferramenta prática para facilitar a rotina, mas não quebra as leis da física (veja como calcular sua meta ideal na nossa <Link to="/calculadora-de-gasto-calorico" className="text-green-600 font-bold hover:underline">calculadora de gasto calórico</Link>).
             </p>
             <p>
-              Aquela perda de peso muito rápida que acontece logo nos primeiros dias de jejum não é pura gordura. Ela acontece porque você esvaziou o estoque de açúcar do corpo, eliminando junto a água que estava presa a ele. A gordura mesmo vai queimando de forma constante com o passar das semanas.
+              Aquela perda de peso muito rápida que acontece logo nos primeiros dias de jejum não é pura gordura. Ela acontece porque você esvaziou o estoque de açúcar do corpo, eliminando junto a água que estava presa a ele. A gordura real vai queimando de forma constante com o passar das semanas (e é por isso que você não deve se desesperar na hora de escolher o <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-600 font-bold hover:underline">melhor horário para se pesar</Link>).
             </p>
 
             <h2 id="cafe" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
@@ -516,7 +516,7 @@ export default function JejumIntermitente() {
               <Brain className="text-green-600"/> Como controlar a fome no começo do jejum
             </h2>
             <p>
-              Sentir fome nas primeiras semanas é completamente normal e esperado. O nosso corpo funciona com horários programados por um hormônio chamado grelina, que é o hormônio da fome. Se você estava acostumado a tomar café da manhã às 8h, a grelina vai disparar nesse horário e te dar fome.
+              Sentir fome nas primeiras semanas é completamente normal e esperado. O nosso corpo funciona com horários programados pela grelina, um dos principais <Link to="/hormonios_da_fome_emagrecimento" className="text-green-600 font-bold hover:underline">hormônios da fome</Link>. Se você estava acostumado a tomar café da manhã às 8h, a grelina vai disparar nesse horário e te dar fome.
             </p>
             <p>
               A boa notícia é que o corpo se adapta. Em poucos dias, os picos de grelina mudam e se ajustam à sua nova rotina, fazendo a fome diminuir bastante. Além disso, os próprios corpos cetônicos produzidos na cetose atuam no cérebro reduzindo a grelina e controlando o apetite naturalmente.
