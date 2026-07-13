@@ -73,7 +73,7 @@ export default function JejumIntermitente() {
               "name": "Marco Aurélio Jr.",
               "url": "https://www.nutricaocommarco.com.br/sobre",
               "jobTitle": "Estudante de Nutrição",
-              "knowsAbout": ["Jejum Intermitente", "Dietas da Moda" "Emagrecimento", "Metabolismo", "Nutrição Clínica"]
+              "knowsAbout": ["Jejum Intermitente", "Dietas da Moda", "Emagrecimento", "Metabolismo", "Nutrição Clínica"]
             },
             "publisher": {
               "@type": "Organization", 
