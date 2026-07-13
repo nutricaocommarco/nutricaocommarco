@@ -40,6 +40,7 @@ import HorarioFerro from './pages/HorarioFerro';
 import ConfirmacaoAvAntropometrica from './pages/ConfirmacaoAvAntropometrica';
 import InatividadeZero from './pages/InatividadeZero';
 import PlanilhaAntropometriaVendas from './pages/PlanilhaAntropometricaMarcoAurelio';
+import JejumIntermitente from './pages/JejumIntermitente';
 
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
@@ -373,6 +374,7 @@ export default function App() {
             <Route path="/parceria-inatividade-zero" element={<InatividadeZero />} />
             <Route path="/planilha-antropometrica-marco-aurelio" element={<PlanilhaAntropometriaVendas />} />
             <Route path="/planilha" element={<PlanilhaAntropometriaVendas />} />
+            <Route path="/o-que-e-jejum-intermitente" element={<JejumIntermitente />} />
           </Routes>
         </Layout>
       </Router>
