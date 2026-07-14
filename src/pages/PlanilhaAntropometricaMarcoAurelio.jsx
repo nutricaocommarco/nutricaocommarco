@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { 
-  Calculator, Activity, Info, CheckCircle2, User, HeartPulse, 
-  ShieldCheck, Sparkles, Flame, Dumbbell, Percent, CreditCard, 
-  Tag, Video, GitBranch, Target, Layers, RefreshCw, Star 
+  Calculator, Activity, CheckCircle, User, HeartPulse, 
+  Sparkles, Percent, CreditCard, Video, GitBranch, Target, 
+  Layers, RefreshCw, Star 
 } from 'lucide-react';
 
 export default function PlanilhaAntropometriaVendas() {
@@ -307,7 +307,7 @@ export default function PlanilhaAntropometriaVendas() {
             <div className="space-y-6 bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm mb-12">
               <div className="border-b border-slate-100 pb-4">
                 <h4 className="font-black text-slate-900 text-sm md:text-base flex items-center gap-2 uppercase italic text-green-700">
-                  <CheckCircle2 className="w-4 h-4 text-green-600" /> Indicadores e Índices Corporais
+                  <CheckCircle className="w-4 h-4 text-green-600" /> Indicadores e Índices Corporais
                 </h4>
                 <p className="text-xs md:text-sm text-slate-600 mt-1 pl-6 leading-relaxed">
                   Cálculo automático de Massa Corporal, IMC, % de Gordura, Massa Magra Isolada, Massa Muscular (kg), Relação Cintura-Quadril, Relação Cintura-Estatura (Risco Cardiovascular), <strong>IMO</strong> (Massa Óssea estimada), <strong>apVAT</strong> (Área de Gordura Visceral) e Índice Adiposo-Muscular.
@@ -316,7 +316,7 @@ export default function PlanilhaAntropometriaVendas() {
 
               <div className="border-b border-slate-100 pb-4">
                 <h4 className="font-black text-slate-900 text-sm md:text-base flex items-center gap-2 uppercase italic text-green-700">
-                  <CheckCircle2 className="w-4 h-4 text-green-600" /> Protocolo Completo de Dobras Cutâneas
+                  <CheckCircle className="w-4 h-4 text-green-600" /> Protocolo Completo de Dobras Cutâneas
                 </h4>
                 <p className="text-xs md:text-sm text-slate-600 mt-1 pl-6 leading-relaxed">
                   Avaliação das 9 principais pregas: Tríceps, Subescapular, Bíceps, Peitoral, Axilar Média, Crista Ilíaca, Abdominal, Coxa Frontal e Panturrilha Medial. Geração instantânea do <strong>Somatório de 6 e 8 Dobras</strong> para acompanhamento linear do tecido subcutâneo.
@@ -325,7 +325,7 @@ export default function PlanilhaAntropometriaVendas() {
 
               <div className="border-b border-slate-100 pb-4">
                 <h4 className="font-black text-slate-900 text-sm md:text-base flex items-center gap-2 uppercase italic text-green-700">
-                  <CheckCircle2 className="w-4 h-4 text-green-600" /> Perímetros e Perímetros Corrigidos
+                  <CheckCircle className="w-4 h-4 text-green-600" /> Perímetros e Perímetros Corrigidos
                 </h4>
                 <p className="text-xs md:text-sm text-slate-600 mt-1 pl-6 leading-relaxed">
                   Mapeamento de 9 circunferências corporais essenciais e cálculo avançado dos <strong>Perímetros Corrigidos pelas dobras (ISAK)</strong> para Braço, Coxa e Panturrilha, entregando o valor real de hipertrofia da massa muscular local.
@@ -334,7 +334,7 @@ export default function PlanilhaAntropometriaVendas() {
 
               <div>
                 <h4 className="font-black text-slate-900 text-sm md:text-base flex items-center gap-2 uppercase italic text-green-700">
-                  <CheckCircle2 className="w-4 h-4 text-green-600" /> Somatotipo Automático Integrado
+                  <CheckCircle className="w-4 h-4 text-green-600" /> Somatotipo Automático Integrado
                 </h4>
                 <p className="text-xs md:text-sm text-slate-600 mt-1 pl-6 leading-relaxed">
                   Classificação precisa de Heath-Carter para <strong>Endomorfia</strong>, <strong>Mesomorfia</strong> e <strong>Ectomorfia</strong> com o traçado e plotagem imediata dos eixos X e Y direto no gráfico visual da Somatocarta.
@@ -410,7 +410,7 @@ export default function PlanilhaAntropometriaVendas() {
                   rel="noopener noreferrer" 
                   className="w-full sm:w-auto bg-green-500 hover:bg-green-400 text-slate-950 font-black py-5 px-10 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.4)] transform transition-all hover:scale-105 inline-flex justify-center items-center gap-3 text-base md:text-lg uppercase tracking-widest"
                 >
-                  <ShoppingCart size={22} className="shrink-0" />
+                  <CreditCard size={22} className="shrink-0" />
                   Comprar Agora — R$ 50,00
                 </a>
                 <p className="text-slate-400 text-[11px] font-medium mt-4 uppercase tracking-widest">
