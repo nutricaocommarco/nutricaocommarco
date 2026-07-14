@@ -177,26 +177,7 @@ export default function DietaCetogenica() {
             </div>
           </div>
 
-          <p className="text-xl text-slate-600 font-medium mb-10">
-            Se você quer entender de verdade o que é dieta cetogênica sem cair em modismos ou distorções da internet, este guia foi desenhado para você. Muito associada ao emagrecimento rápido e frequentemente aliada ao <Link to="/o-que-e-jejum-intermitente" className="text-green-600 font-bold hover:underline">jejum intermitente</Link>, a conhecida dieta keto promove uma inversão total na pirâmide alimentar tradicional, transformando o seu corpo em uma máquina otimizada para queimar gordura como combustível.
-          </p>
-
-          {/* 2. IMAGEM DE CAPA COM SEO */}
-          <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
-            <img 
-              src={artigoCapa} 
-              alt="Entenda o que é dieta cetogênica, os alimentos e as frutas permitidas no cardápio estruturado de acordo com a ciência." 
-              title="O que é dieta cetogênica"
-              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
-            />
-            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
-              <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
-                Aprender o que é dieta cetogênica e como entrar em cetose exige precisão na seleção de gorduras e no controle dos carboidratos.
-              </p>
-            </figcaption>
-          </figure>
-
-          {/* 3. ÁUDIO */}
+                    {/* 3. ÁUDIO */}
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
@@ -242,6 +223,25 @@ export default function DietaCetogenica() {
               </ul>
             </div>
           </div>
+
+          <p className="text-xl text-slate-600 font-medium mb-10">
+            Se você quer entender de verdade o que é dieta cetogênica sem cair em modismos ou distorções da internet, este guia foi desenhado para você. Muito associada ao emagrecimento rápido e frequentemente aliada ao <Link to="/o-que-e-jejum-intermitente" className="text-green-600 font-bold hover:underline">jejum intermitente</Link>, a conhecida dieta keto promove uma inversão total na pirâmide alimentar tradicional, transformando o seu corpo em uma máquina otimizada para queimar gordura como combustível.
+          </p>
+
+          {/* 2. IMAGEM DE CAPA COM SEO */}
+          <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
+            <img 
+              src={artigoCapa} 
+              alt="Entenda o que é dieta cetogênica, os alimentos e as frutas permitidas no cardápio estruturado de acordo com a ciência." 
+              title="O que é dieta cetogênica"
+              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
+            />
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
+                Aprender o que é dieta cetogênica e como entrar em cetose exige precisão na seleção de gorduras e no controle dos carboidratos.
+              </p>
+            </figcaption>
+          </figure>
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
