@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { 
   ChevronLeft, HelpCircle, Activity, Clock, Shield, 
   Zap, ChevronRight, Headphones, ChevronDown, ShoppingCart, 
-  Target, Flame, Coffee, Dumbbell, Brain, Check, X, AlertTriangle, Video, PlayCircle, Calculator
+  Target, Flame, Coffee, Dumbbell, Brain, Check, X, AlertTriangle, Video, PlayCircle, Calculator, CheckCircle2
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
