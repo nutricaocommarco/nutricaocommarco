@@ -364,15 +364,15 @@ export default function JejumIntermitente() {
               <Calculator className="text-green-600"/> Calcule a sua Janela de Jejum Intermitente
             </h2>
             <p className="mb-6">
-              Usar uma calculadora de jejum intermitente facilita demais a rotina. Insira o horário que você terminou a sua última refeição e escolha o protocolo desejado para descobrir a que horas você está liberado para comer novamente.
+              Usar uma calculadora para entender o que é jejum intermitente e facilitar demais a rotina. Insira o horário que você terminou a sua última refeição e escolha o protocolo desejado para descobrir a que horas você está liberado para comer novamente.
             </p>
             <div className="my-10 bg-white rounded-[3rem] border border-slate-200 shadow-xl overflow-hidden">
                 <div className="bg-slate-900 p-6 md:p-8 text-center">
                     <h3 className="text-2xl font-black text-white italic uppercase flex items-center justify-center gap-3 m-0">
-                        <Calculator className="text-green-500" /> Calculadora de Jejum
+                        <Calculator className="text-green-500" /> Calculadora de Jejum Intermitente
                     </h3>
                     <p className="text-slate-300 font-medium mt-2 m-0 text-sm md:text-base">
-                        Descubra exatamente que horas você volta a comer!
+                        Descubra exatamente que horas você quebra o Jejum Intermitente!
                     </p>
                 </div>
                 <div className="p-6 md:p-10">
@@ -458,7 +458,7 @@ export default function JejumIntermitente() {
                         <PlayCircle className="text-green-500" /> Além do Limite
                     </h3>
                     <p className="text-slate-300 font-medium leading-relaxed mb-6">
-                        Assista a este documentário impressionante onde MrBeast relata os altos e baixos emocionais, as quedas de energia e os picos de clareza mental que acontecem quando o corpo entra em cetose profunda durante duas semanas ininterruptas sem mastigar nada.
+                        Assista a este documentário impressionante onde MrBeast relata os altos e baixos emocionais, as quedas de energia e os picos de clareza mental que acontecem quando o corpo entra em cetose profunda durante duas semanas ininterruptas sem mastigar nada e entenda o que é Jejum Intermitente.
                     </p>
                 </div>
             </div>
@@ -467,13 +467,13 @@ export default function JejumIntermitente() {
               <Shield className="text-green-600"/> Os benefícios do jejum segundo a ciência
             </h2>
             <p>
-              Muito além de ajudar a emagrecer, ficar um tempo sem comer traz vantagens excelentes para o metabolismo. A ciência mostra que o jejum ajuda a melhorar a sensibilidade à insulina, facilitando o controle do açúcar no sangue no dia a dia. Ele também atua no combate à <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-bold hover:underline">inflamação invisível</Link> nas células, o que protege o seu coração.
+              Muito além de ajudar a emagrecer, ficar um tempo sem comer traz vantagens excelentes para o metabolismo. A ciência mostra que o jejum intermitente ajuda a melhorar a sensibilidade à insulina, facilitando o controle do açúcar no sangue no dia a dia. Ele também atua no combate à <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-bold hover:underline">inflamação invisível</Link> nas células, o que protege o seu coração.
             </p>
             <p>
-              Outro ponto muito legal é o efeito do jejum sobre o GH, o famoso hormônio do crescimento. Quando passamos períodos sem comer, o corpo aumenta a liberação de GH em pulsos bem mais altos na corrente sanguínea. Esse hormônio entra em ação para proteger os seus músculos e ajudar a quebrar ainda mais gordura.
+              Outro ponto muito legal é o efeito do jejum Intermitente sobre o GH, o famoso hormônio do crescimento. Quando passamos períodos sem comer, o corpo aumenta a liberação de GH em pulsos bem mais altos na corrente sanguínea. Esse hormônio entra em ação para proteger os seus músculos e ajudar a quebrar ainda mais gordura.
             </p>
             <p>
-              Mas vale um alerta importante para os leigos. Quando olhamos os estudos de longo prazo, os resultados do jejum na saúde e na balança são iguais aos de uma dieta tradicional com corte de calorias. Isso significa que o jejum funciona muito bem, mas o segredo real não é nenhuma mágica, e sim a constância em manter a estratégia.
+              Mas vale um alerta importante para os leigos. Quando olhamos os estudos de longo prazo, os resultados do jejum intermitente na saúde e na balança são iguais aos de uma dieta tradicional com corte de calorias. Isso significa que o jejum funciona muito bem, mas o segredo real não é nenhuma mágica, e sim a constância em manter a estratégia.
             </p>
 
             <h2 id="emagrecimento" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
@@ -483,7 +483,7 @@ export default function JejumIntermitente() {
               A resposta direta é não. O jejum intermitente ajuda a emagrecer porque, ao encurtar o tempo que você tem disponível para comer, você acaba <Link to="/quantas-calorias-gasto-por-dia" className="text-green-600 font-bold hover:underline">gastando mais do que ingere</Link> no balanço final do dia. É a matemática básica da restrição de energia.
             </p>
             <p>
-              Se duas pessoas comerem exatamente a mesma quantidade de calorias e proteínas, uma fracionando em várias refeições o dia todo e a outra concentrando no jejum, as duas vão perder a mesma quantidade de gordura. O jejum é uma ferramenta prática para facilitar a rotina, mas não quebra as leis da física (veja como calcular sua meta ideal na nossa <Link to="/calculadora-de-gasto-calorico" className="text-green-600 font-bold hover:underline">calculadora de gasto calórico</Link>).
+              Se duas pessoas comerem exatamente a mesma quantidade de calorias e proteínas, uma fracionando em várias refeições o dia todo e a outra concentrando no jejum, as duas vão perder a mesma quantidade de gordura. O jejum intermitente é uma ferramenta prática para facilitar a rotina, mas não quebra as leis da física (veja como calcular sua meta ideal na nossa <Link to="/calculadora-de-gasto-calorico" className="text-green-600 font-bold hover:underline">calculadora de gasto calórico</Link>).
             </p>
             <p>
               Aquela perda de peso muito rápida que acontece logo nos primeiros dias de jejum não é pura gordura. Ela acontece porque você esvaziou o estoque de açúcar do corpo, eliminando junto a água que estava presa a ele. A gordura real vai queimando de forma constante com o passar das semanas (e é por isso que você não deve se desesperar na hora de escolher o <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-600 font-bold hover:underline">melhor horário para se pesar</Link>).
