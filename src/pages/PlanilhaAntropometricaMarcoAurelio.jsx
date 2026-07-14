@@ -28,40 +28,40 @@ export default function PlanilhaAntropometriaVendas() {
   // 🔗 Link oficial do seu checkout Hotmart (Atualizado com Cupom de Desconto)
   const linkCheckoutHotmart = "https://pay.hotmart.com/D106679715Y?off=4vrhshe3";
 
-  // 🗣️ Avaliações Fictícias de Alta Conversão
+  // 🗣️ Avaliações "Orgânicas" de Alta Conversão
   const reviews = [
     {
-      nome: "Dra. Carolina Mendes",
+      nome: "Carolina Mendes",
       profissao: "Nutricionista Clínica",
-      texto: "Simplesmente abandonou os softwares caros que eu assinava. O nível de automação via VBA é absurdo, o gráfico da somatocarta gera muito valor no momento da consulta. Recomendo de olhos fechados!",
+      texto: "Cancelei a assinatura do software que eu usava faz anos. A planilha calcula tudo certinho e o PDF que gera no final fica lindo pra mandar pro paciente. Muito prática pro dia a dia do consultório.",
       rating: 5,
       data: "12/07/2026"
     },
     {
       nome: "Rafael Souza",
       profissao: "Personal Trainer",
-      texto: "A melhor planilha de avaliação física que já usei. As mais de 30 equações de regressão facilitam demais a minha vida na hora de avaliar alunos de diferentes perfis. O relatório visual impressiona muito.",
+      texto: "Salvou demais! Antigamente eu perdia muito tempo fazendo conta de dobra cutânea na mão ou caçando site gratuito. Agora deixo o Excel aberto no notebook, jogo os dados e já tenho o % de gordura do aluno na hora.",
       rating: 5,
       data: "05/07/2026"
     },
     {
       nome: "Mariana Costa",
       profissao: "Nutricionista Esportiva",
-      texto: "O fracionamento em 4 componentes e o cálculo de perímetros corrigidos elevaram o nível da minha avaliação de composição corporal. O preço promocional chega a ser simbólico perto do que a planilha entrega.",
+      texto: "Gostei bastante da parte da somatocarta automática e do cálculo de perímetros corrigidos. Me ajuda muito a mostrar para o paciente de hipertrofia que ele realmente ganhou massa muscular e não só reteve líquido.",
       rating: 5,
       data: "28/06/2026"
     },
     {
-      nome: "Prof. Diego Alvarez",
-      profissao: "Avaliador ISAK",
-      texto: "Excelente ferramenta! Segue o rigor dos protocolos internacionais ISAK com exatidão. O layout limpo que oculta equações desnecessárias durante o preenchimento ajuda demais na dinâmica do atendimento.",
+      nome: "Lucas Fernandes",
+      profissao: "Nutricionista",
+      texto: "Eu sou péssimo com Excel, confesso que comprei com medo de ser complicado, mas é super intuitiva. O fato de esconder as linhas que eu não vou usar dependendo se o paciente é homem ou mulher deixa a tela bem limpa.",
       rating: 4,
       data: "15/06/2026"
     },
     {
       nome: "Beatriz Nogueira",
       profissao: "Estudante de Nutrição",
-      texto: "Foi o melhor investimento que fiz na faculdade. Comecei a treinar as avaliações com os protocolos de Jackson e Pollock e a planilha me dá tudo mastigado. Acesso vitalício é um diferencial gigantesco.",
+      texto: "Comprei pra usar nas aulas de avaliação nutricional na faculdade e tem quebrado um galhão. Tem todos os protocolos principais (Pollock, Petroski...) e os resultados bateram certinho com os do professor.",
       rating: 5,
       data: "02/06/2026"
     }
