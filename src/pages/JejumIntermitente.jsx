@@ -221,25 +221,7 @@ export default function JejumIntermitente() {
             </div>
           </div>
 
-          <p className="text-xl text-slate-600 font-medium mb-10">
-            Se você quer entender o que é jejum intermitente sem complicações, veio ao lugar certo. Essa estratégia virou uma febre no mundo do emagrecimento, mas muita gente ainda se confunde com tanta informação misturada na internet. Em vez de focar apenas no tipo de alimento que você coloca no prato, o jejum intermitente foca em <strong>quando você come</strong>, sendo simplesmente uma forma de alinhar o seu dia respeitando o relógio biológico e o seu <Link to="/o-que-e-ciclo-circadiano" className="text-green-600 font-bold hover:underline">ciclo circadiano</Link>. 
-          </p>
-
-          {/* 2. IMAGEM DE CAPA COM SEO */}
-          <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
-            <img 
-              src={artigoCapa} 
-              alt="Descubra o que é Jejum Intermitente, como essa estratégia metabólica funciona na prática e seus benefícios para a saúde." 
-              title="O que é Jejum Intermitente"
-              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
-            />
-            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
-              <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
-                Entender o que é jejum intermitente e como organizar sua janela de alimentação é o primeiro grande passo para a adaptação do seu metabolismo.
-              </p>
-            </figcaption>
-          </figure>
-
+          
           {/* 3. ÁUDIO */}
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
@@ -286,6 +268,26 @@ export default function JejumIntermitente() {
               </ul>
             </div>
           </div>
+
+<p className="text-xl text-slate-600 font-medium mb-10">
+            Se você quer entender o que é jejum intermitente sem complicações, veio ao lugar certo. Essa estratégia virou uma febre no mundo do emagrecimento, mas muita gente ainda se confunde com tanta informação misturada na internet. Em vez de focar apenas no tipo de alimento que você coloca no prato, o jejum intermitente foca em <strong>quando você come</strong>, sendo simplesmente uma forma de alinhar o seu dia respeitando o relógio biológico e o seu <Link to="/o-que-e-ciclo-circadiano" className="text-green-600 font-bold hover:underline">ciclo circadiano</Link>. 
+          </p>
+
+          {/* 2. IMAGEM DE CAPA COM SEO */}
+          <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
+            <img 
+              src={artigoCapa} 
+              alt="Descubra o que é Jejum Intermitente, como essa estratégia metabólica funciona na prática e seus benefícios para a saúde." 
+              title="O que é Jejum Intermitente"
+              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
+            />
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
+                Entender o que é jejum intermitente e como organizar sua janela de alimentação é o primeiro grande passo para a adaptação do seu metabolismo.
+              </p>
+            </figcaption>
+          </figure>
+
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
