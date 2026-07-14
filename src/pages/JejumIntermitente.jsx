@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { 
   ChevronLeft, HelpCircle, Activity, Clock, Shield, 
   Zap, ChevronRight, Headphones, ChevronDown, ShoppingCart, 
-  Target, Flame, Coffee, Dumbbell, Brain, Check, X, AlertTriangle, Video, PlayCircle
+  Target, Flame, Coffee, Dumbbell, Brain, Check, X, AlertTriangle, Video, PlayCircle, Calculator
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
@@ -12,8 +12,8 @@ import Newsletter from '../components/Newsletter';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
-const datePublishedISO = "2026-07-13";
-const dateModifiedISO = "2026-07-13";
+const datePublishedISO = "2026-07-14";
+const dateModifiedISO = "2026-07-14";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 const artigoCapa = `${githubImgBase}Blog/JejumIntermitente_Capa.jpg`; 
@@ -23,10 +23,38 @@ export default function JejumIntermitente() {
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
+  // ESTADOS DA CALCULADORA DE JEJUM
+  const [ultimaRefeicao, setUltimaRefeicao] = useState('20:00');
+  const [protocolo, setProtocolo] = useState('16');
+  const [resultadoJejum, setResultadoJejum] = useState(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  // LÓGICA DA CALCULADORA DE JEJUM
+  const calcularJanela = (e) => {
+    e.preventDefault();
+    if (!ultimaRefeicao) return;
+
+    const [horas, minutos] = ultimaRefeicao.split(':').map(Number);
+    const horasJejum = parseInt(protocolo, 10);
+
+    let novaHora = horas + horasJejum;
+    let diasPassados = Math.floor(novaHora / 24);
+    novaHora = novaHora % 24;
+
+    const horaFormatada = novaHora.toString().padStart(2, '0') + ':' + minutos.toString().padStart(2, '0');
+    
+    let diaTexto = diasPassados === 0 ? "de hoje" : diasPassados === 1 ? "do dia seguinte" : "daqui a dois dias";
+
+    setResultadoJejum({
+      horaExata: horaFormatada,
+      dia: diaTexto,
+      horasJejum: horasJejum
+    });
+  };
+  
   const faqs = [
     {
       pergunta: "O que exatamente está liberado para tomar durante a janela de jejum?",
@@ -188,25 +216,6 @@ export default function JejumIntermitente() {
             </div>
           </div>
 
-          <p className="text-xl text-slate-600 font-medium mb-10">
-            Se você quer entender o jejum intermitente sem complicações, veio ao lugar certo. Essa estratégia virou uma febre no mundo do emagrecimento, mas muita gente ainda se confunde com tanta informação misturada na internet. Em vez de focar apenas no tipo de alimento que você coloca no prato, o jejum intermitente foca em <strong>quando você come</strong>, sendo simplesmente uma forma de alinhar o seu dia respeitando o relógio biológico e o seu <Link to="/o-que-e-ciclo-circadiano" className="text-green-600 font-bold hover:underline">ciclo circadiano</Link>. 
-          </p>
-
-          {/* 2. IMAGEM DE CAPA COM SEO */}
-          <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
-            <img 
-              src={artigoCapa} 
-              alt="Descubra o que é Jejum Intermitente, como essa estratégia metabólica funciona na prática e seus benefícios para a saúde." 
-              title="O que é Jejum Intermitente"
-              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
-            />
-            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
-              <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
-                Entender o que é jejum intermitente e como organizar sua janela de alimentação é o primeiro grande passo para a adaptação do seu metabolismo.
-              </p>
-            </figcaption>
-          </figure>
-
           {/* 3. ÁUDIO */}
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
@@ -253,6 +262,26 @@ export default function JejumIntermitente() {
             </div>
           </div>
 
+                    <p className="text-xl text-slate-600 font-medium mb-10">
+            Se você quer entender o jejum intermitente sem complicações, veio ao lugar certo. Essa estratégia virou uma febre no mundo do emagrecimento, mas muita gente ainda se confunde com tanta informação misturada na internet. Em vez de focar apenas no tipo de alimento que você coloca no prato, o jejum intermitente foca em <strong>quando você come</strong>, sendo simplesmente uma forma de alinhar o seu dia respeitando o relógio biológico e o seu <Link to="/o-que-e-ciclo-circadiano" className="text-green-600 font-bold hover:underline">ciclo circadiano</Link>. 
+          </p>
+          
+          {/* 2. IMAGEM DE CAPA COM SEO */}
+          <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
+            <img 
+              src={artigoCapa} 
+              alt="Descubra o que é Jejum Intermitente, como essa estratégia metabólica funciona na prática e seus benefícios para a saúde." 
+              title="O que é Jejum Intermitente"
+              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
+            />
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
+                Entender o que é jejum intermitente e como organizar sua janela de alimentação é o primeiro grande passo para a adaptação do seu metabolismo.
+              </p>
+            </figcaption>
+          </figure>
+
+          
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
             <h2 id="historia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
@@ -323,6 +352,75 @@ export default function JejumIntermitente() {
               </table>
             </div>
 
+           {/* CALCULADORA DE JANELA DE JEJUM */}
+            <h2 id="calculadora" className="sr-only">Calculadora de Janela de Jejum</h2>
+            <div className="my-16 bg-white rounded-[3rem] border border-slate-200 shadow-xl overflow-hidden">
+                <div className="bg-slate-900 p-6 md:p-8 text-center">
+                    <h3 className="text-2xl font-black text-white italic uppercase flex items-center justify-center gap-3 m-0">
+                        <Calculator className="text-green-500" /> Calculadora de Jejum
+                    </h3>
+                    <p className="text-slate-300 font-medium mt-2 m-0 text-sm md:text-base">
+                        Descubra exatamente que horas você volta a comer!
+                    </p>
+                </div>
+                <div className="p-6 md:p-10">
+                    <form onSubmit={calcularJanela} className="flex flex-col md:flex-row gap-6 items-center justify-center">
+                        <div className="w-full md:w-1/3">
+                            <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 text-center">Última Refeição</label>
+                            <input
+                                type="time"
+                                value={ultimaRefeicao}
+                                onChange={(e) => setUltimaRefeicao(e.target.value)}
+                                className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-xl font-black rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 block p-4 text-center outline-none transition-all shadow-inner cursor-pointer"
+                                required
+                            />
+                        </div>
+                        <div className="w-full md:w-1/3">
+                            <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 text-center">Protocolo</label>
+                            <select
+                                value={protocolo}
+                                onChange={(e) => setProtocolo(e.target.value)}
+                                className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-xl font-black rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 block p-4 text-center outline-none transition-all shadow-inner cursor-pointer"
+                            >
+                                <option value="12">12 Horas</option>
+                                <option value="14">14 Horas</option>
+                                <option value="16">16 Horas (Clássico)</option>
+                                <option value="18">18 Horas</option>
+                                <option value="20">20 Horas</option>
+                                <option value="24">24 Horas</option>
+                            </select>
+                        </div>
+                        <div className="w-full md:w-1/3 flex items-end">
+                            <button
+                                type="submit"
+                                className="w-full bg-green-600 text-white h-[60px] rounded-2xl font-black uppercase text-sm tracking-widest shadow-lg hover:bg-green-700 hover:-translate-y-1 transition-all duration-300"
+                            >
+                                Calcular Horário
+                            </button>
+                        </div>
+                    </form>
+
+                    {/* ÁREA DE RESULTADO */}
+                    {resultadoJejum && (
+                        <div className="mt-10 p-6 md:p-8 rounded-[2rem] border-2 bg-green-50 border-green-200 flex flex-col items-center text-center transition-all duration-500">
+                            <span className="text-xs font-black uppercase tracking-widest mb-2 text-green-800">Você deve quebrar o jejum às:</span>
+                            <span className="text-5xl md:text-6xl font-black italic mb-2 text-green-600 drop-shadow-sm">
+                                {resultadoJejum.horaExata}
+                            </span>
+                            <span className="text-sm font-black uppercase tracking-widest text-green-700 mb-6 bg-green-100/50 px-4 py-1 rounded-full">
+                                {resultadoJejum.dia}
+                            </span>
+                            <div className="flex items-start gap-3 bg-white p-4 rounded-2xl shadow-sm border border-green-100 w-full max-w-md">
+                                <CheckCircle2 className="text-green-600 w-6 h-6 shrink-0 mt-0.5" />
+                                <p className="text-green-900 font-medium text-sm md:text-base m-0 text-left leading-relaxed">
+                                    Após concluir as <strong>{resultadoJejum.horasJejum} horas</strong>, seu corpo já estará otimizado. Lembre-se de se manter hidratado e priorizar proteínas na primeira refeição!
+                                </p>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </div> 
+            
             <h2 id="mrbeast" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Video className="text-green-600"/> A Experiência Real: 14 Dias Sem Comer (MrBeast)
             </h2>
