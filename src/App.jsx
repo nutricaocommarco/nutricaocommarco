@@ -246,7 +246,7 @@ function Layout({ children }) {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
-  return (
+return (
     <div className="min-h-screen font-sans text-slate-800 bg-gradient-to-br from-green-50 to-white flex flex-col selection:bg-green-200">
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || location.pathname !== '/' ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center relative">
@@ -255,55 +255,70 @@ function Layout({ children }) {
             <span className="text-xl font-black tracking-tight text-slate-900 uppercase ml-1">NUTRIÇÃO COM <span className="text-green-600">MARCO</span></span>
           </Link>
 
+          {/* MENU DESKTOP */}
           <div className="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-widest">
             <Link to="/" className={`py-1 border-b-2 transition-all ${location.pathname === '/' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Início</Link>
-            <Link to="/sobre" className={`py-1 border-b-2 transition-all ${location.pathname === '/sobre' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Sobre</Link>
-            <Link to="/certificacoes" className={`py-1 border-b-2 transition-all ${location.pathname === '/certificacoes' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Certificações</Link>
-            <Link to="/blog" className={`py-1 border-b-2 transition-all ${location.pathname.includes('/blog') ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Blog</Link>
-            <Link to="/planos" className={`py-1 border-b-2 transition-all ${location.pathname === '/planos' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Planos</Link>
             
+            {/* Dropdown: Sobre */}
             <div className="relative group">
-              <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${location.pathname.includes('/calculadora') ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-600'}`}>
-                Calculadoras <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
+              <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/sobre', '/certificacoes'].includes(location.pathname) ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-600'}`}>
+                Sobre <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
               </span>
               <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-white border border-green-100 shadow-xl rounded-xl py-3 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col z-50">
-                <Link to="/calculadora-de-gasto-calorico" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/calculadora-de-gasto-calorico' ? 'text-green-600 bg-green-50' : 'text-slate-700 hover:text-green-600 hover:bg-slate-50'}`}>Gasto Calórico</Link>
+                <Link to="/sobre" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/sobre' ? 'text-green-600 bg-green-50' : 'text-slate-700 hover:text-green-600 hover:bg-slate-50'}`}>Quem Sou Eu</Link>
+                <Link to="/certificacoes" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/certificacoes' ? 'text-green-600 bg-green-50' : 'text-slate-700 hover:text-green-600 hover:bg-slate-50'}`}>Certificações</Link>
               </div>
             </div>
 
-            {/* 💎 COMPUTAÇÃO: Link de Vendas da Planilha no Menu Principal */}
-            <Link 
-              to="/planilha" 
-              className={`py-1 border-b-2 transition-all font-black text-green-600 ${location.pathname === '/planilha' ? 'border-green-600' : 'border-transparent hover:text-green-700'}`}
-            >
-              🔥 Planilha Antropométrica PRO
-            </Link>
+            <Link to="/blog" className={`py-1 border-b-2 transition-all ${location.pathname.includes('/blog') ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Blog</Link>
+            <Link to="/planos" className={`py-1 border-b-2 transition-all ${location.pathname === '/planos' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Planos</Link>
+            
+            {/* Dropdown: Recursos */}
+            <div className="relative group">
+              <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/calculadora-de-gasto-calorico', '/planilha'].includes(location.pathname) ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-600'}`}>
+                Recursos <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
+              </span>
+              <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-white border border-green-100 shadow-xl rounded-xl py-3 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col z-50">
+                <Link to="/calculadora-de-gasto-calorico" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/calculadora-de-gasto-calorico' ? 'text-green-600 bg-green-50' : 'text-slate-700 hover:text-green-600 hover:bg-slate-50'}`}>Gasto Calórico</Link>
+                <Link to="/planilha" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/planilha' ? 'text-green-600 bg-green-50' : 'text-slate-700 hover:text-green-600 hover:bg-slate-50'}`}>🔥 Planilha Antropométrica</Link>
+              </div>
+            </div>
 
             <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-6 py-2.5 rounded-full hover:bg-green-700 transition-all shadow-md italic">Instagram</a>
           </div>
-          <button className="md:hidden text-slate-800 p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <X size={28} /> : <Menu size={28} />}</button>
+          
+          <button className="md:hidden text-slate-800 p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
 
         {/* MENU MOBILE / CELULAR */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-green-100 shadow-xl py-6 px-6 flex flex-col gap-6 max-h-[85vh] overflow-y-auto">
             <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Início</Link>
-            <Link to="/sobre" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Sobre</Link>
-            <Link to="/certificacoes" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Certificações</Link>
-            <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Blog</Link>
-            <Link to="/planos" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Planos</Link>
             
-            {/* 💎 MOBILE: Link de Vendas da Planilha no Menu de Celular */}
-            <Link to="/planilha" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-green-600 flex items-center gap-1">🔥 Planilha Antropométrica PRO</Link>
-
+            {/* Mobile: Grupo Sobre */}
             <div className="flex flex-col gap-3 pb-2 border-b border-green-50">
-              <span className="text-lg font-black uppercase tracking-widest text-slate-800">Calculadoras</span>
+              <span className="text-lg font-black uppercase tracking-widest text-slate-800">Sobre</span>
               <div className="flex flex-col gap-3 pl-4 border-l-2 border-green-200">
-                <Link to="/calculadora-de-gasto-calorico" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-600">Gasto Calórico</Link>
+                <Link to="/sobre" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-600">Quem Sou Eu</Link>
+                <Link to="/certificacoes" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-600">Certificações</Link>
               </div>
             </div>
 
-            <a href="/#ebooks" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">E-books</a>
+            <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Blog</Link>
+            <Link to="/planos" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Planos</Link>
+            
+            {/* Mobile: Grupo Recursos */}
+            <div className="flex flex-col gap-3 pb-2 border-b border-green-50">
+              <span className="text-lg font-black uppercase tracking-widest text-slate-800">Recursos</span>
+              <div className="flex flex-col gap-3 pl-4 border-l-2 border-green-200">
+                <Link to="/calculadora-de-gasto-calorico" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-600">Gasto Calórico</Link>
+                <Link to="/planilha" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-green-600 hover:text-green-700 flex items-center gap-1">🔥 Planilha Antropométrica</Link>
+              </div>
+            </div>
+
+            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" onClick={() => setIsMenuOpen(false)} className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-all shadow-md italic text-center text-sm font-bold uppercase tracking-widest">Instagram</a>
           </div>
         )}
       </nav>
