@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { 
   ChevronLeft, HelpCircle, Activity, Clock, Shield, 
   Zap, ChevronRight, Headphones, ChevronDown, ShoppingCart, 
-  Target, Flame, Coffee, Dumbbell, Brain, Check, X, AlertTriangle, Video, PlayCircle, Calculator, CheckCircle2
+  Target, Flame, Coffee, Dumbbell, Brain, Check, X, AlertTriangle, Video, PlayCircle, Calculator, CheckCircle
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
@@ -75,23 +75,23 @@ export default function JejumIntermitente() {
   ];
 
   // Palavras-chave ricas para o Google entender bem do que se trata a página
-  const keywords = "o que é jejum intermitente, como fazer jejum intermitente, jejum 16h, benefícios do jejum intermitente, jejum emagrece mais que dieta, jejum intermitente e musculação, autofagia, corpos cetônicos, dieta cetogênica, calculadora de jejum intermitente, café quebra jejum, água quebra jejum, sintomas do jejum, metabolismo e jejum";
+  const keywords = "o que é jejum intermitente, o que é o jejum intermitente, como fazer jejum intermitente, jejum 16h, benefícios do jejum intermitente, jejum emagrece mais que dieta, jejum intermitente e musculação, autofagia, corpos cetônicos, dieta cetogênica, calculadora de jejum intermitente, café quebra jejum, água quebra jejum, sintomas do jejum, metabolismo e jejum";
 
   return (
     <>
       <Helmet>
-        {/* FOCO NA PALAVRA-CHAVE PRINCIPAL */}
+        {/* FOCO NA PALAVRA-CHAVE PRINCIPAL NOS METADADOS (O que os robôs leem primeiro) */}
         <title>O Que é Jejum Intermitente? Guia Definitivo e Científico | Nutrição com Marco</title>
-        <meta name="description" content="Descubra o que é jejum intermitente, como ele afeta o seu metabolismo na queima de gordura e como organizar sua janela de alimentação com a nossa calculadora." />
+        <meta name="description" content="Aprenda o que é jejum intermitente. Descubra como essa estratégia funciona, como ela afeta o seu metabolismo na queima de gordura e calcule a sua janela." />
         <meta name="keywords" content={keywords} />
         <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="O Que é Jejum Intermitente? Guia Definitivo e Científico" />
-        <meta property="og:description" content="Entenda como organizar os seus horários de alimentação, o limite do corpo humano sem comer e os mitos sobre café e musculação em jejum." />
+        <meta property="og:description" content="Entenda de uma vez por todas o que é jejum intermitente, como organizar os seus horários e os mitos sobre café e musculação." />
         <meta property="og:image" content={artigoCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
         
-        {/* SCHEMA 1: Article */}
+        {/* SCHEMA 1: Article (Totalmente otimizado para a palavra-chave principal) */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
@@ -106,7 +106,7 @@ export default function JejumIntermitente() {
               "name": "Marco Aurélio Jr.",
               "url": "https://www.nutricaocommarco.com.br/sobre",
               "jobTitle": "Estudante de Nutrição",
-              "knowsAbout": ["Jejum Intermitente", "Dietas da Moda", "Emagrecimento", "Metabolismo", "Nutrição Clínica"]
+              "knowsAbout": ["O que é Jejum Intermitente", "Jejum Intermitente", "Dietas da Moda", "Emagrecimento", "Metabolismo", "Nutrição Clínica"]
             },
             "publisher": {
               "@type": "Organization", 
@@ -169,8 +169,8 @@ export default function JejumIntermitente() {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "VideoObject",
-            "name": "I Didn't Eat Food For 14 Days",
-            "description": "Desafio documentado por MrBeast mostrando a experiência fisiológica e os desafios mentais de passar 14 dias em jejum intermitente/prolongado.",
+            "name": "O Que é Jejum Intermitente na Prática: 14 Dias Sem Comer (MrBeast)",
+            "description": "Desafio documentado por MrBeast mostrando a experiência fisiológica e os desafios mentais de passar 14 dias entendendo o que é jejum intermitente prolongado.",
             "thumbnailUrl": "https://img.youtube.com/vi/Kq3dcD3Hnik/maxresdefault.jpg",
             "uploadDate": "2023-01-01T00:00:00Z",
             "embedUrl": "https://www.youtube.com/embed/Kq3dcD3Hnik"
@@ -182,7 +182,7 @@ export default function JejumIntermitente() {
             "@type": "FAQPage",
             "mainEntity": faqs.map(faq => ({
               "@type": "Question",
-              "name": faq.pergunta,
+              "name": faq.pergunta.includes("jejum") ? faq.pergunta.replace("jejum", "jejum intermitente") : faq.pergunta,
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": faq.resposta
@@ -221,7 +221,6 @@ export default function JejumIntermitente() {
             </div>
           </div>
 
-          
           {/* 3. ÁUDIO */}
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
@@ -229,18 +228,19 @@ export default function JejumIntermitente() {
                 <Headphones className="text-green-600 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
-              <audio controls className="w-full h-10 outline-none">
+              <audio controls className="w-full h-10 outline-none" title="Áudio narrando o artigo sobre O Que é Jejum Intermitente">
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/jejum-intermitente.mp3" type="audio/mpeg" />
                 O seu navegador não suporta o áudio.
               </audio>
             </div>
           </div>
 
-          {/* 4. ÍNDICE (TOC) */}
+          {/* 4. ÍNDICE (TOC) COM TÍTULOS ORIGINAIS MAS ANCORAGEM OTIMIZADA */}
           <div className="mb-12 border border-slate-200 rounded-[2rem] shadow-sm overflow-hidden bg-slate-50">
             <button 
               onClick={() => setIsTocOpen(!isTocOpen)}
               className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
+              aria-label="Abrir Índice do Conteúdo sobre O Que é Jejum Intermitente"
             >
               <div className="flex items-center gap-3">
                 <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
@@ -253,31 +253,31 @@ export default function JejumIntermitente() {
 
             <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[1200px] opacity-100 border-t border-slate-200' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
               <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
-                <li><a href="#historia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Clock size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A História do Jejum</a></li>
-                <li><a href="#como-funciona" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como o jejum funciona</a></li>
-                <li><a href="#cronograma" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Target size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Fases do Jejum</a></li>
-                <li><a href="#calculadora" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Calculator size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Calculadora de Janela de Jejum</a></li>
-                <li><a href="#mrbeast" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Video size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A Experiência de MrBeast</a></li>
-                <li><a href="#beneficios" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Shield size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Benefícios Científicos</a></li>
-                <li><a href="#emagrecimento" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Flame size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Emagrece mais que dieta?</a></li>
-                <li><a href="#cafe" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Coffee size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Café quebra o jejum?</a></li>
-                <li><a href="#o-que-quebra" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><AlertTriangle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O que quebra e não quebra</a></li>
-                <li><a href="#musculacao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Dumbbell size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Jejum e Musculação</a></li>
-                <li><a href="#fome" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Brain size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como controlar a fome</a></li>
-                <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes</a></li>
+                <li><a href="#historia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="A História: O Que é Jejum Intermitente"><Clock size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A História do Jejum</a></li>
+                <li><a href="#como-funciona" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Como Funciona: O Que é Jejum Intermitente"><Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como o jejum funciona</a></li>
+                <li><a href="#cronograma" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Fases: O Que é Jejum Intermitente"><Target size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Fases do Jejum</a></li>
+                <li><a href="#calculadora" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Calculadora: O Que é Jejum Intermitente"><Calculator size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Calculadora de Janela de Jejum</a></li>
+                <li><a href="#mrbeast" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="MrBeast testa: O Que é Jejum Intermitente"><Video size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A Experiência de MrBeast</a></li>
+                <li><a href="#beneficios" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Benefícios: O Que é Jejum Intermitente"><Shield size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Benefícios Científicos</a></li>
+                <li><a href="#emagrecimento" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Emagrecimento: O Que é Jejum Intermitente"><Flame size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Emagrece mais que dieta?</a></li>
+                <li><a href="#cafe" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Café no Jejum Intermitente"><Coffee size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Café quebra o jejum?</a></li>
+                <li><a href="#o-que-quebra" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="O que quebra o Jejum Intermitente"><AlertTriangle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O que quebra e não quebra</a></li>
+                <li><a href="#musculacao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Musculação no Jejum Intermitente"><Dumbbell size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Jejum e Musculação</a></li>
+                <li><a href="#fome" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Controle da Fome no Jejum Intermitente"><Brain size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como controlar a fome</a></li>
+                <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="FAQ: O Que é Jejum Intermitente"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes</a></li>
               </ul>
             </div>
           </div>
 
-<p className="text-xl text-slate-600 font-medium mb-10">
+                    <p className="text-xl text-slate-600 font-medium mb-10">
             Se você quer entender o que é jejum intermitente sem complicações, veio ao lugar certo. Essa estratégia virou uma febre no mundo do emagrecimento, mas muita gente ainda se confunde com tanta informação misturada na internet. Em vez de focar apenas no tipo de alimento que você coloca no prato, o jejum intermitente foca em <strong>quando você come</strong>, sendo simplesmente uma forma de alinhar o seu dia respeitando o relógio biológico e o seu <Link to="/o-que-e-ciclo-circadiano" className="text-green-600 font-bold hover:underline">ciclo circadiano</Link>. 
           </p>
 
-          {/* 2. IMAGEM DE CAPA COM SEO */}
+          {/* 2. IMAGEM DE CAPA COM SEO INVISÍVEL */}
           <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
             <img 
               src={artigoCapa} 
-              alt="Descubra o que é Jejum Intermitente, como essa estratégia metabólica funciona na prática e seus benefícios para a saúde." 
+              alt="Descubra de uma vez por todas o que é jejum intermitente, como essa estratégia metabólica funciona na prática e seus benefícios." 
               title="O que é Jejum Intermitente"
               className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
             />
@@ -295,7 +295,7 @@ export default function JejumIntermitente() {
               <Clock className="text-green-600"/> A História do Jejum: Da Antiguidade aos Dias de Hoje
             </h2>
             <p>
-              Para descobrir o que é Jejum Intermitente, vamos entender a sua História. Antes de se tornar uma estratégia moderna de emagrecimento ou de você se perguntar o que é jejum intermitente, saiba que o ato de jejuar já fazia parte da história da humanidade há milhares de anos. Longe de ser apenas uma moda atual, o jejum tem raízes profundas na nossa evolução e, principalmente, na espiritualidade e na religião, que já praticavam o Jejum Intermitente.
+              Antes de se tornar uma estratégia moderna de emagrecimento ou de você se perguntar o que é jejum intermitente, saiba que o ato de jejuar já fazia parte da história da humanidade há milhares de anos. Longe de ser apenas uma moda atual, o jejum tem raízes profundas na nossa evolução e, principalmente, na espiritualidade e na religião.
             </p>
             <p>
               Praticamente todas as grandes tradições do mundo utilizam a privação de alimentos como uma ferramenta de purificação e conexão mental. Um dos relatos antigos mais famosos é o de Moisés, que passou 40 dias e 40 noites em jejum. Outro exemplo clássico desse forte cunho religioso é o Ramadã, onde milhões de pessoas ficam do nascer ao pôr do sol sem consumir calorias por motivos espirituais. Até mesmo na Grécia Antiga, o pai da medicina, Hipócrates, já defendia o jejum como um remédio natural para tratar o corpo.
@@ -327,11 +327,13 @@ export default function JejumIntermitente() {
               <Target className="text-green-600"/> Visão Geral: O Cronograma do Jejum no seu Corpo
             </h2>
             <p className="mb-6">
-              Para ajudar a visualizar as fases que o seu metabolismo atravessa, veja abaixo o que acontece no organismo com o passar das horas durante o Jejum Intermitente:
+              Para ajudar a visualizar as fases que o seu metabolismo atravessa, veja abaixo o que acontece no organismo com o passar das horas sem o consumo de alimentos:
             </p>
 
+            {/* TABELA COM SEO APLICADO NO TÍTULO INVISÍVEL (caption) */}
             <div className="my-8 overflow-x-auto bg-white rounded-3xl border border-slate-200 shadow-sm">
               <table className="w-full text-left min-w-[600px] m-0">
+                <caption className="sr-only">Tabela explicativa mostrando o que é jejum intermitente hora a hora e suas fases metabólicas</caption>
                 <thead className="bg-slate-50 border-b border-slate-200 text-slate-800 uppercase tracking-widest text-xs font-black">
                   <tr>
                     <th className="p-5 w-1/4">Horas de Jejum</th>
@@ -364,15 +366,16 @@ export default function JejumIntermitente() {
               <Calculator className="text-green-600"/> Calcule a sua Janela de Jejum Intermitente
             </h2>
             <p className="mb-6">
-              Usar uma calculadora para entender o que é jejum intermitente e facilitar demais a rotina. Insira o horário que você terminou a sua última refeição e escolha o protocolo desejado para descobrir a que horas você está liberado para comer novamente.
+              Usar uma calculadora de jejum intermitente facilita demais a rotina. Insira o horário que você terminou a sua última refeição e escolha o protocolo desejado para descobrir a que horas você está liberado para comer novamente.
             </p>
             <div className="my-10 bg-white rounded-[3rem] border border-slate-200 shadow-xl overflow-hidden">
                 <div className="bg-slate-900 p-6 md:p-8 text-center">
-                    <h3 className="text-2xl font-black text-white italic uppercase flex items-center justify-center gap-3 m-0">
-                        <Calculator className="text-green-500" /> Calculadora de Jejum Intermitente
-                    </h3>
+                    {/* Trocando h3 para manter hierarquia semântica correta */}
+                    <strong className="text-2xl font-black text-white italic uppercase flex items-center justify-center gap-3 m-0 block">
+                        <Calculator className="text-green-500" /> Calculadora de Jejum
+                    </strong>
                     <p className="text-slate-300 font-medium mt-2 m-0 text-sm md:text-base">
-                        Descubra exatamente que horas você quebra o Jejum Intermitente!
+                        Descubra exatamente que horas você volta a comer!
                     </p>
                 </div>
                 <div className="p-6 md:p-10">
@@ -406,6 +409,7 @@ export default function JejumIntermitente() {
                             <button
                                 type="submit"
                                 className="w-full bg-green-600 text-white h-[60px] rounded-2xl font-black uppercase text-sm tracking-widest shadow-lg hover:bg-green-700 hover:-translate-y-1 transition-all duration-300"
+                                aria-label="Calcular a janela de jejum intermitente"
                             >
                                 Calcular Horário
                             </button>
@@ -423,7 +427,7 @@ export default function JejumIntermitente() {
                                 {resultadoJejum.dia}
                             </span>
                             <div className="flex items-start gap-3 bg-white p-4 rounded-2xl shadow-sm border border-green-100 w-full max-w-md">
-                                <CheckCircle2 className="text-green-600 w-6 h-6 shrink-0 mt-0.5" />
+                                <CheckCircle className="text-green-600 w-6 h-6 shrink-0 mt-0.5" />
                                 <p className="text-green-900 font-medium text-sm md:text-base m-0 text-left leading-relaxed">
                                     Após concluir as <strong>{resultadoJejum.horasJejum} horas</strong>, seu corpo já estará otimizado. Lembre-se de se manter hidratado e priorizar proteínas na primeira refeição!
                                 </p>
@@ -446,7 +450,7 @@ export default function JejumIntermitente() {
                         width="100%"
                         height="100%"
                         src="https://www.youtube.com/embed/Kq3dcD3Hnik"
-                        title="I Didn't Eat Food For 14 Days"
+                        title="Documentário sobre 14 dias em Jejum Intermitente por MrBeast"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
@@ -454,11 +458,11 @@ export default function JejumIntermitente() {
                     ></iframe>
                 </div>
                 <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-2xl font-black text-white italic uppercase mb-4 flex items-center justify-center md:justify-start gap-2">
+                    <strong className="text-2xl font-black text-white italic uppercase mb-4 flex items-center justify-center md:justify-start gap-2 block">
                         <PlayCircle className="text-green-500" /> Além do Limite
-                    </h3>
+                    </strong>
                     <p className="text-slate-300 font-medium leading-relaxed mb-6">
-                        Assista a este documentário impressionante onde MrBeast relata os altos e baixos emocionais, as quedas de energia e os picos de clareza mental que acontecem quando o corpo entra em cetose profunda durante duas semanas ininterruptas sem mastigar nada e entenda o que é Jejum Intermitente.
+                        Assista a este documentário impressionante onde MrBeast relata os altos e baixos emocionais, as quedas de energia e os picos de clareza mental que acontecem quando o corpo entra em cetose profunda durante duas semanas ininterruptas sem mastigar nada.
                     </p>
                 </div>
             </div>
@@ -467,13 +471,13 @@ export default function JejumIntermitente() {
               <Shield className="text-green-600"/> Os benefícios do jejum segundo a ciência
             </h2>
             <p>
-              Muito além de ajudar a emagrecer, ficar um tempo sem comer traz vantagens excelentes para o metabolismo. A ciência mostra que o jejum intermitente ajuda a melhorar a sensibilidade à insulina, facilitando o controle do açúcar no sangue no dia a dia. Ele também atua no combate à <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-bold hover:underline">inflamação invisível</Link> nas células, o que protege o seu coração.
+              Muito além de ajudar a emagrecer, ficar um tempo sem comer traz vantagens excelentes para o metabolismo. A ciência mostra que o jejum ajuda a melhorar a sensibilidade à insulina, facilitando o controle do açúcar no sangue no dia a dia. Ele também atua no combate à <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-bold hover:underline">inflamação invisível</Link> nas células, o que protege o seu coração.
             </p>
             <p>
-              Outro ponto muito legal é o efeito do jejum Intermitente sobre o GH, o famoso hormônio do crescimento. Quando passamos períodos sem comer, o corpo aumenta a liberação de GH em pulsos bem mais altos na corrente sanguínea. Esse hormônio entra em ação para proteger os seus músculos e ajudar a quebrar ainda mais gordura.
+              Outro ponto muito legal é o efeito do jejum sobre o GH, o famoso hormônio do crescimento. Quando passamos períodos sem comer, o corpo aumenta a liberação de GH em pulsos bem mais altos na corrente sanguínea. Esse hormônio entra em ação para proteger os seus músculos e ajudar a quebrar ainda mais gordura.
             </p>
             <p>
-              Mas vale um alerta importante para os leigos. Quando olhamos os estudos de longo prazo, os resultados do jejum intermitente na saúde e na balança são iguais aos de uma dieta tradicional com corte de calorias. Isso significa que o jejum funciona muito bem, mas o segredo real não é nenhuma mágica, e sim a constância em manter a estratégia.
+              Mas vale um alerta importante para os leigos. Quando olhamos os estudos de longo prazo, os resultados do jejum na saúde e na balança são iguais aos de uma dieta tradicional com corte de calorias. Isso significa que o jejum funciona muito bem, mas o segredo real não é nenhuma mágica, e sim a constância em manter a estratégia.
             </p>
 
             <h2 id="emagrecimento" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
@@ -483,7 +487,7 @@ export default function JejumIntermitente() {
               A resposta direta é não. O jejum intermitente ajuda a emagrecer porque, ao encurtar o tempo que você tem disponível para comer, você acaba <Link to="/quantas-calorias-gasto-por-dia" className="text-green-600 font-bold hover:underline">gastando mais do que ingere</Link> no balanço final do dia. É a matemática básica da restrição de energia.
             </p>
             <p>
-              Se duas pessoas comerem exatamente a mesma quantidade de calorias e proteínas, uma fracionando em várias refeições o dia todo e a outra concentrando no jejum, as duas vão perder a mesma quantidade de gordura. O jejum intermitente é uma ferramenta prática para facilitar a rotina, mas não quebra as leis da física (veja como calcular sua meta ideal na nossa <Link to="/calculadora-de-gasto-calorico" className="text-green-600 font-bold hover:underline">calculadora de gasto calórico</Link>).
+              Se duas pessoas comerem exatamente a mesma quantidade de calorias e proteínas, uma fracionando em várias refeições o dia todo e a outra concentrando no jejum, as duas vão perder a mesma quantidade de gordura. O jejum é uma ferramenta prática para facilitar a rotina, mas não quebra as leis da física (veja como calcular sua meta ideal na nossa <Link to="/calculadora-de-gasto-calorico" className="text-green-600 font-bold hover:underline">calculadora de gasto calórico</Link>).
             </p>
             <p>
               Aquela perda de peso muito rápida que acontece logo nos primeiros dias de jejum não é pura gordura. Ela acontece porque você esvaziou o estoque de açúcar do corpo, eliminando junto a água que estava presa a ele. A gordura real vai queimando de forma constante com o passar das semanas (e é por isso que você não deve se desesperar na hora de escolher o <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-600 font-bold hover:underline">melhor horário para se pesar</Link>).
@@ -511,6 +515,7 @@ export default function JejumIntermitente() {
 
             <div className="my-8 overflow-x-auto bg-white rounded-3xl border border-slate-200 shadow-sm">
               <table className="w-full text-left min-w-[600px] m-0">
+                <caption className="sr-only">Tabela explicando o que quebra o jejum intermitente e o que é permitido</caption>
                 <thead className="bg-slate-50 border-b border-slate-200 text-slate-800 uppercase tracking-widest text-xs font-black">
                   <tr>
                     <th className="p-5 w-1/3">Bebida / Ingrediente</th>
@@ -564,7 +569,8 @@ export default function JejumIntermitente() {
                     <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
                         <img 
                             src={`${githubImgBase}logoN_pingus.png`} 
-                            alt="Selo de Qualidade Pingus" 
+                            alt="Selo de Qualidade Pingus recomendando produtos para jejum intermitente" 
+                            title="O que é Jejum Intermitente e como se hidratar"
                             className="w-full h-full object-contain" 
                         />
                     </div>
@@ -577,7 +583,7 @@ export default function JejumIntermitente() {
                         <div className="w-full max-w-[180px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm bg-slate-200 aspect-[3/4]">
                             <img 
                               src={`${githubImgBase}Afiliado/Garrafa.jpg`} 
-                              alt="Garrafa Térmica com Filtro de Gelo para Jejum Intermitente" 
+                              alt="Garrafa Térmica com Filtro de Gelo ideal para beber água no Jejum Intermitente" 
                               className="w-full h-full object-cover" 
                               onError={(e) => {
                                 e.target.onerror = null; 
@@ -595,6 +601,7 @@ export default function JejumIntermitente() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                            aria-label="Comprar Garrafa Térmica no Mercado Livre"
                         >
                             <ShoppingCart size={16} />
                             Ver Garrafa no Mercado Livre
@@ -645,6 +652,7 @@ export default function JejumIntermitente() {
                     <button
                       onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
                       className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
+                      aria-expanded={openFaqIndex === index}
                     >
                       <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-600' : 'text-slate-800 group-hover:text-green-600'}`}>
                         {faq.pergunta}
@@ -669,7 +677,7 @@ export default function JejumIntermitente() {
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
             <img 
               src={`${githubImgBase}Eu_1.png`} 
-              alt="Marco Aurélio Jr." 
+              alt="Marco Aurélio Jr. - Autor e Nutricionista em formação" 
               className="w-full h-full object-cover" 
               onError={(e) => {
                 e.target.onerror = null; 
