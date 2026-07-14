@@ -388,7 +388,7 @@ export default function App() {
             <Route path="/melhor-horario-para-tomar-ferro" element={<HorarioFerro />} />
             <Route path="/confirmacao-av-antropometrica" element={<ConfirmacaoAvAntropometrica />} />
             <Route path="/parceria-inatividade-zero" element={<InatividadeZero />} />
-            <Route path="/planilha-antropometrica-marco-aurelio" element={<PlanilhaAntropometriaVendas />} />
+            <Route path="/planilha-de-avaliacao-antropometrica-marco-aurelio" element={<PlanilhaAntropometriaVendas />} />
             <Route path="/planilha" element={<PlanilhaAntropometriaVendas />} />
             <Route path="/o-que-e-jejum-intermitente" element={<JejumIntermitente />} />
             <Route path="/o-que-e-dieta-cetogenica" element={<DietaCetogenica />} />
