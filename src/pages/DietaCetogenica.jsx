@@ -418,7 +418,7 @@ export default function DietaCetogenica() {
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-black text-slate-800">Jantar</td>
-                    <td className="p-5">Costela suína assada (ou sobrecoxa de frango com pele) acompanhada de espinafre refogado e generosa rega de azeite extravirgem ou óleo de coco.</td>
+                    <td className="p-5">Costela suína assada (ou sobrecoxa de frango com pele) acompanhada de espinafre refogado e generosa rega de azeite extravirgem.</td>
                     <td className="p-5 text-xs">Aporte lipídico final para manter a insulina basal e sustentar a cetose noturna.</td>
                   </tr>
                 </tbody>
