@@ -12,7 +12,7 @@ import {
   ShoppingCart, 
   PlayCircle, 
   Headphones,
-  Zap /* <-- O ÍCONE ZAP QUE FALTAVA FOI ADICIONADO AQUI! */
+  Zap 
 } from 'lucide-react';
 
 // Importações dos seus componentes
@@ -38,10 +38,19 @@ export default function DiabeticoPodeComerBeterraba() {
   const dataPub = postAtual ? postAtual.data : "2026-01-01";
   const dataMod = postAtual ? postAtual.dataMod : "2026-01-01";
 
+  // PALAVRA-CHAVE CENTRAL (Invisível para o leitor, focada para o Google)
+  const mainKeyword = "diabético pode comer beterraba";
+
   return (
     <>
       <Helmet>
-        {/* SCHEMA.ORG (Google) */}
+        {/* MELHORIA NAS META TAGS COM A KEYWORD EXATA */}
+        <title>Diabético pode comer beterraba? O mito que você precisa parar de acreditar</title>
+        <meta name="description" content="Afinal, diabético pode comer beterraba? Descubra se o açúcar da beterraba faz mal, entenda o papel das fibras na carga glicêmica e os benefícios clínicos reais." />
+        <meta name="keywords" content="diabético pode comer beterraba, beterraba faz mal para diabetes, carga glicêmica da beterraba, açúcar da beterraba, índice glicêmico da beterraba, nutrição para diabetes" />
+        <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
+
+        {/* SCHEMA.ORG (Google) - Foco no Headline e Keywords */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -63,7 +72,8 @@ export default function DiabeticoPodeComerBeterraba() {
             },
             "datePublished": "2026-03-22",
             "dateModified": "2026-03-22",
-            "description": "Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2."
+            "description": "Se você sempre perguntou se diabético pode comer beterraba, este artigo científico desmistifica a carga glicêmica e o açúcar deste vegetal para o diabetes tipo 2.",
+            "keywords": mainKeyword
           })}
         </script>
 
@@ -75,12 +85,12 @@ export default function DiabeticoPodeComerBeterraba() {
             "itemListElement": [
               { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.nutricaocommarco.com.br/" },
               { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.nutricaocommarco.com.br/blog" },
-              { "@type": "ListItem", "position": 3, "name": "Beterraba e Diabetes", "item": `https://www.nutricaocommarco.com.br${pathname}` }
+              { "@type": "ListItem", "position": 3, "name": "Diabético pode comer beterraba?", "item": `https://www.nutricaocommarco.com.br${pathname}` }
             ]
           })}
         </script>
 
-        {/* SCHEMA.ORG PARA FAQ */}
+        {/* SCHEMA.ORG PARA FAQ (Injetando keyword sutilmente nas perguntas lidas pelos robôs) */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -88,7 +98,7 @@ export default function DiabeticoPodeComerBeterraba() {
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "Beterraba cozida é pior que a crua para o diabético?",
+                "name": "Se o diabético pode comer beterraba, a cozida é pior que a crua?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "A versão crua é superior por concentrar de forma intacta as fibras e os compostos bioativos associados a marcadores metabólicos positivos em testes clínicos recentes. O processamento térmico (cozinhar muito) e o fatiamento excessivo quebram a barreira fibrosa, o que pode acelerar a digestão e a absorção intestinal dos carboidratos."
@@ -96,7 +106,7 @@ export default function DiabeticoPodeComerBeterraba() {
               },
               {
                 "@type": "Question",
-                "name": "Qual a quantidade ideal de beterraba por dia para diabéticos?",
+                "name": "Qual a quantidade ideal de beterraba por dia se diabético pode comer beterraba?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "A ciência atesta de maneira sólida que a ingestão de 100 gramas diárias de beterraba crua oferece resultados seguros e eficazes. Esse volume demonstrou melhorias clinicamente relevantes na redução de glicose, pressão arterial e marcadores lipídicos no diabetes tipo 2."
@@ -118,7 +128,11 @@ export default function DiabeticoPodeComerBeterraba() {
       <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
         <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
-          <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+          <Link 
+            to="/blog" 
+            className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit"
+            title="Voltar aos artigos para descobrir se diabético pode comer beterraba e outros mitos"
+          >
             <ChevronLeft size={20} /> Voltar para o Blog
           </Link>
 
@@ -150,7 +164,7 @@ export default function DiabeticoPodeComerBeterraba() {
                   <Headphones className="text-green-600 w-6 h-6" />
                   <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
                 </div>
-                <audio controls className="w-full h-10 outline-none">
+                <audio controls className="w-full h-10 outline-none" title="Áudio explicando se diabético pode comer beterraba">
                   <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/BeterrabaDiabetes.mp3" type="audio/mpeg" />
                   Seu navegador não suporta o elemento de áudio.
                 </audio>
@@ -159,11 +173,12 @@ export default function DiabeticoPodeComerBeterraba() {
               {/* LINHA DIVISÓRIA SUAVE */}
               <div className="h-px bg-green-100/60 w-full"></div>
 
-              {/* 2. SEÇÃO DO SUMÁRIO (TOC) */}
+              {/* 2. SEÇÃO DO SUMÁRIO (TOC) OTIMIZADA COM TITLES INVISÍVEIS */}
               <nav className="bg-slate-50">
                 <button 
                   onClick={() => setIsTocOpen(!isTocOpen)}
                   className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
+                  aria-label="Abrir sumário para ler se diabético pode comer beterraba"
                 >
                   <div className="flex items-center gap-3">
                     <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
@@ -183,25 +198,25 @@ export default function DiabeticoPodeComerBeterraba() {
                 <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                   <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
                     <li>
-                      <a href="#o-mito-do-acucar" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#o-mito-do-acucar" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Diabético pode comer beterraba: O Mito do Açúcar">
                         <Leaf size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         O Mito do Açúcar
                       </a>
                     </li>
                     <li>
-                      <a href="#indice-vs-carga" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#indice-vs-carga" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Diabético pode comer beterraba: Índice vs Carga">
                         <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         Índice vs. Carga
                       </a>
                     </li>
                     <li>
-                      <a href="#beneficios-clinicos" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#beneficios-clinicos" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Diabético pode comer beterraba: Benefícios Clínicos">
                         <Heart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         Benefícios Clínicos
                       </a>
                     </li>
                     <li>
-                      <a href="#dicas-consumo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#dicas-consumo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Diabético pode comer beterraba: Dicas de Ouro">
                         <HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         Dicas de Ouro
                       </a>
@@ -215,14 +230,14 @@ export default function DiabeticoPodeComerBeterraba() {
             <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
               <p>Muitas pessoas que recebem o diagnóstico de diabetes ou pré-diabetes acabam saindo do consultório médico com uma verdadeira lista mental de alimentos "proibidos", gerando ansiedade na hora de montar o prato. Quase sempre, a beterraba está no topo dessa temida lista por causa do seu inconfundível sabor adocicado.</p>
 
-              <p>A exclusão desse vegetal é, inclusive, reconhecida por manuais oficiais de abordagem nutricional como um tabu alimentar cultural e infundado que acaba apenas por empobrecer a dieta diária. É a mesma lógica falha que assombra as pessoas quando se perguntam <Link to="/quantas_frutas_posso_comer" className="font-bold underline text-green-700 hover:text-green-800 transition-colors">quantas frutas podem comer por dia</Link>. A lógica popular parece óbvia e irrefutável: "se o alimento é doce na boca, é porque a beterraba tem muito açúcar; e se tem açúcar, fatalmente a beterraba aumenta a glicemia de forma perigosa". Mas, quando mergulhamos na nutrição clínica e na fisiologia do corpo humano, o grande erro está em olhar apenas para o teor de açúcar isolado e esquecer a <strong>complexa matriz nutricional</strong> do alimento.</p>
+              <p>A exclusão desse vegetal é, inclusive, reconhecida por manuais oficiais de abordagem nutricional como um tabu alimentar cultural e infundado que acaba apenas por empobrecer a dieta diária. É a mesma lógica falha que assombra as pessoas quando se perguntam <Link to="/quantas_frutas_posso_comer" className="font-bold underline text-green-700 hover:text-green-800 transition-colors" title="Descubra se diabético pode comer beterraba e frutas">quantas frutas podem comer por dia</Link>. A lógica popular parece óbvia e irrefutável: "se o alimento é doce na boca, é porque a beterraba tem muito açúcar; e se tem açúcar, fatalmente a beterraba aumenta a glicemia de forma perigosa". Mas, quando mergulhamos na nutrição clínica e na fisiologia do corpo humano, o grande erro está em olhar apenas para o teor de açúcar isolado e esquecer a <strong>complexa matriz nutricional</strong> do alimento.</p>
 
-              {/* IMAGEM ESTRATÉGICA */}
+              {/* IMAGEM ESTRATÉGICA COM ALT TEXT OTIMIZADO PARA O GOOGLE */}
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
                 <img 
                   src={`${githubImgBase}Blog/beterraba_diabetes.jpg`} 
-                  alt="Foto de uma beterraba cortada ao meio com folhas verdes ao fundo, destacando sua cor vibrante." 
-                  title="Beterraba e Diabetes"
+                  alt="Diabético pode comer beterraba sim! Foto de uma beterraba vermelha ilustrando os benefícios e as fibras contra o diabetes." 
+                  title="Diabético pode comer beterraba"
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
                 />
                 <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">A beterraba é uma aliada da saúde do diabético quando consumida corretamente.</p></div>
@@ -231,7 +246,7 @@ export default function DiabeticoPodeComerBeterraba() {
               <h2 id="o-mito-do-acucar" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Leaf className="text-green-600"/> O Mito do Açúcar e a Matriz Nutricional
               </h2>
-              <p>A beterraba é um vegetal riquíssimo em fibras alimentares, e é exatamente aqui que o jogo vira a favor do paciente diabético. As <strong>fibras solúveis e insolúveis</strong> presentes na matriz da beterraba funcionam como uma espécie de barreira natural no seu sistema digestivo. O mecanismo de proteção é bem similar à razão pela qual indicamos o remolho para quem se pergunta <Link to="/por_que_o_feijao_da_gases" className="font-bold underline text-green-700 hover:text-green-800 transition-colors">por que o feijão dá gases</Link>: o trato gastrointestinal precisa trabalhar de forma inteligente com compostos complexos.</p>
+              <p>A beterraba é um vegetal riquíssimo em fibras alimentares, e é exatamente aqui que o jogo vira a favor do paciente diabético. As <strong>fibras solúveis e insolúveis</strong> presentes na matriz da beterraba funcionam como uma espécie de barreira natural no seu sistema digestivo. O mecanismo de proteção é bem similar à razão pela qual indicamos o remolho para quem se pergunta <Link to="/por_que_o_feijao_da_gases" className="font-bold underline text-green-700 hover:text-green-800 transition-colors" title="Entendendo os gases após descobrir que diabético pode comer beterraba">por que o feijão dá gases</Link>: o trato gastrointestinal precisa trabalhar de forma inteligente com compostos complexos.</p>
 
               <p>Isso retarda o esvaziamento gástrico e proporciona uma resposta significativamente menor de glicose e insulina na fase pós-prandial. Esse processo cadenciado evita aqueles picos perigosos de insulina circulante no sangue. Além disso, as <em>betalaínas</em>, que são os pigmentos responsáveis por dar a inconfundível cor vermelha intensa à beterraba, possuem potentes propriedades antioxidantes e anti-inflamatórias que auxiliam na proteção e reparo dos componentes celulares.</p>
 
@@ -242,14 +257,14 @@ export default function DiabeticoPodeComerBeterraba() {
               <h2 id="indice-vs-carga" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Scale className="text-green-600"/> Índice Glicêmico vs. Carga Glicêmica
               </h2>
-              <p>Para desmistificar de vez esse medo, existe um conceito técnico fundamental: a diferença prática entre índice glicêmico e carga glicêmica. O pânico de dietas restritivas e flutuações de peso sem orientação levam muitas vezes a um quadro de <Link to="/efeito_sanfona_inflamacao_invisivel" className="font-bold underline text-green-700 hover:text-green-800 transition-colors">efeito sanfona e inflamação celular</Link>, e a educação nutricional é a principal arma contra isso.</p>
+              <p>Para desmistificar de vez esse medo, existe um conceito técnico fundamental: a diferença prática entre índice glicêmico e carga glicêmica. O pânico de dietas restritivas e flutuações de peso sem orientação levam muitas vezes a um quadro de <Link to="/efeito_sanfona_inflamacao_invisivel" className="font-bold underline text-green-700 hover:text-green-800 transition-colors" title="Como o efeito sanfona prejudica o paciente que já sabe que diabético pode comer beterraba">efeito sanfona e inflamação celular</Link>, e a educação nutricional é a principal arma contra isso.</p>
 
               <p>Enquanto o <strong>índice glicêmico</strong> avalia a velocidade com que um carboidrato isolado vira açúcar no sangue, a <strong>carga glicêmica</strong> avalia a quantidade real de carboidratos que você consome em uma porção normal. O índice glicêmico da beterraba pode até ser considerado moderado, mas a sua carga glicêmica é muito baixa, pois ela possui muita água e um baixo aporte calórico total por porção.</p>
 
-              {/* TABELA COMPARATIVA SIMPLIFICADA (GEO BOOST) */}
+              {/* TABELA COMPARATIVA SIMPLIFICADA (GEO BOOST COM A KEYWORD) */}
               <div className="my-10 bg-white border border-green-100 shadow-md rounded-[2rem] overflow-hidden">
                 <div className="bg-green-50 px-6 py-4 border-b border-green-100">
-                  <h3 className="text-xl font-black text-green-800 uppercase italic m-0">Comparativo: Índice vs. Carga Glicêmica</h3>
+                  <h3 className="text-xl font-black text-green-800 uppercase italic m-0" aria-label="Tabela provando que diabético pode comer beterraba analisando a carga glicêmica">Comparativo: Índice vs. Carga Glicêmica</h3>
                 </div>
                 <div className="p-6">
                   <ul className="space-y-4 m-0">
@@ -315,7 +330,7 @@ export default function DiabeticoPodeComerBeterraba() {
                 <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
                   <iframe 
                     src="https://www.youtube.com/embed/bcaJS6tQfL0" 
-                    title="Diferença entre Índice Glicêmico e Carga Glicêmica - Nutrição com Marco" 
+                    title="Vídeo explicando por que diabético pode comer beterraba usando a Carga Glicêmica" 
                     className="absolute top-0 left-0 w-full h-full"
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -328,7 +343,7 @@ export default function DiabeticoPodeComerBeterraba() {
               <h2 id="beneficios-clinicos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Heart className="text-green-600"/> Os Benefícios Clínicos Comprovados
               </h2>
-              <p>Os benefícios clínicos para quem convive com o diabetes são substanciais e comprovados em ensaios rigorosos. Para analisar o impacto metabólico no corpo, muito além do que uma balança comum mostra (se quiser aprofundar, veja nosso artigo sobre <Link to="/o_que_e_antropometria" className="font-bold underline text-green-700 hover:text-green-800 transition-colors">o que é antropometria</Link>), em um estudo clínico, 44 pacientes com diabetes tipo 2 consumiram 100 gramas de beterraba vermelha crua diariamente durante 8 semanas consecutivas. Os resultados mostraram uma redução expressiva de <strong>13,53 mg/dL na glicemia de jejum</strong> e uma queda de 0,34% na hemoglobina glicada (HbA1c).</p>
+              <p>Os benefícios clínicos para quem convive com o diabetes são substanciais e comprovados em ensaios rigorosos. Para analisar o impacto metabólico no corpo, muito além do que uma balança comum mostra (se quiser aprofundar, veja nosso artigo sobre <Link to="/o_que_e_antropometria" className="font-bold underline text-green-700 hover:text-green-800 transition-colors" title="Como a antropometria é afetada quando o diabético pode comer beterraba de forma segura">o que é antropometria</Link>), em um estudo clínico, 44 pacientes com diabetes tipo 2 consumiram 100 gramas de beterraba vermelha crua diariamente durante 8 semanas consecutivas. Os resultados mostraram uma redução expressiva de <strong>13,53 mg/dL na glicemia de jejum</strong> e uma queda de 0,34% na hemoglobina glicada (HbA1c).</p>
 
               <p>Além de atuar diretamente no controle do açúcar, a intervenção resultou na queda da pressão arterial sistólica em 0,73 mmHg e diastólica em 0,34 mmHg. Esse efeito cardiovascular protetor está ligado à presença de nitratos inorgânicos na composição do vegetal, que atuam na dilatação endotelial e na saúde dos vasos sanguíneos cerebrais e periféricos.</p>
 
@@ -342,7 +357,7 @@ export default function DiabeticoPodeComerBeterraba() {
               </h2>
 
               <div className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left">
-                <ul className="list-none m-0 p-0 space-y-6">
+                <ul className="list-none m-0 p-0 space-y-6" aria-label="Passo a passo garantindo que o diabético pode comer beterraba sem medo">
                   <li className="flex gap-4 items-start">
                     <div className="w-8 h-8 rounded-full bg-green-200 text-green-800 font-black flex items-center justify-center shrink-0 mt-1">1</div>
                     <div>
@@ -387,7 +402,8 @@ export default function DiabeticoPodeComerBeterraba() {
                       <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
                           <img 
                               src={`${githubImgBase}logoN_pingus.png`} 
-                              alt="Selo de Qualidade Pingus" 
+                              alt="O Pinguim garante que diabético pode comer beterraba com segurança" 
+                              title="Diabético pode comer beterraba sim!"
                               className="w-full h-full object-contain" 
                           />
                       </div>
@@ -401,7 +417,8 @@ export default function DiabeticoPodeComerBeterraba() {
                           <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
                               <img 
                                   src={`${githubImgBase}Afiliado/Ralador01.jpg`} 
-                                  alt="Ralador e Fatiador de Legumes Prático" 
+                                  alt="Ralador ideal para preparar a salada, provando que diabético pode comer beterraba facilmente." 
+                                  title="Ralador de Beterraba"
                                   className="w-full h-auto object-contain" 
                               />
                           </div>
@@ -415,6 +432,7 @@ export default function DiabeticoPodeComerBeterraba() {
                               href="https://meli.la/289QBjX" 
                               rel="sponsored noopener noreferrer" 
                               target="_blank"
+                              aria-label="Comprar Ralador no Mercado Livre para garantir que diabético pode comer beterraba crua"
                               className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
                           >
                               <ShoppingCart size={16} />
@@ -463,7 +481,7 @@ export default function DiabeticoPodeComerBeterraba() {
             <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
               <img 
                 src={`${githubImgBase}Eu_1.png`} 
-                alt="Marco Aurélio Jr." 
+                alt="Marco Aurélio Jr. que desvenda o mito se o diabético pode comer beterraba" 
                 title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador ISAK 1"
                 className="w-full h-full object-cover"
               />
