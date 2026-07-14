@@ -294,12 +294,25 @@ export default function DietaCetogenica() {
               </div>
             </div>
 
-            <h2 id="exemplo-cardapio" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
+<h2 id="exemplo-cardapio" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
               <Utensils className="text-green-600"/> Exemplo Prático: Um Dia de Cardápio Cetogênico
             </h2>
             <p className="mb-6">
-              Para ilustrar como essa distribuição de macronutrientes se transforma em comida no prato, montamos um exemplo básico de um cardápio cetogênico para um dia completo. Observe a ausência de amidos e o foco total em gorduras e proteínas de qualidade:
+              Para ilustrar como essa distribuição de macronutrientes se transforma em comida no prato, montamos um exemplo básico de um cardápio cetogênico para um dia completo. Observe a ausência de amidos e o foco total em gorduras e proteínas de qualidade, evidenciando o abismo que existe entre um prato keto "sujo" e um prato cetogênico limpo e anti-inflamatório:
             </p>
+
+            <figure className="my-8 rounded-3xl overflow-hidden shadow-md border border-slate-200">
+              <img 
+                src={`${githubImgBase}image_8c4d42.jpg`} 
+                alt="Comparação entre uma Dieta Cetogênica ruim e uma Cetogênica limpa." 
+                className="w-full h-auto object-cover" 
+              />
+              <figcaption className="bg-slate-50 p-4 text-center border-t border-slate-200">
+                <p className="text-sm text-slate-600 font-medium italic m-0">
+                  Sempre que pensarmos em prescrever ou criticar a Cetogênica, temos que ter em mente o abismo entre os dois pratos da imagem.
+                </p>
+              </figcaption>
+            </figure>
 
             <div className="my-8 overflow-x-auto bg-white rounded-3xl border border-slate-200 shadow-sm">
               <table className="w-full text-left min-w-[600px] m-0">
@@ -318,17 +331,17 @@ export default function DietaCetogenica() {
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-black text-slate-800">Almoço</td>
-                    <td className="p-5">Filé de salmão grelhado no azeite, acompanhado de brócolis na manteiga e uma salada de folhas verdes escuras.</td>
-                    <td className="p-5 text-xs">Ômega 3 (gordura poli-insaturada), fibras e vitaminas com quase zero carbo.</td>
+                    <td className="p-5">Filé de salmão grelhado, acompanhado de aspargos, cogumelos, brócolis no azeite e uma porção de queijo branco (como feta ou cottage).</td>
+                    <td className="p-5 text-xs">Ômega 3 (gordura poli-insaturada), fibras e proteínas com quase zero carbo.</td>
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-black text-slate-800">Lanche da Tarde</td>
-                    <td className="p-5">Um punhado (aprox. 30g) de mix de castanhas contendo nozes, macadâmia e sementes de abóbora.</td>
-                    <td className="p-5 text-xs">Lanche prático com alta densidade lipídica e rica carga de minerais.</td>
+                    <td className="p-5">Bebida vegetal de castanhas com cálcio adicionado (para garantir o suprimento do mineral na dieta), acompanhada de um mix de castanhas-pecã e fatias de queijo.</td>
+                    <td className="p-5 text-xs">Lanche prático com alta densidade lipídica e suprimento ideal de cálcio para a dieta.</td>
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-black text-slate-800">Jantar</td>
-                    <td className="p-5">Costela suína assada (proteína com maior teor de gordura) com espinafre refogado e generosa rega de azeite extravirgem.</td>
+                    <td className="p-5">Costela suína assada (ou sobrecoxa de frango com pele) acompanhada de espinafre refogado e generosa rega de azeite extravirgem ou óleo de coco.</td>
                     <td className="p-5 text-xs">Aporte lipídico final para manter a insulina basal e sustentar a cetose noturna.</td>
                   </tr>
                 </tbody>
