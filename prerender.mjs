@@ -7,8 +7,8 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 // 📝 1. TODAS AS ROTAS ESTÁTICAS E DE SISTEMA
 const rotasEstaticas = [
   { 
-    path: 'planilha-antropometrica-marco-aurelio', 
-    title: 'Planilha Antropométrica Inteligente PRO | Nutrição com Marco',
+    path: 'planilha-de-avaliacao-antropometrica-marco-aurelio', 
+    title: 'Planilha de Avaliação Antropométrica Inteligente PRO | Nutrição com Marco',
     image: `${githubImgBase}PlanilhaImagem/Capa.JPG`,
     desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.'
   },
