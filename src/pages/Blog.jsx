@@ -5,6 +5,15 @@ import { ChevronRight, Clock, Filter, Tag as TagIcon } from 'lucide-react';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 const postsData = [
+    {
+    id: 24,
+    link: "/o-que-e-jejum-intermitente",
+    imgSrc: `${githubImgBase}Blog/JejumIntermitente_Capa.jpg`,
+    tag: "Dietas da Moda",
+    title: "O Que é Jejum Intermitente? Guia Definitivo e Científico",
+    desc: "Descubra o que é o jejum intermitente, como ele afeta o metabolismo, o limite do corpo humano sem comer e se ele realmente emagrece mais que a dieta tradicional.",
+    isNew: true
+  },
 {
     id: 23,
     link: "/melhor-horario-para-tomar-ferro",
@@ -21,7 +30,6 @@ const postsData = [
     tag: "Saúde da Mulher",
     title: "Qual o Percentual de Gordura Feminino Ideal? A Ciência Explica",
     desc: "Pare de brigar com a balança. Descubra qual é a faixa ideal para sua saúde e estética, e entenda como hormônios, ciclo menstrual e idade influenciam sua composição corporal.",
-    isNew: true
   },
 {
     id: 21,
