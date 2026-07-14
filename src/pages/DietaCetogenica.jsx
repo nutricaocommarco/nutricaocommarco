@@ -294,67 +294,6 @@ export default function DietaCetogenica() {
               </div>
             </div>
 
-<h2 id="exemplo-cardapio" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Utensils className="text-green-600"/> Exemplo Prático: Um Dia de Cardápio Cetogênico
-            </h2>
-            <p className="mb-6">
-              Para ilustrar como essa distribuição de macronutrientes se transforma em comida no prato, montamos um exemplo básico de um cardápio cetogênico para um dia completo. Observe a ausência de amidos e o foco total em gorduras e proteínas de qualidade, evidenciando o abismo que existe entre um prato keto "sujo" e um prato cetogênico limpo e anti-inflamatório:
-            </p>
-
-            <figure className="my-8 rounded-3xl overflow-hidden shadow-md border border-slate-200">
-              <img 
-                src={`${githubImgBase}image_8c4d42.jpg`} 
-                alt="Comparação entre uma Dieta Cetogênica ruim e uma Cetogênica limpa." 
-                className="w-full h-auto object-cover" 
-              />
-              <figcaption className="bg-slate-50 p-4 text-center border-t border-slate-200">
-                <p className="text-sm text-slate-600 font-medium italic m-0">
-                  Sempre que pensarmos em prescrever ou criticar a Cetogênica, temos que ter em mente o abismo entre os dois pratos da imagem.
-                </p>
-              </figcaption>
-            </figure>
-
-            <div className="my-8 overflow-x-auto bg-white rounded-3xl border border-slate-200 shadow-sm">
-              <table className="w-full text-left min-w-[600px] m-0">
-                <thead className="bg-green-50 border-b border-green-100 text-green-900 uppercase tracking-widest text-xs font-black">
-                  <tr>
-                    <th className="p-5 w-1/4">Refeição</th>
-                    <th className="p-5 w-1/2">O Que Comer</th>
-                    <th className="p-5 w-1/4">Foco Nutricional</th>
-                  </tr>
-                </thead>
-                <tbody className="text-sm font-medium text-slate-600 divide-y divide-slate-100">
-                  <tr className="hover:bg-slate-50 transition-colors">
-                    <td className="p-5 font-black text-slate-800">Café da Manhã</td>
-                    <td className="p-5">3 ovos mexidos preparados na manteiga ghee, acompanhados de metade de um abacate e uma xícara de café preto sem açúcar.</td>
-                    <td className="p-5 text-xs">Alta saciedade com gorduras monoinsaturadas e proteínas lipídicas.</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50 transition-colors">
-                    <td className="p-5 font-black text-slate-800">Almoço</td>
-                    <td className="p-5">Filé de salmão grelhado, acompanhado de aspargos, cogumelos, brócolis no azeite e uma porção de queijo branco (como feta ou cottage).</td>
-                    <td className="p-5 text-xs">Ômega 3 (gordura poli-insaturada), fibras e proteínas com quase zero carbo.</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50 transition-colors">
-                    <td className="p-5 font-black text-slate-800">Lanche da Tarde</td>
-                    <td className="p-5">Bebida vegetal de castanhas com cálcio adicionado, acompanhada de um mix de castanhas-pecã, fatias de queijo e uma pequena porção de morangos.</td>
-                    <td className="p-5 text-xs">Lanche prático com alta densidade lipídica, cálcio e os antioxidantes de baixo índice glicêmico das frutas vermelhas.</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50 transition-colors">
-                    <td className="p-5 font-black text-slate-800">Jantar</td>
-                    <td className="p-5">Costela suína assada (ou sobrecoxa de frango com pele) acompanhada de espinafre refogado e generosa rega de azeite extravirgem ou óleo de coco.</td>
-                    <td className="p-5 text-xs">Aporte lipídico final para manter a insulina basal e sustentar a cetose noturna.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div className="mb-12 p-5 md:p-6 bg-orange-50 rounded-2xl border border-orange-100 shadow-sm flex items-start gap-3">
-              <AlertTriangle className="text-orange-500 shrink-0 mt-0.5" size={20} />
-              <p className="text-sm md:text-base text-orange-900 font-medium italic m-0 leading-relaxed">
-                <strong>Atenção:</strong> Este cardápio é apenas um exemplo ilustrativo e não leva em conta a sua individualidade biológica. É fundamental procurar um Nutricionista para calcular as quantidades exatas, analisar exames e montar uma estratégia segura e personalizada para você!
-              </p>
-            </div>
-
             <h2 id="cetose" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Brain className="text-green-600"/> O Que é Cetose e Cetoadaptação?
             </h2>
@@ -431,6 +370,67 @@ export default function DietaCetogenica() {
             <p>
               O <strong>abacate</strong> e o <strong>avocado</strong> são os reis incontestáveis da dieta keto. Eles são compostos predominantemente por ácidos graxos monoinsaturados saudáveis e possuem uma quantidade de carboidratos líquidos virtualmente nula devido ao altíssimo teor de fibras vegetais. O <strong>coco seco</strong> (especialmente a polpa em pedaços) segue a mesma linha, sendo rico em gorduras boas. Por fim, as <strong>frutas vermelhas</strong> (como morangos, mirtilos e amoras) podem entrar de forma controlada em pequenas porções, pois apresentam uma carga glicêmica baixíssima em comparação com frutas como banana ou manga.
             </p>
+
+            <h2 id="exemplo-cardapio" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Utensils className="text-green-600"/> Exemplo Prático: Um Dia de Cardápio Cetogênico
+            </h2>
+            <p className="mb-6">
+              Para ilustrar como essa distribuição de macronutrientes se transforma em comida no prato, montamos um exemplo básico de um cardápio cetogênico para um dia completo. Observe a ausência de amidos e o foco total em gorduras e proteínas de qualidade, evidenciando o abismo que existe entre um prato keto "sujo" e um prato cetogênico limpo e anti-inflamatório:
+            </p>
+
+            <figure className="my-8 rounded-3xl overflow-hidden shadow-md border border-slate-200">
+              <img 
+                src={`${githubImgBase}image_8c4d42.jpg`} 
+                alt="Comparação entre uma Dieta Cetogênica ruim e uma Cetogênica limpa." 
+                className="w-full h-auto object-cover" 
+              />
+              <figcaption className="bg-slate-50 p-4 text-center border-t border-slate-200">
+                <p className="text-sm text-slate-600 font-medium italic m-0">
+                  Sempre que pensarmos em prescrever ou criticar a Cetogênica, temos que ter em mente o abismo entre os dois pratos da imagem.
+                </p>
+              </figcaption>
+            </figure>
+
+            <div className="my-8 overflow-x-auto bg-white rounded-3xl border border-slate-200 shadow-sm">
+              <table className="w-full text-left min-w-[600px] m-0">
+                <thead className="bg-green-50 border-b border-green-100 text-green-900 uppercase tracking-widest text-xs font-black">
+                  <tr>
+                    <th className="p-5 w-1/4">Refeição</th>
+                    <th className="p-5 w-1/2">O Que Comer</th>
+                    <th className="p-5 w-1/4">Foco Nutricional</th>
+                  </tr>
+                </thead>
+                <tbody className="text-sm font-medium text-slate-600 divide-y divide-slate-100">
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-black text-slate-800">Café da Manhã</td>
+                    <td className="p-5">3 ovos mexidos preparados na manteiga ghee, acompanhados de metade de um abacate e uma xícara de café preto sem açúcar.</td>
+                    <td className="p-5 text-xs">Alta saciedade com gorduras monoinsaturadas e proteínas lipídicas.</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-black text-slate-800">Almoço</td>
+                    <td className="p-5">Filé de salmão grelhado, acompanhado de aspargos, cogumelos, brócolis no azeite e uma porção de queijo branco (como feta ou cottage).</td>
+                    <td className="p-5 text-xs">Ômega 3 (gordura poli-insaturada), fibras e proteínas com quase zero carbo.</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-black text-slate-800">Lanche da Tarde</td>
+                    <td className="p-5">Bebida vegetal de castanhas com cálcio adicionado, acompanhada de um mix de castanhas-pecã, fatias de queijo e uma pequena porção de morangos.</td>
+                    <td className="p-5 text-xs">Lanche prático com alta densidade lipídica, cálcio e os antioxidantes de baixo índice glicêmico das frutas vermelhas.</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50 transition-colors">
+                    <td className="p-5 font-black text-slate-800">Jantar</td>
+                    <td className="p-5">Costela suína assada (ou sobrecoxa de frango com pele) acompanhada de espinafre refogado e generosa rega de azeite extravirgem ou óleo de coco.</td>
+                    <td className="p-5 text-xs">Aporte lipídico final para manter a insulina basal e sustentar a cetose noturna.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="mb-12 p-5 md:p-6 bg-orange-50 rounded-2xl border border-orange-100 shadow-sm flex items-start gap-3">
+              <AlertTriangle className="text-orange-500 shrink-0 mt-0.5" size={20} />
+              <p className="text-sm md:text-base text-orange-900 font-medium italic m-0 leading-relaxed">
+                <strong>Atenção:</strong> Este cardápio é apenas um exemplo ilustrativo e não leva em conta a sua individualidade biológica. É fundamental procurar um Nutricionista para calcular as quantidades exatas, analisar exames e montar uma estratégia segura e personalizada para você!
+              </p>
+            </div>
 
             <h2 id="video-cardapio" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Video className="text-green-600"/> Opção Prática: Cardápio para a Dieta Cetogênica
