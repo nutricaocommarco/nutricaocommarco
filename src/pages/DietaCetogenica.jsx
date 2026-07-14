@@ -380,7 +380,7 @@ export default function DietaCetogenica() {
 
             <figure className="my-8 rounded-3xl overflow-hidden shadow-md border border-slate-200">
               <img 
-                src={`${githubImgBase}Ceto_dif_Pratos.jpg`} 
+                src={`${githubImgBase}Blog/Ceto_dif_Pratos.jpg`} 
                 alt="Comparação entre uma Dieta Cetogênica ruim e uma Cetogênica limpa." 
                 className="w-full h-auto object-cover" 
               />
