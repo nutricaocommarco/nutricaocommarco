@@ -18,63 +18,63 @@ export default function PlanilhaAntropometriaVendas() {
   const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/PlanilhaImagem/";
   const capaImg = `${githubImgBase}Capa.JPG`;
   const partesPlanilha = [
-    { src: `${githubImgBase}1.png`, alt: "Parte 1: Evolução da composição corporal e dados avaliados" },
-    { src: `${githubImgBase}2.png`, alt: "Parte 2: Gráficos de evolução e valores normativos de gordura" },
-    { src: `${githubImgBase}3.png`, alt: "Parte 3: Protocolo completo de dobras cutâneas e somatórios" },
-    { src: `${githubImgBase}4.png`, alt: "Parte 4: Perímetros corporais corrigidos pelas dobras" },
-    { src: `${githubImgBase}5.png`, alt: "Parte 5: Classificação do somatotipo e gráfico de somatocarta" }
+    { src: `${githubImgBase}1.png`, alt: "Planilha de Avaliação Antropométrica - Parte 1: Evolução da composição corporal" },
+    { src: `${githubImgBase}2.png`, alt: "Planilha de Avaliação Antropométrica - Parte 2: Gráficos e valores normativos" },
+    { src: `${githubImgBase}3.png`, alt: "Planilha de Avaliação Antropométrica - Parte 3: Protocolo completo de dobras" },
+    { src: `${githubImgBase}4.png`, alt: "Planilha de Avaliação Antropométrica - Parte 4: Perímetros corrigidos" },
+    { src: `${githubImgBase}5.png`, alt: "Planilha de Avaliação Antropométrica - Parte 5: Somatotipo e gráfico" }
   ];
 
   // 🔗 Link oficial do seu checkout Hotmart (Atualizado com Cupom de Desconto)
   const linkCheckoutHotmart = "https://pay.hotmart.com/D106679715Y?off=4vrhshe3";
 
-  // 🗣️ Avaliações "Orgânicas" de Alta Conversão
+  // 🗣️ Avaliações Orgânicas
   const reviews = [
     {
       nome: "Carolina Mendes",
       profissao: "Nutricionista Clínica",
-      texto: "Cancelei a assinatura do software que eu usava faz anos. A planilha calcula tudo certinho e o PDF que gera no final fica lindo pra mandar pro paciente. Muito prática pro dia a dia do consultório.",
+      texto: "Cancelei a assinatura do software que eu usava faz anos. Essa Planilha de Avaliação Antropométrica calcula tudo certinho e o PDF que gera no final fica lindo pra mandar pro paciente. Muito prática!",
       rating: 5,
       data: "12/07/2026"
     },
     {
       nome: "Rafael Souza",
       profissao: "Personal Trainer",
-      texto: "Salvou demais! Antigamente eu perdia muito tempo fazendo conta de dobra cutânea na mão ou caçando site gratuito. Agora deixo o Excel aberto no notebook, jogo os dados e já tenho o % de gordura do aluno na hora.",
+      texto: "Salvou demais! Antigamente eu perdia muito tempo fazendo conta de dobra cutânea na mão. Agora deixo o Excel aberto, jogo os dados e a planilha já me dá o % de gordura do aluno na hora.",
       rating: 5,
       data: "05/07/2026"
     },
     {
       nome: "Mariana Costa",
       profissao: "Nutricionista Esportiva",
-      texto: "Gostei bastante da parte da somatocarta automática e do cálculo de perímetros corrigidos. Me ajuda muito a mostrar para o paciente de hipertrofia que ele realmente ganhou massa muscular e não só reteve líquido.",
+      texto: "Gostei bastante da parte da somatocarta automática e do cálculo de perímetros corrigidos. Me ajuda muito a mostrar para o paciente de hipertrofia que ele realmente ganhou massa muscular.",
       rating: 5,
       data: "28/06/2026"
     },
     {
       nome: "Lucas Fernandes",
       profissao: "Nutricionista",
-      texto: "Eu sou péssimo com Excel, confesso que comprei com medo de ser complicado, mas é super intuitiva. O fato de esconder as linhas que eu não vou usar dependendo se o paciente é homem ou mulher deixa a tela bem limpa.",
+      texto: "Eu sou péssimo com Excel, confesso que comprei com medo de ser complicado, mas é super intuitiva. O fato de esconder as linhas que não vou usar, dependendo se o paciente é homem ou mulher, ajuda muito.",
       rating: 4,
       data: "15/06/2026"
     },
     {
       nome: "Beatriz Nogueira",
       profissao: "Estudante de Nutrição",
-      texto: "Comprei pra usar nas aulas de avaliação nutricional na faculdade e tem quebrado um galhão. Tem todos os protocolos principais (Pollock, Petroski...) e os resultados bateram certinho com os do professor.",
+      texto: "Comprei pra usar nas aulas da faculdade e tem quebrado um galhão. Tem todos os protocolos principais (Pollock, Petroski...) e os resultados da planilha de avaliação antropométrica bateram certinho com os do professor.",
       rating: 5,
       data: "02/06/2026"
     }
   ];
 
-  const keywords = "planilha antropométrica, planilha de avaliação física, planilha de antropometria excel, planilha para nutricionista, planilha antropométrica grátis, download planilha antropométrica, avaliação antropométrica, planilha de composição corporal, software para avaliação física, cálculo de dobras cutâneas, planilha pollock 3 dobras, planilha pollock 7 dobras, protocolo ISAK, cálculo de percentual de gordura, planilha de bioimpedância, ficha de avaliação física, planilha de anamnese nutricional, calculadora de dobras cutâneas, adipometria, cálculo de massa muscular, massa magra e massa gorda, protocolo de jackson e pollock, protocolo de durnin e womersley, fórmula de siri, densidade corporal, planilha de gasto calórico, taxa metabólica basal, fórmula de harris benedict, acompanhamento nutricional excel, medidas antropométricas, circunferência da cintura, relação cintura quadril, risco cardiovascular, somatotipo, fracionamento em 4 componentes, planilha avaliação física personal trainer, planilha para educador físico, tabela de dobras cutâneas, excel para nutricionistas, sistema de avaliação física, ficha de antropometria completa, como calcular percentual de gordura, avaliação nutricional esportiva, planilha de perimetria, laudo de avaliação antropométrica, planilha antropométrica profissional, planilha antropométrica pro, avaliação física completa excel, bioimpedância e dobras cutâneas, planilha de resultados nutricionais";
+  const keywords = "planilha de avaliação antropométrica, planilha antropométrica, planilha de avaliação física, planilha de antropometria excel, planilha para nutricionista, planilha de composição corporal, cálculo de dobras cutâneas, protocolo ISAK, cálculo de percentual de gordura, ficha de avaliação física";
 
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "Planilha de Avaliação Antropométrica Inteligente PRO",
     "url": "https://www.nutricaocommarco.com.br/planilha-antropometrica-marco-aurelio",
-    "description": "Sistema avançado em Excel (VBA) para nutricionistas e personais. Avaliação completa da composição corporal, mais de 30 equações de predição (Jackson & Pollock, Petroski, Durnin), protocolo ISAK, perímetros corrigidos e somatocarta automática. Acesso Vitalício.",
+    "description": "A mais completa Planilha de Avaliação Antropométrica em Excel (VBA). Avaliação completa da composição corporal, mais de 30 equações de predição, protocolo ISAK e perímetros corrigidos.",
     "image": capaImg,
     "sku": "PLAN-ANTRO-PRO",
     "brand": {
@@ -123,13 +123,14 @@ export default function PlanilhaAntropometriaVendas() {
   return (
     <>
       <Helmet>
-        <title>Planilha de Avaliação Antropométrica Inteligente PRO | Excel em Software</title>
-        <meta name="description" content="A melhor Planilha Antropométrica em Excel para Nutricionistas e Avaliadores. Cálculo de percentual de gordura, protocolo ISAK, Pollock, Somatotipo e muito mais." />
+        {/* PALAVRA CHAVE EXATA NO TITLE E DESCRIPTION */}
+        <title>Planilha de Avaliação Antropométrica em Excel | Sistema PRO</title>
+        <meta name="description" content="A melhor e mais completa Planilha de Avaliação Antropométrica em Excel. Cálculos de percentual de gordura, protocolo ISAK, Pollock, Somatotipo e muito mais." />
         <meta name="keywords" content={keywords} />
         <link rel="canonical" href="https://www.nutricaocommarco.com.br/planilha-antropometrica-marco-aurelio" />
         <meta property="og:type" content="product" />
         <meta property="og:title" content="Planilha de Avaliação Antropométrica Inteligente PRO" />
-        <meta property="og:description" content="Transforme seu Excel em um software de avaliação física completo. Protocolos ISAK, +30 equações, Somatotipo Automático e Acesso Vitalício." />
+        <meta property="og:description" content="Transforme seu Excel em um software de avaliação física completo com esta Planilha de Avaliação Antropométrica. Protocolos ISAK, +30 equações e Acesso Vitalício." />
         <meta property="og:image" content={capaImg} />
         <meta property="og:url" content="https://www.nutricaocommarco.com.br/planilha-antropometrica-marco-aurelio" />
         <meta property="product:price:amount" content="50.00" />
@@ -146,23 +147,23 @@ export default function PlanilhaAntropometriaVendas() {
               Cineantropometria • Automação Avançada • Padrão ISAK
             </span>
 
+            {/* PALAVRA CHAVE EXATA NO H1 */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 md:mb-10 uppercase italic leading-tight text-slate-900">
               A Mais Completa <span className="text-green-600">Planilha de Avaliação Antropométrica</span> do Mercado
             </h1>
 
-            {/* Imagem de Capa do Produto */}
             <figure className="mb-8 flex flex-col items-center">
               <img 
                 src={capaImg} 
-                alt="Planilha de Avaliação Antropométrica e Composição Corporal em Excel" 
-                title="Planilha Antropométrica Inteligente PRO"
+                alt="Planilha de Avaliação Antropométrica e Composição Corporal Inteligente" 
+                title="Planilha de Avaliação Antropométrica PRO"
                 className="w-full max-w-2xl h-auto rounded-3xl shadow-lg border border-slate-100" 
               />
             </figure>
 
             <div className="space-y-4 md:space-y-6 text-base md:text-lg text-slate-600 font-medium leading-relaxed">
               <p>
-                Se você busca um sistema completo, rápido e visualmente impactante para as suas avaliações físicas e atendimentos de consultório, sem ficar refém de assinaturas mensais caras de softwares de nutrição, a <strong>Planilha Antropométrica Inteligente PRO</strong> é a solução definitiva. Desenvolvida sob o rigor científico dos protocolos internacionais e a inteligência de macros automáticas via VBA, ela eleva o nível técnico dos seus laudos e gera uma experiência visual impecável para os seus pacientes.
+                Se você busca um sistema completo, rápido e visualmente impactante para as suas avaliações físicas e atendimentos de consultório, sem ficar refém de assinaturas mensais caras de softwares, a <strong>Planilha de Avaliação Antropométrica Inteligente PRO</strong> é a solução definitiva. Desenvolvida sob o rigor científico dos protocolos internacionais e a inteligência de macros automáticas via VBA, ela eleva o nível técnico dos seus laudos e gera uma experiência visual impecável para os seus pacientes.
               </p>
             </div>
           </article>
@@ -193,7 +194,7 @@ export default function PlanilhaAntropometriaVendas() {
                   rel="noopener noreferrer" 
                   className="w-full md:w-auto bg-green-600 hover:bg-green-500 text-white font-black py-4 px-10 rounded-full shadow-lg transform transition-all hover:-translate-y-1 inline-block uppercase text-sm tracking-widest text-center"
                 >
-                  Garantir Minha Planilha Agora
+                  Baixar Minha Planilha Agora
                 </a>
                 <p className="text-slate-500 text-[10px] font-medium mt-2">Pagamento 100% Seguro via Hotmart • Acesso Imediato</p>
               </div>
@@ -203,13 +204,13 @@ export default function PlanilhaAntropometriaVendas() {
           {/* 📺 SEÇÃO VÍDEO EXPLICATIVO */}
           <div className="w-full bg-white rounded-3xl p-5 md:p-8 border border-slate-100 shadow-md flex flex-col gap-5 text-left">
             <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic flex items-center gap-2 border-b border-green-100 pb-4">
-              <Video className="text-green-600 w-6 h-6 flex-shrink-0" /> Conheça todos os recursos do Sistema
+              <Video className="text-green-600 w-6 h-6 flex-shrink-0" /> Como funciona a Planilha de Avaliação Antropométrica?
             </h3>
             <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-sm border border-slate-200">
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
                 src="https://www.youtube.com/embed/8F-6dO7A2eY"
-                title="Apresentação da Planilha de Antropometria e Composição Corporal"
+                title="Apresentação da Planilha de Avaliação Antropométrica e Composição Corporal"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
@@ -228,7 +229,7 @@ export default function PlanilhaAntropometriaVendas() {
                 <HeartPulse className="text-green-600 w-8 h-8 flex-shrink-0" />
                 <div>
                   <h4 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Automação Inteligente via VBA</h4>
-                  <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">A planilha reconhece o sexo e a idade do paciente, ocultando automaticamente as colunas e as equações irrelevantes para aquele atendimento específico, garantindo visual limpo.</p>
+                  <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">Nossa Planilha de Avaliação Antropométrica reconhece o sexo e a idade do paciente, ocultando automaticamente as colunas e as equações irrelevantes para aquele atendimento.</p>
                 </div>
               </div>
 
@@ -236,7 +237,7 @@ export default function PlanilhaAntropometriaVendas() {
                 <RefreshCw className="text-green-600 w-8 h-8 flex-shrink-0 animate-[spin_4s_linear_infinite]" />
                 <div>
                   <h4 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Projeto em Constante Evolução</h4>
-                  <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">A ferramenta não está estagnada. Ela recebe melhorias e integrações de novas equações e abas de forma contínua para entregar a melhor experiência técnica do mercado.</p>
+                  <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">A ferramenta recebe melhorias e integrações de novas equações e abas de forma contínua para entregar a melhor experiência técnica em avaliação física.</p>
                 </div>
               </div>
 
@@ -244,7 +245,7 @@ export default function PlanilhaAntropometriaVendas() {
                 <Activity className="text-green-600 w-8 h-8 flex-shrink-0" />
                 <div>
                   <h4 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Mais de 30 Equações de Regressão</h4>
-                  <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">Os principais protocolos mundiais de adipometria em um só lugar (Jackson & Pollock 3/4/7 dobras, Petroski, Guedes, Durnin & Womersley, Slaughter, Faulkner, Yuhasz, etc).</p>
+                  <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">Os principais protocolos mundiais de adipometria em um só lugar (Jackson & Pollock 3/4/7 dobras, Petroski, Guedes, Durnin & Womersley, Slaughter, Faulkner, Yuhasz).</p>
                 </div>
               </div>
 
@@ -252,7 +253,7 @@ export default function PlanilhaAntropometriaVendas() {
                 <Percent className="text-green-600 w-8 h-8 flex-shrink-0" />
                 <div>
                   <h4 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Acesso Vitalício Garantido</h4>
-                  <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">Diga adeus às assinaturas mensais recorrentes de softwares online. Você compra o arquivo habilitado para macros uma única vez e utiliza para sempre.</p>
+                  <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">Você compra o arquivo habilitado para macros uma única vez e utiliza para sempre, sem se preocupar com assinaturas de softwares.</p>
                 </div>
               </div>
             </div>
@@ -262,7 +263,7 @@ export default function PlanilhaAntropometriaVendas() {
               <GitBranch className="text-orange-500 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> Atualizações Futuras Inclusas Grátis
             </h3>
             <p className="text-xs md:text-sm text-slate-500 mb-6 leading-relaxed font-medium">
-              Adquirindo hoje pelo valor de lançamento, você já garante todas as atualizações de roadmap listadas abaixo diretamente na plataforma da Hotmart, **sem nenhum custo adicional**:
+              Adquirindo hoje pelo valor de lançamento, você já garante todas as atualizações de roadmap listadas abaixo diretamente na plataforma da Hotmart:
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
@@ -270,7 +271,7 @@ export default function PlanilhaAntropometriaVendas() {
                 <Video className="text-orange-600 w-5 h-5 mt-0.5 flex-shrink-0" />
                 <div>
                   <h5 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Módulo em Vídeo-Aulas</h5>
-                  <p className="text-[11px] md:text-xs text-slate-600 mt-0.5">Aulas curtas e diretas sobre marcação anatômica, manuseio do adipômetro e navegação VBA.</p>
+                  <p className="text-[11px] md:text-xs text-slate-600 mt-0.5">Aulas curtas sobre marcação anatômica, manuseio do adipômetro e navegação VBA.</p>
                 </div>
               </div>
 
@@ -278,7 +279,7 @@ export default function PlanilhaAntropometriaVendas() {
                 <Layers className="text-orange-600 w-5 h-5 mt-0.5 flex-shrink-0" />
                 <div>
                   <h5 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Filtro de Equações Inteligente</h5>
-                  <p className="text-[11px] md:text-xs text-slate-600 mt-0.5">Aprimoramento VBA para sugerir matematicamente o protocolo mais preciso baseado na idade, sexo e etnia.</p>
+                  <p className="text-[11px] md:text-xs text-slate-600 mt-0.5">Aprimoramento para sugerir matematicamente o protocolo mais preciso baseado no paciente.</p>
                 </div>
               </div>
 
@@ -286,15 +287,15 @@ export default function PlanilhaAntropometriaVendas() {
                 <Target className="text-orange-600 w-5 h-5 mt-0.5 flex-shrink-0" />
                 <div>
                   <h5 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Estipulação de Metas (Target)</h5>
-                  <p className="text-[11px] md:text-xs text-slate-600 mt-0.5">Área dedicada para você criar o projeto de perda de massa gorda ou ganho de massa magra do paciente.</p>
+                  <p className="text-[11px] md:text-xs text-slate-600 mt-0.5">Área dedicada para criar o projeto de perda de massa gorda ou ganho de massa magra.</p>
                 </div>
               </div>
 
               <div className="bg-orange-50/60 p-4 rounded-xl border border-orange-100 flex items-start gap-3">
                 <Calculator className="text-orange-600 w-5 h-5 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h5 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Calculadora de Gasto Calórico</h5>
-                  <p className="text-[11px] md:text-xs text-slate-600 mt-0.5">Integração do cálculo de TMB e TDEE (Fórmulas Mifflin, Harris, Cunningham) direto no laudo.</p>
+                  <h5 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Cálculo de Gasto Calórico</h5>
+                  <p className="text-[11px] md:text-xs text-slate-600 mt-0.5">Integração do cálculo de TMB e TDEE (Mifflin, Harris, Cunningham) direto no laudo.</p>
                 </div>
               </div>
             </div>
@@ -310,7 +311,7 @@ export default function PlanilhaAntropometriaVendas() {
                   <CheckCircle className="w-4 h-4 text-green-600" /> Indicadores e Índices Corporais
                 </h4>
                 <p className="text-xs md:text-sm text-slate-600 mt-1 pl-6 leading-relaxed">
-                  Cálculo automático de Massa Corporal, IMC, % de Gordura, Massa Magra Isolada, Massa Muscular (kg), Relação Cintura-Quadril, Relação Cintura-Estatura (Risco Cardiovascular), <strong>IMO</strong> (Massa Óssea estimada), <strong>apVAT</strong> (Área de Gordura Visceral) e Índice Adiposo-Muscular.
+                  Cálculo automático de Massa Corporal, IMC, % de Gordura, Massa Magra Isolada, Massa Muscular (kg), Relação Cintura-Quadril, Risco Cardiovascular, <strong>IMO</strong> (Massa Óssea estimada), <strong>apVAT</strong> (Área de Gordura Visceral) e Índice Adiposo-Muscular.
                 </p>
               </div>
 
@@ -319,7 +320,7 @@ export default function PlanilhaAntropometriaVendas() {
                   <CheckCircle className="w-4 h-4 text-green-600" /> Protocolo Completo de Dobras Cutâneas
                 </h4>
                 <p className="text-xs md:text-sm text-slate-600 mt-1 pl-6 leading-relaxed">
-                  Avaliação das 9 principais pregas: Tríceps, Subescapular, Bíceps, Peitoral, Axilar Média, Crista Ilíaca, Abdominal, Coxa Frontal e Panturrilha Medial. Geração instantânea do <strong>Somatório de 6 e 8 Dobras</strong> para acompanhamento linear do tecido subcutâneo.
+                  Avaliação das 9 principais pregas: Tríceps, Subescapular, Bíceps, Peitoral, Axilar Média, Crista Ilíaca, Abdominal, Coxa Frontal e Panturrilha Medial. Geração do <strong>Somatório de 6 e 8 Dobras</strong> para acompanhamento linear do tecido adiposo.
                 </p>
               </div>
 
@@ -328,7 +329,7 @@ export default function PlanilhaAntropometriaVendas() {
                   <CheckCircle className="w-4 h-4 text-green-600" /> Perímetros e Perímetros Corrigidos
                 </h4>
                 <p className="text-xs md:text-sm text-slate-600 mt-1 pl-6 leading-relaxed">
-                  Mapeamento de 9 circunferências corporais essenciais e cálculo avançado dos <strong>Perímetros Corrigidos pelas dobras (ISAK)</strong> para Braço, Coxa e Panturrilha, entregando o valor real de hipertrofia da massa muscular local.
+                  Mapeamento das cinturas e perímetros essenciais. Cálculo avançado dos <strong>Perímetros Corrigidos pelas dobras (ISAK)</strong> para Braço, Coxa e Panturrilha, entregando o valor real de hipertrofia muscular.
                 </p>
               </div>
 
@@ -337,7 +338,7 @@ export default function PlanilhaAntropometriaVendas() {
                   <CheckCircle className="w-4 h-4 text-green-600" /> Somatotipo Automático Integrado
                 </h4>
                 <p className="text-xs md:text-sm text-slate-600 mt-1 pl-6 leading-relaxed">
-                  Classificação precisa de Heath-Carter para <strong>Endomorfia</strong>, <strong>Mesomorfia</strong> e <strong>Ectomorfia</strong> com o traçado e plotagem imediata dos eixos X e Y direto no gráfico visual da Somatocarta.
+                  Classificação precisa de Heath-Carter para <strong>Endomorfia</strong>, <strong>Mesomorfia</strong> e <strong>Ectomorfia</strong> com o traçado e plotagem imediata direto no gráfico visual da Somatocarta.
                 </p>
               </div>
             </div>
@@ -352,8 +353,8 @@ export default function PlanilhaAntropometriaVendas() {
                 <div key={idx} className="bg-white p-4 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                   <img 
                     src={img.src} 
-                    alt={`Interface e layout interno: ${img.alt}`} 
-                    title={`Planilha de Composição Corporal - Imagem ${idx+1}`}
+                    alt={img.alt} 
+                    title={`Planilha de Avaliação Antropométrica - Tela ${idx+1}`}
                     className="w-full h-auto rounded-xl border border-slate-100" 
                     loading="lazy"
                   />
@@ -401,7 +402,7 @@ export default function PlanilhaAntropometriaVendas() {
               <div className="relative z-10">
                 <h2 className="text-2xl md:text-3xl font-black mb-4 text-white uppercase italic">Eleve o nível das suas consultas!</h2>
                 <p className="text-sm md:text-base text-slate-300 mb-8 leading-relaxed font-medium">
-                  Aproveite as últimas horas com preço reduzido de <strong className="text-red-400 line-through">R$ 80,00</strong> por <strong>apenas R$ 50,00</strong>. Tenha um controle cineantropométrico impecável e gere relatórios que fidelizam seus pacientes.
+                  Aproveite as últimas horas com preço reduzido de <strong className="text-red-400 line-through">R$ 80,00</strong> por <strong>apenas R$ 50,00</strong>. Tenha uma Planilha de Avaliação Antropométrica impecável e gere relatórios que fidelizam.
                 </p>
                 
                 <a 
