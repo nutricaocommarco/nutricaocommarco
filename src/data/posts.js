@@ -3,6 +3,16 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 export const posts = [
     {
     id: 24,
+    link: "/o-que-e-jejum-intermitente",
+    img: `${githubImgBase}Blog/JejumIntermitente_Capa.jpg`,
+    tag: "Dietas da Moda",
+    titulo: "O Que é Jejum Intermitente? Guia Definitivo e Científico",
+    desc: "Descubra o que é o jejum intermitente, como ele afeta o metabolismo, o limite do corpo humano sem comer e se ele realmente emagrece mais que a dieta tradicional.",
+    data: "2026-07-14",
+    dataMod: "2026-07-14"
+  },
+    {
+    id: 23,
     link: "/melhor-horario-para-tomar-ferro",
     img: `${githubImgBase}Blog/HorarioFerro.jpg`,
     tag: "Nutrição Clínica",
@@ -12,7 +22,7 @@ export const posts = [
     dataMod: "2026-07-11"
   },
     {
-    id: 23,
+    id: 22,
     link: "/percentual-gordura-feminino-ideal",
     img: `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.jpg`,
     tag: "Saúde da Mulher",
@@ -20,16 +30,6 @@ export const posts = [
     desc: "Pare de brigar com a balança. Descubra qual é a faixa ideal para sua saúde e estética, e entenda como hormônios, ciclo menstrual e idade influenciam sua composição corporal.",
     data: "2026-07-11", // Ontem
     dataMod: "2026-07-11"
-  },
-    {
-    id: 22,
-    link: "/o-que-comer-na-tpm",
-    img: `${githubImgBase}Blog/TPM.jpg`,
-    tag: "Saúde da Mulher",
-    titulo: "O Que Comer na TPM: Emagrecimento e Metabolismo Feminino",
-    desc: "Descubra por que a vontade de doce aumenta na TPM, a verdade científica sobre o metabolismo feminino, o papel do treino e estratégias para emagrecer sem sofrimento.",
-    data: "2026-04-20",
-    dataMod: "2026-04-25"
   },
     {
     id: 21,
