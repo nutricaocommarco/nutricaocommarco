@@ -336,8 +336,8 @@ export default function DietaCetogenica() {
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-black text-slate-800">Lanche da Tarde</td>
-                    <td className="p-5">Bebida vegetal de castanhas com cálcio adicionado (para garantir o suprimento do mineral na dieta), acompanhada de um mix de castanhas-pecã e fatias de queijo.</td>
-                    <td className="p-5 text-xs">Lanche prático com alta densidade lipídica e suprimento ideal de cálcio para a dieta.</td>
+                    <td className="p-5">Bebida vegetal de castanhas com cálcio adicionado, acompanhada de um mix de castanhas-pecã, fatias de queijo e uma pequena porção de morangos.</td>
+                    <td className="p-5 text-xs">Lanche prático com alta densidade lipídica, cálcio e os antioxidantes de baixo índice glicêmico das frutas vermelhas.</td>
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-black text-slate-800">Jantar</td>
@@ -346,6 +346,13 @@ export default function DietaCetogenica() {
                   </tr>
                 </tbody>
               </table>
+            </div>
+
+            <div className="mb-12 p-5 md:p-6 bg-orange-50 rounded-2xl border border-orange-100 shadow-sm flex items-start gap-3">
+              <AlertTriangle className="text-orange-500 shrink-0 mt-0.5" size={20} />
+              <p className="text-sm md:text-base text-orange-900 font-medium italic m-0 leading-relaxed">
+                <strong>Atenção:</strong> Este cardápio é apenas um exemplo ilustrativo e não leva em conta a sua individualidade biológica. É fundamental procurar um Nutricionista para calcular as quantidades exatas, analisar exames e montar uma estratégia segura e personalizada para você!
+              </p>
             </div>
 
             <h2 id="cetose" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
