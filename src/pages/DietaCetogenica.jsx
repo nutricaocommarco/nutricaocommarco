@@ -183,6 +183,22 @@ export default function DietaCetogenica() {
             </div>
           </div>
 
+            {/* 3. ÁUDIO */}
+          <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+            <div className="p-5 md:p-6 flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <Headphones className="text-green-600 w-6 h-6" />
+                <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+              </div>
+              <audio controls className="w-full h-10 outline-none">
+                <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/dieta-cetogenica.mp3" type="audio/mpeg" />
+                O seu navegador não suporta o áudio.
+              </audio>
+            </div>
+          </div>
+
+
+
           {/* 4. ÍNDICE (TOC) OTIMIZADO DE FORMA INVISÍVEL */}
           <div className="mb-12 border border-slate-200 rounded-[2rem] shadow-sm overflow-hidden bg-slate-50">
             <button 
