@@ -213,10 +213,10 @@ export default function JejumIntermitente() {
           <div className="mb-10 p-6 md:p-10 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-6 text-left">
             <div>
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3 flex items-center gap-2">
-                <Target className="text-green-600 shrink-0" /> Resposta Direta: O que é e como funciona o Jejum Intermitente?
+                <Target className="text-green-600 shrink-0" /> Resposta Direta: O que é Jejum Intermitente e como ele funciona ?
               </h2>
               <p className="mt-4 text-lg md:text-xl text-green-950 font-medium leading-relaxed m-0">
-                Saber o que é jejum intermitente muda o foco do seu prato para o seu relógio. Ele não é uma dieta com restrição de alimentos específicos, mas sim um estilo de organização de horários onde você alterna períodos de alimentação com períodos de privação calórica total. Ele funciona reduzindo drasticamente os níveis do hormônio insulina e elevando o glucagon no sangue. Essa virada hormonal força o seu organismo a esgotar os estoques de açúcar (glicogênio) e a quebrar ativamente as reservas para diminuir o seu <Link to="/percentual-gordura-feminino-ideal" className="text-green-700 font-bold hover:underline">percentual de gordura</Link>, usando-o como combustível principal e produzindo energia em forma de corpos cetônicos.
+                Saber o que é jejum intermitente muda o foco do seu prato para o seu relógio. Ele não é uma dieta com restrição de alimentos específicos, mas sim um estilo de organização de horários onde você alterna períodos de alimentação com períodos de privação calórica total. O Jejum Intermitente funciona reduzindo drasticamente os níveis do hormônio insulina e elevando o glucagon no sangue. Essa virada hormonal força o seu organismo a esgotar os estoques de açúcar (glicogênio) e a quebrar ativamente as reservas para diminuir o seu <Link to="/percentual-gordura-feminino-ideal" className="text-green-700 font-bold hover:underline">percentual de gordura</Link>, usando-o como combustível principal e produzindo energia em forma de corpos cetônicos.
               </p>
             </div>
           </div>
@@ -293,7 +293,7 @@ export default function JejumIntermitente() {
               <Clock className="text-green-600"/> A História do Jejum: Da Antiguidade aos Dias de Hoje
             </h2>
             <p>
-              Antes de se tornar uma estratégia moderna de emagrecimento ou de você se perguntar o que é jejum intermitente, saiba que o ato de jejuar já fazia parte da história da humanidade há milhares de anos. Longe de ser apenas uma moda atual, o jejum tem raízes profundas na nossa evolução e, principalmente, na espiritualidade e na religião.
+              Para descobrir o que é Jejum Intermitente, vamos entender a sua História. Antes de se tornar uma estratégia moderna de emagrecimento ou de você se perguntar o que é jejum intermitente, saiba que o ato de jejuar já fazia parte da história da humanidade há milhares de anos. Longe de ser apenas uma moda atual, o jejum tem raízes profundas na nossa evolução e, principalmente, na espiritualidade e na religião, que já praticavam o Jejum Intermitente.
             </p>
             <p>
               Praticamente todas as grandes tradições do mundo utilizam a privação de alimentos como uma ferramenta de purificação e conexão mental. Um dos relatos antigos mais famosos é o de Moisés, que passou 40 dias e 40 noites em jejum. Outro exemplo clássico desse forte cunho religioso é o Ramadã, onde milhões de pessoas ficam do nascer ao pôr do sol sem consumir calorias por motivos espirituais. Até mesmo na Grécia Antiga, o pai da medicina, Hipócrates, já defendia o jejum como um remédio natural para tratar o corpo.
@@ -325,7 +325,7 @@ export default function JejumIntermitente() {
               <Target className="text-green-600"/> Visão Geral: O Cronograma do Jejum no seu Corpo
             </h2>
             <p className="mb-6">
-              Para ajudar a visualizar as fases que o seu metabolismo atravessa, veja abaixo o que acontece no organismo com o passar das horas sem o consumo de alimentos:
+              Para ajudar a visualizar as fases que o seu metabolismo atravessa, veja abaixo o que acontece no organismo com o passar das horas durante o Jejum Intermitente:
             </p>
 
             <div className="my-8 overflow-x-auto bg-white rounded-3xl border border-slate-200 shadow-sm">
