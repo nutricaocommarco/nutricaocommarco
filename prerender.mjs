@@ -82,6 +82,14 @@ const rotasEstaticas = [
 
 // 📝 2. TODOS OS POSTS DO BLOG (Atualizado com as novidades)
 const postsBlog = [
+  { 
+    id: 27, 
+    link: "/o-que-e-dieta-low-carb", 
+    img: `${githubImgBase}Blog/LowCarb_Capa.jpg`, 
+    titulo: "O Que é Dieta Low Carb? A Diferença para a Cetogênica e Como Começar", 
+    desc: "Saiba o que é a dieta low carb na prática. Entenda os limites de carboidratos, a diferença para a dieta cetogênica e como montar o seu cardápio.", 
+    data: "2026-07-15" 
+  },
   { id: 26, link: "/o-que-e-dieta-cetogenica", img: `${githubImgBase}Blog/DietaCetogenica_Capa.jpg`, titulo: "O Que é Dieta Cetogênica? Guia Definitivo e Científico", desc: "Descubra o que é a dieta cetogênica, como funciona o estado de cetose no organismo, o cardápio estruturado e as evidências de emagrecimento.", data: "2026-07-14" },
   { id: 25, link: "/o-que-e-jejum-intermitente", img: `${githubImgBase}Blog/JejumIntermitente_Capa.jpg`, titulo: "O Que é Jejum Intermitente? Guia Definitivo e Científico", desc: "Descubra o que é o jejum intermitente, como ele afeta o seu metabolismo, a sua ligação histórica e religiosa, e se ele emagrece mais que a dieta tradicional.", data: "2026-07-12" },
   { id: 24, link: "/melhor-horario-para-tomar-ferro", img: `${githubImgBase}Blog/HorarioFerro.jpg`, titulo: "Melhor Horário Para Tomar Ferro e Curar a Anemia", desc: "Descubra o melhor horário para tomar ferro, sintomas de falta no organismo, o que inibe a absorção e tratamento.", data: "2026-04-26" },
