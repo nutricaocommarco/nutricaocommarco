@@ -5,7 +5,7 @@ import {
   ChevronLeft, HelpCircle, Activity, Clock, Shield, 
   Zap, ChevronRight, Headphones, ChevronDown, ShoppingCart, 
   Target, Flame, Coffee, Dumbbell, Brain, Check, X, AlertTriangle, 
-  Video, PlayCircle, Apple, PieChart, Utensils, Scale, PlusCircle, Trash2, Droplet, Search
+  Video, PlayCircle, Apple, PieChart, Utensils, Scale, PlusCircle, Trash2, Droplet
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
@@ -51,14 +51,9 @@ export default function DietaLowCarb() {
   const { pathname } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
-  
-  // Estados da Calculadora com Busca
-  const [searchTerm, setSearchTerm] = useState('');
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedFood, setSelectedFood] = useState(null);
+  const [selectedFoodId, setSelectedFoodId] = useState('');
   const [foodQty, setFoodQty] = useState('');
   const [plate, setPlate] = useState([]);
-  const dropdownRef = useRef(null);
   
   useEffect(() => {
     window.scrollTo(0, 0);
