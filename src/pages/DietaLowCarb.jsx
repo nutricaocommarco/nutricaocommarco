@@ -489,11 +489,111 @@ export default function DietaLowCarb() {
 
   return (
     <>
-      <Helmet>
+          <Helmet>
         <title>O Que é Dieta Low Carb? Guia, Diferenças e Cardápio</title>
         <meta name="description" content="Aprenda o que é dieta low carb. Descubra a diferença entre low carb e cetogênica, como começar, cardápio e os mitos da gordura saturada vs insaturada." />
+        <meta name="keywords" content="o que é dieta low carb, dieta low carb, dieta mediterrânea, diferença entre low carb e cetogênica, como começar a fazer dieta low carb, calculadora low carb, tabela taco" />
         <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
+        
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="O Que é Dieta Low Carb? Guia Completo e Calculadora" />
+        <meta property="og:description" content="Saiba o que é a dieta low carb na prática. Entenda os limites de carboidratos, como as gorduras funcionam e monte seu cardápio com nossa calculadora baseada na Tabela TACO." />
+        <meta property="og:image" content={artigoCapa} />
+        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
+
+        {/* SCHEMA 1: BlogPosting (Mais específico que Article para Blogs) */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "mainEntityOfPage": { "@type": "WebPage", "@id": `https://www.nutricaocommarco.com.br${pathname}` },   
+            "headline": "O Que é Dieta Low Carb? Guia, Diferenças e Cardápio",
+            "image": [artigoCapa],
+            "author": { 
+              "@type": "Person", 
+              "name": "Marco Aurélio Jr.", 
+              "url": "https://www.nutricaocommarco.com.br/sobre", 
+              "jobTitle": "Estudante de Nutrição e Avaliador Antropométrico ISAK 1", 
+              "knowsAbout": ["Dieta Low Carb", "Nutrição Clínica", "Emagrecimento", "Metabolismo", "Composição Corporal"] 
+            },
+            "publisher": { 
+              "@type": "Organization", 
+              "name": "Nutrição com Marco", 
+              "logo": { "@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png` } 
+            },
+            "datePublished": datePublishedISO,
+            "dateModified": dateModifiedISO,
+            "description": "Aprenda o que é dieta low carb. Descubra a diferença entre low carb e cetogênica, como começar e os mitos das gorduras.",
+            "inLanguage": "pt-BR"
+          }) }} />
+
+        {/* SCHEMA 2: MedicalWebPage (Refinado com especialidade e audiência) */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalWebPage",
+            "name": "O Que é Dieta Low Carb e Seus Impactos Metabólicos",
+            "url": `https://www.nutricaocommarco.com.br${pathname}`,
+            "about": [
+              {"@type": "MedicalEntity", "name": "Dieta Low-Carb"},
+              {"@type": "MedicalEntity", "name": "Metabolismo de Carboidratos"},
+              {"@type": "MedicalEntity", "name": "Sensibilidade à Insulina"}
+            ],
+            "specialty": "Dietetics",
+            "audience": {
+              "@type": "MedicalAudience",
+              "audienceType": "Pacientes e público em geral focados em emagrecimento e saúde metabólica"
+            }
+          }) }} />
+
+        {/* SCHEMA 3: WebApplication (Para indexar a Calculadora da Tabela TACO) */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Calculadora de Carboidratos Low Carb (Tabela TACO)",
+            "url": `https://www.nutricaocommarco.com.br${pathname}#calculadora`,
+            "description": "Ferramenta interativa para calcular a quantidade de carboidratos em refeições com base nos alimentos da Tabela Brasileira de Composição de Alimentos (TACO).",
+            "applicationCategory": "HealthApplication",
+            "operatingSystem": "All",
+            "author": { "@type": "Person", "name": "Marco Aurélio Jr." }
+          }) }} />
+
+        {/* SCHEMA 4: FAQPage (Mantido e automatizado) */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.pergunta.includes("low carb") ? faq.pergunta.replace("low carb", "dieta low carb e o que é dieta low carb") : faq.pergunta,
+              "acceptedAnswer": { "@type": "Answer", "text": faq.resposta }
+            }))
+          }) }} />
+
+        {/* SCHEMA 5: BreadcrumbList (Para o Google entender a navegação do site) */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Início",
+                "item": "https://www.nutricaocommarco.com.br/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.nutricaocommarco.com.br/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "O que é Dieta Low Carb",
+                "item": `https://www.nutricaocommarco.com.br${pathname}`
+              }
+            ]
+          }) }} />
       </Helmet>
+
 
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
