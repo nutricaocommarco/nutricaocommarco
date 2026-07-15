@@ -90,110 +90,17 @@ export default function TirzepatidaParaQueServe() {
 
   return (
     <>
-      <Helmet>
-        {/* SEO OTIMIZADO - TÍTULO DO SNIPPET (aprox 60 caracteres) */}
-        <title>Tirzepatida: Para que serve? Emagrecimento, Mounjaro e Rebote | Nutrição com Marco</title>
-
-        {/* META DESCRIPTION OTIMIZADA (aprox 155 caracteres) */}
-        <meta name="description" content="Descubra para que serve a Tirzepatida (Mounjaro), como funciona no emagrecimento, quanto peso se perde e como evitar o temido efeito rebote." />
+<Helmet>
+        <title>Tirzepatida: Para Que Serve e Os Efeitos Colaterais (Atualizado) | Nutrição com Marco</title>
+        <meta name="description" content="Mounjaro (Tirzepatida) no emagrecimento: entenda a fundo como atua o duplo mecanismo GLP-1 e GIP e descubra os reais efeitos no controle do apetite." />
+        <meta name="keywords" content="tirzepatida para que serve, o que é tirzepatida, mounjaro emagrece, efeitos colaterais tirzepatida, GLP-1, GIP" />
+        <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Tirzepatida: Para que serve? Emagrecimento, Mounjaro e Rebote | Nutrição com Marco" />
-        <meta property="og:description" content="Tudo sobre a Tirzepatida: mecanismo de ação, perda de peso esperada, necessidade de musculação, desmame e alertas sobre falsificações." />
-        <meta property="og:image" content={tirzepatidaCapa} />
+        <meta property="og:title" content="Tirzepatida: Para Que Serve e Os Efeitos Colaterais (Atualizado)" />
+        <meta property="og:description" content="Mounjaro (Tirzepatida) no emagrecimento: entenda a fundo como atua o duplo mecanismo GLP-1 e GIP e descubra os reais efeitos no controle do apetite." />
+        <meta property="og:image" content={`${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        {/* SCHEMA.ORG 1: ARTIGO OTIMIZADO (COM AUTORIDADE E-E-A-T) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Tirzepatida: Para que serve e como funciona no corpo?",
-            "image": tirzepatidaCapa,
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre",
-              "jobTitle": "Estudante de Nutrição",
-              "knowsAbout": ["Nutrição", "Emagrecimento", "Obesidade", "Composição Corporal", "Medicina do Estilo de Vida"]
-            },
-            "publisher": {
-              "@type": "Organization", 
-              "name": "Nutrição com Marco", 
-              "logo": {
-                "@type": "ImageObject", 
-                "url": `${githubImgBase}logoN_pingus.png`
-              }
-            },
-            "datePublished": datePublishedISO,
-            "dateModified": dateModifiedISO,
-            "description": "Guia completo sobre a Tirzepatida, princípio ativo do Mounjaro. Entenda seu mecanismo, efeitos no emagrecimento, como evitar o efeito rebote e os riscos de falsificações."
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 2: MEDICAL WEB PAGE (AVANÇADO PARA YMYL) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MedicalWebPage",
-            "name": "Tirzepatida: Para que serve? Emagrecimento, Mounjaro e Rebote",
-            "url": `https://www.nutricaocommarco.com.br${pathname}`,
-            "about": [
-              {"@type": "MedicalEntity", "name": "Tirzepatida"},
-              {"@type": "MedicalEntity", "name": "Obesidade"},
-              {"@type": "MedicalEntity", "name": "Emagrecimento"},
-              {"@type": "MedicalEntity", "name": "Mounjaro"}
-            ],
-            "audience": {
-              "@type": "MedicalAudience",
-              "audienceType": "Pacientes"
-            }
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 3: BREADCRUMB LIST */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.nutricaocommarco.com.br/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": "https://www.nutricaocommarco.com.br/blog"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Tirzepatida: Para que serve?",
-                "item": `https://www.nutricaocommarco.com.br${pathname}`
-              }
-            ]
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 4: FAQ PAGE (SINCRONIZADO COM O ARRAY) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.pergunta,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.resposta
-              }
-            }))
-          })}
-        </script>
       </Helmet>
 
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
