@@ -5,7 +5,7 @@ import {
   ChevronLeft, HelpCircle, Activity, Clock, Shield, 
   Zap, ChevronRight, Headphones, ChevronDown, ShoppingCart, 
   Target, Flame, Coffee, Dumbbell, Brain, Check, X, AlertTriangle, 
-  Video, PlayCircle, Apple, PieChart, Utensils, Scale, PlusCircle, Trash2
+  Video, PlayCircle, Apple, PieChart, Utensils, Scale, PlusCircle, Trash2, Droplet
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
