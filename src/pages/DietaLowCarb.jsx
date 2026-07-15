@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { 
   ChevronLeft, HelpCircle, Activity, Clock, Shield, 
   Zap, ChevronRight, Headphones, ChevronDown, ShoppingCart, 
   Target, Flame, Coffee, Dumbbell, Brain, Check, X, AlertTriangle, 
-  Video, PlayCircle, Apple, PieChart, Utensils, Scale, PlusCircle, Trash2, Droplet
+  Video, PlayCircle, Apple, PieChart, Utensils, Scale, PlusCircle, Trash2, Droplet, Search
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
@@ -51,23 +51,50 @@ export default function DietaLowCarb() {
   const { pathname } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
-  const [selectedFoodId, setSelectedFoodId] = useState('');
+  
+  // Estados da Calculadora com Busca
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedFood, setSelectedFood] = useState(null);
   const [foodQty, setFoodQty] = useState('');
   const [plate, setPlate] = useState([]);
+  const dropdownRef = useRef(null);
   
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  // Fecha dropdown ao clicar fora
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const filteredFoods = foodDatabase.filter(food => 
+    food.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const handleSelectFood = (food) => {
+    setSelectedFood(food);
+    setSearchTerm(food.name);
+    setIsDropdownOpen(false);
+  };
+
   const handleAddFood = (e) => {
     e.preventDefault();
-    if (!selectedFoodId || !foodQty) return;
-    const food = foodDatabase.find(f => f.id === parseInt(selectedFoodId));
-    const carbsForQty = (food.carbs * parseFloat(foodQty)) / 100;
+    if (!selectedFood || !foodQty) return;
     
-    setPlate([...plate, { ...food, qty: parseFloat(foodQty), totalCarbs: carbsForQty, idInstance: Date.now() }]);
+    const carbsForQty = (selectedFood.carbs * parseFloat(foodQty)) / 100;
+    setPlate([...plate, { ...selectedFood, qty: parseFloat(foodQty), totalCarbs: carbsForQty, idInstance: Date.now() }]);
+    
     setFoodQty('');
-    setSelectedFoodId('');
+    setSearchTerm('');
+    setSelectedFood(null);
   };
 
   const handleRemoveFood = (idInstance) => {
@@ -165,7 +192,7 @@ export default function DietaLowCarb() {
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
             O Que é Dieta Low Carb? A Diferença para a Cetogênica e Como Começar
           </h1>
-          
+
           <div className="mb-10 p-6 md:p-10 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-6 text-left">
             <div>
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3 flex items-center gap-2">
@@ -301,89 +328,102 @@ export default function DietaLowCarb() {
               A melhor forma de aprender na prática o que é dieta low carb é visualizando. Por isso, desenvolvi esta ferramenta interativa exclusiva para você. O limite clássico de uma Dieta Low Carb mais flexível é de aproximadamente <strong>130 gramas de carboidratos por dia</strong>. Brinque à vontade adicionando os alimentos da lista abaixo e veja o quão rápido você atinge esse limite metabólico dependendo apenas de suas escolhas!
             </p>
 
-            <div className="my-10 bg-white rounded-[3rem] border border-slate-200 shadow-xl overflow-hidden p-6 md:p-8">
-              <div className="flex flex-col md:flex-row gap-6 mb-8">
-                {/* Inputs */}
-                <div className="flex-1 bg-slate-50 p-6 rounded-3xl border border-slate-200">
-                  <h3 className="text-lg font-black text-slate-800 uppercase tracking-widest mb-4">Adicionar Alimento</h3>
-                  <form onSubmit={handleAddFood} className="flex flex-col gap-4">
-                    <select 
-                      value={selectedFoodId} 
-                      onChange={(e) => setSelectedFoodId(e.target.value)}
-                      className="w-full bg-white border border-slate-200 p-3 rounded-xl outline-none font-medium text-slate-700"
-                      required
-                    >
-                      <option value="" disabled>Escolha um alimento base...</option>
-                      {foodDatabase.map(f => (
-                        <option key={f.id} value={f.id}>{f.name} ({f.carbs}g carb/100g)</option>
-                      ))}
-                    </select>
-                    <div className="flex gap-4">
+            {/* CALCULADORA DE CARBOIDRATOS COM BUSCA */}
+            <div className="my-10 bg-white rounded-[3rem] border border-slate-200 shadow-xl overflow-visible p-6 md:p-8">
+              <div className="flex flex-col md:flex-row gap-6 mb-8 relative">
+                  {/* Input de Busca */}
+                  <div className="flex-1 bg-slate-50 p-6 rounded-3xl border border-slate-200 relative" ref={dropdownRef}>
+                    <h3 className="text-lg font-black text-slate-800 uppercase tracking-widest mb-4">Adicionar Alimento</h3>
+                    <div className="relative">
+                      <input 
+                        type="text" 
+                        placeholder="Ex: Melancia..." 
+                        value={searchTerm} 
+                        onChange={(e) => { setSearchTerm(e.target.value); setIsDropdownOpen(true); }}
+                        onFocus={() => setIsDropdownOpen(true)}
+                        className="w-full bg-white border border-slate-200 p-3 rounded-xl outline-none font-medium text-slate-700 pl-10"
+                      />
+                      <Search className="absolute left-3 top-3.5 text-slate-400" size={18} />
+                    </div>
+
+                    {/* Dropdown de Resultados */}
+                    {isDropdownOpen && searchTerm && (
+                      <ul className="absolute z-50 w-full mt-2 bg-white border border-slate-200 rounded-xl shadow-2xl max-h-48 overflow-y-auto left-0">
+                        {filteredFoods.length > 0 ? filteredFoods.map(food => (
+                          <li key={food.id} onClick={() => handleSelectFood(food)} className="p-3 hover:bg-green-50 cursor-pointer text-sm font-bold text-slate-700 border-b border-slate-50 last:border-0">
+                            {food.name}
+                          </li>
+                        )) : (
+                          <li className="p-3 text-sm text-slate-400 italic">Nenhum alimento encontrado</li>
+                        )}
+                      </ul>
+                    )}
+
+                    <form onSubmit={handleAddFood} className="flex gap-4 mt-4">
                       <input 
                         type="number" 
-                        placeholder="Quantidade (gramas)" 
+                        placeholder="Qtd (g)" 
                         value={foodQty} 
                         onChange={(e) => setFoodQty(e.target.value)}
                         className="w-full bg-white border border-slate-200 p-3 rounded-xl outline-none font-medium text-slate-700"
                         min="1"
                         required
                       />
-                      <button type="submit" className="bg-green-600 text-white p-3 rounded-xl hover:bg-green-700 transition flex items-center justify-center shrink-0 w-12 h-12" aria-label="Adicionar prato na dieta low carb">
+                      <button type="submit" className="bg-green-600 text-white p-3 rounded-xl hover:bg-green-700 transition w-12 h-12 flex items-center justify-center shrink-0">
                         <PlusCircle size={20} />
                       </button>
-                    </div>
-                  </form>
-                </div>
-
-                {/* Resumo do Prato */}
-                <div className="flex-1 bg-slate-900 p-6 rounded-3xl border border-slate-800 text-white flex flex-col">
-                  <h3 className="text-lg font-black text-white uppercase tracking-widest mb-4 flex items-center justify-between">
-                    <span>Meu Cardápio</span>
-                    <span className="text-green-400 bg-green-400/10 px-3 py-1 rounded-full text-sm">{totalCarbsInPlate.toFixed(1)}g</span>
-                  </h3>
-                  
-                  <div className="flex-1 overflow-y-auto max-h-[150px] pr-2 space-y-2 mb-4">
-                    {plate.length === 0 ? (
-                      <p className="text-slate-400 text-sm italic">O prato está vazio. Adicione alimentos ao lado para simular o que é dieta low carb.</p>
-                    ) : (
-                      plate.map(item => (
-                        <div key={item.idInstance} className="flex justify-between items-center bg-slate-800 p-3 rounded-xl border border-slate-700">
-                          <div>
-                            <p className="font-bold text-sm m-0 leading-none">{item.name}</p>
-                            <span className="text-[11px] text-slate-400">{item.qty}g</span>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <span className="font-black text-green-400 text-sm">{item.totalCarbs.toFixed(1)}g</span>
-                            <button onClick={() => handleRemoveFood(item.idInstance)} className="text-red-400 hover:text-red-300">
-                              <Trash2 size={16} />
-                            </button>
-                          </div>
-                        </div>
-                      ))
-                    )}
+                    </form>
                   </div>
 
-                  {/* Barra de Progresso Low Carb (130g) */}
-                  <div className="mt-auto pt-4 border-t border-slate-700">
-                    <div className="flex justify-between text-xs font-bold uppercase tracking-widest mb-2">
-                      <span className="text-slate-400">0g</span>
-                      <span className="text-slate-300">Limite Diário Low Carb (130g)</span>
+                  {/* Resumo do Prato */}
+                  <div className="flex-1 bg-slate-900 p-6 rounded-3xl border border-slate-800 text-white flex flex-col">
+                    <h3 className="text-lg font-black text-white uppercase tracking-widest mb-4 flex items-center justify-between">
+                      <span>Meu Cardápio</span>
+                      <span className="text-green-400 bg-green-400/10 px-3 py-1 rounded-full text-sm">{totalCarbsInPlate.toFixed(1)}g</span>
+                    </h3>
+                    
+                    <div className="flex-1 overflow-y-auto max-h-[150px] pr-2 space-y-2 mb-4">
+                      {plate.length === 0 ? (
+                        <p className="text-slate-400 text-sm italic">O prato está vazio. Busque e adicione alimentos ao lado.</p>
+                      ) : (
+                        plate.map(item => (
+                          <div key={item.idInstance} className="flex justify-between items-center bg-slate-800 p-3 rounded-xl border border-slate-700">
+                            <div>
+                              <p className="font-bold text-sm m-0 leading-none">{item.name}</p>
+                              <span className="text-[11px] text-slate-400">{item.qty}g</span>
+                            </div>
+                            <div className="flex items-center gap-3">
+                              <span className="font-black text-green-400 text-sm">{item.totalCarbs.toFixed(1)}g</span>
+                              <button onClick={() => handleRemoveFood(item.idInstance)} className="text-red-400 hover:text-red-300">
+                                <Trash2 size={16} />
+                              </button>
+                            </div>
+                          </div>
+                        ))
+                      )}
                     </div>
-                    <div className="w-full bg-slate-800 rounded-full h-4 overflow-hidden relative">
-                      <div 
-                        className={`h-full transition-all duration-500 ${totalCarbsInPlate > 130 ? 'bg-red-500' : 'bg-green-500'}`} 
-                        style={{ width: `${progressPercentage}%` }}
-                      ></div>
+
+                    {/* Barra de Progresso Low Carb (130g) */}
+                    <div className="mt-auto pt-4 border-t border-slate-700">
+                      <div className="flex justify-between text-xs font-bold uppercase tracking-widest mb-2">
+                        <span className="text-slate-400">0g</span>
+                        <span className="text-slate-300">Limite Diário Low Carb (130g)</span>
+                      </div>
+                      <div className="w-full bg-slate-800 rounded-full h-4 overflow-hidden relative">
+                        <div 
+                          className={`h-full transition-all duration-500 ${totalCarbsInPlate > 130 ? 'bg-red-500' : 'bg-green-500'}`} 
+                          style={{ width: `${progressPercentage}%` }}
+                        ></div>
+                      </div>
+                      {totalCarbsInPlate > 130 && (
+                        <p className="text-red-400 text-xs font-bold mt-2 text-center flex items-center justify-center gap-1">
+                          <AlertTriangle size={14}/> Você ultrapassou o limite flexível da Low Carb!
+                        </p>
+                      )}
                     </div>
-                    {totalCarbsInPlate > 130 && (
-                      <p className="text-red-400 text-xs font-bold mt-2 text-center flex items-center justify-center gap-1">
-                        <AlertTriangle size={14}/> Você ultrapassou o limite flexível da Low Carb!
-                      </p>
-                    )}
                   </div>
                 </div>
               </div>
-            </div>
 
             <h2 id="gorduras" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Droplet className="text-green-600"/> Gordura Saturada vs Insaturada e a Dieta Mediterrânea
@@ -433,7 +473,7 @@ export default function DietaLowCarb() {
                 </li>
               </ol>
             </div>
-            
+
             <p>
               Aliado a toda essa mudança alimentar inicial, é interessante observar que muitas pessoas também decidem, de forma natural, começar a praticar o <Link to="/o-que-e-jejum-intermitente" className="text-green-600 font-bold hover:underline">jejum intermitente</Link>. E o motivo é simples: a ausência total daqueles temidos picos de insulina provocada pela dieta low carb torna absurdamente mais fácil, natural e indolor conseguir passar 14 ou 16 horas do dia sem precisar se alimentar.
             </p>
@@ -492,7 +532,7 @@ export default function DietaLowCarb() {
             <p className="mb-6">
               Ainda ficou com algumas dúvidas de como formatar seus macros e entender o conceito a fundo para começar ainda hoje? O excelente vídeo abaixo faz uma imersão muito mais prática para garantir e te provar que você não vai precisar seguir nenhum terrorismo nutricional estressante, mas sim uma ciência aplicável, leve e inteligente que cabe na correria do dia a dia:
             </p>
-            
+
             <div className="my-10 p-6 md:p-8 bg-slate-900 rounded-[2.5rem] shadow-2xl flex flex-col md:flex-row items-center gap-8 border border-slate-800">
                 <div className="w-full md:w-1/2 aspect-video rounded-2xl overflow-hidden shadow-xl shrink-0 bg-black border-4 border-slate-700 relative">
                     <iframe
