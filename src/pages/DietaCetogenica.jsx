@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { 
-  ChevronLeft, HelpCircle, Activity, Clock, Zap, ChevronRight, Headphones, ChevronDown, ShoppingCart, 
-  Target, PlayCircle, PieChart, Utensils, AlertTriangle, Apple, Brain, Check
+  ChevronLeft, HelpCircle, Activity, Clock, Shield, 
+  Zap, ChevronRight, Headphones, ChevronDown, ShoppingCart, 
+  Target, Flame, Coffee, Dumbbell, Brain, Check, X, AlertTriangle, Video, PlayCircle, Apple, PieChart, Utensils, CheckCircle
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
