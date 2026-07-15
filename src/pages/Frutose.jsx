@@ -40,23 +40,24 @@ export default function Frutose() {
 
   return (
     <>
-      <Helmet>
-        <title>Quantas frutas posso comer por dia? | Nutrição com Marco</title>
-        <meta name="description" content="Entenda o metabolismo da frutose, a diferença para o açúcar industrializado e a verdade sobre a fruta e a gordura no fígado." />
-        <link rel="canonical" href={pageUrl} />
+<Helmet>
+        <title>Quantas Frutas Posso Comer Por Dia? (O Perigo da Frutose) | Nutrição com Marco</title>
+        <meta name="description" content="Fruta à vontade faz mal? Entenda a bioquímica da frutose, o risco de gordura no fígado (esteatose) e qual a porção diária ideal para emagrecer." />
+        <meta name="keywords" content="quantas frutas posso comer por dia, frutose faz mal, gordura no fígado, dieta com frutas, esteatose hepática" />
+        <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Quantas frutas posso comer por dia? | Nutrição com Marco" />
-        <meta property="og:description" content="Entenda o metabolismo da frutose e a verdade sobre a fruta e a gordura no fígado." />
+        <meta property="og:title" content="Quantas Frutas Posso Comer Por Dia? (O Perigo da Frutose)" />
+        <meta property="og:description" content="Fruta à vontade faz mal? Entenda a bioquímica da frutose, o risco de gordura no fígado (esteatose) e qual a porção diária ideal para emagrecer." />
         <meta property="og:image" content={frutoseCapa} />
-        <meta property="og:url" content={pageUrl} />
+        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
-        {/* SCHEMA.ORG 1: BLOGPOSTING / ARTICLE */}
-        <script type="application/ld+json">
-          {JSON.stringify({
+        {/* SCHEMA.ORG 1: BLOGPOSTING */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BlogPosting",
-            "headline": "Afinal, a frutose causa gordura no fígado? Descubra quantas frutas você pode comer por dia",
+            "mainEntityOfPage": { "@type": "WebPage", "@id": `https://www.nutricaocommarco.com.br${pathname}` }, 
+            "headline": "Quantas Frutas Posso Comer Por Dia? (O Perigo da Frutose)",
             "image": [
               frutoseCapa,
               `${githubImgBase}Blog/frutose_bananas.jpg`
@@ -65,41 +66,33 @@ export default function Frutose() {
               "@type": "Person",
               "name": "Marco Aurélio Jr.",
               "url": "https://www.nutricaocommarco.com.br/sobre",
-              "jobTitle": "Estudante de Nutrição e Avaliador Antropométrico ISAK Nível 1",
+              "jobTitle": "Estudante de Nutrição e Avaliador Antropométrico ISAK 1",
               "sameAs": ["https://instagram.com/nutricao_com_marco"]
             },
             "publisher": {
               "@type": "Organization",
               "name": "Nutrição com Marco",
-              "logo": {
-                "@type": "ImageObject",
-                "url": `${githubImgBase}logoN_pingus.png`
-              }
+              "logo": { "@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png` }
             },
             "datePublished": datePublishedISO,
             "dateModified": dateModifiedISO,
-            "description": "Entenda o metabolismo da frutose, a diferença para o açúcar industrializado e a verdade sobre a fruta e a gordura no fígado (esteatose)."
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 2: MEDICAL WEB PAGE */}
-        <script type="application/ld+json">
-          {JSON.stringify({
+            "description": "Fruta à vontade faz mal? Entenda a bioquímica da frutose, o risco de gordura no fígado (esteatose) e qual a porção diária ideal para emagrecer.",
+            "inLanguage": "pt-BR"
+          }) }} />
+          
+        {/* SCHEMA 2: MedicalWebPage */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "MedicalWebPage",
-            "name": "Metabolismo da Frutose e Esteatose Hepática",
-            "url": pageUrl,
+            "name": "O Metabolismo da Frutose e a Saúde Hepática",
+            "url": `https://www.nutricaocommarco.com.br${pathname}`,
             "about": [
               {"@type": "MedicalEntity", "name": "Frutose"},
               {"@type": "MedicalEntity", "name": "Esteatose Hepática"},
               {"@type": "MedicalEntity", "name": "Nutrição Clínica"}
             ],
-            "audience": {
-              "@type": "MedicalAudience",
-              "audienceType": "Pacientes"
-            }
-          })}
-        </script>
+            "specialty": "Dietetics"
+          }) }} />
 
         {/* SCHEMA.ORG 3: BREADCRUMB LIST */}
         <script type="application/ld+json">
