@@ -80,6 +80,9 @@ const rotasEstaticas = [
   }
 ];
 
+
+// 📝 2. TODOS OS POSTS DO BLOG (Otimizados para Máximo CTR no Google)
+const postsBlog = [
   { id: 27, link: "/o-que-e-dieta-low-carb", img: `${githubImgBase}Blog/LowCarb_Capa.jpg`, titulo: "Dieta Low Carb: O Que É, Erros Fatais e Calculadora Completa", desc: "Aprenda o que é a dieta low carb de verdade. Descubra a diferença para a cetogênica, os mitos da gordura e monte seu prato com nossa Calculadora TACO.", data: "2026-07-15" },
   { id: 26, link: "/o-que-e-dieta-cetogenica", img: `${githubImgBase}Blog/DietaCetogenica_Capa.jpg`, titulo: "Dieta Cetogênica Explicada: Como Entrar em Cetose e Emagrecer", desc: "O que a ciência diz sobre a Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível e os perigos de fazer errado.", data: "2026-07-14" },
   { id: 25, link: "/o-que-e-jejum-intermitente", img: `${githubImgBase}Blog/JejumIntermitente_Capa.jpg`, titulo: "Jejum Intermitente Funciona? A Verdade Biológica e os Protocolos", desc: "Muito além de passar fome: descubra o que é o jejum intermitente, como ele destrava o metabolismo lento e se ele emagrece mais que a dieta tradicional.", data: "2026-07-12" },
