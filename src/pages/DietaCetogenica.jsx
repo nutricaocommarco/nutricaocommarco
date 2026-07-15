@@ -49,21 +49,17 @@ export default function DietaCetogenica() {
   // Palavras-chave ricas focadas para a nuvem de densidade
   const keywords = "o que é dieta cetogênica, como funciona a dieta cetogênica, dieta keto, cetose nutricional, corpos cetônicos, dieta cetogênica cardápio, dieta cetogênica emagrece, o que comer na dieta cetogênica, gripe cetogênica, jejum intermitente";
 
-  return (
+return (
     <>
-<Helmet>
-        {/* FOCO TOTAL NA PALAVRA-CHAVE PRINCIPAL NOS METADADOS */}
+      <Helmet>
+        {/* TITULO E METAS IDÊNTICOS AO QUE O SCRIPT NODE GERA */}
         <title>Dieta Cetogênica Explicada: Como Entrar em Cetose e Emagrecer | Nutrição com Marco</title>
         <meta name="description" content="O que a ciência diz sobre a Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível e os perigos de fazer errado." />
-        <meta name="keywords" content={keywords} />
         <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
-        
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Dieta Cetogênica Explicada: Como Entrar em Cetose e Emagrecer" />
+        <meta property="og:title" content="Dieta Cetogênica Explicada: Como Entrar em Cetose e Emagrecer | Nutrição com Marco" />
         <meta property="og:description" content="O que a ciência diz sobre a Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível e os perigos de fazer errado." />
         <meta property="og:image" content={artigoCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-        {/* OS SCHEMAS NÃO FICAM MAIS AQUI NO REACT HELMET */}
       </Helmet>
 
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
