@@ -79,7 +79,7 @@ export default function JejumIntermitente() {
 
   return (
     <>
-      <Helmet>
+<Helmet>
         {/* FOCO NA PALAVRA-CHAVE PRINCIPAL NOS METADADOS */}
         <title>Jejum Intermitente Funciona? A Verdade Biológica e os Protocolos | Nutrição com Marco</title>
         <meta name="description" content="Muito além de passar fome: descubra o que é o jejum intermitente, como ele destrava o metabolismo lento e se ele emagrece mais que a dieta tradicional." />
@@ -91,106 +91,6 @@ export default function JejumIntermitente() {
         <meta property="og:description" content="Muito além de passar fome: descubra o que é o jejum intermitente, como ele destrava o metabolismo lento e se ele emagrece mais que a dieta tradicional." />
         <meta property="og:image" content={artigoCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        {/* SCHEMA 1: BlogPosting (Substituído Article por BlogPosting, igual fizemos na Low Carb) */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": `https://www.nutricaocommarco.com.br${pathname}`
-            },   
-            "headline": "Jejum Intermitente Funciona? A Verdade Biológica e os Protocolos",
-            "image": [artigoCapa],
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre",
-              "jobTitle": "Estudante de Nutrição e Avaliador Antropométrico ISAK 1",
-              "knowsAbout": ["Jejum Intermitente", "Dietas da Moda", "Emagrecimento", "Metabolismo", "Nutrição Clínica"]
-            },
-            "publisher": {
-              "@type": "Organization", 
-              "name": "Nutrição com Marco", 
-              "logo": {
-                "@type": "ImageObject", 
-                "url": `${githubImgBase}logoN_pingus.png`
-              }
-            },
-            "datePublished": datePublishedISO,
-            "dateModified": dateModifiedISO,
-            "description": "Muito além de passar fome: descubra o que é o jejum intermitente, como ele destrava o metabolismo lento e se ele emagrece mais que a dieta tradicional.",
-            "inLanguage": "pt-BR"
-          }) }} />
-
-        {/* SCHEMA 2: MedicalWebPage */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MedicalWebPage",
-            "name": "O Que é Jejum Intermitente? Guia Definitivo e Científico",
-            "url": `https://www.nutricaocommarco.com.br${pathname}`,
-            "about": [
-              {"@type": "MedicalEntity", "name": "Jejum Intermitente"},
-              {"@type": "MedicalEntity", "name": "Metabolismo"},
-              {"@type": "MedicalEntity", "name": "Perda de Peso"},
-              {"@type": "MedicalEntity", "name": "Corpos Cetônicos"}
-            ],
-            "audience": {
-              "@type": "MedicalAudience",
-              "audienceType": "Pacientes e Público Leigo"
-            }
-          }) }} />
-
-        {/* SCHEMA 3: BreadcrumbList */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.nutricaocommarco.com.br/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": "https://www.nutricaocommarco.com.br/blog"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "O Que é Jejum Intermitente",
-                "item": `https://www.nutricaocommarco.com.br${pathname}`
-              }
-            ]
-          }) }} />
-
-        {/* SCHEMA 4: VideoObject (MrBeast) */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "VideoObject",
-            "name": "O Que é Jejum Intermitente na Prática: 14 Dias Sem Comer (MrBeast)",
-            "description": "Desafio documentado por MrBeast mostrando a experiência fisiológica e os desafios mentais de passar 14 dias entendendo o que é jejum intermitente prolongado.",
-            "thumbnailUrl": "https://img.youtube.com/vi/Kq3dcD3Hnik/maxresdefault.jpg",
-            "uploadDate": "2023-01-01T00:00:00Z",
-            "embedUrl": "https://www.youtube.com/embed/Kq3dcD3Hnik"
-          }) }} />
-
-        {/* SCHEMA 5: FAQPage */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.pergunta.includes("jejum") ? faq.pergunta.replace("jejum", "jejum intermitente") : faq.pergunta,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.resposta
-              }
-            }))
-          }) }} />
       </Helmet>
 
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
