@@ -19,18 +19,33 @@ const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 const artigoCapa = `${githubImgBase}Blog/LowCarb_Capa.jpg`; 
 
-// Banco de Dados Simples para a Calculadora
+// Banco de Dados Expandido baseado na Tabela TACO (4ª Edição)
 const foodDatabase = [
   { id: 1, name: "Arroz Branco (Cozido)", carbs: 28.2 },
-  { id: 2, name: "Feijão Carioca (Cozido)", carbs: 13.6 },
-  { id: 3, name: "Batata Doce (Cozida)", carbs: 18.4 },
-  { id: 4, name: "Pão Francês (1 unidade = 50g)", carbs: 50.0 },
-  { id: 5, name: "Ovo de Galinha", carbs: 1.1 },
-  { id: 6, name: "Peito de Frango", carbs: 0.0 },
-  { id: 7, name: "Abacate", carbs: 8.5 },
-  { id: 8, name: "Maçã", carbs: 13.8 },
-  { id: 9, name: "Banana Prata", carbs: 26.0 },
-  { id: 10, name: "Brócolis (Cozido)", carbs: 4.4 },
+  { id: 2, name: "Arroz Integral (Cozido)", carbs: 25.8 },
+  { id: 3, name: "Feijão Carioca (Cozido)", carbs: 13.6 },
+  { id: 4, name: "Batata Doce (Cozida)", carbs: 18.4 },
+  { id: 5, name: "Pão Francês (1 uni = 50g)", carbs: 50.0 }, // Referência direta para impactar o usuário
+  { id: 6, name: "Ovo de Galinha Inteiro", carbs: 1.1 },
+  { id: 7, name: "Ovo de Codorna Inteiro", carbs: 0.8 },
+  { id: 8, name: "Peito de Frango / Coxinha", carbs: 0.0 },
+  { id: 9, name: "Carne Bovina (Moída / Bife)", carbs: 0.0 },
+  { id: 10, name: "Salmão / Atum Fresco", carbs: 0.0 },
+  { id: 11, name: "Azeite de Oliva / Manteiga", carbs: 0.0 },
+  { id: 12, name: "Abacate", carbs: 6.0 },
+  { id: 13, name: "Maçã (com casca)", carbs: 16.6 },
+  { id: 14, name: "Banana Prata", carbs: 26.0 },
+  { id: 15, name: "Laranja (crua)", carbs: 11.5 },
+  { id: 16, name: "Melancia", carbs: 8.1 },
+  { id: 17, name: "Brócolis (Cozido)", carbs: 4.4 },
+  { id: 18, name: "Couve Manteiga (Crua)", carbs: 4.3 },
+  { id: 19, name: "Alface (Americana/Crespa)", carbs: 1.7 },
+  { id: 20, name: "Tomate", carbs: 3.1 },
+  { id: 21, name: "Cenoura (Crua)", carbs: 7.7 },
+  { id: 22, name: "Cebola", carbs: 8.9 },
+  { id: 23, name: "Amendoim Torrado", carbs: 18.7 },
+  { id: 24, name: "Castanha-de-caju Torrada", carbs: 29.1 },
+  { id: 25, name: "Pastel Frito de Queijo", carbs: 48.1 }
 ];
 
 export default function DietaLowCarb() {
@@ -295,7 +310,7 @@ export default function DietaLowCarb() {
               <PieChart className="text-green-600"/> Calculadora Low Carb: Entenda os Carboidratos
             </h2>
             <p className="mb-6">
-              A melhor forma de aprender na prática o que é dieta low carb é visualizando. Por isso, desenvolvi esta ferramenta interativa exclusiva para você. O limite clássico de uma Dieta Low Carb mais flexível é de aproximadamente <strong>130 gramas de carboidratos por dia</strong>. Brinque à vontade adicionando os alimentos da lista abaixo e veja o quão rápido você atinge esse limite metabólico dependendo apenas de suas escolhas!
+              A melhor forma de aprender na prática o que é dieta low carb é visualizando. Por isso, desenvolvi esta ferramenta interativa exclusiva para você. O limite clássico de uma Dieta Low Carb mais flexível é de aproximadamente <strong>130 gramas de carboidratos por dia</strong>. Brinque à vontade adicionando os alimentos da lista da TACO abaixo e veja o quão rápido você atinge esse limite metabólico dependendo apenas de suas escolhas!
             </p>
 
             <div className="my-10 bg-white rounded-[3rem] border border-slate-200 shadow-xl overflow-hidden p-6 md:p-8">
