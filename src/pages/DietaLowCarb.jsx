@@ -490,14 +490,14 @@ export default function DietaLowCarb() {
   return (
     <>
       <Helmet>
-        <title>O Que é Dieta Low Carb? Guia, Diferenças e Cardápio</title>
+        <title>Dieta Low Carb: O Que É, Erros Fatais e Calculadora Completa | Nutrição com Marco</title>
         <meta name="description" content="Aprenda o que é dieta low carb. Descubra a diferença entre low carb e cetogênica, como começar, cardápio e os mitos da gordura saturada vs insaturada." />
         <meta name="keywords" content="o que é dieta low carb, dieta low carb, dieta mediterrânea, diferença entre low carb e cetogênica, como começar a fazer dieta low carb, calculadora low carb, tabela taco" />
         <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
         
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="O Que é Dieta Low Carb? Guia Completo e Calculadora" />
-        <meta property="og:description" content="Saiba o que é a dieta low carb na prática. Entenda os limites de carboidratos, como as gorduras funcionam e monte seu cardápio com nossa calculadora baseada na Tabela TACO." />
+        <meta property="og:title" content="Dieta Low Carb: O Que É, Erros Fatais e Calculadora Completa" />
+        <meta property="og:description" content="Aprenda o que é dieta low carb. Descubra a diferença entre low carb e cetogênica, como começar, cardápio e os mitos da gordura saturada vs insaturada." />
         <meta property="og:image" content={artigoCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
