@@ -124,9 +124,17 @@ const rotasDoBlog = postsBlog.map(post => ({
 const routes = [...rotasEstaticas, ...rotasDoBlog];
 const distPath = path.resolve('dist');
 
-// 🛠️ 4. PROCESSO DE GERAÇÃO
+// 🛠️ 4. PROCESSO DE GERAÇÃO E LIMPEZA
 const template = fs.readFileSync(path.join(distPath, 'index.html'), 'utf-8');
-console.log('🚀 Iniciando Robô de SEO Total...');
+
+// EXPRESSÕES REGULARES PARA LIMPAR META TAGS ANTIGAS DO TEMPLATE
+const cleanTemplate = template
+  .replace(/<title>.*?<\/title>/g, '') // Remove titulo antigo
+  .replace(/<meta name="description".*?>/g, '') // Remove descrições antigas
+  .replace(/<meta property="og:.*?".*?>/g, '') // Remove OpenGraph antigo
+  .replace(/<script type="application\/ld\+json">.*?<\/script>/g, ''); // Remove schemas antigos
+
+console.log('🚀 Iniciando Robô de SEO Total com Limpeza...');
 
 routes.forEach(route => {
   const routePath = path.join(distPath, route.path);
@@ -142,9 +150,9 @@ routes.forEach(route => {
     "datePublished": route.date || new Date().toISOString().split('T')[0]
   };
 
-  const html = template
-    .replace('<title>Nutrição com Marco</title>', `<title>${route.title}</title>`)
-    .replace('</head>', `
+  // INJETA O TÍTULO NOVO E AS META TAGS LIMPAS
+  const html = cleanTemplate.replace('</head>', `
+      <title>${route.title}</title>
       <meta name="description" content="${route.desc}" />
       <meta property="og:type" content="article" />
       <meta property="og:title" content="${route.title}" />
@@ -159,5 +167,5 @@ routes.forEach(route => {
     </head>`);
 
   fs.writeFileSync(path.join(routePath, 'index.html'), html);
-  console.log(`✅ Página [${route.path}] preparada!`);
+  console.log(`✅ Página [${route.path}] limpa e preparada!`);
 });
