@@ -25,7 +25,7 @@ const foodDatabase = [
   { id: 2, name: "Arroz Integral (Cozido)", carbs: 25.8 },
   { id: 3, name: "Feijão Carioca (Cozido)", carbs: 13.6 },
   { id: 4, name: "Batata Doce (Cozida)", carbs: 18.4 },
-  { id: 5, name: "Pão Francês (1 uni = 50g)", carbs: 50.0 }, // Referência direta para impactar o usuário
+  { id: 5, name: "Pão Francês (1 uni = 50g)", carbs: 50.0 },
   { id: 6, name: "Ovo de Galinha Inteiro", carbs: 1.1 },
   { id: 7, name: "Ovo de Codorna Inteiro", carbs: 0.8 },
   { id: 8, name: "Peito de Frango / Coxinha", carbs: 0.0 },
@@ -115,7 +115,6 @@ export default function DietaLowCarb() {
         <meta property="og:image" content={artigoCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
         
-        {/* SCHEMA 1: Article */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
@@ -130,7 +129,6 @@ export default function DietaLowCarb() {
             "keywords": "o que é dieta low carb, dieta low carb"
           }) }} />
 
-        {/* SCHEMA 2: MedicalWebPage */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "MedicalWebPage",
@@ -143,7 +141,6 @@ export default function DietaLowCarb() {
             ]
           }) }} />
 
-        {/* SCHEMA 3: FAQPage INVISÍVEL PARA SEO */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
@@ -173,7 +170,6 @@ export default function DietaLowCarb() {
             O Que é Dieta Low Carb? A Diferença para a Cetogênica e Como Começar
           </h1>
           
-          {/* RESPOSTA DIRETA NO TOPO (FEATURED SNIPPET) */}
           <div className="mb-10 p-6 md:p-10 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-6 text-left">
             <div>
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3 flex items-center gap-2">
@@ -185,7 +181,6 @@ export default function DietaLowCarb() {
             </div>
           </div>
 
-          {/* ÁUDIO */}
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
@@ -199,7 +194,6 @@ export default function DietaLowCarb() {
             </div>
           </div>
 
-          {/* ÍNDICE (TOC) */}
           <div className="mb-12 border border-slate-200 rounded-[2rem] shadow-sm overflow-hidden bg-slate-50">
             <button 
               onClick={() => setIsTocOpen(!isTocOpen)}
@@ -232,7 +226,6 @@ export default function DietaLowCarb() {
             Em um mundo hoje amplamente dominado por alimentos ultraprocessados, é muito comum que nós, como sociedade, confundamos a sede de nutrientes reais do nosso corpo com a clássica <Link to="/o-que-e-fome-emocional" className="text-green-600 font-bold hover:underline">fome emocional</Link>. Diante desse cenário de adoecimento metabólico, a <strong>dieta low carb</strong> surge não como uma restrição chata e severa, mas como um verdadeiro retorno à base da biologia humana. Entender de uma vez por todas o que é dieta low carb é o primeiro passo para resgatar a sua saúde, melhorar seus exames e perder peso sem precisar viver escravo da balança e contando os gramas de uma folha de alface.
           </p>
 
-          {/* CAPA COM SEO INVISÍVEL */}
           <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
             <img 
               src={artigoCapa} 
@@ -305,7 +298,6 @@ export default function DietaLowCarb() {
               </table>
             </div>
 
-            {/* CALCULADORA DE CARBOIDRATOS INTERATIVA */}
             <h2 id="calculadora" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
               <PieChart className="text-green-600"/> Calculadora Low Carb: Entenda os Carboidratos
             </h2>
@@ -450,7 +442,6 @@ export default function DietaLowCarb() {
               Aliado a toda essa mudança alimentar inicial, é interessante observar que muitas pessoas também decidem, de forma natural, começar a praticar o <Link to="/o-que-e-jejum-intermitente" className="text-green-600 font-bold hover:underline">jejum intermitente</Link>. E o motivo é simples: a ausência total daqueles temidos picos de insulina provocada pela dieta low carb torna absurdamente mais fácil, natural e indolor conseguir passar 14 ou 16 horas do dia sem precisar se alimentar.
             </p>
 
-            {/* AFILIADO MERCADO LIVRE - BALANÇA DE PRECISÃO */}
             <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
                 <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
@@ -529,7 +520,6 @@ export default function DietaLowCarb() {
                 </div>
             </div>
 
-            {/* CONCLUSÃO */}
             <div className="mb-12 border-t border-slate-200 pt-8 mt-12">
               <h2 className="text-2xl font-black text-slate-800 uppercase italic mb-4 flex items-center gap-3">
                 <Target className="text-green-600"/> Conclusão: Dieta Low Carb é para você?
@@ -570,7 +560,6 @@ export default function DietaLowCarb() {
 
         <ArtigosRecomendados currentPath={pathname} />
 
-        {/* BIO AUTOR */}
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
             <img 
