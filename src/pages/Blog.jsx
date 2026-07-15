@@ -6,6 +6,15 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 const postsData = [
     {
+    id: 25,
+    link: "/o-que-e-dieta-cetogenica",
+    imgSrc: `${githubImgBase}Blog/DietaCetogenica_Capa.jpg`,
+    tag: "Dietas da Moda",
+    title: "O Que é Dieta Cetogênica? Guia Definitivo e Científico",
+    desc: "Aprenda como a restrição inteligente de carboidratos força o seu corpo a entrar em cetose, transformando gordura estocada na sua principal fonte de energia.",
+    isNew: true
+  },
+    {
     id: 24,
     link: "/o-que-e-jejum-intermitente",
     imgSrc: `${githubImgBase}Blog/JejumIntermitente_Capa.jpg`,
