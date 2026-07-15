@@ -19,7 +19,6 @@ const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 const artigoCapa = `${githubImgBase}Blog/LowCarb_Capa.jpg`; 
 
-// Banco de Dados Expandido baseado na Tabela TACO (4ª Edição)
 const foodDatabase = [
   { id: 1, name: "Arroz Branco (Cozido)", carbs: 28.2 },
   { id: 2, name: "Arroz Integral (Cozido)", carbs: 25.8 },
@@ -52,8 +51,6 @@ export default function DietaLowCarb() {
   const { pathname } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
-
-  // Estados da Calculadora Low Carb
   const [selectedFoodId, setSelectedFoodId] = useState('');
   const [foodQty, setFoodQty] = useState('');
   const [plate, setPlate] = useState([]);
@@ -62,7 +59,6 @@ export default function DietaLowCarb() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  // Lógica da Calculadora
   const handleAddFood = (e) => {
     e.preventDefault();
     if (!selectedFoodId || !foodQty) return;
@@ -302,7 +298,7 @@ export default function DietaLowCarb() {
               <PieChart className="text-green-600"/> Calculadora Low Carb: Entenda os Carboidratos
             </h2>
             <p className="mb-6">
-              A melhor forma de aprender na prática o que é dieta low carb é visualizando. Por isso, desenvolvi esta ferramenta interativa exclusiva para você. O limite clássico de uma Dieta Low Carb mais flexível é de aproximadamente <strong>130 gramas de carboidratos por dia</strong>. Brinque à vontade adicionando os alimentos da lista da TACO abaixo e veja o quão rápido você atinge esse limite metabólico dependendo apenas de suas escolhas!
+              A melhor forma de aprender na prática o que é dieta low carb é visualizando. Por isso, desenvolvi esta ferramenta interativa exclusiva para você. O limite clássico de uma Dieta Low Carb mais flexível é de aproximadamente <strong>130 gramas de carboidratos por dia</strong>. Brinque à vontade adicionando os alimentos da lista abaixo e veja o quão rápido você atinge esse limite metabólico dependendo apenas de suas escolhas!
             </p>
 
             <div className="my-10 bg-white rounded-[3rem] border border-slate-200 shadow-xl overflow-hidden p-6 md:p-8">
