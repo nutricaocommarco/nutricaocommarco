@@ -42,6 +42,7 @@ import InatividadeZero from './pages/InatividadeZero';
 import PlanilhaAntropometriaVendas from './pages/PlanilhaAntropometricaMarcoAurelio';
 import JejumIntermitente from './pages/JejumIntermitente';
 import DietaCetogenica from './pages/DietaCetogenica';
+import DietaLowCarb from './pages/DietaLowCarb';
 
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
@@ -392,6 +393,7 @@ export default function App() {
             <Route path="/planilha" element={<PlanilhaAntropometriaVendas />} />
             <Route path="/o-que-e-jejum-intermitente" element={<JejumIntermitente />} />
             <Route path="/o-que-e-dieta-cetogenica" element={<DietaCetogenica />} />
+            <Route path="/o-que-e-dieta-low-carb" element={<DietaLowCarb />} />
           </Routes>
         </Layout>
       </Router>
