@@ -17,87 +17,17 @@ export default function Feijao() {
 
   return (
     <>
-      <Helmet>
-        <title>Por que o feijão dá gases e como evitar de vez | Nutrição com Marco</title>
-        <meta name="description" content="Descubra por que o feijão causa gases e o que fazer para evitar o desconforto. Entenda como funciona a digestão e veja dicas práticas." />
+<Helmet>
+        <title>Por Que o Feijão Dá Gases? O Truque Químico Para Evitar | Nutrição com Marco</title>
+        <meta name="description" content="Pare de sofrer com estômago estufado. A culpa é dos antinutrientes! Aprenda o método correto do remolho para neutralizar o feijão e melhorar a digestão." />
+        <meta name="keywords" content="por que o feijão dá gases, como tirar o gas do feijao, remolho do feijão, antinutrientes, fitatos, digestão" />
+        <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
 
-        {/* INÍCIO DO OPEN GRAPH */}
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Por que o feijão dá gases e como evitar de vez | Nutrição com Marco" />
-        <meta property="og:description" content="Descubra por que o feijão causa gases e o que fazer para evitar o desconforto. Entenda como funciona a digestão e veja dicas práticas." />
+        <meta property="og:title" content="Por Que o Feijão Dá Gases? O Truque Químico Para Evitar" />
+        <meta property="og:description" content="Pare de sofrer com estômago estufado. A culpa é dos antinutrientes! Aprenda o método correto do remolho para neutralizar o feijão e melhorar a digestão." />
         <meta property="og:image" content={`${githubImgBase}Blog/feijao.jpg`} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-        {/* FIM DO OPEN GRAPH */}        
-
-        {/* INÍCIO DO SCHEMA.ORG PARA ARTIGOS */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Por que o feijão dá gases e como evitar de vez",
-            "image": `${githubImgBase}Blog/feijao.jpg`,
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Nutrição com Marco",
-              "logo": {
-                "@type": "ImageObject",
-                "url": `${githubImgBase}logoN_pingus.png`
-              }
-            },
-            "datePublished": "2026-03-20",
-            "dateModified": "2026-03-21",
-            "description": "Descubra por que o feijão causa gases e o que fazer para evitar o desconforto. Entenda como funciona a digestão e veja dicas práticas."
-          })}
-        </script>
-        {/* FIM DO SCHEMA.ORG PARA ARTIGOS */}
-
-        {/* INÍCIO DO SCHEMA.ORG PARA FAQ (ATUALIZADO PARA SEO 950+) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Por que o corpo humano não consegue digerir o feijão direito?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "O problema não é o feijão em si, mas a biologia humana. Nosso corpo não produz a enzima alfa-galactosidase em quantidade suficiente para quebrar os oligossacarídeos (carboidratos complexos como a rafinose) ainda no intestino delgado. Como resultado, eles passam intactos para o intestino grosso, onde ocorre a fermentação."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Tirar a água do feijão realmente funciona contra os gases?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Sim, essa é a estratégia mais comprovada pela ciência. O processo de demolho (deixar os grãos em água por 8 a 12 horas) e o descarte dessa água reduzem de forma drástica os compostos fermentáveis, fitatos e lectinas presentes na casca do grão, diminuindo a produção final de hidrogênio e metano no intestino."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Feijão faz mal para quem tem intestino sensível?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Não necessariamente faz mal, mas exige cuidado. Pessoas com uma microbiota intestinal mais sensível ou com quadros ligados ao consumo de FODMAPs podem ter uma resposta exagerada à fermentação. Nesses casos, o fracionamento das porções e a mastigação correta são essenciais para evitar a distensão abdominal."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Qual tipo de feijão dá menos gases?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "De forma geral, leguminosas mais leves ou sem casca, como a lentilha rosa ou o feijão moyashi, tendem a fermentar menos. No entanto, o fator que mais determina a produção de gases não é o tipo do feijão, e sim o tempo adequado de remolho e o cozimento completo dos grãos."
-                }
-              }
-            ]
-          })}
-        </script>
-        {/* FIM DO SCHEMA.ORG PARA FAQ */}
       </Helmet>
 
       <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
