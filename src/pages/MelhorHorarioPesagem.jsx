@@ -17,101 +17,17 @@ export default function MelhorHorarioPesagem() {
 
   return (
     <>
-      <Helmet>
-        <title>Qual o melhor horário para se pesar? | Nutrição com Marco</title>
-        <meta name="description" content="Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite. Peso na balança não é igual a gordura corporal." />
+<Helmet>
+        <title>O Único Horário Certo Para se Pesar (E Por Que a Balança Mente) | Nutrição com Marco</title>
+        <meta name="description" content="Seu peso varia até 2kg por dia! Descubra o melhor horário para se pesar, as armadilhas da retenção de líquidos e como não se frustrar com a balança." />
+        <meta name="keywords" content="qual o melhor horario para se pesar, porque o peso varia no dia, oscilação de peso na balança, retenção de líquidos, quando me pesar" />
+        <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
 
-        {/* OPEN GRAPH (Redes Sociais) */}
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Qual o melhor horário para se pesar? (Você está fazendo isso errado)" />
-        <meta property="og:description" content="Subiu na balança à noite e tomou um susto? Entenda a ciência por trás das variações de peso e o protocolo correto para se pesar." />
+        <meta property="og:title" content="O Único Horário Certo Para se Pesar (E Por Que a Balança Mente)" />
+        <meta property="og:description" content="Seu peso varia até 2kg por dia! Descubra o melhor horário para se pesar, as armadilhas da retenção de líquidos e como não se frustrar com a balança." />
         <meta property="og:image" content={`${githubImgBase}Blog/melhor_horario_pesagem.jpg`} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        {/* SCHEMA.ORG (Google) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Qual o melhor horário para se pesar? (Você está fazendo isso errado)",
-            "image": `${githubImgBase}Blog/melhor_horario_pesagem.jpg`,
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Nutrição com Marco",
-              "logo": {
-                "@type": "ImageObject",
-                "url": `${githubImgBase}logoN_pingus.png`
-              }
-            },
-            "datePublished": "2026-03-21",
-            "dateModified": "2026-03-21",
-            "description": "Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite. Peso na balança não é igual a gordura corporal."
-          })}
-        </script>
-
-        {/* INÍCIO DO SCHEMA.ORG PARA FAQ */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Qual o melhor horário para se pesar?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "O padrão ouro é pela manhã, em jejum, logo após ir ao banheiro e antes de beber água ou tomar café da manhã. Esse é o momento de maior estabilidade metabólica do corpo."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Posso me pesar todos os dias?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Sim, desde que seja sempre nas mesmas condições (horário, balança, jejum). O importante é observar a média semanal do peso, e não se desesperar com o valor isolado de um único dia."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Por que meu peso muda todo dia?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "O peso flutua devido à quantidade de água retida, bolo fecal no intestino, consumo de sódio, glicogênio muscular e até inflamação pós-treino. Essas variações diárias representam água e resíduos, não gordura."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Se pesei mais hoje, engordei?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Provavelmente não. Para ganhar 1kg de gordura real, você precisaria de um superávit de aproximadamente 7.000 calorias. Variações rápidas de 1 a 3kg de um dia para o outro são apenas líquidos e alimentos em trânsito."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "É melhor se pesar ou tirar medidas?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "O ideal é usar os dois métodos em conjunto. A balança mostra a massa total, mas as medidas (como a circunferência da cintura) e fotos mostram a real mudança na composição corporal."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "A bioimpedância é melhor que a balança?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Ela traz mais informações ao estimar gordura e músculo, mas também sofre variações com a hidratação. O mais importante é o acompanhamento de tendências ao longo do tempo, preferencialmente aliado a uma avaliação física completa."
-                }
-              }
-            ]
-          })}
-        </script>
-        {/* FIM DO SCHEMA.ORG PARA FAQ */}
       </Helmet>
 
       <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
