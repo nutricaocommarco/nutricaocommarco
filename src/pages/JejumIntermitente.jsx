@@ -99,7 +99,7 @@ export default function JejumIntermitente() {
               "@type": "WebPage",
               "@id": `https://www.nutricaocommarco.com.br${pathname}`
             },   
-            "headline": "O Que é Jejum Intermitente? Guia Definitivo e Científico",
+            "headline": "Jejum Intermitente Funciona? A Verdade Biológica e os Protocolos",
             "image": [artigoCapa],
             "author": {
               "@type": "Person",
@@ -118,7 +118,7 @@ export default function JejumIntermitente() {
             },
             "datePublished": datePublishedISO,
             "dateModified": dateModifiedISO,
-            "description": "Descubra o que é o jejum intermitente, como ele afeta o seu metabolismo, a sua ligação histórica e religiosa, e se ele emagrece mais que a dieta tradicional."
+            "description": "Muito além de passar fome: descubra o que é o jejum intermitente, como ele destrava o metabolismo lento e se ele emagrece mais que a dieta tradicional."
           }) }} />
 
         {/* SCHEMA 2: MedicalWebPage */}
