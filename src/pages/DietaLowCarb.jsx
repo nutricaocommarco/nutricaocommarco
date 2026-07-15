@@ -963,25 +963,6 @@ export default function DietaLowCarb() {
                 </div>
             </div>
 
-
-                        <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                            Se você brincou e montou pratos com a nossa calculadora de carboidratos, percebeu rapidamente que **o peso real do alimento importa muito**. Subestimar apenas "no olho" o tamanho real de uma maçã ou o peso da porção de arroz no seu prato pode tirar você da margem de carboidratos segura do dia de forma imperceptível. E adivinhe se <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 font-bold hover:underline">a balança de bioimpedância do seu banheiro é confiável</Link> para julgar seus resultados iniciais? Sim, ela ajuda a ter um norte, mas a pequena balança de precisão que fica em cima da sua pia da cozinha é essencial! Ter uma balança digital barata em casa é, sem dúvidas, a ferramenta número 1 para garantir o seu sucesso metabólico.
-                        </p>
-
-                        <a 
-                            href="https://meli.la/2E9d1zF" 
-                            rel="sponsored noopener noreferrer" 
-                            target="_blank"
-                            aria-label="Comprar Balança de Precisão no Mercado Livre para medir a dieta low carb"
-                            className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-                        >
-                            <ShoppingCart size={16} />
-                            Comprar no Mercado Livre
-                        </a>
-                    </div>
-                </div>
-            </div>
-
                <h2 id="video-lowcarb" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Video className="text-green-600"/> A Low Carb na Prática (e o Intestino!)
             </h2>
