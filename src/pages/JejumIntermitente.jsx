@@ -81,7 +81,7 @@ export default function JejumIntermitente() {
     <>
       <Helmet>
         {/* FOCO NA PALAVRA-CHAVE PRINCIPAL NOS METADADOS (O que os robôs leem primeiro) */}
-        <title>O Que é Jejum Intermitente? Guia Definitivo e Científico | Nutrição com Marco</title>
+        <title>Jejum Intermitente Funciona? A Verdade Biológica e os Protocolos | Nutrição com Marco</title>
         <meta name="description" content="Aprenda o que é jejum intermitente. Descubra como essa estratégia funciona, como ela afeta o seu metabolismo na queima de gordura e calcule a sua janela." />
         <meta name="keywords" content={keywords} />
         <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
