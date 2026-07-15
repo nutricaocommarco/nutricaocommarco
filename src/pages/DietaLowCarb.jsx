@@ -958,11 +958,11 @@ export default function DietaLowCarb() {
                 </div>
             </div>
 
-            <h2 id="video-lowcarb" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Video className="text-green-600"/> O Que É Dieta Low Carb na Prática?
+               <h2 id="video-lowcarb" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Video className="text-green-600"/> A Low Carb na Prática (e o Intestino!)
             </h2>
             <p className="mb-6">
-              Ainda ficou com algumas dúvidas de como formatar seus macros e entender o conceito a fundo para começar ainda hoje? O excelente vídeo abaixo faz uma imersão muito mais prática para garantir e te provar que você não vai precisar seguir nenhum terrorismo nutricional estressante, mas sim uma ciência aplicável, leve e inteligente que cabe na correria do dia a dia:
+              Ainda ficou com algumas dúvidas de como formatar seus macros e entender o conceito a fundo para começar ainda hoje? A excelente Nutricionista Patricia Leite preparou um material fantástico explicando o maior erro de quem tenta fazer Low Carb por conta própria: esquecer da saúde intestinal. Assista para entender como fazer da forma correta e sem sofrimento:
             </p>
 
             <div className="my-10 p-6 md:p-8 bg-slate-900 rounded-[2.5rem] shadow-2xl flex flex-col md:flex-row items-center gap-8 border border-slate-800">
@@ -970,8 +970,8 @@ export default function DietaLowCarb() {
                     <iframe
                         width="100%"
                         height="100%"
-                        src="https://www.youtube.com/embed/5F_T2hQ40gQ"
-                        title="Explicação definitiva sobre O que é Dieta Low Carb e como fazer"
+                        src="https://www.youtube.com/embed/zl7MqZQGWV0"
+                        title="Dieta Low Carb e Intestino - O que você precisa saber com Patricia Leite"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
@@ -980,13 +980,14 @@ export default function DietaLowCarb() {
                 </div>
                 <div className="flex-1 text-center md:text-left">
                     <h3 className="text-2xl font-black text-white italic uppercase mb-4 flex items-center justify-center md:justify-start gap-2">
-                        <PlayCircle className="text-green-500" /> A Base Metabólica
+                        <PlayCircle className="text-green-500" /> Low Carb e a Microbiota
                     </h3>
                     <p className="text-slate-300 font-medium leading-relaxed mb-6">
-                        Assista para derrubar de vez os temidos mitos sobre as gorduras que ouvimos desde a infância e consolidar sua jornada de emagrecimento sem a necessidade de passar fome. Lembre-se, o equilíbrio entre a qualidade dos macronutrientes e a ingestão calórica diária é o que verdadeiramente dita a sua saúde e disposição a longo prazo.
+                        Assista para entender por que uma Low Carb baseada apenas em carnes, queijo e bacon pode travar seu emagrecimento e inflamar seu corpo. Descubra a verdadeira importância de abusar dos vegetais e como isso se conecta com o poder dos <Link to="/o-que-sao-prebioticos" className="text-green-400 font-bold hover:underline">prebióticos</Link> e <Link to="/o-que-sao-probioticos" className="text-green-400 font-bold hover:underline">probióticos</Link> na sua rotina metabólica!
                     </p>
                 </div>
             </div>
+
 
             <div className="mb-12 border-t border-slate-200 pt-8 mt-12">
               <h2 className="text-2xl font-black text-slate-800 uppercase italic mb-4 flex items-center gap-3">
