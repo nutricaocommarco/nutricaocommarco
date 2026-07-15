@@ -11,8 +11,11 @@ import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+
+const datePublishedISO = "2026-07-15";
 const dateModifiedISO = "2026-07-15";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
+
 const artigoCapa = `${githubImgBase}Blog/DietaCetogenica_Capa.jpg`; 
 
 export default function DietaCetogenica() {
@@ -25,29 +28,131 @@ export default function DietaCetogenica() {
   }, [pathname]);
 
   const faqs = [
-    { pergunta: "A dieta cetogênica pode causar cetoacidose?", resposta: "Não em pessoas saudáveis..." },
-    { pergunta: "A dieta keto é boa para hipertrofia?", resposta: "Depende do protocolo e do balanço energético..." },
-    { pergunta: "O que é a 'gripe cetogênica' e como evitar?", resposta: "A gripe cetogênica é um conjunto de sintomas transitórios..." },
-    { pergunta: "Consumir TCM ajuda no emagrecimento?", resposta: "Além de acelerar a cetose, os triglicerídeos de cadeia média (TCM) demonstraram..." }
+    {
+      pergunta: "A dieta cetogênica pode causar cetoacidose?",
+      resposta: "Não em pessoas saudáveis. A cetose nutricional induzida pela dieta keto eleva os corpos cetônicos para níveis seguros (entre 0,5 e 7/8 mM) sem alterar o pH do sangue. A cetoacidose é uma condição patológica de urgência médica típica de diabéticos tipo 1 não controlados, onde as cetonas ultrapassam os 25 mM devido à ausência total de insulina, o que acidifica o sangue."
+    },
+    {
+      pergunta: "A dieta keto é boa para hipertrofia (ganhar massa muscular)?",
+      resposta: "Depende do protocolo e do balanço energético. Em um ensaio de 8 semanas com homens treinados realizando musculação associada a uma dieta cetogênica com superávit calórico, os participantes conseguiram reduzir significativamente a massa gorda e a gordura visceral, mas não apresentaram aumento estatisticamente significativo de massa muscular magra. Em contraste, o grupo que consumiu uma dieta tradicional obteve aumento de massa magra sob as mesmas condições de treino."
+    },
+    {
+      pergunta: "O que é a 'gripe cetogênica' e como evitar?",
+      resposta: "A gripe cetogênica é um conjunto de sintomas transitórios (como dor de cabeça, fraqueza, tontura e irritabilidade) que ocorrem nos primeiros dias devido à rápida eliminação de água e minerais. Conforme os estoques de glicogênio são esvaziados e a insulina cai, o corpo elimina muito sódio. Para evitar, capriche na hidratação e reponha eletrólitos consumindo uma quantidade adequada de sal e água mineral."
+    },
+    {
+      pergunta: "Consumir TCM ajuda no emagrecimento ou apenas na energia?",
+      resposta: "Além de acelerar a cetose, os triglicerídeos de cadeia média (TCM) demonstraram ter um efeito preservador sobre a massa livre de gordura durante dietas de baixíssima caloria, aumentando paralelamente a proporção de perda de massa gorda total durante as semanas iniciais da dieta e ajudando na supressão da fome."
+    }
   ];
-  
-return (
+
+  // Palavras-chave ricas focadas para a nuvem de densidade
+  const keywords = "o que é dieta cetogênica, como funciona a dieta cetogênica, dieta keto, cetose nutricional, corpos cetônicos, dieta cetogênica cardápio, dieta cetogênica emagrece, o que comer na dieta cetogênica, gripe cetogênica, jejum intermitente";
+
+  return (
     <>
-<Helmet>
-        {/* FOCO - TOTAL NA PALAVRA-CHAVE PRINCIPAL NOS METADADOS */}
-        <title>Dieta Cetogênica Explicada: Como Entrar em Cetose e Emagrecer | Nutrição com Marco</title>
-        <meta name="description" content="O que a ciência diz sobre a Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível e os perigos de fazer errado." />
+      <Helmet>
+        {/* FOCO TOTAL NA PALAVRA-CHAVE PRINCIPAL NOS METADADOS */}
+        <title>O Que é Dieta Cetogênica? Guia Definitivo e Científico</title>
+        <meta name="description" content="Aprenda o que é dieta cetogênica. Descubra como funciona o estado de cetose no organismo, veja um cardápio estruturado e as evidências reais de emagrecimento." />
         <meta name="keywords" content={keywords} />
         <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
-  
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Dieta Cetogênica Explicada: Como Entrar em Cetose e Emagrecer" />
-        <meta property="og:description" content="O que a ciência diz sobre a Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível e os perigos de fazer errado." />
+        <meta property="og:title" content="O Que é Dieta Cetogênica? Guia Definitivo e Científico" />
+        <meta property="og:description" content="Entenda de uma vez por todas o que é dieta cetogênica. Fases da cetose, impactos na queima de gordura e cardápios completos." />
         <meta property="og:image" content={artigoCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-        {/* OS SCHEMAS NÃO FICAM MAIS AQUI NO REACT HELMET */}
+        
+        {/* SCHEMA 1: Article (AIO Boosted) */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://www.nutricaocommarco.com.br${pathname}`
+            },   
+            "headline": "O Que é Dieta Cetogênica? Guia Definitivo e Científico",
+            "image": [artigoCapa],
+            "author": {
+              "@type": "Person",
+              "name": "Marco Aurélio Jr.",
+              "url": "https://www.nutricaocommarco.com.br/sobre",
+              "jobTitle": "Estudante de Nutrição",
+              "knowsAbout": ["O que é Dieta Cetogênica", "Dieta Cetogênica", "Cetose", "Emagrecimento", "Nutrição Clínica"]
+            },
+            "publisher": {
+              "@type": "Organization", 
+              "name": "Nutrição com Marco", 
+              "logo": {
+                "@type": "ImageObject", 
+                "url": `${githubImgBase}logoN_pingus.png`
+              }
+            },
+            "datePublished": datePublishedISO,
+            "dateModified": dateModifiedISO,
+            "description": "Descubra o que é a dieta cetogênica, como funciona o estado de cetose no organismo, o cardápio estruturado e as evidências de emagrecimento.",
+            "keywords": "o que é dieta cetogênica, cetose, cardápio cetogênico"
+          }) }} />
+
+        {/* SCHEMA 2: MedicalWebPage */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalWebPage",
+            "name": "O Que é Dieta Cetogênica? Guia Definitivo e Científico",
+            "url": `https://www.nutricaocommarco.com.br${pathname}`,
+            "about": [
+              {"@type": "MedicalEntity", "name": "Dieta Cetogênica"},
+              {"@type": "MedicalEntity", "name": "Cetose"},
+              {"@type": "MedicalEntity", "name": "Corpos Cetônicos"},
+              {"@type": "MedicalEntity", "name": "Beta-hidroxibutirato"}
+            ],
+            "audience": {
+              "@type": "MedicalAudience",
+              "audienceType": "Pacientes e Público Leigo"
+            }
+          }) }} />
+
+        {/* SCHEMA 3: BreadcrumbList */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.nutricaocommarco.com.br/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.nutricaocommarco.com.br/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "O Que é Dieta Cetogênica",
+                "item": `https://www.nutricaocommarco.com.br${pathname}`
+              }
+            ]
+          }) }} />
+
+        {/* SCHEMA 4: FAQPage com injeção invisível da keyword */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.pergunta.includes("dieta cetogênica") ? faq.pergunta.replace("dieta cetogênica", "o que é dieta cetogênica e se ela") : faq.pergunta,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.resposta
+              }
+            }))
+          }) }} />
       </Helmet>
-      
+
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
