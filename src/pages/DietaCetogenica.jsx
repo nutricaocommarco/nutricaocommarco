@@ -51,106 +51,20 @@ export default function DietaCetogenica() {
 
   return (
     <>
-      <Helmet>
+<Helmet>
         {/* FOCO TOTAL NA PALAVRA-CHAVE PRINCIPAL NOS METADADOS */}
-        <title>O Que é Dieta Cetogênica? Guia Definitivo e Científico</title>
-        <meta name="description" content="Aprenda o que é dieta cetogênica. Descubra como funciona o estado de cetose no organismo, veja um cardápio estruturado e as evidências reais de emagrecimento." />
+        <title>Dieta Cetogênica Explicada: Como Entrar em Cetose e Emagrecer | Nutrição com Marco</title>
+        <meta name="description" content="O que a ciência diz sobre a Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível e os perigos de fazer errado." />
         <meta name="keywords" content={keywords} />
         <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
+        
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="O Que é Dieta Cetogênica? Guia Definitivo e Científico" />
-        <meta property="og:description" content="Entenda de uma vez por todas o que é dieta cetogênica. Fases da cetose, impactos na queima de gordura e cardápios completos." />
+        <meta property="og:title" content="Dieta Cetogênica Explicada: Como Entrar em Cetose e Emagrecer" />
+        <meta property="og:description" content="O que a ciência diz sobre a Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível e os perigos de fazer errado." />
         <meta property="og:image" content={artigoCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
         
-        {/* SCHEMA 1: Article (AIO Boosted) */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": `https://www.nutricaocommarco.com.br${pathname}`
-            },   
-            "headline": "O Que é Dieta Cetogênica? Guia Definitivo e Científico",
-            "image": [artigoCapa],
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre",
-              "jobTitle": "Estudante de Nutrição",
-              "knowsAbout": ["O que é Dieta Cetogênica", "Dieta Cetogênica", "Cetose", "Emagrecimento", "Nutrição Clínica"]
-            },
-            "publisher": {
-              "@type": "Organization", 
-              "name": "Nutrição com Marco", 
-              "logo": {
-                "@type": "ImageObject", 
-                "url": `${githubImgBase}logoN_pingus.png`
-              }
-            },
-            "datePublished": datePublishedISO,
-            "dateModified": dateModifiedISO,
-            "description": "Descubra o que é a dieta cetogênica, como funciona o estado de cetose no organismo, o cardápio estruturado e as evidências de emagrecimento.",
-            "keywords": "o que é dieta cetogênica, cetose, cardápio cetogênico"
-          }) }} />
-
-        {/* SCHEMA 2: MedicalWebPage */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MedicalWebPage",
-            "name": "O Que é Dieta Cetogênica? Guia Definitivo e Científico",
-            "url": `https://www.nutricaocommarco.com.br${pathname}`,
-            "about": [
-              {"@type": "MedicalEntity", "name": "Dieta Cetogênica"},
-              {"@type": "MedicalEntity", "name": "Cetose"},
-              {"@type": "MedicalEntity", "name": "Corpos Cetônicos"},
-              {"@type": "MedicalEntity", "name": "Beta-hidroxibutirato"}
-            ],
-            "audience": {
-              "@type": "MedicalAudience",
-              "audienceType": "Pacientes e Público Leigo"
-            }
-          }) }} />
-
-        {/* SCHEMA 3: BreadcrumbList */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.nutricaocommarco.com.br/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": "https://www.nutricaocommarco.com.br/blog"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "O Que é Dieta Cetogênica",
-                "item": `https://www.nutricaocommarco.com.br${pathname}`
-              }
-            ]
-          }) }} />
-
-        {/* SCHEMA 4: FAQPage com injeção invisível da keyword */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.pergunta.includes("dieta cetogênica") ? faq.pergunta.replace("dieta cetogênica", "o que é dieta cetogênica e se ela") : faq.pergunta,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.resposta
-              }
-            }))
-          }) }} />
+        {/* REMOVA o JSON-LD daqui do Helmet! Deixe o script do Node.js cuidar dele no HTML bruto */}
       </Helmet>
 
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
