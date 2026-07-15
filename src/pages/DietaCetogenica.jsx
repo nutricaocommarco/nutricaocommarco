@@ -32,17 +32,21 @@ export default function DietaCetogenica() {
   
 return (
     <>
-      <Helmet>
-        {/* TITULO E METAS IDÊNTICOS AO QUE O SCRIPT NODE GERA */}
+<Helmet>
+        {/* FOCO TOTAL NA PALAVRA-CHAVE PRINCIPAL NOS METADADOS */}
         <title>Dieta Cetogênica Explicada: Como Entrar em Cetose e Emagrecer | Nutrição com Marco</title>
         <meta name="description" content="O que a ciência diz sobre a Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível e os perigos de fazer errado." />
+        <meta name="keywords" content={keywords} />
         <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
-        <meta property="og:title" content="Dieta Cetogênica Explicada: Como Entrar em Cetose e Emagrecer | Nutrição com Marco" />
+  
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Dieta Cetogênica Explicada: Como Entrar em Cetose e Emagrecer" />
         <meta property="og:description" content="O que a ciência diz sobre a Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível e os perigos de fazer errado." />
         <meta property="og:image" content={artigoCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
+        {/* OS SCHEMAS NÃO FICAM MAIS AQUI NO REACT HELMET */}
       </Helmet>
-
+      
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
