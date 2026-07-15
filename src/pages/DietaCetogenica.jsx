@@ -2,20 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { 
-  ChevronLeft, HelpCircle, Activity, Clock, Shield, 
-  Zap, ChevronRight, Headphones, ChevronDown, ShoppingCart, 
-  Target, Flame, Coffee, Dumbbell, Brain, Check, X, AlertTriangle, Video, PlayCircle, Apple, PieChart, Utensils, CheckCircle
+  ChevronLeft, HelpCircle, Activity, Clock, Zap, ChevronRight, Headphones, ChevronDown, ShoppingCart, 
+  Target, PlayCircle, PieChart, Utensils, AlertTriangle, Apple, Brain, Check
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
-
-const datePublishedISO = "2026-07-15";
 const dateModifiedISO = "2026-07-15";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
-
 const artigoCapa = `${githubImgBase}Blog/DietaCetogenica_Capa.jpg`; 
 
 export default function DietaCetogenica() {
@@ -28,27 +24,12 @@ export default function DietaCetogenica() {
   }, [pathname]);
 
   const faqs = [
-    {
-      pergunta: "A dieta cetogênica pode causar cetoacidose?",
-      resposta: "Não em pessoas saudáveis. A cetose nutricional induzida pela dieta keto eleva os corpos cetônicos para níveis seguros (entre 0,5 e 7/8 mM) sem alterar o pH do sangue. A cetoacidose é uma condição patológica de urgência médica típica de diabéticos tipo 1 não controlados, onde as cetonas ultrapassam os 25 mM devido à ausência total de insulina, o que acidifica o sangue."
-    },
-    {
-      pergunta: "A dieta keto é boa para hipertrofia (ganhar massa muscular)?",
-      resposta: "Depende do protocolo e do balanço energético. Em um ensaio de 8 semanas com homens treinados realizando musculação associada a uma dieta cetogênica com superávit calórico, os participantes conseguiram reduzir significativamente a massa gorda e a gordura visceral, mas não apresentaram aumento estatisticamente significativo de massa muscular magra. Em contraste, o grupo que consumiu uma dieta tradicional obteve aumento de massa magra sob as mesmas condições de treino."
-    },
-    {
-      pergunta: "O que é a 'gripe cetogênica' e como evitar?",
-      resposta: "A gripe cetogênica é um conjunto de sintomas transitórios (como dor de cabeça, fraqueza, tontura e irritabilidade) que ocorrem nos primeiros dias devido à rápida eliminação de água e minerais. Conforme os estoques de glicogênio são esvaziados e a insulina cai, o corpo elimina muito sódio. Para evitar, capriche na hidratação e reponha eletrólitos consumindo uma quantidade adequada de sal e água mineral."
-    },
-    {
-      pergunta: "Consumir TCM ajuda no emagrecimento ou apenas na energia?",
-      resposta: "Além de acelerar a cetose, os triglicerídeos de cadeia média (TCM) demonstraram ter um efeito preservador sobre a massa livre de gordura durante dietas de baixíssima caloria, aumentando paralelamente a proporção de perda de massa gorda total durante as semanas iniciais da dieta e ajudando na supressão da fome."
-    }
+    { pergunta: "A dieta cetogênica pode causar cetoacidose?", resposta: "Não em pessoas saudáveis..." },
+    { pergunta: "A dieta keto é boa para hipertrofia?", resposta: "Depende do protocolo e do balanço energético..." },
+    { pergunta: "O que é a 'gripe cetogênica' e como evitar?", resposta: "A gripe cetogênica é um conjunto de sintomas transitórios..." },
+    { pergunta: "Consumir TCM ajuda no emagrecimento?", resposta: "Além de acelerar a cetose, os triglicerídeos de cadeia média (TCM) demonstraram..." }
   ];
-
-  // Palavras-chave ricas focadas para a nuvem de densidade
-  const keywords = "o que é dieta cetogênica, como funciona a dieta cetogênica, dieta keto, cetose nutricional, corpos cetônicos, dieta cetogênica cardápio, dieta cetogênica emagrece, o que comer na dieta cetogênica, gripe cetogênica, jejum intermitente";
-
+  
 return (
     <>
       <Helmet>
