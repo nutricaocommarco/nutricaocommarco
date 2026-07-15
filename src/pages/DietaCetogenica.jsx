@@ -33,7 +33,7 @@ export default function DietaCetogenica() {
 return (
     <>
 <Helmet>
-        {/* FOCO TOTAL NA PALAVRA-CHAVE PRINCIPAL NOS METADADOS */}
+        {/* FOCO - TOTAL NA PALAVRA-CHAVE PRINCIPAL NOS METADADOS */}
         <title>Dieta Cetogênica Explicada: Como Entrar em Cetose e Emagrecer | Nutrição com Marco</title>
         <meta name="description" content="O que a ciência diz sobre a Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível e os perigos de fazer errado." />
         <meta name="keywords" content={keywords} />
