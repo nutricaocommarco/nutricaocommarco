@@ -54,7 +54,7 @@ const postsBlog = [
     schemasExtra: [getMedicalSchema("Dieta Low Carb e Impactos Metabólicos", "https://www.nutricaocommarco.com.br/o-que-e-dieta-low-carb", ["Dieta Low-Carb", "Metabolismo de Carboidratos", "Sensibilidade à Insulina"])]
   },
 
-  {/* 26 ok */}
+  // 26 ok
   { 
     id: 26, 
     link: "/o-que-e-dieta-cetogenica", 
@@ -65,7 +65,7 @@ const postsBlog = [
     schemasExtra: [getMedicalSchema("Dieta Cetogênica e Emagrecimento", "https://www.nutricaocommarco.com.br/o-que-e-dieta-cetogenica", ["Dieta Cetogênica", "Cetose", "Metabolismo de Gorduras"])]
   },
   
-{/* 25 ok */}
+// 25 ok
   { 
     id: 25, 
     link: "/o-que-e-jejum-intermitente", 
@@ -76,7 +76,7 @@ const postsBlog = [
     schemasExtra: [getMedicalSchema("Efeitos do Jejum Intermitente", "https://www.nutricaocommarco.com.br/o-que-e-jejum-intermitente", ["Jejum Intermitente", "Metabolismo", "Perda de Peso"])]
   },
 
-{/* 24 ok */}
+// 24 ok
   { 
     id: 24, 
     link: "/melhor-horario-para-tomar-ferro", 
@@ -86,7 +86,7 @@ const postsBlog = [
     data: "2026-04-26" 
   },
 
-{/* 23 ok */}
+// 23 ok 
   { 
     id: 23, 
     link: "/percentual-gordura-feminino-ideal", 
@@ -96,7 +96,7 @@ const postsBlog = [
     data: "2026-04-24" 
   },
 
-{/* 22 ok */}
+// 22 ok 
   { 
     id: 22, 
     link: "/o-que-comer-na-tpm", 
@@ -106,7 +106,7 @@ const postsBlog = [
     data: "2026-04-20" 
   },
 
-{/* 21 ok */}
+// 21 ok 
   { 
     id: 21, 
     link: "/quantas-calorias-gasto-por-dia", 
@@ -164,7 +164,7 @@ const postsBlog = [
     data: "2026-03-27" 
   },
 
-{/* 14 ok */}
+// 14 ok 
   { 
     id: 14, 
     link: "/tirzepatida-para-que-serve", 
@@ -191,7 +191,7 @@ const postsBlog = [
     data: "2026-03-24" 
   },
 
-  {/* 11 ok */}
+  // 11 ok 
   { 
     id: 11, 
     link: "/diabetico_pode_comer_beterraba", 
@@ -201,7 +201,7 @@ const postsBlog = [
     data: "2026-03-24" 
   },
 
-  {/* 10 ok */}
+  // 10 ok 
   { 
     id: 10, 
     link: "/qual_melhor_horario_para_se_pesar", 
@@ -227,7 +227,7 @@ const postsBlog = [
     data: "2026-03-18" 
   },
 
-  {/* 7 ok */}
+  // 7 ok 
   { 
     id: 7, 
     link: "/por_que_o_feijao_da_gases", 
@@ -253,7 +253,7 @@ const postsBlog = [
     data: "2026-03-15" 
   },
 
-{/* 4 ok */}
+// 4 ok 
   { 
     id: 4, 
     link: "/quantas_frutas_posso_comer", 
