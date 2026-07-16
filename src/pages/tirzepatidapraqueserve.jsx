@@ -91,16 +91,7 @@ export default function TirzepatidaParaQueServe() {
   return (
     <>
 <Helmet>
-        <title>Tirzepatida: Para Que Serve e Os Efeitos Colaterais (Atualizado) | Nutrição com Marco</title>
-        <meta name="description" content="Mounjaro (Tirzepatida) no emagrecimento: entenda a fundo como atua o duplo mecanismo GLP-1 e GIP e descubra os reais efeitos no controle do apetite." />
-        <meta name="keywords" content="tirzepatida para que serve, o que é tirzepatida, mounjaro emagrece, efeitos colaterais tirzepatida, GLP-1, GIP" />
-        <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
 
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Tirzepatida: Para Que Serve e Os Efeitos Colaterais (Atualizado)" />
-        <meta property="og:description" content="Mounjaro (Tirzepatida) no emagrecimento: entenda a fundo como atua o duplo mecanismo GLP-1 e GIP e descubra os reais efeitos no controle do apetite." />
-        <meta property="og:image" content={`${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
       </Helmet>
 
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
