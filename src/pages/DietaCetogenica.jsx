@@ -53,14 +53,14 @@ export default function DietaCetogenica() {
     <>
 <Helmet>
         {/* FOCO TOTAL NA PALAVRA-CHAVE PRINCIPAL NOS METADADOS */}
-        <title>Dieta Cetogênica Explicada: Como Entrar em Cetose e Emagrecer | Nutrição com Marco</title>
-        <meta name="description" content="O que a ciência diz sobre a Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível e os perigos de fazer errado." />
+        <title>O que é Dieta Cetogênica? Como Entrar em Cetose e Emagrecer | Nutrição com Marco</title>
+        <meta name="description" content="O que é Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível e os perigos de fazer errado." />
         <meta name="keywords" content={keywords} />
         <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
         
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Dieta Cetogênica Explicada: Como Entrar em Cetose e Emagrecer" />
-        <meta property="og:description" content="O que a ciência diz sobre a Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível e os perigos de fazer errado." />
+        <meta property="og:title" content="O que é Dieta Cetogênica? Como Entrar em Cetose e Emagrecer | Nutrição com Marco" />
+        <meta property="og:description" content="O que é Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível e os perigos de fazer errado." />
         <meta property="og:image" content={artigoCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
         
