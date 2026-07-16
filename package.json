@@ -3,9 +3,9 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-     "scripts": {
+  "scripts": {
     "dev": "vite",
-    "build": "rm -rf dist && vite build --emptyOutDir && node gerar-rss.js",
+    "build": "node gerar-rss.js && vite build",
     "postbuild": "node prerender.mjs",
     "preview": "vite preview"
   },
