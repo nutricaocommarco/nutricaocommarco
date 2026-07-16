@@ -24,7 +24,7 @@ export default function Antropometria() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content="O que é Antropometria? A Ciência Exata da Avaliação | Nutrição com Marco" />
         <meta property="og:description" content="Descubra o que é Antropometria e como a avaliação física ISAK revela sua real composição corporal, muito além da balança." />
-        <meta property="og:image" content={`${githubImgBase}Blog/antropometria.png`} />
+        <meta property="og:image" content={`${githubImgBase}Blog/O_que_e_antropometria.jpg`} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         <script type="application/ld+json">
@@ -32,7 +32,7 @@ export default function Antropometria() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "O Que É Antropometria e Por Que Ela é Essencial para a Avaliação Física",
-            "image": `${githubImgBase}Blog/antropometria.png`,
+            "image": `${githubImgBase}Blog/O_que_e_antropometria.jpg`,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
             "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png`}},
             "datePublished": "2026-03-20",
