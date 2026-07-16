@@ -241,8 +241,8 @@ const postsBlog = [
     id: 4, 
     link: "/quantas_frutas_posso_comer", 
     img: `${githubImgBase}Blog/frutose_bananas.jpg`, 
-    titulo: "Quantas Frutas Posso Comer Por Dia? (O Perigo da Frutose)", 
-    desc: "Fruta à vontade faz mal? Entenda a bioquímica da frutose, o risco de gordura no fígado (esteatose) e qual a porção diária ideal para emagrecer.", 
+    titulo: "Quantas Frutas Posso Comer Por Dia? (O Perigo da Frutose) | Nutrição com Marco", 
+    desc: "Descubra quantas frutas posso comer por dia? Entenda a bioquímica da frutose, o risco de gordura no fígado (esteatose) e qual a porção diária ideal para emagrecer.", 
     data: "2026-03-14",
     schemasExtra: [getMedicalSchema("Metabolismo da Frutose e Esteatose", "https://www.nutricaocommarco.com.br/quantas_frutas_posso_comer", ["Frutose", "Esteatose Hepática", "Nutrição Clínica"])]
   },
