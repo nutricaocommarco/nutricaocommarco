@@ -72,16 +72,7 @@ export default function QuantasCaloriasGastoComponent() {
   return (
     <>
     <Helmet>
-        <title>Quantas Calorias Gasto Por Dia? Calcule Sua TMB Exata Aqui | Nutrição com Marco</title>
-        <meta name="description" content="Pare de chutar a sua dieta. Use nossa calculadora inteligente para descobrir quantas calorias gasto por dia (TMB e Fator de Atividade)." />
-        <meta name="keywords" content={keywords} />
-        <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
-        
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Quantas Calorias Gasto Por Dia? Calcule Sua TMB Exata Aqui" />
-        <meta property="og:description" content="Pare de chutar a sua dieta. Use nossa calculadora inteligente para descobrir quantas calorias gasto por dia (TMB e Fator de Atividade)." />
-        <meta property="og:image" content={artigoCapa} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
+
       </Helmet>
 
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
