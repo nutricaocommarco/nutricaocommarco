@@ -274,7 +274,7 @@ const postsBlog = [
   { 
     id: 2, 
     link: "/o_que_e_antropometria", 
-    img: `${githubImgBase}Blog/O_que_e_antropometria.png`, 
+    img: `${githubImgBase}Blog/O_que_e_antropometria.jpg`, 
     titulo: "O Que é Antropometria? Muito Além do Peso da Balança", 
     desc: "Entenda por que a antropometria (ISAK) é a única ferramenta confiável para avaliar a saúde, mapeando ossos, gordura, músculos e composição corporal exata.", 
     data: "2026-03-12" 
