@@ -79,18 +79,8 @@ export default function JejumIntermitente() {
 
   return (
     <>
-<Helmet>
-        {/* FOCO NA PALAVRA-CHAVE PRINCIPAL NOS METADADOS */}
-        <title>O que é Jejum Intermitente? A Verdade e os Protocolos | Nutrição com Marco</title>
-        <meta name="description" content="Muito além de passar fome: descubra o que é o jejum intermitente, como ele destrava o metabolismo lento e se ele emagrece mais que a dieta tradicional." />
-        <meta name="keywords" content={keywords} />
-        <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
-        
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="O que é Jejum Intermitente? A Verdade e os Protocolos | Nutrição com Marco" />
-        <meta property="og:description" content="Muito além de passar fome: descubra o que é o jejum intermitente, como ele destrava o metabolismo lento e se ele emagrece mais que a dieta tradicional." />
-        <meta property="og:image" content={artigoCapa} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
+      <Helmet>
+
       </Helmet>
 
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
