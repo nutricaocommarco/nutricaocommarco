@@ -113,15 +113,16 @@ routes.forEach(route => {
   let targetFile = '';
   let fileContent = '';
 
-  if (fs.existsSync(fileAsHtml)) {
+if (fs.existsSync(fileAsHtml)) {
     targetFile = fileAsHtml;
     fileContent = fs.readFileSync(fileAsHtml, 'utf-8');
   } else if (fs.existsSync(dirAsIndex)) {
     targetFile = dirAsIndex;
     fileContent = fs.readFileSync(dirAsIndex, 'utf-8');
   } else {
-    fs.mkdirSync(path.join(distPath, safePath), { recursive: true });
-    targetFile = dirAsIndex;
+    // 🔴 AQUI ESTÁ A CORREÇÃO MÁGICA 🔴
+    // Em vez de criar uma pasta, criamos diretamente o arquivo .html que a Vercel exige!
+    targetFile = fileAsHtml; 
     fileContent = baseTemplate;
   }
 
