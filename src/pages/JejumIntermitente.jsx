@@ -455,10 +455,13 @@ export default function JejumIntermitente() {
                 <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
                     <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
                         <img 
-                            src={`${githubImgBase}logoN_pingus.webp`} 
-                            alt="Selo de Qualidade Pingus recomendando produtos para jejum intermitente" 
-                            title="O que é Jejum Intermitente e como se hidratar"
-                            className="w-full h-full object-contain" 
+                          src={`${githubImgBase}logoN_pingus.png`} // Lembre-se de trocar para .webp se mudar a extensão!
+                          alt="Selo de Qualidade Pingus recomendando produtos para jejum intermitente" 
+                          title="O que é Jejum Intermitente e como se hidratar"
+                          className="w-full h-full object-contain"
+                          loading="lazy" 
+                          width="160"
+                          height="160"
                         />
                     </div>
 
