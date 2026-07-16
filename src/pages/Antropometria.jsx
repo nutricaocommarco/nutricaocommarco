@@ -198,7 +198,7 @@ export default function Antropometria() {
             {/* FIM DO BLOCO CITÁVEL */}
 
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img src={`${githubImgBase}Blog/O_que_e_antropometria.png`} alt="Avaliação Física e Antropometria com certificação ISAK" title="Ciência da Antropometria e Composição Corporal" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src={`${githubImgBase}Blog/O_que_e_antropometria.jpg`} alt="Avaliação Física e Antropometria com certificação ISAK" title="Ciência da Antropometria e Composição Corporal" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">Precisão técnica para resultados que a balança comum não consegue mostrar.</p></div>
             </div>
 
