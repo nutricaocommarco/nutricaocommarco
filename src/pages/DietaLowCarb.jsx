@@ -945,7 +945,7 @@ export default function DietaLowCarb() {
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
             <img 
-              src={`${githubImgBase}Eu_1.png`} 
+              src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr. que desvenda o que é dieta low carb na prática" 
               title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador ISAK 1"
               className="w-full h-full object-cover" 
