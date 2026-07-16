@@ -203,7 +203,7 @@ const postsData = [
   {
     id: 2,
     link: "/o_que_e_antropometria",
-    imgSrc: `${githubImgBase}Blog/O_que_e_antropometria.png`,
+    imgSrc: `${githubImgBase}Blog/O_que_e_antropometria.jpg`,
     tag: "Composição Corporal",
     title: "O que é Antropometria?",
     desc: "A Antropometria é uma ciência fundamental que estuda as proporções do corpo humano..."
