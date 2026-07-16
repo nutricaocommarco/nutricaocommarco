@@ -18,8 +18,9 @@ const datePublishedISO = "2026-04-10";
 const dateModifiedISO = "2026-04-10";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
-// Caminho da imagem de capa (Placeholder estilizado para o tema)
-const capaArtigo = "https://images.unsplash.com/photo-1576073719676-aa95576eb2ce?q=80&w=2000&auto=format&fit=crop";
+// Variáveis corrigidas para o Helmet
+const artigoCapa = `${githubImgBase}Blog/HorarioFerro.jpg`; 
+const keywords = "melhor horario para tomar ferro, como tomar sulfato ferroso, ferro e vitamina c, ferro e calcio, ferro em jejum, sintomas de falta de ferro";
 
 export default function MelhorHorarioFerro() {
   const { pathname } = useLocation();
@@ -55,13 +56,13 @@ export default function MelhorHorarioFerro() {
         <title>O Único Horário Certo Para Tomar Ferro (E Curar a Anemia Rápido) | Nutrição com Marco</title>
         <meta name="description" content="Você está tomando ferro do jeito errado? Descubra o horário ideal para a absorção máxima, os sintomas ocultos da anemia e o que bloqueia o nutriente." />
         <meta name="keywords" content={keywords} />
-        <link rel="canonical" href={`[https://www.nutricaocommarco.com.br](https://www.nutricaocommarco.com.br)${pathname}`} />
+        <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
         
         <meta property="og:type" content="article" />
         <meta property="og:title" content="O Único Horário Certo Para Tomar Ferro (E Curar a Anemia Rápido)" />
         <meta property="og:description" content="Você está tomando ferro do jeito errado? Descubra o horário ideal para a absorção máxima, os sintomas ocultos da anemia e o que bloqueia o nutriente." />
         <meta property="og:image" content={artigoCapa} />
-        <meta property="og:url" content={`[https://www.nutricaocommarco.com.br](https://www.nutricaocommarco.com.br)${pathname}`} />
+        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
       </Helmet>
 
     <div className="min-h-screen bg-slate-50 font-sans">
@@ -148,19 +149,19 @@ export default function MelhorHorarioFerro() {
             </p>
 
             {/* IMAGEM DE CAPA */}
-<div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-  <img 
-    src={`${githubImgBase}Blog/HorarioFerro.jpg`} 
-    alt="Mascote Pingus assustado ao tentar comer uma barra de ferro em um prato, ilustrando de forma humorada a suplementação e absorção de ferro" 
-    title="Qual o melhor horário para tomar suplemento de ferro? O Pingus te explica!"
-    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
-  />
-  <div className="bg-green-50 p-4 text-center">
-    <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
-      Afinal, quando tomar ferro sem prejudicar a absorção? O Pingus descobriu que não é tão simples quanto parece!
-    </p>
-  </div>
-</div>
+            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
+              <img 
+                src={`${githubImgBase}Blog/HorarioFerro.jpg`} 
+                alt="Mascote Pingus assustado ao tentar comer uma barra de ferro em um prato, ilustrando de forma humorada a suplementação e absorção de ferro" 
+                title="Qual o melhor horário para tomar suplemento de ferro? O Pingus te explica!"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+              />
+              <div className="bg-green-50 p-4 text-center">
+                <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
+                  Afinal, quando tomar ferro sem prejudicar a absorção? O Pingus descobriu que não é tão simples quanto parece!
+                </p>
+              </div>
+            </div>
 
             <h2 id="como-age" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Heart className="text-green-600"/> Como o ferro age no organismo
@@ -248,57 +249,57 @@ export default function MelhorHorarioFerro() {
               Definitivamente sim. Sob a ótica puramente fisiológica da máxima eficiência, questionar se pode tomar ferro em jejum é confirmar a regra de ouro do tratamento da anemia. Ao ingerir o suplemento logo cedo, cerca de uma hora antes do seu café da manhã, o ambiente do estômago está altamente ácido e livre de substâncias quelantes que inibem o mineral. Combinar essa cápsula matinal com meio copo de água com limão potencializa ainda mais a eficácia do protocolo, garantindo que praticamente cada miligrama da medicação seja enviado direto para a sua medula óssea para a fabricação de novas células sanguíneas.
             </p>
 
-{/* AFILIADO MERCADO LIVRE (PORTA COMPRIMIDOS) */}
-<div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
-    <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
-        <Zap size={14} className="fill-white" />
-        <span>O Pingus Aprova!</span>
-    </div>
+            {/* AFILIADO MERCADO LIVRE (PORTA COMPRIMIDOS) */}
+            <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
+                <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+                    <Zap size={14} className="fill-white" />
+                    <span>O Pingus Aprova!</span>
+                </div>
 
-    <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
-        <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-            <img 
-                src={`${githubImgBase}logoN_pingus.png`} 
-                alt="Selo de Qualidade Pingus" 
-                className="w-full h-full object-contain" 
-            />
-        </div>
+                <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
+                    <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
+                        <img 
+                            src={`${githubImgBase}logoN_pingus.png`} 
+                            alt="Selo de Qualidade Pingus" 
+                            className="w-full h-full object-contain" 
+                        />
+                    </div>
 
-        <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-            <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                Porta Comprimidos <span className="text-green-700">Semanal Organizador</span>
-            </h4>
+                    <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+                        <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                            Porta Comprimidos <span className="text-green-700">Semanal Organizador</span>
+                        </h4>
 
-            <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
-                <img 
-                  src={`${githubImgBase}Afiliado/PortaComprimidos.JPG`} 
-                  alt="Porta Comprimidos Semanal Organizador" 
-                  className="w-full h-auto object-cover" 
-                />
+                        <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
+                            <img 
+                              src={`${githubImgBase}Afiliado/PortaComprimidos.JPG`} 
+                              alt="Porta Comprimidos Semanal Organizador" 
+                              className="w-full h-auto object-cover" 
+                            />
+                        </div>
+
+                        <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
+                            O tratamento da anemia exige disciplina diária e a separação correta dos suplementos (lembra da regra de afastar o ferro do zinco e do cálcio?). Para não se perder nos horários nem esquecer a sua dose em jejum, um organizador semanal é o investimento mais prático e inteligente para garantir o sucesso da sua recuperação.
+                        </p>
+
+                        <a 
+                            href="https://meli.la/2s3yv1e" 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                        >
+                            <ShoppingCart size={16} />
+                            Ver Organizador no Mercado Livre
+                        </a>
+                    </div>
+                </div>
+
+                <div className="mt-12 pt-6 border-t border-green-50 text-center">
+                    <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
+                        Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso!
+                    </p>
+                </div>
             </div>
-
-            <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                O tratamento da anemia exige disciplina diária e a separação correta dos suplementos (lembra da regra de afastar o ferro do zinco e do cálcio?). Para não se perder nos horários nem esquecer a sua dose em jejum, um organizador semanal é o investimento mais prático e inteligente para garantir o sucesso da sua recuperação.
-            </p>
-
-            <a 
-                href="https://meli.la/2s3yv1e" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-            >
-                <ShoppingCart size={16} />
-                Ver Organizador no Mercado Livre
-            </a>
-        </div>
-    </div>
-
-    <div className="mt-12 pt-6 border-t border-green-50 text-center">
-        <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
-            Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso!
-        </p>
-    </div>
-</div>
 
             <h2 id="alimentos-ricos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Leaf className="text-green-600"/> Alimentos que possuem ferro
