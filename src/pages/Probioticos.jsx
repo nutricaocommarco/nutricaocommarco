@@ -19,7 +19,7 @@ const dateModifiedISO = "2026-04-02";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Caminho oficial da imagem de capa
-const probioticosCapa = `${githubImgBase}Blog/Probioticos.jpg`;
+const probioticosCapa = `${githubImgBase}Blog/Probioticos.webp`;
 
 // --- DADOS DAS LISTAS ---
 const fatoresMicrobiota = [

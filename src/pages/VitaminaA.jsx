@@ -24,7 +24,7 @@ export default function VitaminaA() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Vitamina A para que serve? | Nutrição com Marco" />
         <meta property="og:description" content="Entenda as diferenças entre retinol, retinal e ácido retinóico, e descubra como a Vitamina A atua no seu metabolismo muito além da visão." />
-        <meta property="og:image" content={`${githubImgBase}Blog/vitamina_A.jpg`} />
+        <meta property="og:image" content={`${githubImgBase}Blog/vitamina_a.webp`} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         <script type="application/ld+json">
@@ -32,7 +32,7 @@ export default function VitaminaA() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Vitamina A: Muito Além da Visão – Para que Serve e Como Funciona no Corpo",
-            "image": `${githubImgBase}Blog/vitamina_A.jpg`,
+            "image": `${githubImgBase}Blog/vitamina_a.webp`,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
             "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.webp`}},
             "datePublished": "2026-03-20",
@@ -180,7 +180,7 @@ export default function VitaminaA() {
 
             {/* IMAGEM ESTRATÉGICA */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img src={`${githubImgBase}Blog/vitamina_a.jpg`} alt="Metabolismo da Vitamina A: Retinol, Retinal e Ácido Retinóico" title="Vitamina A e suas formas ativas" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src={`${githubImgBase}Blog/vitamina_a.webp`} alt="Metabolismo da Vitamina A: Retinol, Retinal e Ácido Retinóico" title="Vitamina A e suas formas ativas" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest">As três formas da Vitamina A e suas funções no metabolismo.</p></div>
             </div>
 

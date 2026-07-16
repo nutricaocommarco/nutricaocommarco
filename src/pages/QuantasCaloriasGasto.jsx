@@ -18,7 +18,7 @@ const dateModifiedISO = "2026-04-14";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Capa do Artigo e Keywords
-const artigoCapa = `${githubImgBase}Blog/QuantasCaloriasGasto.jpg`; 
+const artigoCapa = `${githubImgBase}Blog/QuantasCaloriasGasto.webp`; 
 const keywords = "quantas calorias gasto por dia, taxa metabólica basal, calcular tmb, gasto energético total, tdee, fator de atividade física, mets";
 
 // Dados da Tabela de METs transformados em um Array para renderização elegante
@@ -165,7 +165,7 @@ export default function QuantasCaloriasGastoComponent() {
             <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
          
               <img 
-                src={`${githubImgBase}Blog/QuantasCaloriasGasto.jpg`} 
+                src={`${githubImgBase}Blog/QuantasCaloriasGasto.webp`} 
                 alt="Mascote Pingus mostrando o contraste de gasto calórico entre assistir TV no sofá e correr intensamente no parque." 
                 title="Entenda seu Gasto Energético Total (TDEE) com o Pingus"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 

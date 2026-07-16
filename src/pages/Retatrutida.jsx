@@ -82,7 +82,7 @@ export default function RetatrutidaOQueE() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Retatrutida o que é? A nova fronteira da ciência | Nutrição com Marco" />
         <meta property="og:description" content="Descubra o que é a retatrutida, o novo medicamento agonista triplo e seus resultados impressionantes na perda de peso. Entenda em que fase de aprovação ela está." />
-        <meta property="og:image" content={`${githubImgBase}Blog/retatrutida_molecula.jpg`} />
+        <meta property="og:image" content={`${githubImgBase}Blog/retatrutida_molecula.webp`} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         <script type="application/ld+json">
@@ -90,7 +90,7 @@ export default function RetatrutidaOQueE() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Retatrutida o que é? A nova fronteira da ciência contra a obesidade",
-            "image": `${githubImgBase}Blog/retatrutida_molecula.jpg`,
+            "image": `${githubImgBase}Blog/retatrutida_molecula.webp`,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
             "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.webp`}},
             "datePublished": "2026-03-24",
@@ -250,7 +250,7 @@ export default function RetatrutidaOQueE() {
             {/* IMAGEM DE CAPA */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
               <img 
-                src={`${githubImgBase}Blog/retatrutida_molecula.jpg`} 
+                src={`${githubImgBase}Blog/retatrutida_molecula.webp`} 
                 alt="Ilustração médica representando a molécula de retatrutida e seus três receptores de ação no organismo." 
                 title="Mecanismo de Ação da Retatrutida"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 

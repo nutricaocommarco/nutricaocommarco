@@ -180,7 +180,7 @@ export default function EfeitoSanfona() {
             {/* IMAGEM DE CAPA COM ALT E TITLE ARRUMADOS */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
               <img 
-                src={`${githubImgBase}Blog/efeito_sanfona.jpg`} 
+                src={`${githubImgBase}Blog/efeito_sanfona.webp`} 
                 alt="Ilustração do metabolismo e o impacto do efeito sanfona" 
                 title="Os perigos do reganho de peso e a inflamação celular invisível"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 

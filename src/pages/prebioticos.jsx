@@ -101,7 +101,7 @@ const dateModifiedISO = "2026-04-01";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Caminho oficial da imagem de capa
-const prebioticosCapa = `${githubImgBase}Blog/Prebioticos.jpg`;
+const prebioticosCapa = `${githubImgBase}Blog/Prebioticos.webp`;
 
 // Componente principal da página
 export default function Prebioticos() {

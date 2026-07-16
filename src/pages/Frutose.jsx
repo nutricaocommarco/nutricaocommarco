@@ -10,7 +10,7 @@ const datePublishedISO = "2026-03-20";
 const dateModifiedISO = "2026-03-21";
 
 // MUDANÇA 1: Caminho exato da imagem de capa corrigido
-const artigoCapa = `${githubImgBase}Blog/frutose_bananas.jpg`; 
+const artigoCapa = `${githubImgBase}Blog/frutose_bananas.webp`; 
 const keywords = "quantas frutas posso comer por dia, frutose faz mal, gordura no fígado, dieta com frutas, esteatose hepática";
 
 export default function Frutose() {

@@ -25,7 +25,7 @@ export default function HormoniosFome() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Hormônios da Fome: O Guia Científico do Reganho de Peso | Nutrição com Marco" />
         <meta property="og:description" content="Entenda a biologia por trás da fome insaciável pós-dieta. Grelina, Leptina e o papel do GLP-1 explicados pela ciência moderna." />
-        <meta property="og:image" content={`${githubImgBase}Blog/Hormfome.jpg`} />
+        <meta property="og:image" content={`${githubImgBase}Blog/Hormfome.webp`} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         {/* SCHEMA.ORG PARA O ARTIGO (Google) */}
@@ -34,7 +34,7 @@ export default function HormoniosFome() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Hormônios da Fome: Como Grelina e Leptina Controlam seu Peso",
-            "image": `${githubImgBase}Blog/Hormfome.jpg`,
+            "image": `${githubImgBase}Blog/Hormfome.webp`,
             "author": {
               "@type": "Person",
               "name": "Marco Aurélio Jr.",
@@ -202,7 +202,7 @@ export default function HormoniosFome() {
               {/* IMAGEM ESTRATÉGICA COM ALT E TITLE ARRUMADOS */}
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
                 <img 
-                  src={`${githubImgBase}Blog/Hormfome.jpg`} 
+                  src={`${githubImgBase}Blog/Hormfome.webp`} 
                   alt="Ilustração mostrando Ghrelina e Leptina, hormônios da fome, agindo no cérebro." 
                   title="Como os hormônios Grelina e Leptina controlam o apetite e o peso."
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 

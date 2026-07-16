@@ -17,7 +17,7 @@ const datePublishedISO = "2026-03-28";
 const dateModifiedISO = "2026-04-03";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
-const simbioticosCapa = `${githubImgBase}Blog/Simbioticos.jpg`;
+const simbioticosCapa = `${githubImgBase}Blog/Simbioticos.webp`;
 
 const fatoresMicrobiota = [
   { id: 1, nome: "Má Alimentação", icone: <UtensilsCrossed className="w-6 h-6 text-red-500" />, desc: "Dietas ricas em ultraprocessados, açúcar refinado e pobres em fibras matam as bactérias boas de fome." },

@@ -19,7 +19,7 @@ const dateModifiedISO = "2026-04-10";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Variáveis corrigidas para o Helmet
-const artigoCapa = `${githubImgBase}Blog/HorarioFerro.jpg`; 
+const artigoCapa = `${githubImgBase}Blog/HorarioFerro.webp`; 
 const keywords = "melhor horario para tomar ferro, como tomar sulfato ferroso, ferro e vitamina c, ferro e calcio, ferro em jejum, sintomas de falta de ferro";
 
 export default function MelhorHorarioFerro() {
@@ -142,7 +142,7 @@ export default function MelhorHorarioFerro() {
             {/* IMAGEM DE CAPA */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
               <img 
-                src={`${githubImgBase}Blog/HorarioFerro.jpg`} 
+                src={`${githubImgBase}Blog/HorarioFerro.webp`} 
                 alt="Mascote Pingus assustado ao tentar comer uma barra de ferro em um prato, ilustrando de forma humorada a suplementação e absorção de ferro" 
                 title="Qual o melhor horário para tomar suplemento de ferro? O Pingus te explica!"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 

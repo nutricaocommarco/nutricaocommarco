@@ -79,7 +79,7 @@ export default function OvoColesterol() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Científica | Nutrição com Marco" />
         <meta property="og:description" content="Comer ovo todo dia faz mal à saúde? Ovo aumenta LDL ou HDL? Desvendamos tudo com base em estudos científicos atualizados." />
-        <meta property="og:image" content={`${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.jpg`} />
+        <meta property="og:image" content={`${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.webp`} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         {/* SCHEMA.ORG PARA ARTIGO OTIMIZADO */}
@@ -88,7 +88,7 @@ export default function OvoColesterol() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Científica",
-            "image": `${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.jpg`,
+            "image": `${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.webp`,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
             "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.webp`}},
             "datePublished": datePublishedISO,
@@ -259,7 +259,7 @@ export default function OvoColesterol() {
             {/* IMAGEM DE CAPA OTIMIZADA */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
               <img 
-                src={`${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.jpg`} 
+                src={`${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.webp`} 
                 alt="Comer ovo todo dia aumenta o colesterol? Entenda a verdade científica" 
                 title="Benefícios do Ovo e Colesterol"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 

@@ -18,7 +18,7 @@ const dateModifiedISO = "2026-04-06";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Caminho da imagem de capa
-const cicloCircadianoCapa = `${githubImgBase}Blog/CicloCircadiano.jpg`;
+const cicloCircadianoCapa = `${githubImgBase}Blog/CicloCircadiano.webp`;
 
 export default function CicloCircadiano() {
   const { pathname } = useLocation();

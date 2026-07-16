@@ -47,7 +47,7 @@ const postsBlog = [
   { 
     id: 27, 
     link: "/o-que-e-dieta-low-carb", 
-    img: `${githubImgBase}Blog/LowCarb_Capa.jpg`, 
+    img: `${githubImgBase}Blog/LowCarb_Capa.webp`, 
     titulo: "Dieta Low Carb: O Que É, Erros Fatais e Calculadora Completa", 
     desc: "Aprenda o que é a dieta low carb de verdade. Descubra a diferença para a cetogênica, os mitos da gordura e monte seu prato com nossa Calculadora TACO.", 
     data: "2026-07-15",
@@ -58,7 +58,7 @@ const postsBlog = [
   { 
     id: 26, 
     link: "/o-que-e-dieta-cetogenica", 
-    img: `${githubImgBase}Blog/DietaCetogenica_Capa.jpg`, 
+    img: `${githubImgBase}Blog/DietaCetogenica_Capa.webp`, 
     titulo: "O que é Dieta Cetogênica? Como Entrar em Cetose e Emagrecer | Nutrição com Marco", 
     desc: "O que é Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível, como entrar em Cetose e os perigos de fazer errado.", 
     data: "2026-07-14",
@@ -80,7 +80,7 @@ const postsBlog = [
   { 
     id: 24, 
     link: "/melhor-horario-para-tomar-ferro", 
-    img: `${githubImgBase}Blog/HorarioFerro.jpg`, 
+    img: `${githubImgBase}Blog/HorarioFerro.webp`, 
     titulo: "Qual o Melhor Horario Para Tomar Ferro (E Curar a Anemia Rápido) | Nutrição com Marco", 
     desc: "Você está tomando ferro do jeito errado? Descubra qual o melhor horário para tomar ferro e ter absorção máxima, os sintomas ocultos da anemia e o que bloqueia o nutriente.", 
     data: "2026-04-26" 
@@ -90,7 +90,7 @@ const postsBlog = [
   { 
     id: 23, 
     link: "/percentual-gordura-feminino-ideal", 
-    img: `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.jpg`, 
+    img: `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.webp`, 
     titulo: "Qual o Percentual de Gordura Feminino Ideal e Saudável? | Nutrição com Marco", 
     desc: "Pare de olhar apenas para a balança. Entenda as tabelas reais de referência e descubra qual o percentual de gordura feminino ideal para a sua idade e saúde.", 
     data: "2026-04-24" 
@@ -100,7 +100,7 @@ const postsBlog = [
   { 
     id: 22, 
     link: "/o-que-comer-na-tpm", 
-    img: `${githubImgBase}Blog/TPM.jpg`, 
+    img: `${githubImgBase}Blog/TPM.webp`, 
     titulo: "O Que Comer na TPM Para Controlar o Doce (Sem Culpa) | Nutrição com Marco", 
     desc: "A vontade de doce na TPM não é falta de foco, é biologia pura! Entenda como hackear o metabolismo feminino e o que comer nesses dias difíceis.", 
     data: "2026-04-20" 
@@ -110,7 +110,7 @@ const postsBlog = [
   { 
     id: 21, 
     link: "/quantas-calorias-gasto-por-dia", 
-    img: `${githubImgBase}Blog/QuantasCaloriasGasto.jpg`, 
+    img: `${githubImgBase}Blog/QuantasCaloriasGasto.webp`, 
     titulo: "Quantas Calorias Gasto Por Dia? Calcule Sua TMB Exata Aqui | Nutrição com Marco", 
     desc: "Pare de chutar a sua dieta. Use nossa calculadora inteligente para descobrir quantas calorias gasto por dia (TMB e Fator de Atividade).", 
     data: "2026-04-05" 
@@ -118,7 +118,7 @@ const postsBlog = [
   { 
     id: 20, 
     link: "/efeitos-colaterais-da-melatonina", 
-    img: `${githubImgBase}Blog/Melatonina.jpg`, 
+    img: `${githubImgBase}Blog/Melatonina.webp`, 
     titulo: "Melatonina Vicia? A Verdade Sobre os Efeitos Colaterais", 
     desc: "Você toma melatonina para dormir? Descubra a verdade científica sobre a dosagem correta, os riscos psicológicos e se ela realmente pode te viciar.", 
     data: "2026-04-01" 
@@ -126,7 +126,7 @@ const postsBlog = [
   { 
     id: 19, 
     link: "/o-que-e-ciclo-circadiano", 
-    img: `${githubImgBase}Blog/CicloCircadiano.jpg`, 
+    img: `${githubImgBase}Blog/CicloCircadiano.webp`, 
     titulo: "Ciclo Circadiano: Como Emagrecer Dormindo (O Segredo Hormonal)", 
     desc: "Dormir mal trava o seu emagrecimento. Descubra o que é o Ciclo Circadiano, como ajustar seu relógio biológico e controlar a fome crônica.", 
     data: "2026-03-29" 
@@ -134,7 +134,7 @@ const postsBlog = [
   { 
     id: 18, 
     link: "/o-que-sao-simbioticos", 
-    img: `${githubImgBase}Blog/Simbioticos.jpg`, 
+    img: `${githubImgBase}Blog/Simbioticos.webp`, 
     titulo: "Simbióticos: O Que São e Como Eles Curam o Intestino Inflamado", 
     desc: "A fórmula de ouro: descubra como a união exata entre prebióticos e probióticos (Simbióticos) pode transformar a sua digestão e a saúde da flora intestinal.", 
     data: "2026-03-28" 
@@ -142,7 +142,7 @@ const postsBlog = [
   { 
     id: 17, 
     link: "/o-que-sao-probioticos", 
-    img: `${githubImgBase}Blog/Probioticos.jpg`, 
+    img: `${githubImgBase}Blog/Probioticos.webp`, 
     titulo: "Probióticos: Para Que Servem e Qual a Relação com a Imunidade", 
     desc: "Não compre iogurte sem ler isso! Entenda de uma vez o que são os probióticos, o poder dos lactobacillus e os reais benefícios para o seu intestino.", 
     data: "2026-03-31" 
@@ -150,7 +150,7 @@ const postsBlog = [
   { 
     id: 16, 
     link: "/o-que-sao-prebioticos", 
-    img: `${githubImgBase}Blog/Prebioticos.jpg`, 
+    img: `${githubImgBase}Blog/Prebioticos.webp`, 
     titulo: "Prebióticos Explicados: Os Alimentos Que Limpam o Intestino", 
     desc: "Seu intestino é seu segundo cérebro. Descubra a lista de alimentos fibrosos (prebióticos) essenciais que alimentam e fortalecem as bactérias boas do corpo.", 
     data: "2026-03-27" 
@@ -158,7 +158,7 @@ const postsBlog = [
   { 
     id: 15, 
     link: "/o-que-e-fome-emocional", 
-    img: `${githubImgBase}Blog/Fome-Emocional-Capa.jpg`, 
+    img: `${githubImgBase}Blog/Fome-Emocional-Capa.webp`, 
     titulo: "Fome Emocional: Como Parar de Descontar a Ansiedade na Comida", 
     desc: "Você come por fome ou por estresse? Aprenda técnicas reais da nutrição comportamental e use a 'Escala de Fome' para vencer a compulsão alimentar.", 
     data: "2026-03-27" 
@@ -177,7 +177,7 @@ const postsBlog = [
   { 
     id: 13, 
     link: "/comer-ovo-todo-dia-aumenta-o-colesterol", 
-    img: `${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.jpg`, 
+    img: `${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.webp`, 
     titulo: "Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Médica", 
     desc: "O maior mito da nutrição revelado. Veja o que a ciência atual comprova sobre o consumo diário de ovos, a gema e o real impacto no colesterol HDL e LDL.", 
     data: "2026-03-25" 
@@ -185,7 +185,7 @@ const postsBlog = [
   { 
     id: 12, 
     link: "/retatrutida_o_que_e", 
-    img: `${githubImgBase}Blog/retatrutida_molecula.jpg`, 
+    img: `${githubImgBase}Blog/retatrutida_molecula.webp`, 
     titulo: "Retatrutida: O Agonista Triplo Que Está Revolucionando o Emagrecimento", 
     desc: "Conheça a Retatrutida, o novo medicamento em testes que atua em 3 hormônios simultâneos. Veja as promessas científicas para a obesidade.", 
     data: "2026-03-24" 
@@ -195,7 +195,7 @@ const postsBlog = [
   { 
     id: 11, 
     link: "/diabetico_pode_comer_beterraba", 
-    img: `${githubImgBase}Blog/beterraba_diabetes.jpg`, 
+    img: `${githubImgBase}Blog/beterraba_diabetes.webp`, 
     titulo: "Diabético Pode Comer Beterraba? O Fim do Mito do Açúcar | Nutrição com Marco", 
     desc: "Eles disseram que a beterraba era um veneno para diabéticos. Descubra se Diabético pode comer beterraba e por que você não precisa ter medo.", 
     data: "2026-03-24" 
@@ -205,7 +205,7 @@ const postsBlog = [
   { 
     id: 10, 
     link: "/qual_melhor_horario_para_se_pesar", 
-    img: `${githubImgBase}Blog/melhor_horario_pesagem.jpg`, 
+    img: `${githubImgBase}Blog/melhor_horario_pesagem.webp`, 
     titulo: "Qual o melhor horário para se Pesar (E Por Que a Balança Mente) | Nutrição com Marco", 
     desc: "Seu peso varia até 2kg por dia! Descubra qual o melhor horário para se pesar, as armadilhas da retenção de líquidos e como não se frustrar com a balança.", 
     data: "2026-03-24" 
@@ -213,7 +213,7 @@ const postsBlog = [
   { 
     id: 9, 
     link: "/nutricao_para_ironman_703", 
-    img: `${githubImgBase}Blog/nutricao_ironman_703.jpg`, 
+    img: `${githubImgBase}Blog/nutricao_ironman_703.webp`, 
     titulo: "Nutrição para Ironman 70.3: Guia de Carboidratos e Hidratação", 
     desc: "O seu corpo não aguenta um meio Ironman sem estratégia. Veja o guia técnico de nutrição esportiva, géis de carboidrato e eletrólitos para triatletas.", 
     data: "2026-03-19" 
@@ -221,7 +221,7 @@ const postsBlog = [
   { 
     id: 8, 
     link: "/hormonios_da_fome_emagrecimento", 
-    img: `${githubImgBase}Blog/Hormfome.jpg`, 
+    img: `${githubImgBase}Blog/Hormfome.webp`, 
     titulo: "Grelina e Leptina: Como Hackear os Hormônios da Fome", 
     desc: "Por que você volta a engordar? Descubra como a Grelina e a Leptina comandam o seu cérebro e veja o que fazer para vencer a inflamação e a fome crônica.", 
     data: "2026-03-18" 
@@ -231,7 +231,7 @@ const postsBlog = [
   { 
     id: 7, 
     link: "/por_que_o_feijao_da_gases", 
-    img: `${githubImgBase}Blog/feijao.jpg`, 
+    img: `${githubImgBase}Blog/feijao.webp`, 
     titulo: "Por Que o Feijão Dá Gases? O Truque Químico Para Evitar | Nutrição com Marco", 
     desc: "Pare de sofrer com estômago estufado. A culpa é dos antinutrientes! Aprenda o método correto do remolho para neutralizar o feijão e melhorar a digestão.", 
     data: "2026-03-17" 
@@ -239,7 +239,7 @@ const postsBlog = [
   { 
     id: 6, 
     link: "/o_dilema_do_sangue_na_altitude", 
-    img: `${githubImgBase}Blog/eritropoietina.jpg`, 
+    img: `${githubImgBase}Blog/eritropoietina.webp`, 
     titulo: "O Dilema do Sangue na Altitude: Eritropoetina e Doping", 
     desc: "Por que atletas treinam nas montanhas? Conheça a biologia extrema da Eritropoetina (EPO), o limite entre o preparo físico natural e a fraude esportiva.", 
     data: "2026-03-16" 
@@ -247,7 +247,7 @@ const postsBlog = [
   { 
     id: 5, 
     link: "/efeito_sanfona_inflamacao_invisivel", 
-    img: `${githubImgBase}Blog/efeito_sanfona.jpg`, 
+    img: `${githubImgBase}Blog/efeito_sanfona.webp`, 
     titulo: "Efeito Sanfona: O Perigo da Inflamação Invisível no Corpo", 
     desc: "Engordar e emagrecer rapidamente destrói suas células. Descubra a verdade silenciosa por trás do efeito sanfona e como frear a inflamação celular.", 
     data: "2026-03-15" 
@@ -257,7 +257,7 @@ const postsBlog = [
   { 
     id: 4, 
     link: "/quantas_frutas_posso_comer", 
-    img: `${githubImgBase}Blog/frutose_bananas.jpg`, 
+    img: `${githubImgBase}Blog/frutose_bananas.webp`, 
     titulo: "Quantas Frutas Posso Comer Por Dia? (O Perigo da Frutose) | Nutrição com Marco", 
     desc: "Descubra quantas frutas posso comer por dia? Entenda a bioquímica da frutose, o risco de gordura no fígado (esteatose) e qual a porção diária ideal para emagrecer.", 
     data: "2026-03-14",
@@ -266,7 +266,7 @@ const postsBlog = [
   { 
     id: 3, 
     link: "/vitamina_a_para_que_serve", 
-    img: `${githubImgBase}Blog/vitamina_a.jpg`, 
+    img: `${githubImgBase}Blog/vitamina_a.webp`, 
     titulo: "Vitamina A Para Que Serve? Benefícios Além da Visão", 
     desc: "A deficiência que ninguém nota. Descubra como a Vitamina A age silenciosamente no seu sistema imune, na saúde da pele e no combate aos radicais livres.", 
     data: "2026-03-13" 
@@ -274,7 +274,7 @@ const postsBlog = [
   { 
     id: 2, 
     link: "/o_que_e_antropometria", 
-    img: `${githubImgBase}Blog/O_que_e_antropometria.jpg`, 
+    img: `${githubImgBase}Blog/O_que_e_antropometria.webp`, 
     titulo: "O Que é Antropometria? Muito Além do Peso da Balança", 
     desc: "Entenda por que a antropometria (ISAK) é a única ferramenta confiável para avaliar a saúde, mapeando ossos, gordura, músculos e composição corporal exata.", 
     data: "2026-03-12" 

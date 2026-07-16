@@ -17,7 +17,7 @@ const datePublishedISO = "2026-07-15";
 const dateModifiedISO = "2026-07-15";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
-const artigoCapa = `${githubImgBase}Blog/LowCarb_Capa.jpg`; 
+const artigoCapa = `${githubImgBase}Blog/LowCarb_Capa.webp`; 
 
 const foodDatabase = [
   { id: 1, name: "Arroz, integral, cozido", carbs: 25.8 },

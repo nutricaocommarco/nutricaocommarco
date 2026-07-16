@@ -24,7 +24,7 @@ export default function Eritropoetina() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Doping na Altitude: Eritropoetina e Ética no Esporte | Nutrição com Marco" />
         <meta property="og:description" content="Entenda os riscos fatais do uso sintético do hormônio eritropoetina e da transfusão de hemácias no esporte de alta performance." />
-        <meta property="og:image" content={`${githubImgBase}Blog/eritropoietina.jpg`} />
+        <meta property="og:image" content={`${githubImgBase}Blog/eritropoietina.webp`} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         <script type="application/ld+json">
@@ -32,7 +32,7 @@ export default function Eritropoetina() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "O Dilema do Sangue na Altitude: Como o Hormônio Eritropoetina e a Transfusão de Hemácias Afetam a Ética no Esporte",
-            "image": `${githubImgBase}Blog/eritropoietina.jpg`,
+            "image": `${githubImgBase}Blog/eritropoietina.webp`,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
             "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.webp`}},
             "datePublished": "2026-03-20",
@@ -171,7 +171,7 @@ export default function Eritropoetina() {
             <p>Correr uma maratona em um lugar como San Pedro do Atacama, a 2.500 metros acima do nível do mar, é um teste de fogo para qualquer ser humano. Para um corredor que sai do Rio de Janeiro, acostumado com a abundância de oxigênio do litoral, o impacto é imediato. O ar rarefeito da altitude faz com que cada respiração pareça insuficiente, forçando o organismo a buscar saídas para não entrar em colapso. É nesse cenário de pressão extrema que muitos atletas se veem diante de propostas tentadoras, porém perigosas e ilegais, que prometem melhorar o desempenho de forma artificial, mas que colocam a vida em risco.</p>
 
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img src={`${githubImgBase}Blog/eritropoietina.jpg`} alt="Esporte em alta altitude e o hormônio eritropoetina" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src={`${githubImgBase}Blog/eritropoietina.webp`} alt="Esporte em alta altitude e o hormônio eritropoetina" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">O ar rarefeito impõe desafios extremos ao sistema cardiovascular do atleta.</p></div>
             </div>
 

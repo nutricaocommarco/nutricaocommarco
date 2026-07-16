@@ -25,7 +25,7 @@ export default function Ironman703() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Nutrição para Ironman 70.3: O Guia Definitivo para Triatletas" />
         <meta property="og:description" content="Fadiga e câimbras nos treinos longos? Aprenda a estruturar a nutrição, hidratação e suplementação para provas de endurance e triatlo." />
-        <meta property="og:image" content={`${githubImgBase}Blog/nutricao_ironman_703.jpg`} />
+        <meta property="og:image" content={`${githubImgBase}Blog/nutricao_ironman_703.webp`} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         {/* SCHEMA.ORG (Google) */}
@@ -34,7 +34,7 @@ export default function Ironman703() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Nutrição para Ironman 70.3: O Guia Definitivo para Triatletas",
-            "image": `${githubImgBase}Blog/nutricao_ironman_703.jpg`,
+            "image": `${githubImgBase}Blog/nutricao_ironman_703.webp`,
             "author": {
               "@type": "Person",
               "name": "Marco Aurélio Jr.",
@@ -207,7 +207,7 @@ export default function Ironman703() {
 
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
                 <img 
-                    src={`${githubImgBase}Blog/nutricao_ironman_703.jpg`} 
+                    src={`${githubImgBase}Blog/nutricao_ironman_703.webp`} 
                     alt="Atleta de triatlo pedalando em uma competição de Ironman 70.3" 
                     title="Nutrição Estratégica para Triatlo e Provas de Ironman 70.3"
                     className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 

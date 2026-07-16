@@ -136,7 +136,7 @@ export default function MelhorHorarioPesagem() {
               {/* IMAGEM ESTRATÉGICA COM ALT E TITLE ARRUMADOS */}
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
                 <img 
-                  src={`${githubImgBase}Blog/melhor_horario_pesagem.jpg`} 
+                  src={`${githubImgBase}Blog/melhor_horario_pesagem.webp`} 
                   alt="Mascote Pinguim Nutri em pé sobre uma balança digital, demonstrando o peso." 
                   title="A importância de se pesar sempre no mesmo horário e condições com a balança correta"
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 

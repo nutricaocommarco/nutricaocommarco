@@ -4,7 +4,7 @@ export const posts = [
     {
     id: 25,
     link: "/o-que-e-dieta-cetogenica",
-    img: `${githubImgBase}Blog/DietaCetogenica_Capa.jpg`,
+    img: `${githubImgBase}Blog/DietaCetogenica_Capa.webp`,
     tag: "Dietas da Moda",
     titulo: "O Que é Dieta Cetogênica? Guia Definitivo e Científico",
     desc: "Aprenda como a restrição inteligente de carboidratos força o seu corpo a entrar em cetose, transformando gordura estocada na sua principal fonte de energia.",
@@ -24,7 +24,7 @@ export const posts = [
     {
     id: 23,
     link: "/melhor-horario-para-tomar-ferro",
-    img: `${githubImgBase}Blog/HorarioFerro.jpg`,
+    img: `${githubImgBase}Blog/HorarioFerro.webp`,
     tag: "Nutrição Clínica",
     titulo: "Melhor Horário Para Tomar Ferro: O Guia Definitivo Contra a Anemia",
     desc: "Descubra o melhor horário para tomar ferro, sintomas de falta no organismo, o que inibe a absorção e quanto tempo dura o tratamento para anemia ferropriva.",
@@ -34,7 +34,7 @@ export const posts = [
     {
     id: 22,
     link: "/percentual-gordura-feminino-ideal",
-    img: `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.jpg`,
+    img: `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.webp`,
     tag: "Saúde da Mulher",
     titulo: "Qual o Percentual de Gordura Feminino Ideal? A Ciência Explica",
     desc: "Pare de brigar com a balança. Descubra qual é a faixa ideal para sua saúde e estética, e entenda como hormônios, ciclo menstrual e idade influenciam sua composição corporal.",
@@ -44,7 +44,7 @@ export const posts = [
     {
     id: 21,
     link: "/quantas-calorias-gasto-por-dia",
-    img: `${githubImgBase}Blog/QuantasCaloriasGasto.jpg`,
+    img: `${githubImgBase}Blog/QuantasCaloriasGasto.webp`,
     tag: "Fisiologia e Metabolismo",
     titulo: "Quantas Calorias Gasto Por Dia? Pare de Chutar e Entenda o Seu Metabolismo",
     desc: "Descubra como calcular seu gasto calórico diário. Entenda a sua Taxa Metabólica Basal (TMB), fator de atividade, METs e as fórmulas de Mifflin e Cunningham.",
@@ -54,7 +54,7 @@ export const posts = [
 {
     id: 20,
     link: "/efeitos-colaterais-da-melatonina",
-    img: `${githubImgBase}Blog/Melatonina.jpg`,
+    img: `${githubImgBase}Blog/Melatonina.webp`,
     tag: "Nutrição Clínica",
     titulo: "Efeitos Colaterais da Melatonina: Vicia? Faz Mal? A Verdade Científica",
     desc: "Descubra a verdade científica sobre a melatonina: ela vicia? Faz mal? Entenda os efeitos colaterais, riscos psicológicos e como dosar corretamente para dormir bem.",
@@ -65,7 +65,7 @@ export const posts = [
   {
     id: 19,
     link: "/o-que-e-ciclo-circadiano", 
-    img: `${githubImgBase}Blog/CicloCircadiano.jpg`,
+    img: `${githubImgBase}Blog/CicloCircadiano.webp`,
     tag: "Fisiologia e Metabolismo",
     titulo: "O Que é Ciclo Circadiano? Relógio Biológico e Emagrecimento",
     desc: "Guia completo sobre ciclo circadiano: como emagrecer, melhorar o sono, horários corretos das refeições, a verdade sobre a melatonina e controle hormonal.",
@@ -76,7 +76,7 @@ export const posts = [
   {
     id: 18,
     link: "/o-que-sao-simbioticos", 
-    img: `${githubImgBase}Blog/Simbioticos.jpg`,
+    img: `${githubImgBase}Blog/Simbioticos.webp`,
     tag: "Nutrição Clínica",
     titulo: "O que são Simbióticos? A Sinergia Intestinal",
     desc: "Descubra o que são os alimentos simbióticos, como a união de prebióticos e probióticos transforma a sua flora e as melhores combinações.",
@@ -86,7 +86,7 @@ export const posts = [
   {
     id: 17,
     link: "/o-que-sao-probioticos", 
-    img: `${githubImgBase}Blog/Probioticos.jpg`,
+    img: `${githubImgBase}Blog/Probioticos.webp`,
     tag: "Nutrição Clínica",
     titulo: "O que são Probióticos? Lactobacillus e Benefícios",
     desc: "Descubra o que são probióticos e Lactobacillus, para que servem no intestino, seus benefícios para a imunidade e quais as melhores fontes naturais.",
@@ -96,7 +96,7 @@ export const posts = [
   {
     id: 16, 
     link: "/o-que-sao-prebioticos", 
-    img: `${githubImgBase}Blog/Prebioticos.jpg`,
+    img: `${githubImgBase}Blog/Prebioticos.webp`,
     tag: "Nutrição Clínica",
     titulo: "O que são Prebióticos? Alimentos, Benefícios e Para Que Servem",
     desc: "Descubra o que são prebióticos, para que servem no seu intestino, quais alimentos são ricos em FOS e inulina, e como eles alimentam sua flora intestinal.",
@@ -106,7 +106,7 @@ export const posts = [
   {
     id: 15, 
     link: "/o-que-e-fome-emocional", 
-    img: `${githubImgBase}Blog/Fome-Emocional-Capa.jpg`,
+    img: `${githubImgBase}Blog/Fome-Emocional-Capa.webp`,
     tag: "Nutrição Comportamental",
     titulo: "O que é Fome Emocional? Como Identificar e Controlar o Impulso",
     desc: "Descubra os sintomas da fome emocional, entenda o ciclo da compulsão e aprenda estratégias práticas como a Escala de Fome e a técnica do atraso para retomar o controle.",
@@ -126,7 +126,7 @@ export const posts = [
   {
     id: 13,
     link: "/comer-ovo-todo-dia-aumenta-o-colesterol",
-    img: `${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.jpg`,
+    img: `${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.webp`,
     tag: "Nutrição Clínica",
     titulo: "Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Científica",
     desc: "Comer ovo todo dia aumenta o colesterol? Descubra a verdade científica, entenda o impacto no HDL/LDL e quantos ovos você pode consumir com segurança.",
@@ -136,7 +136,7 @@ export const posts = [
   {
     id: 12,
     link: "/retatrutida_o_que_e",
-    img: `${githubImgBase}Blog/retatrutida_molecula.jpg`,
+    img: `${githubImgBase}Blog/retatrutida_molecula.webp`,
     tag: "Tratamento Farmacológico",
     titulo: "Retatrutida o que é? A nova fronteira da ciência",
     desc: "Descubra o que é a retatrutida, o novo medicamento agonista triplo (GLP-1, GIP e Glucagon) e seus resultados impressionantes na perda de peso.",
@@ -146,7 +146,7 @@ export const posts = [
   {
     id: 11,
     link: "/diabetico_pode_comer_beterraba",
-    img: `${githubImgBase}Blog/beterraba_diabetes.jpg`,
+    img: `${githubImgBase}Blog/beterraba_diabetes.webp`,
     tag: "Nutrição Clínica",
     titulo: "Diabético pode comer beterraba? O mito desvendado",
     desc: "Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2.",
@@ -156,7 +156,7 @@ export const posts = [
   {
     id: 10,
     link: "/qual_melhor_horario_para_se_pesar",
-    img: `${githubImgBase}Blog/melhor_horario_pesagem.jpg`,
+    img: `${githubImgBase}Blog/melhor_horario_pesagem.webp`,
     tag: "Avaliação e Medidas",
     titulo: "Qual o melhor horário para se pesar?",
     desc: "Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite.",
@@ -166,7 +166,7 @@ export const posts = [
   {
     id: 9,
     link: "/nutricao_para_ironman_703",
-    img: `${githubImgBase}Blog/nutricao_ironman_703.jpg`,
+    img: `${githubImgBase}Blog/nutricao_ironman_703.webp`,
     tag: "Nutrição Esportiva",
     titulo: "Nutrição para Ironman 70.3: Guia Completo",
     desc: "Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o Ironman 70.3.",
@@ -176,7 +176,7 @@ export const posts = [
   {
     id: 8,
     link: "/hormonios_da_fome_emagrecimento",
-    img: `${githubImgBase}Blog/Hormfome.jpg`,
+    img: `${githubImgBase}Blog/Hormfome.webp`,
     tag: "Fisiologia e Metabolismo",
     titulo: "Hormônios da Fome: Por que seu corpo luta contra a dieta?",
     desc: "Entenda como a Grelina e a Leptina controlam seu apetite e por que a ciência foca na inflamação celular para evitar o reganho de peso.",
@@ -186,7 +186,7 @@ export const posts = [
   {
     id: 7,
     link: "/por_que_o_feijao_da_gases",
-    img: `${githubImgBase}Blog/feijao.jpg`,
+    img: `${githubImgBase}Blog/feijao.webp`,
     tag: "Saúde Intestinal",
     titulo: "Por que o Feijão dá Gases? (E como evitar)",
     desc: "Descubra a ciência por trás dos antinutrientes e como o remolho pode salvar sua digestão.",
@@ -196,7 +196,7 @@ export const posts = [
   {
     id: 6,
     link: "/o_dilema_do_sangue_na_altitude",
-    img: `${githubImgBase}Blog/eritropoietina.jpg`,
+    img: `${githubImgBase}Blog/eritropoietina.webp`,
     tag: "Fisiologia do Esporte",
     titulo: "O Dilema do Sangue na Altitude",
     desc: "Como o hormônio eritropoetina e a transfusão de hemácias afetam a biologia do atleta e a ética no esporte.",
@@ -206,7 +206,7 @@ export const posts = [
   {
     id: 5,
     link: "/efeito_sanfona_inflamacao_invisivel",
-    img: `${githubImgBase}Blog/efeito_sanfona.jpg`,
+    img: `${githubImgBase}Blog/efeito_sanfona.webp`,
     tag: "Fisiopatologia",
     titulo: "O Efeito Sanfona e a Inflamação Invisível",
     desc: "Por que o reganho de peso é tão perigoso e como a memória das suas células de gordura dificulta o emagrecimento real.",
@@ -216,7 +216,7 @@ export const posts = [
   {
     id: 4,
     link: "/quantas_frutas_posso_comer",
-    img: `${githubImgBase}Blog/frutose_bananas.jpg`,
+    img: `${githubImgBase}Blog/frutose_bananas.webp`,
     tag: "Nutrição Clínica",
     titulo: "Quantas frutas posso comer por dia?",
     desc: "Entenda o metabolismo da frutose e descubra a verdade sobre a fruta e a gordura no fígado.",
@@ -226,7 +226,7 @@ export const posts = [
   {
     id: 3,
     link: "/vitamina_a_para_que_serve",
-    img: `${githubImgBase}Blog/vitamina_a.jpg`,
+    img: `${githubImgBase}Blog/vitamina_a.webp`,
     tag: "Metabolismo",
     titulo: "Vitamina A para que serve?",
     desc: "Descubra como a Vitamina A atua no seu metabolismo muito além da visão.",
@@ -236,7 +236,7 @@ export const posts = [
   {
     id: 2,
     link: "/o_que_e_antropometria",
-    img: `${githubImgBase}Blog/O_que_e_antropometria.jpg`,
+    img: `${githubImgBase}Blog/O_que_e_antropometria.webp`,
     tag: "Educação Científica",
     titulo: "O que é Antropometria?",
     desc: "A Antropometria é uma ciência fundamental que estuda as proporções do corpo humano.",

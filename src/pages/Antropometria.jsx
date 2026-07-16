@@ -24,7 +24,7 @@ export default function Antropometria() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content="O que é Antropometria? A Ciência Exata da Avaliação | Nutrição com Marco" />
         <meta property="og:description" content="Descubra o que é Antropometria e como a avaliação física ISAK revela sua real composição corporal, muito além da balança." />
-        <meta property="og:image" content={`${githubImgBase}Blog/O_que_e_antropometria.jpg`} />
+        <meta property="og:image" content={`${githubImgBase}Blog/O_que_e_antropometria.webp`} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         <script type="application/ld+json">
@@ -32,7 +32,7 @@ export default function Antropometria() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "O Que É Antropometria e Por Que Ela é Essencial para a Avaliação Física",
-            "image": `${githubImgBase}Blog/O_que_e_antropometria.jpg`,
+            "image": `${githubImgBase}Blog/O_que_e_antropometria.webp`,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
             "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.webp`}},
             "datePublished": "2026-03-20",
@@ -198,7 +198,7 @@ export default function Antropometria() {
             {/* FIM DO BLOCO CITÁVEL */}
 
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img src={`${githubImgBase}Blog/O_que_e_antropometria.jpg`} alt="Avaliação Física e Antropometria com certificação ISAK" title="Ciência da Antropometria e Composição Corporal" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src={`${githubImgBase}Blog/O_que_e_antropometria.webp`} alt="Avaliação Física e Antropometria com certificação ISAK" title="Ciência da Antropometria e Composição Corporal" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">Precisão técnica para resultados que a balança comum não consegue mostrar.</p></div>
             </div>
 

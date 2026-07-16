@@ -157,7 +157,7 @@ export default function DiabeticoPodeComerBeterraba() {
               {/* IMAGEM ESTRATÉGICA COM ALT TEXT OTIMIZADO PARA O GOOGLE */}
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
                 <img 
-                  src={`${githubImgBase}Blog/beterraba_diabetes.jpg`} 
+                  src={`${githubImgBase}Blog/beterraba_diabetes.webp`} 
                   alt="Diabético pode comer beterraba sim! Foto de uma beterraba vermelha ilustrando os benefícios e as fibras contra o diabetes." 
                   title="Diabético pode comer beterraba"
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 

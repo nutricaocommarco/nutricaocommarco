@@ -18,7 +18,7 @@ const dateModifiedISO = "2026-07-10";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Variáveis do Artigo
-const artigoCapa = `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.jpg`; 
+const artigoCapa = `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.webp`; 
 const keywords = "percentual de gordura feminino ideal, gordura essencial, gordura ginoide, gordura androide, balança de bioimpedância, relação cintura estatura, como medir percentual de gordura";
 
 // Dados baseados no material clínico fornecido (Emagrecimento em Mulheres - Pós EMA.pdf)

@@ -126,7 +126,7 @@ export default function Feijao() {
               <p>Se você já sentiu a barriga estufada depois de comer feijão, saiba que isso é extremamente comum e tem uma explicação científica exata. Apesar de ser um alimento incrivelmente nutritivo, rico em fibras, proteínas e minerais, o feijão contém compostos específicos que podem causar fermentação no intestino, levando à formação de gases. A boa notícia é que existem formas simples e comprovadas de reduzir ou até evitar completamente esse desconforto no seu dia a dia.</p>
 
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-                <img src={`${githubImgBase}Blog/feijao.jpg`} alt="Preparo correto do feijão para evitar gases" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={`${githubImgBase}Blog/feijao.webp`} alt="Preparo correto do feijão para evitar gases" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">O preparo correto das leguminosas transforma a sua resposta digestiva.</p></div>
               </div>
 

@@ -17,7 +17,7 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 const datePublishedISO = "2026-04-02";
 const dateModifiedISO = "2026-04-02";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
-const tpmCapa = `${githubImgBase}Blog/TPM.jpg`;
+const tpmCapa = `${githubImgBase}Blog/TPM.webp`;
 
 export default function TpmeAlimentacao() {
   const { pathname } = useLocation();

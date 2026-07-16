@@ -16,8 +16,8 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 const datePublishedISO = "2026-04-01";
 const dateModifiedISO = "2026-04-08";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
-const melatoninaCapa = `${githubImgBase}Blog/Melatonina.jpg`;
-const cicloCircadianoCapa = `${githubImgBase}Blog/CicloCircadiano.jpg`;
+const melatoninaCapa = `${githubImgBase}Blog/Melatonina.webp`;
+const cicloCircadianoCapa = `${githubImgBase}Blog/CicloCircadiano.webp`;
 
 export default function Melatonina() {
   const { pathname } = useLocation();
