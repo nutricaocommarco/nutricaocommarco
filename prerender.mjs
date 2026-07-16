@@ -69,7 +69,7 @@ const postsBlog = [
   { 
     id: 25, 
     link: "/o-que-e-jejum-intermitente", 
-    img: `${githubImgBase}Blog/JejumIntermitente_Capa.jpg`, 
+    img: `${githubImgBase}Blog/JejumIntermitente_Capa.webp`, 
     titulo: "O que é Jejum Intermitente? A Verdade e os Protocolos",
     desc: "Muito além de passar fome: descubra o que é o jejum intermitente, como ele destrava o metabolismo lento e se ele emagrece mais que a dieta tradicional.", 
     data: "2026-07-12",
