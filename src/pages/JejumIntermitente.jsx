@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import YouTubeLazy from '../components/YouTubeLazy';
 import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { 
@@ -338,17 +339,11 @@ export default function JejumIntermitente() {
             
             <div className="my-10 p-6 md:p-8 bg-slate-900 rounded-[2.5rem] shadow-2xl flex flex-col md:flex-row items-center gap-8 border border-slate-800">
                 <div className="w-full md:w-1/2 aspect-video rounded-2xl overflow-hidden shadow-xl shrink-0 bg-black border-4 border-slate-700 relative">
-                    <iframe
-                        width="100%"
-                        height="100%"
-                        src="https://www.youtube.com/embed/Kq3dcD3Hnik"
-                        title="Documentário sobre 14 dias em Jejum Intermitente por MrBeast"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                        className="absolute top-0 left-0 w-full h-full"
-                    ></iframe>
+               
+                  <YouTubeLazy videoId="Kq3dcD3Hnik" title="Documentário sobre 14 dias em Jejum Intermitente por MrBeast" />
+                  
                 </div>
+              
                 <div className="flex-1 text-center md:text-left">
                     <strong className="text-2xl font-black text-white italic uppercase mb-4 flex items-center justify-center md:justify-start gap-2 block">
                         <PlayCircle className="text-green-500" /> Além do Limite
