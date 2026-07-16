@@ -17,8 +17,9 @@ const datePublishedISO = "2026-04-07";
 const dateModifiedISO = "2026-07-10";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
-// Imagens do Artigo
+// Variáveis do Artigo
 const artigoCapa = `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.jpg`; 
+const keywords = "percentual de gordura feminino ideal, gordura essencial, gordura ginoide, gordura androide, balança de bioimpedância, relação cintura estatura, como medir percentual de gordura";
 
 // Dados baseados no material clínico fornecido (Emagrecimento em Mulheres - Pós EMA.pdf)
 const tabelaGordura = [
@@ -77,17 +78,17 @@ export default function PercentualGorduraFemininoComponent() {
 
   return (
     <>
-   <Helmet>
+      <Helmet>
         <title>Qual é o Percentual de Gordura Feminino Ideal e Saudável? | Nutrição com Marco</title>
         <meta name="description" content="Pare de olhar apenas para a balança. Entenda as tabelas reais de referência e descubra qual é o percentual de gordura feminino ideal para a sua idade e saúde." />
         <meta name="keywords" content={keywords} />
-        <link rel="canonical" href={`[https://www.nutricaocommarco.com.br](https://www.nutricaocommarco.com.br)${pathname}`} />
+        <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
         
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Qual é o Percentual de Gordura Feminino Ideal e Saudável?" />
         <meta property="og:description" content="Pare de olhar apenas para a balança. Entenda as tabelas reais de referência e descubra qual é o percentual de gordura feminino ideal para a sua idade e saúde." />
         <meta property="og:image" content={artigoCapa} />
-        <meta property="og:url" content={`[https://www.nutricaocommarco.com.br](https://www.nutricaocommarco.com.br)${pathname}`} />
+        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
       </Helmet>
 
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
@@ -127,7 +128,7 @@ export default function PercentualGorduraFemininoComponent() {
             </a>
           </div>
 
-{/* PLAYER DE ÁUDIO ATUALIZADO */}
+          {/* PLAYER DE ÁUDIO ATUALIZADO */}
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
@@ -267,7 +268,7 @@ export default function PercentualGorduraFemininoComponent() {
               </table>
             </div>
 
-{/* NOVO VÍDEO DO YOUTUBE - GINOIDE X ANDROIDE */}
+            {/* NOVO VÍDEO DO YOUTUBE - GINOIDE X ANDROIDE */}
             <h2 id="video-explicativo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Video className="text-green-600"/> Biotipos: Gordura Ginoide x Androide
             </h2>
@@ -348,7 +349,7 @@ export default function PercentualGorduraFemininoComponent() {
               Por esse exato motivo, o <Link to="/o_que_e_antropometria" className="text-green-600 font-bold hover:underline">método antropométrico tradicional através do somatório de dobras cutâneas</Link> ainda reina absoluto como uma bússola inabalável para monitorar resultados ao longo dos meses. Utilizando pinças de alta precisão científica, o profissional avalia o tecido subcutâneo real com os próprios dedos, blindando a avaliação de oscilações ilusórias de líquidos. Quando complementado com métricas matemáticas independentes e altamente eficientes, como a formidável Relação Cintura-Estatura (RCE), onde o limite saudável estipula que a sua cintura deve medir obrigatoriamente menos da metade da sua altura total, obtemos um arsenal clínico invencível contra a obesidade.
             </p>
 
-{/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (Fita Antropométrica Cescorf) */}
+            {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (Fita Antropométrica Cescorf) */}
             <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
                 <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
