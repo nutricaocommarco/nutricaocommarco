@@ -103,67 +103,16 @@ const handleFormSubmit = async (e) => {
   return (
     <>
       <Helmet>
-        {/* FOCO AGRESSIVO NA PALAVRA-CHAVE */}
-        <title>O Que Comer na TPM: Emagrecimento e Metabolismo Feminino</title>
-        <meta name="description" content="Descubra o que comer na TPM para emagrecer sem sofrimento. Aprenda como o metabolismo feminino funciona e por que a vontade de doce aumenta." />
+        <title>O Que Comer na TPM Para Controlar o Doce (Sem Culpa) | Nutrição com Marco</title>
+        <meta name="description" content="A vontade de doce na TPM não é falta de foco, é biologia pura! Entenda como hackear o metabolismo feminino e o que comer nesses dias difíceis." />
         <meta name="keywords" content={keywords} />
-
+        <link rel="canonical" href={`[https://www.nutricaocommarco.com.br](https://www.nutricaocommarco.com.br)${pathname}`} />
+        
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="O Que Comer na TPM: Emagrecimento e Metabolismo Feminino" />
-        <meta property="og:description" content="A ciência por trás do metabolismo feminino. Descubra o que comer na TPM para controlar o apetite e manter o emagrecimento." />
-        <meta property="og:image" content={tpmCapa} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        {/* SCHEMA.ORG 1: ARTIGO */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "O Que Comer na TPM: Desvendando o Emagrecimento e o Metabolismo Feminino",
-            "image": [tpmCapa],
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre",
-              "jobTitle": "Estudante de Nutrição",
-              "knowsAbout": ["O que comer na TPM", "Nutrição Feminina", "Metabolismo", "Emagrecimento", "Antropometria"]
-            },
-            "publisher": {
-              "@type": "Organization", 
-              "name": "Nutrição com Marco", 
-              "logo": { "@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png` }
-            },
-            "datePublished": datePublishedISO,
-            "dateModified": dateModifiedISO,
-            "description": "Descubra cientificamente o que comer na TPM para reduzir cólicas, inchaço e controlar a fome emocional mantendo o emagrecimento.",
-            "keywords": "o que comer na tpm, dieta na tpm"
-          })}} />
-
-        {/* SCHEMA.ORG 2: MEDICAL PAGE */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MedicalWebPage",
-            "name": "O Que Comer na TPM e a Fisiologia Hormonal Feminina",
-            "url": `https://www.nutricaocommarco.com.br${pathname}`,
-            "about": [
-              {"@type": "MedicalEntity", "name": "Ciclo Menstrual"},
-              {"@type": "MedicalEntity", "name": "Síndrome Pré-Menstrual (TPM)"}
-            ]
-          })}} />
-
-        {/* SCHEMA.ORG 3: FAQ MUTANTE INVISÍVEL */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              // Intercepta e injeta a palavra-chave se a pergunta falar de TPM ou Menstruar
-              "name": (faq.pergunta.toLowerCase().includes("tpm") || faq.pergunta.toLowerCase().includes("menstruar")) ? `Ao decidir o que comer na TPM, ${faq.pergunta.toLowerCase()}` : faq.pergunta,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.resposta
-              }
-            }))
-          })}} />
+        <meta property="og:title" content="O Que Comer na TPM Para Controlar o Doce (Sem Culpa)" />
+        <meta property="og:description" content="A vontade de doce na TPM não é falta de foco, é biologia pura! Entenda como hackear o metabolismo feminino e o que comer nesses dias difíceis." />
+        <meta property="og:image" content={artigoCapa} />
+        <meta property="og:url" content={`[https://www.nutricaocommarco.com.br](https://www.nutricaocommarco.com.br)${pathname}`} />
       </Helmet>
 
       <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
