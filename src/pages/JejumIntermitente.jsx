@@ -129,7 +129,7 @@ export default function JejumIntermitente() {
 
           {/* 4. ÍNDICE (TOC) COM TÍTULOS ORIGINAIS MAS ANCORAGEM OTIMIZADA */}
           <div className="mb-12 border border-slate-200 rounded-[2rem] shadow-sm overflow-hidden bg-slate-50">
-            <button 
+            <button aria-label="Abrir Menu O que é Jejum Intermitente"
               onClick={() => setIsTocOpen(!isTocOpen)}
               className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
               aria-label="Abrir Índice do Conteúdo sobre O Que é Jejum Intermitente"
@@ -298,7 +298,7 @@ export default function JejumIntermitente() {
                             </select>
                         </div>
                         <div className="w-full md:w-1/3 flex items-end">
-                            <button
+                            <button 
                                 type="submit"
                                 className="w-full bg-green-600 text-white h-[60px] rounded-2xl font-black uppercase text-sm tracking-widest shadow-lg hover:bg-green-700 hover:-translate-y-1 transition-all duration-300"
                                 aria-label="Calcular a janela de jejum intermitente"
@@ -541,7 +541,7 @@ export default function JejumIntermitente() {
               <div className="space-y-4">
                 {faqs.map((faq, index) => (
                   <div key={index} className="bg-slate-50 rounded-3xl border border-green-100 overflow-hidden transition-all duration-300">
-                    <button
+                    <button aria-label="Faq Index"
                       onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
                       className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
                       aria-expanded={openFaqIndex === index}
