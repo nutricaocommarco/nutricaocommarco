@@ -17,8 +17,9 @@ const datePublishedISO = "2026-04-05";
 const dateModifiedISO = "2026-04-14";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
-// Capa do Artigo
+// Capa do Artigo e Keywords
 const artigoCapa = `${githubImgBase}Blog/QuantasCaloriasGasto.jpg`; 
+const keywords = "quantas calorias gasto por dia, taxa metabólica basal, calcular tmb, gasto energético total, tdee, fator de atividade física, mets";
 
 // Dados da Tabela de METs transformados em um Array para renderização elegante
 const tabelaMets = [
@@ -70,115 +71,17 @@ export default function QuantasCaloriasGastoComponent() {
 
   return (
     <>
-      <Helmet>
-        <title>Quantas Calorias Gasto Por Dia? TMB e TDEE | Nutrição com Marco</title>
-        <meta name="description" content="Descubra como calcular seu gasto calórico diário. Entenda a sua Taxa Metabólica Basal (TMB), fator de atividade, METs e as fórmulas de Mifflin e Cunningham." />
+    <Helmet>
+        <title>Quantas Calorias Gasto Por Dia? Calcule Sua TMB Exata Aqui | Nutrição com Marco</title>
+        <meta name="description" content="Pare de chutar a sua dieta. Use nossa calculadora inteligente para descobrir quantas calorias seu corpo realmente queima por dia (TMB e Fator de Atividade)." />
+        <meta name="keywords" content={keywords} />
         <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Quantas Calorias Gasto Por Dia? Pare de Chutar! | Nutrição com Marco" />
-        <meta property="og:description" content="Guia definitivo: entenda o seu metabolismo, descubra a fórmula certa para o seu biotipo e aprenda a calcular o seu Gasto Energético Total com precisão." />
-        <meta property="og:image" content={artigoCapa} />
-        <meta property="og:image:secure_url" content={artigoCapa} />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
         
-        {/* Schema 1: Article */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": `https://www.nutricaocommarco.com.br${pathname}`
-            },   
-            "headline": "Quantas Calorias Gasto Por Dia? Pare de Chutar e Entenda o Seu Metabolismo",
-            "image": artigoCapa,
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre",
-              "jobTitle": "Estudante de Nutrição",
-              "knowsAbout": ["Nutrição", "Metabolismo", "Emagrecimento", "Taxa Metabólica Basal", "Cálculo Calórico"]
-            },
-            "publisher": {
-              "@type": "Organization", 
-              "name": "Nutrição com Marco", 
-              "logo": {
-                "@type": "ImageObject", 
-                "url": `${githubImgBase}logoN_pingus.png`
-              }
-            },
-            "datePublished": datePublishedISO,
-            "dateModified": dateModifiedISO,
-            "description": "Descubra como calcular seu gasto calórico diário. Entenda a sua Taxa Metabólica Basal (TMB), fator de atividade e as melhores fórmulas para o emagrecimento."
-          })}
-        </script>
-
-        {/* Schema 2: MedicalWebPage */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MedicalWebPage",
-            "name": "Quantas Calorias Gasto Por Dia? TMB e TDEE",
-            "url": `https://www.nutricaocommarco.com.br${pathname}`,
-            "about": [
-              {"@type": "MedicalEntity", "name": "Taxa Metabólica Basal"},
-              {"@type": "MedicalEntity", "name": "Gasto Energético Total"},
-              {"@type": "MedicalEntity", "name": "Metabolismo Basal"},
-              {"@type": "MedicalEntity", "name": "Antropometria"}
-            ],
-            "audience": {
-              "@type": "MedicalAudience",
-              "audienceType": "Pacientes"
-            }
-          })}
-        </script>
-
-        {/* Schema 3: BreadcrumbList */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.nutricaocommarco.com.br/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": "https://www.nutricaocommarco.com.br/blog"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Quantas Calorias Gasto Por Dia?",
-                "item": `https://www.nutricaocommarco.com.br${pathname}`
-              }
-            ]
-          })}
-        </script>
-
-        {/* Schema 4: FAQPage */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.pergunta,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.resposta
-              }
-            }))
-          })}
-        </script>
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Quantas Calorias Gasto Por Dia? Calcule Sua TMB Exata Aqui" />
+        <meta property="og:description" content="Pare de chutar a sua dieta. Use nossa calculadora inteligente para descobrir quantas calorias seu corpo realmente queima por dia (TMB e Fator de Atividade)." />
+        <meta property="og:image" content={artigoCapa} />
+        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
       </Helmet>
 
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
