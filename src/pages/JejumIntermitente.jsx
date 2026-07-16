@@ -16,7 +16,7 @@ const datePublishedISO = "2026-07-14";
 const dateModifiedISO = "2026-07-14";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
-const artigoCapa = `${githubImgBase}Blog/JejumIntermitente_Capa.jpg`; 
+const artigoCapa = `${githubImgBase}Blog/JejumIntermitente_Capa.webp`; 
 
 export default function JejumIntermitente() {
   const { pathname } = useLocation();
@@ -474,7 +474,7 @@ export default function JejumIntermitente() {
 
                         <div className="w-full max-w-[180px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm bg-slate-200 aspect-[3/4]">
                             <img 
-                              src={`${githubImgBase}Afiliado/Garrafa.jpg`} 
+                              src={`${githubImgBase}Afiliado/Garrafa.webp`} 
                               alt="Garrafa Térmica com Filtro de Gelo ideal para beber água no Jejum Intermitente" 
                               className="w-full h-full object-cover" 
                               onError={(e) => {
