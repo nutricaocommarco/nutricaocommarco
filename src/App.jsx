@@ -60,9 +60,18 @@ function Layout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-    useEffect(() => {
+useEffect(() => {
     // Apenas fecha o menu mobile ao mudar de página
     setIsMenuOpen(false);
+
+    // Garante que o Pingus apareça na aba do navegador
+    let link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      document.head.appendChild(link);
+    }
+    link.href = 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png';
   }, [location.pathname]);
 
 return (
