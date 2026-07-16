@@ -18,16 +18,7 @@ export default function Feijao() {
   return (
     <>
 <Helmet>
-        <title>Por Que o Feijão Dá Gases? O Truque Químico Para Evitar | Nutrição com Marco</title>
-        <meta name="description" content="Pare de sofrer com estômago estufado. A culpa é dos antinutrientes! Aprenda o método correto do remolho para neutralizar o feijão e melhorar a digestão." />
-        <meta name="keywords" content="por que o feijão dá gases, como tirar o gas do feijao, remolho do feijão, antinutrientes, fitatos, digestão" />
-        <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
 
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Por Que o Feijão Dá Gases? O Truque Químico Para Evitar" />
-        <meta property="og:description" content="Pare de sofrer com estômago estufado. A culpa é dos antinutrientes! Aprenda o método correto do remolho para neutralizar o feijão e melhorar a digestão." />
-        <meta property="og:image" content={`${githubImgBase}Blog/feijao.jpg`} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
       </Helmet>
 
       <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
