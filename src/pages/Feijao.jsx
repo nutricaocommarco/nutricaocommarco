@@ -262,7 +262,7 @@ export default function Feijao() {
             {/* Foto do Autor no lugar do 'M' */}
             <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
               <img 
-                src={`${githubImgBase}Eu_1.png`} 
+                src={`${githubImgBase}Eu_1.webp`} 
                 alt="Marco Aurélio Jr. - Nutricionista e Autor do Artigo." 
                 title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador Antropométrico ISAK Nível 1."
                 className="w-full h-full object-cover"
