@@ -40,7 +40,7 @@ export default function Frutose() {
 
   return (
     <>
-<Helmet>
+      <Helmet>
         <title>Quantas Frutas Posso Comer Por Dia? (O Perigo da Frutose) | Nutrição com Marco</title>
         <meta name="description" content="Fruta à vontade faz mal? Entenda a bioquímica da frutose, o risco de gordura no fígado (esteatose) e qual a porção diária ideal para emagrecer." />
         <meta name="keywords" content="quantas frutas posso comer por dia, frutose faz mal, gordura no fígado, dieta com frutas, esteatose hepática" />
@@ -49,9 +49,10 @@ export default function Frutose() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Quantas Frutas Posso Comer Por Dia? (O Perigo da Frutose)" />
         <meta property="og:description" content="Fruta à vontade faz mal? Entenda a bioquímica da frutose, o risco de gordura no fígado (esteatose) e qual a porção diária ideal para emagrecer." />
-        <meta property="og:image" content={frutoseCapa} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />      
-</Helmet>
+        <meta property="og:image" content={frutasCapa} /> {/* Ou a variável da sua imagem */}
+        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
+      </Helmet>
+
 
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
