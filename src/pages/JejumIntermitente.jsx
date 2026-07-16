@@ -278,31 +278,33 @@ export default function JejumIntermitente() {
                 </div>
                 <div className="p-6 md:p-10">
                     <form onSubmit={calcularJanela} className="flex flex-col md:flex-row gap-6 items-center justify-center">
-                        <div className="w-full md:w-1/3">
-                            <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 text-center">Última Refeição</label>
-                            <input
-                                type="time"
-                                value={ultimaRefeicao}
-                                onChange={(e) => setUltimaRefeicao(e.target.value)}
-                                className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-xl font-black rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 block p-4 text-center outline-none transition-all shadow-inner cursor-pointer"
-                                required
-                            />
-                        </div>
-                        <div className="w-full md:w-1/3">
-                            <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 text-center">Protocolo</label>
-                            <select
-                                value={protocolo}
-                                onChange={(e) => setProtocolo(e.target.value)}
-                                className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-xl font-black rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 block p-4 text-center outline-none transition-all shadow-inner cursor-pointer"
-                            >
-                                <option value="12">12 Horas</option>
-                                <option value="14">14 Horas</option>
-                                <option value="16">16 Horas (Clássico)</option>
-                                <option value="18">18 Horas</option>
-                                <option value="20">20 Horas</option>
-                                <option value="24">24 Horas</option>
-                            </select>
-                        </div>
+<div className="w-full md:w-1/3">
+    <label htmlFor="ultimaRefeicao" className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 text-center">Última Refeição</label>
+    <input
+        id="ultimaRefeicao"
+        type="time"
+        value={ultimaRefeicao}
+        onChange={(e) => setUltimaRefeicao(e.target.value)}
+        className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-xl font-black rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 block p-4 text-center outline-none transition-all shadow-inner cursor-pointer"
+        required
+    />
+</div>
+<div className="w-full md:w-1/3">
+    <label htmlFor="protocolo" className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 text-center">Protocolo</label>
+    <select
+        id="protocolo"
+        value={protocolo}
+        onChange={(e) => setProtocolo(e.target.value)}
+        className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-xl font-black rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 block p-4 text-center outline-none transition-all shadow-inner cursor-pointer"
+    >
+        <option value="12">12 Horas</option>
+        <option value="14">14 Horas</option>
+        <option value="16">16 Horas (Clássico)</option>
+        <option value="18">18 Horas</option>
+        <option value="20">20 Horas</option>
+        <option value="24">24 Horas</option>
+    </select>
+</div>
                         <div className="w-full md:w-1/3 flex items-end">
                             <button 
                                 type="submit"
@@ -477,9 +479,12 @@ export default function JejumIntermitente() {
 
                         <div className="w-full max-w-[180px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm bg-slate-200 aspect-[3/4]">
                             <img 
-                              src={`${githubImgBase}Afiliado/Garrafa.webp`} 
-                              alt="Garrafa Térmica com Filtro de Gelo ideal para beber água no Jejum Intermitente" 
-                              className="w-full h-full object-cover" 
+    src={`${githubImgBase}Afiliado/Garrafa.webp`} 
+  alt="Garrafa Térmica com Filtro de Gelo ideal para beber água no Jejum Intermitente" 
+  className="w-full h-full object-cover"
+  loading="lazy"
+  width="180"
+  height="240"
                               onError={(e) => {
                                 e.target.onerror = null; 
                                 e.target.src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&q=80&w=400";
@@ -541,26 +546,25 @@ export default function JejumIntermitente() {
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
                 <HelpCircle className="text-green-600" /> Perguntas Frequentes sobre o Jejum (FAQ)
               </h2>
-              <div className="space-y-4">
-                {faqs.map((faq, index) => (
-                  <div key={index} className="bg-slate-50 rounded-3xl border border-green-100 overflow-hidden transition-all duration-300">
-                    <button aria-label="Faq Index"
-                      onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                      className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
-                      aria-expanded={openFaqIndex === index}
-                    >
-                      <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-600' : 'text-slate-800 group-hover:text-green-600'}`}>
-                        {faq.pergunta}
-                      </h3>
-                      <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-600' : ''}`} size={24} />
-                    </button>
-                    <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
-                      <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">{faq.resposta}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+<div className="space-y-4">
+  {faqs.map((faq, index) => (
+    <div key={index} className="bg-slate-50 rounded-3xl border border-green-100 overflow-hidden transition-all duration-300">
+      <button 
+        onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+        className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
+        aria-expanded={openFaqIndex === index}
+      >
+        <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-600' : 'text-slate-800 group-hover:text-green-600'}`}>
+          {faq.pergunta}
+        </h3>
+        <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-600' : ''}`} size={24} />
+      </button>
+      <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
+        <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">{faq.resposta}</p>
+      </div>
+    </div>
+  ))}
+</div>            </div>
 
             <Newsletter />
           </div>
@@ -571,9 +575,12 @@ export default function JejumIntermitente() {
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
             <img 
-              src={`${githubImgBase}Eu_1.webp`} 
-              alt="Marco Aurélio Jr. - Autor e Nutricionista em formação" 
-              className="w-full h-full object-cover" 
+  src={`${githubImgBase}Eu_1.webp`} 
+  alt="Marco Aurélio Jr. - Autor e Nutricionista em formação" 
+  className="w-full h-full object-cover" 
+  loading="lazy"
+  width="96"
+  height="96" 
               onError={(e) => {
                 e.target.onerror = null; 
                 e.target.src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>👨‍⚕️</text></svg>";
