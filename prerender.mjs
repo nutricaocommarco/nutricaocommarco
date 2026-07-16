@@ -32,7 +32,6 @@ function getBreadcrumbSchema(nomePagina, url) {
 
 // 📝 1. TODAS AS ROTAS ESTÁTICAS E DE SISTEMA
 const rotasEstaticas = [
-  // ... [MANTENHA AS ROTAS ESTÁTICAS EXATAMENTE COMO ESTAVAM] ...
   { path: 'planilha-de-avaliacao-antropometrica-marco-aurelio', title: 'Planilha de Avaliação Antropométrica Inteligente PRO | Nutrição com Marco', image: `${githubImgBase}PlanilhaImagem/Capa.JPG`, desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.' },
   { path: 'planilha', title: 'Planilha Antropométrica Inteligente PRO | Nutrição com Marco', image: `${githubImgBase}PlanilhaImagem/Capa.JPG`, desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.' },
   { path: 'sobre', title: 'Sobre Marco Aurélio Jr. | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.png`, desc: 'Conheça a história de Marco Aurélio Jr., futuro nutricionista e especialista em avaliação física ISAK 1.' },
@@ -47,7 +46,7 @@ const rotasEstaticas = [
   { path: 'admin-pingus-email', title: 'Painel Administrativo | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.png`, desc: 'Acesso restrito.' }
 ];
 
-// 📝 2. TODOS OS POSTS DO BLOG (Otimizados para Máximo CTR no Google e COM SCHEMAS)
+// 📝 2. TODOS OS POSTS DO BLOG (COM SCHEMAS)
 const postsBlog = [
   { 
     id: 27, link: "/o-que-e-dieta-low-carb", img: `${githubImgBase}Blog/LowCarb_Capa.jpg`, titulo: "Dieta Low Carb: O Que É, Erros Fatais e Calculadora Completa", desc: "Aprenda o que é a dieta low carb de verdade. Descubra a diferença para a cetogênica, os mitos da gordura e monte seu prato com nossa Calculadora TACO.", data: "2026-07-15",
@@ -110,23 +109,16 @@ const rotasDoBlog = postsBlog.map(post => ({
   image: post.img || `${githubImgBase}logoN_pingus.png`,
   desc: post.desc,
   date: post.data,
-  schemasExtra: post.schemasExtra || [] // Repassa os schemas extra se existirem
+  schemasExtra: post.schemasExtra || [] 
 }));
 
 const routes = [...rotasEstaticas, ...rotasDoBlog];
 const distPath = path.resolve('dist');
 
-// 🛠️ 4. PROCESSO DE GERAÇÃO E LIMPEZA
+// 🛠️ 4. PROCESSO DE GERAÇÃO
 const template = fs.readFileSync(path.join(distPath, 'index.html'), 'utf-8');
 
-// EXPRESSÕES REGULARES PARA LIMPAR META TAGS ANTIGAS DO TEMPLATE
-const cleanTemplate = template
-  .replace(/<title>.*?<\/title>/g, '') // Remove titulo antigo
-  .replace(/<meta name="description".*?>/g, '') // Remove descrições antigas
-  .replace(/<meta property="og:.*?".*?>/g, '') // Remove OpenGraph antigo
-  .replace(/<script type="application\/ld\+json">.*?<\/script>/g, ''); // Remove schemas antigos
-
-console.log('🚀 Iniciando Robô de SEO Total com Limpeza e Múltiplos Schemas...');
+console.log('🚀 Iniciando Robô de SEO Focado APENAS em Schemas...');
 
 routes.forEach(route => {
   const routePath = path.join(distPath, route.path);
@@ -162,22 +154,11 @@ routes.forEach(route => {
     });
   }
 
-  // INJETA O TÍTULO NOVO E AS META TAGS LIMPAS E TODOS OS SCHEMAS
-  const html = cleanTemplate.replace('</head>', `
-      <title>${route.title}</title>
-      <meta name="description" content="${route.desc}" />
-      <meta property="og:type" content="${isBlog ? 'article' : 'website'}" />
-      <meta property="og:title" content="${route.title}" />
-      <meta property="og:description" content="${route.desc}" />
-      <meta property="og:image" content="${route.image}" />
-      <meta property="og:image:secure_url" content="${route.image}" />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:image:type" content="image/jpeg" />
-      <meta property="og:url" content="${urlAbsoluta}" />
+  // INJETA APENAS OS SCHEMAS (As meta tags ficam com o React Helmet!)
+  const html = template.replace('</head>', `
       ${schemasHTML}
     </head>`);
 
   fs.writeFileSync(path.join(routePath, 'index.html'), html);
-  console.log(`✅ Página [${route.path}] limpa e preparada (com Schemas estruturados)!`);
+  console.log(`✅ Página [${route.path}] preparada com Schemas!`);
 });
