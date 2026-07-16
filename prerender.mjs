@@ -34,9 +34,9 @@ function getBreadcrumbSchema(nomePagina, url) {
 const rotasEstaticas = [
   { path: 'planilha-de-avaliacao-antropometrica-marco-aurelio', title: 'Planilha de Avaliação Antropométrica Inteligente PRO | Nutrição com Marco', image: `${githubImgBase}PlanilhaImagem/Capa.JPG`, desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.' },
   { path: 'planilha', title: 'Planilha Antropométrica Inteligente PRO | Nutrição com Marco', image: `${githubImgBase}PlanilhaImagem/Capa.JPG`, desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.' },
-  { path: 'sobre', title: 'Sobre Marco Aurélio Jr. | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.png`, desc: 'Conheça a história de Marco Aurélio Jr., futuro nutricionista e especialista em avaliação física ISAK 1.' },
-  { path: 'certificacoes', title: 'Currículo e Certificações | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.png`, desc: 'Conheça a trajetória técnica e as certificações internacionais ISAK do nutricionista Marco Aurélio Jr.' },
-  { path: 'planos', title: 'Planos de Acompanhamento | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.png`, desc: 'Conheça os níveis de acompanhamento nutricional e avaliação física ISAK 1.' },
+  { path: 'sobre', title: 'Sobre Marco Aurélio Jr. | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.webp`, desc: 'Conheça a história de Marco Aurélio Jr., futuro nutricionista e especialista em avaliação física ISAK 1.' },
+  { path: 'certificacoes', title: 'Currículo e Certificações | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.webp`, desc: 'Conheça a trajetória técnica e as certificações internacionais ISAK do nutricionista Marco Aurélio Jr.' },
+  { path: 'planos', title: 'Planos de Acompanhamento | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.webp`, desc: 'Conheça os níveis de acompanhamento nutricional e avaliação física ISAK 1.' },
   { path: 'blog', title: 'Blog de Nutrição e Ciência | Nutrição com Marco', image: `${githubImgBase}ImgBlog.jpg`, desc: 'Conteúdo científico sobre antropometria, bioimpedância e emagrecimento real.' },
   { path: 'calculadora-de-gasto-calorico', title: 'Calculadora de Gasto Calórico (TDEE e TMB) Inteligente | Nutrição com Marco', image: `${githubImgBase}Calculadora-de-Gasto-Calorico.jpg`, desc: 'Descubra seu gasto calórico diário e taxa metabólica basal com nossa calculadora inteligente.' },
   { path: 'parceria-inatividade-zero', title: 'Avaliação Antropométrica de Precisão - Parceria Inatividade Zero | Nutrição com Marco', image: `${githubImgBase}PingusReserva.jpg`, desc: 'Agende sua avaliação antropométrica avançada na Academia Inatividade Zero em parceria com Nutrição com Marco e descubra sua composição corporal real.' }
@@ -293,7 +293,7 @@ const postsBlog = [
 const rotasDoBlog = postsBlog.map(post => ({
   path: post.link.startsWith('/') ? post.link.slice(1) : post.link,
   title: `${post.titulo} | Nutrição com Marco`,
-  image: post.img || `${githubImgBase}logoN_pingus.png`,
+  image: post.img || `${githubImgBase}logoN_pingus.webp`,
   desc: post.desc,
   date: post.data,
   schemasExtra: post.schemasExtra || [] 

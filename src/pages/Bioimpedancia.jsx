@@ -34,7 +34,7 @@ export default function Bioimpedancia() {
             "headline": "A Balança de Bioimpedância é Realmente Confiável?",
             "image": `${githubImgBase}Blog/bioimpedancia.png`,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
-            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png`}},
+            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.webp`}},
             "datePublished": "2026-03-20",
             "dateModified": "2026-03-21",
             "description": "Entenda se a balança de bioimpedância é confiável, como ela funciona e o que altera o seu percentual de gordura."

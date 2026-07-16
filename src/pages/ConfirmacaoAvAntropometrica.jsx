@@ -114,7 +114,7 @@ export default function ConfirmacaoInscricao() {
               <div className="my-12 p-8 md:p-10 bg-green-50 border border-green-200 rounded-[3rem] shadow-sm flex flex-col md:flex-row items-center gap-10">
                 <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-white rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-green-100">
                     <img 
-                        src={`${githubImgBase}logoN_pingus.png`} 
+                        src={`${githubImgBase}logoN_pingus.webp`} 
                         alt="Mascote Pingus" 
                         className="w-full h-full object-contain" 
                     />

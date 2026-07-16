@@ -18,7 +18,7 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "HealthAndBeautyBusiness",
             "name": "Nutrição com Marco",
-            "image": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png",
+            "image": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.webp",
             "@id": "https://www.nutricaocommarco.com.br/",
             "url": "https://www.nutricaocommarco.com.br/",
             "email": "nutricaocommarco@gmail.com",
@@ -85,7 +85,7 @@ export default function Home() {
             <h3 className="text-2xl font-black mb-6 italic uppercase">Minha Missão</h3>
             <p className="text-xl leading-relaxed mb-10 font-medium italic text-left">"Levar clareza nutricional para quem busca resultados reais, sem modismos e com total base científica."</p>
             <div className="flex items-center gap-4 justify-center md:justify-start">
-              <img src={`${githubImgBase}logoN_pingus.png`} alt="Pingus" className="w-16 h-16 object-contain drop-shadow-lg" />
+              <img src={`${githubImgBase}logoN_pingus.webp`} alt="Pingus" className="w-16 h-16 object-contain drop-shadow-lg" />
               <div className="text-left font-black uppercase text-white"><span className="block text-[10px] opacity-80">Mascote Oficial</span>Pingus</div>
             </div>
           </div>

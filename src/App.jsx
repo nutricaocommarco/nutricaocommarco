@@ -92,7 +92,7 @@ useEffect(() => {
       link.rel = 'icon';
       document.head.appendChild(link);
     }
-    link.href = 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png';
+    link.href = 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.webp';
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
@@ -101,7 +101,7 @@ return (
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || location.pathname !== '/' ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center relative">
           <Link to="/" className="flex items-center gap-2 group">
-            <img src={`${githubImgBase}logoN_pingus.png`} alt="Logo Pingus" title="Nutrição com Marco - Fisiologia, Composição Corporal e Saúde" className="w-12 h-12 group-hover:rotate-6 transition-transform object-contain" />
+            <img src={`${githubImgBase}logoN_pingus.webp`} alt="Logo Pingus" title="Nutrição com Marco - Fisiologia, Composição Corporal e Saúde" className="w-12 h-12 group-hover:rotate-6 transition-transform object-contain" />
             <span className="text-xl font-black tracking-tight text-slate-900 uppercase ml-1">NUTRIÇÃO COM <span className="text-green-600">MARCO</span></span>
           </Link>
 
@@ -180,7 +180,7 @@ return (
       <footer className="bg-slate-900 text-white py-20 text-center mt-auto">
         <div className="container mx-auto px-6 text-center">
           <Link to="/" className="flex items-center justify-center gap-3 mb-10 group">
-            <img src={`${githubImgBase}logoN_pingus.png`} alt="Logo" title="Nutrição com Marco - Fisiologia, Composição Corporal e Saúde" className="w-12 h-12 object-contain group-hover:rotate-6 transition-transform" />
+            <img src={`${githubImgBase}logoN_pingus.webp`} alt="Logo" title="Nutrição com Marco - Fisiologia, Composição Corporal e Saúde" className="w-12 h-12 object-contain group-hover:rotate-6 transition-transform" />
             <span className="text-xl font-black uppercase italic tracking-tighter text-white">Nutrição com Marco</span>
           </Link>
           <div className="flex justify-center gap-8 mb-16">

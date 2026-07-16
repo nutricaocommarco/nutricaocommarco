@@ -34,7 +34,7 @@ export default function Antropometria() {
             "headline": "O Que É Antropometria e Por Que Ela é Essencial para a Avaliação Física",
             "image": `${githubImgBase}Blog/O_que_e_antropometria.jpg`,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
-            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png`}},
+            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.webp`}},
             "datePublished": "2026-03-20",
             "dateModified": "2026-03-21",
             "description": "Descubra o que é Antropometria e como a avaliação física ISAK revela sua real composição corporal, muito além da balança."

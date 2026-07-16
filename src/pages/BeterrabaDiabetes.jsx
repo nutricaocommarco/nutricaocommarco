@@ -34,7 +34,7 @@ export default function DiabeticoPodeComerBeterraba() {
   // Valores padrão
   const tituloSEO = postAtual ? postAtual.titulo : "Artigo de Nutrição | Nutrição com Marco";
   const descSEO = postAtual ? postAtual.desc : "Leia mais no blog Nutrição com Marco.";
-  const imgSEO = postAtual ? postAtual.img : `${githubImgBase}logoN_pingus.png`;
+  const imgSEO = postAtual ? postAtual.img : `${githubImgBase}logoN_pingus.webp`;
   const dataPub = postAtual ? postAtual.data : "2026-01-01";
   const dataMod = postAtual ? postAtual.dataMod : "2026-01-01";
 
@@ -323,7 +323,7 @@ export default function DiabeticoPodeComerBeterraba() {
                       {/* FOTO DO PINGUS (AUTORIDADE) */}
                       <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
                           <img 
-                              src={`${githubImgBase}logoN_pingus.png`} 
+                              src={`${githubImgBase}logoN_pingus.webp`} 
                               alt="O Pinguim garante que diabético pode comer beterraba com segurança" 
                               title="Diabético pode comer beterraba sim!"
                               className="w-full h-full object-contain" 

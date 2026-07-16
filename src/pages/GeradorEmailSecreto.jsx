@@ -44,7 +44,7 @@ export default function GeradorEmailSecreto() {
         <div class="header">
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                    <td style="vertical-align: middle;"><img src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png" width="60"></td>
+                    <td style="vertical-align: middle;"><img src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.webp" width="60"></td>
                     <td style="vertical-align: middle; padding-left: 12px;">
                         <span style="font-size: 24px; font-weight: 900; color: #0f172a; text-transform: uppercase; letter-spacing: -1px; font-family: sans-serif;">Nutrição com <span style="color: #16a34a;">Marco</span></span>
                     </td>

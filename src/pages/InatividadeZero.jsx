@@ -205,7 +205,7 @@ export default function App() {
 
           {/* CONTACTO PINGUS */}
           <div className="p-10 bg-green-50 border border-green-200 rounded-[3.5rem] flex flex-col md:flex-row items-center gap-10">
-            <img src={`${githubImgBase}logoN_pingus.png`} alt="Pingus" className="w-32 md:w-40" />
+            <img src={`${githubImgBase}logoN_pingus.webp`} alt="Pingus" className="w-32 md:w-40" />
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-2xl font-black text-slate-800 uppercase italic mb-3">Ficou com alguma dúvida?</h3>
               <p className="text-slate-700 font-medium mb-6">O Pingus e eu estamos à disposição no WhatsApp para ajudar!</p>

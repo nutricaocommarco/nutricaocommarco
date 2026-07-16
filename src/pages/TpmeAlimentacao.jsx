@@ -310,7 +310,7 @@ const handleFormSubmit = async (e) => {
                   </div>
                   <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0 text-center md:text-left">
                       <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-                          <img src={`${githubImgBase}logoN_pingus.png`} alt="Selo de Qualidade Pingus para monitorar a TPM" title="Monitor de Ciclo" className="w-full h-full object-contain" />
+                          <img src={`${githubImgBase}logoN_pingus.webp`} alt="Selo de Qualidade Pingus para monitorar a TPM" title="Monitor de Ciclo" className="w-full h-full object-contain" />
                       </div>
                       <div className="flex-1 flex flex-col justify-center">
                           <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic text-left">Xiaomi Smart Band 9 Pro: <span className="text-green-600">Alta Precisão no seu Pulso</span></h4>

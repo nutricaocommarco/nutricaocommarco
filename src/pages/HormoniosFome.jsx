@@ -45,7 +45,7 @@ export default function HormoniosFome() {
               "name": "Nutrição com Marco",
               "logo": {
                 "@type": "ImageObject",
-                "url": `${githubImgBase}logoN_pingus.png`
+                "url": `${githubImgBase}logoN_pingus.webp`
               }
             },
             "datePublished": "2026-03-20", 

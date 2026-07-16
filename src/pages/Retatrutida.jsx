@@ -92,7 +92,7 @@ export default function RetatrutidaOQueE() {
             "headline": "Retatrutida o que é? A nova fronteira da ciência contra a obesidade",
             "image": `${githubImgBase}Blog/retatrutida_molecula.jpg`,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
-            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png`}},
+            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.webp`}},
             "datePublished": "2026-03-24",
             "dateModified": "2026-03-24",
             "description": "Descubra o que é a retatrutida, o novo medicamento agonista triplo (GLP-1, GIP e Glucagon) e seus resultados impressionantes na perda de peso."
@@ -555,7 +555,7 @@ export default function RetatrutidaOQueE() {
         {/* FOTO DO PINGUS (AUTORIDADE) */}
         <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
             <img 
-                src={`${githubImgBase}logoN_pingus.png`} 
+                src={`${githubImgBase}logoN_pingus.webp`} 
                 alt="Selo de Qualidade Pingus" 
                 className="w-full h-full object-contain" 
             />

@@ -34,7 +34,7 @@ export default function VitaminaA() {
             "headline": "Vitamina A: Muito Além da Visão – Para que Serve e Como Funciona no Corpo",
             "image": `${githubImgBase}Blog/vitamina_A.jpg`,
             "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
-            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png`}},
+            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.webp`}},
             "datePublished": "2026-03-20",
             "dateModified": "2026-03-21",
             "description": "Entenda as diferenças entre retinol, retinal e ácido retinóico, e descubra como a Vitamina A atua no seu metabolismo muito além da visão."

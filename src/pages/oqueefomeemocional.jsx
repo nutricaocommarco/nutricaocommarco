@@ -95,7 +95,7 @@ export default function FomeEmocional() {
             "publisher": {
               "@type": "Organization", 
               "name": "Nutrição com Marco", 
-              "logo": { "@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.png` }
+              "logo": { "@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.webp` }
             },
             "datePublished": datePublishedISO,
             "dateModified": dateModifiedISO,
@@ -290,7 +290,7 @@ export default function FomeEmocional() {
         {/* FOTO DO PINGUS (AUTORIDADE) */}
         <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
             <img 
-                src={`${githubImgBase}logoN_pingus.png`} 
+                src={`${githubImgBase}logoN_pingus.webp`} 
                 alt="Selo de Qualidade Pingus" 
                 className="w-full h-full object-contain" 
             />
