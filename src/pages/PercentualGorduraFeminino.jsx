@@ -79,14 +79,14 @@ export default function PercentualGorduraFemininoComponent() {
   return (
     <>
       <Helmet>
-        <title>Qual é o Percentual de Gordura Feminino Ideal e Saudável? | Nutrição com Marco</title>
-        <meta name="description" content="Pare de olhar apenas para a balança. Entenda as tabelas reais de referência e descubra qual é o percentual de gordura feminino ideal para a sua idade e saúde." />
+        <title>Qual o Percentual de Gordura Feminino Ideal e Saudável? | Nutrição com Marco</title>
+        <meta name="description" content="Pare de olhar apenas para a balança. Entenda as tabelas reais de referência e descubra qual o percentual de gordura feminino ideal para a sua idade e saúde." />
         <meta name="keywords" content={keywords} />
         <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
         
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Qual é o Percentual de Gordura Feminino Ideal e Saudável?" />
-        <meta property="og:description" content="Pare de olhar apenas para a balança. Entenda as tabelas reais de referência e descubra qual é o percentual de gordura feminino ideal para a sua idade e saúde." />
+        <meta property="og:title" content="Qual o Percentual de Gordura Feminino Ideal e Saudável? | Nutrição com Marco" />
+        <meta property="og:description" content="Pare de olhar apenas para a balança. Entenda as tabelas reais de referência e descubra qual o percentual de gordura feminino ideal para a sua idade e saúde." />
         <meta property="og:image" content={artigoCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
       </Helmet>
