@@ -52,19 +52,7 @@ export default function DietaCetogenica() {
   return (
     <>
 <Helmet>
-        {/* FOCO TOTAL NA PALAVRA-CHAVE PRINCIPAL NOS METADADOS */}
-        <title>O que é Dieta Cetogênica? Como Entrar em Cetose e Emagrecer | Nutrição com Marco</title>
-        <meta name="description" content="O que é Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível e os perigos de fazer errado." />
-        <meta name="keywords" content={keywords} />
-        <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
-        
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="O que é Dieta Cetogênica? Como Entrar em Cetose e Emagrecer | Nutrição com Marco" />
-        <meta property="og:description" content="O que é Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível e os perigos de fazer errado." />
-        <meta property="og:image" content={artigoCapa} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-        
-        {/* REMOVA o JSON-LD daqui do Helmet! Deixe o script do Node.js cuidar dele no HTML bruto */}
+ 
       </Helmet>
 
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
