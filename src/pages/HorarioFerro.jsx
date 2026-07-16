@@ -52,95 +52,16 @@ export default function MelhorHorarioFerro() {
   return (
     <>
       <Helmet>
-        {/* SEO OTIMIZADO */}
-        <title>Melhor Horário Para Tomar Ferro e Curar a Anemia | Nutrição com Marco</title>
-        <meta name="description" content="Descubra o melhor horário para tomar ferro, sintomas de falta no organismo, o que inibe a absorção e quanto tempo dura o tratamento para anemia." />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Melhor Horário Para Tomar Ferro e Curar a Anemia | Nutrição com Marco" />
-        <meta property="og:description" content="Aprenda como o ferro age no organismo, se pode tomar em jejum, depois do almoço e quais alimentos bloqueiam a sua absorção." />
-        <meta property="og:image" content={capaArtigo} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        {/* SCHEMA.ORG 1: ARTIGO */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Melhor Horário Para Tomar Ferro e Combater a Anemia Ferropriva",
-            "image": capaArtigo,
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre"
-            },
-            "publisher": {
-              "@type": "Organization", 
-              "name": "Nutrição com Marco", 
-              "logo": {
-                "@type": "ImageObject", 
-                "url": `${githubImgBase}logoN_pingus.png`
-              }
-            },
-            "datePublished": datePublishedISO,
-            "dateModified": dateModifiedISO,
-            "description": "Guia completo sobre a suplementação de ferro: horários, absorção, inibidores e tratamento da anemia ferropriva."
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 2: MEDICAL WEB PAGE */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MedicalWebPage",
-            "name": "Tratamento da Anemia e Suplementação de Ferro",
-            "url": `https://www.nutricaocommarco.com.br${pathname}`,
-            "about": [
-              {"@type": "MedicalEntity", "name": "Anemia Ferropriva"},
-              {"@type": "MedicalEntity", "name": "Ferro"},
-              {"@type": "MedicalEntity", "name": "Absorção de Nutrientes"}
-            ],
-            "audience": {
-              "@type": "MedicalAudience",
-              "audienceType": "Pacientes"
-            }
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 3: FAQ PAGE */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.pergunta,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.resposta
-              }
-            }))
-          })}
-        </script>
-
-        {/* SCHEMA.ORG: IMAGE OBJECT */}
-<script type="application/ld+json">
-  {JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "ImageObject",
-    "contentUrl": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/HorarioFerro.jpg",
-    "creator": {
-      "@type": "Person",
-      "name": "Marco"
-    },
-    "creditText": "Nutrição com Marco",
-    "copyrightNotice": "Nutrição com Marco",
-    "license": "https://nutricaocommarco.com.br",
-    "caption": "Mascote Pingus descobrindo o melhor horário para tomar suplemento de ferro.",
-    "description": "Ilustração 3D do mascote Pingus com roupa de explorador olhando assustado para uma barra de ferro em um prato, representando de forma bem-humorada a dieta e suplementação de ferro.",
-    "name": "Horário ideal para tomar suplemento de ferro"
-  })}
-</script>
+        <title>O Único Horário Certo Para Tomar Ferro (E Curar a Anemia Rápido) | Nutrição com Marco</title>
+        <meta name="description" content="Você está tomando ferro do jeito errado? Descubra o horário ideal para a absorção máxima, os sintomas ocultos da anemia e o que bloqueia o nutriente." />
+        <meta name="keywords" content={keywords} />
+        <link rel="canonical" href={`[https://www.nutricaocommarco.com.br](https://www.nutricaocommarco.com.br)${pathname}`} />
         
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="O Único Horário Certo Para Tomar Ferro (E Curar a Anemia Rápido)" />
+        <meta property="og:description" content="Você está tomando ferro do jeito errado? Descubra o horário ideal para a absorção máxima, os sintomas ocultos da anemia e o que bloqueia o nutriente." />
+        <meta property="og:image" content={artigoCapa} />
+        <meta property="og:url" content={`[https://www.nutricaocommarco.com.br](https://www.nutricaocommarco.com.br)${pathname}`} />
       </Helmet>
 
     <div className="min-h-screen bg-slate-50 font-sans">
