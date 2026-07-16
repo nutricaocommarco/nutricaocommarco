@@ -53,14 +53,14 @@ export default function MelhorHorarioFerro() {
   return (
     <>
       <Helmet>
-        <title>O Único Horário Certo Para Tomar Ferro (E Curar a Anemia Rápido) | Nutrição com Marco</title>
-        <meta name="description" content="Você está tomando ferro do jeito errado? Descubra o horário ideal para a absorção máxima, os sintomas ocultos da anemia e o que bloqueia o nutriente." />
+        <title>Qual o Melhor Horario Para Tomar Ferro (E Curar a Anemia Rápido) | Nutrição com Marco</title>
+        <meta name="description" content="Você está tomando ferro do jeito errado? Descubra qual o melhor horário para tomar ferro e ter absorção máxima, os sintomas ocultos da anemia e o que bloqueia o nutriente." />
         <meta name="keywords" content={keywords} />
         <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
         
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="O Único Horário Certo Para Tomar Ferro (E Curar a Anemia Rápido)" />
-        <meta property="og:description" content="Você está tomando ferro do jeito errado? Descubra o horário ideal para a absorção máxima, os sintomas ocultos da anemia e o que bloqueia o nutriente." />
+        <meta property="og:title" content="Qual o Melhor Horario Para Tomar Ferro (E Curar a Anemia Rápido) | Nutrição com Marco" />
+        <meta property="og:description" content="Você está tomando ferro do jeito errado? Descubra qual o melhor horário para tomar ferro e ter absorção máxima, os sintomas ocultos da anemia e o que bloqueia o nutriente." />
         <meta property="og:image" content={artigoCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
       </Helmet>
