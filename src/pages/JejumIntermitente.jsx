@@ -129,7 +129,7 @@ export default function JejumIntermitente() {
 
           {/* 4. ÍNDICE (TOC) COM TÍTULOS ORIGINAIS MAS ANCORAGEM OTIMIZADA */}
           <div className="mb-12 border border-slate-200 rounded-[2rem] shadow-sm overflow-hidden bg-slate-50">
-            <button aria-label="Abrir Menu O que é Jejum Intermitente"
+            <button 
               onClick={() => setIsTocOpen(!isTocOpen)}
               className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
               aria-label="Abrir Índice do Conteúdo sobre O Que é Jejum Intermitente"
