@@ -237,6 +237,8 @@ const postsBlog = [
     desc: "Engordar e emagrecer rapidamente destrói suas células. Descubra a verdade silenciosa por trás do efeito sanfona e como frear a inflamação celular.", 
     data: "2026-03-15" 
   },
+
+{/* 4 ok */}
   { 
     id: 4, 
     link: "/quantas_frutas_posso_comer", 
