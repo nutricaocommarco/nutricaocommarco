@@ -42,29 +42,22 @@ const rotasEstaticas = [
   { path: 'parceria-inatividade-zero', title: 'Avaliação Antropométrica de Precisão - Parceria Inatividade Zero | Nutrição com Marco', image: `${githubImgBase}PingusReserva.jpg`, desc: 'Agende sua avaliação antropométrica avançada na Academia Inatividade Zero em parceria com Nutrição com Marco e descubra sua composição corporal real.' },
   { path: 'confirmacao-av-antropometrica', title: 'Avaliação Agendada! | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.png`, desc: 'Sua avaliação antropométrica foi agendada com sucesso.' },
   { path: 'confirmacao-pendente', title: 'Quase lá! Confirme seu e-mail | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.png`, desc: 'Falta apenas um clique para confirmar sua inscrição e receber nossos conteúdos exclusivos.' },
-  { path: 'inscricao-confirmada', title: 'Inscrição Confirmada! | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.png`, desc: 'Tudo pronto! Você agora faz parte da nossa comunidade de nutrição e antropometria.' },
-  { path: 'admin-pingus-email', title: 'Painel Administrativo | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.png`, desc: 'Acesso restrito.' }
+  { path: 'inscricao-confirmada', title: 'Inscrição Confirmada! | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.png`, desc: 'Tudo pronto! Você agora faz parte da nossa comunidade de nutrição e antropometria.' }
 ];
 
-// 📝 2. TODOS OS POSTS DO BLOG (COM SCHEMAS)
+// 📝 2. TODOS OS POSTS DO BLOG
 const postsBlog = [
   { 
     id: 27, link: "/o-que-e-dieta-low-carb", img: `${githubImgBase}Blog/LowCarb_Capa.jpg`, titulo: "Dieta Low Carb: O Que É, Erros Fatais e Calculadora Completa", desc: "Aprenda o que é a dieta low carb de verdade. Descubra a diferença para a cetogênica, os mitos da gordura e monte seu prato com nossa Calculadora TACO.", data: "2026-07-15",
-    schemasExtra: [
-      getMedicalSchema("Dieta Low Carb e Impactos Metabólicos", "https://www.nutricaocommarco.com.br/o-que-e-dieta-low-carb", ["Dieta Low-Carb", "Metabolismo de Carboidratos", "Sensibilidade à Insulina"])
-    ]
+    schemasExtra: [getMedicalSchema("Dieta Low Carb e Impactos Metabólicos", "https://www.nutricaocommarco.com.br/o-que-e-dieta-low-carb", ["Dieta Low-Carb", "Metabolismo de Carboidratos", "Sensibilidade à Insulina"])]
   },
   { 
     id: 26, link: "/o-que-e-dieta-cetogenica", img: `${githubImgBase}Blog/DietaCetogenica_Capa.jpg`, titulo: "Dieta Cetogênica Explicada: Como Entrar em Cetose e Emagrecer", desc: "O que a ciência diz sobre a Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível e os perigos de fazer errado.", data: "2026-07-14",
-    schemasExtra: [
-      getMedicalSchema("Dieta Cetogênica e Emagrecimento", "https://www.nutricaocommarco.com.br/o-que-e-dieta-cetogenica", ["Dieta Cetogênica", "Cetose", "Metabolismo de Gorduras"])
-    ]
+    schemasExtra: [getMedicalSchema("Dieta Cetogênica e Emagrecimento", "https://www.nutricaocommarco.com.br/o-que-e-dieta-cetogenica", ["Dieta Cetogênica", "Cetose", "Metabolismo de Gorduras"])]
   },
   { 
     id: 25, link: "/o-que-e-jejum-intermitente", img: `${githubImgBase}Blog/JejumIntermitente_Capa.jpg`, titulo: "Jejum Intermitente Funciona? A Verdade Biológica e os Protocolos", desc: "Muito além de passar fome: descubra o que é o jejum intermitente, como ele destrava o metabolismo lento e se ele emagrece mais que a dieta tradicional.", data: "2026-07-12",
-    schemasExtra: [
-      getMedicalSchema("Efeitos do Jejum Intermitente", "https://www.nutricaocommarco.com.br/o-que-e-jejum-intermitente", ["Jejum Intermitente", "Metabolismo", "Perda de Peso"])
-    ]
+    schemasExtra: [getMedicalSchema("Efeitos do Jejum Intermitente", "https://www.nutricaocommarco.com.br/o-que-e-jejum-intermitente", ["Jejum Intermitente", "Metabolismo", "Perda de Peso"])]
   },
   { id: 24, link: "/melhor-horario-para-tomar-ferro", img: `${githubImgBase}Blog/HorarioFerro.jpg`, titulo: "O Único Horário Certo Para Tomar Ferro (E Curar a Anemia Rápido)", desc: "Você está tomando ferro do jeito errado? Descubra o horário ideal para a absorção máxima, os sintomas ocultos da anemia e o que bloqueia o nutriente.", data: "2026-04-26" },
   { id: 23, link: "/percentual-gordura-feminino-ideal", img: `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.jpg`, titulo: "Qual é o Percentual de Gordura Feminino Ideal e Saudável?", desc: "Pare de olhar apenas para a balança. Entenda as tabelas reais de referência e descubra qual é o percentual de gordura feminino ideal para a sua idade e saúde.", data: "2026-04-24" },
@@ -78,9 +71,7 @@ const postsBlog = [
   { id: 15, link: "/o-que-e-fome-emocional", img: `${githubImgBase}Blog/Fome-Emocional-Capa.jpg`, titulo: "Fome Emocional: Como Parar de Descontar a Ansiedade na Comida", desc: "Você come por fome ou por estresse? Aprenda técnicas reais da nutrição comportamental e use a 'Escala de Fome' para vencer a compulsão alimentar.", data: "2026-03-27" },
   { 
     id: 14, link: "/tirzepatida-para-que-serve", img: `${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`, titulo: "Tirzepatida: Para Que Serve e Os Efeitos Colaterais (Atualizado)", desc: "Mounjaro (Tirzepatida) no emagrecimento: entenda a fundo como atua o duplo mecanismo GLP-1 e GIP e descubra os reais efeitos no controle do apetite.", data: "2026-03-26",
-    schemasExtra: [
-      getMedicalSchema("Análise da Tirzepatida no Emagrecimento", "https://www.nutricaocommarco.com.br/tirzepatida-para-que-serve", ["Tirzepatida", "Mounjaro", "Tratamento de Obesidade"], "Endocrinology")
-    ]
+    schemasExtra: [getMedicalSchema("Análise da Tirzepatida no Emagrecimento", "https://www.nutricaocommarco.com.br/tirzepatida-para-que-serve", ["Tirzepatida", "Mounjaro", "Tratamento de Obesidade"], "Endocrinology")]
   },
   { id: 13, link: "/comer-ovo-todo-dia-aumenta-o-colesterol", img: `${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.jpg`, titulo: "Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Médica", desc: "O maior mito da nutrição revelado. Veja o que a ciência atual comprova sobre o consumo diário de ovos, a gema e o real impacto no colesterol HDL e LDL.", data: "2026-03-25" },
   { id: 12, link: "/retatrutida_o_que_e", img: `${githubImgBase}Blog/retatrutida_molecula.jpg`, titulo: "Retatrutida: O Agonista Triplo Que Está Revolucionando o Emagrecimento", desc: "Conheça a Retatrutida, o novo medicamento em testes que atua em 3 hormônios simultâneos. Veja as promessas científicas para a obesidade.", data: "2026-03-24" },
@@ -93,16 +84,14 @@ const postsBlog = [
   { id: 5, link: "/efeito_sanfona_inflamacao_invisivel", img: `${githubImgBase}Blog/efeito_sanfona.jpg`, titulo: "Efeito Sanfona: O Perigo da Inflamação Invisível no Corpo", desc: "Engordar e emagrecer rapidamente destrói suas células. Descubra a verdade silenciosa por trás do efeito sanfona e como frear a inflamação celular.", data: "2026-03-15" },
   { 
     id: 4, link: "/quantas_frutas_posso_comer", img: `${githubImgBase}Blog/frutose_bananas.jpg`, titulo: "Quantas Frutas Posso Comer Por Dia? (O Perigo da Frutose)", desc: "Fruta à vontade faz mal? Entenda a bioquímica da frutose, o risco de gordura no fígado (esteatose) e qual a porção diária ideal para emagrecer.", data: "2026-03-14",
-    schemasExtra: [
-      getMedicalSchema("Metabolismo da Frutose e Esteatose", "https://www.nutricaocommarco.com.br/quantas_frutas_posso_comer", ["Frutose", "Esteatose Hepática", "Nutrição Clínica"])
-    ]
+    schemasExtra: [getMedicalSchema("Metabolismo da Frutose e Esteatose", "https://www.nutricaocommarco.com.br/quantas_frutas_posso_comer", ["Frutose", "Esteatose Hepática", "Nutrição Clínica"])]
   },
   { id: 3, link: "/vitamina_a_para_que_serve", img: `${githubImgBase}Blog/vitamina_a.jpg`, titulo: "Vitamina A Para Que Serve? Benefícios Além da Visão", desc: "A deficiência que ninguém nota. Descubra como a Vitamina A age silenciosamente no seu sistema imune, na saúde da pele e no combate aos radicais livres.", data: "2026-03-13" },
   { id: 2, link: "/o_que_e_antropometria", img: `${githubImgBase}Blog/O_que_e_antropometria.png`, titulo: "O Que é Antropometria? Muito Além do Peso da Balança", desc: "Entenda por que a antropometria (ISAK) é a única ferramenta confiável para avaliar a saúde, mapeando ossos, gordura, músculos e composição corporal exata.", data: "2026-03-12" },
   { id: 1, link: "/a_balanca_de_bioimpedancia_e_confiavel", img: `${githubImgBase}Blog/Bia1.jpg`, titulo: "Balança de Bioimpedância é Confiável? O Que Não Te Contaram", desc: "A sua balança cara pode estar mentindo para você. Descubra como a hidratação, bexiga cheia e até o estresse mascaram os resultados da sua bioimpedância.", data: "2026-03-11" }
 ];
 
-// 🔄 3. UNIÃO DAS ROTAS
+// 🔄 UNIÃO DAS ROTAS
 const rotasDoBlog = postsBlog.map(post => ({
   path: post.link.startsWith('/') ? post.link.slice(1) : post.link,
   title: `${post.titulo} | Nutrição com Marco`,
@@ -114,20 +103,27 @@ const rotasDoBlog = postsBlog.map(post => ({
 
 const routes = [...rotasEstaticas, ...rotasDoBlog];
 const distPath = path.resolve('dist');
+const baseTemplate = fs.readFileSync(path.join(distPath, 'index.html'), 'utf-8');
 
-// 🛠️ 4. PROCESSO DE GERAÇÃO
-const template = fs.readFileSync(path.join(distPath, 'index.html'), 'utf-8');
-
-console.log('🚀 Iniciando Robô de SEO Focado APENAS em Schemas (Modo Exterminador)...');
+console.log('🚀 Iniciando Robô de SEO Físico Absoluto (Zero Duplicidade)...');
 
 routes.forEach(route => {
   const routePath = path.join(distPath, route.path);
-  if (!fs.existsSync(routePath)) fs.mkdirSync(routePath, { recursive: true });
+  const filePath = path.join(routePath, 'index.html');
+  
+  // Se o prerender.mjs gerou um HTML, nós usamos ele. Se não, usamos o baseTemplate.
+  let fileContent = '';
+  if (fs.existsSync(filePath)) {
+      fileContent = fs.readFileSync(filePath, 'utf-8');
+  } else {
+      fs.mkdirSync(routePath, { recursive: true });
+      fileContent = baseTemplate;
+  }
 
   const urlAbsoluta = `https://www.nutricaocommarco.com.br/${route.path}`;
-
-  // SCHEMA 1: OBRIGATÓRIO (Article / BlogPosting)
   const isBlog = route.path !== 'sobre' && route.path !== 'certificacoes' && route.path !== 'planos' && !route.path.includes('planilha');
+
+  // SCHEMA
   const baseSchema = {
     "@context": "https://schema.org",
     "@type": isBlog ? "BlogPosting" : "WebPage",
@@ -138,10 +134,8 @@ routes.forEach(route => {
     "datePublished": route.date || new Date().toISOString().split('T')[0]
   };
 
-  // SCHEMA 2: BREADCRUMB (Para todas as páginas)
   const breadcrumbSchema = getBreadcrumbSchema(route.title, urlAbsoluta);
 
-  // AGRUPA TODOS OS SCHEMAS DESTA PÁGINA
   let schemasHTML = `
       <script type="application/ld+json">${JSON.stringify(baseSchema)}</script>
       <script type="application/ld+json">${JSON.stringify(breadcrumbSchema)}</script>
@@ -153,16 +147,29 @@ routes.forEach(route => {
     });
   }
 
-  // EXTERMINA QUALQUER TAG DE DESCRIPTION E CANONICAL ANTIGA ANTES DE SALVAR!
-  let cleanHtml = template
+  // 🔴 A MÁGICA FINAL ACONTECE AQUI 🔴
+  // Vamos arrancar IMPLACAVELMENTE qualquer Title, Description, OG ou Canonical antigo do código físico
+  let cleanHtml = fileContent
+    .replace(/<title>.*?<\/title>/gi, '') 
     .replace(/<meta name="description"([^>]+)?>/gi, '') 
+    .replace(/<meta property="og:.*?"([^>]+)?>/gi, '') 
     .replace(/<link rel="canonical"([^>]+)?>/gi, ''); 
 
-  // INJETA APENAS OS SCHEMAS
-  const html = cleanHtml.replace('</head>', `
-      ${schemasHTML}
-    </head>`);
+  // Injetamos as tags físicas e absolutas, para que SEO Checkers (que não rodam JS) vejam tudo 100% correto
+  const tagsCorretas = `
+    <title>${route.title}</title>
+    <meta name="description" content="${route.desc}" />
+    <link rel="canonical" href="${urlAbsoluta}" />
+    <meta property="og:type" content="${isBlog ? 'article' : 'website'}" />
+    <meta property="og:title" content="${route.title}" />
+    <meta property="og:description" content="${route.desc}" />
+    <meta property="og:image" content="${route.image}" />
+    <meta property="og:url" content="${urlAbsoluta}" />
+    ${schemasHTML}
+  `;
 
-  fs.writeFileSync(path.join(routePath, 'index.html'), html);
-  console.log(`✅ Página [${route.path}] preparada (Fantasmas eliminados)!`);
+  const html = cleanHtml.replace('</head>', `${tagsCorretas}</head>`);
+
+  fs.writeFileSync(filePath, html);
+  console.log(`✅ Página [${route.path}] escrita fisicamente e blindada!`);
 });
