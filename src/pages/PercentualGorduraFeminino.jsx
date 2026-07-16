@@ -78,102 +78,15 @@ export default function PercentualGorduraFemininoComponent() {
   return (
     <>
       <Helmet>
-        <title>Qual o Percentual de Gordura Feminino Ideal? | Nutrição com Marco</title>
-        <meta name="description" content="Descubra qual é o percentual de gordura feminino ideal para a saúde e estética. Entenda as tabelas de referência, os hormônios femininos e os métodos de avaliação." />
+        <title>ual é o Percentual de Gordura Feminino Ideal e Saudável? | Nutrição com Marco</title>
+        <meta name="description" content="Pare de olhar apenas para a balança. Entenda as tabelas reais de referência e descubra qual é o percentual de gordura feminino ideal para a sua idade e saúde." />
         <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Qual o Percentual de Gordura Feminino Ideal? A Ciência Explica" />
-        <meta property="og:description" content="Pare de brigar com a balança. Entenda como o seu metabolismo, ciclo menstrual e idade influenciam a sua composição corporal ideal." />
+        <meta property="og:title" content="ual é o Percentual de Gordura Feminino Ideal e Saudável? | Nutrição com Marco" />
+        <meta property="og:description" content="Pare de olhar apenas para a balança. Entenda as tabelas reais de referência e descubra qual é o percentual de gordura feminino ideal para a sua idade e saúde." />
         <meta property="og:image" content={artigoCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-        
-        {/* Schema 1: Article */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": `https://www.nutricaocommarco.com.br${pathname}`
-            },   
-            "headline": "Qual o Percentual de Gordura Feminino Ideal? A Ciência Explica",
-            "image": [artigoCapa],
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre",
-              "jobTitle": "Estudante de Nutrição",
-              "knowsAbout": ["Nutrição Feminina", "Composição Corporal", "Antropometria", "Percentual de Gordura"]
-            },
-            "publisher": {
-              "@type": "Organization", 
-              "name": "Nutrição com Marco", 
-              "logo": {
-                "@type": "ImageObject", 
-                "url": `${githubImgBase}logoN_pingus.png`
-              }
-            },
-            "datePublished": datePublishedISO,
-            "dateModified": dateModifiedISO,
-            "description": "Descubra qual é o percentual de gordura feminino ideal para a saúde e estética. Entenda as tabelas de referência, os hormônios femininos e os métodos de avaliação."
-          }) }} />
-
-        {/* Schema 2: MedicalWebPage */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MedicalWebPage",
-            "name": "Qual o Percentual de Gordura Feminino Ideal?",
-            "url": `https://www.nutricaocommarco.com.br${pathname}`,
-            "about": [
-              {"@type": "MedicalEntity", "name": "Composição Corporal"},
-              {"@type": "MedicalEntity", "name": "Gordura Corporal"},
-              {"@type": "MedicalEntity", "name": "Metabolismo Feminino"},
-              {"@type": "MedicalEntity", "name": "Antropometria"}
-            ],
-            "audience": {
-              "@type": "MedicalAudience",
-              "audienceType": "Pacientes e Mulheres"
-            }
-          }) }} />
-
-        {/* Schema 3: BreadcrumbList */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.nutricaocommarco.com.br/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": "https://www.nutricaocommarco.com.br/blog"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Percentual de Gordura Feminino Ideal",
-                "item": `https://www.nutricaocommarco.com.br${pathname}`
-              }
-            ]
-          }) }} />
-
-        {/* Schema 4: FAQPage */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.pergunta,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.resposta
-              }
-            }))
-          }) }} />
+  
       </Helmet>
 
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
