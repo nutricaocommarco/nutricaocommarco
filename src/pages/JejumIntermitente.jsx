@@ -81,13 +81,13 @@ export default function JejumIntermitente() {
     <>
 <Helmet>
         {/* FOCO NA PALAVRA-CHAVE PRINCIPAL NOS METADADOS */}
-        <title>Jejum Intermitente Funciona? A Verdade Biológica e os Protocolos | Nutrição com Marco</title>
+        <title>O que é Jejum Intermitente? Funciona? A Verdade e os Protocolos | Nutrição com Marco</title>
         <meta name="description" content="Muito além de passar fome: descubra o que é o jejum intermitente, como ele destrava o metabolismo lento e se ele emagrece mais que a dieta tradicional." />
         <meta name="keywords" content={keywords} />
         <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
         
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Jejum Intermitente Funciona? A Verdade Biológica e os Protocolos" />
+        <meta property="og:title" content="O que é Jejum Intermitente? Funciona? A Verdade e os Protocolos | Nutrição com Marco" />
         <meta property="og:description" content="Muito além de passar fome: descubra o que é o jejum intermitente, como ele destrava o metabolismo lento e se ele emagrece mais que a dieta tradicional." />
         <meta property="og:image" content={artigoCapa} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
