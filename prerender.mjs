@@ -118,7 +118,7 @@ const distPath = path.resolve('dist');
 // 🛠️ 4. PROCESSO DE GERAÇÃO
 const template = fs.readFileSync(path.join(distPath, 'index.html'), 'utf-8');
 
-console.log('🚀 Iniciando Robô de SEO Focado APENAS em Schemas...');
+console.log('🚀 Iniciando Robô de SEO Focado APENAS em Schemas (Modo Exterminador)...');
 
 routes.forEach(route => {
   const routePath = path.join(distPath, route.path);
@@ -147,18 +147,22 @@ routes.forEach(route => {
       <script type="application/ld+json">${JSON.stringify(breadcrumbSchema)}</script>
   `;
 
-  // SE A PÁGINA TIVER SCHEMAS EXTRAS (COMO O MEDICAL), INJETA AQUI
   if (route.schemasExtra && route.schemasExtra.length > 0) {
     route.schemasExtra.forEach(schema => {
       schemasHTML += `<script type="application/ld+json">${JSON.stringify(schema)}</script>\n`;
     });
   }
 
-  // INJETA APENAS OS SCHEMAS (As meta tags ficam com o React Helmet!)
-  const html = template.replace('</head>', `
+  // EXTERMINA QUALQUER TAG DE DESCRIPTION E CANONICAL ANTIGA ANTES DE SALVAR!
+  let cleanHtml = template
+    .replace(/<meta name="description"([^>]+)?>/gi, '') 
+    .replace(/<link rel="canonical"([^>]+)?>/gi, ''); 
+
+  // INJETA APENAS OS SCHEMAS
+  const html = cleanHtml.replace('</head>', `
       ${schemasHTML}
     </head>`);
 
   fs.writeFileSync(path.join(routePath, 'index.html'), html);
-  console.log(`✅ Página [${route.path}] preparada com Schemas!`);
+  console.log(`✅ Página [${route.path}] preparada (Fantasmas eliminados)!`);
 });
