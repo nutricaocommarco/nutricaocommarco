@@ -8,7 +8,8 @@ import { Helmet } from 'react-helmet-async';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 const datePublishedISO = "2026-03-20";
 const dateModifiedISO = "2026-03-21";
-const frutoseCapa = `${githubImgBase}Blog/frutas.png`;
+const artigoCapa = `${githubImgBase}Blog/frutas.png`; // MUDANÇA 1: Nome da variável corrigido para o padrão
+const keywords = "quantas frutas posso comer por dia, frutose faz mal, gordura no fígado, dieta com frutas, esteatose hepática"; // MUDANÇA 2: Constante declarada aqui
 
 export default function Frutose() {
   const { pathname } = useLocation();
@@ -43,13 +44,13 @@ export default function Frutose() {
       <Helmet>
         <title>Quantas Frutas Posso Comer Por Dia? (O Perigo da Frutose) | Nutrição com Marco</title>
         <meta name="description" content="Fruta à vontade faz mal? Entenda a bioquímica da frutose, o risco de gordura no fígado (esteatose) e qual a porção diária ideal para emagrecer." />
-        <meta name="keywords" content="quantas frutas posso comer por dia, frutose faz mal, gordura no fígado, dieta com frutas, esteatose hepática" />
-        <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
+        <meta name="keywords" content={keywords} />
+        <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} /> {/* MUDANÇA 3: URL limpa, sem colchetes */}
 
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Quantas Frutas Posso Comer Por Dia? (O Perigo da Frutose)" />
         <meta property="og:description" content="Fruta à vontade faz mal? Entenda a bioquímica da frutose, o risco de gordura no fígado (esteatose) e qual a porção diária ideal para emagrecer." />
-        <meta property="og:image" content={frutasCapa} /> {/* Ou a variável da sua imagem */}
+        <meta property="og:image" content={artigoCapa} /> 
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
       </Helmet>
 
@@ -156,7 +157,7 @@ export default function Frutose() {
 
             {/* IMAGEM DE CAPA */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img src={`${githubImgBase}Blog/frutose_bananas.jpg`} alt="Frutas variadas e metabolismo da frutose" title="Mitos e verdades sobre o consumo de frutas" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src={artigoCapa} alt="Frutas variadas e metabolismo da frutose" title="Mitos e verdades sobre o consumo de frutas" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest">O impacto da frutose natural versus o açúcar adicionado.</p></div>
             </div>
 
@@ -390,4 +391,3 @@ export default function Frutose() {
     </>
   );
 }
-
