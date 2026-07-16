@@ -14,7 +14,7 @@ export const posts = [
     {
     id: 24,
     link: "/o-que-e-jejum-intermitente",
-    img: `${githubImgBase}Blog/JejumIntermitente_Capa.jpg`,
+    img: `${githubImgBase}Blog/JejumIntermitente_Capa.webp`,
     tag: "Dietas da Moda",
     titulo: "O Que é Jejum Intermitente? Guia Definitivo e Científico",
     desc: "Descubra o que é o jejum intermitente, como ele afeta o metabolismo, o limite do corpo humano sem comer e se ele realmente emagrece mais que a dieta tradicional.",
