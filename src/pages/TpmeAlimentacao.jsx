@@ -103,16 +103,7 @@ const handleFormSubmit = async (e) => {
   return (
     <>
       <Helmet>
-        <title>O Que Comer na TPM Para Controlar o Doce (Sem Culpa) | Nutrição com Marco</title>
-        <meta name="description" content="A vontade de doce na TPM não é falta de foco, é biologia pura! Entenda como hackear o metabolismo feminino e o que comer nesses dias difíceis." />
-        <meta name="keywords" content={keywords} />
-        <link rel="canonical" href={`[https://www.nutricaocommarco.com.br](https://www.nutricaocommarco.com.br)${pathname}`} />
-        
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="O Que Comer na TPM Para Controlar o Doce (Sem Culpa)" />
-        <meta property="og:description" content="A vontade de doce na TPM não é falta de foco, é biologia pura! Entenda como hackear o metabolismo feminino e o que comer nesses dias difíceis." />
-        <meta property="og:image" content={artigoCapa} />
-        <meta property="og:url" content={`[https://www.nutricaocommarco.com.br](https://www.nutricaocommarco.com.br)${pathname}`} />
+
       </Helmet>
 
       <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
