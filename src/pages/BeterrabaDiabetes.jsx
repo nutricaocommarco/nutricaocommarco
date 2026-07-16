@@ -46,13 +46,13 @@ export default function DiabeticoPodeComerBeterraba() {
 <Helmet>
         {/* MELHORIA NAS META TAGS COM A KEYWORD EXATA */}
         <title>Diabético Pode Comer Beterraba? O Fim do Mito do Açúcar | Nutrição com Marco</title>
-        <meta name="description" content="Eles disseram que a beterraba era um veneno para diabéticos. Entenda o verdadeiro impacto do índice glicêmico e por que você não precisa ter medo." />
+        <meta name="description" content="Eles disseram que a beterraba era um veneno para diabéticos. Descubra se Diabético pode comer beterraba e por que você não precisa ter medo." />
         <meta name="keywords" content="diabético pode comer beterraba, beterraba faz mal para diabetes, carga glicêmica da beterraba, açúcar da beterraba, índice glicêmico da beterraba, nutrição para diabetes" />
         <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
         
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Diabético Pode Comer Beterraba? O Fim do Mito do Açúcar" />
-        <meta property="og:description" content="Eles disseram que a beterraba era um veneno para diabéticos. Entenda o verdadeiro impacto do índice glicêmico e por que você não precisa ter medo." />
+        <meta property="og:description" content="Eles disseram que a beterraba era um veneno para diabéticos. Descubra se Diabético pode comer beterraba e por que você não precisa ter medo." />
         <meta property="og:image" content={`${githubImgBase}Blog/beterraba_diabetes.jpg`} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
       </Helmet>
