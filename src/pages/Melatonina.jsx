@@ -537,7 +537,7 @@ export default function Melatonina() {
 
                           <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
                               <img 
-                                src={`${githubImgBase}Afiliado/MascaraDormir.jpg`} 
+                                src={`${githubImgBase}Afiliado/MascaraDormir.webp`} 
                                 alt="Máscara de Dormir Premium 3D Blackout" 
                                 className="w-full h-auto object-cover" 
                               />

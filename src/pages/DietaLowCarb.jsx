@@ -844,7 +844,7 @@ export default function DietaLowCarb() {
                         {/* IMAGEM DO PRODUTO */}
                         <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
                             <img 
-                                src={`${githubImgBase}Afiliado/BalancaCozinha.jpg`} 
+                                src={`${githubImgBase}Afiliado/BalancaCozinha.webp`} 
                                 alt="Balança de Cozinha Digital Simples" 
                                 className="w-full h-auto object-contain" 
                                 onError={(e) => { e.target.onerror = null; e.target.src="https://images.unsplash.com/photo-1590845947376-28f0904323e0?auto=format&fit=crop&q=80&w=400"; }}

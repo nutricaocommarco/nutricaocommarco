@@ -304,7 +304,7 @@ export default function FomeEmocional() {
             {/* IMAGEM DO PRODUTO */}
             <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
                 <img 
-                    src={`${githubImgBase}Afiliado/Bia.jpg`} 
+                    src={`${githubImgBase}Afiliado/Bia.webp`} 
                     alt="Balança de Bioimpedância 8 eletrodos e dupla frequência" 
                     className="w-full h-auto" 
                 />

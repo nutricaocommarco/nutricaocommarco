@@ -315,7 +315,7 @@ const handleFormSubmit = async (e) => {
                       <div className="flex-1 flex flex-col justify-center">
                           <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic text-left">Xiaomi Smart Band 9 Pro: <span className="text-green-600">Alta Precisão no seu Pulso</span></h4>
                           <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
-                              <img src={`${githubImgBase}Afiliado/Band9Pro.JPG`} alt="Smart Band para ajudar a saber o que comer na TPM e monitorar o ciclo" className="w-full h-auto object-cover opacity-90" />
+                              <img src={`${githubImgBase}Afiliado/Band9Pro.webp`} alt="Smart Band para ajudar a saber o que comer na TPM e monitorar o ciclo" className="w-full h-auto object-cover opacity-90" />
                           </div>
                           <p className="text-slate-600 text-[15px] mb-8 leading-relaxed font-medium text-left">
                               Emagrecimento cíclico exige dados precisos e saber o que comer na TPM. A <strong>Smart Band 9 Pro</strong> oferece monitorização avançada do ciclo menstrual, sono e stress. Como seu <Link to="/o_que_e_antropometria" className="text-green-600 font-bold hover:underline">avaliador antropométrico</Link>, recomendo esta ferramenta para trazer dados reais para a nossa análise.

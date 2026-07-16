@@ -441,7 +441,7 @@ export default function DietaCetogenica() {
 
                         <div className="w-full max-w-[180px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm bg-slate-200 aspect-[3/4]">
                             <img 
-                              src={`${githubImgBase}Afiliado/FreeStyleNeo.jpg`} 
+                              src={`${githubImgBase}Afiliado/FreeStyleNeo.webp`} 
                               alt="Monitor FreeStyle Optium Neo para Medição de Corpos Cetônicos ao entender o que é dieta cetogênica" 
                               className="w-full h-full object-cover" 
                               onError={(e) => {

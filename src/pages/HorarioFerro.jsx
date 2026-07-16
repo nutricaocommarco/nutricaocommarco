@@ -263,7 +263,7 @@ export default function MelhorHorarioFerro() {
 
                         <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
                             <img 
-                              src={`${githubImgBase}Afiliado/PortaComprimidos.JPG`} 
+                              src={`${githubImgBase}Afiliado/PortaComprimidos.webp`} 
                               alt="Porta Comprimidos Semanal Organizador" 
                               className="w-full h-auto object-cover" 
                             />

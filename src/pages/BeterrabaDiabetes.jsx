@@ -338,7 +338,7 @@ export default function DiabeticoPodeComerBeterraba() {
                           {/* IMAGEM DO PRODUTO */}
                           <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
                               <img 
-                                  src={`${githubImgBase}Afiliado/Ralador01.jpg`} 
+                                  src={`${githubImgBase}Afiliado/Ralador01.webp`} 
                                   alt="Ralador ideal para preparar a salada, provando que diabético pode comer beterraba facilmente." 
                                   title="Ralador de Beterraba"
                                   className="w-full h-auto object-contain" 

@@ -461,7 +461,7 @@ export default function Prebioticos() {
                         
                         <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
                             <img 
-                                src={`${githubImgBase}/Afiliado/Potes.JPG`} 
+                                src={`${githubImgBase}/Afiliado/Potes.webp`} 
                                 alt="Kit de Potes Herméticos de Vidro para conservação de alimentos" 
                                 className="w-full h-auto" 
                             />

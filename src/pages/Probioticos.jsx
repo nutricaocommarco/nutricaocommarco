@@ -485,7 +485,7 @@ export default function Probioticos() {
                         
                         <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
                             <img 
-                                src={`${githubImgBase}Afiliado/Iogurteira.JPG`} 
+                                src={`${githubImgBase}Afiliado/Iogurteira.webp`} 
                                 alt="Iogurteira Elétrica para preparo caseiro de probióticos" 
                                 className="w-full h-auto" 
                             />

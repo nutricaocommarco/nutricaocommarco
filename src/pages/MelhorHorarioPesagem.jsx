@@ -292,7 +292,7 @@ export default function MelhorHorarioPesagem() {
             {/* IMAGEM DO PRODUTO */}
             <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
                 <img 
-                    src={`${githubImgBase}Afiliado/BalancaSimples.jpg`} 
+                    src={`${githubImgBase}Afiliado/BalancaSimples.webp`} 
                     alt="Balança Digital de Banheiro Simples" 
                     className="w-full h-auto object-contain" 
                 />

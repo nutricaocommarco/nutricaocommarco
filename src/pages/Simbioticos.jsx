@@ -425,7 +425,7 @@ export default function SimbioticosComponent() {
                         
                         <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
                             <img 
-                                src={`${githubImgBase}Afiliado/Liquidificador.JPG`} 
+                                src={`${githubImgBase}Afiliado/Liquidificador.webp`} 
                                 alt="Liquidificador Portátil recarregável para preparar vitaminas simbióticas" 
                                 className="w-full h-auto" 
                                 onError={(e) => {

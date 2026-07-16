@@ -363,7 +363,7 @@ export default function PercentualGorduraFemininoComponent() {
                         
                         <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
                             <img 
-                                src={`${githubImgBase}Afiliado/FitaCescorf.JPG`} 
+                                src={`${githubImgBase}Afiliado/FitaCescorf.webp`} 
                                 alt="Fita Antropométrica Cescorf indicada no padrão ISAK" 
                                 className="w-full h-auto" 
                                 onError={(e) => {
