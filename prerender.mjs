@@ -58,10 +58,37 @@ const postsBlog = [
   },
   { id: 24, link: "/melhor-horario-para-tomar-ferro", img: `${githubImgBase}Blog/HorarioFerro.jpg`, titulo: "O Único Horário Certo Para Tomar Ferro (E Curar a Anemia Rápido)", desc: "Você está tomando ferro do jeito errado? Descubra o horário ideal para a absorção máxima, os sintomas ocultos da anemia e o que bloqueia o nutriente.", data: "2026-04-26" },
   { id: 23, link: "/percentual-gordura-feminino-ideal", img: `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.jpg`, titulo: "Qual é o Percentual de Gordura Feminino Ideal e Saudável?", desc: "Pare de olhar apenas para a balança. Entenda as tabelas reais de referência e descubra qual é o percentual de gordura feminino ideal para a sua idade e saúde.", data: "2026-04-24" },
-  { id: 21, link: "/quantas-calorias-gasto-por-dia", img: `${githubImgBase}Blog/QuantasCaloriasGasto.jpg`, titulo: "Quantas Calorias Gasto Por Dia? Calcule Sua TMB Exata Aqui", desc: "Pare de chutar a sua dieta. Use nossa calculadora inteligente para descobrir quantas calorias seu corpo realmente queima por dia (TMB e Fator de Atividade).", data: "2026-04-05" }
+  { id: 22, link: "/o-que-comer-na-tpm", img: `${githubImgBase}Blog/TPM.jpg`, titulo: "O Que Comer na TPM Para Controlar o Doce (Sem Culpa)", desc: "A vontade de doce na TPM não é falta de foco, é biologia pura! Entenda como hackear o metabolismo feminino e o que comer nesses dias difíceis.", data: "2026-04-20" },
+  { id: 21, link: "/quantas-calorias-gasto-por-dia", img: `${githubImgBase}Blog/QuantasCaloriasGasto.jpg`, titulo: "Quantas Calorias Gasto Por Dia? Calcule Sua TMB Exata Aqui", desc: "Pare de chutar a sua dieta. Use nossa calculadora inteligente para descobrir quantas calorias seu corpo realmente queima por dia (TMB e Fator de Atividade).", data: "2026-04-05" },
+  { id: 20, link: "/efeitos-colaterais-da-melatonina", img: `${githubImgBase}Blog/Melatonina.jpg`, titulo: "Melatonina Vicia? A Verdade Sobre os Efeitos Colaterais", desc: "Você toma melatonina para dormir? Descubra a verdade científica sobre a dosagem correta, os riscos psicológicos e se ela realmente pode te viciar.", data: "2026-04-01" },
+  { id: 19, link: "/o-que-e-ciclo-circadiano", img: `${githubImgBase}Blog/CicloCircadiano.jpg`, titulo: "Ciclo Circadiano: Como Emagrecer Dormindo (O Segredo Hormonal)", desc: "Dormir mal trava o seu emagrecimento. Descubra o que é o Ciclo Circadiano, como ajustar seu relógio biológico e controlar a fome crônica.", data: "2026-03-29" },
+  { id: 18, link: "/o-que-sao-simbioticos", img: `${githubImgBase}Blog/Simbioticos.jpg`, titulo: "Simbióticos: O Que São e Como Eles Curam o Intestino Inflamado", desc: "A fórmula de ouro: descubra como a união exata entre prebióticos e probióticos (Simbióticos) pode transformar a sua digestão e a saúde da flora intestinal.", data: "2026-03-28" },
+  { id: 17, link: "/o-que-sao-probioticos", img: `${githubImgBase}Blog/Probioticos.jpg`, titulo: "Probióticos: Para Que Servem e Qual a Relação com a Imunidade", desc: "Não compre iogurte sem ler isso! Entenda de uma vez o que são os probióticos, o poder dos lactobacillus e os reais benefícios para o seu intestino.", data: "2026-03-31" },
+  { id: 16, link: "/o-que-sao-prebioticos", img: `${githubImgBase}Blog/Prebioticos.jpg`, titulo: "Prebióticos Explicados: Os Alimentos Que Limpam o Intestino", desc: "Seu intestino é seu segundo cérebro. Descubra a lista de alimentos fibrosos (prebióticos) essenciais que alimentam e fortalecem as bactérias boas do corpo.", data: "2026-03-27" },
+  { id: 15, link: "/o-que-e-fome-emocional", img: `${githubImgBase}Blog/Fome-Emocional-Capa.jpg`, titulo: "Fome Emocional: Como Parar de Descontar a Ansiedade na Comida", desc: "Você come por fome ou por estresse? Aprenda técnicas reais da nutrição comportamental e use a 'Escala de Fome' para vencer a compulsão alimentar.", data: "2026-03-27" },
+  { 
+    id: 14, link: "/tirzepatida-para-que-serve", img: `${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`, titulo: "Tirzepatida: Para Que Serve e Os Efeitos Colaterais (Atualizado)", desc: "Mounjaro (Tirzepatida) no emagrecimento: entenda a fundo como atua o duplo mecanismo GLP-1 e GIP e descubra os reais efeitos no controle do apetite.", data: "2026-03-26",
+    schemasExtra: [getMedicalSchema("Análise da Tirzepatida no Emagrecimento", "https://www.nutricaocommarco.com.br/tirzepatida-para-que-serve", ["Tirzepatida", "Mounjaro", "Tratamento de Obesidade"], "Endocrinology")]
+  },
+  { id: 13, link: "/comer-ovo-todo-dia-aumenta-o-colesterol", img: `${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.jpg`, titulo: "Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Médica", desc: "O maior mito da nutrição revelado. Veja o que a ciência atual comprova sobre o consumo diário de ovos, a gema e o real impacto no colesterol HDL e LDL.", data: "2026-03-25" },
+  { id: 12, link: "/retatrutida_o_que_e", img: `${githubImgBase}Blog/retatrutida_molecula.jpg`, titulo: "Retatrutida: O Agonista Triplo Que Está Revolucionando o Emagrecimento", desc: "Conheça a Retatrutida, o novo medicamento em testes que atua em 3 hormônios simultâneos. Veja as promessas científicas para a obesidade.", data: "2026-03-24" },
+  { id: 11, link: "/diabetico_pode_comer_beterraba", img: `${githubImgBase}Blog/beterraba_diabetes.jpg`, titulo: "Diabético Pode Comer Beterraba? O Fim do Mito do Açúcar", desc: "Eles disseram que a beterraba era um veneno para diabéticos. Entenda o verdadeiro impacto do índice glicêmico e por que você não precisa ter medo.", data: "2026-03-24" },
+  { id: 10, link: "/qual_melhor_horario_para_se_pesar", img: `${githubImgBase}Blog/melhor_horario_pesagem.jpg`, titulo: "O Único Horário Certo Para se Pesar (E Por Que a Balança Mente)", desc: "Seu peso varia até 2kg por dia! Descubra o melhor horário para se pesar, as armadilhas da retenção de líquidos e como não se frustrar com a balança.", data: "2026-03-24" },
+  { id: 9, link: "/nutricao_para_ironman_703", img: `${githubImgBase}Blog/nutricao_ironman_703.jpg`, titulo: "Nutrição para Ironman 70.3: Guia de Carboidratos e Hidratação", desc: "O seu corpo não aguenta um meio Ironman sem estratégia. Veja o guia técnico de nutrição esportiva, géis de carboidrato e eletrólitos para triatletas.", data: "2026-03-19" },
+  { id: 8, link: "/hormonios_da_fome_emagrecimento", img: `${githubImgBase}Blog/Hormfome.jpg`, titulo: "Grelina e Leptina: Como Hackear os Hormônios da Fome", desc: "Por que você volta a engordar? Descubra como a Grelina e a Leptina comandam o seu cérebro e veja o que fazer para vencer a inflamação e a fome crônica.", data: "2026-03-18" },
+  { id: 7, link: "/por_que_o_feijao_da_gases", img: `${githubImgBase}Blog/feijao.jpg`, titulo: "Por Que o Feijão Dá Gases? O Truque Químico Para Evitar", desc: "Pare de sofrer com estômago estufado. A culpa é dos antinutrientes! Aprenda o método correto do remolho para neutralizar o feijão e melhorar a digestão.", data: "2026-03-17" },
+  { id: 6, link: "/o_dilema_do_sangue_na_altitude", img: `${githubImgBase}Blog/eritropoietina.jpg`, titulo: "O Dilema do Sangue na Altitude: Eritropoetina e Doping", desc: "Por que atletas treinam nas montanhas? Conheça a biologia extrema da Eritropoetina (EPO), o limite entre o preparo físico natural e a fraude esportiva.", data: "2026-03-16" },
+  { id: 5, link: "/efeito_sanfona_inflamacao_invisivel", img: `${githubImgBase}Blog/efeito_sanfona.jpg`, titulo: "Efeito Sanfona: O Perigo da Inflamação Invisível no Corpo", desc: "Engordar e emagrecer rapidamente destrói suas células. Descubra a verdade silenciosa por trás do efeito sanfona e como frear a inflamação celular.", data: "2026-03-15" },
+  { 
+    id: 4, link: "/quantas_frutas_posso_comer", img: `${githubImgBase}Blog/frutose_bananas.jpg`, titulo: "Quantas Frutas Posso Comer Por Dia? (O Perigo da Frutose)", desc: "Fruta à vontade faz mal? Entenda a bioquímica da frutose, o risco de gordura no fígado (esteatose) e qual a porção diária ideal para emagrecer.", data: "2026-03-14",
+    schemasExtra: [getMedicalSchema("Metabolismo da Frutose e Esteatose", "https://www.nutricaocommarco.com.br/quantas_frutas_posso_comer", ["Frutose", "Esteatose Hepática", "Nutrição Clínica"])]
+  },
+  { id: 3, link: "/vitamina_a_para_que_serve", img: `${githubImgBase}Blog/vitamina_a.jpg`, titulo: "Vitamina A Para Que Serve? Benefícios Além da Visão", desc: "A deficiência que ninguém nota. Descubra como a Vitamina A age silenciosamente no seu sistema imune, na saúde da pele e no combate aos radicais livres.", data: "2026-03-13" },
+  { id: 2, link: "/o_que_e_antropometria", img: `${githubImgBase}Blog/O_que_e_antropometria.png`, titulo: "O Que é Antropometria? Muito Além do Peso da Balança", desc: "Entenda por que a antropometria (ISAK) é a única ferramenta confiável para avaliar a saúde, mapeando ossos, gordura, músculos e composição corporal exata.", data: "2026-03-12" },
+  { id: 1, link: "/a_balanca_de_bioimpedancia_e_confiavel", img: `${githubImgBase}Blog/Bia1.jpg`, titulo: "Balança de Bioimpedância é Confiável? O Que Não Te Contaram", desc: "A sua balança cara pode estar mentindo para você. Descubra como a hidratação, bexiga cheia e até o estresse mascaram os resultados da sua bioimpedância.", data: "2026-03-11" }
 ];
 
-// 🔄 3. UNIÃO DAS ROTAS
+// 🔄 UNIÃO DAS ROTAS
 const rotasDoBlog = postsBlog.map(post => ({
   path: post.link.startsWith('/') ? post.link.slice(1) : post.link,
   title: `${post.titulo} | Nutrição com Marco`,
@@ -75,21 +102,17 @@ const routes = [...rotasEstaticas, ...rotasDoBlog];
 const distPath = path.resolve('dist');
 const baseTemplate = fs.readFileSync(path.join(distPath, 'index.html'), 'utf-8');
 
-console.log('🚀 Iniciando Robô de SEO Físico e Caça-Fantasmas...');
+console.log('🚀 Iniciando Robô de SEO Físico Absoluto (Zero Duplicidade)...');
 
 routes.forEach(route => {
   const safePath = route.path.startsWith('/') ? route.path.slice(1) : route.path;
   
-  // A Vercel e o Prerender podem gerar as rotas de 2 formas:
-  // 1. dist/nome-da-rota.html (O Culpado pelo F5 ruim)
-  // 2. dist/nome-da-rota/index.html 
   const fileAsHtml = path.join(distPath, `${safePath}.html`);
   const dirAsIndex = path.join(distPath, safePath, 'index.html');
   
   let targetFile = '';
   let fileContent = '';
 
-  // Procura qual o arquivo o Prerender gerou e ataca ELE.
   if (fs.existsSync(fileAsHtml)) {
     targetFile = fileAsHtml;
     fileContent = fs.readFileSync(fileAsHtml, 'utf-8');
@@ -105,7 +128,7 @@ routes.forEach(route => {
   const urlAbsoluta = `https://www.nutricaocommarco.com.br/${safePath}`;
   const isBlog = safePath !== 'sobre' && safePath !== 'certificacoes' && safePath !== 'planos' && !safePath.includes('planilha');
 
-  // SCHEMAS
+  // SCHEMA
   const baseSchema = {
     "@context": "https://schema.org",
     "@type": isBlog ? "BlogPosting" : "WebPage",
@@ -129,14 +152,15 @@ routes.forEach(route => {
     });
   }
 
-  // EXTERMINA TAGS ANTIGAS CHUMBADAS PELO PRERENDER
+  // 🔴 A MÁGICA FINAL ACONTECE AQUI: REGEX SUPREMA 🔴
+  // Remove qualquer title, description, og ou canonical, INDEPENDENTE da ordem dos atributos
   let cleanHtml = fileContent
-    .replace(/<title>.*?<\/title>/gi, '') 
-    .replace(/<meta name="description"([^>]+)?>/gi, '') 
-    .replace(/<meta property="og:.*?"([^>]+)?>/gi, '') 
-    .replace(/<link rel="canonical"([^>]+)?>/gi, ''); 
+    .replace(/<title[^>]*>[\s\S]*?<\/title>/gi, '') 
+    .replace(/<meta(?=[^>]*name=['"]description['"])[^>]*>/gi, '') 
+    .replace(/<meta(?=[^>]*property=['"]og:[^'"]+['"])[^>]*>/gi, '') 
+    .replace(/<link(?=[^>]*rel=['"]canonical['"])[^>]*>/gi, ''); 
 
-  // INJETA AS TAGS CORRETAS ABSOLUTAS NO ARQUIVO FÍSICO
+  // Injetamos as tags FÍSICAS limpas!
   const tagsCorretas = `
     <title>${route.title}</title>
     <meta name="description" content="${route.desc}" />
@@ -152,5 +176,5 @@ routes.forEach(route => {
   const html = cleanHtml.replace('</head>', `${tagsCorretas}</head>`);
 
   fs.writeFileSync(targetFile, html);
-  console.log(`✅ [${safePath}] Blindado! Modificamos o arquivo: ${path.basename(targetFile)}`);
+  console.log(`✅ [${safePath}] Blindado com Regex Suprema!`);
 });
