@@ -236,7 +236,7 @@ export const posts = [
   {
     id: 2,
     link: "/o_que_e_antropometria",
-    img: `${githubImgBase}Blog/O_que_e_antropometria.png`,
+    img: `${githubImgBase}Blog/O_que_e_antropometria.jpg`,
     tag: "Educação Científica",
     titulo: "O que é Antropometria?",
     desc: "A Antropometria é uma ciência fundamental que estuda as proporções do corpo humano.",
