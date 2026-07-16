@@ -14,7 +14,7 @@ import Newsletter from '../components/Newsletter';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 const datePublishedISO = "2026-07-14";
-const dateModifiedISO = "2026-07-16";
+const dateModifiedISO = "2026-07-15";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 const artigoCapa = `${githubImgBase}Blog/JejumIntermitente_Capa.webp`; 
