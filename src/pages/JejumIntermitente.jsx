@@ -169,11 +169,16 @@ export default function JejumIntermitente() {
           {/* 2. IMAGEM DE CAPA COM SEO INVISÍVEL */}
           <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
             <img 
-              src={artigoCapa} 
-              alt="Descubra de uma vez por todas o que é jejum intermitente, como essa estratégia metabólica funciona na prática e seus benefícios." 
-              title="O que é Jejum Intermitente"
-              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
-            />
+            src={artigoCapa} 
+            alt="Guia completo sobre o que é jejum intermitente e seus benefícios metabólicos" 
+            title="O que é Jejum Intermitente"
+            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
+            width="896" 
+            height="635" 
+            loading="lazy"
+            sizes="(max-width: 896px) 100vw, 896px"
+              />
+            
             <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
               <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
                 Entender o que é jejum intermitente e como organizar sua janela de alimentação é o primeiro grande passo para a adaptação do seu metabolismo.
