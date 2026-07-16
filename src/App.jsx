@@ -1,4 +1,4 @@
-Import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Instagram, Menu, X, Mail, ChevronDown } from 'lucide-react';
 import { HelmetProvider } from 'react-helmet-async';
