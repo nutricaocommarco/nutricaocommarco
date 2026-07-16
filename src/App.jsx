@@ -1,51 +1,69 @@
-import React, { useState, useEffect } from 'react';
+const lazyRetry = (importFn) => {
+  return lazy(async () => {
+    try {
+      return await importFn();
+    } catch (err) {
+      // Se falhar ao carregar o chunk (por causa de um deploy novo), força um refresh
+      window.location.reload();
+      return { default: () => null };
+    }
+  });
+};
+
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Instagram, Menu, X, Mail, ChevronDown } from 'lucide-react';
 import { HelmetProvider } from 'react-helmet-async';
 
-// Importando as páginas exclusivas
-import Home from './pages/Home';
-import Certificacoes from './pages/Certificacoes'; 
-import Sobre from './pages/Sobre';
-import Blog from './pages/Blog';
-import Planos from './pages/Planos';
-import Antropometria from './pages/Antropometria';
-import Bioimpedancia from './pages/Bioimpedancia';
-import VitaminaA from './pages/VitaminaA';
-import Frutose from './pages/Frutose';
-import EfeitoSanfona from './pages/EfeitoSanfona';
-import Eritropoetina from './pages/Eritropoetina';
-import Feijao from './pages/Feijao';
-import HormoniosFome from './pages/HormoniosFome';
-import Ironman703 from './pages/Ironman703';
-import GeradorEmailSecreto from './pages/GeradorEmailSecreto';
-import MelhorHorarioPesagem from './pages/MelhorHorarioPesagem';
-import BeterrabaDiabetes from './pages/BeterrabaDiabetes';
-import ConfirmacaoPendente from './pages/kitkit'; 
-import RetatrutidaOQueE from './pages/Retatrutida';
-import InscricaoConfirmada from './pages/InscricaoConfirmada';
-import OvoColesterol from './pages/ovoecolesterol'; 
-import TirzepatidaParaQueServe from './pages/tirzepatidapraqueserve'; 
-import FomeEmocional from './pages/oqueefomeemocional';
-import Prebioticos from './pages/prebioticos'; 
-import Probioticos from './pages/Probioticos'; 
-import Simbioticos from './pages/Simbioticos'; 
-import CicloCircadiano from './pages/CicloCircadiano';
-import Melatonina from './pages/Melatonina';
-import TpmeAlimentacao from './pages/TpmeAlimentacao';
-import CalculadoraGastoCalorico from './pages/CalculadoraGastoCalorico'; 
-import QuantasCaloriasGasto from './pages/QuantasCaloriasGasto';
-import PercentualGorduraFeminino from './pages/PercentualGorduraFeminino';
-import HorarioFerro from './pages/HorarioFerro';
-import ConfirmacaoAvAntropometrica from './pages/ConfirmacaoAvAntropometrica';
-import InatividadeZero from './pages/InatividadeZero';
-import PlanilhaAntropometriaVendas from './pages/PlanilhaAntropometricaMarcoAurelio';
-import JejumIntermitente from './pages/JejumIntermitente';
-import DietaCetogenica from './pages/DietaCetogenica';
-import DietaLowCarb from './pages/DietaLowCarb';
+const Home = lazyRetry(() => import('./pages/Home'));
+const Certificacoes = lazyRetry(() => import('./pages/Certificacoes')); 
+const Sobre = lazyRetry(() => import('./pages/Sobre'));
+const Blog = lazyRetry(() => import('./pages/Blog'));
+const Planos = lazyRetry(() => import('./pages/Planos'));
+const Antropometria = lazyRetry(() => import('./pages/Antropometria'));
+const Bioimpedancia = lazyRetry(() => import('./pages/Bioimpedancia'));
+const VitaminaA = lazyRetry(() => import('./pages/VitaminaA'));
+const Frutose = lazyRetry(() => import('./pages/Frutose'));
+const EfeitoSanfona = lazyRetry(() => import('./pages/EfeitoSanfona'));
+const Eritropoetina = lazyRetry(() => import('./pages/Eritropoetina'));
+const Feijao = lazyRetry(() => import('./pages/Feijao'));
+const HormoniosFome = lazyRetry(() => import('./pages/HormoniosFome'));
+const Ironman703 = lazyRetry(() => import('./pages/Ironman703'));
+const GeradorEmailSecreto = lazyRetry(() => import('./pages/GeradorEmailSecreto'));
+const MelhorHorarioPesagem = lazyRetry(() => import('./pages/MelhorHorarioPesagem'));
+const BeterrabaDiabetes = lazyRetry(() => import('./pages/BeterrabaDiabetes'));
+const ConfirmacaoPendente = lazyRetry(() => import('./pages/kitkit')); 
+const RetatrutidaOQueE = lazyRetry(() => import('./pages/Retatrutida'));
+const InscricaoConfirmada = lazyRetry(() => import('./pages/InscricaoConfirmada'));
+const OvoColesterol = lazyRetry(() => import('./pages/ovoecolesterol')); 
+const TirzepatidaParaQueServe = lazyRetry(() => import('./pages/tirzepatidapraqueserve')); 
+const FomeEmocional = lazyRetry(() => import('./pages/oqueefomeemocional'));
+const Prebioticos = lazyRetry(() => import('./pages/prebioticos')); 
+const Probioticos = lazyRetry(() => import('./pages/Probioticos')); 
+const Simbioticos = lazyRetry(() => import('./pages/Simbioticos')); 
+const CicloCircadiano = lazyRetry(() => import('./pages/CicloCircadiano'));
+const Melatonina = lazyRetry(() => import('./pages/Melatonina'));
+const TpmeAlimentacao = lazyRetry(() => import('./pages/TpmeAlimentacao'));
+const CalculadoraGastoCalorico = lazyRetry(() => import('./pages/CalculadoraGastoCalorico')); 
+const QuantasCaloriasGasto = lazyRetry(() => import('./pages/QuantasCaloriasGasto'));
+const PercentualGorduraFeminino = lazyRetry(() => import('./pages/PercentualGorduraFeminino'));
+const HorarioFerro = lazyRetry(() => import('./pages/HorarioFerro'));
+const ConfirmacaoAvAntropometrica = lazyRetry(() => import('./pages/ConfirmacaoAvAntropometrica'));
+const InatividadeZero = lazyRetry(() => import('./pages/InatividadeZero'));
+const PlanilhaAntropometriaVendas = lazyRetry(() => import('./pages/PlanilhaAntropometricaMarcoAurelio'));
+const JejumIntermitente = lazyRetry(() => import('./pages/JejumIntermitente'));
+const DietaCetogenica = lazyRetry(() => import('./pages/DietaCetogenica'));
+const DietaLowCarb = lazyRetry(() => import('./pages/DietaLowCarb'));
 
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+
+// Componente simples de carregamento
+const LoadingSpinner = () => (
+  <div className="flex justify-center items-center h-screen text-green-600 font-black">
+    Carregando...
+  </div>
+);
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -61,7 +79,10 @@ function Layout({ children }) {
   const location = useLocation();
 
 useEffect(() => {
-    // Apenas fecha o menu mobile ao mudar de página
+    // Define a função de scroll aqui dentro
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    
+    window.addEventListener('scroll', handleScroll);
     setIsMenuOpen(false);
 
     // Garante que o Pingus apareça na aba do navegador
@@ -72,6 +93,7 @@ useEffect(() => {
       document.head.appendChild(link);
     }
     link.href = 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png';
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
 return (
@@ -179,51 +201,53 @@ export default function App() {
       <Router>
         <ScrollToTop />
         <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/admin-pingus-email" element={<GeradorEmailSecreto />} />
-            <Route path="/certificacoes" element={<Certificacoes />} />
-            <Route path="/sobre" element={<Sobre />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/planos" element={<Planos />} />
-            <Route path="/efeito_sanfona_inflamacao_invisivel" element={<EfeitoSanfona />} />
-            <Route path="/quantas_frutas_posso_comer" element={<Frutose />} />
-            <Route path="/vitamina_a_para_que_serve" element={<VitaminaA />} />
-            <Route path="/o_que_e_antropometria" element={<Antropometria />} />
-            <Route path="/a_balanca_de_bioimpedancia_e_confiavel" element={<Bioimpedancia />} />
-            <Route path="/o_dilema_do_sangue_na_altitude" element={<Eritropoetina />} />
-            <Route path="/por_que_o_feijao_da_gases" element={<Feijao />} />
-            <Route path="/hormonios_da_fome_emagrecimento" element={<HormoniosFome />} />
-            <Route path="/nutricao_para_ironman_703" element={<Ironman703 />} />
-            <Route path="/qual_melhor_horario_para_se_pesar" element={<MelhorHorarioPesagem />} />
-            <Route path="/diabetico_pode_comer_beterraba" element={<BeterrabaDiabetes />} />
-            <Route path="/confirmacao-pendente" element={<ConfirmacaoPendente />} />
-            <Route path="/inscricao-confirmada" element={<InscricaoConfirmada />} />
-            <Route path="/retatrutida_o_que_e" element={<RetatrutidaOQueE />} />
-            <Route path="/comer-ovo-todo-dia-aumenta-o-colesterol" element={<OvoColesterol />} />
-            <Route path="/tirzepatida-para-que-serve" element={<TirzepatidaParaQueServe />} />
-            <Route path="/o-que-e-fome-emocional" element={<FomeEmocional />} />
-            <Route path="/o-que-sao-prebioticos" element={<Prebioticos />} />
-            <Route path="/o-que-sao-probioticos" element={<Probioticos />} />
-            <Route path="/o-que-sao-simbioticos" element={<Simbioticos />} />
-            <Route path="/o-que-e-ciclo-circadiano" element={<CicloCircadiano />} />
-            <Route path="/efeitos-colaterais-da-melatonina" element={<Melatonina />} />
-            <Route path="/o-que-comer-na-tpm" element={<TpmeAlimentacao />} />
-            <Route path="/calculadora-de-gasto-calorico" element={<CalculadoraGastoCalorico />} />
-            <Route path="/quantas-calorias-gasto-por-dia" element={<QuantasCaloriasGasto />} />
-            <Route path="/percentual-gordura-feminino-ideal" element={<PercentualGorduraFeminino />} />
-            <Route path="/melhor-horario-para-tomar-ferro" element={<HorarioFerro />} />
-            <Route path="/confirmacao-av-antropometrica" element={<ConfirmacaoAvAntropometrica />} />
-            <Route path="/parceria-inatividade-zero" element={<InatividadeZero />} />
-            <Route path="/planilha-de-avaliacao-antropometrica-marco-aurelio" element={<PlanilhaAntropometriaVendas />} />
-            <Route path="/planilha" element={<PlanilhaAntropometriaVendas />} />
-            <Route path="/o-que-e-jejum-intermitente" element={<JejumIntermitente />} />
-            <Route path="/o-que-e-dieta-cetogenica" element={<DietaCetogenica />} />
-            <Route path="/o-que-e-dieta-low-carb" element={<DietaLowCarb />} />
-          </Routes>
+<Suspense fallback={<LoadingSpinner />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/admin-pingus-email" element={<GeradorEmailSecreto />} />
+              <Route path="/certificacoes" element={<Certificacoes />} />
+              <Route path="/sobre" element={<Sobre />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/planos" element={<Planos />} />
+              <Route path="/efeito_sanfona_inflamacao_invisivel" element={<EfeitoSanfona />} />
+              <Route path="/quantas_frutas_posso_comer" element={<Frutose />} />
+              <Route path="/vitamina_a_para_que_serve" element={<VitaminaA />} />
+              <Route path="/o_que_e_antropometria" element={<Antropometria />} />
+              <Route path="/a_balanca_de_bioimpedancia_e_confiavel" element={<Bioimpedancia />} />
+              <Route path="/o_dilema_do_sangue_na_altitude" element={<Eritropoetina />} />
+              <Route path="/por_que_o_feijao_da_gases" element={<Feijao />} />
+              <Route path="/hormonios_da_fome_emagrecimento" element={<HormoniosFome />} />
+              <Route path="/nutricao_para_ironman_703" element={<Ironman703 />} />
+              <Route path="/qual_melhor_horario_para_se_pesar" element={<MelhorHorarioPesagem />} />
+              <Route path="/diabetico_pode_comer_beterraba" element={<BeterrabaDiabetes />} />
+              <Route path="/confirmacao-pendente" element={<ConfirmacaoPendente />} />
+              <Route path="/inscricao-confirmada" element={<InscricaoConfirmada />} />
+              <Route path="/retatrutida_o_que_e" element={<RetatrutidaOQueE />} />
+              <Route path="/comer-ovo-todo-dia-aumenta-o-colesterol" element={<OvoColesterol />} />
+              <Route path="/tirzepatida-para-que-serve" element={<TirzepatidaParaQueServe />} />
+              <Route path="/o-que-e-fome-emocional" element={<FomeEmocional />} />
+              <Route path="/o-que-sao-prebioticos" element={<Prebioticos />} />
+              <Route path="/o-que-sao-probioticos" element={<Probioticos />} />
+              <Route path="/o-que-sao-simbioticos" element={<Simbioticos />} />
+              <Route path="/o-que-e-ciclo-circadiano" element={<CicloCircadiano />} />
+              <Route path="/efeitos-colaterais-da-melatonina" element={<Melatonina />} />
+              <Route path="/o-que-comer-na-tpm" element={<TpmeAlimentacao />} />
+              <Route path="/calculadora-de-gasto-calorico" element={<CalculadoraGastoCalorico />} />
+              <Route path="/quantas-calorias-gasto-por-dia" element={<QuantasCaloriasGasto />} />
+              <Route path="/percentual-gordura-feminino-ideal" element={<PercentualGorduraFeminino />} />
+              <Route path="/melhor-horario-para-tomar-ferro" element={<HorarioFerro />} />
+              <Route path="/confirmacao-av-antropometrica" element={<ConfirmacaoAvAntropometrica />} />
+              <Route path="/parceria-inatividade-zero" element={<InatividadeZero />} />
+              <Route path="/planilha-de-avaliacao-antropometrica-marco-aurelio" element={<PlanilhaAntropometriaVendas />} />
+              <Route path="/planilha" element={<PlanilhaAntropometriaVendas />} />
+              <Route path="/o-que-e-jejum-intermitente" element={<JejumIntermitente />} />
+              <Route path="/o-que-e-dieta-cetogenica" element={<DietaCetogenica />} />
+              <Route path="/o-que-e-dieta-low-carb" element={<DietaLowCarb />} />
+            </Routes>
+          </Suspense>
         </Layout>
       </Router>
-
+      
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,900;1,900&display=swap');
         @keyframes bounce-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
