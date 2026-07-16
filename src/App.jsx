@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+Import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Instagram, Menu, X, Mail, ChevronDown } from 'lucide-react';
 import { HelmetProvider } from 'react-helmet-async';
@@ -60,191 +60,8 @@ function Layout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-
-    let link = document.querySelector("link[rel~='icon']");
-    if (!link) {
-      link = document.createElement('link');
-      link.rel = 'icon';
-      document.head.appendChild(link);
-    }
-    link.href = 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.png';
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const baseUrl = 'https://www.nutricaocommarco.com.br';
-
-    const seoData = {
-      '/': { 
-        title: 'Nutrição com Marco | Performance e Ciência', 
-        desc: 'Especialista em Nutrição e Antropometria no RJ e Online. Performance física e saúde baseada em evidências científicas.' 
-      },
-      '/planilha': {
-        title: 'Planilha Antropométrica Inteligente PRO | Nutrição com Marco',
-        desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.'
-      },
-      '/planilha-antropometrica-marco-aurelio': {
-        title: 'Planilha Antropométrica Inteligente PRO | Nutrição com Marco',
-        desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.'
-      },
-      '/sobre': { 
-        title: 'Sobre Marco Aurélio Jr. | Nutrição com Marco', 
-        desc: 'Conheça a história de Marco Aurélio Jr., futuro nutricionista, fotógrafo esportivo e especialista em avaliação física ISAK 1 no Rio de Janeiro.' 
-      },
-      '/certificacoes': {
-        title: 'Certificações e Formação | Nutrição com Marco',
-        desc: 'Confira as certificações e especializações de Marco Aurélio Jr., incluindo o selo internacional ISAK Nível 1 em antropometria.'
-      },
-      '/blog': {
-        title: 'Blog | Nutrição com Marco',
-        desc: 'Artigos baseados em ciência sobre nutrição, emagrecimento, suplementação, antropometria e saúde.'
-      },
-      '/planos': {
-        title: 'Planos e Avaliações | Nutrição com Marco',
-        desc: 'Conheça os planos de acompanhamento nutricional e avaliação antropométrica focados nos seus resultados.'
-      },
-      '/confirmacao-pendente': {
-        title: 'Quase lá! Confirme seu e-mail | Nutrição com Marco',
-        desc: 'Falta apenas um clique para confirmar sua inscrição e receber nossos conteúdos exclusivos.'
-      },
-      '/inscricao-confirmada': { 
-        title: 'Inscrição Confirmada! | Nutrição com Marco',
-        desc: 'Tudo pronto! Você agora faz parte da nossa comunidade de nutrição e antropometria.'
-      },
-      '/retatrutida_o_que_e': {
-        title: 'Retatrutida o que é? A nova fronteira da ciência | Nutrição com Marco',
-        desc: 'Descubra o que é a retatrutida, o novo medicamento agonista triplo (GLP-1, GIP e Glucagon) e seus resultados na perda de peso.'
-      },
-      '/comer-ovo-todo-dia-aumenta-o-colesterol': {
-        title: 'Ovo e Colesterol: Benefícios, Mitos e Verdades Científicas | Nutrição com Marco',
-        desc: 'Comer ovo todo dia faz mal? Quem tem gordura no fígado pode comer? Desvendamos tudo com base em estudos científicos atualizados.'
-      },
-      '/tirzepatida-para-que-serve': {
-        title: 'Tirzepatida: Para que serve? Emagrecimento, Mounjaro e Rebote | Nutrição com Marco',
-        desc: 'Descubra para que serve a Tirzepatida (Mounjaro), como funciona no emagrecimento, quanto peso se perde e como evitar o temido efeito rebote.'
-      },
-      '/o-que-e-fome-emocional': {
-        title: 'O que é Fome Emocional? Diferenças e Como Controlar | Nutrição com Marco',
-        desc: 'Entenda o que é fome emocional, como diferenciá-la da fome física e estratégias práticas para lidar com o impulso de comer por emoção.'
-      },
-      '/o-que-sao-prebioticos': { 
-        title: 'O que são Prebióticos? Alimentos e Benefícios | Nutrição com Marco', 
-        desc: 'Descubra o que são prebióticos, para que servem no seu intestino, quais alimentos são fontes naturais e como eles blindam a sua flora intestinal.' 
-      },
-      '/o-que-sao-probioticos': { 
-        title: 'O que são Probióticos? Lactobacillus e Benefícios | Nutrição com Marco', 
-        desc: 'Descubra o que são probióticos e Lactobacillus, para que servem no intestino, seus benefícios para a imunidade e quais as melhores fontes naturais.' 
-      },
-      '/o-que-sao-simbioticos': { 
-        title: 'O que são Simbióticos? A Sinergia Intestinal | Nutrição com Marco', 
-        desc: 'Descubra o que são os alimentos simbióticos, como a união de prebióticos e probióticos transforma a sua flora e as melhores combinações.' 
-      },
-      '/o-que-e-ciclo-circadiano': { 
-        title: 'O Que é Ciclo Circadiano? Relógio Biológico e Emagrecimento | Nutrição com Marco', 
-        desc: 'Guia completo sobre ciclo circadiano: como emagrecer, melhorar o sono, horários corretos das refeições, a verdade sobre a melatonina e controle hormonal.' 
-      },
-      '/efeitos-colaterais-da-melatonina': {
-        title: 'Efeitos Colaterais da Melatonina: Vicia? Riscos e Doses | Nutrição com Marco',
-        desc: 'Descubra a verdade científica sobre a melatonina: ela vicia? Faz mal? Entenda os efeitos colaterais, riscos psicológicos e como dosar corretamente para dormir bem.'
-      },
-      '/o-que-comer-na-tpm': {
-        title: 'O Que Comer na TPM: Emagrecimento e Metabolismo Feminino | Nutrição com Marco',
-        desc: 'Descubra por que a vontade de doce aumenta na TPM, a verdade científica sobre o metabolismo feminino, o papel do treino e estratégias para emagrecer sem sofrimento.'
-      },
-      '/calculadora-de-gasto-calorico': {
-        title: 'Calculadora de Gasto Calórico (TDEE e TMB) Inteligente | Nutrição com Marco',
-        desc: 'Descubra seu gasto calórico diário e taxa metabólica basal com nossa calculadora inteligente. Fórmulas de Mifflin, Cunningham e Tinsley adaptadas ao seu perfil.'
-      },
-      '/quantas-calorias-gasto-por-dia': {
-        title: 'Quantas Calorias Gasto Por Dia? TMB e TDEE | Nutrição com Marco',
-        desc: 'Descubra como calcular seu gasto calórico diário. Entenda a sua Taxa Metabólica Basal (TMB), fator de atividade, METs e as fórmulas de Mifflin e Cunningham.'
-      },
-      '/percentual-gordura-feminino-ideal': {
-        title: 'Qual o Percentual de Gordura Feminino Ideal? | Nutrição com Marco',
-        desc: 'Descubra qual é o percentual de gordura feminino ideal para a saúde e estética. Entenda as tabelas de referência, os hormônios femininos e os métodos de avaliação.'
-      },
-      '/confirmacao-av-antropometrica': {
-        title: 'Avaliação Agendada! | Nutrição com Marco',
-        desc: 'Sua avaliação antropométrica foi agendada com sucesso. Verifique as instruções enviadas para o seu e-mail.'
-      },
-      '/melhor-horario-para-tomar-ferro': {
-        title: 'Melhor Horário Para Tomar Ferro e Curar a Anemia | Nutrição com Marco',
-        desc: 'Descubra o melhor horário para tomar ferro, sintomas de falta no organismo, o que inibe a absorção e quanto tempo dura o tratamento para anemia.'
-      },
-      '/efeito_sanfona_inflamacao_invisivel': {
-        title: 'Efeito Sanfona e Inflamação Invisível | Nutrição com Marco',
-        desc: 'Entenda como o efeito sanfona prejudica seu metabolismo e gera inflamações invisíveis no organismo.'
-      },
-      '/quantas_frutas_posso_comer': {
-        title: 'Frutose: Quantas frutas posso comer por dia? | Nutrição com Marco',
-        desc: 'Descubra a verdade sobre a frutose, se fruta engorda e qual a quantidade ideal para o seu dia a dia.'
-      },
-      '/vitamina_a_para_que_serve': {
-        title: 'Vitamina A: Para que serve e benefícios | Nutrição com Marco',
-        desc: 'Saiba tudo sobre a Vitamina A, sua importância para a visão, imunidade e onde encontrá-la na alimentação.'
-      },
-      '/o_que_e_antropometria': {
-        title: 'O que é Antropometria? Avaliação Física ISAK | Nutrição com Marco',
-        desc: 'Entenda o que é a avaliação antropométrica, como ela mede sua composição corporal e por que é melhor que a balança comum.'
-      },
-      '/a_balanca_de_bioimpedancia_e_confiavel': {
-        title: 'A Balança de Bioimpedância é Confiável? | Nutrição com Marco',
-        desc: 'Descubra como funciona a balança de bioimpedância, seus erros comuns e se ela é realmente confiável para medir gordura.'
-      },
-      '/o_dilema_do_sangue_na_altitude': {
-        title: 'O Dilema do Sangue na Altitude e Eritropoetina | Nutrição com Marco',
-        desc: 'Como a altitude afeta a produção de eritropoetina e o desempenho atlético. A ciência por trás do sangue.'
-      },
-      '/por_que_o_feijao_da_gases': {
-        title: 'Por que o feijão dá gases? Como evitar | Nutrição com Marco',
-        desc: 'Aprenda a técnica correta do remolho para eliminar os fitatos e evitar os gases e desconforto ao comer feijão.'
-      },
-      '/hormonios_da_fome_emagrecimento': {
-        title: 'Hormônios da Fome e Emagrecimento | Nutrição com Marco',
-        desc: 'Grelina e Leptina: como esses hormônios controlam sua fome e saciedade, e como regulá-los para emagrecer.'
-      },
-      '/nutricao_para_ironman_703': {
-        title: 'Nutrição para Ironman 70.3 | Nutrição com Marco',
-        desc: 'Estratégias nutricionais, carboidratos e hidratação para atletas de alta performance no Triathlon.'
-      },
-      '/qual_melhor_horario_para_se_pesar': {
-        title: 'Qual o melhor horário para se pesar? | Nutrição com Marco',
-        desc: 'Descubra o momento ideal do dia para subir na balança e ter o reflexo real do seu peso sem flutuações.'
-      },
-      '/diabetico_pode_comer_beterraba': {
-        title: 'Diabético pode comer beterraba? | Nutrição com Marco',
-        desc: 'Entenda o índice glicêmico da beterraba e se pessoas com diabetes podem incluí-la na alimentação com segurança.'
-      },
-      '/parceria-inatividade-zero': {
-        title: 'Parceria Inatividade Zero | Nutrição com Marco',
-        desc: 'Conheça nossa parceria focada em combater o sedentarismo com ciência, nutrição e movimento.'
-      }
-    };
-
-    const currentSEO = seoData[location.pathname] || seoData['/'];
-    document.title = currentSEO.title;
-
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) {
-      metaDesc = document.createElement('meta');
-      metaDesc.name = 'description';
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.content = currentSEO.desc;
-
-    let canonicalLink = document.querySelector("link[rel='canonical']");
-    if (!canonicalLink) {
-      canonicalLink = document.createElement('link');
-      canonicalLink.rel = 'canonical';
-      document.head.appendChild(canonicalLink);
-    }
-    const cleanPath = location.pathname === '/' ? '' : location.pathname;
-    canonicalLink.href = `${baseUrl}${cleanPath}`;
-
+    useEffect(() => {
+    // Apenas fecha o menu mobile ao mudar de página
     setIsMenuOpen(false);
   }, [location.pathname]);
 
@@ -260,7 +77,7 @@ return (
           {/* MENU DESKTOP */}
           <div className="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-widest">
             <Link to="/" className={`py-1 border-b-2 transition-all ${location.pathname === '/' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Início</Link>
-            
+
             {/* Dropdown: Sobre */}
             <div className="relative group">
               <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/sobre', '/certificacoes'].includes(location.pathname) ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-600'}`}>
@@ -274,7 +91,7 @@ return (
 
             <Link to="/blog" className={`py-1 border-b-2 transition-all ${location.pathname.includes('/blog') ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Blog</Link>
             <Link to="/planos" className={`py-1 border-b-2 transition-all ${location.pathname === '/planos' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Planos</Link>
-            
+
             {/* Dropdown: Recursos */}
             <div className="relative group">
               <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/calculadora-de-gasto-calorico', '/planilha'].includes(location.pathname) ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-600'}`}>
@@ -288,7 +105,7 @@ return (
 
             <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-6 py-2.5 rounded-full hover:bg-green-700 transition-all shadow-md italic">Instagram</a>
           </div>
-          
+
           <button className="md:hidden text-slate-800 p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -298,7 +115,7 @@ return (
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-green-100 shadow-xl py-6 px-6 flex flex-col gap-6 max-h-[85vh] overflow-y-auto">
             <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Início</Link>
-            
+
             {/* Mobile: Grupo Sobre */}
             <div className="flex flex-col gap-3 pb-2 border-b border-green-50">
               <span className="text-lg font-black uppercase tracking-widest text-slate-800">Sobre</span>
@@ -310,7 +127,7 @@ return (
 
             <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Blog</Link>
             <Link to="/planos" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Planos</Link>
-            
+
             {/* Mobile: Grupo Recursos */}
             <div className="flex flex-col gap-3 pb-2 border-b border-green-50">
               <span className="text-lg font-black uppercase tracking-widest text-slate-800">Recursos</span>
