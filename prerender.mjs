@@ -75,36 +75,44 @@ const postsBlog = [
     data: "2026-07-12",
     schemasExtra: [getMedicalSchema("Efeitos do Jejum Intermitente", "https://www.nutricaocommarco.com.br/o-que-e-jejum-intermitente", ["Jejum Intermitente", "Metabolismo", "Perda de Peso"])]
   },
+
+{/* 24 ok */}
   { 
     id: 24, 
     link: "/melhor-horario-para-tomar-ferro", 
     img: `${githubImgBase}Blog/HorarioFerro.jpg`, 
-    titulo: "O Único Horário Certo Para Tomar Ferro (E Curar a Anemia Rápido)", 
-    desc: "Você está tomando ferro do jeito errado? Descubra o horário ideal para a absorção máxima, os sintomas ocultos da anemia e o que bloqueia o nutriente.", 
+    titulo: "Qual o Melhor Horario Para Tomar Ferro (E Curar a Anemia Rápido) | Nutrição com Marco", 
+    desc: "Você está tomando ferro do jeito errado? Descubra qual o melhor horário para tomar ferro e ter absorção máxima, os sintomas ocultos da anemia e o que bloqueia o nutriente.", 
     data: "2026-04-26" 
   },
+
+{/* 23 ok */}
   { 
     id: 23, 
     link: "/percentual-gordura-feminino-ideal", 
     img: `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.jpg`, 
-    titulo: "Qual é o Percentual de Gordura Feminino Ideal e Saudável?", 
-    desc: "Pare de olhar apenas para a balança. Entenda as tabelas reais de referência e descubra qual é o percentual de gordura feminino ideal para a sua idade e saúde.", 
+    titulo: "Qual o Percentual de Gordura Feminino Ideal e Saudável? | Nutrição com Marco", 
+    desc: "Pare de olhar apenas para a balança. Entenda as tabelas reais de referência e descubra qual o percentual de gordura feminino ideal para a sua idade e saúde.", 
     data: "2026-04-24" 
   },
+
+{/* 22 ok */}
   { 
     id: 22, 
     link: "/o-que-comer-na-tpm", 
     img: `${githubImgBase}Blog/TPM.jpg`, 
-    titulo: "O Que Comer na TPM Para Controlar o Doce (Sem Culpa)", 
+    titulo: "O Que Comer na TPM Para Controlar o Doce (Sem Culpa) | Nutrição com Marco", 
     desc: "A vontade de doce na TPM não é falta de foco, é biologia pura! Entenda como hackear o metabolismo feminino e o que comer nesses dias difíceis.", 
     data: "2026-04-20" 
   },
+
+{/* 21 ok */}
   { 
     id: 21, 
     link: "/quantas-calorias-gasto-por-dia", 
     img: `${githubImgBase}Blog/QuantasCaloriasGasto.jpg`, 
-    titulo: "Quantas Calorias Gasto Por Dia? Calcule Sua TMB Exata Aqui", 
-    desc: "Pare de chutar a sua dieta. Use nossa calculadora inteligente para descobrir quantas calorias seu corpo realmente queima por dia (TMB e Fator de Atividade).", 
+    titulo: "Quantas Calorias Gasto Por Dia? Calcule Sua TMB Exata Aqui | Nutrição com Marco", 
+    desc: "Pare de chutar a sua dieta. Use nossa calculadora inteligente para descobrir quantas calorias gasto por dia (TMB e Fator de Atividade).", 
     data: "2026-04-05" 
   },
   { 
@@ -155,12 +163,14 @@ const postsBlog = [
     desc: "Você come por fome ou por estresse? Aprenda técnicas reais da nutrição comportamental e use a 'Escala de Fome' para vencer a compulsão alimentar.", 
     data: "2026-03-27" 
   },
+
+{/* 14 ok */}
   { 
     id: 14, 
     link: "/tirzepatida-para-que-serve", 
     img: `${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`, 
-    titulo: "Tirzepatida: Para Que Serve e Os Efeitos Colaterais (Atualizado)", 
-    desc: "Mounjaro (Tirzepatida) no emagrecimento: entenda a fundo como atua o duplo mecanismo GLP-1 e GIP e descubra os reais efeitos no controle do apetite.", 
+    titulo: "Tirzepatida: Para Que Serve e Os Efeitos Colaterais (Atualizado) | Nutrição com Marco", 
+    desc: "Mounjaro (Tirzepatida) no emagrecimento: entenda a fundo como atua o duplo mecanismo GLP-1 e GIP e descubra os reais efeitos no controle do apetite e para que serve.", 
     data: "2026-03-26",
     schemasExtra: [getMedicalSchema("Análise da Tirzepatida no Emagrecimento", "https://www.nutricaocommarco.com.br/tirzepatida-para-que-serve", ["Tirzepatida", "Mounjaro", "Tratamento de Obesidade"], "Endocrinology")]
   },
@@ -180,7 +190,8 @@ const postsBlog = [
     desc: "Conheça a Retatrutida, o novo medicamento em testes que atua em 3 hormônios simultâneos. Veja as promessas científicas para a obesidade.", 
     data: "2026-03-24" 
   },
-        {/* 11 ok */}
+
+  {/* 11 ok */}
   { 
     id: 11, 
     link: "/diabetico_pode_comer_beterraba", 
@@ -189,12 +200,14 @@ const postsBlog = [
     desc: "Eles disseram que a beterraba era um veneno para diabéticos. Descubra se Diabético pode comer beterraba e por que você não precisa ter medo.", 
     data: "2026-03-24" 
   },
+
+  {/* 10 ok */}
   { 
     id: 10, 
     link: "/qual_melhor_horario_para_se_pesar", 
     img: `${githubImgBase}Blog/melhor_horario_pesagem.jpg`, 
-    titulo: "O Único Horário Certo Para se Pesar (E Por Que a Balança Mente)", 
-    desc: "Seu peso varia até 2kg por dia! Descubra o melhor horário para se pesar, as armadilhas da retenção de líquidos e como não se frustrar com a balança.", 
+    titulo: "Qual o melhor horário para se Pesar (E Por Que a Balança Mente) | Nutrição com Marco", 
+    desc: "Seu peso varia até 2kg por dia! Descubra qual o melhor horário para se pesar, as armadilhas da retenção de líquidos e como não se frustrar com a balança.", 
     data: "2026-03-24" 
   },
   { 
@@ -213,11 +226,13 @@ const postsBlog = [
     desc: "Por que você volta a engordar? Descubra como a Grelina e a Leptina comandam o seu cérebro e veja o que fazer para vencer a inflamação e a fome crônica.", 
     data: "2026-03-18" 
   },
+
+  {/* 7 ok */}
   { 
     id: 7, 
     link: "/por_que_o_feijao_da_gases", 
     img: `${githubImgBase}Blog/feijao.jpg`, 
-    titulo: "Por Que o Feijão Dá Gases? O Truque Químico Para Evitar", 
+    titulo: "Por Que o Feijão Dá Gases? O Truque Químico Para Evitar | Nutrição com Marco", 
     desc: "Pare de sofrer com estômago estufado. A culpa é dos antinutrientes! Aprenda o método correto do remolho para neutralizar o feijão e melhorar a digestão.", 
     data: "2026-03-17" 
   },
