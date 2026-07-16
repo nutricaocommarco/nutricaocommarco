@@ -45,13 +45,13 @@ export default function Frutose() {
     <>
       <Helmet>
         <title>Quantas Frutas Posso Comer Por Dia? (O Perigo da Frutose) | Nutrição com Marco</title>
-        <meta name="description" content="Fruta à vontade faz mal? Entenda a bioquímica da frutose, o risco de gordura no fígado (esteatose) e qual a porção diária ideal para emagrecer." />
+        <meta name="description" content="Descubra quantas frutas posso comer por dia? Entenda a bioquímica da frutose, o risco de gordura no fígado (esteatose) e qual a porção diária ideal para emagrecer." />
         <meta name="keywords" content={keywords} />
         <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Quantas Frutas Posso Comer Por Dia? (O Perigo da Frutose)" />
-        <meta property="og:description" content="Fruta à vontade faz mal? Entenda a bioquímica da frutose, o risco de gordura no fígado (esteatose) e qual a porção diária ideal para emagrecer." />
+        <meta property="og:title" content="Quantas Frutas Posso Comer Por Dia? (O Perigo da Frutose) | Nutrição com Marco" />
+        <meta property="og:description" content="Descubra quantas frutas posso comer por dia? Entenda a bioquímica da frutose, o risco de gordura no fígado (esteatose) e qual a porção diária ideal para emagrecer." />
         <meta property="og:image" content={artigoCapa} /> 
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
       </Helmet>
