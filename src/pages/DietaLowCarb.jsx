@@ -490,14 +490,14 @@ export default function DietaLowCarb() {
   return (
     <>
      <Helmet>
-        <title>Dieta Low Carb: O Que É, Erros Fatais e Calculadora Completa | Nutrição com Marco</title>
-        <meta name="description" content="Aprenda o que é a dieta low carb de verdade. Descubra a diferença para a cetogênica, os mitos da gordura e monte seu prato com nossa Calculadora TACO." />
+        <title>O Que é Dieta Low Carb: Erros Fatais e Calculadora Completa | Nutrição com Marco</title>
+        <meta name="description" content="Aprenda o que é dieta low carb de verdade. Descubra a diferença para a cetogênica, os mitos da gordura e monte seu prato com nossa Calculadora TACO." />
         <meta name="keywords" content={keywords} />
         <link rel="canonical" href={`[https://www.nutricaocommarco.com.br](https://www.nutricaocommarco.com.br)${pathname}`} />
         
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Dieta Low Carb: O Que É, Erros Fatais e Calculadora Completa" />
-        <meta property="og:description" content="Aprenda o que é a dieta low carb de verdade. Descubra a diferença para a cetogênica, os mitos da gordura e monte seu prato com nossa Calculadora TACO." />
+        <meta property="og:title" content="O Que é Dieta Low Carb: Erros Fatais e Calculadora Completa | Nutrição com Marco" />
+        <meta property="og:description" content="Aprenda o que é dieta low carb de verdade. Descubra a diferença para a cetogênica, os mitos da gordura e monte seu prato com nossa Calculadora TACO." />
         <meta property="og:image" content={artigoCapa} />
         <meta property="og:url" content={`[https://www.nutricaocommarco.com.br](https://www.nutricaocommarco.com.br)${pathname}`} />
       </Helmet>
