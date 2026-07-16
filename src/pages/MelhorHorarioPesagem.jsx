@@ -18,14 +18,14 @@ export default function MelhorHorarioPesagem() {
   return (
     <>
 <Helmet>
-        <title>O Único Horário Certo Para se Pesar (E Por Que a Balança Mente) | Nutrição com Marco</title>
-        <meta name="description" content="Seu peso varia até 2kg por dia! Descubra o melhor horário para se pesar, as armadilhas da retenção de líquidos e como não se frustrar com a balança." />
+        <title>Qual o melhor horário para se Pesar (E Por Que a Balança Mente) | Nutrição com Marco</title>
+        <meta name="description" content="Seu peso varia até 2kg por dia! Descubra qual o melhor horário para se pesar, as armadilhas da retenção de líquidos e como não se frustrar com a balança." />
         <meta name="keywords" content="qual o melhor horario para se pesar, porque o peso varia no dia, oscilação de peso na balança, retenção de líquidos, quando me pesar" />
         <link rel="canonical" href={`https://www.nutricaocommarco.com.br${pathname}`} />
 
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="O Único Horário Certo Para se Pesar (E Por Que a Balança Mente)" />
-        <meta property="og:description" content="Seu peso varia até 2kg por dia! Descubra o melhor horário para se pesar, as armadilhas da retenção de líquidos e como não se frustrar com a balança." />
+        <meta property="og:title" content="Qual o melhor horário para se Pesar (E Por Que a Balança Mente) | Nutrição com Marco" />
+        <meta property="og:description" content="Seu peso varia até 2kg por dia! Descubra qual o melhor horário para se pesar, as armadilhas da retenção de líquidos e como não se frustrar com a balança." />
         <meta property="og:image" content={`${githubImgBase}Blog/melhor_horario_pesagem.jpg`} />
         <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
       </Helmet>
