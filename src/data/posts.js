@@ -2,6 +2,16 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export const posts = [
     {
+    id: 26,
+    link: "/o-que-e-dieta-low-carb",
+    img: `${githubImgBase}Blog/LowCarb_Capa.webp`,
+    tag: "Dietas da Moda",
+    titulo: "O Que é Dieta Low Carb? A Diferença para a Cetogênica e Como Começar",
+    desc: "Entenda a estratégia de redução inteligente de carboidratos, aprenda a diferença entre low carb e cetogênica e descubra como começar sua jornada metabólica com nossa calculadora exclusiva.",
+    data: "2026-07-17",
+    dataMod: "2026-07-17"
+    },
+    {
     id: 25,
     link: "/o-que-e-dieta-cetogenica",
     img: `${githubImgBase}Blog/DietaCetogenica_Capa.webp`,
