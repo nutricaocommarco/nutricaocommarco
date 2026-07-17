@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import YouTubeLazy from '../components/YouTubeLazy';
 import { 
   ChevronLeft, HelpCircle, Activity, Clock, Shield, 
   Zap, ChevronRight, Headphones, ChevronDown, ShoppingCart, 
@@ -13,8 +13,8 @@ import Newsletter from '../components/Newsletter';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
-const datePublishedISO = "2026-07-15";
-const dateModifiedISO = "2026-07-15";
+const datePublishedISO = "2026-07-17";
+const dateModifiedISO = "2026-07-17";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 const artigoCapa = `${githubImgBase}Blog/LowCarb_Capa.webp`; 
@@ -578,6 +578,10 @@ export default function DietaLowCarb() {
               alt="Descubra o que é dieta low carb, a diferença entre low carb e cetogênica e como começar a fazer hoje mesmo." 
               title="O que é Dieta Low Carb"
               className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
+              width="896"
+              height="635"
+              loading="lazy"
+              sizes="(max-width: 896px) 100vw, 896px"
               onError={(e) => { e.target.onerror = null; e.target.src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=800"; }}
             />
             <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
@@ -830,6 +834,9 @@ export default function DietaLowCarb() {
                             src={`${githubImgBase}logoN_pingus.webp`} 
                             alt="Selo de Qualidade Pingus" 
                             className="w-full h-full object-contain" 
+                            width="160"
+                            height="160"
+                            loading="lazy" 
                         />
                     </div>
 
@@ -844,6 +851,9 @@ export default function DietaLowCarb() {
                                 src={`${githubImgBase}Afiliado/BalancaCozinha.webp`} 
                                 alt="Balança de Cozinha Digital Simples" 
                                 className="w-full h-auto object-contain" 
+                                width="200"
+                                height="200"
+                                loading="lazy"
                                 onError={(e) => { e.target.onerror = null; e.target.src="https://images.unsplash.com/photo-1590845947376-28f0904323e0?auto=format&fit=crop&q=80&w=400"; }}
                             />
                         </div>
@@ -946,6 +956,9 @@ export default function DietaLowCarb() {
               alt="Marco Aurélio Jr. que desvenda o que é dieta low carb na prática" 
               title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador ISAK 1"
               className="w-full h-full object-cover" 
+              width="96"
+              height="96"
+              loading="lazy"
               onError={(e) => { e.target.onerror = null; e.target.src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>👨‍⚕️</text></svg>"; }}
             />
           </div>
