@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useLocation, Link } from 'react-router-dom'; 
-import { Helmet } from 'react-helmet-async'; 
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import YouTubeLazy from '../components/YouTubeLazy';
 import { 
   ChevronLeft, 
   ChevronRight, 
@@ -25,8 +25,10 @@ import { posts } from '../data/posts';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 export default function DiabeticoPodeComerBeterraba() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const navigate = useNavigate();
 
   // O Pingus procura no Cérebro Central qual post corresponde a essa página
   const postAtual = posts.find(post => post.link === pathname);
@@ -43,20 +45,22 @@ export default function DiabeticoPodeComerBeterraba() {
 
   return (
     <>
-<Helmet>
-
-      </Helmet>
-
       <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
         <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
-          <Link 
-            to="/blog" 
-            className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit"
-            title="Voltar aos artigos para descobrir se diabético pode comer beterraba e outros mitos"
-          >
-            <ChevronLeft size={20} /> Voltar para o Blog
-          </Link>
+        {/* BOTÃO INTELIGENTE */}
+        <button 
+          onClick={() => {
+            if (state?.fromBlog) {
+              navigate(-1); // Se veio do blog, volta para a página/filtro exato
+            } else {
+              navigate('/blog'); // Se veio do Google, vai para a página 1 do blog
+            }
+          }}
+          className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit appearance-none bg-transparent border-none cursor-pointer p-0"
+        >
+          <ChevronLeft size={20} /> Voltar para o Blog
+        </button>
 
           <article className="prose prose-lg max-w-none text-left">
 
@@ -86,7 +90,7 @@ export default function DiabeticoPodeComerBeterraba() {
                   <Headphones className="text-green-700 w-6 h-6" />
                   <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
                 </div>
-                <audio controls className="w-full h-10 outline-none" title="Áudio explicando se diabético pode comer beterraba">
+                  <audio preload="none" controls className="w-full h-10 outline-none" title="Áudio explicando o que é dieta cetogênica">
                   <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/BeterrabaDiabetes.mp3" type="audio/mpeg" />
                   Seu navegador não suporta o elemento de áudio.
                 </audio>
@@ -160,8 +164,12 @@ export default function DiabeticoPodeComerBeterraba() {
                   src={`${githubImgBase}Blog/beterraba_diabetes.webp`} 
                   alt="Diabético pode comer beterraba sim! Foto de uma beterraba vermelha ilustrando os benefícios e as fibras contra o diabetes." 
                   title="Diabético pode comer beterraba"
-                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
-                />
+                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
+                  width="896"
+                  height="635"
+                  fetchpriority="high"
+                  onError={(e) => { e.target.onerror = null; e.target.src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=800"; }}
+                   />
                 <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">A beterraba é uma aliada da saúde do diabético quando consumida corretamente.</p></div>
               </div>
 
@@ -249,17 +257,11 @@ export default function DiabeticoPodeComerBeterraba() {
                 <p className="text-slate-600 mb-6 font-medium italic text-left">
                   Ainda ficou com dúvidas sobre como a beterraba pode ter um açúcar "doce" mas não prejudicar sua glicemia? Neste vídeo eu explico detalhadamente a diferença técnica entre esses dois conceitos e por que a Carga Glicêmica é o que realmente importa no seu dia a dia.
                 </p>
-                <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                  <iframe 
-                    src="https://www.youtube.com/embed/bcaJS6tQfL0" 
-                    title="Vídeo explicando por que diabético pode comer beterraba usando a Carga Glicêmica" 
-                    className="absolute top-0 left-0 w-full h-full"
-                    frameBorder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowFullScreen
-                  ></iframe>
-                </div>
+              {/* VÍDEO OTIMIZADO */}
+              <div className="my-10 aspect-video bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-xl border-4 border-slate-200">
+                  <YouTubeLazy videoId="bcaJS6tQfL0" title="Diabético pode comer beterraba" />
               </div>
+            </div>
               {/* FIM DA SESSÃO DO VÍDEO */}
 
               <h2 id="beneficios-clinicos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
@@ -327,6 +329,9 @@ export default function DiabeticoPodeComerBeterraba() {
                               alt="O Pinguim garante que diabético pode comer beterraba com segurança" 
                               title="Diabético pode comer beterraba sim!"
                               className="w-full h-full object-contain" 
+                              width="160"
+                              height="160"
+                              loading="lazy"
                           />
                       </div>
 
@@ -342,6 +347,9 @@ export default function DiabeticoPodeComerBeterraba() {
                                   alt="Ralador ideal para preparar a salada, provando que diabético pode comer beterraba facilmente." 
                                   title="Ralador de Beterraba"
                                   className="w-full h-auto object-contain" 
+                                  width="180"
+                                  height="240"
+                                  loading="lazy"
                               />
                           </div>
 
@@ -406,6 +414,9 @@ export default function DiabeticoPodeComerBeterraba() {
                 alt="Marco Aurélio Jr. que desvenda o mito se o diabético pode comer beterraba" 
                 title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador ISAK 1"
                 className="w-full h-full object-cover"
+                width="96"
+                height="96"
+                loading="lazy"
               />
             </div>
 
