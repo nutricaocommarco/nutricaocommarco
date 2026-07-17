@@ -197,7 +197,7 @@ export default function Bioimpedancia() {
             {/* FIM DO BLOCO CITÁVEL */}
 
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img src={`${githubImgBase}Blog/Bia1.jpg`} alt="Balança de Bioimpedância" title="Confiabilidade da Bioimpedância" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+              <img src={`${githubImgBase}Blog/Bia1.webp`} alt="Balança de Bioimpedância" title="Confiabilidade da Bioimpedância" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
               <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">A bioimpedância estima o corpo através da água e não mede a gordura diretamente.</p></div>
             </div>
 

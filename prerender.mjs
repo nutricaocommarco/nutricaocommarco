@@ -282,7 +282,7 @@ const postsBlog = [
   { 
     id: 1, 
     link: "/a_balanca_de_bioimpedancia_e_confiavel", 
-    img: `${githubImgBase}Blog/Bia1.jpg`, 
+    img: `${githubImgBase}Blog/Bia1.webp`, 
     titulo: "Balança de Bioimpedância é Confiável? O Que Não Te Contaram", 
     desc: "A sua balança cara pode estar mentindo para você. Descubra como a hidratação, bexiga cheia e até o estresse mascaram os resultados da sua bioimpedância.", 
     data: "2026-03-11" 
