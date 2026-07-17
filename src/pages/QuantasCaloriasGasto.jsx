@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   ChevronLeft, HelpCircle, Activity, Leaf, Shield, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
@@ -9,6 +8,7 @@ import {
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
+import YouTubeLazy from '../components/YouTubeLazy';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -38,7 +38,8 @@ const tabelaMets = [
 ];
 
 export default function QuantasCaloriasGastoComponent() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
+  const navigate = useNavigate();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
@@ -71,16 +72,16 @@ export default function QuantasCaloriasGastoComponent() {
 
   return (
     <>
-    <Helmet>
-
-      </Helmet>
-
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
+        {/* BOTÃO INTELIGENTE */}
+        <button 
+          onClick={() => state?.fromBlog ? navigate(-1) : navigate('/blog')}
+          className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit bg-transparent border-none cursor-pointer p-0"
+        >
           <ChevronLeft size={20} /> Voltar para o Blog
-        </Link>
+        </button>
 
         <article className="prose prose-lg max-w-none text-left">
 
@@ -113,12 +114,13 @@ export default function QuantasCaloriasGastoComponent() {
           </div>
 
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+            {/* ÁUDIO COM PRELOAD NONE */}
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
                 <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
-              <audio controls className="w-full h-10 outline-none">
+              <audio preload="none" controls className="w-full h-10 outline-none">
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/GastoCalorico.mp3" type="audio/mpeg" />
                 O seu navegador não suporta o áudio.
               </audio>
@@ -161,14 +163,16 @@ export default function QuantasCaloriasGastoComponent() {
               Você já se pegou olhando para o espelho ou para a balança e se perguntando quantas calorias gasto por dia de verdade? Essa é, sem dúvida, a pergunta número um de quem começa um processo sério de emagrecimento ou de ganho de massa muscular. A grande verdade é que tentar adivinhar o seu gasto energético ou seguir dietas genéricas de gaveta é o caminho mais rápido para a frustração e para o temido <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 font-semibold hover:underline">efeito sanfona</Link>. Para que você tenha resultados estéticos reais, visíveis e sustentáveis, é absolutamente inegociável entender como funciona o gasto calórico do seu próprio corpo, que é único e responde de maneira diferente dependendo da sua composição corporal e da sua rotina diária.
             </p>
 
-            {/* IMAGEM SOLICITADA ACIMA DE TMB COM FIGURE E BADGE CORRETO */}
+            {/* IMAGEM ESTRATÉGICA COM LAZY */}
             <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
-         
               <img 
                 src={`${githubImgBase}Blog/QuantasCaloriasGasto.webp`} 
                 alt="Mascote Pingus mostrando o contraste de gasto calórico entre assistir TV no sofá e correr intensamente no parque." 
                 title="Entenda seu Gasto Energético Total (TDEE) com o Pingus"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
+                width="800"
+                height="500"
+                loading="lazy"
                 onError={(e) => {
                   e.target.onerror = null; 
                   e.target.src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?auto=format&fit=crop&q=80&w=800";
@@ -270,59 +274,6 @@ export default function QuantasCaloriasGastoComponent() {
               O método mais confiável, constante e palpável. A <Link to="/o_que_e_antropometria" className="text-green-700 font-semibold hover:underline">avaliação por dobras cutâneas</Link>, especialmente quando realizada seguindo os rigorosos padrões internacionais da certificação ISAK Nível 1, entrega uma precisão cirúrgica sobre a sua composição corporal. Através do uso de um adipômetro, o avaliador mede os milímetros exatos de gordura subcutânea em pontos estratégicos do corpo. Esse método não sofre interferência da hidratação diária, refletindo a verdadeira arquitetura do seu físico.
             </p>
 
-            {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA */}
-            <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
-                <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
-                    <Zap size={14} className="fill-white" />
-                    <span>O Pingus Aprova!</span>
-                </div>
-
-                <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
-                    <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-                        <img 
-                            src={`${githubImgBase}logoN_pingus.webp`} 
-                            alt="Selo de Qualidade Pingus" 
-                            className="w-full h-full object-contain" 
-                        />
-                    </div>
-
-                    <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-                        <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                            Balança de Bioimpedância <span className="text-green-700">8 Eletrodos</span>
-                        </h4>
-                        
-                        <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
-                            <img 
-                                src={`${githubImgBase}Afiliado/Bia.webp`} 
-                                alt="Balança de Bioimpedância 8 eletrodos e dupla frequência" 
-                                className="w-full h-auto" 
-                            />
-                        </div>
-
-                        <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                            Para descobrir seu <strong>percentual de gordura corporal</strong> eu indico este modelo de dupla frequência pela sua precisão clínica.
-                        </p>
-
-                        <a 
-                            href="https://meli.la/1aBg9YM" 
-                            rel="sponsored noopener noreferrer" 
-                            target="_blank"
-                            className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-                        >
-                            <ShoppingCart size={16} />
-                            Comprar no Mercado Livre
-                        </a>
-                    </div>
-                </div>
-
-                <div className="mt-12 pt-6 border-t border-green-50 text-center">
-                    <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
-                        Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece o apoio.
-                    </p>
-                </div>
-            </div>
-
-            {/* NOVA SEÇÃO: EFEITO TÉRMICO DOS ALIMENTOS */}
             <h2 id="efeito-termico" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <UtensilsCrossed className="text-green-700"/> O que é o Efeito Térmico dos Alimentos?
             </h2>
@@ -499,6 +450,9 @@ export default function QuantasCaloriasGastoComponent() {
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr." 
               className="w-full h-full object-cover" 
+              width="96"
+              height="96"
+              loading="lazy"
               onError={(e) => {
                 e.target.onerror = null; 
                 e.target.src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>👨‍⚕️</text></svg>";
