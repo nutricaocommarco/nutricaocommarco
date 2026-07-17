@@ -14,21 +14,19 @@
    
     <!-- 3. Ferramentas de análise (Carregamento Adiado para Performance) -->
     <script>
-      // Só executa o Analytics depois que a página já carregou tudo visualmente
       window.addEventListener('load', function() {
         setTimeout(function() {
-          // Cria o DataLayer
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-GJVE8KGD3X');
 
-          // Cria e injeta o script pesado do Google
+          // Cria e injeta o script pesado do Google com a origem correta
           var script = document.createElement('script');
-          script.src = "https://www.googletagmanager.com/gtag/js?id=G-GJVE8KGD3X";
+          script.src = "https://www.googletagmanager.com/gtag/js?id=G-GJVE8KGD3X"; // MANTENHA ESTA LINHA
           script.async = true;
           document.head.appendChild(script);
-        }, 3500); // 3.5 segundos de atraso (Tira o peso da renderização inicial)
+        }, 3500);
       });
     </script> 
     
