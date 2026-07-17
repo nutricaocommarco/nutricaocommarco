@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   ChevronLeft, HelpCircle, Activity, Leaf, Heart, FileText, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, 
@@ -9,6 +8,7 @@ import {
 
 import Newsletter from '../components/Newsletter';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
+import YouTubeLazy from '../components/YouTubeLazy';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -21,7 +21,8 @@ const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 const cicloCircadianoCapa = `${githubImgBase}Blog/CicloCircadiano.webp`;
 
 export default function CicloCircadiano() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
+  const navigate = useNavigate();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
@@ -152,17 +153,17 @@ export default function CicloCircadiano() {
 
   return (
     <>
-      <Helmet>
-
-      </Helmet>
-
     <div className="min-h-screen bg-slate-50 font-sans">
     <section className="py-24 px-4 sm:px-6 container mx-auto max-w-4xl text-left">
       <div className="bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
+        {/* BOTÃO INTELIGENTE */}
+        <button 
+          onClick={() => state?.fromBlog ? navigate(-1) : navigate('/blog')}
+          className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit bg-transparent border-none cursor-pointer p-0"
+        >
           <ChevronLeft size={20} /> Voltar para o Blog
-        </Link>
+        </button>
 
         <article className="prose prose-lg max-w-none text-left">
 
@@ -185,12 +186,13 @@ export default function CicloCircadiano() {
           </div>
 
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+            {/* ÁUDIO */}
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
                 <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
-              <audio controls className="w-full h-10 outline-none">
+              <audio preload="none" controls className="w-full h-10 outline-none">
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Ciclo-Circadiano.mp3" type="audio/mpeg" />
                 Seu navegador não suporta o áudio.
               </audio>
@@ -240,12 +242,15 @@ export default function CicloCircadiano() {
               Se tem o costume de pular o café da manhã e compensar tudo num jantar pesado à noite, o seu corpo provavelmente está a lutar contra a própria natureza. Até o Pingus, o nosso mascote aqui do Nutrição com Marco, já aprendeu que não adianta comer peixe na hora errada e esperar ter energia para nadar o dia todo. Vamos entender como alinhar a sua alimentação ao seu ritmo natural para destravar os seus resultados.
             </p>
 
-            {/* IMAGEM DE CAPA */}
+            {/* IMAGEM ESTRATÉGICA COM LAZY */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
               <img 
                 src={cicloCircadianoCapa} 
                 alt="Café da manhã saudável ao lado de um relógio analógico sob luz matinal, ilustrando o ciclo circadiano." 
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+                width="800"
+                height="500"
+                loading="lazy" 
                 onError={(e) => { e.target.src = "https://via.placeholder.com/800x450?text=Ciclo+Circadiano"; }}
               />
               <div className="bg-green-50 p-4 text-center">
@@ -339,7 +344,7 @@ export default function CicloCircadiano() {
               ))}
             </div>
 
-              {/* VÍDEO DO YOUTUBE */}
+            {/* VÍDEO DO YOUTUBE OTIMIZADO COM YOUTUBELAZY */}
             <div className="my-16 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
@@ -348,14 +353,7 @@ export default function CicloCircadiano() {
                 <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">O que comer no café da manhã para emagrecer?</h3>
               </div>
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                <iframe 
-                  src="https://www.youtube.com/embed/VPi_MkTHEUo" 
-                  title="5 Melhores Alimentos Para o Café da Manhã" 
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                ></iframe>
+                <YouTubeLazy videoId="VPi_MkTHEUo" title="5 Melhores Alimentos Para o Café da Manhã" />
               </div>
             </div>
 
@@ -395,89 +393,6 @@ export default function CicloCircadiano() {
                   </div>
                 </div>
               ))}
-            </div>
-
-            {/* AFILIADO MERCADO LIVRE (MÁSCARA DE DORMIR) */}
-            <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
-                <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
-                    <Zap size={14} className="fill-white" />
-                    <span>O Pingus Aprova!</span>
-                </div>
-
-                <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
-                    <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-                        <img 
-                            src={`${githubImgBase}logoN_pingus.webp`} 
-                            alt="Selo de Qualidade Pingus" 
-                            className="w-full h-full object-contain" 
-                        />
-                    </div>
-
-                    <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-                        <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                            Máscara de Dormir <span className="text-green-700">Premium 3D Blackout</span>
-                        </h4>
-
-                        <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
-                            <img 
-                              src={`${githubImgBase}Afiliado/MascaraDormir.webp`} 
-                              alt="Máscara de Dormir Premium 3D Blackout" 
-                              className="w-full h-auto object-cover" 
-                            />
-                        </div>
-
-                        <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                            Para produzir melatonina naturalmente e dormir rápido, o seu cérebro precisa de <strong>escuridão total</strong>. Como nem sempre conseguimos bloquear toda a luz da rua ou dos pequenos LEDs no quarto, usar uma boa máscara de dormir é um investimento barato e 100% seguro (sem contraindicações) para blindar a qualidade do seu sono profundo.
-                        </p>
-
-                        <a 
-                            href="https://meli.la/1Jn51p4" 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-                        >
-                            <ShoppingCart size={16} />
-                            Comprar no Mercado Livre
-                        </a>
-                    </div>
-                </div>
-
-                <div className="mt-12 pt-6 border-t border-green-50 text-center">
-                    <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
-                        Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso!
-                    </p>
-                </div>
-            </div>
-
-            {/* DESTAQUE E-BOOK */}
-            <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl overflow-hidden flex flex-col md:flex-row items-center gap-8 p-8 md:p-10 group">
-              <div className="w-full md:w-1/3 shrink-0 rounded-2xl overflow-hidden shadow-lg border border-slate-100">
-                <img 
-                  src={`${githubImgBase}capa_fome.jpg`} 
-                  alt="Capa do E-book Entendendo a Fome" 
-                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-                <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest w-fit mx-auto md:mx-0 mb-4">
-                  Material de Apoio
-                </span>
-                <h3 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic leading-tight mb-3">
-                  E-book: Entendendo a Fome
-                </h3>
-                <p className="text-slate-600 font-medium leading-relaxed mb-8">
-                  Dormiu mal e acordou com vontade de comer tudo pela frente? Baixe o meu e-book exclusivo e aprenda a diferenciar a fome física da <Link to="/o-que-e-fome-emocional" className="text-green-700 font-semibold hover:underline">fome emocional</Link>, dominando os seus sinais de saciedade.
-                </p>
-                <a 
-                  href="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Fome_Ebook.pdf" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-green-700 text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-                >
-                  <FileText size={18} />
-                  Baixar E-book Agora
-                </a>
-              </div>
             </div>
 
             {/* RESUMO / CONCLUSÃO */}
@@ -527,12 +442,19 @@ export default function CicloCircadiano() {
           </div>
         </article>
 
-        <ArtigosRecomendados />
+        <ArtigosRecomendados currentPath={pathname} />
 
         {/* AUTOR */}
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
-            <img src={`${githubImgBase}Eu_1.webp`} alt="Marco Aurélio Jr." className="w-full h-full object-cover" />
+            <img 
+              src={`${githubImgBase}Eu_1.webp`} 
+              alt="Marco Aurélio Jr." 
+              className="w-full h-full object-cover" 
+              width="96" 
+              height="96" 
+              loading="lazy" 
+            />
           </div>
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
