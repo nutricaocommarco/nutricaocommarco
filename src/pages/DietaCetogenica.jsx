@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import YouTubeLazy from '../components/YouTubeLazy';
 import { 
   ChevronLeft, HelpCircle, Activity, Clock, Shield, 
   Zap, ChevronRight, Headphones, ChevronDown, ShoppingCart, 
@@ -19,9 +19,10 @@ const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 const artigoCapa = `${githubImgBase}Blog/DietaCetogenica_Capa.webp`; 
 
 export default function DietaCetogenica() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -51,16 +52,23 @@ export default function DietaCetogenica() {
 
   return (
     <>
-<Helmet>
- 
-      </Helmet>
-
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit" title="Voltar ao Blog para ler mais sobre o que é dieta cetogênica">
+        {/* BOTÃO INTELIGENTE */}
+        <button 
+          onClick={() => {
+            if (state?.fromBlog) {
+              navigate(-1); // Se veio do blog, volta para a página/filtro exato
+            } else {
+              navigate('/blog'); // Se veio do Google, vai para a página 1 do blog
+            }
+          }}
+          className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit appearance-none bg-transparent border-none cursor-pointer p-0"
+        >
           <ChevronLeft size={20} /> Voltar para o Blog
-        </Link>
+        </button>
+
 
         <article className="prose prose-lg max-w-none text-left">
 
@@ -92,7 +100,7 @@ export default function DietaCetogenica() {
                 <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
-              <audio controls className="w-full h-10 outline-none">
+                <audio preload="none" controls className="w-full h-10 outline-none" title="Áudio explicando o que é dieta cetogênica">
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/dieta-cetogenica.mp3" type="audio/mpeg" />
                 O seu navegador não suporta o áudio.
               </audio>
@@ -146,6 +154,10 @@ export default function DietaCetogenica() {
               alt="Aprenda o que é dieta cetogênica, entenda os alimentos e as frutas permitidas no cardápio estruturado de acordo com a ciência." 
               title="O que é Dieta Cetogênica"
               className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
+              width="896"
+              height="635"
+              fetchpriority="high"
+              onError={(e) => { e.target.onerror = null; e.target.src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=800"; }}
             />
             <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
               <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
@@ -292,10 +304,13 @@ export default function DietaCetogenica() {
 
             <figure className="my-8 rounded-3xl overflow-hidden shadow-md border border-slate-200">
               <img 
-                src={`${githubImgBase}Blog/Ceto_dif_Pratos.jpg`} 
+                src={`${githubImgBase}Blog/Ceto_dif_Pratos.webp`} 
                 alt="Comparação entre uma Dieta Cetogênica ruim e uma Cetogênica limpa." 
                 title="Prato limpo no que é Dieta Cetogênica"
                 className="w-full h-auto object-cover" 
+                width="800"
+                height="450"
+                loading="lazy"
               />
               <figcaption className="bg-slate-50 p-4 text-center border-t border-slate-200">
                 <p className="text-sm text-slate-600 font-medium italic m-0">
@@ -353,25 +368,17 @@ export default function DietaCetogenica() {
               Assista abaixo a uma excelente opção de cardápio prático para a Dieta Cetogênica, demonstrando o que é dieta cetogênica ao montar suas refeições no dia a dia para manter os carboidratos baixos, e reforçando que para perder peso de forma contínua, o balanço calórico do final do dia ainda será fundamental:
             </p>
             
+            {/* VÍDEO DO YOUTUBE UTILIZANDO YOUTUBELAZY */}
             <div className="my-10 p-6 md:p-8 bg-slate-900 rounded-[2.5rem] shadow-2xl flex flex-col md:flex-row items-center gap-8 border border-slate-800">
                 <div className="w-full md:w-1/2 aspect-video rounded-2xl overflow-hidden shadow-xl shrink-0 bg-black border-4 border-slate-700 relative">
-                    <iframe
-                        width="100%"
-                        height="100%"
-                        src="https://www.youtube.com/embed/M46tzfRCX1w"
-                        title="O que é Dieta Cetogênica na prática: Cardápio Keto"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                        className="absolute top-0 left-0 w-full h-full"
-                    ></iframe>
+                    <YouTubeLazy videoId="M46tzfRCX1w" title="O que é Dieta Cetogênica na prática: Cardápio Keto" />
                 </div>
                 <div className="flex-1 text-center md:text-left">
                     <h3 className="text-2xl font-black text-white italic uppercase mb-4 flex items-center justify-center md:justify-start gap-2">
                         <PlayCircle className="text-green-500" /> Montando o Prato
                     </h3>
                     <p className="text-slate-300 font-medium leading-relaxed mb-6">
-                      Aprenda na prática as substituições ideais para manter a saciedade lá no alto entendendo o que é dieta cetogênica de verdade. Lembrando que, embora a perda de peso inicial na cetogênica seja rápida (pela eliminação de água ligada ao glicogênio), a perda de gordura a longo prazo sempre dependerá de você estar <Link to="/quantas-calorias-gasto-por-dia" className="text-green-400 font-bold hover:underline">gastando mais energia do que ingere</Link>.
+                      Aprenda na prática as substituições ideais para manter a saciedade lá no alto entendendo o que é dieta cetogênica de verdade. Lembrando que, embora a perda de peso inicial na cetogênica seja rápida (pela eliminação de água ligada ao glicogênio), a perda de gordura a longo prazo sempre dependerá de você estar <Link to="/quantas-calorias-gasto-por-dia" className="text-green-400 font-bold underline decoration-green-700/30 underline-offset-4">gastando mais energia do que ingere</Link>.
                     </p>
                 </div>
             </div>
@@ -431,6 +438,9 @@ export default function DietaCetogenica() {
                             alt="O Pingus aprova a medição de cetonas para entender o que é dieta cetogênica" 
                             title="Medição de Cetose"
                             className="w-full h-full object-contain" 
+                            width="160"
+                            height="160"
+                            loading="lazy"
                         />
                     </div>
 
@@ -444,6 +454,9 @@ export default function DietaCetogenica() {
                               src={`${githubImgBase}Afiliado/FreeStyleNeo.webp`} 
                               alt="Monitor FreeStyle Optium Neo para Medição de Corpos Cetônicos ao entender o que é dieta cetogênica" 
                               className="w-full h-full object-cover" 
+                              width="180"
+                              height="240"
+                              loading="lazy"
                               onError={(e) => {
                                 e.target.onerror = null; 
                                 e.target.src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&q=80&w=400";
@@ -524,6 +537,9 @@ export default function DietaCetogenica() {
               alt="Marco Aurélio Jr. que desvenda o que é dieta cetogênica com base científica" 
               title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador ISAK 1"
               className="w-full h-full object-cover" 
+              width="96"
+              height="96"
+              loading="lazy"
               onError={(e) => {
                 e.target.onerror = null; 
                 e.target.src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>👨‍⚕️</text></svg>";
