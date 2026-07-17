@@ -29,7 +29,7 @@ export default function YouTubeLazy({ videoId, title }) {
             loading="lazy"
           />
           {/* Ícone de Play para indicar que é um vídeo */}
-          <PlayCircle size={64} className="text-white absolute drop-shadow-lg group-hover:scale-110 transition-transform" />
+          <PlayCircle size={64} className="text-red-600 absolute drop-shadow-lg group-hover:scale-110 transition-transform" />
         </div>
       )}
     </div>
