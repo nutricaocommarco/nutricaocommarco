@@ -81,12 +81,12 @@ export default function EfeitoSanfona() {
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
         {/* Botão de Voltar */}
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
           <ChevronLeft size={20} /> Voltar para o Blog
         </Link>
 
         <article className="prose prose-lg max-w-none text-left">
-          <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Fisiologia e Metabolismo</span>
+          <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Fisiologia e Metabolismo</span>
 
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
             Efeito Sanfona e a Inflamação Invisível: Por que o reganho de peso é tão perigoso?
@@ -109,7 +109,7 @@ export default function EfeitoSanfona() {
             {/* 1. SEÇÃO DO ÁUDIO */}
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
-                <Headphones className="text-green-600 w-6 h-6" />
+                <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
               <audio controls className="w-full h-10 outline-none">
@@ -128,7 +128,7 @@ export default function EfeitoSanfona() {
                 className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
                     <Activity size={18} />
                   </div>
                   <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
@@ -137,7 +137,7 @@ export default function EfeitoSanfona() {
                 </div>
                 <ChevronRight 
                   size={20} 
-                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} 
                 />
               </button>
 
@@ -145,25 +145,25 @@ export default function EfeitoSanfona() {
               <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                 <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
                   <li>
-                    <a href="#gordura-orgao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#gordura-orgao" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Flame size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       A Gordura como Órgão
                     </a>
                   </li>
                   <li>
-                    <a href="#quando-peso-volta" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#quando-peso-volta" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <TrendingDown size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Quando o Peso Volta
                     </a>
                   </li>
                   <li>
-                    <a href="#constancia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#constancia" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       O Segredo da Constância
                     </a>
                   </li>
                   <li>
-                    <a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Perguntas Frequentes (FAQ)
                     </a>
@@ -194,14 +194,14 @@ export default function EfeitoSanfona() {
             <p>Muitas vezes, olhamos para a gordura apenas como um estoque de energia, mas ela funciona como um verdadeiro órgão endócrino. Em um estado de saúde, esse tecido é flexível, mas o excesso crônico de nutrientes desencadeia uma inflamação silenciosa de baixo grau.</p>
 
             {/* QUADRO DE DESTAQUE COM LINK CORRIGIDO */}
-            <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
+            <div className="bg-green-700 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
               "A obesidade causa uma reprogramação profunda nas células (epigenética) que não se resolve completamente apenas com a dieta."
             </div>
 
             {/* BLOCO CITÁVEL (OTIMIZADO PARA IA E SEO) */}
             <div className="my-8 p-6 md:p-8 bg-white border-l-4 border-green-600 shadow-md rounded-r-3xl flex flex-col gap-3 text-left">
               <h3 className="text-xl font-black text-slate-800 m-0 border-b border-slate-100 pb-3 flex items-center gap-2">
-                <span className="text-green-600 text-2xl leading-none">👉</span> O que é a inflamação de baixo grau?
+                <span className="text-green-700 text-2xl leading-none">👉</span> O que é a inflamação de baixo grau?
               </h3>
               <p className="m-0 text-slate-600 font-medium leading-relaxed">
                 A inflamação de baixo grau é uma resposta crônica e silenciosa do sistema imunológico. Na obesidade e no efeito sanfona, ela ocorre quando as células de gordura crescem excessivamente e começam a liberar citocinas pró-inflamatórias, prejudicando o metabolismo de todo o corpo.
@@ -209,7 +209,7 @@ export default function EfeitoSanfona() {
             </div>
             {/* FIM DO BLOCO CITÁVEL */}
 
-            <p>Estudos recentes de 2025 mostram que a formação de tecidos mais rígidos, conhecidos como fibrose, faz com que o sistema de defesa do tecido continue em um estado de alerta disfuncional. Essa memória persistente explica por que qualquer descuido que leve ao reganho de peso pode reacender a inflamação com uma rapidez e gravidade surpreendentes. É aqui que entra a importância de uma <Link to="/o_que_e_antropometria" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">avaliação física detalhada</Link> para identificar se o que você está ganhando é realmente tecido inflamado ou massa magra.</p>
+            <p>Estudos recentes de 2025 mostram que a formação de tecidos mais rígidos, conhecidos como fibrose, faz com que o sistema de defesa do tecido continue em um estado de alerta disfuncional. Essa memória persistente explica por que qualquer descuido que leve ao reganho de peso pode reacender a inflamação com uma rapidez e gravidade surpreendentes. É aqui que entra a importância de uma <Link to="/o_que_e_antropometria" className="text-green-700 underline hover:text-green-700 font-bold transition-colors">avaliação física detalhada</Link> para identificar se o que você está ganhando é realmente tecido inflamado ou massa magra.</p>
 
             <h2 id="quando-peso-volta" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">O que acontece quando o peso volta?</h2>
             <p>O grande perigo do efeito sanfona está no que acontece quando recuperamos o peso perdido. De acordo com pesquisas, o reganho de peso costuma ser muito mais agressivo para o corpo do que o ganho inicial. Quando você volta a engordar, as suas células de gordura crescem rápido demais (hipertrofia), gerando falta de oxigênio no tecido e reativando a inflamação de forma ainda mais forte. Esse estresse celular pode ser mais prejudicial ao coração do que manter um peso estável, mesmo que um pouco acima do ideal.</p>
@@ -219,7 +219,7 @@ export default function EfeitoSanfona() {
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                 O que acontece com o corpo no efeito sanfona?
               </h2>
-              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-700">
                 <li className="text-slate-700 font-bold text-lg pl-1">
                   Crescimento rápido e inflamatório das células de gordura
                 </li>
@@ -239,7 +239,7 @@ export default function EfeitoSanfona() {
             {/* VÍDEO COMPLEMENTAR INTEGRADO */}
             <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
+                <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
                   <PlayCircle size={24} />
                 </div>
                 <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight text-left">Como quebrar o ciclo do efeito sanfona?</h3>
@@ -262,7 +262,7 @@ export default function EfeitoSanfona() {
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                 Como quebrar o efeito sanfona definitivamente
               </h2>
-              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-700">
                 <li className="text-slate-700 font-bold text-lg pl-1">
                   Evitar restrições calóricas extremas e não sustentáveis
                 </li>
@@ -280,11 +280,11 @@ export default function EfeitoSanfona() {
             {/* FIM DA SEGUNDA LISTA OBJETIVA */}
 
             <h2 id="constancia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">O segredo está na constância, não na pressa</h2>
-            <p>A mensagem principal aqui é que o nosso tecido adiposo é dinâmico. Para quebrar esse ciclo de inflamação e proteger o seu metabolismo, o foco não deve ser em dietas milagrosas que prometem perdas rápidas, mas sim em estratégias sustentáveis. Evitar essas flutuações bruscas na balança (que muitas vezes são apenas variações de água, como vemos nos problemas de <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">confiabilidade da bioimpedância</Link>) é a melhor forma de garantir que o seu corpo realmente recupere a saúde.</p>
+            <p>A mensagem principal aqui é que o nosso tecido adiposo é dinâmico. Para quebrar esse ciclo de inflamação e proteger o seu metabolismo, o foco não deve ser em dietas milagrosas que prometem perdas rápidas, mas sim em estratégias sustentáveis. Evitar essas flutuações bruscas na balança (que muitas vezes são apenas variações de água, como vemos nos problemas de <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-700 underline hover:text-green-700 font-bold transition-colors">confiabilidade da bioimpedância</Link>) é a melhor forma de garantir que o seu corpo realmente recupere a saúde.</p>
 
             {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
-              <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
+              <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-700" /> Perguntas Frequentes (FAQ)</h2>
               <div className="space-y-6">
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
                   <h3 className="text-lg font-black text-slate-800 mb-2 italic">O efeito sanfona estraga o metabolismo para sempre?</h3>
@@ -312,7 +312,7 @@ export default function EfeitoSanfona() {
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
 
           {/* Foto do Autor no lugar do 'M' */}
-          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
             <img 
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr. - Nutricionista e Autor do Artigo." 
@@ -323,11 +323,11 @@ export default function EfeitoSanfona() {
 
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
-            <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
+            <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
               Apaixonado pela ciência metabólica, Marco dedica seus estudos a compreender a fisiologia humana de forma aprofundada. Especialista em composição corporal com certificação internacional, ele foca em traduzir o rigor dos artigos científicos para a prática do dia a dia. Seu objetivo é ajudar você a entender como o próprio corpo funciona através da educação nutricional baseada em evidências reais.
             </p>
-            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
               Siga @Nutricao_com_Marco
             </a>
           </div>

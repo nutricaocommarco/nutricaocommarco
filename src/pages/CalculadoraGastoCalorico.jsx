@@ -249,10 +249,10 @@ export default function CalculadoraGastoCalorico() {
         <div className="bg-white p-6 sm:p-10 md:p-16 rounded-[2rem] md:rounded-[4rem] shadow-2xl border border-slate-100 flex flex-col gap-8 md:gap-12">
 
           <article className="prose prose-base md:prose-lg max-w-none text-left w-full">
-            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 md:mb-6">Nutrição • Metabolismo • Alta Precisão</span>
+            <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 md:mb-6">Nutrição • Metabolismo • Alta Precisão</span>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 md:mb-10 uppercase italic leading-tight text-slate-900">
-              A Importância de Usar uma Calculadora de <span className="text-green-600">Gasto Calórico</span>
+              A Importância de Usar uma Calculadora de <span className="text-green-700">Gasto Calórico</span>
             </h1>
 
             <div className="space-y-4 md:space-y-6 text-base md:text-lg text-slate-600 font-medium leading-relaxed">
@@ -278,7 +278,7 @@ export default function CalculadoraGastoCalorico() {
 
           <div className="bg-slate-50 rounded-[2rem] md:rounded-[3.5rem] p-5 sm:p-8 md:p-12 border border-slate-200 shadow-inner mt-2 md:mt-4">
             <h2 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mb-8 md:mb-10 border-b border-green-200 pb-4 flex items-center gap-3">
-              <Calculator className="text-green-600 w-6 h-6 md:w-8 md:h-8 flex-shrink-0"/> Ferramenta de Cálculo
+              <Calculator className="text-green-700 w-6 h-6 md:w-8 md:h-8 flex-shrink-0"/> Ferramenta de Cálculo
             </h2>
 
             <form onSubmit={handleCalculate} className="space-y-10 md:space-y-12">
@@ -286,7 +286,7 @@ export default function CalculadoraGastoCalorico() {
               {/* ETAPA 1: SOBRE VOCÊ */}
               <section>
                 <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
-                  <User className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 1. Sobre Você
+                  <User className="text-green-700 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 1. Sobre Você
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                   <div>
@@ -320,7 +320,7 @@ export default function CalculadoraGastoCalorico() {
               {/* ETAPA 2: PERFIL FÍSICO */}
               <section>
                 <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
-                  <Activity className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 2. Seu Perfil Físico
+                  <Activity className="text-green-700 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 2. Seu Perfil Físico
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                   {[
@@ -340,16 +340,16 @@ export default function CalculadoraGastoCalorico() {
               {/* ETAPA 3: FATOR DE ATIVIDADE */}
               <section>
                 <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
-                  <HeartPulse className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 3. Rotina e Movimento (Nível de Atividade)
+                  <HeartPulse className="text-green-700 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 3. Rotina e Movimento (Nível de Atividade)
                 </h3>
                 
                 <div className="bg-white p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-slate-100 shadow-sm">
                   
                   <div className="flex flex-wrap gap-2 md:gap-4 mb-8 border-b border-slate-100 pb-6">
-                    <button type="button" onClick={() => setFormData({...formData, activityCalcMethod: 'auto'})} className={`px-4 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all flex items-center gap-2 ${formData.activityCalcMethod === 'auto' ? 'bg-green-600 text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
+                    <button type="button" onClick={() => setFormData({...formData, activityCalcMethod: 'auto'})} className={`px-4 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all flex items-center gap-2 ${formData.activityCalcMethod === 'auto' ? 'bg-green-700 text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
                       <Zap className="w-4 h-4"/> Automático
                     </button>
-                    <button type="button" onClick={() => setFormData({...formData, activityCalcMethod: 'manual'})} className={`px-4 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all flex items-center gap-2 ${formData.activityCalcMethod === 'manual' ? 'bg-green-600 text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
+                    <button type="button" onClick={() => setFormData({...formData, activityCalcMethod: 'manual'})} className={`px-4 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all flex items-center gap-2 ${formData.activityCalcMethod === 'manual' ? 'bg-green-700 text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
                       <Settings className="w-4 h-4"/> Inserir Manual
                     </button>
                     <button type="button" onClick={() => setFormData({...formData, activityCalcMethod: 'mets'})} className={`px-4 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all flex items-center gap-2 ${formData.activityCalcMethod === 'mets' ? 'bg-slate-900 text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
@@ -462,23 +462,23 @@ export default function CalculadoraGastoCalorico() {
               {/* ETAPA 4: SELEÇÃO DA FÓRMULA */}
               <section className="bg-white p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-slate-100 shadow-sm">
                 <h3 className="text-lg md:text-xl font-black text-slate-800 uppercase italic mb-5 md:mb-6 flex items-center gap-2">
-                  <CheckCircle2 className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 4. Seleção da Equação Basal
+                  <CheckCircle2 className="text-green-700 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> 4. Seleção da Equação Basal
                 </h3>
                 
                 <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 mb-6 md:mb-8">
                   <label className="flex items-center gap-3 cursor-pointer">
-                    <input type="radio" name="calculationMode" value="auto" checked={formData.calculationMode === 'auto'} onChange={handleInputChange} className="w-5 h-5 text-green-600 focus:ring-green-500 accent-green-600 flex-shrink-0" />
+                    <input type="radio" name="calculationMode" value="auto" checked={formData.calculationMode === 'auto'} onChange={handleInputChange} className="w-5 h-5 text-green-700 focus:ring-green-500 accent-green-600 flex-shrink-0" />
                     <span className="font-bold text-slate-800">Modo Automático</span>
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer">
-                    <input type="radio" name="calculationMode" value="manual" checked={formData.calculationMode === 'manual'} onChange={handleInputChange} className="w-5 h-5 text-green-600 focus:ring-green-500 accent-green-600 flex-shrink-0" />
+                    <input type="radio" name="calculationMode" value="manual" checked={formData.calculationMode === 'manual'} onChange={handleInputChange} className="w-5 h-5 text-green-700 focus:ring-green-500 accent-green-600 flex-shrink-0" />
                     <span className="font-bold text-slate-800">Escolher Manualmente</span>
                   </label>
                 </div>
 
                 {formData.calculationMode === 'auto' ? (
                   <div className="bg-green-50 text-green-900 p-5 md:p-6 rounded-2xl border border-green-200 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 md:gap-4">
-                    <CheckCircle2 className="w-6 h-6 flex-shrink-0 sm:mt-1 text-green-600" />
+                    <CheckCircle2 className="w-6 h-6 flex-shrink-0 sm:mt-1 text-green-700" />
                     <p className="text-sm md:text-base font-medium leading-relaxed">
                       <strong>Inteligência Artifical Ativada.</strong> O sistema analisa a relação do seu % de Gordura com o seu Perfil Físico, filtrando incongruências, para selecionar a equação metabólica mais confiável para o seu biotipo real.
                     </p>
@@ -494,7 +494,7 @@ export default function CalculadoraGastoCalorico() {
                       ].map(formula => (
                         <label key={formula.id} className={`p-4 md:p-6 border-2 rounded-xl md:rounded-2xl cursor-pointer flex flex-col gap-2 transition-all ${formData.manualFormula === formula.id ? 'border-green-600 bg-green-50 shadow-md' : 'border-slate-200 bg-slate-50 hover:border-green-300'}`}>
                           <div className="flex items-center gap-3">
-                            <input type="radio" name="manualFormula" value={formula.id} checked={formData.manualFormula === formula.id} onChange={handleInputChange} className="w-5 h-5 text-green-600 focus:ring-green-500 accent-green-600 flex-shrink-0" />
+                            <input type="radio" name="manualFormula" value={formula.id} checked={formData.manualFormula === formula.id} onChange={handleInputChange} className="w-5 h-5 text-green-700 focus:ring-green-500 accent-green-600 flex-shrink-0" />
                             <span className="font-black text-slate-900 text-base md:text-lg uppercase italic">{formula.name}</span>
                           </div>
                           <p className="text-xs md:text-sm text-slate-600 pl-8 font-medium leading-relaxed">{formula.desc}</p>
@@ -505,7 +505,7 @@ export default function CalculadoraGastoCalorico() {
                 )}
               </section>
 
-              <button type="submit" className="w-full bg-slate-900 hover:bg-green-600 text-white font-black py-5 md:py-6 px-6 md:px-8 rounded-[1.5rem] md:rounded-full shadow-xl transform transition-all hover:-translate-y-1 hover:shadow-2xl text-lg md:text-xl uppercase tracking-widest flex justify-center items-center gap-2 md:gap-3">
+              <button type="submit" className="w-full bg-slate-900 hover:bg-green-700 text-white font-black py-5 md:py-6 px-6 md:px-8 rounded-[1.5rem] md:rounded-full shadow-xl transform transition-all hover:-translate-y-1 hover:shadow-2xl text-lg md:text-xl uppercase tracking-widest flex justify-center items-center gap-2 md:gap-3">
                 Calcular <span className="hidden sm:inline">Meu Gasto Calórico</span>
               </button>
             </form>
@@ -532,7 +532,7 @@ export default function CalculadoraGastoCalorico() {
                     <span className="absolute -top-3 md:-top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-[10px] md:text-xs font-black px-4 md:px-6 py-1.5 md:py-2 rounded-full tracking-widest uppercase shadow-lg whitespace-nowrap">Meta Principal</span>
                     <h3 className="text-green-300 font-bold mb-3 md:mb-4 uppercase tracking-widest text-[10px] md:text-xs mt-3 md:mt-4">Gasto Energético Total (GET)</h3>
                     <div className="text-5xl md:text-6xl font-black text-green-400 mb-2">{results.tdee}</div>
-                    <span className="text-base md:text-lg text-green-600 font-medium mb-4 md:mb-6">kcal / dia</span>
+                    <span className="text-base md:text-lg text-green-700 font-medium mb-4 md:mb-6">kcal / dia</span>
                     <p className="text-xs md:text-sm text-green-200/80 text-left pt-4 md:pt-6 border-t border-green-800 font-medium leading-relaxed">
                       Sua queima total estimada para o dia inteiro. Consuma esse valor para manter o peso atual.
                     </p>

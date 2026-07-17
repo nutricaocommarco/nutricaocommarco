@@ -143,13 +143,13 @@ export default function PlanilhaAntropometriaVendas() {
 
           {/* INTRODUÇÃO / HERO */}
           <article className="prose prose-base md:prose-lg max-w-none text-left w-full">
-            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 md:mb-6">
+            <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 md:mb-6">
               Cineantropometria • Automação Avançada • Padrão ISAK
             </span>
 
             {/* PALAVRA CHAVE EXATA NO H1 */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 md:mb-10 uppercase italic leading-tight text-slate-900">
-              A Mais Completa <span className="text-green-600">Planilha de Avaliação Antropométrica</span> do Mercado
+              A Mais Completa <span className="text-green-700">Planilha de Avaliação Antropométrica</span> do Mercado
             </h1>
 
             <figure className="mb-8 flex flex-col items-center">
@@ -192,7 +192,7 @@ export default function PlanilhaAntropometriaVendas() {
                   href={linkCheckoutHotmart} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-full md:w-auto bg-green-600 hover:bg-green-500 text-white font-black py-4 px-10 rounded-full shadow-lg transform transition-all hover:-translate-y-1 inline-block uppercase text-sm tracking-widest text-center"
+                  className="w-full md:w-auto bg-green-700 hover:bg-green-500 text-white font-black py-4 px-10 rounded-full shadow-lg transform transition-all hover:-translate-y-1 inline-block uppercase text-sm tracking-widest text-center"
                 >
                   Baixar Minha Planilha Agora
                 </a>
@@ -204,7 +204,7 @@ export default function PlanilhaAntropometriaVendas() {
           {/* 📺 SEÇÃO VÍDEO EXPLICATIVO */}
           <div className="w-full bg-white rounded-3xl p-5 md:p-8 border border-slate-100 shadow-md flex flex-col gap-5 text-left">
             <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic flex items-center gap-2 border-b border-green-100 pb-4">
-              <Video className="text-green-600 w-6 h-6 flex-shrink-0" /> Como funciona a Planilha de Avaliação Antropométrica?
+              <Video className="text-green-700 w-6 h-6 flex-shrink-0" /> Como funciona a Planilha de Avaliação Antropométrica?
             </h3>
             <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-sm border border-slate-200">
               <iframe
@@ -221,12 +221,12 @@ export default function PlanilhaAntropometriaVendas() {
           {/* DIFERENCIAIS DA PLANILHA */}
           <div className="bg-slate-50 rounded-[2rem] md:rounded-[3.5rem] p-5 sm:p-8 md:p-12 border border-slate-200 shadow-inner">
             <h2 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mb-8 md:mb-10 border-b border-green-200 pb-4 flex items-center gap-3">
-              <Sparkles className="text-green-600 w-6 h-6 md:w-8 md:h-8 flex-shrink-0"/> Diferenciais Exclusivos
+              <Sparkles className="text-green-700 w-6 h-6 md:w-8 md:h-8 flex-shrink-0"/> Diferenciais Exclusivos
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-4">
-                <HeartPulse className="text-green-600 w-8 h-8 flex-shrink-0" />
+                <HeartPulse className="text-green-700 w-8 h-8 flex-shrink-0" />
                 <div>
                   <h4 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Automação Inteligente via VBA</h4>
                   <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">Nossa Planilha de Avaliação Antropométrica reconhece o sexo e a idade do paciente, ocultando automaticamente as colunas e as equações irrelevantes para aquele atendimento.</p>
@@ -234,7 +234,7 @@ export default function PlanilhaAntropometriaVendas() {
               </div>
 
               <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-4">
-                <RefreshCw className="text-green-600 w-8 h-8 flex-shrink-0 animate-[spin_4s_linear_infinite]" />
+                <RefreshCw className="text-green-700 w-8 h-8 flex-shrink-0 animate-[spin_4s_linear_infinite]" />
                 <div>
                   <h4 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Projeto em Constante Evolução</h4>
                   <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">A ferramenta recebe melhorias e integrações de novas equações e abas de forma contínua para entregar a melhor experiência técnica em avaliação física.</p>
@@ -242,7 +242,7 @@ export default function PlanilhaAntropometriaVendas() {
               </div>
 
               <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-4">
-                <Activity className="text-green-600 w-8 h-8 flex-shrink-0" />
+                <Activity className="text-green-700 w-8 h-8 flex-shrink-0" />
                 <div>
                   <h4 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Mais de 30 Equações de Regressão</h4>
                   <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">Os principais protocolos mundiais de adipometria em um só lugar (Jackson & Pollock 3/4/7 dobras, Petroski, Guedes, Durnin & Womersley, Slaughter, Faulkner, Yuhasz).</p>
@@ -250,7 +250,7 @@ export default function PlanilhaAntropometriaVendas() {
               </div>
 
               <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-4">
-                <Percent className="text-green-600 w-8 h-8 flex-shrink-0" />
+                <Percent className="text-green-700 w-8 h-8 flex-shrink-0" />
                 <div>
                   <h4 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Acesso Vitalício Garantido</h4>
                   <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">Você compra o arquivo habilitado para macros uma única vez e utiliza para sempre, sem se preocupar com assinaturas de softwares.</p>
@@ -302,13 +302,13 @@ export default function PlanilhaAntropometriaVendas() {
 
             {/* CONTEÚDO DETALHADO DO RELATÓRIO */}
             <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic mb-6 flex items-center gap-2">
-              <User className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> Resultados do Laudo Antropométrico
+              <User className="text-green-700 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> Resultados do Laudo Antropométrico
             </h3>
 
             <div className="space-y-6 bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm mb-12">
               <div className="border-b border-slate-100 pb-4">
                 <h4 className="font-black text-slate-900 text-sm md:text-base flex items-center gap-2 uppercase italic text-green-700">
-                  <CheckCircle className="w-4 h-4 text-green-600" /> Indicadores e Índices Corporais
+                  <CheckCircle className="w-4 h-4 text-green-700" /> Indicadores e Índices Corporais
                 </h4>
                 <p className="text-xs md:text-sm text-slate-600 mt-1 pl-6 leading-relaxed">
                   Cálculo automático de Massa Corporal, IMC, % de Gordura, Massa Magra Isolada, Massa Muscular (kg), Relação Cintura-Quadril, Risco Cardiovascular, <strong>IMO</strong> (Massa Óssea estimada), <strong>apVAT</strong> (Área de Gordura Visceral) e Índice Adiposo-Muscular.
@@ -317,7 +317,7 @@ export default function PlanilhaAntropometriaVendas() {
 
               <div className="border-b border-slate-100 pb-4">
                 <h4 className="font-black text-slate-900 text-sm md:text-base flex items-center gap-2 uppercase italic text-green-700">
-                  <CheckCircle className="w-4 h-4 text-green-600" /> Protocolo Completo de Dobras Cutâneas
+                  <CheckCircle className="w-4 h-4 text-green-700" /> Protocolo Completo de Dobras Cutâneas
                 </h4>
                 <p className="text-xs md:text-sm text-slate-600 mt-1 pl-6 leading-relaxed">
                   Avaliação das 9 principais pregas: Tríceps, Subescapular, Bíceps, Peitoral, Axilar Média, Crista Ilíaca, Abdominal, Coxa Frontal e Panturrilha Medial. Geração do <strong>Somatório de 6 e 8 Dobras</strong> para acompanhamento linear do tecido adiposo.
@@ -326,7 +326,7 @@ export default function PlanilhaAntropometriaVendas() {
 
               <div className="border-b border-slate-100 pb-4">
                 <h4 className="font-black text-slate-900 text-sm md:text-base flex items-center gap-2 uppercase italic text-green-700">
-                  <CheckCircle className="w-4 h-4 text-green-600" /> Perímetros e Perímetros Corrigidos
+                  <CheckCircle className="w-4 h-4 text-green-700" /> Perímetros e Perímetros Corrigidos
                 </h4>
                 <p className="text-xs md:text-sm text-slate-600 mt-1 pl-6 leading-relaxed">
                   Mapeamento das cinturas e perímetros essenciais. Cálculo avançado dos <strong>Perímetros Corrigidos pelas dobras (ISAK)</strong> para Braço, Coxa e Panturrilha, entregando o valor real de hipertrofia muscular.
@@ -335,7 +335,7 @@ export default function PlanilhaAntropometriaVendas() {
 
               <div>
                 <h4 className="font-black text-slate-900 text-sm md:text-base flex items-center gap-2 uppercase italic text-green-700">
-                  <CheckCircle className="w-4 h-4 text-green-600" /> Somatotipo Automático Integrado
+                  <CheckCircle className="w-4 h-4 text-green-700" /> Somatotipo Automático Integrado
                 </h4>
                 <p className="text-xs md:text-sm text-slate-600 mt-1 pl-6 leading-relaxed">
                   Classificação precisa de Heath-Carter para <strong>Endomorfia</strong>, <strong>Mesomorfia</strong> e <strong>Ectomorfia</strong> com o traçado e plotagem imediata direto no gráfico visual da Somatocarta.
@@ -345,7 +345,7 @@ export default function PlanilhaAntropometriaVendas() {
 
             {/* 📸 SEÇÃO GALERIA - VISUALIZAÇÃO INTERNA */}
             <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic mb-6 flex items-center gap-2">
-              <Activity className="text-green-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> Veja o Sistema Operando
+              <Activity className="text-green-700 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> Veja o Sistema Operando
             </h3>
             
             <div className="space-y-6 mb-16">
@@ -385,7 +385,7 @@ export default function PlanilhaAntropometriaVendas() {
                     <div className="mt-4 pt-4 border-t border-slate-200 flex justify-between items-end">
                       <div>
                         <p className="text-slate-900 font-black text-sm uppercase">{rev.nome}</p>
-                        <p className="text-green-600 text-[10px] font-bold uppercase tracking-wider">{rev.profissao}</p>
+                        <p className="text-green-700 text-[10px] font-bold uppercase tracking-wider">{rev.profissao}</p>
                       </div>
                       <span className="text-slate-400 text-[10px] font-medium">{rev.data}</span>
                     </div>

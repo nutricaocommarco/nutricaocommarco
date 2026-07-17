@@ -122,7 +122,7 @@ export default function GeradorEmailSecreto() {
         
         <button 
           onClick={copiarCodigo}
-          className={`w-full py-4 rounded-2xl font-black uppercase tracking-widest transition-all shadow-lg text-sm ${copiado ? 'bg-slate-800 text-green-400' : 'bg-green-600 text-white hover:bg-green-700 hover:-translate-y-1'}`}
+          className={`w-full py-4 rounded-2xl font-black uppercase tracking-widest transition-all shadow-lg text-sm ${copiado ? 'bg-slate-800 text-green-400' : 'bg-green-700 text-white hover:bg-green-700 hover:-translate-y-1'}`}
         >
           {copiado ? 'CÓDIGO COPIADO!' : 'COPIAR CÓDIGO HTML'}
         </button>

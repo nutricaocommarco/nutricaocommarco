@@ -51,12 +51,12 @@ export default function Frutose() {
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
         {/* Botão de Voltar */}
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
           <ChevronLeft size={20} /> Voltar para o Blog
         </Link>
 
         <article className="prose prose-lg max-w-none">
-          <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Nutrição Clínica</span>
+          <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Nutrição Clínica</span>
 
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900 text-left">
             Quantas frutas posso comer por dia?
@@ -79,7 +79,7 @@ export default function Frutose() {
             {/* 1. SEÇÃO DO ÁUDIO */}
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
-                <Headphones className="text-green-600 w-6 h-6" />
+                <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
               <audio controls className="w-full h-10 outline-none">
@@ -98,7 +98,7 @@ export default function Frutose() {
                 className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
                     <Activity size={18} />
                   </div>
                   <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
@@ -107,7 +107,7 @@ export default function Frutose() {
                 </div>
                 <ChevronRight 
                   size={20} 
-                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} 
                 />
               </button>
 
@@ -115,25 +115,25 @@ export default function Frutose() {
               <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                 <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
                   <li>
-                    <a href="#metabolismo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#metabolismo" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Metabolismo da Frutose
                     </a>
                   </li>
                   <li>
-                    <a href="#densidade" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#densidade" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Frutas vs. Industrializados
                     </a>
                   </li>
                   <li>
-                    <a href="#ciencia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#ciencia" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <BookOpen size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       O que a Ciência Diz
                     </a>
                   </li>
                   <li>
-                    <a href="#limite" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#limite" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <AlertTriangle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Existe um limite seguro?
                     </a>
@@ -162,7 +162,7 @@ export default function Frutose() {
             {/* BLOCO CITÁVEL (OTIMIZADO PARA IA E SEO) */}
             <div className="my-8 p-6 md:p-8 bg-white border-l-4 border-green-600 shadow-md rounded-r-3xl flex flex-col gap-3 text-left">
               <h3 className="text-xl font-black text-slate-800 m-0 border-b border-slate-100 pb-3 flex items-center gap-2">
-                <span className="text-green-600 text-2xl leading-none">👉</span> O que é a frutose?
+                <span className="text-green-700 text-2xl leading-none">👉</span> O que é a frutose?
               </h3>
               <p className="m-0 text-slate-600 font-medium leading-relaxed">
                 A frutose é um carboidrato simples (um tipo de açúcar) encontrado naturalmente nas frutas, nos vegetais e no mel. Quando consumida em sua matriz alimentar original, acompanhada de fibras, vitaminas e minerais, sua absorção é lenta e extremamente benéfica para o corpo humano.
@@ -189,27 +189,27 @@ export default function Frutose() {
                 <tbody className="text-slate-600 font-medium">
                   <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                     <td className="p-4">Banana</td>
-                    <td className="p-4 text-green-600 font-bold">6,7</td>
+                    <td className="p-4 text-green-700 font-bold">6,7</td>
                     <td className="p-4">7</td>
                   </tr>
                   <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                     <td className="p-4">Maçã</td>
-                    <td className="p-4 text-green-600 font-bold">8,6</td>
+                    <td className="p-4 text-green-700 font-bold">8,6</td>
                     <td className="p-4">3</td>
                   </tr>
                   <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                     <td className="p-4">Laranja</td>
-                    <td className="p-4 text-green-600 font-bold">2,4</td>
+                    <td className="p-4 text-green-700 font-bold">2,4</td>
                     <td className="p-4">2</td>
                   </tr>
                   <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                     <td className="p-4">Morango</td>
-                    <td className="p-4 text-green-600 font-bold">2,8</td>
+                    <td className="p-4 text-green-700 font-bold">2,8</td>
                     <td className="p-4">2,4</td>
                   </tr>
                   <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                     <td className="p-4">Pêra</td>
-                    <td className="p-4 text-green-600 font-bold">6,7</td>
+                    <td className="p-4 text-green-700 font-bold">6,7</td>
                     <td className="p-4">2,5</td>
                   </tr>
                   <tr className="border-b border-slate-100 bg-red-50 hover:bg-red-100 transition-colors">
@@ -238,7 +238,7 @@ export default function Frutose() {
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                 Como consumir frutas de forma estratégica (base científica)
               </h2>
-              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-700">
                 <li className="text-slate-700 font-bold text-lg pl-1">
                   Priorize a fruta inteira em vez de sucos coados
                 </li>
@@ -258,7 +258,7 @@ export default function Frutose() {
 
             <p>Um estudo demonstrou que a suplementação de 3,5g de frutose ou glicose por quilo de massa magra elevou a gordura no fígado. Para um indivíduo de 80kg com 25% de gordura corporal, isso equivaleria a consumir cerca de 210g de frutose, o que representa aproximadamente 30 bananas. Note que, nesse nível de excesso, tanto a glicose quanto a frutose causaram danos, provando que o excesso calórico total é o fator determinante, e não a fruta em si.</p>
 
-            <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
+            <div className="bg-green-700 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
               "O risco real de aumento de lipídeos intra-hepáticos e VLDL-TG ocorre em cenários de superávit calórico extremo."
             </div>
 
@@ -275,7 +275,7 @@ export default function Frutose() {
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                 O que realmente causa gordura no fígado?
               </h2>
-              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-700">
                 <li className="text-slate-700 font-bold text-lg pl-1">
                   Superávit calórico crônico (comer mais calorias do que gasta)
                 </li>
@@ -301,7 +301,7 @@ export default function Frutose() {
 
             <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
                   <PlayCircle size={24} />
                 </div>
                 <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Entenda o metabolismo da Frutose</h3>
@@ -320,7 +320,7 @@ export default function Frutose() {
 
             {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
             <div className="mt-16 pt-10 border-t border-slate-100 text-left">
-              <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
+              <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-700" /> Perguntas Frequentes (FAQ)</h2>
               <div className="space-y-6">
 
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
@@ -357,7 +357,7 @@ export default function Frutose() {
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
 
           {/* Foto do Autor no lugar do 'M' */}
-          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
             <img 
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr. - Nutricionista e Autor do Artigo." 
@@ -368,11 +368,11 @@ export default function Frutose() {
 
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
-            <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
+            <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
               Apaixonado pela ciência metabólica, Marco dedica seus estudos a compreender a fisiologia humana de forma aprofundada. Especialista em composição corporal com certificação internacional, ele foca em traduzir o rigor dos artigos científicos para a prática do dia a dia. Seu objetivo é ajudar você a entender como o próprio corpo funciona através da educação nutricional baseada em evidências reais.
             </p>
-            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
               Siga @Nutricao_com_Marco
             </a>
           </div>

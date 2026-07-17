@@ -144,7 +144,7 @@ export default function OvoColesterol() {
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
           <ChevronLeft size={20} /> Voltar para o Blog
         </Link>
 
@@ -152,7 +152,7 @@ export default function OvoColesterol() {
 
           {/* TAG E DATA DE ATUALIZAÇÃO */}
           <div className="mb-8 flex flex-col items-start gap-2">
-            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Nutrição Clínica</span>
+            <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Nutrição Clínica</span>
             <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
           </div>
 
@@ -174,7 +174,7 @@ export default function OvoColesterol() {
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
-                <Headphones className="text-green-600 w-6 h-6" />
+                <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
               <audio controls className="w-full h-10 outline-none">
@@ -191,7 +191,7 @@ export default function OvoColesterol() {
                 className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
                     <Activity size={18} />
                   </div>
                   <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
@@ -200,50 +200,50 @@ export default function OvoColesterol() {
                 </div>
                 <ChevronRight 
                   size={20} 
-                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} 
                 />
               </button>
 
               <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[600px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                 <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
                   <li>
-                    <a href="#perfil" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#perfil" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Entendendo HDL, LDL e Triglicerídios
                     </a>
                   </li>
                   <li>
-                    <a href="#beneficios" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#beneficios" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Heart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Benefícios do ovo para a saúde
                     </a>
                   </li>
                   <li>
-                    <a href="#ovo-aumenta-ldl-hdl" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#ovo-aumenta-ldl-hdl" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Ovo aumenta LDL ou HDL?
                     </a>
                   </li>
                   <li>
-                    <a href="#quem-tem-colesterol-alto-pode-comer-ovo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#quem-tem-colesterol-alto-pode-comer-ovo" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Colesterol alto e gordura no fígado
                     </a>
                   </li>
                   <li>
-                    <a href="#comer-ovo-todo dia-faz-mal" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#comer-ovo-todo dia-faz-mal" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Leaf size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Comer ovo todo dia faz mal à saúde?
                     </a>
                   </li>
                   <li>
-                    <a href="#quantos-ovos-por-dia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#quantos-ovos-por-dia" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Quantos ovos posso comer por dia sem risco?
                     </a>
                   </li>
                   <li>
-                    <a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Perguntas Frequentes (FAQ)
                     </a>
@@ -272,11 +272,11 @@ export default function OvoColesterol() {
             </div>
 
             <h2 id="perfil" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Zap className="text-green-600"/> O básico: Colesterol, HDL, LDL, VLDL e Triglicerídios
+              <Zap className="text-green-700"/> O básico: Colesterol, HDL, LDL, VLDL e Triglicerídios
             </h2>
             <p>Antes de falarmos especificamente do ovo, precisamos entender o que compõe o chamado "perfil lipídico" nos exames de sangue. Essas gorduras e transportadores são essenciais para a vida, mas precisam estar em equilíbrio.</p>
 
-            <div className="my-8 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-5 marker:text-green-600">
+            <div className="my-8 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-5 marker:text-green-700">
               <p className="m-0"><strong>• Colesterol Total:</strong> É a soma de todos os tipos de colesterol no sangue. É um componente estrutural de todas as nossas células e base para produção de hormônios.</p>
               <p className="m-0"><strong>• HDL (Lipoproteína de Alta Densidade):</strong> Conhecido como "colesterol bom". Ele atua como um "lixeiro", recolhendo o excesso de colesterol dos tecidos e artérias e levando-o de volta ao fígado para ser excretado ou reutilizado.</p>
               <p className="m-0"><strong>• LDL (Lipoproteína de Baixa Densidade):</strong> Frequentemente chamado de "colesterol mau". Ele transporta o colesterol do fígado para as células. Se houver excesso e as partículas forem pequenas e densas, elas podem se depositar nas paredes das artérias.</p>
@@ -285,7 +285,7 @@ export default function OvoColesterol() {
             </div>
 
             <h2 id="beneficios" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Heart className="text-green-600"/> Benefícios do ovo para a saúde
+              <Heart className="text-green-700"/> Benefícios do ovo para a saúde
             </h2>
 
             <p>A composição do ovo oferece uma matriz encapsulada de macro e micronutrientes extremamente favoráveis ao organismo. A gema e a clara apresentam substâncias ativas com características biológicas protetoras e promotoras da saúde humana.</p>
@@ -312,50 +312,50 @@ export default function OvoColesterol() {
                 <div>
                   <h3 className="text-xl font-black text-slate-800 mb-2">Efeito na Saciedade</h3>
                   <p className="m-0 text-slate-600 leading-relaxed">
-                    Um dos grandes aliados no processo de emagrecimento e <Link to="/blog/tudo-sobre-composicao-corporal-bioimpedancia" className="text-green-600 font-semibold hover:underline">composição corporal</Link>. As proteínas do ovo induzem uma menor secreção do hormônio da fome (grelina). Indivíduos que consomem ovos na primeira refeição tendem a ingerir menos calorias ao longo do dia, facilitando as dietas com déficit calórico e o <Link to="/blog/horario-pesagem-peso-ideal" className="text-green-600 font-semibold hover:underline">controle de peso</Link>.
+                    Um dos grandes aliados no processo de emagrecimento e <Link to="/blog/tudo-sobre-composicao-corporal-bioimpedancia" className="text-green-700 font-semibold hover:underline">composição corporal</Link>. As proteínas do ovo induzem uma menor secreção do hormônio da fome (grelina). Indivíduos que consomem ovos na primeira refeição tendem a ingerir menos calorias ao longo do dia, facilitando as dietas com déficit calórico e o <Link to="/blog/horario-pesagem-peso-ideal" className="text-green-700 font-semibold hover:underline">controle de peso</Link>.
                   </p>
                 </div>
               </div>
             </div>
 
             <h2 id="ovo-aumenta-ldl-hdl" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Scale className="text-green-600"/> Ovo aumenta o colesterol LDL ou HDL? Mitigando dúvidas.
+              <Scale className="text-green-700"/> Ovo aumenta o colesterol LDL ou HDL? Mitigando dúvidas.
             </h2>
             <p>Esse é, de longe, o maior mito que a nutrição precisou desconstruir. A literatura mais antiga apontava que a ingestão de colesterol na dieta elevaria o colesterol do sangue. No entanto, a ciência evoluiu e mostrou que essa relação não é direta ou prejudicial na prática clínica.</p>
 
-            <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600 text-slate-700">
+            <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-700 text-slate-700">
               <li className="font-bold text-lg pl-1">Estudos amplos mostram que a cada 100 mg de colesterol dietético ingerido (um ovo grande tem em média 225 mg), o colesterol total no plasma aumenta ínfimos 2,2 mg/dL.</li>
               <li className="font-bold text-lg pl-1">Essa leve alteração aumenta as partículas de LDL grandes (não aterogênicas), o que na verdade é uma modulação benéfica, pois essas moléculas volumosas têm dificuldade de penetrar nas artérias.</li>
               <li className="font-bold text-lg pl-1">A ingestão de ovos melhora a funcionalidade do colesterol HDL (o famoso "bom" colesterol), proporcionando uma melhor atividade anti-inflamatória e antioxidante no corpo.</li>
             </ul>
 
             {/* MICRO-OTIMIZAÇÃO */}
-            <p>Portanto, a dúvida se <Link to="/blog/controle-fome-emagrecimento" className="text-green-600 font-semibold hover:underline">comer ovo todo dia faz mal</Link> à saúde está superada pela ciência, desde que inserido em um estilo de vida saudável.</p>
+            <p>Portanto, a dúvida se <Link to="/blog/controle-fome-emagrecimento" className="text-green-700 font-semibold hover:underline">comer ovo todo dia faz mal</Link> à saúde está superada pela ciência, desde que inserido em um estilo de vida saudável.</p>
 
             <h2 id="quem-tem-colesterol-alto-pode-comer-ovo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Activity className="text-green-600"/> Quem tem gordura no fígado ou colesterol alto pode comer ovo?
+              <Activity className="text-green-700"/> Quem tem gordura no fígado ou colesterol alto pode comer ovo?
             </h2>
             <p>Pacientes diagnosticados com esteatose hepática não alcoólica frequentemente têm dúvidas sobre o consumo de lipídios e se <strong>ovo aumenta o colesterol mesmo</strong>. O ovo concentra suas gorduras e o colesterol exclusivamente na gema. No entanto, o ovo apresenta um rico conteúdo de gorduras insaturadas (as chamadas "gorduras boas") e componentes antioxidantes.</p>
 
             {/* MICRO-OTIMIZAÇÃO (NÍVEL NINJA) */}
             <p className="bg-green-50/50 p-6 rounded-2xl border border-green-100 border-dashed text-green-950 font-medium">Se você ainda tem dúvida se comer ovo todo dia aumenta o colesterol, a resposta depende mais do seu estilo de vida e do controle de macronutrientes da sua dieta do que do ovo em si.</p>
 
-            <p>Mesmo para pacientes com distúrbios de lipídios (como hipercolesterolemia combinada), estudos demonstraram que o consumo controlado não causa alterações desastrosas nos marcadores quando o paciente segue uma dieta baseada nas recomendações nutricionais e foca no <Link to="/blog/melhor-horario-pesagem-emagrecimento" className="text-green-600 font-semibold hover:underline">controle de peso</Link>. Além disso, a presença de antioxidantes atua como um fator protetor cardiovascular, auxiliando no equilíbrio fisiológico que o corpo necessita para se recuperar.</p>
+            <p>Mesmo para pacientes com distúrbios de lipídios (como hipercolesterolemia combinada), estudos demonstraram que o consumo controlado não causa alterações desastrosas nos marcadores quando o paciente segue uma dieta baseada nas recomendações nutricionais e foca no <Link to="/blog/melhor-horario-pesagem-emagrecimento" className="text-green-700 font-semibold hover:underline">controle de peso</Link>. Além disso, a presença de antioxidantes atua como um fator protetor cardiovascular, auxiliando no equilíbrio fisiológico que o corpo necessita para se recuperar.</p>
 
             {/* REPETIÇÃO ESTRATÉGICA DA KEYWORD */}
             <p>Mas será que <strong className="text-slate-800 font-bold">comer ovo todo dia faz mal</strong> a longo prazo? As evidências atuais mostram o contrário, destacando o ovo como um alimento protetor e promotor de saúde quando inserido numa dieta equilibrada.</p>
 
             <h2 id="comer-ovo-todo-dia-faz-mal" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Leaf className="text-green-600"/> Comer ovo todo dia faz mal à saúde?
+              <Leaf className="text-green-700"/> Comer ovo todo dia faz mal à saúde?
             </h2>
             <p>Definitivamente, não. O renomado estudo PREDIMED, que avaliou indivíduos seguindo um estilo de dieta mediterrânea, comprovou que o consumo regular de ovos não aumenta a incidência de doenças cardiovasculares.</p>
 
-            <p>Pelo contrário, se o indivíduo é praticante de atividades físicas, busca melhorar a <Link to="/blog/tudo-sobre-composicao-corporal-bioimpedancia" className="text-green-600 font-semibold hover:underline">composição corporal</Link> e possui um controle alimentar adequado de macronutrientes, a ingestão rotineira de ovos inteiros é totalmente segura. As análises clínicas mais modernas focam na dieta como um todo; o ovo, quando inserido numa matriz alimentar sem excesso de frituras ou alimentos ultraprocessados, é um excelente aliado.</p>
+            <p>Pelo contrário, se o indivíduo é praticante de atividades físicas, busca melhorar a <Link to="/blog/tudo-sobre-composicao-corporal-bioimpedancia" className="text-green-700 font-semibold hover:underline">composição corporal</Link> e possui um controle alimentar adequado de macronutrientes, a ingestão rotineira de ovos inteiros é totalmente segura. As análises clínicas mais modernas focam na dieta como um todo; o ovo, quando inserido numa matriz alimentar sem excesso de frituras ou alimentos ultraprocessados, é um excelente aliado.</p>
 
             {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (FRIGIDEIRA SEM ÓLEO) */}
             <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
                 {/* SELO NO CANTO SUPERIOR */}
-                <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+                <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
                     <span>O Pingus Aprova!</span>
                 </div>
@@ -393,7 +393,7 @@ export default function OvoColesterol() {
                             href="SEU_LINK_DE_AFILIADO_ML_AQUI" 
                             rel="sponsored noopener noreferrer" 
                             target="_blank"
-                            className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                            className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
                         >
                             <ShoppingCart size={16} />
                             Comprar no Mercado Livre
@@ -413,7 +413,7 @@ export default function OvoColesterol() {
             <p className="font-semibold text-slate-800 bg-slate-100 p-6 rounded-2xl border border-slate-200">Estudos mostram que o consumo de até 2 ovos por dia, dentro de uma dieta equilibrada, não aumenta o risco cardiovascular e pode até melhorar o perfil lipídico em adultos saudáveis.</p>
 
             <h2 id="quantos-ovos-por-dia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <FileText className="text-green-600"/> Quantos ovos posso comer por dia sem risco?
+              <FileText className="text-green-700"/> Quantos ovos posso comer por dia sem risco?
             </h2>
             <p>A resposta correta sempre dependerá de uma avaliação nutricional individualizada. No entanto, intervenções científicas recentes com adultos saudáveis mostraram que a ingestão diária de <strong>1 a 3 ovos inteiros</strong> foi capaz de melhorar o perfil da partícula de LDL, aumentar a função do HDL e subir as concentrações de antioxidantes no sangue.</p>
 
@@ -454,7 +454,7 @@ export default function OvoColesterol() {
 
             <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
                   <PlayCircle size={24} />
                 </div>
                 <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Ovo Aumenta o Colesterol? [DICAS e CUIDADOS]</h3>
@@ -473,7 +473,7 @@ export default function OvoColesterol() {
 
             {/* INÍCIO DO FAQ VISUAL OTIMIZADO COM PERGUNTAS EXATAS */}
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
-              <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
+              <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-700" /> Perguntas Frequentes (FAQ)</h2>
               <div className="space-y-6">
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
                   <h3 className="text-lg font-black text-slate-800 mb-2 italic">Comer ovo todo dia aumenta o colesterol?</h3>
@@ -502,7 +502,7 @@ export default function OvoColesterol() {
         <ArtigosRecomendados currentPath={pathname} />
 
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
-          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
             <img 
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr. - Autor do Artigo." 
@@ -513,11 +513,11 @@ export default function OvoColesterol() {
 
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
-            <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
+            <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
               Apaixonado pela ciência da nutrição, Marco dedica seus estudos a compreender a fisiologia humana de forma aprofundada. Especialista em composição corporal com certificação internacional, ele foca em traduzir o rigor dos artigos científicos para a prática do dia a dia. Seu objetivo é ajudar você a entender como o próprio corpo funciona através da educação nutricional baseada em evidências reais.
             </p>
-            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
               Siga @Nutricao_com_Marco
             </a>
           </div>

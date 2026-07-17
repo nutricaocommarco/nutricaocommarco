@@ -52,7 +52,7 @@ export default function DiabeticoPodeComerBeterraba() {
 
           <Link 
             to="/blog" 
-            className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit"
+            className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit"
             title="Voltar aos artigos para descobrir se diabético pode comer beterraba e outros mitos"
           >
             <ChevronLeft size={20} /> Voltar para o Blog
@@ -60,7 +60,7 @@ export default function DiabeticoPodeComerBeterraba() {
 
           <article className="prose prose-lg max-w-none text-left">
 
-            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Nutrição Clínica</span>
+            <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Nutrição Clínica</span>
 
             <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
               Diabético pode comer beterraba? O mito que você precisa parar de acreditar
@@ -83,7 +83,7 @@ export default function DiabeticoPodeComerBeterraba() {
               {/* 1. SEÇÃO DO ÁUDIO */}
               <div className="p-5 md:p-6 flex flex-col gap-3">
                 <div className="flex items-center gap-3">
-                  <Headphones className="text-green-600 w-6 h-6" />
+                  <Headphones className="text-green-700 w-6 h-6" />
                   <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
                 </div>
                 <audio controls className="w-full h-10 outline-none" title="Áudio explicando se diabético pode comer beterraba">
@@ -103,7 +103,7 @@ export default function DiabeticoPodeComerBeterraba() {
                   aria-label="Abrir sumário para ler se diabético pode comer beterraba"
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                    <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
                       <Activity size={18} />
                     </div>
                     <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
@@ -112,7 +112,7 @@ export default function DiabeticoPodeComerBeterraba() {
                   </div>
                   <ChevronRight 
                     size={20} 
-                    className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                    className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} 
                   />
                 </button>
 
@@ -120,25 +120,25 @@ export default function DiabeticoPodeComerBeterraba() {
                 <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                   <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
                     <li>
-                      <a href="#o-mito-do-acucar" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Diabético pode comer beterraba: O Mito do Açúcar">
+                      <a href="#o-mito-do-acucar" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Diabético pode comer beterraba: O Mito do Açúcar">
                         <Leaf size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         O Mito do Açúcar
                       </a>
                     </li>
                     <li>
-                      <a href="#indice-vs-carga" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Diabético pode comer beterraba: Índice vs Carga">
+                      <a href="#indice-vs-carga" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Diabético pode comer beterraba: Índice vs Carga">
                         <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         Índice vs. Carga
                       </a>
                     </li>
                     <li>
-                      <a href="#beneficios-clinicos" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Diabético pode comer beterraba: Benefícios Clínicos">
+                      <a href="#beneficios-clinicos" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Diabético pode comer beterraba: Benefícios Clínicos">
                         <Heart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         Benefícios Clínicos
                       </a>
                     </li>
                     <li>
-                      <a href="#dicas-consumo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Diabético pode comer beterraba: Dicas de Ouro">
+                      <a href="#dicas-consumo" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Diabético pode comer beterraba: Dicas de Ouro">
                         <HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         Dicas de Ouro
                       </a>
@@ -166,18 +166,18 @@ export default function DiabeticoPodeComerBeterraba() {
               </div>
 
               <h2 id="o-mito-do-acucar" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Leaf className="text-green-600"/> O Mito do Açúcar e a Matriz Nutricional
+                <Leaf className="text-green-700"/> O Mito do Açúcar e a Matriz Nutricional
               </h2>
               <p>A beterraba é um vegetal riquíssimo em fibras alimentares, e é exatamente aqui que o jogo vira a favor do paciente diabético. As <strong>fibras solúveis e insolúveis</strong> presentes na matriz da beterraba funcionam como uma espécie de barreira natural no seu sistema digestivo. O mecanismo de proteção é bem similar à razão pela qual indicamos o remolho para quem se pergunta <Link to="/por_que_o_feijao_da_gases" className="font-bold underline text-green-700 hover:text-green-800 transition-colors" title="Entendendo os gases após descobrir que diabético pode comer beterraba">por que o feijão dá gases</Link>: o trato gastrointestinal precisa trabalhar de forma inteligente com compostos complexos.</p>
 
               <p>Isso retarda o esvaziamento gástrico e proporciona uma resposta significativamente menor de glicose e insulina na fase pós-prandial. Esse processo cadenciado evita aqueles picos perigosos de insulina circulante no sangue. Além disso, as <em>betalaínas</em>, que são os pigmentos responsáveis por dar a inconfundível cor vermelha intensa à beterraba, possuem potentes propriedades antioxidantes e anti-inflamatórias que auxiliam na proteção e reparo dos componentes celulares.</p>
 
-              <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
+              <div className="bg-green-700 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
                 “O segredo para o controle glicêmico não é a exclusão de alimentos naturais, mas sim a inteligência nas combinações e no modo de preparo.”
               </div>
 
               <h2 id="indice-vs-carga" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Scale className="text-green-600"/> Índice Glicêmico vs. Carga Glicêmica
+                <Scale className="text-green-700"/> Índice Glicêmico vs. Carga Glicêmica
               </h2>
               <p>Para desmistificar de vez esse medo, existe um conceito técnico fundamental: a diferença prática entre índice glicêmico e carga glicêmica. O pânico de dietas restritivas e flutuações de peso sem orientação levam muitas vezes a um quadro de <Link to="/efeito_sanfona_inflamacao_invisivel" className="font-bold underline text-green-700 hover:text-green-800 transition-colors" title="Como o efeito sanfona prejudica o paciente que já sabe que diabético pode comer beterraba">efeito sanfona e inflamação celular</Link>, e a educação nutricional é a principal arma contra isso.</p>
 
@@ -241,7 +241,7 @@ export default function DiabeticoPodeComerBeterraba() {
               {/* SESSÃO DO VÍDEO DO MARCO NO YOUTUBE */}
               <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                  <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
                     <PlayCircle size={24} />
                   </div>
                   <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Aula: Índice Glicêmico vs. Carga Glicêmica</h3>
@@ -263,7 +263,7 @@ export default function DiabeticoPodeComerBeterraba() {
               {/* FIM DA SESSÃO DO VÍDEO */}
 
               <h2 id="beneficios-clinicos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Heart className="text-green-600"/> Os Benefícios Clínicos Comprovados
+                <Heart className="text-green-700"/> Os Benefícios Clínicos Comprovados
               </h2>
               <p>Os benefícios clínicos para quem convive com o diabetes são substanciais e comprovados em ensaios rigorosos. Para analisar o impacto metabólico no corpo, muito além do que uma balança comum mostra (se quiser aprofundar, veja nosso artigo sobre <Link to="/o_que_e_antropometria" className="font-bold underline text-green-700 hover:text-green-800 transition-colors" title="Como a antropometria é afetada quando o diabético pode comer beterraba de forma segura">o que é antropometria</Link>), em um estudo clínico, 44 pacientes com diabetes tipo 2 consumiram 100 gramas de beterraba vermelha crua diariamente durante 8 semanas consecutivas. Os resultados mostraram uma redução expressiva de <strong>13,53 mg/dL na glicemia de jejum</strong> e uma queda de 0,34% na hemoglobina glicada (HbA1c).</p>
 
@@ -275,7 +275,7 @@ export default function DiabeticoPodeComerBeterraba() {
               </div>
 
               <h2 id="dicas-consumo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <HelpCircle className="text-green-600"/> Dicas de Ouro para consumir Beterraba com segurança
+                <HelpCircle className="text-green-700"/> Dicas de Ouro para consumir Beterraba com segurança
               </h2>
 
               <div className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left">
@@ -314,7 +314,7 @@ export default function DiabeticoPodeComerBeterraba() {
               {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (RALADOR DE LEGUMES) */}
               <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
                   {/* SELO NO CANTO SUPERIOR */}
-                  <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+                  <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                       <Zap size={14} className="fill-white" />
                       <span>O Pingus Aprova!</span>
                   </div>
@@ -355,7 +355,7 @@ export default function DiabeticoPodeComerBeterraba() {
                               rel="sponsored noopener noreferrer" 
                               target="_blank"
                               aria-label="Comprar Ralador no Mercado Livre para garantir que diabético pode comer beterraba crua"
-                              className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                              className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
                           >
                               <ShoppingCart size={16} />
                               Comprar no Mercado Livre
@@ -373,7 +373,7 @@ export default function DiabeticoPodeComerBeterraba() {
 
               {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
               <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
-                <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
+                <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-700" /> Perguntas Frequentes (FAQ)</h2>
                 <div className="space-y-6">
                   <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
                     <h3 className="text-lg font-black text-slate-800 mb-2 italic">Beterraba cozida é pior que a crua para o diabético?</h3>
@@ -400,7 +400,7 @@ export default function DiabeticoPodeComerBeterraba() {
           {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
           <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
 
-            <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+            <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
               <img 
                 src={`${githubImgBase}Eu_1.webp`} 
                 alt="Marco Aurélio Jr. que desvenda o mito se o diabético pode comer beterraba" 
@@ -411,11 +411,11 @@ export default function DiabeticoPodeComerBeterraba() {
 
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
-              <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
+              <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
               <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
                 Apaixonado pela ciência metabólica, Marco dedica seus estudos a compreender a fisiologia humana de forma aprofundada. Especialista em composição corporal com certificação internacional, ele foca em traduzir o rigor dos artigos científicos para a prática do dia a dia. Seu objetivo é ajudar você a entender como o próprio corpo funciona através da educação nutricional baseada em evidências reais.
               </p>
-              <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+              <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
                 Siga @Nutricao_com_Marco
               </a>
             </div>

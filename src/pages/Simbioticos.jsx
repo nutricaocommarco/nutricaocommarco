@@ -47,7 +47,7 @@ const simbioticosDados = [
   { id: 7, nome: "Queijo Maturado e Mel", tipo: "Bactérias Lácticas + Oligossacarídeos", descricao: "Um petisco delicioso. O mel cru contém prebióticos que ajudam as bactérias do queijo.", Icone: Shield, corIcone: "text-yellow-500" },
   { id: 8, nome: "Miso Soup com Alho", tipo: "Aspergillus + Inulina", descricao: "Sopa tradicional onde o alho atua como o combustível perfeito para os microrganismos da soja.", Icone: Coffee, corIcone: "text-slate-600" },
   { id: 9, nome: "Coalhada com Chicória", tipo: "Bactérias Lácticas + Inulina", descricao: "Usar a raiz de chicória ou as folhas amargas junto com coalhada fresca potencializa a digestão.", Icone: Leaf, corIcone: "text-emerald-600" },
-  { id: 10, nome: "Picles e Aspargos", tipo: "Lactobacillus + FOS", descricao: "Uma salada fria de picles de fermentação natural com aspargos grelhados é pura sinergia.", Icone: CheckCircle2, corIcone: "text-green-600" },
+  { id: 10, nome: "Picles e Aspargos", tipo: "Lactobacillus + FOS", descricao: "Uma salada fria de picles de fermentação natural com aspargos grelhados é pura sinergia.", Icone: CheckCircle2, corIcone: "text-green-700" },
   { id: 11, nome: "Natto e Beterraba", tipo: "Bacillus Subtilis + FOS", descricao: "A beterraba fornece os oligossacarídeos necessários para a potente bactéria japonesa prosperar.", Icone: Activity, corIcone: "text-rose-600" },
   { id: 12, nome: "Suplemento Simbiótico", tipo: "Bactérias + FOS em Pó", descricao: "Cápsulas ou sachês que já trazem a bactéria e a sua 'comida' (FOS) misturadas no mesmo produto.", Icone: Beaker, corIcone: "text-purple-500" }
 ];
@@ -183,14 +183,14 @@ export default function SimbioticosComponent() {
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
           <ChevronLeft size={20} /> Voltar para o Blog
         </Link>
 
         <article className="prose prose-lg max-w-none text-left">
 
           <div className="mb-8 flex flex-col items-start gap-2">
-            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Nutrição Clínica</span>
+            <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Nutrição Clínica</span>
             <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
           </div>
 
@@ -210,7 +210,7 @@ export default function SimbioticosComponent() {
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
-                <Headphones className="text-green-600 w-6 h-6" />
+                <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
               <audio controls className="w-full h-10 outline-none">
@@ -227,25 +227,25 @@ export default function SimbioticosComponent() {
                 className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
                     <Activity size={18} />
                   </div>
                   <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">Índice do Conteúdo</h3>
                 </div>
-                <ChevronRight size={20} className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} />
+                <ChevronRight size={20} className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} />
               </button>
 
               <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[1000px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                 <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
-                  <li><a href="#fisiologia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A Sinergia Intestinal</a></li>
-                  <li><a href="#fatores-microbiota" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><AlertCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O que afeta a flora?</a></li>
-                  <li><a href="#sintomas-disbiose" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Wind size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Sintomas do Desequilíbrio</a></li>
-                  <li><a href="#emagrecimento" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Impacto no Emagrecimento</a></li>
-                  <li><a href="#suplementacao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Dna size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Naturais vs Suplementos</a></li>
-                  <li><a href="#experimentos" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Comprovações Clínicas</a></li>
-                  <li><a href="#lista-simbioticos" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Layers size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />12 Combinações de Dieta</a></li>
-                  <li><a href="#video" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><PlayCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Vídeo Explicativo</a></li>
-                  <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes</a></li>
+                  <li><a href="#fisiologia" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A Sinergia Intestinal</a></li>
+                  <li><a href="#fatores-microbiota" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><AlertCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O que afeta a flora?</a></li>
+                  <li><a href="#sintomas-disbiose" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Wind size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Sintomas do Desequilíbrio</a></li>
+                  <li><a href="#emagrecimento" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Impacto no Emagrecimento</a></li>
+                  <li><a href="#suplementacao" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Dna size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Naturais vs Suplementos</a></li>
+                  <li><a href="#experimentos" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Comprovações Clínicas</a></li>
+                  <li><a href="#lista-simbioticos" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Layers size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />12 Combinações de Dieta</a></li>
+                  <li><a href="#video" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><PlayCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Vídeo Explicativo</a></li>
+                  <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes</a></li>
                 </ul>
               </div>
             </nav>
@@ -304,7 +304,7 @@ export default function SimbioticosComponent() {
             </div>
 
             <h2 id="fisiologia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Zap className="text-green-600"/> A Sinergia Intestinal: Como os Simbióticos funcionam no corpo?
+              <Zap className="text-green-700"/> A Sinergia Intestinal: Como os Simbióticos funcionam no corpo?
             </h2>
             <p>
               A fisiologia humana é incrivelmente hostil com invasores. Para que uma bactéria chegue viva ao seu intestino grosso, ela precisa passar por uma verdadeira tempestade de ácido clorídrico no estômago e por enzimas digestivas fortíssimas no intestino delgado. Imagine que recruta um soldado de elite para uma missão de sobrevivência no deserto e o envia sem uma gota de água ou mantimentos. As probabilidades de sucesso são irrisórias. Da mesma forma, quando consome uma bactéria probiótica isolada, sem ofertar a fibra correta na mesma refeição, grande parte dessas estirpes acaba por perecer antes mesmo de ter a oportunidade de colonizar a sua mucosa intestinal.
@@ -365,17 +365,17 @@ export default function SimbioticosComponent() {
             </div>
 
             <h2 id="emagrecimento" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Scale className="text-green-600"/> O impacto dos Alimentos Simbióticos no Emagrecimento
+              <Scale className="text-green-700"/> O impacto dos Alimentos Simbióticos no Emagrecimento
             </h2>
             <p>
               Uma das dúvidas mais frequentes em consultório é se organizar a dieta para nutrir a microbiota realmente ajuda na balança. A resposta da ciência moderna é um sonoro e absoluto sim. A obesidade e o ganho de peso constante não são apenas questões de calorias ingeridas contra calorias gastas; trata-se de um estado crônico de inflamação e de falha na comunicação hormonal. Quando aposta no consumo de simbióticos, está essencialmente a "hackear" o famoso eixo intestino-cérebro. Bactérias saudáveis, muito bem nutridas por fibras, sinalizam para o seu sistema nervoso central que o corpo está num ambiente de abundância e segurança, diminuindo os níveis basais de cortisol e ansiedade.
             </p>
             <p>
-              Além dessa modulação comportamental que ajuda a travar a <Link to="/o-que-e-fome-emocional" className="text-green-600 font-semibold hover:underline">fome emocional</Link>, a fermentação perfeita proporcionada pela refeição simbiótica atua diretamente nas células enteroendócrinas. Elas passam a libertar de forma otimizada as hormonas GLP-1 e PYY na corrente sanguínea. Estes péptidos são os grandes mensageiros da saciedade natural, fazendo com que sinta menos necessidade de petiscar doces à tarde e tornando o processo de emagrecimento algo leve e sustentável, libertando-o de vez do terrível <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-semibold hover:underline">efeito sanfona</Link>.
+              Além dessa modulação comportamental que ajuda a travar a <Link to="/o-que-e-fome-emocional" className="text-green-700 font-semibold hover:underline">fome emocional</Link>, a fermentação perfeita proporcionada pela refeição simbiótica atua diretamente nas células enteroendócrinas. Elas passam a libertar de forma otimizada as hormonas GLP-1 e PYY na corrente sanguínea. Estes péptidos são os grandes mensageiros da saciedade natural, fazendo com que sinta menos necessidade de petiscar doces à tarde e tornando o processo de emagrecimento algo leve e sustentável, libertando-o de vez do terrível <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 font-semibold hover:underline">efeito sanfona</Link>.
             </p>
 
             <h2 id="suplementacao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Dna className="text-green-600"/> Simbióticos Naturais vs Suplementação: Qual escolher?
+              <Dna className="text-green-700"/> Simbióticos Naturais vs Suplementação: Qual escolher?
             </h2>
             <p>
               A indústria farmacêutica tem investido milhões na formulação de cápsulas simbióticas perfeitas, misturando lactobacilos liofilizados com pó de inulina pura. Estes suplementos possuem um valor clínico inestimável, sendo ferramentas de ouro prescritas por nutricionistas para tratar doentes que acabaram de passar por cirurgias bariátricas, ciclos agressivos de antibióticos ou que sofrem de síndrome do intestino irritável severa. Nessas situações de crise aguda, a carga massiva de milhares de milhões de unidades formadoras de colónias entregues pela cápsula simbiótica é o que garante a repovoação imediata da flora devastada.
@@ -385,24 +385,24 @@ export default function SimbioticosComponent() {
             </p>
 
             <h2 id="beneficios" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Shield className="text-green-600"/> Benefícios Sistémicos de consumir Pre e Probióticos juntos
+              <Shield className="text-green-700"/> Benefícios Sistémicos de consumir Pre e Probióticos juntos
             </h2>
             <p>
-              A beleza desta combinação transcende a barriga lisa e o fim do estufamento indesejado que costumamos sentir após uma refeição pesada. Quando garantimos a sinergia entre o prebiótico e o probiótico, conseguimos restaurar as chamadas "tight junctions" — as junções celulares apertadas da parede do intestino. Isto significa que as toxinas diárias que ingerimos através de corantes, conservantes e poluição deixam de vazar indiscriminadamente para a nossa corrente sanguínea. Este bloqueio imediato das toxinas promove uma clareza mental surpreendente, alívio na fadiga crónica, melhora na textura e acne da pele, e claro, o controlo otimizado do perfil glicémico, o que torna as suas dúvidas sobre <Link to="/quantas_frutas_posso_comer" className="text-green-600 font-semibold hover:underline">quantas frutas comer por dia</Link> uma questão muito mais leve e sem fobias alimentares desnecessárias.
+              A beleza desta combinação transcende a barriga lisa e o fim do estufamento indesejado que costumamos sentir após uma refeição pesada. Quando garantimos a sinergia entre o prebiótico e o probiótico, conseguimos restaurar as chamadas "tight junctions" — as junções celulares apertadas da parede do intestino. Isto significa que as toxinas diárias que ingerimos através de corantes, conservantes e poluição deixam de vazar indiscriminadamente para a nossa corrente sanguínea. Este bloqueio imediato das toxinas promove uma clareza mental surpreendente, alívio na fadiga crónica, melhora na textura e acne da pele, e claro, o controlo otimizado do perfil glicémico, o que torna as suas dúvidas sobre <Link to="/quantas_frutas_posso_comer" className="text-green-700 font-semibold hover:underline">quantas frutas comer por dia</Link> uma questão muito mais leve e sem fobias alimentares desnecessárias.
             </p>
 
             <h2 id="experimentos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <FileText className="text-green-600"/> A Ciência na Prática: Experimentos com Simbióticos
+              <FileText className="text-green-700"/> A Ciência na Prática: Experimentos com Simbióticos
             </h2>
             <p>
-              Para compreender a verdadeira magnitude do poder dos simbióticos, é essencial observarmos os resultados de testes clínicos rigorosos documentados na literatura médica recente. Em investigações focadas no desenvolvimento do sistema imunitário infantil, ensaios clínicos com dupla ocultação e aleatorizados revelaram descobertas fascinantes. Como detalhado numa <a href="https://www.scielo.br/j/rpp/a/9khJ3qMb8VbyFPDycvHDK6b/?format=pdf&lang=pt" target="_blank" rel="noopener noreferrer" className="text-green-600 font-semibold hover:underline">revisão científica sobre a prevenção de doenças alérgicas</a>, os investigadores notaram que a administração combinada de prebióticos (como fruto-oligossacáridos e galacto-oligossacáridos) em conjunto com estirpes probióticas foi capaz de modular profundamente a microbiota de bebés desde os primeiros meses de vida. Esta intervenção nutricional precoce com simbióticos reduziu de forma drástica a incidência de condições como a dermatite atópica, comprovando que a sinergia entre bactérias e fibras atua como um escudo imunitário natural quando o corpo está na sua fase mais vulnerável de formação.
+              Para compreender a verdadeira magnitude do poder dos simbióticos, é essencial observarmos os resultados de testes clínicos rigorosos documentados na literatura médica recente. Em investigações focadas no desenvolvimento do sistema imunitário infantil, ensaios clínicos com dupla ocultação e aleatorizados revelaram descobertas fascinantes. Como detalhado numa <a href="https://www.scielo.br/j/rpp/a/9khJ3qMb8VbyFPDycvHDK6b/?format=pdf&lang=pt" target="_blank" rel="noopener noreferrer" className="text-green-700 font-semibold hover:underline">revisão científica sobre a prevenção de doenças alérgicas</a>, os investigadores notaram que a administração combinada de prebióticos (como fruto-oligossacáridos e galacto-oligossacáridos) em conjunto com estirpes probióticas foi capaz de modular profundamente a microbiota de bebés desde os primeiros meses de vida. Esta intervenção nutricional precoce com simbióticos reduziu de forma drástica a incidência de condições como a dermatite atópica, comprovando que a sinergia entre bactérias e fibras atua como um escudo imunitário natural quando o corpo está na sua fase mais vulnerável de formação.
             </p>
             <p>
-              O impacto terapêutico desta união vai muito além da prevenção pediátrica, mostrando-se um verdadeiro salva-vidas em cenários hospitalares de altíssima complexidade. Conforme documentado num estudo detalhado sobre o <a href="https://share.google/ZqKA6oueGUWqsioaB" target="_blank" rel="noopener noreferrer" className="text-green-600 font-semibold hover:underline">uso terapêutico dos simbióticos</a>, ensaios clínicos que avaliaram o período perioperatório de cirurgias de grande porte — como resseções de cancro do esófago e procedimentos hepáticos severos — revelaram uma recuperação surpreendente dos doentes. A introdução de compostos simbióticos antes e após as cirurgias reduziu drasticamente as taxas de complicações infeciosas pós-operatórias. Os dados revelaram que a suplementação restaurou a integridade da barreira intestinal, frequentemente devastada pelo stresse cirúrgico e por antibióticos, além de reequilibrar a produção de ácidos orgânicos vitais na flora biológica. Tais experiências atestam de forma categórica que nutrir as bactérias com o seu combustível correto não é apenas um hábito de bem-estar diário, mas sim uma intervenção clínica poderosa capaz de acelerar a cura e proteger a vida humana em situações extremas.
+              O impacto terapêutico desta união vai muito além da prevenção pediátrica, mostrando-se um verdadeiro salva-vidas em cenários hospitalares de altíssima complexidade. Conforme documentado num estudo detalhado sobre o <a href="https://share.google/ZqKA6oueGUWqsioaB" target="_blank" rel="noopener noreferrer" className="text-green-700 font-semibold hover:underline">uso terapêutico dos simbióticos</a>, ensaios clínicos que avaliaram o período perioperatório de cirurgias de grande porte — como resseções de cancro do esófago e procedimentos hepáticos severos — revelaram uma recuperação surpreendente dos doentes. A introdução de compostos simbióticos antes e após as cirurgias reduziu drasticamente as taxas de complicações infeciosas pós-operatórias. Os dados revelaram que a suplementação restaurou a integridade da barreira intestinal, frequentemente devastada pelo stresse cirúrgico e por antibióticos, além de reequilibrar a produção de ácidos orgânicos vitais na flora biológica. Tais experiências atestam de forma categórica que nutrir as bactérias com o seu combustível correto não é apenas um hábito de bem-estar diário, mas sim uma intervenção clínica poderosa capaz de acelerar a cura e proteger a vida humana em situações extremas.
             </p>
 
             <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
-                <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+                <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
                     <span>O Pingus Aprova!</span>
                 </div>
@@ -443,7 +443,7 @@ export default function SimbioticosComponent() {
                             href="https://meli.la/1f7vmv6" 
                             rel="sponsored noopener noreferrer" 
                             target="_blank"
-                            className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                            className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
                         >
                             <ShoppingCart size={16} />
                             Comprar no Mercado Livre
@@ -463,7 +463,7 @@ export default function SimbioticosComponent() {
                   Guia Prático e Delicioso
                 </span>
                 <h2 className="text-3xl md:text-4xl font-black text-slate-900 uppercase italic tracking-tight mb-6">
-                  12 Combinações <span className="text-green-600">Simbióticas</span>
+                  12 Combinações <span className="text-green-700">Simbióticas</span>
                 </h2>
                 <p className="text-base md:text-lg text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
                   Não complique o que a natureza desenhou com tanta perfeição. Aqui estão 12 ideias maravilhosas para criar refeições simbióticas imbatíveis na sua própria casa, juntando a bactéria ideal com a sua fonte de fibra e saúde favorita.
@@ -503,7 +503,7 @@ export default function SimbioticosComponent() {
             </div>
 
             <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <PlayCircle className="text-green-600"/> Aprofunde-se: A Arte da Combinação Alimentar
+              <PlayCircle className="text-green-700"/> Aprofunde-se: A Arte da Combinação Alimentar
             </h2>
             <p>
               A adoção de uma rotina verdadeiramente saudável deve ser, acima de tudo, prática e aplicável na correria dos seus dias. Este vídeo curto resume com maestria como a simples união e combinação de alimentos específicos altera rapidamente e diretamente a resposta imunitária do seu microbioma, comprovando de forma lúdica o porquê da sinergia simbiótica ser considerada o grande caminho do futuro da medicina do estilo de vida.
@@ -511,7 +511,7 @@ export default function SimbioticosComponent() {
 
             <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
                   <PlayCircle size={24} />
                 </div>
                 <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight">Saúde Intestinal em Prática</h3>
@@ -530,7 +530,7 @@ export default function SimbioticosComponent() {
 
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
-                <HelpCircle className="text-green-600" /> Perguntas Frequentes sobre Simbióticos
+                <HelpCircle className="text-green-700" /> Perguntas Frequentes sobre Simbióticos
               </h2>
               <div className="space-y-4">
                 {faqs.map((faq, index) => (
@@ -539,10 +539,10 @@ export default function SimbioticosComponent() {
                       onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
                       className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
                     >
-                      <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-600' : 'text-slate-800 group-hover:text-green-600'}`}>
+                      <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-700' : 'text-slate-800 group-hover:text-green-700'}`}>
                         {faq.pergunta}
                       </h3>
-                      <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-600' : ''}`} size={24} />
+                      <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
                     </button>
                     <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
                       <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">{faq.resposta}</p>
@@ -559,7 +559,7 @@ export default function SimbioticosComponent() {
         <ArtigosRecomendados currentPath={pathname} />
 
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
-          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
             <img 
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr." 
@@ -572,11 +572,11 @@ export default function SimbioticosComponent() {
           </div>
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
-            <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK 1</p>
+            <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
               Apaixonado pela fisiologia e pelo comportamento humano, Marco foca em traduzir o rigor científico para a prática do dia a dia, ajudando a construir uma relação mais leve e sem radicalismos com a comida, cuidando do corpo desde o intestino até a mente.
             </p>
-            <a href="https://instagram.com/Nutricao_com_Marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+            <a href="https://instagram.com/Nutricao_com_Marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
               Siga @Nutricao_com_Marco
             </a>
           </div>

@@ -72,7 +72,7 @@ export default function TirzepatidaParaQueServe() {
       frequencia: 'Injeção Semanal',
       perdaPeso: 'Até 22,5%',
       fase: 'Aprovado (Anvisa)',
-      cor: 'bg-green-600',
+      cor: 'bg-green-700',
       textColor: 'text-white'
     },
     {
@@ -97,7 +97,7 @@ export default function TirzepatidaParaQueServe() {
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
           <ChevronLeft size={20} /> Voltar para o Blog
         </Link>
 
@@ -105,7 +105,7 @@ export default function TirzepatidaParaQueServe() {
 
           {/* TAG E DATA DE ATUALIZAÇÃO */}
           <div className="mb-8 flex flex-col items-start gap-2">
-            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Tratamento Farmacológico</span>
+            <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Tratamento Farmacológico</span>
             <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
           </div>
 
@@ -127,7 +127,7 @@ export default function TirzepatidaParaQueServe() {
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
-                <Headphones className="text-green-600 w-6 h-6" />
+                <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
               <audio controls className="w-full h-10 outline-none">
@@ -144,7 +144,7 @@ export default function TirzepatidaParaQueServe() {
                 className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
                     <Activity size={18} />
                   </div>
                   <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
@@ -153,74 +153,74 @@ export default function TirzepatidaParaQueServe() {
                 </div>
                 <ChevronRight 
                   size={20} 
-                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} 
                 />
               </button>
 
               <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[1000px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                 <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
                   <li>
-                    <a href="#mecanismo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#mecanismo" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Para que serve e mecanismo
                     </a>
                   </li>
                   <li>
-                    <a href="#indicacoes" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#indicacoes" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Heart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Quem pode usar?
                     </a>
                   </li>
                   <li>
-                    <a href="#perda-peso" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#perda-peso" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Quanto peso se perde?
                     </a>
                   </li>
                   <li>
-                    <a href="#base-sucesso" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#base-sucesso" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Leaf size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Alimentação e Musculação
                     </a>
                   </li>
                   <li>
-                    <a href="#efeitos-colaterais" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#efeitos-colaterais" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Efeitos colaterais da Tirzepatida
                     </a>
                   </li>
                   <li>
-                    <a href="#efeito-rebote" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#efeito-rebote" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       O Efeito Rebote e o Desmame
                     </a>
                   </li>
                   <li>
-                    <a href="#estrategias" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#estrategias" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Estratégias contra reganho
                     </a>
                   </li>
                   <li>
-                    <a href="#video-especialista" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#video-especialista" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <PlayCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Como Multiplicar os Efeitos
                     </a>
                   </li>
                   <li>
-                    <a href="#comparacao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#comparacao" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Tirzepatida x Retatrutida
                     </a>
                   </li>
                   <li>
-                    <a href="#perigos" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#perigos" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       O Perigo da Tirzepatida Paraguaia
                     </a>
                   </li>
                   <li>
-                    <a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Perguntas Frequentes (FAQ)
                     </a>
@@ -233,7 +233,7 @@ export default function TirzepatidaParaQueServe() {
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
             <h2 id="mecanismo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Zap className="text-green-600"/> O Mecanismo no Corpo
+              <Zap className="text-green-700"/> O Mecanismo no Corpo
             </h2>
             <p>A tirzepatida é uma medicação inovadora aprovada pela Anvisa inicialmente para o tratamento do diabetes tipo 2, mas que ganhou destaque global pelo seu potente efeito no controle da obesidade. Diferente de medicações mais antigas, ela é um duplo agonista, o que significa que ela imita dois hormônios naturais do nosso intestino: o GLP-1 (peptídeo semelhante ao glucagon 1) e o GIP (polipeptídeo insulinotrópico dependente de glicose). Enquanto o GLP-1 é amplamente conhecido por retardar o esvaziamento gástrico e sinalizar saciedade ao cérebro, o GIP atua de forma complementar melhorando a sensibilidade à insulina e a maneira como o corpo processa a gordura.</p>
 
@@ -252,38 +252,38 @@ export default function TirzepatidaParaQueServe() {
             </div>
           </div>
 
-            <p>O mecanismo de ação da tirzepatida é tão profundo que ela não apenas reduz a fome, mas altera a "recompensa" cerebral associada à comida, ajudando a silenciar o chamado "barulho mental" por alimentos hipercalóricos. Se você quer entender mais a fundo como a fome é regulada no cérebro, recomendo a leitura do nosso artigo sobre os <Link to="/hormonios_da_fome_emagrecimento" className="text-green-600 font-semibold hover:underline">hormônios da fome no emagrecimento</Link>. Isso explica por que, nos estudos clínicos, os pacientes alcançaram resultados superiores a outros tratamentos injetáveis disponíveis no mercado brasileiro.</p>
+            <p>O mecanismo de ação da tirzepatida é tão profundo que ela não apenas reduz a fome, mas altera a "recompensa" cerebral associada à comida, ajudando a silenciar o chamado "barulho mental" por alimentos hipercalóricos. Se você quer entender mais a fundo como a fome é regulada no cérebro, recomendo a leitura do nosso artigo sobre os <Link to="/hormonios_da_fome_emagrecimento" className="text-green-700 font-semibold hover:underline">hormônios da fome no emagrecimento</Link>. Isso explica por que, nos estudos clínicos, os pacientes alcançaram resultados superiores a outros tratamentos injetáveis disponíveis no mercado brasileiro.</p>
 
             <h2 id="indicacoes" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Heart className="text-green-600"/> Quem pode usar Tirzepatida?
+              <Heart className="text-green-700"/> Quem pode usar Tirzepatida?
             </h2>
-            <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-5 marker:text-green-600 my-8">
+            <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-5 marker:text-green-700 my-8">
               <p className="m-0"><strong>• Critérios de IMC:</strong> IMC ≥ 30 kg/m² (obesidade) ou IMC ≥ 27 kg/m² + comorbidades associadas à obesidade.</p>
               <p className="m-0"><strong>• Falha Terapêutica Prévia:</strong> Insucesso da terapia comportamental isolada (dieta, atividade física e modificação comportamental) ou tentativas anteriores de perda de peso sem resultados satisfatórios.</p>
               <p className="m-0"><strong>• Avaliação Individual:</strong> Paciente sem contraindicações ao uso do medicamento proposto e com condições para acompanhamento médico regular.</p>
             </div>
 
             <h2 id="perda-peso" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Scale className="text-green-600"/> Quanto peso se perde com a Tirzepatida?
+              <Scale className="text-green-700"/> Quanto peso se perde com a Tirzepatida?
             </h2>
             <p>Os dados dos estudos da linha SURMOUNT mostram que a perda de peso com a tirzepatida é dose-dependente e altamente significativa. Em média, pacientes utilizando a dose máxima de 15mg chegaram a perder entre <strong>15% e 22,5% do seu peso corporal total</strong> ao longo de 72 semanas de tratamento.</p>
 
             <p>Para se ter uma ideia prática, em um indivíduo de 100 kg, isso representa uma redução de mais de 20 kg, aproximando os resultados farmacológicos daqueles observados em cirurgias bariátricas menos invasivas. No entanto, é fundamental entender que esses números dependem diretamente da resposta individual e da adesão às mudanças de estilo de vida.</p>
 
             <h2 id="base-sucesso" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Leaf className="text-green-600"/> A base do sucesso: Alimentação e Musculação
+              <Leaf className="text-green-700"/> A base do sucesso: Alimentação e Musculação
             </h2>
             <p>Muitas pessoas cometem o erro de achar que a injeção faz todo o trabalho sozinha, mas a verdade é que a alimentação e a musculação são os pilares que garantem que o peso perdido seja gordura e não músculo. Durante o uso da tirzepatida, a saciedade é muito alta, o que pode levar a uma ingestão proteica insuficiente. É essencial focar em uma dieta densa em nutrientes, priorizando proteínas magras e fibras para evitar a constipação, um efeito colateral comum.</p>
 
             <p className="bg-green-50/50 p-6 rounded-2xl border border-green-100 border-dashed text-green-950 font-medium">A musculação é inegociável. A perda de peso rápida pode induzir a sarcopenia (perda de massa muscular), o que reduz o metabolismo basal e facilita o efeito rebote no futuro.</p>
 
-            <p>O treinamento de força sinaliza ao corpo que ele deve preservar o tecido muscular, mantendo a "máquina" metabólica ativa. Para monitorar corretamente se a sua perda de peso está sendo focada em gordura e não em massa magra, é útil entender como funcionam ferramentas como a <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 font-semibold hover:underline">bioimpedância</Link> ou exames de <Link to="/o_que_e_antropometria" className="text-green-600 font-semibold hover:underline">antropometria</Link>. Sem exercício resistido, você corre o risco de se tornar um "falso magro" com metabolismo lento.</p>
+            <p>O treinamento de força sinaliza ao corpo que ele deve preservar o tecido muscular, mantendo a "máquina" metabólica ativa. Para monitorar corretamente se a sua perda de peso está sendo focada em gordura e não em massa magra, é útil entender como funcionam ferramentas como a <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-700 font-semibold hover:underline">bioimpedância</Link> ou exames de <Link to="/o_que_e_antropometria" className="text-green-700 font-semibold hover:underline">antropometria</Link>. Sem exercício resistido, você corre o risco de se tornar um "falso magro" com metabolismo lento.</p>
 
             {/* TABELA DE EFEITOS COLATERAIS */}
             <div id="efeitos-colaterais" className="my-12 bg-white border border-slate-100 shadow-xl rounded-[2.5rem] overflow-hidden">
               <div className="bg-green-50 p-6 md:p-8 border-b border-green-100/60">
                 <h2 className="text-xl font-black text-green-900 uppercase italic m-0 flex items-center gap-3">
-                  <Activity className="text-green-600 shrink-0" /> Efeitos Colaterais da Tirzepatida
+                  <Activity className="text-green-700 shrink-0" /> Efeitos Colaterais da Tirzepatida
                 </h2>
               </div>
               <div className="p-0">
@@ -314,7 +314,7 @@ export default function TirzepatidaParaQueServe() {
             {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (BALANÇA DE COZINHA) */}
 <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
     {/* SELO NO CANTO SUPERIOR */}
-    <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+    <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
         <Zap size={14} className="fill-white" />
         <span>O Pingus Aprova!</span>
     </div>
@@ -352,7 +352,7 @@ export default function TirzepatidaParaQueServe() {
                 href="https://meli.la/2e8sxv1" 
                 rel="sponsored noopener noreferrer" 
                 target="_blank"
-                className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
             >
                 <ShoppingCart size={16} />
                 Comprar no Mercado Livre
@@ -369,7 +369,7 @@ export default function TirzepatidaParaQueServe() {
 </div>
 
             <h2 id="efeito-rebote" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Activity className="text-green-600"/> O medo do Efeito Rebote e a importância do Desmame
+              <Activity className="text-green-700"/> O medo do Efeito Rebote e a importância do Desmame
             </h2>
             <p>O <strong>mounjaro efeito rebote</strong> é uma preocupação real e acontece quando o paciente interrompe o uso de forma abrupta sem ter consolidado novos hábitos. Como a medicação controla a fome de forma química, ao retirá-la, o apetite retorna e, muitas vezes, de forma mais intensa. Para evitar isso, o <strong>desmame da tirzepatida</strong> deve ser planejado com um médico, reduzindo as doses gradualmente ou aumentando o espaçamento entre as aplicações (de 7 para 10 ou 14 dias), enquanto se monitora a manutenção do peso. O objetivo é que o corpo se acostume a manter o novo "set point" metabólico sem o auxílio total do fármaco.</p>
 
@@ -401,10 +401,10 @@ export default function TirzepatidaParaQueServe() {
               </ul>
             </div>
 
-            <p className="bg-slate-100 p-6 rounded-2xl border border-slate-200 font-semibold mt-6">Este gráfico prova visualmente que a obesidade é uma doença crônica e que os esforços puramente comportamentais, embora essenciais, muitas vezes são sobrecarregados por contra-adaptações biológicas quando a intervenção principal (neste caso, farmacológica) é removida. A curva do grupo placebo é o exemplo clássico e documentado cientificamente do <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-semibold hover:underline">efeito sanfona</Link>. Provando que sem uma intervenção significativa e contínua de medicina do estilo de vida ou suporte farmacológico, o reganho de peso ocorrerá no paciente obeso.</p>
+            <p className="bg-slate-100 p-6 rounded-2xl border border-slate-200 font-semibold mt-6">Este gráfico prova visualmente que a obesidade é uma doença crônica e que os esforços puramente comportamentais, embora essenciais, muitas vezes são sobrecarregados por contra-adaptações biológicas quando a intervenção principal (neste caso, farmacológica) é removida. A curva do grupo placebo é o exemplo clássico e documentado cientificamente do <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 font-semibold hover:underline">efeito sanfona</Link>. Provando que sem uma intervenção significativa e contínua de medicina do estilo de vida ou suporte farmacológico, o reganho de peso ocorrerá no paciente obeso.</p>
 
             <h2 id="estrategias" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <FileText className="text-green-600"/> Estratégias para minimizar o reganho de peso
+              <FileText className="text-green-700"/> Estratégias para minimizar o reganho de peso
             </h2>
 
             <div className="flex flex-col gap-6 my-8">
@@ -412,7 +412,7 @@ export default function TirzepatidaParaQueServe() {
                 <div className="w-16 h-16 bg-blue-100 text-blue-700 rounded-2xl flex items-center justify-center shrink-0 font-black text-2xl shadow-inner">1</div>
                 <div>
                   <h3 className="text-xl font-black text-slate-800 mb-2">Monitoramento Contínuo</h3>
-                  <p className="m-0 text-slate-600 leading-relaxed">Envolve monitorar flutuações através da <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-600 font-semibold hover:underline">pesagem regular e adequada</Link> durante a manutenção, ajuste imediato caso haja reganho maior que 2kg, acompanhamento trimestral com a equipe e avaliação periódica da composição corporal.</p>
+                  <p className="m-0 text-slate-600 leading-relaxed">Envolve monitorar flutuações através da <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-700 font-semibold hover:underline">pesagem regular e adequada</Link> durante a manutenção, ajuste imediato caso haja reganho maior que 2kg, acompanhamento trimestral com a equipe e avaliação periódica da composição corporal.</p>
                 </div>
               </div>
 
@@ -435,14 +435,14 @@ export default function TirzepatidaParaQueServe() {
 
             {/* VÍDEO RECOMENDADO EM DESTAQUE */}
             <h2 id="video-especialista" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <PlayCircle className="text-green-600"/> Palavra do Especialista: Multiplicando os Efeitos
+              <PlayCircle className="text-green-700"/> Palavra do Especialista: Multiplicando os Efeitos
             </h2>
 
             <p>Para aprofundar ainda mais o seu entendimento e descobrir estratégias práticas para potencializar os resultados do tratamento com Mounjaro (Tirzepatida), assista a este excelente material explicativo feito pelo Dr. Stocker abordando as principais dúvidas sobre os medicamentos injetáveis.</p>
 
             <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
                   <PlayCircle size={24} />
                 </div>
                 <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Como Multiplicar o Efeito do Mounjaro</h3>
@@ -460,9 +460,9 @@ export default function TirzepatidaParaQueServe() {
             </div>
 
             <h2 id="comparacao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Scale className="text-green-600"/> Comparação Tirzepatida x Retatrutida (LY3437943)
+              <Scale className="text-green-700"/> Comparação Tirzepatida x Retatrutida (LY3437943)
             </h2>
-            <p>Enquanto a tirzepatida é um duplo agonista atuando no GLP-1 e GIP, a ciência já estuda o próximo passo: a <Link to="/retatrutida_o_que_e" className="text-green-600 font-semibold hover:underline">Retatrutida</Link>. Esta nova molécula é um triplo agonista (GIP, GLP-1 e Glucagon). Os estudos de fase 2 mostram que a retatrutida pode levar a uma redução média de peso ainda maior (cerca de 24,2% após 48 semanas) e atua de forma muito potente na redução da gordura hepática e níveis de LDL. A tirzepatida já é uma realidade impressionante, mas a evolução dos tratamentos aponta para resultados ainda mais expressivos no futuro.</p>
+            <p>Enquanto a tirzepatida é um duplo agonista atuando no GLP-1 e GIP, a ciência já estuda o próximo passo: a <Link to="/retatrutida_o_que_e" className="text-green-700 font-semibold hover:underline">Retatrutida</Link>. Esta nova molécula é um triplo agonista (GIP, GLP-1 e Glucagon). Os estudos de fase 2 mostram que a retatrutida pode levar a uma redução média de peso ainda maior (cerca de 24,2% após 48 semanas) e atua de forma muito potente na redução da gordura hepática e níveis de LDL. A tirzepatida já é uma realidade impressionante, mas a evolução dos tratamentos aponta para resultados ainda mais expressivos no futuro.</p>
 
             {/* TABELA COMPARATIVA (DESKTOP) OTIMIZADA PARA NAO QUEBRAR */}
             <div className="my-10 bg-white border border-slate-100 shadow-2xl rounded-[3rem] overflow-hidden hidden md:block">
@@ -474,7 +474,7 @@ export default function TirzepatidaParaQueServe() {
               </div>
 
               {comparativoTratamentos.map((farmaco) => (
-                <div key={farmaco.id} className={`grid grid-cols-12 items-stretch ${farmaco.cor === 'bg-green-600' ? 'bg-green-600 text-white' : farmaco.cor === 'bg-slate-800' ? 'bg-slate-800 text-white' : 'hover:bg-slate-50' } transition-colors border-b border-slate-100 last:border-b-0`}>
+                <div key={farmaco.id} className={`grid grid-cols-12 items-stretch ${farmaco.cor === 'bg-green-700' ? 'bg-green-700 text-white' : farmaco.cor === 'bg-slate-800' ? 'bg-slate-800 text-white' : 'hover:bg-slate-50' } transition-colors border-b border-slate-100 last:border-b-0`}>
 
                   {/* Molécula/Tratamento */}
                   <div className="p-4 border-r border-slate-100 flex flex-col justify-center items-center text-center col-span-3">
@@ -512,7 +512,7 @@ export default function TirzepatidaParaQueServe() {
             {/* CARDS COMPARATIVOS (MOBILE) - HIDDEN ON DESKTOP */}
             <div className="space-y-6 md:hidden my-10">
               {comparativoTratamentos.map((farmaco) => (
-                <div key={farmaco.id} className={`${farmaco.cor} ${farmaco.textColor} p-6 rounded-3xl shadow-lg border ${farmaco.cor === 'bg-green-600' ? 'border-green-500' : farmaco.cor === 'bg-slate-800' ? 'border-slate-700' : 'border-slate-100'}`}>
+                <div key={farmaco.id} className={`${farmaco.cor} ${farmaco.textColor} p-6 rounded-3xl shadow-lg border ${farmaco.cor === 'bg-green-700' ? 'border-green-500' : farmaco.cor === 'bg-slate-800' ? 'border-slate-700' : 'border-slate-100'}`}>
                   <div className="flex justify-between items-center mb-4 border-b pb-3 gap-3 border-opacity-20">
                     <div className="flex flex-col">
                       <span className="font-black text-xl italic uppercase">{farmaco.molecula}</span>
@@ -539,7 +539,7 @@ export default function TirzepatidaParaQueServe() {
             {/* FIM DOS CARDS COMPARATIVOS (MOBILE) */}
 
             <h2 id="perigos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Zap className="text-green-600"/> O perigo da Tirzepatida Paraguaia e Manipulada
+              <Zap className="text-green-700"/> O perigo da Tirzepatida Paraguaia e Manipulada
             </h2>
             <p>Com o sucesso do Mounjaro, surgiu um mercado paralelo perigoso, muitas vezes referido como "tirzepatida paraguaia". Esse termo vem do fato de que no Paraguai a medicação não exige receita médica e é comercializada a preços muito menores. Porém, os produtos são contrabandeados para o Brasil sem os devidos cuidados de conservação. Um ponto crítico é a necessidade estrita de guardar o medicamento na geladeira, o que é frequentemente ignorado por atravessadores e vendedores ilegais.</p>
 
@@ -548,7 +548,7 @@ export default function TirzepatidaParaQueServe() {
             {/* INÍCIO DO FAQ VISUAL OTIMIZADO COM PERGUNTAS EXATAS */}
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
-                <HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)
+                <HelpCircle className="text-green-700" /> Perguntas Frequentes (FAQ)
               </h2>
               <div className="space-y-4">
                 {faqs.map((faq, index) => (
@@ -557,11 +557,11 @@ export default function TirzepatidaParaQueServe() {
                       onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
                       className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
                     >
-                      <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-600' : 'text-slate-800 group-hover:text-green-600'}`}>
+                      <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-700' : 'text-slate-800 group-hover:text-green-700'}`}>
                         {faq.pergunta}
                       </h3>
                       <ChevronDown
-                        className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-600' : ''}`}
+                        className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`}
                         size={24}
                       />
                     </button>
@@ -589,7 +589,7 @@ export default function TirzepatidaParaQueServe() {
         <ArtigosRecomendados currentPath={pathname} />
 
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
-          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
             <img 
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr. - Autor do Artigo." 
@@ -600,11 +600,11 @@ export default function TirzepatidaParaQueServe() {
 
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
-            <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
+            <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
               Apaixonado pela ciência da nutrição, Marco dedica seus estudos a compreender a fisiologia humana de forma aprofundada. Especialista em composição corporal com certificação internacional, ele foca em traduzir o rigor dos artigos científicos para a prática do dia a dia. Seu objetivo é ajudar você a entender como o próprio corpo funciona através da educação nutricional baseada em evidências reais.
             </p>
-            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
               Siga @Nutricao_com_Marco
             </a>
           </div>

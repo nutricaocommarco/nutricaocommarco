@@ -60,7 +60,7 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 // Componente simples de carregamento
 const LoadingSpinner = () => (
-  <div className="flex justify-center items-center h-screen text-green-600 font-black">
+  <div className="flex justify-center items-center h-screen text-green-700 font-black">
     Carregando...
   </div>
 );
@@ -106,39 +106,39 @@ return (
         <div className="container mx-auto px-6 flex justify-between items-center relative">
           <Link to="/" className="flex items-center gap-2 group">
             <img src={`${githubImgBase}logoN_pingus.webp`} alt="Logo Pingus" title="Nutrição com Marco - Fisiologia, Composição Corporal e Saúde" className="w-12 h-12 group-hover:rotate-6 transition-transform object-contain" />
-            <span className="text-xl font-black tracking-tight text-slate-900 uppercase ml-1">NUTRIÇÃO COM <span className="text-green-600">MARCO</span></span>
+            <span className="text-xl font-black tracking-tight text-slate-900 uppercase ml-1">NUTRIÇÃO COM <span className="text-green-700">MARCO</span></span>
           </Link>
 
           {/* MENU DESKTOP */}
           <div className="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-widest">
-            <Link to="/" className={`py-1 border-b-2 transition-all ${location.pathname === '/' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Início</Link>
+            <Link to="/" className={`py-1 border-b-2 transition-all ${location.pathname === '/' ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent hover:text-green-700'}`}>Início</Link>
 
             {/* Dropdown: Sobre */}
             <div className="relative group">
-              <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/sobre', '/certificacoes'].includes(location.pathname) ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-600'}`}>
+              <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/sobre', '/certificacoes'].includes(location.pathname) ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-700'}`}>
                 Sobre <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
               </span>
               <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-white border border-green-100 shadow-xl rounded-xl py-3 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col z-50">
-                <Link to="/sobre" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/sobre' ? 'text-green-600 bg-green-50' : 'text-slate-700 hover:text-green-600 hover:bg-slate-50'}`}>Quem Sou Eu</Link>
-                <Link to="/certificacoes" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/certificacoes' ? 'text-green-600 bg-green-50' : 'text-slate-700 hover:text-green-600 hover:bg-slate-50'}`}>Certificações</Link>
+                <Link to="/sobre" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/sobre' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>Quem Sou Eu</Link>
+                <Link to="/certificacoes" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/certificacoes' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>Certificações</Link>
               </div>
             </div>
 
-            <Link to="/blog" className={`py-1 border-b-2 transition-all ${location.pathname.includes('/blog') ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Blog</Link>
-            <Link to="/planos" className={`py-1 border-b-2 transition-all ${location.pathname === '/planos' ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent hover:text-green-600'}`}>Planos</Link>
+            <Link to="/blog" className={`py-1 border-b-2 transition-all ${location.pathname.includes('/blog') ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent hover:text-green-700'}`}>Blog</Link>
+            <Link to="/planos" className={`py-1 border-b-2 transition-all ${location.pathname === '/planos' ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent hover:text-green-700'}`}>Planos</Link>
 
             {/* Dropdown: Recursos */}
             <div className="relative group">
-              <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/calculadora-de-gasto-calorico', '/planilha'].includes(location.pathname) ? 'text-green-600 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-600'}`}>
+              <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/calculadora-de-gasto-calorico', '/planilha'].includes(location.pathname) ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-700'}`}>
                 Recursos <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
               </span>
               <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-white border border-green-100 shadow-xl rounded-xl py-3 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col z-50">
-                <Link to="/calculadora-de-gasto-calorico" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/calculadora-de-gasto-calorico' ? 'text-green-600 bg-green-50' : 'text-slate-700 hover:text-green-600 hover:bg-slate-50'}`}>Gasto Calórico</Link>
-                <Link to="/planilha" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/planilha' ? 'text-green-600 bg-green-50' : 'text-slate-700 hover:text-green-600 hover:bg-slate-50'}`}>🔥 Planilha Antropométrica</Link>
+                <Link to="/calculadora-de-gasto-calorico" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/calculadora-de-gasto-calorico' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>Gasto Calórico</Link>
+                <Link to="/planilha" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/planilha' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>🔥 Planilha Antropométrica</Link>
               </div>
             </div>
 
-            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-6 py-2.5 rounded-full hover:bg-green-700 transition-all shadow-md italic">Instagram</a>
+            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-700 text-white px-6 py-2.5 rounded-full hover:bg-green-700 transition-all shadow-md italic">Instagram</a>
           </div>
 
 {/* MENU DESKTOP TERMINA AQUI */}
@@ -161,8 +161,8 @@ return (
             <div className="flex flex-col gap-3 pb-2 border-b border-green-50">
               <span className="text-lg font-black uppercase tracking-widest text-slate-800">Sobre</span>
               <div className="flex flex-col gap-3 pl-4 border-l-2 border-green-200">
-                <Link to="/sobre" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-600">Quem Sou Eu</Link>
-                <Link to="/certificacoes" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-600">Certificações</Link>
+                <Link to="/sobre" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-700">Quem Sou Eu</Link>
+                <Link to="/certificacoes" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-700">Certificações</Link>
               </div>
             </div>
 
@@ -173,12 +173,12 @@ return (
             <div className="flex flex-col gap-3 pb-2 border-b border-green-50">
               <span className="text-lg font-black uppercase tracking-widest text-slate-800">Recursos</span>
               <div className="flex flex-col gap-3 pl-4 border-l-2 border-green-200">
-                <Link to="/calculadora-de-gasto-calorico" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-600">Gasto Calórico</Link>
-                <Link to="/planilha" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-green-600 hover:text-green-700 flex items-center gap-1">🔥 Planilha Antropométrica</Link>
+                <Link to="/calculadora-de-gasto-calorico" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-700">Gasto Calórico</Link>
+                <Link to="/planilha" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-green-700 hover:text-green-700 flex items-center gap-1">🔥 Planilha Antropométrica</Link>
               </div>
             </div> 
 
-            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" onClick={() => setIsMenuOpen(false)} className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-all shadow-md italic text-center text-sm font-bold uppercase tracking-widest">Instagram</a>
+            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" onClick={() => setIsMenuOpen(false)} className="bg-green-700 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-all shadow-md italic text-center text-sm font-bold uppercase tracking-widest">Instagram</a>
           </div>
         )}
       </nav>
@@ -200,14 +200,14 @@ return (
         href="https://instagram.com/nutricao_com_marco" 
         target="_blank" 
         rel="noreferrer" 
-        className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 border border-white/10 text-white"
+        className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-700 hover:scale-110 transition-all duration-300 border border-white/10 text-white"
         aria-label="Acessar o perfil do Instagram de Nutrição com Marco"
       >
         <Instagram size={24}/>
       </a>
       <a 
         href="mailto:contato@nutricaocommarco.com.br" 
-        className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 border border-white/10 text-white"
+        className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-700 hover:scale-110 transition-all duration-300 border border-white/10 text-white"
         aria-label="Enviar um e-mail de contato para Marco Aurélio"
       >
         <Mail size={24}/>

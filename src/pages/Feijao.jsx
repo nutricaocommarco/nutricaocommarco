@@ -24,12 +24,12 @@ export default function Feijao() {
       <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
         <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
-          <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+          <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
             <ChevronLeft size={20} /> Voltar para o Blog
           </Link>
 
           <article className="prose prose-lg max-w-none text-left">
-            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Nutrição Clínica</span>
+            <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Nutrição Clínica</span>
 
             <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
               Por que o feijão dá gases e como evitar de vez
@@ -51,7 +51,7 @@ export default function Feijao() {
               {/* 1. SEÇÃO DO ÁUDIO */}
               <div className="p-5 md:p-6 flex flex-col gap-3">
                 <div className="flex items-center gap-3">
-                  <Headphones className="text-green-600 w-6 h-6" />
+                  <Headphones className="text-green-700 w-6 h-6" />
                   <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
                 </div>
                 <audio controls className="w-full h-10 outline-none">
@@ -70,7 +70,7 @@ export default function Feijao() {
                   className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                    <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
                       <Activity size={18} />
                     </div>
                     <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
@@ -79,7 +79,7 @@ export default function Feijao() {
                   </div>
                   <ChevronRight 
                     size={20} 
-                    className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                    className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} 
                   />
                 </button>
 
@@ -87,31 +87,31 @@ export default function Feijao() {
                 <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                   <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
                     <li>
-                      <a href="#por-que-da-gases" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#por-que-da-gases" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                         <Wind size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         A Causa dos Gases
                       </a>
                     </li>
                     <li>
-                      <a href="#outros-alimentos" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#outros-alimentos" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                         <AlertTriangle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         Outros Alimentos
                       </a>
                     </li>
                     <li>
-                      <a href="#como-evitar" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#como-evitar" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                         <Droplets size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         Como Evitar (Demolho)
                       </a>
                     </li>
                     <li>
-                      <a href="#gases-problema" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#gases-problema" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                         <HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         É Sempre um Problema?
                       </a>
                     </li>
                     <li>
-                      <a href="#melhorar-digestao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#melhorar-digestao" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                         <CheckCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         Melhorar a Digestão
                       </a>
@@ -136,7 +136,7 @@ export default function Feijao() {
               {/* BLOCO CITÁVEL */}
               <div className="my-8 p-6 md:p-8 bg-white border-l-4 border-green-600 shadow-md rounded-r-3xl flex flex-col gap-3 text-left">
                 <h3 className="text-xl font-black text-slate-800 m-0 border-b border-slate-100 pb-3 flex items-center gap-2">
-                  <span className="text-green-600 text-2xl leading-none">👉</span> O que são oligossacarídeos?
+                  <span className="text-green-700 text-2xl leading-none">👉</span> O que são oligossacarídeos?
                 </h3>
                 <p className="m-0 text-slate-600 font-medium leading-relaxed">
                   Os oligossacarídeos (como a rafinose) são carboidratos complexos presentes nas leguminosas. Como o corpo humano não produz a enzima necessária para digeri-los no intestino delgado, eles chegam intactos ao intestino grosso, onde são fermentados pelas bactérias, resultando na produção de gases.
@@ -151,7 +151,7 @@ export default function Feijao() {
                 <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                   O que no feijão causa gases?
                 </h2>
-                <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+                <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-700">
                   <li className="text-slate-700 font-bold text-lg pl-1">Oligossacarídeos</li>
                   <li className="text-slate-700 font-bold text-lg pl-1">Rafinose</li>
                   <li className="text-slate-700 font-bold text-lg pl-1">Estaquiose</li>
@@ -172,7 +172,7 @@ export default function Feijao() {
                 <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                   Como evitar gases do feijão (base científica)
                 </h2>
-                <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+                <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-700">
                   <li className="text-slate-700 font-bold text-lg pl-1">Demolho reduz oligossacarídeos</li>
                   <li className="text-slate-700 font-bold text-lg pl-1">Cozimento adequado</li>
                   <li className="text-slate-700 font-bold text-lg pl-1">Uso de enzimas digestivas</li>
@@ -188,7 +188,7 @@ export default function Feijao() {
               <p>O segundo ponto fundamental é lembrar que a digestão começa na boca, portanto, mastigue muito bem os alimentos. Comer rápido e engolir pedaços inteiros aumenta drasticamente a carga de trabalho do estômago e piora a fermentação e os sintomas de estufamento lá no final do processo digestivo.</p>
 
               <h3 className="text-xl font-bold text-slate-800 mt-8 mb-3">3. Evite excesso de uma vez</h3>
-              <p>A terceira estratégia é evitar o excesso de uma só vez. Ingerir grandes quantidades de leguminosas em uma única refeição sobrecarrega o sistema e multiplica a fermentação intestinal. Se você sofre com o <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">Efeito Sanfona e a Inflamação Invisível</Link>, fracionar as porções ao longo do dia ajuda a manter o metabolismo, a inflamação e a digestão estáveis e sob controle.</p>
+              <p>A terceira estratégia é evitar o excesso de uma só vez. Ingerir grandes quantidades de leguminosas em uma única refeição sobrecarrega o sistema e multiplica a fermentação intestinal. Se você sofre com o <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 underline hover:text-green-700 font-bold transition-colors">Efeito Sanfona e a Inflamação Invisível</Link>, fracionar as porções ao longo do dia ajuda a manter o metabolismo, a inflamação e a digestão estáveis e sob controle.</p>
 
               <h3 className="text-xl font-bold text-slate-800 mt-8 mb-3">4. Use chás digestivos</h3>
               <p>Como quarta dica de ouro, use chás digestivos para auxiliar o processo de esvaziamento gástrico. Bebidas naturais feitas com hortelã, erva-doce ou gengibre possuem propriedades carminativas excelentes que ajudam a reduzir rapidamente os gases formados e a acalmar a musculatura do trato gastrointestinal.</p>
@@ -200,7 +200,7 @@ export default function Feijao() {
               <p>É fundamental esclarecer que os gases nem sempre são um problema. A produção de gases é um processo totalmente natural e esperado da digestão humana, especialmente quando ocorre a fermentação saudável de fibras, o que, inclusive, é um sinal muito positivo de vitalidade para a sua saúde e barreira intestinal. Porém, é preciso ter muita atenção aos sinais de alerta do corpo. Se você apresentar dor abdominal intensa, distensão frequente que atrapalha o caimento das roupas ou um desconforto persistente e limitante, vale a pena investigar o quadro mais a fundo para descartar disbioses.</p>
 
               <h2 id="melhorar-digestao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Como melhorar sua digestão de forma geral</h2>
-              <p>Muito além de apenas ajustar o consumo pontual de feijão, você pode melhorar a sua digestão de forma geral adotando hábitos básicos e contínuos de estilo de vida. Manter uma boa hidratação ao longo do dia é inegociável para a formação das fezes, assim como comer com atenção plena, evitando distrações nocivas como a tela do celular. A inclusão de novas fibras na dieta deve ser feita sempre de forma gradual para dar tempo ao corpo de se adaptar, o que ajuda a cuidar da saúde da microbiota a longo prazo. Assim como explico em detalhes no artigo sobre <Link to="/quantas_frutas_posso_comer" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">quantas frutas você pode comer por dia</Link>, o grande segredo da digestão eficiente, seja da frutose ou da rafinose, está sempre no equilíbrio e na dose certa, e não no terrorismo nutricional.</p>
+              <p>Muito além de apenas ajustar o consumo pontual de feijão, você pode melhorar a sua digestão de forma geral adotando hábitos básicos e contínuos de estilo de vida. Manter uma boa hidratação ao longo do dia é inegociável para a formação das fezes, assim como comer com atenção plena, evitando distrações nocivas como a tela do celular. A inclusão de novas fibras na dieta deve ser feita sempre de forma gradual para dar tempo ao corpo de se adaptar, o que ajuda a cuidar da saúde da microbiota a longo prazo. Assim como explico em detalhes no artigo sobre <Link to="/quantas_frutas_posso_comer" className="text-green-700 underline hover:text-green-700 font-bold transition-colors">quantas frutas você pode comer por dia</Link>, o grande segredo da digestão eficiente, seja da frutose ou da rafinose, está sempre no equilíbrio e na dose certa, e não no terrorismo nutricional.</p>
 
               <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Conclusão</h2>
               <p>Em resumo, o feijão dá gases principalmente por causa da fermentação de carboidratos complexos que o corpo humano não consegue digerir completamente sozinho na primeira etapa. No entanto, isso não significa, sob hipótese alguma, que você deve parar de consumir esse alimento tão rico e tradicional da nossa cultura. Com estratégias diárias muito simples, como o demolho prolongado, o ajuste fino da quantidade consumida nas refeições e o uso inteligente de recursos digestivos, é perfeitamente possível aproveitar todos os benefícios do feijão para a sua composição corporal sem sofrer com nenhum desconforto posterior.</p>
@@ -208,7 +208,7 @@ export default function Feijao() {
               {/* VÍDEO COMPLEMENTAR INTEGRADO */}
               <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
+                  <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
                     <PlayCircle size={24} />
                   </div>
                   <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight text-left">O Segredo Prático: Como Eliminar os Antinutrientes?</h3>
@@ -228,7 +228,7 @@ export default function Feijao() {
 
               {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
               <div className="mt-16 pt-10 border-t border-slate-100 text-left">
-                <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
+                <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-700" /> Perguntas Frequentes (FAQ)</h2>
                 <div className="space-y-6">
                   <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
                     <h4 className="font-black text-slate-800 mb-2 italic">Por que o corpo humano não consegue digerir o feijão direito?</h4>
@@ -260,7 +260,7 @@ export default function Feijao() {
           <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
 
             {/* Foto do Autor no lugar do 'M' */}
-            <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+            <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
               <img 
                 src={`${githubImgBase}Eu_1.webp`} 
                 alt="Marco Aurélio Jr. - Nutricionista e Autor do Artigo." 
@@ -271,11 +271,11 @@ export default function Feijao() {
 
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
-              <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
+              <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
               <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
                 Apaixonado pela ciência metabólica, Marco dedica seus estudos a compreender a fisiologia humana de forma aprofundada. Especialista em composição corporal com certificação internacional, ele foca em traduzir o rigor dos artigos científicos para a prática do dia a dia. Seu objetivo é ajudar você a entender como o próprio corpo funciona através da educação nutricional baseada em evidências reais.
               </p>
-              <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+              <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
                 Siga @Nutricao_com_Marco
               </a>
             </div>

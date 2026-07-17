@@ -85,14 +85,14 @@ export default function PercentualGorduraFemininoComponent() {
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
           <ChevronLeft size={20} /> Voltar para o Blog
         </Link>
 
         <article className="prose prose-lg max-w-none text-left">
 
           <div className="mb-8 flex flex-col items-start gap-2">
-            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Saúde da Mulher & Antropometria</span>
+            <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Saúde da Mulher & Antropometria</span>
             <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
           </div>
 
@@ -104,7 +104,7 @@ export default function PercentualGorduraFemininoComponent() {
           <div className="my-10 p-6 md:p-10 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-6 text-left">
             <div>
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3 flex items-center gap-2">
-                <Target className="text-green-600" /> Qual o Percentual de Gordura Feminino Ideal? - Resposta Direta
+                <Target className="text-green-700" /> Qual o Percentual de Gordura Feminino Ideal? - Resposta Direta
               </h2>
               <p className="mt-4 text-lg md:text-xl text-green-950 font-medium leading-relaxed m-0">
                 O percentual de gordura feminino ideal para a saúde e boa forma física geral varia entre <strong>15% e 25%</strong>. Valores entre 10% e 15% são classificados para atletas de elite e exigem rigoroso controle nutricional. Mulheres possuem naturalmente mais gordura que os homens, pois uma faixa entre 10% e 12% é considerada <strong>gordura essencial</strong>, vital para o funcionamento hormonal, proteção dos órgãos e regulação do ciclo menstrual.
@@ -112,7 +112,7 @@ export default function PercentualGorduraFemininoComponent() {
             </div>
             <a 
               href="#tabela-oficial" 
-              className="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm shadow-xl hover:bg-green-600 hover:-translate-y-1 transition-all duration-300 w-full md:w-fit italic cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm shadow-xl hover:bg-green-700 hover:-translate-y-1 transition-all duration-300 w-full md:w-fit italic cursor-pointer"
             >
               <Activity size={18} />
               Ver Tabela Completa
@@ -123,7 +123,7 @@ export default function PercentualGorduraFemininoComponent() {
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
-                <Headphones className="text-green-600 w-6 h-6" />
+                <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
               <audio controls className="w-full h-10 outline-none">
@@ -140,24 +140,24 @@ export default function PercentualGorduraFemininoComponent() {
                 className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
                     <Activity size={18} />
                   </div>
                   <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">Índice do Conteúdo</h3>
                 </div>
-                <ChevronRight size={20} className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} />
+                <ChevronRight size={20} className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} />
               </button>
 
               <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[1000px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                 <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
-                  <li><a href="#a-verdade" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Dna size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A Fisiologia Feminina</a></li>
-                  <li><a href="#ginoide-androide" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Ginoide x Androide</a></li>
-                  <li><a href="#video-explicativo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Video size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Vídeo Explicativo</a></li>
-                  <li><a href="#tabela-oficial" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Target size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Tabela de Referência</a></li>
-                  <li><a href="#como-medir" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Ruler size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como Medir Corretamente?</a></li>
-                 <li><a href="#relacao-cintura-estatura" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><HeartPulse size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A Importância da RCE</a></li>
-                  <li><a href="#extremos" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Shield size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Os Riscos dos Extremos</a></li>
-                  <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes</a></li>
+                  <li><a href="#a-verdade" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Dna size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A Fisiologia Feminina</a></li>
+                  <li><a href="#ginoide-androide" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Ginoide x Androide</a></li>
+                  <li><a href="#video-explicativo" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Video size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Vídeo Explicativo</a></li>
+                  <li><a href="#tabela-oficial" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Target size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Tabela de Referência</a></li>
+                  <li><a href="#como-medir" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Ruler size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como Medir Corretamente?</a></li>
+                 <li><a href="#relacao-cintura-estatura" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><HeartPulse size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A Importância da RCE</a></li>
+                  <li><a href="#extremos" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Shield size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Os Riscos dos Extremos</a></li>
+                  <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes</a></li>
                 </ul>
               </div>
             </nav>
@@ -188,7 +188,7 @@ export default function PercentualGorduraFemininoComponent() {
             </figure>
 
             <h2 id="a-verdade" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Dna className="text-green-600"/> A Fisiologia Feminina e a Gordura Essencial
+              <Dna className="text-green-700"/> A Fisiologia Feminina e a Gordura Essencial
             </h2>
             <p>
               Para desmistificar de vez os padrões irreais da internet, é fundamental entender que o corpo feminino foi primorosamente desenhado pela evolução para carregar mais tecido adiposo do que o corpo masculino. Enquanto os homens possuem uma cota de gordura essencial na casa dos três a cinco por cento, as mulheres precisam manter um mínimo absoluto entre dez a doze por cento de gordura apenas para garantir que os seus órgãos vitais e sistema reprodutivo não entrem em colapso total.
@@ -199,10 +199,10 @@ export default function PercentualGorduraFemininoComponent() {
 
             {/* NOVA SEÇÃO E TABELA GINOIDE X ANDROIDE */}
             <h2 id="ginoide-androide" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Scale className="text-green-600"/> Distribuição de Gordura: Ginoide x Androide
+              <Scale className="text-green-700"/> Distribuição de Gordura: Ginoide x Androide
             </h2>
             <p>
-              A forma como o corpo feminino armazena gordura diz muito mais sobre a sua saúde metabólica do que a quantidade total de massa adiposa em si. Essa distribuição é fortemente influenciada pelas fases da vida e pelo perfil hormonal de cada mulher. Durante a fase reprodutiva, o estrogênio elevado atua como um escudo protetor, direcionando o estoque de energia para a região inferior do corpo, caracterizando um tecido subcutâneo com baixa vascularização e muito menos propenso à inflamação. Por outro lado, com a chegada da menopausa e a consequente queda do estradiol, ocorre uma realocação perigosa dessa gordura para a região abdominal. Esse novo perfil visceral é altamente vascularizado, agrava a resistência à insulina e eleva drasticamente os marcadores de <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-bold hover:underline">inflamação crônica</Link>, prejudicando o perfil lipídico.
+              A forma como o corpo feminino armazena gordura diz muito mais sobre a sua saúde metabólica do que a quantidade total de massa adiposa em si. Essa distribuição é fortemente influenciada pelas fases da vida e pelo perfil hormonal de cada mulher. Durante a fase reprodutiva, o estrogênio elevado atua como um escudo protetor, direcionando o estoque de energia para a região inferior do corpo, caracterizando um tecido subcutâneo com baixa vascularização e muito menos propenso à inflamação. Por outro lado, com a chegada da menopausa e a consequente queda do estradiol, ocorre uma realocação perigosa dessa gordura para a região abdominal. Esse novo perfil visceral é altamente vascularizado, agrava a resistência à insulina e eleva drasticamente os marcadores de <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 font-bold hover:underline">inflamação crônica</Link>, prejudicando o perfil lipídico.
             </p>
 
             <div className="my-10 overflow-x-auto bg-white rounded-3xl border border-slate-200 shadow-sm">
@@ -237,7 +237,7 @@ export default function PercentualGorduraFemininoComponent() {
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-bold text-slate-800">Grau de Inflamação</td>
-                    <td className="p-5 text-green-600">Menor inflamação crônica</td>
+                    <td className="p-5 text-green-700">Menor inflamação crônica</td>
                     <td className="p-5 text-red-600 font-bold">Maior inflamação (TNF-alfa, IL-6)</td>
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
@@ -252,7 +252,7 @@ export default function PercentualGorduraFemininoComponent() {
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-bold text-slate-800">Risco Cardiovascular</td>
-                    <td className="p-5 text-green-600 font-bold">Baixo Risco</td>
+                    <td className="p-5 text-green-700 font-bold">Baixo Risco</td>
                     <td className="p-5 text-red-600 font-bold">Alto Risco</td>
                   </tr>
                 </tbody>
@@ -261,7 +261,7 @@ export default function PercentualGorduraFemininoComponent() {
 
             {/* NOVO VÍDEO DO YOUTUBE - GINOIDE X ANDROIDE */}
             <h2 id="video-explicativo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Video className="text-green-600"/> Biotipos: Gordura Ginoide x Androide
+              <Video className="text-green-700"/> Biotipos: Gordura Ginoide x Androide
             </h2>
             <p className="mb-6">
               Compreender a diferença na distribuição da sua gordura é o primeiro grande passo para parar de se comparar e adotar a estratégia correta.
@@ -281,7 +281,7 @@ export default function PercentualGorduraFemininoComponent() {
                 </div>
                 <div className="flex-1 text-center md:text-left">
                     <h3 className="text-2xl font-black text-slate-800 italic uppercase mb-4 flex items-center justify-center md:justify-start gap-2">
-                        <PlayCircle className="text-green-600" /> A Ciência da Gordura
+                        <PlayCircle className="text-green-700" /> A Ciência da Gordura
                     </h3>
                     <p className="text-slate-700 font-medium leading-relaxed mb-6">
                         Neste vídeo, nos aprofundamos na diferença vital entre o acúmulo de gordura <strong>Ginoide</strong> (formato de pera, mais comum e protetor nas mulheres) e o <strong>Androide</strong> (formato de maçã, com maior acúmulo de gordura visceral). Entenda como isso reflete no seu risco cardiometabólico.
@@ -290,7 +290,7 @@ export default function PercentualGorduraFemininoComponent() {
                         href="https://www.youtube.com/watch?v=7HxdNxnlFLM" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm font-black text-green-600 uppercase tracking-widest hover:text-green-800 transition-colors"
+                        className="inline-flex items-center gap-2 text-sm font-black text-green-700 uppercase tracking-widest hover:text-green-800 transition-colors"
                     >
                         Assistir no YouTube <ChevronRight size={16} />
                     </a>
@@ -298,7 +298,7 @@ export default function PercentualGorduraFemininoComponent() {
             </div>
 
             <h2 id="tabela-oficial" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-8 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Activity className="text-green-600"/> Tabela Oficial de Percentual de Gordura Feminino
+              <Activity className="text-green-700"/> Tabela Oficial de Percentual de Gordura Feminino
             </h2>
             <p className="mb-8">
               Com base nos mais recentes compêndios de avaliação clínica e fisiologia do exercício, estruturamos a tabela referencial de adiposidade para guiar a sua jornada de hipertrofia ou emagrecimento com segurança absoluta. Utilize esses parâmetros como o farol da sua estratégia nutricional e esportiva.
@@ -323,26 +323,26 @@ export default function PercentualGorduraFemininoComponent() {
                 ))}
               </div>
               <div className="mt-4 p-4 bg-white rounded-xl border border-slate-200 text-sm text-slate-600 font-medium text-center">
-                <strong>Nota Clínica:</strong> Mulheres que buscam a otimização máxima para iniciarem um processo limpo de hipertrofia muscular encontram um ambiente fisiológico muito favorável quando estabilizadas na faixa de <strong>18% a 20%</strong>. Valores acima de 25% indicam que um <Link to="/calculadora-de-gasto-calorico" className="text-green-600 font-bold hover:underline">déficit calórico planejado</Link> deve preceder qualquer fase de superávit.
+                <strong>Nota Clínica:</strong> Mulheres que buscam a otimização máxima para iniciarem um processo limpo de hipertrofia muscular encontram um ambiente fisiológico muito favorável quando estabilizadas na faixa de <strong>18% a 20%</strong>. Valores acima de 25% indicam que um <Link to="/calculadora-de-gasto-calorico" className="text-green-700 font-bold hover:underline">déficit calórico planejado</Link> deve preceder qualquer fase de superávit.
               </div>
             </div>
 
             <h2 id="como-medir" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Ruler className="text-green-600"/> Como Medir a Gordura Corretamente?
+              <Ruler className="text-green-700"/> Como Medir a Gordura Corretamente?
             </h2>
             <p>
               Ignorar o temido Índice de Massa Corporal (IMC) em mulheres ativas é uma obrigação para qualquer profissional atualizado, visto que o IMC é dolorosamente incapaz de discernir se aquele volume extra na balança provém de músculos densos e hidratados construídos na academia ou de um acúmulo patológico de tecido adiposo decorrente do sedentarismo. Para acessar os números reais que definem a sua estética e saúde, dependemos de métodos avaliativos sérios.
             </p>
             <p>
-              A <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 font-bold hover:underline">bioimpedância elétrica transformou-se em uma febre</Link> nos consultórios modernos. Trata-se de um equipamento que mapeia a sua composição ao disparar correntes elétricas sutis pelo corpo, interpretando a resistência que essas correntes sofrem ao passar pela água dos seus músculos em contraste com a barreira isolante da gordura. O desafio monumental da bioimpedância nas mulheres é a implacável flutuação hídrica provocada pelas fases do ciclo menstrual (período em que muitas buscam saber <Link to="/o-que-comer-na-tpm" className="text-green-600 font-bold hover:underline">o que comer na TPM</Link>) e alterações na temperatura corporal, que podem facilmente distorcer o percentual real, mascarar o seu progresso da dieta e deixar dúvidas sobre <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-600 font-bold hover:underline">qual o melhor horário para se pesar</Link>.
+              A <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-700 font-bold hover:underline">bioimpedância elétrica transformou-se em uma febre</Link> nos consultórios modernos. Trata-se de um equipamento que mapeia a sua composição ao disparar correntes elétricas sutis pelo corpo, interpretando a resistência que essas correntes sofrem ao passar pela água dos seus músculos em contraste com a barreira isolante da gordura. O desafio monumental da bioimpedância nas mulheres é a implacável flutuação hídrica provocada pelas fases do ciclo menstrual (período em que muitas buscam saber <Link to="/o-que-comer-na-tpm" className="text-green-700 font-bold hover:underline">o que comer na TPM</Link>) e alterações na temperatura corporal, que podem facilmente distorcer o percentual real, mascarar o seu progresso da dieta e deixar dúvidas sobre <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-700 font-bold hover:underline">qual o melhor horário para se pesar</Link>.
             </p>
             <p>
-              Por esse exato motivo, o <Link to="/o_que_e_antropometria" className="text-green-600 font-bold hover:underline">método antropométrico tradicional através do somatório de dobras cutâneas</Link> ainda reina absoluto como uma bússola inabalável para monitorar resultados ao longo dos meses. Utilizando pinças de alta precisão científica, o profissional avalia o tecido subcutâneo real com os próprios dedos, blindando a avaliação de oscilações ilusórias de líquidos. Quando complementado com métricas matemáticas independentes e altamente eficientes, como a formidável Relação Cintura-Estatura (RCE), onde o limite saudável estipula que a sua cintura deve medir obrigatoriamente menos da metade da sua altura total, obtemos um arsenal clínico invencível contra a obesidade.
+              Por esse exato motivo, o <Link to="/o_que_e_antropometria" className="text-green-700 font-bold hover:underline">método antropométrico tradicional através do somatório de dobras cutâneas</Link> ainda reina absoluto como uma bússola inabalável para monitorar resultados ao longo dos meses. Utilizando pinças de alta precisão científica, o profissional avalia o tecido subcutâneo real com os próprios dedos, blindando a avaliação de oscilações ilusórias de líquidos. Quando complementado com métricas matemáticas independentes e altamente eficientes, como a formidável Relação Cintura-Estatura (RCE), onde o limite saudável estipula que a sua cintura deve medir obrigatoriamente menos da metade da sua altura total, obtemos um arsenal clínico invencível contra a obesidade.
             </p>
 
             {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (Fita Antropométrica Cescorf) */}
             <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
-                <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+                <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
                     <span>Pingus Aprova</span>
                 </div>
@@ -381,7 +381,7 @@ export default function PercentualGorduraFemininoComponent() {
                             href="https://meli.la/2atz1Hu" 
                             rel="sponsored noopener noreferrer" 
                             target="_blank"
-                            className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                            className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
                         >
                             <ShoppingCart size={16} />
                             Ver no Mercado Livre
@@ -398,7 +398,7 @@ export default function PercentualGorduraFemininoComponent() {
 
             {/* H2: RELAÇÃO CINTURA ESTATURA */}
             <h2 id="relacao-cintura-estatura" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <HeartPulse className="text-green-600"/> A Importância da Relação Cintura-Estatura (RCE)
+              <HeartPulse className="text-green-700"/> A Importância da Relação Cintura-Estatura (RCE)
             </h2>
             <p>
               Além do percentual de gordura e das dobras cutâneas, a <strong>Relação Cintura-Estatura (RCE)</strong> tem ganhado um destaque formidável na comunidade científica. Diversos estudos e consensos médicos atuais demonstram que a RCE é um marcador preditivo muito superior ao IMC para identificar riscos cardiometabólicos reais.
@@ -422,7 +422,7 @@ export default function PercentualGorduraFemininoComponent() {
                 </div>
                 <div className="flex-1 text-center md:text-left">
                     <h3 className="text-2xl font-black text-slate-800 italic uppercase mb-4 flex items-center justify-center md:justify-start gap-2">
-                        <PlayCircle className="text-green-600" /> Como Medir a Sua Cintura
+                        <PlayCircle className="text-green-700" /> Como Medir a Sua Cintura
                     </h3>
                     <p className="text-slate-700 font-medium leading-relaxed mb-4">
                         A fita métrica é a sua maior aliada para acompanhar a verdadeira evolução da sua composição corporal em casa e calcular a sua RCE de forma precisa.
@@ -472,7 +472,7 @@ export default function PercentualGorduraFemininoComponent() {
                         <div className="w-full md:w-1/3 flex items-end">
                             <button
                                 type="submit"
-                                className="w-full bg-green-600 text-white h-[60px] rounded-2xl font-black uppercase text-sm tracking-widest shadow-lg hover:bg-green-700 hover:-translate-y-1 transition-all duration-300"
+                                className="w-full bg-green-700 text-white h-[60px] rounded-2xl font-black uppercase text-sm tracking-widest shadow-lg hover:bg-green-700 hover:-translate-y-1 transition-all duration-300"
                             >
                                 Calcular Risco
                             </button>
@@ -483,12 +483,12 @@ export default function PercentualGorduraFemininoComponent() {
                     {resultadoRce && (
                         <div className={`mt-10 p-6 md:p-8 rounded-[2rem] border-2 flex flex-col items-center text-center transition-all duration-500 ${resultadoRce <= 0.5 ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
                             <span className="text-xs font-black uppercase tracking-widest mb-2 text-slate-500">Seu Índice RCE</span>
-                            <span className={`text-6xl font-black italic mb-4 drop-shadow-sm ${resultadoRce <= 0.5 ? 'text-green-600' : 'text-red-600'}`}>
+                            <span className={`text-6xl font-black italic mb-4 drop-shadow-sm ${resultadoRce <= 0.5 ? 'text-green-700' : 'text-red-600'}`}>
                                 {resultadoRce}
                             </span>
                             {resultadoRce <= 0.5 ? (
                                 <div className="flex items-start gap-3 bg-white p-4 rounded-2xl shadow-sm border border-green-100">
-                                    <CheckCircle2 className="text-green-600 w-6 h-6 shrink-0 mt-0.5" />
+                                    <CheckCircle2 className="text-green-700 w-6 h-6 shrink-0 mt-0.5" />
                                     <p className="text-green-900 font-medium text-sm md:text-base m-0 text-left">
                                         <strong>Excelente!</strong> O seu resultado está dentro da zona saudável (≤ 0.50). Isso indica um baixo risco para doenças cardiovasculares e metabólicas. Continue cuidando da sua saúde!
                                     </p>
@@ -507,7 +507,7 @@ export default function PercentualGorduraFemininoComponent() {
             </div>
 
             <h2 id="extremos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Shield className="text-green-600"/> Os Riscos Fisiológicos dos Extremos
+              <Shield className="text-green-700"/> Os Riscos Fisiológicos dos Extremos
             </h2>
             <p>
               Romantizar a magreza extrema destrói a orquestra hormonal feminina de forma silenciosa e, por vezes, permanente. Quando a disponibilidade de energia despenca violentamente e o percentual de gordura atinge patamares inferiores aos doze por cento vitais, o organismo entra em um modo instintivo de severo racionamento. O hipotálamo interrompe drasticamente o comando de produção dos hormônios reprodutivos, gerando a anovulação e o desaparecimento total da menstruação em atletas amadoras que buscam desesperadamente abdômens trincados. Esse cenário catastrófico aumenta a suscetibilidade a lesões por fraturas de estresse, instabilidade de humor assustadora e mergulha o metabolismo em uma lentidão angustiante que tornará qualquer tentativa futura de controle de peso um verdadeiro inferno. Respeite os números biológicos do seu corpo, invista na construção maciça do músculo ao invés da mera restrição agressiva e utilize a ciência antropométrica a seu favor na conquista irrefreável da longevidade.
@@ -515,7 +515,7 @@ export default function PercentualGorduraFemininoComponent() {
 
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
-                <HelpCircle className="text-green-600" /> Perguntas Frequentes
+                <HelpCircle className="text-green-700" /> Perguntas Frequentes
               </h2>
               <div className="space-y-4">
                 {faqs.map((faq, index) => (
@@ -524,10 +524,10 @@ export default function PercentualGorduraFemininoComponent() {
                       onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
                       className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
                     >
-                      <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-600' : 'text-slate-800 group-hover:text-green-600'}`}>
+                      <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-700' : 'text-slate-800 group-hover:text-green-700'}`}>
                         {faq.pergunta}
                       </h3>
-                      <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-600' : ''}`} size={24} />
+                      <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
                     </button>
                     <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
                       <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">{faq.resposta}</p>
@@ -544,7 +544,7 @@ export default function PercentualGorduraFemininoComponent() {
         <ArtigosRecomendados currentPath={pathname} />
 
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
-          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
             <img 
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr." 
@@ -557,11 +557,11 @@ export default function PercentualGorduraFemininoComponent() {
           </div>
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
-            <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK 1</p>
+            <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
               Apaixonado pela fisiologia clínica e pelas minúcias do metabolismo feminino, traduzo os dados densos e frios das avaliações antropométricas em estratégias reais que geram resultados estéticos sustentáveis e definitivos, priorizando implacavelmente o respeito à saúde metabólica em todas as fases da vida.
             </p>
-            <a href="https://instagram.com/Nutricao_com_Marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+            <a href="https://instagram.com/Nutricao_com_Marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
               Siga @Nutricao_com_Marco
             </a>
           </div>

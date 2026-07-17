@@ -80,12 +80,12 @@ export default function Eritropoetina() {
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
           <ChevronLeft size={20} /> Voltar para o Blog
         </Link>
 
         <article className="prose prose-lg max-w-none text-left">
-          <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Nutrição Esportiva</span>
+          <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Nutrição Esportiva</span>
 
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
             O Dilema do Sangue na Altitude: Como o Hormônio Eritropoetina e a Transfusão de Hemácias Afetam a Ética no Esporte
@@ -108,7 +108,7 @@ export default function Eritropoetina() {
             {/* 1. SEÇÃO DO ÁUDIO */}
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
-                <Headphones className="text-green-600 w-6 h-6" />
+                <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
               <audio controls className="w-full h-10 outline-none">
@@ -127,7 +127,7 @@ export default function Eritropoetina() {
                 className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
                     <Activity size={18} />
                   </div>
                   <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
@@ -136,7 +136,7 @@ export default function Eritropoetina() {
                 </div>
                 <ChevronRight 
                   size={20} 
-                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} 
                 />
               </button>
 
@@ -144,19 +144,19 @@ export default function Eritropoetina() {
               <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                 <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
                   <li>
-                    <a href="#papel-eritropoetina" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#papel-eritropoetina" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Papel da Eritropoetina
                     </a>
                   </li>
                   <li>
-                    <a href="#riscos-fatais" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#riscos-fatais" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <AlertTriangle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Riscos Fatais
                     </a>
                   </li>
                   <li>
-                    <a href="#etica-esporte" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#etica-esporte" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Shield size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Ética no Esporte
                     </a>
@@ -176,13 +176,13 @@ export default function Eritropoetina() {
             </div>
 
             <h2 id="papel-eritropoetina" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Entenda o papel do hormônio eritropoetina no desempenho físico</h2>
-            <p>O hormônio eritropoetina, também conhecido pela sigla EPO, é uma substância produzida naturalmente pelos nossos rins com uma função muito clara, que é estimular a medula óssea a fabricar mais glóbulos vermelhos. Essas células são os veículos que transportam o oxigênio para os <Link to="/o_que_e_antropometria" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">músculos</Link> durante o exercício. Em condições normais de altitude, o corpo aumenta a produção desse hormônio de forma gradual para se adaptar à falta de O2.</p>
+            <p>O hormônio eritropoetina, também conhecido pela sigla EPO, é uma substância produzida naturalmente pelos nossos rins com uma função muito clara, que é estimular a medula óssea a fabricar mais glóbulos vermelhos. Essas células são os veículos que transportam o oxigênio para os <Link to="/o_que_e_antropometria" className="text-green-700 underline hover:text-green-700 font-bold transition-colors">músculos</Link> durante o exercício. Em condições normais de altitude, o corpo aumenta a produção desse hormônio de forma gradual para se adaptar à falta de O2.</p>
             <p>No entanto, quando um atleta utiliza a versão sintética desse hormônio, ele está forçando uma produção exagerada de células sanguíneas. Isso cria uma vantagem artificial de resistência, mas faz com que o sangue perca sua fluidez natural e se torne perigosamente viscoso, aumentando o esforço do coração para bombear esse líquido pesado pelo corpo.</p>
 
             {/* BLOCO CITÁVEL (OTIMIZADO PARA IA E SEO) */}
             <div className="my-8 p-6 md:p-8 bg-white border-l-4 border-green-600 shadow-md rounded-r-3xl flex flex-col gap-3 text-left">
               <h3 className="text-xl font-black text-slate-800 m-0 border-b border-slate-100 pb-3 flex items-center gap-2">
-                <span className="text-green-600 text-2xl leading-none">👉</span> O que é o hormônio Eritropoetina (EPO)?
+                <span className="text-green-700 text-2xl leading-none">👉</span> O que é o hormônio Eritropoetina (EPO)?
               </h3>
               <p className="m-0 text-slate-600 font-medium leading-relaxed">
                 A eritropoetina é um hormônio produzido naturalmente pelos rins. Sua principal função é estimular a medula óssea a fabricar mais hemácias (glóbulos vermelhos), que são responsáveis por transportar oxigênio para os músculos e tecidos. Na altitude, o corpo aumenta sua produção naturalmente para compensar o ar rarefeito.
@@ -192,14 +192,14 @@ export default function Eritropoetina() {
 
             <h2 id="riscos-fatais" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Os riscos fatais da transfusão de hemácias e do sangue viscoso</h2>
             <p>Outro método frequentemente discutido nos bastidores do doping é a transfusão de hemácias. Essa prática consiste em injetar glóbulos vermelhos extras na corrente sanguínea do atleta pouco antes da competição, com o objetivo de turbinar a oxigenação muscular de forma instantânea.</p>
-            <p>O grande perigo aqui é que, ao elevar o hematócrito além dos limites fisiológicos, o sangue fica tão "grosso" que o risco de formação de coágulos dispara. Essa viscosidade excessiva pode levar a consequências catastróficas, como o acidente vascular cerebral (AVC), o infarto agudo do miocárdio e a trombose. O que era para ser um ganho de performance acaba se tornando uma bomba-relógio para o <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">sistema circulatório</Link>, podendo causar morte súbita em momentos de esforço intenso.</p>
+            <p>O grande perigo aqui é que, ao elevar o hematócrito além dos limites fisiológicos, o sangue fica tão "grosso" que o risco de formação de coágulos dispara. Essa viscosidade excessiva pode levar a consequências catastróficas, como o acidente vascular cerebral (AVC), o infarto agudo do miocárdio e a trombose. O que era para ser um ganho de performance acaba se tornando uma bomba-relógio para o <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 underline hover:text-green-700 font-bold transition-colors">sistema circulatório</Link>, podendo causar morte súbita em momentos de esforço intenso.</p>
 
             {/* PRIMEIRA LISTA OBJETIVA (OTIMIZADO PARA IA E SEO) */}
             <div className="my-8 p-6 md:p-8 bg-slate-50 border border-green-100 rounded-3xl shadow-sm flex flex-col gap-4 text-left">
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                 Quais os riscos fatais do doping sanguíneo?
               </h2>
-              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-700">
                 <li className="text-slate-700 font-bold text-lg pl-1">
                   Sobrecarga cardíaca (o coração faz muito mais força para bombear)
                 </li>
@@ -217,7 +217,7 @@ export default function Eritropoetina() {
             {/* FIM DA PRIMEIRA LISTA OBJETIVA */}
 
             <h2 id="etica-esporte" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">A importância da ética no esporte e o valor do jogo limpo</h2>
-            <p>Além dos perigos físicos, precisamos olhar para a ética no esporte como o pilar que sustenta qualquer competição saudável. O uso de substâncias ilícitas ou métodos proibidos quebra o princípio da igualdade e desrespeita todos os outros competidores que se dedicaram anos a fio com treinos honestos e <Link to="/quantas_frutas_posso_comer" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">alimentação adequada</Link>.</p>
+            <p>Além dos perigos físicos, precisamos olhar para a ética no esporte como o pilar que sustenta qualquer competição saudável. O uso de substâncias ilícitas ou métodos proibidos quebra o princípio da igualdade e desrespeita todos os outros competidores que se dedicaram anos a fio com treinos honestos e <Link to="/quantas_frutas_posso_comer" className="text-green-700 underline hover:text-green-700 font-bold transition-colors">alimentação adequada</Link>.</p>
             <p>A vitória conquistada através de manipulações químicas perde seu brilho e sua legitimidade, transformando o esporte em uma disputa de laboratórios em vez de uma celebração do potencial humano. Manter-se fiel aos princípios da honestidade não é apenas uma questão de passar nos exames antidoping, mas sim de preservar a integridade da modalidade e a própria dignidade como atleta profissional.</p>
 
             {/* SEGUNDA LISTA OBJETIVA (SOLUÇÕES PARA IA E SEO) */}
@@ -225,7 +225,7 @@ export default function Eritropoetina() {
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                 Como melhorar o desempenho na altitude de forma legal
               </h2>
-              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-700">
                 <li className="text-slate-700 font-bold text-lg pl-1">
                   Fazer aclimatização prévia (chegar com semanas de antecedência)
                 </li>
@@ -244,7 +244,7 @@ export default function Eritropoetina() {
 
             <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
+                <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
                   <PlayCircle size={24} />
                 </div>
                 <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight text-left">Os Incríveis Efeitos do Treinamento na Altitude</h3>
@@ -264,7 +264,7 @@ export default function Eritropoetina() {
 
             {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
             <div className="mt-16 pt-10 border-t border-slate-100 text-left">
-              <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
+              <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-700" /> Perguntas Frequentes (FAQ)</h2>
               <div className="space-y-6">
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
                   <h3 className="text-lg font-black text-slate-800 mb-2 italic">Qual é o principal perigo de usar o hormônio eritropoetina sintético sem indicação médica?</h3>
@@ -291,7 +291,7 @@ export default function Eritropoetina() {
         {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
 
-          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
             <img 
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr. - Nutricionista e Autor do Artigo." 
@@ -302,11 +302,11 @@ export default function Eritropoetina() {
 
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
-            <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
+            <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
               Apaixonado pela ciência metabólica, Marco dedica seus estudos a compreender a fisiologia humana de forma aprofundada. Especialista em composição corporal com certificação internacional, ele foca em traduzir o rigor dos artigos científicos para a prática do dia a dia. Seu objetivo é ajudar você a entender como o próprio corpo funciona através da educação nutricional baseada em evidências reais.
             </p>
-            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
               Siga @Nutricao_com_Marco
             </a>
           </div>

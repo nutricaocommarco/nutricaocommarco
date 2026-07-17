@@ -58,14 +58,14 @@ export default function DietaCetogenica() {
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit" title="Voltar ao Blog para ler mais sobre o que é dieta cetogênica">
+        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit" title="Voltar ao Blog para ler mais sobre o que é dieta cetogênica">
           <ChevronLeft size={20} /> Voltar para o Blog
         </Link>
 
         <article className="prose prose-lg max-w-none text-left">
 
           <div className="mb-8 flex flex-col items-start gap-2">
-            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Dietas da Moda</span>
+            <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Dietas da Moda</span>
             <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
           </div>
 
@@ -77,7 +77,7 @@ export default function DietaCetogenica() {
           <div className="mb-10 p-6 md:p-10 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-6 text-left">
             <div>
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3 flex items-center gap-2">
-                <Target className="text-green-600 shrink-0" /> Resposta Direta: O que é Dieta Cetogênica e como funciona?
+                <Target className="text-green-700 shrink-0" /> Resposta Direta: O que é Dieta Cetogênica e como funciona?
               </h2>
               <p className="mt-4 text-lg md:text-xl text-green-950 font-medium leading-relaxed m-0">
                 Se você busca entender o que é dieta cetogênica, saiba que a dieta cetogênica é um protocolo alimentar hiperlipídico, no qual 70% a 80% das calorias diárias provêm do consumo de gorduras saudáveis, 15% a 20% de proteínas e há uma restrição severa de carboidratos para menos de 50 gramas por dia. Ela funciona forçando o organismo a esgotar os estoques de glicogênio e reduzir os níveis de insulina, o que estimula a quebra dos ácidos graxos no fígado. Esse processo gera os corpos cetônicos — como o beta-hidroxibutirato —, que passam a atuar como a fonte primária de energia para os tecidos, órgãos e cérebro no lugar da glicose, favorecendo a redução do <Link to="/percentual-gordura-feminino-ideal" className="text-green-800 font-bold hover:underline">percentual de gordura</Link>.
@@ -89,7 +89,7 @@ export default function DietaCetogenica() {
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
-                <Headphones className="text-green-600 w-6 h-6" />
+                <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
               <audio controls className="w-full h-10 outline-none">
@@ -109,34 +109,34 @@ export default function DietaCetogenica() {
               aria-label="Abrir Índice do Conteúdo sobre o que é Dieta Cetogênica"
             >
               <div className="flex items-center gap-3">
-                <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
                   <Activity size={18} />
                 </div>
                 <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">Índice do Conteúdo</h3>
               </div>
-              <ChevronRight size={20} className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} />
+              <ChevronRight size={20} className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} />
             </button>
 
             <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[1200px] opacity-100 border-t border-slate-200' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
               <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
-                <li><a href="#historia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="A História: O que é dieta cetogênica"><Clock size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A História da Dieta Cetogênica</a></li>
-                <li><a href="#como-funciona" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Como Funciona: O que é dieta cetogênica"><Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como Funciona no Organismo</a></li>
-                <li><a href="#cardapio" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Cardápio: O que é dieta cetogênica"><PieChart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Cardápio e Macronutrientes</a></li>
-                <li><a href="#exemplo-cardapio" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Exemplo Prático: O que é dieta cetogênica"><Utensils size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Exemplo de Cardápio Prático</a></li>
-                <li><a href="#cetose" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Cetose: O que é dieta cetogênica"><Brain size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O que é Cetose e Adaptação</a></li>
-                <li><a href="#acelerar" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Acelerar a Cetose na dieta cetogênica"><Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como Entrar em Cetose Rápido</a></li>
-                <li><a href="#alimentos" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Alimentos na dieta cetogênica"><Check size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Alimentos Permitidos na Keto</a></li>
-                <li><a href="#frutas" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Frutas no que é dieta cetogênica"><Apple size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Frutas Permitidas na Dieta</a></li>
-                <li><a href="#video-cardapio" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Vídeo Cardápio: O que é dieta cetogênica"><Video size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Vídeo: Opção de Cardápio Keto</a></li>
-                <li><a href="#comparativo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Fisiologia do que é dieta cetogênica"><AlertTriangle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Cetose vs Cetoacidose</a></li>
-                <li><a href="#medicao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Como medir o que é dieta cetogênica"><Target size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Medição de Corpos Cetônicos</a></li>
-                <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="FAQ sobre O que é Dieta Cetogênica"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes</a></li>
+                <li><a href="#historia" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="A História: O que é dieta cetogênica"><Clock size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A História da Dieta Cetogênica</a></li>
+                <li><a href="#como-funciona" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Como Funciona: O que é dieta cetogênica"><Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como Funciona no Organismo</a></li>
+                <li><a href="#cardapio" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Cardápio: O que é dieta cetogênica"><PieChart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Cardápio e Macronutrientes</a></li>
+                <li><a href="#exemplo-cardapio" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Exemplo Prático: O que é dieta cetogênica"><Utensils size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Exemplo de Cardápio Prático</a></li>
+                <li><a href="#cetose" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Cetose: O que é dieta cetogênica"><Brain size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O que é Cetose e Adaptação</a></li>
+                <li><a href="#acelerar" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Acelerar a Cetose na dieta cetogênica"><Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como Entrar em Cetose Rápido</a></li>
+                <li><a href="#alimentos" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Alimentos na dieta cetogênica"><Check size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Alimentos Permitidos na Keto</a></li>
+                <li><a href="#frutas" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Frutas no que é dieta cetogênica"><Apple size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Frutas Permitidas na Dieta</a></li>
+                <li><a href="#video-cardapio" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Vídeo Cardápio: O que é dieta cetogênica"><Video size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Vídeo: Opção de Cardápio Keto</a></li>
+                <li><a href="#comparativo" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Fisiologia do que é dieta cetogênica"><AlertTriangle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Cetose vs Cetoacidose</a></li>
+                <li><a href="#medicao" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Como medir o que é dieta cetogênica"><Target size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Medição de Corpos Cetônicos</a></li>
+                <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="FAQ sobre O que é Dieta Cetogênica"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes</a></li>
               </ul>
             </div>
           </div>
 
           <p className="text-xl text-slate-600 font-medium mb-10 border-l-4 border-green-600 pl-4">
-            Se você quer entender de verdade <strong>o que é dieta cetogênica</strong> sem cair em modismos ou distorções da internet, este guia foi desenhado para você. Muito associada ao emagrecimento rápido e frequentemente aliada ao <Link to="/o-que-e-jejum-intermitente" className="text-green-600 font-bold hover:underline">jejum intermitente</Link>, saber o que é dieta cetogênica de fato a conhecida dieta keto promove uma inversão total na pirâmide alimentar tradicional, transformando o seu corpo em uma máquina otimizada para queimar gordura como combustível.
+            Se você quer entender de verdade <strong>o que é dieta cetogênica</strong> sem cair em modismos ou distorções da internet, este guia foi desenhado para você. Muito associada ao emagrecimento rápido e frequentemente aliada ao <Link to="/o-que-e-jejum-intermitente" className="text-green-700 font-bold hover:underline">jejum intermitente</Link>, saber o que é dieta cetogênica de fato a conhecida dieta keto promove uma inversão total na pirâmide alimentar tradicional, transformando o seu corpo em uma máquina otimizada para queimar gordura como combustível.
           </p>
 
           {/* 2. IMAGEM DE CAPA COM SEO INVISÍVEL */}
@@ -157,7 +157,7 @@ export default function DietaCetogenica() {
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
             <h2 id="historia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Clock className="text-green-600"/> A História: O que é Dieta Cetogênica na Origem
+              <Clock className="text-green-700"/> A História: O que é Dieta Cetogênica na Origem
             </h2>
             <p>
               As origens dos efeitos metabólicos da cetose e do que é dieta cetogênica hoje remontam a relatos muito antigos da humanidade. No Evangelho de Marcos (9:17-29), há a clássica passagem onde um pai desesperado pede ajuda a Jesus para curar seu filho que sofria com convulsões severas e rigidez física. Ao ser questionado sobre o motivo de os discípulos não terem conseguido resolver a situação, a resposta foi enfática: <em>"Essa espécie só sai pela oração e pelo jejum"</em>. O que na antiguidade era associado à purificação espiritual, na verdade baseava-se em uma profunda resposta fisiológica provocada pela privação calórica total e seu efeito sobre o sistema nervoso.
@@ -170,10 +170,10 @@ export default function DietaCetogenica() {
             </p>
 
             <h2 id="como-funciona" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Activity className="text-green-600"/> Fisiologia: O que é Dieta Cetogênica no Organismo?
+              <Activity className="text-green-700"/> Fisiologia: O que é Dieta Cetogênica no Organismo?
             </h2>
             <p>
-              Para compreender <strong>como funciona e o que é dieta cetogênica</strong>, é preciso entender a preferência energética do seu corpo. Em condições normais, e seguindo um <Link to="/o-que-e-ciclo-circadiano" className="text-green-600 font-bold hover:underline">ciclo circadiano</Link> convencional focado em diversas refeições, a sua fonte preferencial de energia é a glicose vinda dos carboidratos. No entanto, quando você restringe drasticamente esses macronutrientes, os seus estoques internos de glicogênio hepático e muscular se esgotam rapidamente.
+              Para compreender <strong>como funciona e o que é dieta cetogênica</strong>, é preciso entender a preferência energética do seu corpo. Em condições normais, e seguindo um <Link to="/o-que-e-ciclo-circadiano" className="text-green-700 font-bold hover:underline">ciclo circadiano</Link> convencional focado em diversas refeições, a sua fonte preferencial de energia é a glicose vinda dos carboidratos. No entanto, quando você restringe drasticamente esses macronutrientes, os seus estoques internos de glicogênio hepático e muscular se esgotam rapidamente.
             </p>
             <p>
               Essa escassez provoca uma queda acentuada nos níveis circulantes do hormônio insulina e uma elevação no glucagon. Essa virada hormonal serve como um sinal verde para o tecido adiposo liberar ácidos graxos livres na corrente sanguínea através da lipólise. Esses ácidos graxos viajam até o fígado, onde sofrem um processo chamado beta-oxidação no interior das mitocôndrias, gerando um acúmulo massivo de moléculas de Acetil-CoA.
@@ -183,7 +183,7 @@ export default function DietaCetogenica() {
             </p>
 
             <h2 id="cardapio" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <PieChart className="text-green-600"/> O Verdadeiro Cardápio: O que é Dieta Cetogênica em Macros
+              <PieChart className="text-green-700"/> O Verdadeiro Cardápio: O que é Dieta Cetogênica em Macros
             </h2>
             <p>
               Um erro crônico cometido por iniciantes ao buscarem o que é dieta cetogênica é confundir a dieta keto com uma dieta puramente hiperproteica. A verdadeira estratégia cetogênica clássica baseia-se em uma distribuição rígida de macronutrientes focada na energia das gorduras. Veja a proporção correta:
@@ -206,10 +206,10 @@ export default function DietaCetogenica() {
             </div>
 
             <h2 id="cetose" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Brain className="text-green-600"/> O Que é Cetose e Cetoadaptação?
+              <Brain className="text-green-700"/> O Que é Cetose e Cetoadaptação?
             </h2>
             <p>
-              A resposta fisiológica à restrição de carboidratos passa por duas etapas distintas: o estado inicial de <strong>o que é cetose</strong> e a posterior cetoadaptação crônica. Estar em cetose significa apenas que o seu marcador de beta-hidroxibutirato no sangue está acima de 0,5 mmol/L, comprovando que o seu fígado começou a produzir corpos cetônicos de forma ativa. Se você sofre de <Link to="/o-que-e-fome-emocional" className="text-green-600 font-bold hover:underline">fome emocional</Link>, a própria presença das cetonas circulantes atua sinalizando ao cérebro uma maior sensação de plenitude.
+              A resposta fisiológica à restrição de carboidratos passa por duas etapas distintas: o estado inicial de <strong>o que é cetose</strong> e a posterior cetoadaptação crônica. Estar em cetose significa apenas que o seu marcador de beta-hidroxibutirato no sangue está acima de 0,5 mmol/L, comprovando que o seu fígado começou a produzir corpos cetônicos de forma ativa. Se você sofre de <Link to="/o-que-e-fome-emocional" className="text-green-700 font-bold hover:underline">fome emocional</Link>, a própria presença das cetonas circulantes atua sinalizando ao cérebro uma maior sensação de plenitude.
             </p>
             <p>
               No entanto, nos primeiros dias de transição aprendendo o que é dieta cetogênica, é extremamente comum os pacientes apresentarem sintomas como dor de cabeça, "fog cerebral" (sensação de mente enevoada), fraqueza muscular e cãibras. Esse quadro é popularmente chamado de "gripe cetogênica" e ocorre principalmente devido à queda drástica de insulina, que faz com que os rins eliminem água e sódio em grande velocidade.
@@ -219,7 +219,7 @@ export default function DietaCetogenica() {
             </p>
 
             <h2 id="acelerar" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Zap className="text-green-600"/> Como Entrar em Cetose Rápido de Forma Segura?
+              <Zap className="text-green-700"/> Como Entrar em Cetose Rápido de Forma Segura?
             </h2>
             <p>
               Se a sua dúvida ao entender o que é dieta cetogênica é <strong>quanto tempo demora para entrar em cetose</strong>, a literatura científica e a prática clínica mostram uma variação grande, flutuando entre 2 e 7 dias a depender do indivíduo e do nível prévio de atividade física. Mas existem estratégias validadas para acelerar esse processo.
@@ -232,10 +232,10 @@ export default function DietaCetogenica() {
             </p>
 
             <h2 id="alimentos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Check className="text-green-600"/> O Que Comer na Dieta Cetogênica? Alimentos Permitidos
+              <Check className="text-green-700"/> O Que Comer na Dieta Cetogênica? Alimentos Permitidos
             </h2>
             <p className="mb-6">
-              Para estruturar o seu plano sem erros sobre o que é dieta cetogênica, a regra básica sobre <strong>alimentos permitidos na cetogênica</strong> é priorizar opções com altíssima densidade de gorduras saudáveis e praticamente zero carboidratos líquidos. Mas atenção: muitos se preocupam com o <Link to="/comer-ovo-todo-dia-aumenta-o-colesterol" className="text-green-600 font-bold hover:underline">colesterol</Link>, então é vital escolher as fontes com sabedoria. Veja o guia de compras essencial:
+              Para estruturar o seu plano sem erros sobre o que é dieta cetogênica, a regra básica sobre <strong>alimentos permitidos na cetogênica</strong> é priorizar opções com altíssima densidade de gorduras saudáveis e praticamente zero carboidratos líquidos. Mas atenção: muitos se preocupam com o <Link to="/comer-ovo-todo-dia-aumenta-o-colesterol" className="text-green-700 font-bold hover:underline">colesterol</Link>, então é vital escolher as fontes com sabedoria. Veja o guia de compras essencial:
             </p>
 
             <div className="my-8 overflow-x-auto bg-white rounded-3xl border border-slate-200 shadow-sm">
@@ -274,17 +274,17 @@ export default function DietaCetogenica() {
             </div>
 
             <h2 id="frutas" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Apple className="text-green-600"/> Frutas Permitidas na Dieta Cetogênica: Cuidado com a Frutose
+              <Apple className="text-green-700"/> Frutas Permitidas na Dieta Cetogênica: Cuidado com a Frutose
             </h2>
             <p>
-              Sempre me perguntam <Link to="/quantas_frutas_posso_comer" className="text-green-600 font-bold hover:underline">quantas frutas você pode comer</Link> em uma dieta restrita. Um dos maiores tropeços na hora de desenhar a estratégia sobre o que é dieta cetogênica é o consumo de frutas tradicionais. Como a maioria delas é rica em frutose (um carboidrato simples), consumi-las vai tirar você do estado de cetose de forma imediata. No entanto, existem <strong>frutas permitidas na dieta cetogênica</strong> que possuem um perfil lipídico e de fibras único:
+              Sempre me perguntam <Link to="/quantas_frutas_posso_comer" className="text-green-700 font-bold hover:underline">quantas frutas você pode comer</Link> em uma dieta restrita. Um dos maiores tropeços na hora de desenhar a estratégia sobre o que é dieta cetogênica é o consumo de frutas tradicionais. Como a maioria delas é rica em frutose (um carboidrato simples), consumi-las vai tirar você do estado de cetose de forma imediata. No entanto, existem <strong>frutas permitidas na dieta cetogênica</strong> que possuem um perfil lipídico e de fibras único:
             </p>
             <p>
               O <strong>abacate</strong> e o <strong>avocado</strong> são os reis incontestáveis da dieta keto. Eles são compostos predominantemente por ácidos graxos monoinsaturados saudáveis e possuem uma quantidade de carboidratos líquidos virtualmente nula devido ao altíssimo teor de fibras vegetais. O <strong>coco seco</strong> (especialmente a polpa em pedaços) segue a mesma linha, sendo rico em gorduras boas. Por fim, as <strong>frutas vermelhas</strong> (como morangos, mirtilos e amoras) podem entrar de forma controlada em pequenas porções, pois apresentam uma carga glicêmica baixíssima em comparação com frutas como banana ou manga.
             </p>
 
             <h2 id="exemplo-cardapio" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Utensils className="text-green-600"/> Exemplo Prático: Um Dia de Cardápio e O Que É Dieta Cetogênica
+              <Utensils className="text-green-700"/> Exemplo Prático: Um Dia de Cardápio e O Que É Dieta Cetogênica
             </h2>
             <p className="mb-6">
               Para ilustrar como essa distribuição de macronutrientes se transforma em comida no prato e concretizar o que é dieta cetogênica, montamos um exemplo básico de um cardápio cetogênico para um dia completo. Observe a ausência de amidos e o foco total em gorduras e proteínas de qualidade, evidenciando o abismo que existe entre um prato keto "sujo" e um prato cetogênico limpo e anti-inflamatório:
@@ -347,7 +347,7 @@ export default function DietaCetogenica() {
             </div>
 
             <h2 id="video-cardapio" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Video className="text-green-600"/> Opção Prática: Cardápio para a Dieta Cetogênica
+              <Video className="text-green-700"/> Opção Prática: Cardápio para a Dieta Cetogênica
             </h2>
             <p className="mb-6">
               Assista abaixo a uma excelente opção de cardápio prático para a Dieta Cetogênica, demonstrando o que é dieta cetogênica ao montar suas refeições no dia a dia para manter os carboidratos baixos, e reforçando que para perder peso de forma contínua, o balanço calórico do final do dia ainda será fundamental:
@@ -377,7 +377,7 @@ export default function DietaCetogenica() {
             </div>
 
             <h2 id="comparativo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
-              <AlertTriangle className="text-green-600"/> Fisiologia Básica: Cetose Nutricional vs Cetoacidose Diabética
+              <AlertTriangle className="text-green-700"/> Fisiologia Básica: Cetose Nutricional vs Cetoacidose Diabética
             </h2>
             <p className="mb-6">
               Para acalmar os temores médicos comuns sobre o que é dieta cetogênica e compreender a segurança do protocolo, veja o abismo fisiológico que separa o estado saudável da cetose induzida pela dieta de uma complicação patológica:
@@ -419,7 +419,7 @@ export default function DietaCetogenica() {
 
             {/* PRODUTO AFILIADO PINGUS */}
             <div id="medicao" className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
-                <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+                <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
                     <span>O Pingus Aprova!</span>
                 </div>
@@ -460,7 +460,7 @@ export default function DietaCetogenica() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Ver Medidor de Cetose no Mercado Livre para medir o que é dieta cetogênica no seu corpo"
-                            className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                            className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
                         >
                             <ShoppingCart size={16} />
                             Ver Medidor no Mercado Livre
@@ -478,16 +478,16 @@ export default function DietaCetogenica() {
             {/* CONCLUSÃO */}
             <div className="mb-12">
               <h2 className="text-2xl font-black text-slate-800 uppercase italic mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Target className="text-green-600"/> Conclusão: O Que é Dieta Cetogênica e Ela é Para Você?
+                <Target className="text-green-700"/> Conclusão: O Que é Dieta Cetogênica e Ela é Para Você?
               </h2>
               <p>
-                Em resumo, a dieta cetogênica é uma ferramenta terapêutica e metabólica poderosa. Ela não foi criada apenas como uma "dieta da moda", mas sim com propósitos clínicos que hoje se estendem para a melhora do foco mental, aumento da saciedade mediada pelos <Link to="/hormonios_da_fome_emagrecimento" className="text-green-600 font-bold hover:underline">hormônios da fome</Link>, e uma perda de peso inicial animadora. Contudo, agora que você sabe o que é dieta cetogênica, é fundamental entender que o sucesso a longo prazo exige escolhas inteligentes: encher o prato de bacon e frituras pode até manter você em cetose, mas não promove saúde e longevidade. Se você tem disciplina para focar em gorduras limpas, vegetais de baixo amido e proteínas adequadas, a keto pode ser um excelente "reset" para o seu corpo. Caso contrário, estratégias mais flexíveis — mas que mantenham o déficit calórico bem calculado — podem ser o melhor caminho para evitar o indesejado <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-bold hover:underline">efeito sanfona</Link>.
+                Em resumo, a dieta cetogênica é uma ferramenta terapêutica e metabólica poderosa. Ela não foi criada apenas como uma "dieta da moda", mas sim com propósitos clínicos que hoje se estendem para a melhora do foco mental, aumento da saciedade mediada pelos <Link to="/hormonios_da_fome_emagrecimento" className="text-green-700 font-bold hover:underline">hormônios da fome</Link>, e uma perda de peso inicial animadora. Contudo, agora que você sabe o que é dieta cetogênica, é fundamental entender que o sucesso a longo prazo exige escolhas inteligentes: encher o prato de bacon e frituras pode até manter você em cetose, mas não promove saúde e longevidade. Se você tem disciplina para focar em gorduras limpas, vegetais de baixo amido e proteínas adequadas, a keto pode ser um excelente "reset" para o seu corpo. Caso contrário, estratégias mais flexíveis — mas que mantenham o déficit calórico bem calculado — podem ser o melhor caminho para evitar o indesejado <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 font-bold hover:underline">efeito sanfona</Link>.
               </p>
             </div>
 
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
-                <HelpCircle className="text-green-600" /> Perguntas Frequentes sobre O Que É Dieta Cetogênica (FAQ)
+                <HelpCircle className="text-green-700" /> Perguntas Frequentes sobre O Que É Dieta Cetogênica (FAQ)
               </h2>
               <div className="space-y-4">
                 {faqs.map((faq, index) => (
@@ -497,10 +497,10 @@ export default function DietaCetogenica() {
                       aria-expanded={openFaqIndex === index}
                       className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
                     >
-                      <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-600' : 'text-slate-800 group-hover:text-green-600'}`}>
+                      <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-700' : 'text-slate-800 group-hover:text-green-700'}`}>
                         {faq.pergunta}
                       </h3>
-                      <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-600' : ''}`} size={24} />
+                      <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
                     </button>
                     <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
                       <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">{faq.resposta}</p>
@@ -518,7 +518,7 @@ export default function DietaCetogenica() {
 
         {/* BIO AUTOR */}
         <div className="mt-20 p-8 md:p-10 bg-slate-50 integrate-author border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
-          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
             <img 
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr. que desvenda o que é dieta cetogênica com base científica" 
@@ -532,11 +532,11 @@ export default function DietaCetogenica() {
           </div>
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
-            <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK 1</p>
+            <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
               Descomplico a ciência do emagrecimento e da fisiologia clínica, ensinando na prática o que é dieta cetogênica e traduzindo evidências densas em estratégias reais, sustentáveis e sem terrorismos nutricionais. Foco absoluto no respeito ao seu metabolismo.
             </p>
-            <a href="https://instagram.com/Nutricao_com_Marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+            <a href="https://instagram.com/Nutricao_com_Marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
               Siga @Nutricao_com_Marco
             </a>
           </div>

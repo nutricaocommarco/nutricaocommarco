@@ -24,12 +24,12 @@ export default function MelhorHorarioPesagem() {
       <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
         <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
-          <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+          <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
             <ChevronLeft size={20} /> Voltar para o Blog
           </Link>
 
           <article className="prose prose-lg max-w-none text-left">
-            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Composição Corporal</span>
+            <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Composição Corporal</span>
 
             <h1 className="text-4xl md:text-5xl font-black mb-4 uppercase italic leading-tight text-slate-900">
               Qual o melhor horário para se pesar? (Você está fazendo isso errado)
@@ -57,7 +57,7 @@ export default function MelhorHorarioPesagem() {
               {/* 1. SEÇÃO DO ÁUDIO */}
               <div className="p-5 md:p-6 flex flex-col gap-3">
                 <div className="flex items-center gap-3">
-                  <Headphones className="text-green-600 w-6 h-6" />
+                  <Headphones className="text-green-700 w-6 h-6" />
                   <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
                 </div>
                 <audio controls className="w-full h-10 outline-none">
@@ -76,7 +76,7 @@ export default function MelhorHorarioPesagem() {
                   className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                    <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
                       <Activity size={18} />
                     </div>
                     <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
@@ -85,7 +85,7 @@ export default function MelhorHorarioPesagem() {
                   </div>
                   <ChevronRight 
                     size={20} 
-                    className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                    className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} 
                   />
                 </button>
 
@@ -93,31 +93,31 @@ export default function MelhorHorarioPesagem() {
                 <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                   <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
                     <li>
-                      <a href="#horario-certo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#horario-certo" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                         <Clock size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         O Horário Certo
                       </a>
                     </li>
                     <li>
-                      <a href="#maiores-erros" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#maiores-erros" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                         <AlertTriangle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         Maiores Erros
                       </a>
                     </li>
                     <li>
-                      <a href="#porque-varia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#porque-varia" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                         <Droplets size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         Por que varia tanto?
                       </a>
                     </li>
                     <li>
-                      <a href="#ilusao-densidade" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#ilusao-densidade" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                         <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         Ilusão da Densidade
                       </a>
                     </li>
                     <li>
-                      <a href="#pesar-todo-dia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#pesar-todo-dia" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                         <Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         Pesar todo dia?
                       </a>
@@ -146,7 +146,7 @@ export default function MelhorHorarioPesagem() {
 
               {/* MICRO GEO HACK: PERGUNTA NATURAL NO MEIO DO TEXTO */}
               <h3 id="horario-certo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Clock className="text-green-600"/> Então… qual é o horário certo para se pesar?
+                <Clock className="text-green-700"/> Então… qual é o horário certo para se pesar?
               </h3>
               <p>Para acompanhar o seu peso real e excluir ao máximo as interferências externas, você precisa encontrar o momento em que seu corpo está mais "neutro". A ciência da avaliação física determina um protocolo rigoroso para isso.</p>
 
@@ -155,7 +155,7 @@ export default function MelhorHorarioPesagem() {
                 <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                   Checklist Padrão Ouro da Pesagem
                 </h2>
-                <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+                <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-700">
                   <li className="text-slate-700 font-bold text-lg pl-1">Sempre ao acordar (horário consistente)</li>
                   <li className="text-slate-700 font-bold text-lg pl-1">Logo após esvaziar a bexiga e o intestino</li>
                   <li className="text-slate-700 font-bold text-lg pl-1">Rigorosamente em jejum (antes do café da manhã)</li>
@@ -181,7 +181,7 @@ export default function MelhorHorarioPesagem() {
               </div>
 
               <h2 id="porque-varia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Droplets className="text-green-600"/> Por que seu peso varia tanto? A Fisiologia da Retenção
+                <Droplets className="text-green-700"/> Por que seu peso varia tanto? A Fisiologia da Retenção
               </h2>
               <p>Muitas pessoas pesquisam: <em>"peso varia quanto por dia?"</em>. A resposta choca a maioria: de 0,5 a 3 kg, sem que um único grama seja de gordura real.</p>
 
@@ -221,9 +221,9 @@ export default function MelhorHorarioPesagem() {
               </div>
 
               <h2 id="ilusao-densidade" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Scale className="text-green-600"/> A Ilusão da Densidade: Músculo vs. Gordura
+                <Scale className="text-green-700"/> A Ilusão da Densidade: Músculo vs. Gordura
               </h2>
-              <p>Outro erro conceitual enorme que gera frustração no emagrecimento (e facilita o temido <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">efeito sanfona</Link>) é ignorar a densidade dos tecidos. O músculo é um tecido denso e compacto, enquanto a gordura é volumosa e "fofa".</p>
+              <p>Outro erro conceitual enorme que gera frustração no emagrecimento (e facilita o temido <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 underline hover:text-green-700 font-bold transition-colors">efeito sanfona</Link>) é ignorar a densidade dos tecidos. O músculo é um tecido denso e compacto, enquanto a gordura é volumosa e "fofa".</p>
 
               <p>Um quilo de gordura ocupa cerca de 15% a 20% mais espaço de volume do que um quilo de músculo. É por isso que você pode começar a treinar, perder gordura, ganhar massa muscular e o número da balança não mudar nem 100 gramas. A balança estagna, mas a sua calça jeans passa a fechar com folga.</p>
 
@@ -238,7 +238,7 @@ export default function MelhorHorarioPesagem() {
               {/* SESSÃO DO VÍDEO DO INSTAGRAM */}
               <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
+                  <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
                     <PlayCircle size={24} />
                   </div>
                   <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight text-left">Como é uma avaliação Antropométrica completa?</h3>
@@ -261,7 +261,7 @@ export default function MelhorHorarioPesagem() {
               {/* FIM DA SESSÃO DO VÍDEO */}
 
               <h2 id="pesar-todo-dia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Activity className="text-green-600"/> Posso me pesar todo dia? O Fim do "Achismo"
+                <Activity className="text-green-700"/> Posso me pesar todo dia? O Fim do "Achismo"
               </h2>
 
               <p>Muitos especialistas divergem sobre isso. A resposta baseada em evidências é: <strong>Sim, você pode se pesar todos os dias</strong>, contanto que obedeça o Checklist Padrão Ouro e anote o peso para tirar a <strong>média semanal</strong>. A média dilui as flutuações diárias de água e intestino e te mostra a real tendência do seu corpo (seja de emagrecimento ou hipertrofia).</p>
@@ -269,7 +269,7 @@ export default function MelhorHorarioPesagem() {
 {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (BALANÇA SIMPLES) */}
 <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
     {/* SELO NO CANTO SUPERIOR */}
-    <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+    <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
         <Zap size={14} className="fill-white" />
         <span>O Pingus Aprova!</span>
     </div>
@@ -307,7 +307,7 @@ export default function MelhorHorarioPesagem() {
                 href="https://meli.la/2LEpbfH" 
                 rel="sponsored noopener noreferrer" 
                 target="_blank"
-                className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
             >
                 <ShoppingCart size={16} />
                 Comprar no Mercado Livre
@@ -324,7 +324,7 @@ export default function MelhorHorarioPesagem() {
 </div>
 
 
-              <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
+              <div className="bg-green-700 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
                 “O peso corporal isolado é uma medida extremamente limitada. Avaliar a sua composição corporal e as tendências ao longo das semanas é muito mais relevante do que o desespero de um número único.”
               </div>
 
@@ -333,7 +333,7 @@ export default function MelhorHorarioPesagem() {
               {/* SESSÃO DO VÍDEO DO YOUTUBE */}
               <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
+                  <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
                     <PlayCircle size={24} />
                   </div>
                   <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight text-left">A Balança Mente? Entenda a Oscilação Diária</h3>
@@ -356,7 +356,7 @@ export default function MelhorHorarioPesagem() {
 
               {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
               <div className="mt-16 pt-10 border-t border-slate-100 text-left">
-                <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
+                <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-700" /> Perguntas Frequentes (FAQ)</h2>
                 <div className="space-y-6">
 
                   <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
@@ -402,7 +402,7 @@ export default function MelhorHorarioPesagem() {
           {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO E ALT/TITLE NAS IMAGENS */}
           <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
 
-            <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+            <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
               <img 
                 src={`${githubImgBase}Eu_1.webp`} 
                 alt="Marco Aurélio Jr. - Nutricionista e Autor do Artigo." 
@@ -413,11 +413,11 @@ export default function MelhorHorarioPesagem() {
 
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
-              <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
+              <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
               <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
                 Apaixonado pela ciência metabólica, Marco dedica seus estudos a compreender a fisiologia humana de forma aprofundada. Especialista em composição corporal com certificação internacional, ele foca em traduzir o rigor dos artigos científicos para a prática do dia a dia. Seu objetivo é ajudar você a entender como o próprio corpo funciona através da educação nutricional baseada em evidências reais.
               </p>
-              <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+              <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
                 Siga @Nutricao_com_Marco
               </a>
             </div>

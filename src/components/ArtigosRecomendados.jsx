@@ -31,7 +31,7 @@ export default function ArtigosRecomendados({ currentPath }) {
               <span className="text-[10px] font-black bg-green-100 text-green-700 px-2 py-1 rounded-full uppercase tracking-widest mb-3 w-fit">{artigo.tag}</span>
               <h3 className="text-lg font-black text-slate-800 leading-tight mb-2">{artigo.titulo}</h3>
               <p className="text-slate-500 text-xs font-medium italic mb-4 line-clamp-3 flex-grow">{artigo.desc}</p>
-              <div className="flex items-center gap-1 text-green-600 font-bold uppercase text-[10px]">Acessar Artigo <ChevronRight size={14} /></div>
+              <div className="flex items-center gap-1 text-green-700 font-bold uppercase text-[10px]">Acessar Artigo <ChevronRight size={14} /></div>
             </div>
           </Link>
         ))}

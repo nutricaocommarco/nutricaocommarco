@@ -80,12 +80,12 @@ export default function VitaminaA() {
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
           <ChevronLeft size={20} /> Voltar para o Blog
         </Link>
 
         <article className="prose prose-lg max-w-none">
-          <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Fisiologia e Metabolismo</span>
+          <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Fisiologia e Metabolismo</span>
 
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900 text-left">
             Vitamina A para que serve? Entenda as diferenças entre retinol, retinal e ácido retinóico
@@ -108,7 +108,7 @@ export default function VitaminaA() {
             {/* 1. SEÇÃO DO ÁUDIO */}
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
-                <Headphones className="text-green-600 w-6 h-6" />
+                <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
               <audio controls className="w-full h-10 outline-none">
@@ -127,7 +127,7 @@ export default function VitaminaA() {
                 className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
                     <Activity size={18} />
                   </div>
                   <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
@@ -136,7 +136,7 @@ export default function VitaminaA() {
                 </div>
                 <ChevronRight 
                   size={20} 
-                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} 
                 />
               </button>
 
@@ -144,25 +144,25 @@ export default function VitaminaA() {
               <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                 <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
                   <li>
-                    <a href="#o-que-e" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#o-que-e" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Absorção e Conceitos
                     </a>
                   </li>
                   <li>
-                    <a href="#diferencas" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#diferencas" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Eye size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       As Três Formas
                     </a>
                   </li>
                   <li>
-                    <a href="#metabolismo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#metabolismo" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Dna size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       O Metabolismo
                     </a>
                   </li>
                   <li>
-                    <a href="#para-que-serve" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#para-que-serve" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Shield size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Afinal, para que serve?
                     </a>
@@ -191,7 +191,7 @@ export default function VitaminaA() {
             {/* BLOCO CITÁVEL (OTIMIZADO PARA IA E SEO) */}
             <div className="my-8 p-6 md:p-8 bg-white border-l-4 border-green-600 shadow-md rounded-r-3xl flex flex-col gap-3 text-left">
               <h3 className="text-xl font-black text-slate-800 m-0 border-b border-slate-100 pb-3 flex items-center gap-2">
-                <span className="text-green-600 text-2xl leading-none">👉</span> O que são vitaminas lipossolúveis?
+                <span className="text-green-700 text-2xl leading-none">👉</span> O que são vitaminas lipossolúveis?
               </h3>
               <p className="m-0 text-slate-600 font-medium leading-relaxed">
                 As vitaminas lipossolúveis (como a vitamina A, D, E e K) são aquelas que o corpo só consegue absorver de forma eficiente quando consumidas junto com gorduras na alimentação. Ao contrário das vitaminas hidrossolúveis (como a C), as lipossolúveis podem ser armazenadas no fígado e no tecido adiposo para uso futuro.
@@ -201,11 +201,11 @@ export default function VitaminaA() {
 
             <p>A vitamina A é <strong>lipossolúvel</strong>, ou seja, é absorvida junto com gorduras da dieta e pode ser armazenada no organismo, principalmente no fígado. Ela pode ser obtida de duas formas:</p>
 
-            <ul className="list-disc pl-6 space-y-2 marker:text-green-600 font-bold text-slate-700">
+            <ul className="list-disc pl-6 space-y-2 marker:text-green-700 font-bold text-slate-700">
               <li><span className="font-medium text-slate-600"><strong>Vitamina A pré-formada (retinol):</strong> encontrada em alimentos de origem animal.</span></li>
               <li>
                 <span className="font-medium text-slate-600">
-                  <strong>Pró-vitamina A (carotenoides):</strong> presente em vegetais como cenoura, abóbora e manga. (Se tem dúvidas sobre as porções ideais destas frutas, confira o nosso guia completo sobre <Link to="/quantas_frutas_posso_comer" className="text-green-600 hover:text-green-700 underline underline-offset-2 font-bold transition-colors">quantas frutas comer por dia</Link>).
+                  <strong>Pró-vitamina A (carotenoides):</strong> presente em vegetais como cenoura, abóbora e manga. (Se tem dúvidas sobre as porções ideais destas frutas, confira o nosso guia completo sobre <Link to="/quantas_frutas_posso_comer" className="text-green-700 hover:text-green-700 underline underline-offset-2 font-bold transition-colors">quantas frutas comer por dia</Link>).
                 </span>
               </li>
             </ul>
@@ -221,7 +221,7 @@ export default function VitaminaA() {
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                 As principais formas ativas da Vitamina A no corpo
               </h2>
-              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-700">
                 <li className="text-slate-700 font-bold text-lg pl-1">
                   <strong>Retinol:</strong> A forma base, serve para transporte no sangue e armazenamento no fígado.
                 </li>
@@ -237,7 +237,7 @@ export default function VitaminaA() {
 
             <h3 className="text-xl font-bold text-slate-800 flex items-center gap-2 mt-8">🔹 Retinol (C20H30O)</h3>
             <p>O <strong>retinol</strong> é a forma mais comum e <strong>armazenável</strong> da vitamina A.</p>
-            <ul className="list-disc pl-6 space-y-2 marker:text-green-600">
+            <ul className="list-disc pl-6 space-y-2 marker:text-green-700">
               <li>É conhecido como vitamina A1</li>
               <li>Atua como forma de transporte e reserva</li>
               <li>Pode ser convertido em retinal conforme a necessidade</li>
@@ -249,7 +249,7 @@ export default function VitaminaA() {
 
             <h3 className="text-xl font-bold text-slate-800 flex items-center gap-2 mt-8">🔹 Retinal (C20H28O)</h3>
             <p>O <strong>retinal</strong>, também chamado de retinaldeído, é a forma <strong>biologicamente ativa na visão</strong>.</p>
-            <ul className="list-disc pl-6 space-y-2 marker:text-green-600">
+            <ul className="list-disc pl-6 space-y-2 marker:text-green-700">
               <li>É derivado da oxidação do retinol</li>
               <li>Atua diretamente na retina</li>
               <li>Essencial para a visão em ambientes com pouca luz</li>
@@ -261,7 +261,7 @@ export default function VitaminaA() {
 
             <h3 className="text-xl font-bold text-slate-800 flex items-center gap-2 mt-8">🔹 Ácido retinóico (C20H28O2)</h3>
             <p>O <strong>ácido retinóico</strong> é a forma mais oxidada da vitamina A e tem uma função completamente diferente.</p>
-            <ul className="list-disc pl-6 space-y-2 marker:text-green-600">
+            <ul className="list-disc pl-6 space-y-2 marker:text-green-700">
               <li>Atua na <strong>expressão gênica</strong></li>
               <li>Regula crescimento e diferenciação celular</li>
               <li>Fundamental para saúde da pele e sistema imunológico</li>
@@ -283,7 +283,7 @@ export default function VitaminaA() {
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                 O caminho da Vitamina A no organismo
               </h2>
-              <ol className="list-decimal pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+              <ol className="list-decimal pl-6 space-y-3 m-0 mt-2 marker:text-green-700">
                 <li className="text-slate-700 font-bold text-lg pl-1">Digestão e absorção ocorrem no intestino junto com as gorduras</li>
                 <li className="text-slate-700 font-bold text-lg pl-1">Conversão primária em Retinol</li>
                 <li className="text-slate-700 font-bold text-lg pl-1">Transporte pelo sangue através de lipoproteínas (como quilomícrons)</li>
@@ -294,7 +294,7 @@ export default function VitaminaA() {
             {/* FIM DA SEGUNDA LISTA OBJETIVA */}
 
             {/* CITAÇÃO EM DESTAQUE */}
-            <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
+            <div className="bg-green-700 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
               "Um ponto importante: retinol e retinal são interconvertíveis, mas o ácido retinóico não volta às formas anteriores."
             </div>
 
@@ -320,7 +320,7 @@ export default function VitaminaA() {
 
             <p>A vitamina A não é uma molécula única com uma única função. Na verdade, ela atua como um <strong>sistema integrado de compostos</strong>, onde:</p>
 
-            <ul className="list-disc pl-6 space-y-2 marker:text-green-600">
+            <ul className="list-disc pl-6 space-y-2 marker:text-green-700">
               <li>O <strong>retinol</strong> armazena e transporta</li>
               <li>O <strong>retinal</strong> atua na visão</li>
               <li>O <strong>ácido retinóico</strong> regula genes e crescimento celular</li>
@@ -330,7 +330,7 @@ export default function VitaminaA() {
 
             {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
             <div className="mt-16 pt-10 border-t border-slate-100 text-left">
-              <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes sobre a Vitamina A</h2>
+              <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-700" /> Perguntas Frequentes sobre a Vitamina A</h2>
               <div className="space-y-6">
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
                   <h3 className="text-lg font-black text-slate-800 mb-2 italic">Comer muita cenoura realmente melhora a visão?</h3>
@@ -357,7 +357,7 @@ export default function VitaminaA() {
         {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
 
-          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
             <img 
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr. - Nutricionista e Autor do Artigo." 
@@ -368,11 +368,11 @@ export default function VitaminaA() {
 
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
-            <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
+            <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
               Apaixonado pela ciência metabólica, Marco dedica seus estudos a compreender a fisiologia humana de forma aprofundada. Especialista em composição corporal com certificação internacional, ele foca em traduzir o rigor dos artigos científicos para a prática do dia a dia. Seu objetivo é ajudar você a entender como o próprio corpo funciona através da educação nutricional baseada em evidências reais.
             </p>
-            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
               Siga @Nutricao_com_Marco
             </a>
           </div>

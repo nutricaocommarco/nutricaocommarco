@@ -33,21 +33,21 @@ export default function Planos() {
         <meta property="og:url" content="https://www.nutricaocommarco.com.br/planos" />
       </Helmet>
 
-      <Link to="/" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit mx-auto md:mx-0">
+      <Link to="/" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit mx-auto md:mx-0">
         <ChevronLeft size={20} /> Voltar para o Início
       </Link>
 
       <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 italic uppercase mb-6 leading-tight">
-        Planos de <span className="text-green-600">Acompanhamento</span>
+        Planos de <span className="text-green-700">Acompanhamento</span>
       </h1>
       <p className="text-slate-500 font-bold uppercase mb-16 tracking-widest max-w-2xl mx-auto">
-        Escolha o nível de suporte ideal para transformar a sua composição corporal com base na ciência. <span className="text-green-600 block mt-2">Abertura de vagas em breve!</span>
+        Escolha o nível de suporte ideal para transformar a sua composição corporal com base na ciência. <span className="text-green-700 block mt-2">Abertura de vagas em breve!</span>
       </p>
 
       {/* NÍVEL 1: AVALIAÇÃO ISAK */}
       <div className="mb-20 bg-white rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden text-left">
         <div className="bg-slate-900 p-6 md:p-8 flex items-center gap-4">
-          <div className="w-12 h-12 md:w-14 md:h-14 bg-green-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
+          <div className="w-12 h-12 md:w-14 md:h-14 bg-green-700 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
             <Activity size={24} className="md:w-7 md:h-7" />
           </div>
           <div className="min-w-0 flex-1">
@@ -109,31 +109,31 @@ export default function Planos() {
                 <td className="p-4">
                   <div className="flex flex-col items-center">
                     <span className="font-black text-slate-800 text-sm md:text-base whitespace-nowrap">2x de R$ 109</span>
-                    <span className="text-[10px] font-bold text-green-600 uppercase tracking-widest mt-1 whitespace-nowrap">R$ 199 no Pix</span>
+                    <span className="text-[10px] font-bold text-green-700 uppercase tracking-widest mt-1 whitespace-nowrap">R$ 199 no Pix</span>
                   </div>
                 </td>
                 <td className="p-4 bg-amber-50/50">
                   <div className="flex flex-col items-center">
                     <span className="font-black text-slate-800 text-sm md:text-base whitespace-nowrap">6x de R$ 99</span>
-                    <span className="text-[10px] font-bold text-green-600 uppercase tracking-widest mt-1 whitespace-nowrap">R$ 499 no Pix</span>
+                    <span className="text-[10px] font-bold text-green-700 uppercase tracking-widest mt-1 whitespace-nowrap">R$ 499 no Pix</span>
                   </div>
                 </td>
                 <td className="p-4 bg-slate-50/50">
                   <div className="flex flex-col items-center">
                     <span className="font-black text-slate-800 text-sm md:text-base whitespace-nowrap">10x de R$ 95</span>
-                    <span className="text-[10px] font-bold text-green-600 uppercase tracking-widest mt-1 whitespace-nowrap">R$ 799 no Pix</span>
+                    <span className="text-[10px] font-bold text-green-700 uppercase tracking-widest mt-1 whitespace-nowrap">R$ 799 no Pix</span>
                   </div>
                 </td>
                 <td className="p-4 bg-yellow-50/50">
                   <div className="flex flex-col items-center">
                     <span className="font-black text-slate-800 text-sm md:text-base whitespace-nowrap">12x de R$ 90</span>
-                    <span className="text-[10px] font-bold text-green-600 uppercase tracking-widest mt-1 whitespace-nowrap">R$ 899 no Pix</span>
+                    <span className="text-[10px] font-bold text-green-700 uppercase tracking-widest mt-1 whitespace-nowrap">R$ 899 no Pix</span>
                   </div>
                 </td>
               </tr>
               <tr className="hover:bg-slate-50 transition-colors">
                 <td className="p-4 text-left font-bold text-slate-800">Reserva</td>
-                <td className="p-4"><a href="https://calendar.app.google/R9UBU3ANzW93K5wv7" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-green-700 transition-all inline-block">Agendar</a></td>
+                <td className="p-4"><a href="https://calendar.app.google/R9UBU3ANzW93K5wv7" target="_blank" rel="noreferrer" className="bg-green-700 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-green-700 transition-all inline-block">Agendar</a></td>
                 <td className="p-4 bg-amber-50/50 rounded-b-2xl"><a href="https://calendar.app.google/VHNNaQinSa5YuhJ1A" target="_blank" rel="noreferrer" className="bg-amber-600 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-amber-700 transition-all inline-block">Agendar</a></td>
                 <td className="p-4 bg-slate-50/50 rounded-b-2xl"><a href="https://calendar.app.google/Fh9inQ1dQD6G6SWZ7" target="_blank" rel="noreferrer" className="bg-slate-600 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-slate-800 transition-all inline-block">Agendar</a></td>
                 <td className="p-4 bg-yellow-50/50 rounded-b-2xl"><a href="https://calendar.app.google/3oktJvEmQhGJGqrm8" target="_blank" rel="noreferrer" className="bg-yellow-500 text-white px-4 py-2 rounded-xl font-black uppercase text-[10px] shadow-lg hover:bg-yellow-600 transition-all inline-block">Agendar</a></td>
@@ -149,7 +149,7 @@ export default function Planos() {
             <h3 className="text-2xl font-black text-slate-800 uppercase text-center mb-1">Avulso</h3>
             <div className="text-center mb-6 pb-6 border-b border-slate-100">
               <span className="text-2xl font-black text-slate-800 block">2x de R$ 109</span>
-              <span className="text-xs font-bold text-green-600 uppercase tracking-widest mt-1 block">R$ 199 no Pix</span>
+              <span className="text-xs font-bold text-green-700 uppercase tracking-widest mt-1 block">R$ 199 no Pix</span>
             </div>
             <ul className="space-y-4 mb-8 flex-grow">
               <li className="flex items-center gap-3">{renderMobileIcon('1')} <span className="text-sm font-medium text-slate-600">Nº de Avaliações ISAK</span></li>
@@ -166,7 +166,7 @@ export default function Planos() {
             <span className="text-[10px] text-amber-600 font-bold uppercase tracking-widest block text-center mb-2">6 Meses</span>
             <div className="text-center mb-6 pb-6 border-b border-amber-200/50">
               <span className="text-2xl font-black text-slate-800 block">6x de R$ 99</span>
-              <span className="text-xs font-bold text-green-600 uppercase tracking-widest mt-1 block">R$ 499 no Pix</span>
+              <span className="text-xs font-bold text-green-700 uppercase tracking-widest mt-1 block">R$ 499 no Pix</span>
             </div>
             <ul className="space-y-4 mb-8 flex-grow">
               <li className="flex items-center gap-3">{renderMobileIcon('3')} <span className="text-sm font-medium text-slate-600">Nº de Avaliações ISAK</span></li>
@@ -184,7 +184,7 @@ export default function Planos() {
             <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest block text-center mb-2">10 Meses</span>
             <div className="text-center mb-6 pb-6 border-b border-slate-200">
               <span className="text-2xl font-black text-slate-800 block">10x de R$ 95</span>
-              <span className="text-xs font-bold text-green-600 uppercase tracking-widest mt-1 block">R$ 799 no Pix</span>
+              <span className="text-xs font-bold text-green-700 uppercase tracking-widest mt-1 block">R$ 799 no Pix</span>
             </div>
             <ul className="space-y-4 mb-8 flex-grow">
               <li className="flex items-center gap-3">{renderMobileIcon('5')} <span className="text-sm font-medium text-slate-600">Nº de Avaliações ISAK</span></li>
@@ -201,7 +201,7 @@ export default function Planos() {
             <span className="text-[10px] text-yellow-600 font-bold uppercase tracking-widest block text-center mb-2">12 Meses</span>
             <div className="text-center mb-6 pb-6 border-b border-yellow-200">
               <span className="text-2xl font-black text-slate-800 block">12x de R$ 90</span>
-              <span className="text-xs font-bold text-green-600 uppercase tracking-widest mt-1 block">R$ 899 no Pix</span>
+              <span className="text-xs font-bold text-green-700 uppercase tracking-widest mt-1 block">R$ 899 no Pix</span>
             </div>
             <ul className="space-y-4 mb-8 flex-grow">
               <li className="flex items-center gap-3">{renderMobileIcon('6')} <span className="text-sm font-medium text-slate-600">Nº de Avaliações ISAK</span></li>
@@ -218,7 +218,7 @@ export default function Planos() {
       {/* NÍVEL 2: ATENDIMENTO ONLINE */}
       <div className="mb-20 bg-white rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden text-left">
         <div className="bg-slate-900 p-6 md:p-8 flex items-center gap-4">
-          <div className="w-12 h-12 md:w-14 md:h-14 bg-green-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
+          <div className="w-12 h-12 md:w-14 md:h-14 bg-green-700 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
             <CalendarClock size={24} className="md:w-7 md:h-7" />
           </div>
           <div className="min-w-0 flex-1">
@@ -312,12 +312,12 @@ export default function Planos() {
       
       {/* NÍVEL 3: PRESENCIAL PREMIUM */}
       <div className="mb-20 bg-white rounded-[3rem] shadow-2xl border border-green-600 overflow-hidden text-left relative">
-        <div className="absolute top-6 right-6 bg-green-600 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">
+        <div className="absolute top-6 right-6 bg-green-700 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">
           Experiência Completa
         </div>
         
         <div className="bg-slate-900 p-6 md:p-8 flex items-center gap-4">
-          <div className="w-12 h-12 md:w-14 md:h-14 bg-green-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
+          <div className="w-12 h-12 md:w-14 md:h-14 bg-green-700 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
             <Dumbbell size={24} className="md:w-7 md:h-7" />
           </div>
           <div className="min-w-0 flex-1">

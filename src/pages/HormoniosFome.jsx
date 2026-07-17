@@ -101,12 +101,12 @@ export default function HormoniosFome() {
       <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
         <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
-          <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+          <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
             <ChevronLeft size={20} /> Voltar para o Blog
           </Link>
 
           <article className="prose prose-lg max-w-none text-left">
-            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Fisiologia e Metabolismo</span>
+            <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Fisiologia e Metabolismo</span>
 
             <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
               Hormônios da Fome: A Verdadeira Razão Biológica do Efeito Rebote
@@ -129,7 +129,7 @@ export default function HormoniosFome() {
               {/* 1. SEÇÃO DO ÁUDIO */}
               <div className="p-5 md:p-6 flex flex-col gap-3">
                 <div className="flex items-center gap-3">
-                  <Headphones className="text-green-600 w-6 h-6" />
+                  <Headphones className="text-green-700 w-6 h-6" />
                   <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
                 </div>
                 <audio controls className="w-full h-10 outline-none">
@@ -148,7 +148,7 @@ export default function HormoniosFome() {
                   className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                    <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
                       <Activity size={18} />
                     </div>
                     <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
@@ -157,7 +157,7 @@ export default function HormoniosFome() {
                   </div>
                   <ChevronRight 
                     size={20} 
-                    className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                    className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} 
                   />
                 </button>
 
@@ -165,25 +165,25 @@ export default function HormoniosFome() {
                 <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                   <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
                     <li>
-                      <a href="#grelina-leptina" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#grelina-leptina" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                         <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         Grelina vs. Leptina
                       </a>
                     </li>
                     <li>
-                      <a href="#glp-1" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#glp-1" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                         <Pill size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         O Fenômeno do GLP-1
                       </a>
                     </li>
                     <li>
-                      <a href="#inflamacao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#inflamacao" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                         <Flame size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         Inflamação Adiposa
                       </a>
                     </li>
                     <li>
-                      <a href="#hackear-hormonios" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                      <a href="#hackear-hormonios" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                         <Target size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                         Hackear Hormônios
                       </a>
@@ -197,7 +197,7 @@ export default function HormoniosFome() {
             <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
               <p>Se você já tentou emagrecer, provavelmente já viveu essa cena: após semanas de disciplina e perda de peso, a sua fome parece ter dobrado de tamanho, tornando a manutenção do novo corpo uma tortura diária. Esse fenômeno é extremamente comum e não é falta de força de vontade. A maioria das pessoas que tenta perder peso enfrenta dificuldades biológicas reais para manter o novo peso a longo prazo.</p>
 
-              <p>O emagrecimento, embora excelente para a saúde cardiovascular e metabólica, gera um alerta vermelho no organismo. No consultório, quando analiso a <Link to="/o_que_e_antropometria" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">antropometria ISAK 1</Link> de um paciente que reganhou peso rápido, muitas vezes vejo que a perda inicial foi agressiva demais, ignorando a fisiologia. O corpo interpreta a perda de gordura como uma ameaça à sobrevivência e reage ativando adaptações metabólicas potentes: diminui o gasto de energia (metabolismo basal) e gera um aumento expressivo nos <strong className="text-slate-800">hormônios da fome</strong>. Essa pressão biológica é o que muitas vezes nos empurra de volta, de forma quase inconsciente, aos antigos hábitos alimentares.</p>
+              <p>O emagrecimento, embora excelente para a saúde cardiovascular e metabólica, gera um alerta vermelho no organismo. No consultório, quando analiso a <Link to="/o_que_e_antropometria" className="text-green-700 underline hover:text-green-700 font-bold transition-colors">antropometria ISAK 1</Link> de um paciente que reganhou peso rápido, muitas vezes vejo que a perda inicial foi agressiva demais, ignorando a fisiologia. O corpo interpreta a perda de gordura como uma ameaça à sobrevivência e reage ativando adaptações metabólicas potentes: diminui o gasto de energia (metabolismo basal) e gera um aumento expressivo nos <strong className="text-slate-800">hormônios da fome</strong>. Essa pressão biológica é o que muitas vezes nos empurra de volta, de forma quase inconsciente, aos antigos hábitos alimentares.</p>
 
               {/* IMAGEM ESTRATÉGICA COM ALT E TITLE ARRUMADOS */}
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
@@ -211,14 +211,14 @@ export default function HormoniosFome() {
               </div>
 
               <h2 id="grelina-leptina" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Scale className="text-green-600"/> Grelina vs. Leptina: O Cabo de Guerra Invisível do Apetite
+                <Scale className="text-green-700"/> Grelina vs. Leptina: O Cabo de Guerra Invisível do Apetite
               </h2>
               <p>O controle do nosso peso depende de um equilíbrio delicado entre diferentes sinais hormonais produzidos pelo sistema digestivo e pelo tecido adiposo. Sim, a gordura corporal funciona como um órgão endócrino vital e ativo.</p>
 
               {/* BLOCO CITÁVEL (OTIMIZADO PARA IA E SEO) */}
               <div className="my-8 p-6 md:p-8 bg-white border-l-4 border-green-600 shadow-md rounded-r-3xl flex flex-col gap-3 text-left">
                 <h3 className="text-xl font-black text-slate-800 m-0 border-b border-slate-100 pb-3 flex items-center gap-2">
-                  <span className="text-green-600 text-2xl leading-none">👉</span> O que é a Grelina?
+                  <span className="text-green-700 text-2xl leading-none">👉</span> O que é a Grelina?
                 </h3>
                 <p className="m-0 text-slate-600 font-medium leading-relaxed">
                   A Grelina é um hormônio produzido principalmente no estômago, amplamente conhecida como o "hormônio da fome". Sua principal função biológica é enviar sinais ao hipotálamo (no cérebro) para estimular o apetite, aumentar a ingestão de alimentos e promover o armazenamento de gordura, especialmente após períodos de dieta.
@@ -233,7 +233,7 @@ export default function HormoniosFome() {
                 <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                   O que acontece com os hormônios no emagrecimento?
                 </h2>
-                <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+                <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-700">
                   <li className="text-slate-700 font-bold text-lg pl-1">Aumento da produção de Grelina (fome amplificada)</li>
                   <li className="text-slate-700 font-bold text-lg pl-1">Queda vertiginosa nos níveis de Leptina (perda de saciedade)</li>
                   <li className="text-slate-700 font-bold text-lg pl-1">Redução adaptativa do metabolismo basal (menor gasto de energia)</li>
@@ -243,19 +243,19 @@ export default function HormoniosFome() {
               {/* FIM DO BOLCO LISTA OBJETIVA */}
 
               <h2 id="glp-1" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Pill className="text-green-600"/> O Fenômeno do GLP-1 (Semaglutida) e a Verdade Clínica
+                <Pill className="text-green-700"/> O Fenômeno do GLP-1 (Semaglutida) e a Verdade Clínica
               </h2>
               <p>Recentemente, o uso de medicamentos conhecidos como agonistas do receptor de GLP-1 (como a semaglutida e a tirzepatida) trouxe uma nova perspectiva para o controle da obesidade. O GLP-1 é um hormônio naturalmente produzido pelo intestino após as refeições que ajuda a regular a saciedade e a secreção de insulina.</p>
               <p>Essas terapias modernas simulam a ação desse hormônio em doses supra-fisiológicas para ajudar o paciente a manter o peso, combatendo justamente a pressão biológica que o corpo exerts para recuperar a energia perdida. No entanto, se esses medicamentos forem interrompidos sem uma estratégia nutricional e comportamental sustentável de "desmame" e manutenção de massa muscular, o reganho de peso pode ser extremamente rápido, reativando a inflamação celular de forma agressiva.</p>
 
               <h2 id="inflamacao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Flame className="text-green-600"/> Inflamação Adiposa e a "Memória" da Gordura
+                <Flame className="text-green-700"/> Inflamação Adiposa e a "Memória" da Gordura
               </h2>
               <p>A obesidade causa uma inflamação crônica de baixo grau no tecido adiposo. Esse estado inflamatório desregula a função normal das células de gordura e a liberação de hormônios protetores, contribuindo diretamente para a resistência à insulina e complicações metabólicas.</p>
-              <p>A ciência moderna mostra que, mesmo quando emagrecemos, o tecido adiposo residual pode reter uma "memória" dessa inflamação, o que mantém o sistema hormonal em desequilíbrio e "torcendo" pelo reganho. Se ocorrer o temido <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 underline hover:text-green-700 font-bold transition-colors">Efeito Sanfona</Link>, essa inflamação é reativada de forma ainda mais severa no tecido que recuperou volume, piorando a sensibilidade à insulina e alterando novamente a secreção de hormônios vitais, como a adiponectina.</p>
+              <p>A ciência moderna mostra que, mesmo quando emagrecemos, o tecido adiposo residual pode reter uma "memória" dessa inflamação, o que mantém o sistema hormonal em desequilíbrio e "torcendo" pelo reganho. Se ocorrer o temido <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 underline hover:text-green-700 font-bold transition-colors">Efeito Sanfona</Link>, essa inflamação é reativada de forma ainda mais severa no tecido que recuperou volume, piorando a sensibilidade à insulina e alterando novamente a secreção de hormônios vitais, como a adiponectina.</p>
 
               <h2 id="hackear-hormonios" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Target className="text-green-600"/> Como Hackear seus Hormônios da Fome Cientificamente
+                <Target className="text-green-700"/> Como Hackear seus Hormônios da Fome Cientificamente
               </h2>
               <p>Para vencer a batalha contra os hormônios da fome e evitar o efeito rebote, o segredo não está em restrições calóricas extremas e insustentáveis, mas em estratégias que respeitem a fisiologia do corpo.</p>
               <p>Manter a perda de peso exige foco em reduzir a inflamação persistente e gerenciar os picos de grelina. Ao entender que o seu metabolismo é dinâmico e moldado pelas flutuações de peso, você pode adotar hábitos que ajudem o corpo a aceitar o novo peso como o "novo normal", silenciando gradualmente os sinais de alerta que disparam a fome excessiva.</p>
@@ -265,7 +265,7 @@ export default function HormoniosFome() {
                 <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                   Como controlar os hormônios da fome (base científica)
                 </h2>
-                <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+                <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-700">
                   <li className="text-slate-700 font-bold text-lg pl-1">Aumentar o consumo de proteínas (estimula a saciedade e o GLP-1 natural)</li>
                   <li className="text-slate-700 font-bold text-lg pl-1">Priorizar fibras nas refeições (retarda o esvaziamento do estômago)</li>
                   <li className="text-slate-700 font-bold text-lg pl-1">Praticar treinamento de força (mantém a massa muscular e o metabolismo)</li>
@@ -277,7 +277,7 @@ export default function HormoniosFome() {
               {/* SESSÃO DO VÍDEO DO YOUTUBE */}
               <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
+                  <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
                     <PlayCircle size={24} />
                   </div>
                   <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight text-left">A Dança dos Hormônios e o Reganho de Peso</h3>
@@ -298,7 +298,7 @@ export default function HormoniosFome() {
 
               {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
               <div className="mt-16 pt-10 border-t border-slate-100 text-left">
-                <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
+                <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-700" /> Perguntas Frequentes (FAQ)</h2>
                 <div className="space-y-6">
 
                   <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
@@ -334,7 +334,7 @@ export default function HormoniosFome() {
           {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO E ALT/TITLE NAS IMAGENS */}
           <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
 
-            <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+            <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
               <img 
                 src={`${githubImgBase}Eu_1.webp`} 
                 alt="Marco Aurélio Jr. - Nutricionista e Autor do Artigo." 
@@ -345,11 +345,11 @@ export default function HormoniosFome() {
 
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
-              <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
+              <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
               <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
                 Apaixonado pela ciência metabólica, Marco dedica seus estudos a compreender a fisiologia humana de forma aprofundada. Especialista em composição corporal com certificação internacional, ele foca em traduzir o rigor dos artigos científicos para a prática do dia a dia. Seu objetivo é ajudar você a entender como o próprio corpo funciona através da educação nutricional baseada em evidências reais.
               </p>
-              <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+              <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
                 Siga @Nutricao_com_Marco
               </a>
             </div>

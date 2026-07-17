@@ -16,7 +16,7 @@ const comparativoTratamentos = [
     frequencia: "Semanal (Subcutânea)", 
     perdaPeso: "~24,2% (48 semanas)", 
     fase: "Fase 3 (Em testes finais)", 
-    cor: "bg-green-600", 
+    cor: "bg-green-700", 
     textColor: "text-white" 
   },
   { 
@@ -139,12 +139,12 @@ export default function RetatrutidaOQueE() {
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
         {/* Botão de Voltar */}
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
           <ChevronLeft size={20} /> Voltar para o Blog
         </Link>
 
         <article className="prose prose-lg max-w-none text-left">
-          <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Tratamento Farmacológico</span>
+          <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Tratamento Farmacológico</span>
 
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
             Retatrutida o que é? A nova fronteira da ciência contra a obesidade
@@ -167,7 +167,7 @@ export default function RetatrutidaOQueE() {
             {/* 1. SEÇÃO DO ÁUDIO */}
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
-                <Headphones className="text-green-600 w-6 h-6" />
+                <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
               <audio controls className="w-full h-10 outline-none">
@@ -186,7 +186,7 @@ export default function RetatrutidaOQueE() {
                 className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
                     <Activity size={18} />
                   </div>
                   <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">
@@ -195,7 +195,7 @@ export default function RetatrutidaOQueE() {
                 </div>
                 <ChevronRight 
                   size={20} 
-                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} 
+                  className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} 
                 />
               </button>
 
@@ -203,37 +203,37 @@ export default function RetatrutidaOQueE() {
               <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                 <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
                   <li>
-                    <a href="#mecanismo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#mecanismo" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Leaf size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       O Mecanismo Triplo
                     </a>
                   </li>
                   <li>
-                    <a href="#resultados" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#resultados" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Resultados Clínicos
                     </a>
                   </li>
                   <li>
-                    <a href="#aprovacao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#aprovacao" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Fases de Aprovação
                     </a>
                   </li>
                   <li>
-                    <a href="#comparativo" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#comparativo" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Comparativo de Tratamentos
                     </a>
                   </li>
                   <li>
-                    <a href="#nutricao" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#nutricao" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Heart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       O Pilar Nutricional
                     </a>
                   </li>
                   <li>
-                    <a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0">
+                    <a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Perguntas Frequentes (FAQ)
                     </a>
@@ -261,7 +261,7 @@ export default function RetatrutidaOQueE() {
             <p>Compreender o que é a retatrutida e como ela interage com a nossa complexa fisiologia é essencial para entender por que essa substância representa um avanço tão significativo, oferecendo uma eficácia de perda de peso que supera as terapias lançadas anteriormente no mercado.</p>
 
             <h2 id="mecanismo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Leaf className="text-green-600"/> O Mecanismo de Ação: O Poder do Agonista Triplo
+              <Leaf className="text-green-700"/> O Mecanismo de Ação: O Poder do Agonista Triplo
             </h2>
             
             <p>O grande diferencial da retatrutida reside na sua incrível capacidade multitarefa no corpo humano. Mas o que exatamente isso significa? Na farmacologia, um <strong>agonista</strong> é uma substância capaz de se ligar a um receptor da célula (como uma chave em uma fechadura) e ativar uma resposta biológica. Um <strong>agonista triplo</strong> é uma única molécula, criada em laboratório, capaz de ativar três "fechaduras" diferentes ao mesmo tempo.</p>
@@ -295,12 +295,12 @@ export default function RetatrutidaOQueE() {
             </div>
 
             {/* QUADRO DE DESTAQUE */}
-            <div className="bg-green-600 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
+            <div className="bg-green-700 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
               "A ciência deixou de atuar em vias hormonais isoladas para criar sinfonias metabólicas que reprogramam a resposta do corpo à obesidade."
             </div>
 
             <h2 id="resultados" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Scale className="text-green-600"/> Resultados Clínicos Impressionantes (Estudo TRIUMPH-1)
+              <Scale className="text-green-700"/> Resultados Clínicos Impressionantes (Estudo TRIUMPH-1)
             </h2>
             <p>Os dados que sustentam a empolgação da comunidade científica são extremamente robustos. Durante a Fase 2 dos testes clínicos, batizada de estudo TRIUMPH-1, a eficácia do medicamento foi colocada à prova com resultados excepcionais.</p>
 
@@ -309,7 +309,7 @@ export default function RetatrutidaOQueE() {
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                 Principais resultados da Fase 2:
               </h2>
-              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-700">
                 <li className="text-slate-700 font-bold text-lg pl-1">
                   Perda de peso corporal média de até 24,2% em 48 semanas
                 </li>
@@ -334,7 +334,7 @@ export default function RetatrutidaOQueE() {
 
             <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
                   <PlayCircle size={24} />
                 </div>
                 <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Análise médica sobre os novos tratamentos</h3>
@@ -353,7 +353,7 @@ export default function RetatrutidaOQueE() {
 
             {/* INÍCIO DA NOVA SEÇÃO: FASES DE APROVAÇÃO */}
             <h2 id="aprovacao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <FileText className="text-green-600"/> A Jornada Científica: Como um Medicamento é Aprovado
+              <FileText className="text-green-700"/> A Jornada Científica: Como um Medicamento é Aprovado
             </h2>
             <p>Muitos pacientes perguntam: "Quando a Retatrutida estará disponível?". Para entender a resposta, precisamos compreender o rigoroso processo de Pesquisa e Desenvolvimento (P&D) pelo qual todo novo fármaco deve passar antes de chegar às farmácias.</p>
 
@@ -409,7 +409,7 @@ export default function RetatrutidaOQueE() {
                   <p className="m-0 text-sm font-medium text-slate-600">Grande escala (1000-5000+ pacientes). <strong>Confirma a eficácia</strong>, monitora reações adversas e compara com placebos ou tratamentos padrão. Fase necessária para o registro.</p>
                 </div>
                 <div className="p-6 md:p-8 md:col-span-2 flex items-center gap-3">
-                  <div className="p-2.5 rounded-full bg-green-600 text-white shrink-0"><PlayCircle size={18} /></div>
+                  <div className="p-2.5 rounded-full bg-green-700 text-white shrink-0"><PlayCircle size={18} /></div>
                   <span className="text-sm font-bold text-green-800">ATUAL: A Retatrutida está realizando estes testes cruciais em grande escala.</span>
                 </div>
               </div>
@@ -429,7 +429,7 @@ export default function RetatrutidaOQueE() {
 
             <div className="my-8 p-6 md:p-8 bg-white border border-green-100 rounded-3xl shadow-sm flex flex-col gap-3 text-left">
               <h3 className="text-xl font-black text-slate-800 m-0 border-b border-slate-100 pb-3 flex items-center gap-2">
-                <span className="text-green-600 text-2xl leading-none">✅</span> Onde está a Retatrutida?
+                <span className="text-green-700 text-2xl leading-none">✅</span> Onde está a Retatrutida?
               </h3>
               <p className="m-0 text-slate-600 font-medium leading-relaxed">
                 Baseado nos manuais de Pesquisa Clínica, a Retatrutida concluiu com sucesso a Fase 2 (TRIUMPH-1). No momento da escrita deste artigo, ela encontra-se na <strong>Fase 3 dos testes clínicos</strong>, que é a etapa final e confirmatória em grande escala necessária para que os dados sejam robustos o suficiente para a submissão de registro e futura comercialização.
@@ -439,7 +439,7 @@ export default function RetatrutidaOQueE() {
 
             {/* INÍCIO DA NOVA SEÇÃO: TABELA COMPARATIVA E COMPARAÇÕES */}
             <h2 id="comparativo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Scale className="text-green-600"/> Comparativo Épico: A Evolução da Perda de Peso
+              <Scale className="text-green-700"/> Comparativo Épico: A Evolução da Perda de Peso
             </h2>
             <p>A Retatrutida não surgiu do nada; ela é o ápice de décadas de evolução na compreensão dos hormônios incretínicos. Para analisar o impacto metabólico real, precisamos comparar o que já existe no mercado com essa nova promessa, além do tratamento padrão ouro cirúrgico.</p>
 
@@ -453,7 +453,7 @@ export default function RetatrutidaOQueE() {
               </div>
 
               {comparativoTratamentos.map((farmaco) => (
-                <div key={farmaco.id} className={`grid grid-cols-12 items-stretch ${farmaco.cor === 'bg-green-600' ? 'bg-green-600 text-white' : farmaco.cor === 'bg-slate-800' ? 'bg-slate-800 text-white' : 'hover:bg-slate-50' } transition-colors border-b border-slate-100 last:border-b-0`}>
+                <div key={farmaco.id} className={`grid grid-cols-12 items-stretch ${farmaco.cor === 'bg-green-700' ? 'bg-green-700 text-white' : farmaco.cor === 'bg-slate-800' ? 'bg-slate-800 text-white' : 'hover:bg-slate-50' } transition-colors border-b border-slate-100 last:border-b-0`}>
 
                   {/* Molécula/Tratamento */}
                   <div className="p-4 border-r border-slate-100 flex flex-col justify-center items-center text-center col-span-3">
@@ -491,7 +491,7 @@ export default function RetatrutidaOQueE() {
             {/* CARDS COMPARATIVOS (MOBILE) - HIDDEN ON DESKTOP */}
             <div className="space-y-6 md:hidden my-10">
               {comparativoTratamentos.map((farmaco) => (
-                <div key={farmaco.id} className={`${farmaco.cor} ${farmaco.textColor} p-6 rounded-3xl shadow-lg border ${farmaco.cor === 'bg-green-600' ? 'border-green-500' : farmaco.cor === 'bg-slate-800' ? 'border-slate-700' : 'border-slate-100'}`}>
+                <div key={farmaco.id} className={`${farmaco.cor} ${farmaco.textColor} p-6 rounded-3xl shadow-lg border ${farmaco.cor === 'bg-green-700' ? 'border-green-500' : farmaco.cor === 'bg-slate-800' ? 'border-slate-700' : 'border-slate-100'}`}>
                   <div className="flex justify-between items-center mb-4 border-b pb-3 gap-3 border-opacity-20">
                     <div className="flex flex-col">
                       <span className="font-black text-xl italic uppercase">{farmaco.molecula}</span>
@@ -546,7 +546,7 @@ export default function RetatrutidaOQueE() {
 {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (BALANÇA DE COZINHA - RETATRUTIDA) */}
 <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
     {/* SELO NO CANTO SUPERIOR */}
-    <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+    <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
         <Zap size={14} className="fill-white" />
         <span>O Pingus Aprova!</span>
     </div>
@@ -584,7 +584,7 @@ export default function RetatrutidaOQueE() {
                 href="https://meli.la/2e8sxv1" 
                 rel="sponsored noopener noreferrer" 
                 target="_blank"
-                className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
             >
                 <ShoppingCart size={16} />
                 Comprar no Mercado Livre
@@ -602,7 +602,7 @@ export default function RetatrutidaOQueE() {
 
 
             <h2 id="nutricao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Heart className="text-green-600"/> O Pilar Insubstituível da Nutrição
+              <Heart className="text-green-700"/> O Pilar Insubstituível da Nutrição
             </h2>
             <p>Embora a chegada de inovações farmacológicas traga imensa esperança, é vital ressaltar que nenhuma caneta de injeção anula a necessidade de uma base comportamental sólida. O suporte nutricional rigoroso é indispensável para evitar o catabolismo muscular exagerado durante uma fase de perda de peso tão rápida e intensa.</p>
 
@@ -611,7 +611,7 @@ export default function RetatrutidaOQueE() {
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                 Cuidados Nutricionais durante o Tratamento
               </h2>
-              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-600">
+              <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-700">
                 <li className="text-slate-700 font-bold text-lg pl-1">
                   Aporte proteico elevado (1,2 a 1,5g/kg/dia) para preservar músculos
                 </li>
@@ -642,7 +642,7 @@ export default function RetatrutidaOQueE() {
 
             {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
-              <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)</h2>
+              <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic"><HelpCircle className="text-green-700" /> Perguntas Frequentes (FAQ)</h2>
               <div className="space-y-6">
                 <div className="bg-slate-50 p-8 rounded-3xl border border-green-100">
                   <h3 className="text-lg font-black text-slate-800 mb-2 italic">O que é a retatrutida?</h3>
@@ -669,7 +669,7 @@ export default function RetatrutidaOQueE() {
         {/* INÍCIO DO NOVO CARTÃO DE AUTOR COM E-E-A-T REFORÇADO */}
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
 
-          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
             <img 
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr. - Nutricionista e Autor do Artigo." 
@@ -680,11 +680,11 @@ export default function RetatrutidaOQueE() {
 
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
-            <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
+            <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
               Apaixonado pela ciência metabólica, Marco dedica seus estudos a compreender a fisiologia humana de forma aprofundada. Especialista em composição corporal com certificação internacional, ele foca em traduzir o rigor dos artigos científicos para a prática do dia a dia. Seu objetivo é ajudar você a entender como o próprio corpo funciona através da educação nutricional baseada em evidências reais.
             </p>
-            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
               Siga @Nutricao_com_Marco
             </a>
           </div>

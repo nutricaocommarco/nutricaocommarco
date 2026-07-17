@@ -143,7 +143,7 @@ export default function Prebioticos() {
       tipo: 'Oligossacarídeos (FOS e Inulina)',
       fontes: 'Batata yacon, aveia, cebola, alho, banana, grão de bico e beterraba.',
       acao: 'Altamente fermentáveis, excelente substrato para bifidobactérias.',
-      cor: 'bg-green-600',
+      cor: 'bg-green-700',
       textColor: 'text-white'
     },
     {
@@ -275,14 +275,14 @@ export default function Prebioticos() {
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
           <ChevronLeft size={20} /> Voltar para o Blog
         </Link>
 
         <article className="prose prose-lg max-w-none text-left">
 
           <div className="mb-8 flex flex-col items-start gap-2">
-            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Nutrição Clínica</span>
+            <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Nutrição Clínica</span>
             <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
           </div>
 
@@ -302,7 +302,7 @@ export default function Prebioticos() {
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
-                <Headphones className="text-green-600 w-6 h-6" />
+                <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
               <audio controls className="w-full h-10 outline-none">
@@ -319,22 +319,22 @@ export default function Prebioticos() {
                 className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
                     <Activity size={18} />
                   </div>
                   <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">Índice do Conteúdo</h3>
                 </div>
-                <ChevronRight size={20} className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} />
+                <ChevronRight size={20} className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} />
               </button>
 
               <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[1000px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                 <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
-                  <li><a href="#fisiologia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como funcionam no corpo</a></li>
-                  <li><a href="#alimentos" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Leaf size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Onde encontrar na dieta?</a></li>
-                  <li><a href="#beneficios" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Shield size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Benefícios Práticos</a></li>
-                  <li><a href="#recomendacoes" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Doses e Recomendações</a></li>
-                  <li><a href="#video" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><PlayCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Aprofunde-se no tema</a></li>
-                  <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes</a></li>
+                  <li><a href="#fisiologia" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como funcionam no corpo</a></li>
+                  <li><a href="#alimentos" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Leaf size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Onde encontrar na dieta?</a></li>
+                  <li><a href="#beneficios" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Shield size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Benefícios Práticos</a></li>
+                  <li><a href="#recomendacoes" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Doses e Recomendações</a></li>
+                  <li><a href="#video" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><PlayCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Aprofunde-se no tema</a></li>
+                  <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes</a></li>
                 </ul>
               </div>
             </nav>
@@ -365,7 +365,7 @@ export default function Prebioticos() {
             </div>
 
             <h2 id="fisiologia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Zap className="text-green-600"/> Como os prebióticos funcionam no intestino
+              <Zap className="text-green-700"/> Como os prebióticos funcionam no intestino
             </h2>
             <p>
               Muitos componentes alimentares têm sido descritos como prebióticos, com grande destaque para os oligossacarídeos e alguns tipos de polissacarídeos. Para que um alimento ganhe esse título de nobreza na nutrição, ele precisa cumprir uma missão difícil: resistir bravamente ao pH ácido do nosso estômago e alcançar o intestino grosso intacto, onde será fermentado e estimulará de forma seletiva as bactérias benéficas. É durante essa mágica da fermentação pela microbiota que ocorre a produção de Ácidos Graxos de Cadeia Curta (AGCC), com destaque para o acetato, propionato e o butirato.
@@ -381,10 +381,10 @@ export default function Prebioticos() {
             </blockquote>
 
             <h2 id="alimentos" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Leaf className="text-green-600"/> Onde encontrar prebióticos naturais na dieta?
+              <Leaf className="text-green-700"/> Onde encontrar prebióticos naturais na dieta?
             </h2>
             <p>
-              A melhor notícia é que você não precisa procurar ingredientes mágicos ou caros para nutrir sua flora intestinal. Prebióticos excelentes estão escondidos em alimentos do nosso cotidiano. Se você já leu nosso guia sobre <Link to="/quantas_frutas_posso_comer" className="text-green-600 font-semibold hover:underline">quantas frutas você pode comer por dia</Link>, sabe que o bagaço e a casca de frutas, como a maçã e a laranja, são riquíssimos em pectinas. Até mesmo o famoso desconforto discutido em <Link to="/por_que_o_feijao_da_gases" className="text-green-600 font-semibold hover:underline">por que o feijão dá gases</Link> tem um lado bom: os oligossacarídeos presentes nas leguminosas são altamente fermentáveis e alimentam as bactérias intestinais.
+              A melhor notícia é que você não precisa procurar ingredientes mágicos ou caros para nutrir sua flora intestinal. Prebióticos excelentes estão escondidos em alimentos do nosso cotidiano. Se você já leu nosso guia sobre <Link to="/quantas_frutas_posso_comer" className="text-green-700 font-semibold hover:underline">quantas frutas você pode comer por dia</Link>, sabe que o bagaço e a casca de frutas, como a maçã e a laranja, são riquíssimos em pectinas. Até mesmo o famoso desconforto discutido em <Link to="/por_que_o_feijao_da_gases" className="text-green-700 font-semibold hover:underline">por que o feijão dá gases</Link> tem um lado bom: os oligossacarídeos presentes nas leguminosas são altamente fermentáveis e alimentam as bactérias intestinais.
             </p>
 
             <div className="my-10 bg-white border border-slate-100 shadow-2xl rounded-[3rem] overflow-hidden hidden md:block">
@@ -433,12 +433,12 @@ export default function Prebioticos() {
             </div>
             
             <p>
-              E para quem se pergunta se <Link to="/diabetico_pode_comer_beterraba" className="text-green-600 font-semibold hover:underline">o diabético pode comer beterraba</Link>, saiba que ela é uma ótima fonte de Fruto-oligossacarídeos (FOS), ajudando não só a microbiota, mas o metabolismo como um todo.
+              E para quem se pergunta se <Link to="/diabetico_pode_comer_beterraba" className="text-green-700 font-semibold hover:underline">o diabético pode comer beterraba</Link>, saiba que ela é uma ótima fonte de Fruto-oligossacarídeos (FOS), ajudando não só a microbiota, mas o metabolismo como um todo.
             </p>
 
             {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA */}
             <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
-                <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+                <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
                     <span>O Pingus Aprova!</span>
                 </div>
@@ -475,7 +475,7 @@ export default function Prebioticos() {
                             href="https://meli.la/2S5HJEg" 
                             rel="sponsored noopener noreferrer" 
                             target="_blank"
-                            className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                            className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
                         >
                             <ShoppingCart size={16} />
                             Comprar no Mercado Livre
@@ -490,7 +490,7 @@ export default function Prebioticos() {
             </div>
 
             <h2 id="beneficios" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Shield className="text-green-600"/> Para que serve prebiótico? Benefícios Práticos
+              <Shield className="text-green-700"/> Para que serve prebiótico? Benefícios Práticos
             </h2>
             <p>
               Os benefícios sistêmicos de manter a microbiota bem alimentada com prebióticos são extensos. Eles melhoram a integridade da barreira intestinal, auxiliam no controle do perfil glicêmico e lipídico e possuem efeitos imunomodulatórios e até antitumorais, atuando na quimioprevenção do câncer colorretal. Além disso, ajudam a prevenir alergias e promovem alívio contra diarreias e infecções entéricas.
@@ -518,15 +518,15 @@ export default function Prebioticos() {
             {/* FIM DO LINK CRUZADO */}
             
             <h2 id="recomendacoes" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <FileText className="text-green-600"/> Doses e Recomendações: Quanto consumir?
+              <FileText className="text-green-700"/> Doses e Recomendações: Quanto consumir?
             </h2>
             <p>
-              Você precisa de pelo menos 4g de prebióticos por dia para promover o crescimento das culturas probióticas no intestino. A Sociedade Brasileira de Nutrição Parenteral e Enteral indica que quantidades entre 5g e 10g são muito bem toleradas e recomendadas para a manutenção da saúde. Para recuperação de bifidobactérias, as doses podem subir, mas cuidado: doses maiores que 14g por dia de uma só vez podem causar desconforto intestinal severo. O equilíbrio é a chave! Para medir seus resultados reais durante o processo de emagrecimento ou ganho de massa magra, descubra se sua <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-600 font-semibold hover:underline">balança de bioimpedância é confiável</Link> e entenda os conceitos de composição corporal no nosso artigo sobre <Link to="/o_que_e_antropometria" className="text-green-600 font-semibold hover:underline">o que é antropometria</Link>.
+              Você precisa de pelo menos 4g de prebióticos por dia para promover o crescimento das culturas probióticas no intestino. A Sociedade Brasileira de Nutrição Parenteral e Enteral indica que quantidades entre 5g e 10g são muito bem toleradas e recomendadas para a manutenção da saúde. Para recuperação de bifidobactérias, as doses podem subir, mas cuidado: doses maiores que 14g por dia de uma só vez podem causar desconforto intestinal severo. O equilíbrio é a chave! Para medir seus resultados reais durante o processo de emagrecimento ou ganho de massa magra, descubra se sua <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-700 font-semibold hover:underline">balança de bioimpedância é confiável</Link> e entenda os conceitos de composição corporal no nosso artigo sobre <Link to="/o_que_e_antropometria" className="text-green-700 font-semibold hover:underline">o que é antropometria</Link>.
             </p>
             
 // Inicio do Vídeo do Youtube
             <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <PlayCircle className="text-green-600"/> Aprofunde-se: 6 Alimentos Prebióticos
+              <PlayCircle className="text-green-700"/> Aprofunde-se: 6 Alimentos Prebióticos
             </h2>
             <p>
               Quer saber na prática o que colocar no carrinho do mercado? Neste vídeo curto e direto ao ponto, descubra 6 alimentos acessíveis e ricos em prebióticos para transformar a sua saúde intestinal hoje mesmo.
@@ -534,7 +534,7 @@ export default function Prebioticos() {
 
             <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
                   <PlayCircle size={24} />
                 </div>
                 <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">6 Alimentos Prebióticos</h3>
@@ -563,7 +563,7 @@ export default function Prebioticos() {
                     Guia Prático
                   </span>
                   <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase italic tracking-tight mb-6">
-                    A Lista Definitiva de alimentos <span className="text-green-600">Prebióticos</span>
+                    A Lista Definitiva de alimentos <span className="text-green-700">Prebióticos</span>
                   </h2>
                   <p className="text-lg text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
                     Nossa saúde começa na feira e na organização da dieta. Abaixo você encontra os melhores alimentos e suplementos para nutrir as suas bactérias boas, organizados para facilitar a sua próxima ida ao mercado.
@@ -612,7 +612,7 @@ export default function Prebioticos() {
 
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
-                <HelpCircle className="text-green-600" /> Perguntas Frequentes sobre Prebióticos
+                <HelpCircle className="text-green-700" /> Perguntas Frequentes sobre Prebióticos
               </h2>
               <div className="space-y-4">
                 {faqs.map((faq, index) => (
@@ -621,10 +621,10 @@ export default function Prebioticos() {
                       onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
                       className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
                     >
-                      <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-600' : 'text-slate-800 group-hover:text-green-600'}`}>
+                      <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-700' : 'text-slate-800 group-hover:text-green-700'}`}>
                         {faq.pergunta}
                       </h3>
-                      <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-600' : ''}`} size={24} />
+                      <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
                     </button>
                     <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
                       <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">{faq.resposta}</p>
@@ -641,7 +641,7 @@ export default function Prebioticos() {
         <ArtigosRecomendados currentPath={pathname} />
 
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
-          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
             <img 
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr." 
@@ -654,11 +654,11 @@ export default function Prebioticos() {
           </div>
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
-            <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK 1</p>
+            <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
               Apaixonado pela fisiologia e pelo comportamento humano, Marco foca em traduzir o rigor científico para a prática do dia a dia, ajudando você a construir uma relação mais leve e sem radicalismos com a comida, cuidando do corpo desde o intestino até a mente.
             </p>
-            <a href="https://instagram.com/Nutricao_com_Marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+            <a href="https://instagram.com/Nutricao_com_Marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
               Siga @Nutricao_com_Marco
             </a>
           </div>

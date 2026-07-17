@@ -73,14 +73,14 @@ export default function Home() {
         <div className="flex flex-col md:flex-row items-center gap-16">
           <div className="flex-1 text-left">
             <h2 className="text-4xl font-black text-slate-900 uppercase italic mb-6">Olá, sou o Marco Aurélio Jr.👋</h2>
-            <div className="w-20 h-2 bg-green-600 rounded-full mb-6"></div>
+            <div className="w-20 h-2 bg-green-700 rounded-full mb-6"></div>
             <p className="text-lg text-slate-600 leading-relaxed mb-8 font-medium">Sou estudante do 4º ano de Nutrição na Unicesumar e entusiasta da antropometria técnica. Minha missão é levar clareza nutricional para quem busca resultados reais.</p>
             <div className="grid grid-cols-2 gap-4">
-              <div className="p-5 bg-slate-50 rounded-2xl border border-green-50"><h4 className="font-black text-green-600 text-sm uppercase">Foco</h4><p className="font-bold text-slate-800">Antropometria e Emagrecimento</p></div>
-              <div className="p-5 bg-slate-50 rounded-2xl border border-green-50"><h4 className="font-black text-green-600 text-sm uppercase">Local</h4><p className="font-bold text-slate-800 leading-tight text-sm">Rio de Janeiro, Freguesia e Online</p></div>
+              <div className="p-5 bg-slate-50 rounded-2xl border border-green-50"><h4 className="font-black text-green-700 text-sm uppercase">Foco</h4><p className="font-bold text-slate-800">Antropometria e Emagrecimento</p></div>
+              <div className="p-5 bg-slate-50 rounded-2xl border border-green-50"><h4 className="font-black text-green-700 text-sm uppercase">Local</h4><p className="font-bold text-slate-800 leading-tight text-sm">Rio de Janeiro, Freguesia e Online</p></div>
             </div>
           </div>
-          <div className="flex-1 bg-green-600 p-8 md:p-12 rounded-[3.5rem] text-white shadow-2xl relative overflow-hidden">
+          <div className="flex-1 bg-green-700 p-8 md:p-12 rounded-[3.5rem] text-white shadow-2xl relative overflow-hidden">
             <Zap className="absolute -top-10 -right-10 w-40 h-40 opacity-10" />
             <h3 className="text-2xl font-black mb-6 italic uppercase">Minha Missão</h3>
             <p className="text-xl leading-relaxed mb-10 font-medium italic text-left">"Levar clareza nutricional para quem busca resultados reais, sem modismos e com total base científica."</p>
@@ -108,7 +108,7 @@ export default function Home() {
                 <div className="aspect-[3/4] mb-8 rounded-[2rem] bg-slate-50 flex items-center justify-center overflow-hidden shadow-inner"><img src={ebook.image} alt={ebook.title} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" /></div>
                 <h3 className="text-2xl font-black mb-4 text-slate-800 leading-tight min-h-[64px] text-center md:text-left">{ebook.title}</h3>
                 <p className="text-slate-600 mb-8 flex-grow font-medium italic leading-relaxed text-center md:text-left">{ebook.desc}</p>
-                <span className="bg-green-600 text-white px-8 py-3.5 rounded-full text-xs font-black uppercase text-center shadow-lg group-hover:bg-green-700 transition-colors">Baixar PDF</span>
+                <span className="bg-green-700 text-white px-8 py-3.5 rounded-full text-xs font-black uppercase text-center shadow-lg group-hover:bg-green-700 transition-colors">Baixar PDF</span>
               </a>
             ))}
           </div>

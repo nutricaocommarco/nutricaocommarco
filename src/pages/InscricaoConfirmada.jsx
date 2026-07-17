@@ -49,7 +49,7 @@ export default function InscricaoConfirmada() {
 
             <a 
               href="https://nutricaocommarco.com.br/blog" 
-              className="bg-green-600 text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm shadow-xl hover:bg-green-700 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3"
+              className="bg-green-700 text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm shadow-xl hover:bg-green-700 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3"
             >
               Ler o Blog <ArrowRight size={18} />
             </a>

@@ -506,14 +506,14 @@ export default function DietaLowCarb() {
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit">
+        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
           <ChevronLeft size={20} /> Voltar para o Blog
         </Link>
 
         <article className="prose prose-lg max-w-none text-left">
           
           <div className="mb-8 flex flex-col items-start gap-2">
-            <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Dietas da Moda</span>
+            <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Dietas da Moda</span>
             <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
           </div>
 
@@ -523,7 +523,7 @@ export default function DietaLowCarb() {
           
           <div className="mb-10 p-6 md:p-10 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-6 text-left">
             <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3 flex items-center gap-2">
-                <Target className="text-green-600 shrink-0" /> Resposta Direta: O que é Dieta Low Carb?
+                <Target className="text-green-700 shrink-0" /> Resposta Direta: O que é Dieta Low Carb?
             </h2>
             <p className="mt-4 text-lg md:text-xl text-green-950 font-medium leading-relaxed m-0">
                 Saber <strong>o que é dieta low carb</strong> significa entender que ela é uma estratégia alimentar focada na redução inteligente do consumo de carboidratos diários (geralmente entre 50g e 130g por dia). Diferente das dietas convencionais que muitas vezes abusam de farinhas e açúcares, a dieta low carb prioriza o consumo de proteínas de alto valor biológico, vegetais ricos em fibras e gorduras saudáveis para fornecer energia. O objetivo não é "zerar" o carboidrato, mas sim melhorar a sensibilidade à insulina, controlar a saciedade atuando diretamente nos <Link to="/hormonios_da_fome_emagrecimento" className="text-green-800 font-bold hover:underline">hormônios da fome</Link> e facilitar o uso da gordura estocada como combustível, promovendo um emagrecimento sustentável e de longo prazo.
@@ -533,7 +533,7 @@ export default function DietaLowCarb() {
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
-                <Headphones className="text-green-600 w-6 h-6" />
+                <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
               <audio controls className="w-full h-10 outline-none" title="Áudio explicando o que é dieta low carb">
@@ -550,29 +550,29 @@ export default function DietaLowCarb() {
               aria-label="Abrir Índice do Conteúdo sobre o que é dieta low carb"
             >
               <div className="flex items-center gap-3">
-                <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
                   <Activity size={18} />
                 </div>
                 <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">Índice do Conteúdo</h3>
               </div>
-              <ChevronRight size={20} className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} />
+              <ChevronRight size={20} className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} />
             </button>
 
             <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[1200px] opacity-100 border-t border-slate-200' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
               <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
-                <li><a href="#historia" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="História da Dieta Low Carb"><Clock size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A História da Restrição</a></li>
-                <li><a href="#diferenca" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Diferença entre low carb e cetogênica"><Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Diferença: Low Carb x Keto</a></li>
-                <li><a href="#calculadora" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Calculadora de Carboidratos da Dieta Low Carb"><PieChart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Calculadora de Carboidratos</a></li>
-                <li><a href="#gorduras" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Gordura saturada vs insaturada na Dieta Mediterrânea"><Droplet size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Gorduras e Dieta Mediterrânea</a></li>
-                <li><a href="#como-comecar" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Como começar a fazer dieta low carb"><PlayCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como Começar na Low Carb</a></li>
-                <li><a href="#video-lowcarb" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="Vídeo: O que é dieta low carb"><Video size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Vídeo Explicativo</a></li>
-                <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0" title="FAQ sobre o que é dieta low carb"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes</a></li>
+                <li><a href="#historia" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="História da Dieta Low Carb"><Clock size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A História da Restrição</a></li>
+                <li><a href="#diferenca" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Diferença entre low carb e cetogênica"><Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Diferença: Low Carb x Keto</a></li>
+                <li><a href="#calculadora" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Calculadora de Carboidratos da Dieta Low Carb"><PieChart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Calculadora de Carboidratos</a></li>
+                <li><a href="#gorduras" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Gordura saturada vs insaturada na Dieta Mediterrânea"><Droplet size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Gorduras e Dieta Mediterrânea</a></li>
+                <li><a href="#como-comecar" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Como começar a fazer dieta low carb"><PlayCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como Começar na Low Carb</a></li>
+                <li><a href="#video-lowcarb" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="Vídeo: O que é dieta low carb"><Video size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Vídeo Explicativo</a></li>
+                <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0" title="FAQ sobre o que é dieta low carb"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes</a></li>
               </ul>
             </div>
           </div>
 
           <p className="text-xl text-slate-600 font-medium mb-10 border-l-4 border-green-600 pl-4">
-            Em um mundo hoje amplamente dominado por alimentos ultraprocessados, é muito comum que nós, como sociedade, confundamos a sede de nutrientes reais do nosso corpo com a clássica <Link to="/o-que-e-fome-emocional" className="text-green-600 font-bold hover:underline">fome emocional</Link>. Diante desse cenário de adoecimento metabólico, a <strong>dieta low carb</strong> surge não como uma restrição chata e severa, mas como um verdadeiro retorno à base da biologia humana. Entender de uma vez por todas o que é dieta low carb é o primeiro passo para resgatar a sua saúde, melhorar seus exames e perder peso sem precisar viver escravo da balança e contando os gramas de uma folha de alface.
+            Em um mundo hoje amplamente dominado por alimentos ultraprocessados, é muito comum que nós, como sociedade, confundamos a sede de nutrientes reais do nosso corpo com a clássica <Link to="/o-que-e-fome-emocional" className="text-green-700 font-bold hover:underline">fome emocional</Link>. Diante desse cenário de adoecimento metabólico, a <strong>dieta low carb</strong> surge não como uma restrição chata e severa, mas como um verdadeiro retorno à base da biologia humana. Entender de uma vez por todas o que é dieta low carb é o primeiro passo para resgatar a sua saúde, melhorar seus exames e perder peso sem precisar viver escravo da balança e contando os gramas de uma folha de alface.
           </p>
 
           <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
@@ -593,20 +593,20 @@ export default function DietaLowCarb() {
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
             <h2 id="historia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Clock className="text-green-600"/> A História: Como a Low Carb Ganhou o Mundo
+              <Clock className="text-green-700"/> A História: Como a Low Carb Ganhou o Mundo
             </h2>
             <p>
               Para mergulhar no conceito de o que é dieta low carb, precisamos voltar um pouco no tempo. Ao contrário do que muitos imaginam, a restrição de carboidratos não é uma invenção da era moderna ou de influenciadores do Instagram. Já no longínquo ano de 1862, o britânico William Banting publicou a sua "Carta sobre a Corpulência". Foi um dos primeiros e mais famosos relatos documentados na história sobre como a redução drástica do consumo de pães, açúcares, batatas e cerveja o ajudou a tratar a obesidade que, na época, ameaçava a sua própria vida. Banting popularizou tanto essa estratégia alimentar que, em algumas partes do mundo, a palavra "banting" virou sinônimo do ato de "fazer dieta".
             </p>
             <p>
-              Esse movimento de restrição de carboidratos ganhou cada vez mais respaldo científico ao longo do século XX e literalmente explodiu em popularidade entre as décadas de 70 e 90 com a polêmica dieta do Dr. Atkins. Embora a abordagem original do Atkins fosse muito voltada para a <Link to="/o-que-e-dieta-cetogenica" className="text-green-600 font-bold hover:underline">dieta cetogênica</Link> severa (cortando quase totalmente os carboidratos), a ciência da nutrição moderna evoluiu muito. 
+              Esse movimento de restrição de carboidratos ganhou cada vez mais respaldo científico ao longo do século XX e literalmente explodiu em popularidade entre as décadas de 70 e 90 com a polêmica dieta do Dr. Atkins. Embora a abordagem original do Atkins fosse muito voltada para a <Link to="/o-que-e-dieta-cetogenica" className="text-green-700 font-bold hover:underline">dieta cetogênica</Link> severa (cortando quase totalmente os carboidratos), a ciência da nutrição moderna evoluiu muito. 
             </p>
             <p>
-               Hoje, entendemos perfeitamente o que é dieta low carb e sabemos com clareza que <strong>não é necessário entrar em cetose profunda</strong> para conseguir colher os excelentes benefícios da regulação da nossa insulina. A dieta low carb atual, que é recomendada pelos melhores profissionais, é perfeitamente equilibrada, focada em alimentos integrais e amplamente apoiada por estudos sérios para o tratamento do diabetes tipo 2, para a melhora geral do nosso metabolismo e, claro, para garantir o emagrecimento de longo prazo, fugindo finalmente do terrível <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-600 font-bold hover:underline">efeito sanfona</Link>.
+               Hoje, entendemos perfeitamente o que é dieta low carb e sabemos com clareza que <strong>não é necessário entrar em cetose profunda</strong> para conseguir colher os excelentes benefícios da regulação da nossa insulina. A dieta low carb atual, que é recomendada pelos melhores profissionais, é perfeitamente equilibrada, focada em alimentos integrais e amplamente apoiada por estudos sérios para o tratamento do diabetes tipo 2, para a melhora geral do nosso metabolismo e, claro, para garantir o emagrecimento de longo prazo, fugindo finalmente do terrível <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 font-bold hover:underline">efeito sanfona</Link>.
             </p>
 
             <h2 id="diferenca" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Scale className="text-green-600"/> Qual a Diferença Entre Low Carb e Cetogênica?
+              <Scale className="text-green-700"/> Qual a Diferença Entre Low Carb e Cetogênica?
             </h2>
             <p>
               Sem dúvida alguma, essa é a maior confusão entre as pessoas que começam a estudar nutrição e buscam melhorar o corpo. Ambas as estratégias restringem os carboidratos, sim, mas os propósitos biológicos e, principalmente, as margens de tolerância do que você pode comer no dia a dia são completamente diferentes. A verdadeira <strong>diferença entre low carb e cetogênica</strong> reside na quantidade total de carboidratos permitida em um dia e na resposta exata que o seu fígado dará a essa restrição.
@@ -630,7 +630,7 @@ export default function DietaLowCarb() {
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-bold text-slate-800">Flexibilidade</td>
-                    <td className="p-5">É alta. Permite que você encaixe frutas um pouco mais doces (como uma maçã ou banana ocasional) e o uso de raízes ou tubérculos, servindo até para saber se o <Link to="/diabetico_pode_comer_beterraba" className="text-green-600 hover:underline">diabético pode comer beterraba</Link> na sua rotina.</td>
+                    <td className="p-5">É alta. Permite que você encaixe frutas um pouco mais doces (como uma maçã ou banana ocasional) e o uso de raízes ou tubérculos, servindo até para saber se o <Link to="/diabetico_pode_comer_beterraba" className="text-green-700 hover:underline">diabético pode comer beterraba</Link> na sua rotina.</td>
                     <td className="p-5">É baixíssima. É focada quase que exclusivamente no consumo de gorduras, muitos vegetais folhosos e em proteínas que devem ser rigorosamente calculadas.</td>
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
@@ -649,7 +649,7 @@ export default function DietaLowCarb() {
 
           {/* CALCULADORA DE CARBOIDRATOS COM BUSCA E META */}
           <h2 id="calculadora" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
-              <PieChart className="text-green-600"/> Calculadora Low Carb: Entenda os Carboidratos
+              <PieChart className="text-green-700"/> Calculadora Low Carb: Entenda os Carboidratos
           </h2>
           <p className="mb-6">
               A melhor forma de aprender na prática o que é dieta low carb é visualizando. Por isso, desenvolvi esta ferramenta interativa exclusiva para você. O limite clássico de uma Dieta Low Carb mais flexível é de aproximadamente <strong>130 gramas de carboidratos por dia</strong>, mas você pode ajustar a sua meta de acordo com o seu objetivo. Brinque à vontade adicionando os alimentos da gigantesca lista da Tabela TACO Brasileira abaixo e veja o quão rápido você atinge o seu limite metabólico!
@@ -691,7 +691,7 @@ export default function DietaLowCarb() {
                       onChange={(e) => setFoodQty(e.target.value)}
                       className="w-full bg-white border border-slate-200 p-3 rounded-xl outline-none font-medium text-slate-700"
                     />
-                    <button type="submit" className="bg-green-600 text-white p-3 rounded-xl hover:bg-green-700 transition w-12 h-12 flex items-center justify-center shrink-0">
+                    <button type="submit" className="bg-green-700 text-white p-3 rounded-xl hover:bg-green-700 transition w-12 h-12 flex items-center justify-center shrink-0">
                       <PlusCircle size={20} />
                     </button>
                   </form>
@@ -766,10 +766,10 @@ export default function DietaLowCarb() {
             </div>
 
             <h2 id="gorduras" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Droplet className="text-green-600"/> Gordura Saturada vs Insaturada e a Dieta Mediterrânea
+              <Droplet className="text-green-700"/> Gordura Saturada vs Insaturada e a Dieta Mediterrânea
             </h2>
             <p>
-              Quando reduzimos de fato a quantidade dos carboidratos seguindo a dieta low carb, a principal fonte de energia que assume o protagonismo na sua alimentação passa a ser a gordura. É exatamente aqui que entra um dos debates mais intensos da nutrição: o embate da <strong>gordura saturada vs insaturada</strong>. O medo clássico, alimentado por conselhos antigos, é de pensar que, por exemplo, se você <Link to="/comer-ovo-todo-dia-aumenta-o-colesterol" className="text-green-600 font-bold hover:underline">comer ovo todo dia, seu colesterol vai estourar</Link>. A boa notícia é que a nutrição clínica atual já evoluiu muito nesse aspecto.
+              Quando reduzimos de fato a quantidade dos carboidratos seguindo a dieta low carb, a principal fonte de energia que assume o protagonismo na sua alimentação passa a ser a gordura. É exatamente aqui que entra um dos debates mais intensos da nutrição: o embate da <strong>gordura saturada vs insaturada</strong>. O medo clássico, alimentado por conselhos antigos, é de pensar que, por exemplo, se você <Link to="/comer-ovo-todo-dia-aumenta-o-colesterol" className="text-green-700 font-bold hover:underline">comer ovo todo dia, seu colesterol vai estourar</Link>. A boa notícia é que a nutrição clínica atual já evoluiu muito nesse aspecto.
             </p>
             <p>
               As gorduras saturadas (que são aquelas normalmente encontradas na carne vermelha, na manteiga, no óleo de coco e nos laticínios) definitivamente não são o grande veneno que se acreditava nas cartilhas médicas dos anos 80, mas, claro, elas devem ser consumidas com equilíbrio e moderação. No entanto, o verdadeiro segredo do sucesso na nossa alimentação saudável está nas famosas gorduras insaturadas. É exatamente aqui que a dieta Low Carb faz as pazes e bebe da fonte da maravilhosa **dieta mediterrânea**, que hoje é amplamente considerada como uma das melhores e mais seguras estratégias do mundo todo para promover a saúde do coração e garantir uma vida longa (longevidade).
@@ -779,7 +779,7 @@ export default function DietaLowCarb() {
             </p>
 
             <h2 id="como-comecar" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <PlayCircle className="text-green-600"/> Como Começar a Fazer Dieta Low Carb Hoje
+              <PlayCircle className="text-green-700"/> Como Começar a Fazer Dieta Low Carb Hoje
             </h2>
             <p>
               Muita gente acha complicado, mas saber <strong>como começar a fazer dieta low carb</strong> de verdade não exige que você crie planos mirabolantes ou gaste horas na cozinha. O primeiro grande passo é, de longe, o mais simples: a temida "limpeza da despensa". Lembre-se, a sua dieta sempre começa dentro do supermercado. Inicie removendo da sua casa (ou comprando muito menos) alimentos como pães brancos refinados, refrigerantes normais, biscoitos, macarrão comum e aquele açúcar branco de mesa. O grande objetivo imediato nas suas primeiras semanas é apenas parar de estimular grandes picos de insulina que, inevitavelmente, causarão letargia e aquela famosa "fome de rebote" em pouquíssimas horas.
@@ -787,7 +787,7 @@ export default function DietaLowCarb() {
 
             <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-green-100 my-8 shadow-sm">
               <h3 className="text-xl font-black text-slate-800 mb-4 italic flex items-center gap-2">
-                <Check className="text-green-600" /> 3 Passos Essenciais para Começar:
+                <Check className="text-green-700" /> 3 Passos Essenciais para Começar:
               </h3>
               <ol className="space-y-5 text-slate-700">
                 <li className="flex items-start gap-3">
@@ -808,20 +808,20 @@ export default function DietaLowCarb() {
                   <div className="w-8 h-8 rounded-full bg-green-200 text-green-800 font-black flex items-center justify-center shrink-0 mt-0.5">3</div>
                   <div>
                     <strong className="block text-slate-900">Dominar o Balanço Calórico:</strong> 
-                    A dieta low carb é fantástica, mas não quebra as leis básicas da física e da biologia. Comer um quilo inteiro de queijo e nozes por dia achando que está "saudável" ainda vai fazer você engordar. Para secar de vez, você deve calcular e respeitar <strong><Link to="/quantas-calorias-gasto-por-dia" className="text-green-600 hover:underline">quantas calorias gasta por dia</Link></strong> e operar em um déficit calórico leve. Fazer um acompanhamento utilizando a <Link to="/o_que_e_antropometria" className="text-green-600 font-bold hover:underline">antropometria clínica</Link> é o cenário ideal para acompanhar seus resultados.
+                    A dieta low carb é fantástica, mas não quebra as leis básicas da física e da biologia. Comer um quilo inteiro de queijo e nozes por dia achando que está "saudável" ainda vai fazer você engordar. Para secar de vez, você deve calcular e respeitar <strong><Link to="/quantas-calorias-gasto-por-dia" className="text-green-700 hover:underline">quantas calorias gasta por dia</Link></strong> e operar em um déficit calórico leve. Fazer um acompanhamento utilizando a <Link to="/o_que_e_antropometria" className="text-green-700 font-bold hover:underline">antropometria clínica</Link> é o cenário ideal para acompanhar seus resultados.
                   </div>
                 </li>
               </ol>
             </div>
 
             <p>
-              Aliado a toda essa mudança alimentar inicial, é interessante observar que muitas pessoas também decidem, de forma natural, começar a praticar o <Link to="/o-que-e-jejum-intermitente" className="text-green-600 font-bold hover:underline">jejum intermitente</Link>. E o motivo é simples: a ausência total daqueles temidos picos de insulina provocada pela dieta low carb torna absurdamente mais fácil, natural e indolor conseguir passar 14 ou 16 horas do dia sem precisar se alimentar.
+              Aliado a toda essa mudança alimentar inicial, é interessante observar que muitas pessoas também decidem, de forma natural, começar a praticar o <Link to="/o-que-e-jejum-intermitente" className="text-green-700 font-bold hover:underline">jejum intermitente</Link>. E o motivo é simples: a ausência total daqueles temidos picos de insulina provocada pela dieta low carb torna absurdamente mais fácil, natural e indolor conseguir passar 14 ou 16 horas do dia sem precisar se alimentar.
             </p>
 
                      {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (BALANÇA DE COZINHA) */}
             <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
                 {/* SELO NO CANTO SUPERIOR */}
-                <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+                <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
                     <span>O Pingus Aprova!</span>
                 </div>
@@ -862,7 +862,7 @@ export default function DietaLowCarb() {
                             rel="sponsored noopener noreferrer" 
                             target="_blank"
                             aria-label="Comprar Balança de Cozinha no Mercado Livre"
-                            className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                            className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
                         >
                             <ShoppingCart size={16} />
                             Ver no Mercado Livre
@@ -872,7 +872,7 @@ export default function DietaLowCarb() {
             </div>
 
                <h2 id="video-lowcarb" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Video className="text-green-600"/> A Low Carb na Prática (e o Intestino!)
+              <Video className="text-green-700"/> A Low Carb na Prática (e o Intestino!)
             </h2>
             <p className="mb-6">
               Ainda ficou com algumas dúvidas de como formatar seus macros e entender o conceito a fundo para começar ainda hoje? A excelente Nutricionista Patricia Leite preparou um material fantástico explicando o maior erro de quem tenta fazer Low Carb por conta própria: esquecer da saúde intestinal. Assista para entender como fazer da forma correta e sem sofrimento:
@@ -904,16 +904,16 @@ export default function DietaLowCarb() {
 
             <div className="mb-12 border-t border-slate-200 pt-8 mt-12">
               <h2 className="text-2xl font-black text-slate-800 uppercase italic mb-4 flex items-center gap-3">
-                <Target className="text-green-600"/> Conclusão: Dieta Low Carb é para você?
+                <Target className="text-green-700"/> Conclusão: Dieta Low Carb é para você?
               </h2>
               <p>
-                No final das contas, compreender a fundo o que é dieta low carb nos liberta enormemente da contagem neurótica de calorias puras, permitindo que a gente foque muito mais na qualidade e no impacto profundo que cada alimento causa nos nossos hormônios. Se você busca desesperadamente diminuir a sua vontade de doce, melhorar os perfis dos seus exames sanguíneos e ter um processo de emagrecimento mais sólido, quer ele seja associado (ou não) a treinos em academias e ao uso de suplementos e medicamentos inovadores como a <Link to="/retatrutida_o_que_e" className="text-green-600 font-bold hover:underline">Retatrutida</Link> e a famosa <Link to="/tirzepatida-para-que-serve" className="text-green-600 font-bold hover:underline">Tirzepatida</Link> sob rigorosa orientação e acompanhamento médico, saiba que a dieta Low Carb é, sem dúvidas, um alicerce primoroso para a sua jornada!
+                No final das contas, compreender a fundo o que é dieta low carb nos liberta enormemente da contagem neurótica de calorias puras, permitindo que a gente foque muito mais na qualidade e no impacto profundo que cada alimento causa nos nossos hormônios. Se você busca desesperadamente diminuir a sua vontade de doce, melhorar os perfis dos seus exames sanguíneos e ter um processo de emagrecimento mais sólido, quer ele seja associado (ou não) a treinos em academias e ao uso de suplementos e medicamentos inovadores como a <Link to="/retatrutida_o_que_e" className="text-green-700 font-bold hover:underline">Retatrutida</Link> e a famosa <Link to="/tirzepatida-para-que-serve" className="text-green-700 font-bold hover:underline">Tirzepatida</Link> sob rigorosa orientação e acompanhamento médico, saiba que a dieta Low Carb é, sem dúvidas, um alicerce primoroso para a sua jornada!
               </p>
             </div>
 
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
-                <HelpCircle className="text-green-600" /> Perguntas Frequentes (FAQ)
+                <HelpCircle className="text-green-700" /> Perguntas Frequentes (FAQ)
               </h2>
               <div className="space-y-4">
                 {faqs.map((faq, index) => (
@@ -923,10 +923,10 @@ export default function DietaLowCarb() {
                       aria-expanded={openFaqIndex === index}
                       className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
                     >
-                      <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-600' : 'text-slate-800 group-hover:text-green-600'}`}>
+                      <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-700' : 'text-slate-800 group-hover:text-green-700'}`}>
                         {faq.pergunta}
                       </h3>
-                      <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-600' : ''}`} size={24} />
+                      <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
                     </button>
                     <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
                       <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">{faq.resposta}</p>
@@ -943,7 +943,7 @@ export default function DietaLowCarb() {
         <ArtigosRecomendados currentPath={pathname} />
 
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
-          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
             <img 
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr. que desvenda o que é dieta low carb na prática" 
@@ -954,11 +954,11 @@ export default function DietaLowCarb() {
           </div>
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
-            <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK 1</p>
+            <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
               Estudante dedicado da bioquímica nutricional e monitor no laboratório de nutrição da Unicesumar Tijuca. Marco descomplica a ciência do emagrecimento ensinando na prática o que é dieta low carb, focando em traduzir evidências densas (ISAK Nível 1) em estratégias sustentáveis para o seu dia a dia.
             </p>
-            <a href="https://instagram.com/Nutricao_com_Marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+            <a href="https://instagram.com/Nutricao_com_Marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
               Siga @Nutricao_com_Marco
             </a>
           </div>

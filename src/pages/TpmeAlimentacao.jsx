@@ -109,14 +109,14 @@ const handleFormSubmit = async (e) => {
       <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
         <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-          <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors w-fit" title="Voltar ao Blog e ler mais sobre o que comer na TPM">
+          <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit" title="Voltar ao Blog e ler mais sobre o que comer na TPM">
             <ChevronLeft size={20} /> Voltar para o Blog
           </Link>
 
           <article className="prose prose-lg max-w-none text-left">
 
             <div className="mb-8 flex flex-col items-start gap-2">
-              <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Saúde da Mulher</span>
+              <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Saúde da Mulher</span>
               <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
             </div>
 
@@ -139,7 +139,7 @@ const handleFormSubmit = async (e) => {
             <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
               <div className="p-5 md:p-6 flex flex-col gap-3">
                 <div className="flex items-center gap-3">
-                  <Headphones className="text-green-600 w-6 h-6" />
+                  <Headphones className="text-green-700 w-6 h-6" />
                   <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
                 </div>
                 <audio controls className="w-full h-10 outline-none rounded-full" title="O que comer na TPM em Áudio">
@@ -157,22 +157,22 @@ const handleFormSubmit = async (e) => {
                   aria-label="Abrir Índice do Conteúdo sobre O que comer na TPM"
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-600 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                    <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
                       <Activity size={18} />
                     </div>
                     <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">Índice do Conteúdo</h3>
                   </div>
-                  <ChevronRight size={20} className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-600' : ''}`} />
+                  <ChevronRight size={20} className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} />
                 </button>
                 <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[1000px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                   <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
-                    <li><a href="#diferenca-emagrecimento" title="Diferença no Emagrecimento: O que comer na TPM" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Brain size={16} className="text-slate-300 shrink-0" />A Diferença no Emagrecimento</a></li>
-                    <li><a href="#danca-hormonios" title="Hormônios e O que comer na TPM" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Activity size={16} className="text-slate-300 shrink-0" />A Dança dos Hormônios</a></li>
-                    <li><a href="#mitos-verdades" title="Mitos e Verdades: O que comer na TPM" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Shield size={16} className="text-slate-300 shrink-0" />Mitos e Verdades do Ciclo</a></li>
-                    <li><a href="#vontade-doce" title="Vontade de Doce e O que comer na TPM" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><AlertCircle size={16} className="text-slate-300 shrink-0" />Vontade de Doce: Biologia?</a></li>
-                    <li><a href="#o-que-comer" title="Estratégias: O que comer na TPM" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Leaf size={16} className="text-slate-300 shrink-0" />Estratégias: O Que Comer</a></li>
-                    <li><a href="#treino-constancia" title="Treino e O que comer na TPM" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><Dumbbell size={16} className="text-slate-300 shrink-0" />O Papel do Treino</a></li>
-                    <li><a href="#avaliacao" title="Análise Grátis: O que comer na TPM" className="group flex items-center gap-3 text-slate-500 hover:text-green-600 transition-all font-bold text-base m-0"><ClipboardList size={16} className="text-slate-300 shrink-0" />Análise de Perfil (Grátis)</a></li>
+                    <li><a href="#diferenca-emagrecimento" title="Diferença no Emagrecimento: O que comer na TPM" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Brain size={16} className="text-slate-300 shrink-0" />A Diferença no Emagrecimento</a></li>
+                    <li><a href="#danca-hormonios" title="Hormônios e O que comer na TPM" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Activity size={16} className="text-slate-300 shrink-0" />A Dança dos Hormônios</a></li>
+                    <li><a href="#mitos-verdades" title="Mitos e Verdades: O que comer na TPM" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Shield size={16} className="text-slate-300 shrink-0" />Mitos e Verdades do Ciclo</a></li>
+                    <li><a href="#vontade-doce" title="Vontade de Doce e O que comer na TPM" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><AlertCircle size={16} className="text-slate-300 shrink-0" />Vontade de Doce: Biologia?</a></li>
+                    <li><a href="#o-que-comer" title="Estratégias: O que comer na TPM" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Leaf size={16} className="text-slate-300 shrink-0" />Estratégias: O Que Comer</a></li>
+                    <li><a href="#treino-constancia" title="Treino e O que comer na TPM" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Dumbbell size={16} className="text-slate-300 shrink-0" />O Papel do Treino</a></li>
+                    <li><a href="#avaliacao" title="Análise Grátis: O que comer na TPM" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><ClipboardList size={16} className="text-slate-300 shrink-0" />Análise de Perfil (Grátis)</a></li>
                   </ul>
                 </div>
               </nav>
@@ -199,17 +199,17 @@ const handleFormSubmit = async (e) => {
               </div>
 
               <h2 id="diferenca-emagrecimento" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Brain className="text-green-600"/> O Que Comer na TPM e a Diferença no Emagrecimento Feminino
+                <Brain className="text-green-700"/> O Que Comer na TPM e a Diferença no Emagrecimento Feminino
               </h2>
               <p>
                 Muitas mulheres se frustram ao tentar seguir exatamente o mesmo plano alimentar que o marido, o namorado ou um amigo, percebendo rapidamente que os resultados na balança não acompanham o mesmo ritmo. A explicação para essa disparidade é puramente biológica e fisiológica. Diferente do metabolismo masculino, que se mantém relativamente estável, saber o que comer na TPM faz a diferença porque o <strong>metabolismo feminino não é uma linha reta e estática</strong>. Ele é essencialmente cíclico e sofre transformações profundas e contínuas ao longo de toda a vida. Durante a infância, desfrutamos de uma estabilidade hormonal que é abruptamente quebrada na puberdade, momento em que ocorre o primeiro grande aumento de estrogênio e progesterona, alterando para sempre a forma como o corpo da mulher distribui e armazena a gordura.
               </p>
               <p>
-                Ao entrarmos nos anos reprodutivos, vivemos uma verdadeira montanha-russa química onde esses hormônios sobem e descem em um ritmo que, na média, dura vinte e oito dias. Mais tarde, com a chegada da perimenopausa, essa produção cai e a gordura subcutânea começa a ir para a gordura visceral. Compreender profundamente que o corpo feminino tem demandas e flutuações únicas em seus <Link to="/hormonios_da_fome_emagrecimento" className="text-green-600 font-bold hover:underline" title="O Que Comer na TPM e os Hormônios da Fome">hormônios da fome</Link> é o primeiro e mais importante passo para parar de brigar com a própria biologia e começar a orquestrar o emagrecimento e as escolhas de o que comer na TPM a favor dela.
+                Ao entrarmos nos anos reprodutivos, vivemos uma verdadeira montanha-russa química onde esses hormônios sobem e descem em um ritmo que, na média, dura vinte e oito dias. Mais tarde, com a chegada da perimenopausa, essa produção cai e a gordura subcutânea começa a ir para a gordura visceral. Compreender profundamente que o corpo feminino tem demandas e flutuações únicas em seus <Link to="/hormonios_da_fome_emagrecimento" className="text-green-700 font-bold hover:underline" title="O Que Comer na TPM e os Hormônios da Fome">hormônios da fome</Link> é o primeiro e mais importante passo para parar de brigar com a própria biologia e começar a orquestrar o emagrecimento e as escolhas de o que comer na TPM a favor dela.
               </p>
 
               <h2 id="danca-hormonios" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Activity className="text-green-600"/> O Que Comer na TPM: A Dança dos Hormônios
+                <Activity className="text-green-700"/> O Que Comer na TPM: A Dança dos Hormônios
               </h2>
               <p>
                 Essa verdadeira orquestra fisiológica começa no cérebro e dita o que comer na TPM. O hipotálamo envia sinais em pulsos rítmicos (GnRH) para a hipófise, que libera o FSH e LH, que por sua vez manda mensagens vitais diretamente para os ovários. É ali que a mágica acontece com a produção de estradiol e progesterona. O grande segredo, frequentemente ignorado, é que <strong>estes não são apenas hormônios ligados à reprodução</strong>; eles são hormônios metabólicos de altíssimo impacto. Eles regulam o apetite (vias POMC e NPY), decidem onde a gordura será estocada, governam o metabolismo ósseo e alteram a sensibilidade à insulina. 
@@ -227,20 +227,20 @@ const handleFormSubmit = async (e) => {
               </p>
 
               <h2 id="mitos-verdades" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Shield className="text-green-600"/> Mitos e Verdades: O Que Comer na TPM
+                <Shield className="text-green-700"/> Mitos e Verdades: O Que Comer na TPM
               </h2>
               <p>
-                Diante de tamanha complexidade hormonal, a internet foi inundada por protocolos rigorosos sobre o que comer na TPM que prometem o corpo perfeito se você comer "exatamente o macronutriente X na fase Y". No entanto, a literatura científica baseada em evidências é muito mais pé no chão. Estudos robustos analisando as diferenças sexuais nas estratégias nutricionais demonstraram que, embora o corpo feminino realmente passe por flutuações na forma de gastar energia e saibamos que as <a href="https://pubmed.ncbi.nlm.nih.gov/2179207/" target="_blank" rel="noopener noreferrer" className="text-green-600 font-bold hover:underline">mulheres utilizam substratos de energia de forma diferente dos homens durante o exercício</a>, <strong>não é obrigatório nem altamente vantajoso</strong> mudar toda a estrutura da sua dieta a cada nova fase da lua para conseguir emagrecer.
+                Diante de tamanha complexidade hormonal, a internet foi inundada por protocolos rigorosos sobre o que comer na TPM que prometem o corpo perfeito se você comer "exatamente o macronutriente X na fase Y". No entanto, a literatura científica baseada em evidências é muito mais pé no chão. Estudos robustos analisando as diferenças sexuais nas estratégias nutricionais demonstraram que, embora o corpo feminino realmente passe por flutuações na forma de gastar energia e saibamos que as <a href="https://pubmed.ncbi.nlm.nih.gov/2179207/" target="_blank" rel="noopener noreferrer" className="text-green-700 font-bold hover:underline">mulheres utilizam substratos de energia de forma diferente dos homens durante o exercício</a>, <strong>não é obrigatório nem altamente vantajoso</strong> mudar toda a estrutura da sua dieta a cada nova fase da lua para conseguir emagrecer.
               </p>
 
               <div className="my-10 bg-white rounded-[2rem] border border-green-200 shadow-xl overflow-hidden">
                 <div className="bg-green-50 text-green-900 font-black uppercase tracking-widest text-sm p-5 border-b border-green-200 flex items-center gap-3">
-                   <AlertTriangle size={20} className="text-green-600" /> O que a Ciência Diz sobre TPM
+                   <AlertTriangle size={20} className="text-green-700" /> O que a Ciência Diz sobre TPM
                 </div>
                 <div className="divide-y divide-slate-100 text-left">
                   {tabelaMitosVerdades.map((item) => (
                     <div key={item.id} className="grid grid-cols-1 md:grid-cols-12 gap-4 p-5 md:p-4 items-start hover:bg-slate-50 transition-colors text-sm">
-                      <div className="col-span-2 font-bold uppercase">{item.mitoVerdade === "Verdade" ? <span className="text-green-600">Verdade</span> : <span className="text-red-600">Mito</span>}</div>
+                      <div className="col-span-2 font-bold uppercase">{item.mitoVerdade === "Verdade" ? <span className="text-green-700">Verdade</span> : <span className="text-red-600">Mito</span>}</div>
                       <div className="col-span-4 font-bold text-slate-800">{item.ponto}</div>
                       <div className="col-span-6 text-slate-600">{item.explicacao}</div>
                     </div>
@@ -249,7 +249,7 @@ const handleFormSubmit = async (e) => {
               </div>
 
               <h2 id="vontade-doce" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <AlertCircle className="text-green-600"/> O Que Comer na TPM Quando Dá Vontade de Doce
+                <AlertCircle className="text-green-700"/> O Que Comer na TPM Quando Dá Vontade de Doce
               </h2>
               <p>
                 Chegamos ao grande vilão do emagrecimento feminino e da dúvida sobre o que comer na TPM: a fissura por açúcar nos dias que antecedem a menstruação. Se você sente que perde completamente o controle da sua vontade, saiba que essa batalha tem dois lados muito distintos. Como vimos, o aumento da fome é <strong>absolutamente biológico</strong>. O seu corpo está sendo banhado por progesterona e isso ativa o seu cérebro para buscar mais substrato energético. Contudo, a escolha de o que comer na TPM é uma história bem diferente.
@@ -271,7 +271,7 @@ const handleFormSubmit = async (e) => {
               </p>
               
               <h2 id="o-que-comer" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Leaf className="text-green-600"/> Estratégias Práticas: O Que Comer na TPM de Fato
+                <Leaf className="text-green-700"/> Estratégias Práticas: O Que Comer na TPM de Fato
               </h2>
               <div className="space-y-6 mb-10">
                   {estrategiasTPM.map((fator) => (
@@ -290,13 +290,13 @@ const handleFormSubmit = async (e) => {
               </div>
 
               <h2 id="treino-constancia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-                <Dumbbell className="text-green-600"/> O Que Comer na TPM e O Papel do Treino
+                <Dumbbell className="text-green-700"/> O Que Comer na TPM e O Papel do Treino
               </h2>
               <p>
                 Se você consome conteúdo de fitness nas redes sociais buscando o que comer na TPM, muito provavelmente já foi bombardeada com a ideia de que precisa "sincronizar" o seu treino para cada fase do ciclo menstrual — fazendo apenas yoga e alongamentos na TPM e guardando os treinos pesados exclusivamente para o período de ovulação. Mas será que isso é realmente essencial para você ter resultados estéticos e de saúde?
               </p>
               <p>
-                A ciência mais atualizada do esporte mostra que <strong>não</strong>. Um estudo recentíssimo de 2025, publicado na <em>The Journal of Physiology</em>, investigou a fundo as respostas do nosso corpo ao exercício resistido (musculação) e chegou a uma conclusão contundente: a nossa capacidade de construir massa muscular (a síntese de proteína muscular) <a href="https://pubmed.ncbi.nlm.nih.gov/39630025/" target="_blank" rel="noopener noreferrer" className="text-green-600 font-bold hover:underline">não sofre nenhuma influência significativa da fase do ciclo menstrual</a>. Isso significa que, independente de saber exatamente o que comer na TPM, o seu corpo constrói músculos e processa proteínas com a mesma eficiência tanto na fase folicular quanto na fase lútea.
+                A ciência mais atualizada do esporte mostra que <strong>não</strong>. Um estudo recentíssimo de 2025, publicado na <em>The Journal of Physiology</em>, investigou a fundo as respostas do nosso corpo ao exercício resistido (musculação) e chegou a uma conclusão contundente: a nossa capacidade de construir massa muscular (a síntese de proteína muscular) <a href="https://pubmed.ncbi.nlm.nih.gov/39630025/" target="_blank" rel="noopener noreferrer" className="text-green-700 font-bold hover:underline">não sofre nenhuma influência significativa da fase do ciclo menstrual</a>. Isso significa que, independente de saber exatamente o que comer na TPM, o seu corpo constrói músculos e processa proteínas com a mesma eficiência tanto na fase folicular quanto na fase lútea.
               </p>
               <p>
                 Além disso, revisões focadas no desempenho geral apontam que não há evidências robustas o suficiente que justifiquem a periodização rigorosa do treinamento baseada apenas na montanha-russa dos hormônios femininos. O que realmente dita o sucesso do seu emagrecimento e da sua saúde a longo prazo é a <strong>constância</strong> aliada ao conhecimento de o que comer na TPM. É evidente que se você está com cólicas incapacitantes no primeiro dia da menstruação, não há problema algum em pegar mais leve ou descansar. O acolhimento é fundamental. Mas você não precisa (e nem deve) engavetar o seu treino inteiro só porque o calendário virou. O melhor treino sempre será aquele que você consegue manter de forma consistente durante todo o mês!
@@ -304,7 +304,7 @@ const handleFormSubmit = async (e) => {
 
               {/* AFILIADO MERCADO LIVRE (XIAOMI BAND 9 PRO) */}
               <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
-                  <div className="absolute -top-1 -right-1 bg-green-600 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest z-10 flex items-center gap-2 border-b border-l border-green-700">
+                  <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest z-10 flex items-center gap-2 border-b border-l border-green-700">
                       <Zap size={14} className="fill-white" />
                       <span>O Pingus Escolheu a Melhor!</span>
                   </div>
@@ -313,14 +313,14 @@ const handleFormSubmit = async (e) => {
                           <img src={`${githubImgBase}logoN_pingus.webp`} alt="Selo de Qualidade Pingus para monitorar a TPM" title="Monitor de Ciclo" className="w-full h-full object-contain" />
                       </div>
                       <div className="flex-1 flex flex-col justify-center">
-                          <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic text-left">Xiaomi Smart Band 9 Pro: <span className="text-green-600">Alta Precisão no seu Pulso</span></h4>
+                          <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic text-left">Xiaomi Smart Band 9 Pro: <span className="text-green-700">Alta Precisão no seu Pulso</span></h4>
                           <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
                               <img src={`${githubImgBase}Afiliado/Band9Pro.webp`} alt="Smart Band para ajudar a saber o que comer na TPM e monitorar o ciclo" className="w-full h-auto object-cover opacity-90" />
                           </div>
                           <p className="text-slate-600 text-[15px] mb-8 leading-relaxed font-medium text-left">
-                              Emagrecimento cíclico exige dados precisos e saber o que comer na TPM. A <strong>Smart Band 9 Pro</strong> oferece monitorização avançada do ciclo menstrual, sono e stress. Como seu <Link to="/o_que_e_antropometria" className="text-green-600 font-bold hover:underline">avaliador antropométrico</Link>, recomendo esta ferramenta para trazer dados reais para a nossa análise.
+                              Emagrecimento cíclico exige dados precisos e saber o que comer na TPM. A <strong>Smart Band 9 Pro</strong> oferece monitorização avançada do ciclo menstrual, sono e stress. Como seu <Link to="/o_que_e_antropometria" className="text-green-700 font-bold hover:underline">avaliador antropométrico</Link>, recomendo esta ferramenta para trazer dados reais para a nossa análise.
                           </p>
-                          <a href="https://meli.la/2eEQ8VF" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all italic" aria-label="Comprar Smart Band no Mercado Livre">
+                          <a href="https://meli.la/2eEQ8VF" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all italic" aria-label="Comprar Smart Band no Mercado Livre">
                               <ShoppingCart size={16} /> Comprar no Mercado Livre
                           </a>
                       </div>
@@ -329,7 +329,7 @@ const handleFormSubmit = async (e) => {
 
               {/* VÍDEO DO YOUTUBE */}
               <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3 text-left">
-                <PlayCircle className="text-green-600"/> O Que Comer na TPM: Fome Física x Fome Emocional
+                <PlayCircle className="text-green-700"/> O Que Comer na TPM: Fome Física x Fome Emocional
               </h2>
               <p>
                 Não basta saber o que comer na TPM; é fundamental entender os gatilhos invisíveis que nos fazem comer. Entenda visualmente a diferença brutal entre estar com fome de verdade e estar sendo engolida pelas emoções em nosso vídeo explicativo.
@@ -347,7 +347,7 @@ const handleFormSubmit = async (e) => {
 
                 <div className="relative z-10 text-center mb-8">
                   <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm rotate-3">
-                    <ClipboardList size={32} className="text-green-600" />
+                    <ClipboardList size={32} className="text-green-700" />
                   </div>
                   <h3 className="text-2xl md:text-3xl font-black text-slate-900 uppercase italic mb-4">Análise Gratuita: O Que Comer na TPM</h3>
                   <p className="text-slate-600 font-medium max-w-xl mx-auto mb-6">Responda ao questionário rápido. Eu vou analisar seu perfil e enviar um feedback educacional para você dominar seu ciclo.</p>
@@ -358,12 +358,12 @@ const handleFormSubmit = async (e) => {
                     <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"><CheckCircle size={40} className="text-white" /></div>
                     <h4 className="text-2xl font-black text-green-900 italic uppercase mb-2">Recebido!</h4>
                     <p className="text-green-700 font-medium mb-6">Em breve enviaremos seu feedback personalizado por e-mail sobre o que comer na TPM!</p>
-                    <button onClick={() => { setFormStatus('idle'); setIsFormOpen(false); }} className="text-sm font-bold text-green-600 underline">Enviar novo</button>
+                    <button onClick={() => { setFormStatus('idle'); setIsFormOpen(false); }} className="text-sm font-bold text-green-700 underline">Enviar novo</button>
                   </div>
                 ) : (
                   <div className="relative z-10 flex flex-col items-center">
                     {!isFormOpen && (
-                      <button onClick={() => setIsFormOpen(true)} className="bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-full font-black uppercase shadow-xl transition-all" aria-label="Iniciar Análise para saber o que comer na TPM">Iniciar Análise Gratuita</button>
+                      <button onClick={() => setIsFormOpen(true)} className="bg-green-700 hover:bg-green-700 text-white px-10 py-5 rounded-full font-black uppercase shadow-xl transition-all" aria-label="Iniciar Análise para saber o que comer na TPM">Iniciar Análise Gratuita</button>
                     )}
                     <div className={`w-full transition-all duration-700 ease-in-out overflow-hidden ${isFormOpen ? 'max-h-[5000px] opacity-100 mt-6' : 'max-h-0 opacity-0'}`}>
                       {isFormOpen && (
@@ -466,7 +466,7 @@ const handleFormSubmit = async (e) => {
 
                         <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 shadow-inner">
                           <label className="flex items-start gap-4 cursor-pointer text-left">
-                            <input type="checkbox" required checked={formData.aceitaTermos} onChange={(e) => setFormData({...formData, aceitaTermos: e.target.checked})} className="mt-1 w-5 h-5 text-green-600 rounded" />
+                            <input type="checkbox" required checked={formData.aceitaTermos} onChange={(e) => setFormData({...formData, aceitaTermos: e.target.checked})} className="mt-1 w-5 h-5 text-green-700 rounded" />
                             <span className="text-[11px] leading-relaxed text-slate-500 font-medium">
                               <strong>Aviso Legal:</strong> Esta é uma ferramenta educativa e não substitui uma consulta clínica para orientar o que comer na TPM. Ao enviar, aceito receber meu feedback educacional por e-mail.
                             </span>
@@ -475,7 +475,7 @@ const handleFormSubmit = async (e) => {
 
                         {formStatus === 'error' && <div className="text-red-600 text-sm text-center font-bold">Erro ao enviar. Tente novamente mais tarde.</div>}
 
-                        <button type="submit" disabled={formStatus === 'submitting'} className="w-full flex items-center justify-center gap-3 bg-green-600 hover:bg-green-700 text-white p-5 rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl transition-all">
+                        <button type="submit" disabled={formStatus === 'submitting'} className="w-full flex items-center justify-center gap-3 bg-green-700 hover:bg-green-700 text-white p-5 rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl transition-all">
                           {formStatus === 'submitting' ? <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div> : <><Send size={18} /> Solicitar Minha Análise Gratuita</>}
                         </button>
                       </form>
@@ -487,14 +487,14 @@ const handleFormSubmit = async (e) => {
               {/* FAQ */}
               <div id="faq" className="mt-20 pt-10 border-t border-slate-100 text-left">
                 <h2 className="text-2xl font-black text-slate-800 mb-8 italic flex items-center gap-3">
-                  <HelpCircle className="text-green-600" /> Dúvidas Frequentes: O Que Comer na TPM
+                  <HelpCircle className="text-green-700" /> Dúvidas Frequentes: O Que Comer na TPM
                 </h2>
                 <div className="space-y-4">
                   {faqs.map((faq, index) => (
                     <div key={index} className="bg-slate-50 rounded-3xl border border-green-100 overflow-hidden transition-all duration-300">
                       <button onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)} aria-expanded={openFaqIndex === index} className="w-full p-6 md:p-8 flex items-center justify-between text-left group">
-                        <h3 className={`text-lg font-black italic transition-colors ${openFaqIndex === index ? 'text-green-600' : 'text-slate-800 group-hover:text-green-600'}`}>{faq.pergunta}</h3>
-                        <ChevronDown className={`text-slate-400 shrink-0 transition-transform ${openFaqIndex === index ? 'rotate-180 text-green-600' : ''}`} size={24} />
+                        <h3 className={`text-lg font-black italic transition-colors ${openFaqIndex === index ? 'text-green-700' : 'text-slate-800 group-hover:text-green-700'}`}>{faq.pergunta}</h3>
+                        <ChevronDown className={`text-slate-400 shrink-0 transition-transform ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
                       </button>
                       <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
                         <p className="text-slate-600 m-0 leading-relaxed border-t pt-4 text-left">{faq.resposta}</p>
@@ -512,16 +512,16 @@ const handleFormSubmit = async (e) => {
 
           {/* AUTHOR BLOCK */}
           <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 shadow-sm">
-            <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-600">
+            <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
               <img src={`${githubImgBase}Eu_1.webp`} alt="Marco Aurélio Jr. que desvenda o que comer na TPM para emagrecer" title="Autor Marco Aurélio Jr." className="w-full h-full object-cover" />
             </div>
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
-              <p className="text-xs text-green-600 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK 1</p>
+              <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK 1</p>
               <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg text-left">
                 Apaixonado pela fisiologia e pelo comportamento humano, Marco foca em ensinar o que comer na TPM e traduzir o rigor científico para a prática do dia a dia, ajudando você a construir uma relação mais leve com a comida, cuidando do corpo desde o intestino até a mente.
               </p>
-              <a href="https://instagram.com/Nutricao_com_Marco" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+              <a href="https://instagram.com/Nutricao_com_Marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
                 Siga @Nutricao_com_Marco
               </a>
             </div>

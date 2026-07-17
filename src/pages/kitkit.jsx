@@ -18,10 +18,10 @@ export default function ConfirmacaoPendente() {
         <div className="bg-white p-10 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100 flex flex-col items-center">
           
           <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-8 shadow-inner">
-            <Mail className="text-green-600 w-12 h-12" />
+            <Mail className="text-green-700 w-12 h-12" />
           </div>
           
-          <span className="inline-block bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4">
+          <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4">
             Ação Necessária
           </span>
           
@@ -51,7 +51,7 @@ export default function ConfirmacaoPendente() {
             href="https://mail.google.com" 
             target="_blank" 
             rel="noreferrer" 
-            className="bg-green-600 text-white px-10 py-4 rounded-full font-black uppercase tracking-widest text-sm shadow-xl hover:bg-green-700 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3"
+            className="bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase tracking-widest text-sm shadow-xl hover:bg-green-700 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3"
           >
             Abrir meu E-mail <ArrowRight size={18} />
           </a>
