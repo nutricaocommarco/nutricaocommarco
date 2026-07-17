@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { ChevronRight, Clock, Filter, Tag as TagIcon } from 'lucide-react';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 const postsData = [
-    {
+  {
     id: 25,
     link: "/o-que-e-dieta-cetogenica",
     imgSrc: `${githubImgBase}Blog/DietaCetogenica_Capa.webp`,
@@ -14,7 +14,7 @@ const postsData = [
     desc: "Aprenda como a restrição inteligente de carboidratos força o seu corpo a entrar em cetose, transformando gordura estocada na sua principal fonte de energia.",
     isNew: true
   },
-    {
+  {
     id: 24,
     link: "/o-que-e-jejum-intermitente",
     imgSrc: `${githubImgBase}Blog/JejumIntermitente_Capa.webp`,
@@ -23,7 +23,7 @@ const postsData = [
     desc: "Descubra o que é o jejum intermitente, como ele afeta o metabolismo, o limite do corpo humano sem comer e se ele realmente emagrece mais que a dieta tradicional.",
     isNew: true
   },
-{
+  {
     id: 23,
     link: "/melhor-horario-para-tomar-ferro",
     imgSrc: `${githubImgBase}Blog/HorarioFerro.webp`,
@@ -32,7 +32,7 @@ const postsData = [
     desc: "Descubra o melhor horário para tomar ferro, sintomas de falta no organismo, o que inibe a absorção e quanto tempo dura o tratamento para anemia ferropriva.",
     isNew: true
   },
-    {
+  {
     id: 22,
     link: "/percentual-gordura-feminino-ideal",
     imgSrc: `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.webp`,
@@ -40,7 +40,7 @@ const postsData = [
     title: "Qual o Percentual de Gordura Feminino Ideal? A Ciência Explica",
     desc: "Pare de brigar com a balança. Descubra qual é a faixa ideal para sua saúde e estética, e entenda como hormônios, ciclo menstrual e idade influenciam sua composição corporal.",
   },
-{
+  {
     id: 21,
     link: "/quantas-calorias-gasto-por-dia",
     imgSrc: `${githubImgBase}Blog/QuantasCaloriasGasto.webp`,
@@ -48,8 +48,7 @@ const postsData = [
     title: "Quantas Calorias Gasto Por Dia? Pare de Chutar e Entenda o Seu Metabolismo",
     desc: "Descubra como calcular seu gasto calórico diário. Entenda a sua Taxa Metabólica Basal (TMB), fator de atividade, METs e as fórmulas de Mifflin e Cunningham.",
   },
-    
-    {
+  {
     id: 20,
     link: "/efeitos-colaterais-da-melatonina",
     imgSrc: `${githubImgBase}Blog/Melatonina.webp`,
@@ -57,7 +56,7 @@ const postsData = [
     title: "Efeitos Colaterais da Melatonina: Vicia? Faz Mal? A Verdade Científica",
     desc: "Descubra a verdade científica sobre a melatonina: ela vicia? Faz mal? Entenda os efeitos colaterais, riscos psicológicos e como dosar corretamente para dormir bem.",
   },
-{
+  {
     id: 19, 
     link: "/o-que-e-ciclo-circadiano", 
     imgSrc: `${githubImgBase}Blog/CicloCircadiano.webp`,
@@ -66,36 +65,33 @@ const postsData = [
     desc: "Guia completo sobre ciclo circadiano: como emagrecer, melhorar o sono, horários corretos das refeições, a verdade sobre a melatonina e controle hormonal.",
     isNew: false
   },
-  
   {
-  id: 18, 
-  link: "/o-que-sao-simbioticos", 
-  imgSrc: `${githubImgBase}Blog/Simbioticos.webp`,
-  tag: "Nutrição Clínica",
-  title: "O que são Simbióticos? A Sinergia Intestinal",
-  desc: "Descubra o que são os alimentos simbióticos, como a união de prebióticos e probióticos transforma a sua flora e as melhores combinações.",
-       isNew: false
-},
-  
+    id: 18, 
+    link: "/o-que-sao-simbioticos", 
+    imgSrc: `${githubImgBase}Blog/Simbioticos.webp`,
+    tag: "Nutrição Clínica",
+    title: "O que são Simbióticos? A Sinergia Intestinal",
+    desc: "Descubra o que são os alimentos simbióticos, como a união de prebióticos e probióticos transforma a sua flora e as melhores combinações.",
+    isNew: false
+  },
   {
-  id: 17, 
-  link: "/o-que-sao-probioticos", 
-  imgSrc: `${githubImgBase}Blog/Probioticos.webp`,
-  tag: "Nutrição Clínica",
-  title: "O que são Probióticos? Lactobacillus e Benefícios",
-  desc: "Descubra o que são probióticos e Lactobacillus, para que servem no intestino, seus benefícios para a imunidade e quais as melhores fontes naturais.",
-       isNew: false
-},
-
+    id: 17, 
+    link: "/o-que-sao-probioticos", 
+    imgSrc: `${githubImgBase}Blog/Probioticos.webp`,
+    tag: "Nutrição Clínica",
+    title: "O que são Probióticos? Lactobacillus e Benefícios",
+    desc: "Descubra o que são probióticos e Lactobacillus, para que servem no intestino, seus benefícios para a imunidade e quais as melhores fontes naturais.",
+    isNew: false
+  },
   {
-  id: 16, 
-  link: "/o-que-sao-prebioticos", 
-  imgSrc: `${githubImgBase}Blog/Prebioticos.webp`,
-  tag: "Nutrição Clínica",
-  title: "O que são Prebióticos? Alimentos, Benefícios e Para Que Servem",
-  desc: "Descubra o que são prebióticos, para que servem no seu intestino, quais alimentos são ricos em FOS e inulina, e como eles alimentam sua flora intestinal.",
-       isNew: false
-},
+    id: 16, 
+    link: "/o-que-sao-prebioticos", 
+    imgSrc: `${githubImgBase}Blog/Prebioticos.webp`,
+    tag: "Nutrição Clínica",
+    title: "O que são Prebióticos? Alimentos, Benefícios e Para Que Servem",
+    desc: "Descubra o que são prebióticos, para que servem no seu intestino, quais alimentos são ricos em FOS e inulina, e como eles alimentam sua flora intestinal.",
+    isNew: false
+  },
   {
     id: 15, 
     link: "/o-que-e-fome-emocional", 
@@ -222,8 +218,12 @@ const postsData = [
 const categories = ["Todas", ...new Set(postsData.map(post => post.tag))];
 
 export default function Blog() {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [selectedTag, setSelectedTag] = useState("Todas");
+  // Substituímos o useState pelo useSearchParams para espelhar o estado na URL
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Lê os valores da URL. Se não existirem, usa os padrões (Página 1 e "Todas")
+  const currentPage = parseInt(searchParams.get('page') || '1', 10);
+  const selectedTag = searchParams.get('tag') || 'Todas';
   const postsPerPage = 9;
 
   // Filtragem dos posts
@@ -231,10 +231,20 @@ export default function Blog() {
     ? postsData 
     : postsData.filter(post => post.tag === selectedTag);
 
-  // Resetar página quando o filtro mudar
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedTag]);
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage) || 1;
+
+  // Atualiza a URL quando o usuário escolhe um novo filtro (e volta pra pág 1)
+  const handleTagChange = (e) => {
+    setSearchParams({ tag: e.target.value, page: 1 });
+  };
+
+  // Atualiza a URL quando o usuário clica na paginação
+  const goToPage = (pageNumber) => {
+    setSearchParams({ tag: selectedTag, page: pageNumber });
+  };
+
+  const nextPage = () => goToPage(Math.min(currentPage + 1, totalPages));
+  const prevPage = () => goToPage(Math.max(currentPage - 1, 1));
 
   // Efeito para rolar suavemente para o topo quando a página mudar
   useEffect(() => {
@@ -244,11 +254,6 @@ export default function Blog() {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
-  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
-
-  const nextPage = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));
-  const prevPage = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
-  const goToPage = (pageNumber) => setCurrentPage(pageNumber);
 
   const PaginationControls = () => {
     if (totalPages <= 1) return null;
@@ -296,7 +301,7 @@ export default function Blog() {
           <Filter size={14} className="absolute left-3 text-green-700 pointer-events-none" />
           <select 
             value={selectedTag}
-            onChange={(e) => setSelectedTag(e.target.value)}
+            onChange={handleTagChange}
             className="appearance-none bg-white border border-slate-200 text-slate-600 py-2 pl-9 pr-8 rounded-full text-[10px] font-black uppercase tracking-widest cursor-pointer hover:border-green-300 transition-colors focus:outline-none shadow-sm"
           >
             {categories.map(cat => (
@@ -347,7 +352,7 @@ export default function Blog() {
           <Filter size={14} className="absolute left-3 text-green-700 pointer-events-none" />
           <select 
             value={selectedTag}
-            onChange={(e) => setSelectedTag(e.target.value)}
+            onChange={handleTagChange}
             className="appearance-none bg-white border border-slate-200 text-slate-600 py-2 pl-9 pr-8 rounded-full text-[10px] font-black uppercase tracking-widest cursor-pointer hover:border-green-300 transition-colors focus:outline-none shadow-sm"
           >
             {categories.map(cat => (
