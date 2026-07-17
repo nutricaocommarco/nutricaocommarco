@@ -121,7 +121,12 @@ export default function JejumIntermitente() {
                 <Headphones className="text-green-600 w-6 h-6" />
                 <strong className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</strong>
               </div>
-              <audio controls className="w-full h-10 outline-none" title="Áudio narrando o artigo sobre O Que é Jejum Intermitente">
+              <audio 
+                preload="none" // <-- ISSO AQUI VAI SALVAR SEU DESEMPENHO!
+                controls 
+                className="w-full h-10 outline-none" 
+                title="Áudio narrando o artigo sobre O Que é Jejum Intermitente"
+                 >
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/jejum-intermitente.mp3" type="audio/mpeg" />
                 O seu navegador não suporta o áudio.
               </audio>
