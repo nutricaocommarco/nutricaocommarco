@@ -533,7 +533,7 @@ export default function DietaLowCarb() {
                 <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
-              <audio controls className="w-full h-10 outline-none" title="Áudio explicando o que é dieta low carb">
+                <audio preload="none" controls className="w-full h-10 outline-none" title="Áudio explicando o que é dieta low carb">
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/low-carb.mp3" type="audio/mpeg" />
                 O seu navegador não suporta o áudio.
               </audio>
