@@ -409,17 +409,19 @@ export default function PercentualGorduraFemininoComponent() {
               O cálculo é incrivelmente simples: basta dividir a medida da circunferência da sua cintura pela sua altura. A ciência estabelece um ponto de corte universal e rigoroso de <strong>0,5</strong>. Ou seja, se a medida da sua cintura for maior que a metade da sua altura total, isso indica um acúmulo patológico de gordura visceral, servindo como um alerta vermelho para a sua saúde metabólica e resistência à insulina, independentemente de você parecer magra na balança.
             </p>
 
-{/* VIDEO: COMO MEDIR A CINTURA (FORMATO STORIES / CELULAR 9:16) */}
-            <div className="my-10 p-6 md:p-8 bg-green-50 border border-green-100 rounded-[2.5rem] shadow-sm flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                
-                {/* MOLDURA DE CELULAR (VERTICAL 9:16) */}
-                <div className="w-full max-w-[260px] aspect-[9/16] rounded-[2.5rem] overflow-hidden shadow-2xl shrink-0 mx-auto md:mx-0 border-[6px] border-slate-900 bg-black relative ring-4 ring-white">
-                    {/* Detalhe do topo do celular (Notch) para dar a sensação visual de Reels/Stories */}
-                    <div className="absolute top-0 inset-x-0 h-4 bg-slate-900 rounded-b-xl w-1/3 mx-auto z-10 pointer-events-none"></div>
-                    
-                    <YouTubeLazy videoId="qg6cSQaJhKs" title="Como medir a circunferência da cintura" />
+            {/* VIDEO: COMO MEDIR A CINTURA (LÓGICAMENTE LOGO ABAIXO DA RCE) */}
+            <div className="my-10 p-6 md:p-8 bg-green-50 border border-green-100 rounded-[2.5rem] shadow-sm flex flex-col md:flex-row items-center gap-8">
+                <div className="w-full md:w-1/3 aspect-[9/16] max-w-[280px] rounded-2xl overflow-hidden shadow-xl shrink-0 bg-slate-900 mx-auto md:mx-0 border-4 border-white">
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/qg6cSQaJhKs"
+                        title="Como medir a circunferência da cintura"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                    ></iframe>
                 </div>
-
                 <div className="flex-1 text-center md:text-left">
                     <h3 className="text-2xl font-black text-slate-800 italic uppercase mb-4 flex items-center justify-center md:justify-start gap-2">
                         <PlayCircle className="text-green-700" /> Como Medir a Sua Cintura
@@ -432,7 +434,7 @@ export default function PercentualGorduraFemininoComponent() {
                     </p>
                 </div>
             </div>
-
+            
             {/* CALCULADORA DE RCE INTERATIVA */}
             <div className="my-12 bg-white rounded-[3rem] border border-slate-200 shadow-xl overflow-hidden">
                 <div className="bg-slate-900 p-6 md:p-8 text-center">
