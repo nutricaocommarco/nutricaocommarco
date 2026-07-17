@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ChevronLeft, HelpCircle, Activity, Leaf, Scale, Heart, FileText, Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
-import { Helmet } from 'react-helmet-async';
+import YouTubeLazy from '../components/YouTubeLazy';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -16,7 +16,8 @@ const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 const fomeEmocionalCapa = `${githubImgBase}Blog/Fome-Emocional-Capa.webp`;
 
 export default function FomeEmocional() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
+  const navigate = useNavigate();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
@@ -72,88 +73,16 @@ export default function FomeEmocional() {
 
   return (
     <>
-<Helmet>
-        <title>O que é Fome Emocional? Sintomas, Como Parar e Controlar | Nutrição com Marco</title>
-        <meta name="description" content="Você come e continua sentindo um vazio? Descubra os sintomas da fome emocional, como controlar o ciclo da compulsão e a neurociência por trás do impulso." />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="O que é Fome Emocional? Como Identificar e Controlar o Impulso | Nutrição com Marco" />
-        <meta property="og:image" content={fomeEmocionalCapa} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-        
-        {/* SCHEMA.ORG 1: ARTICLE */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "O que é Fome Emocional? Como Identificar e Controlar o Impulso",
-            "image": fomeEmocionalCapa,
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre"
-            },
-            "publisher": {
-              "@type": "Organization", 
-              "name": "Nutrição com Marco", 
-              "logo": { "@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.webp` }
-            },
-            "datePublished": datePublishedISO,
-            "dateModified": dateModifiedISO,
-            "description": "Guia completo sobre fome emocional, comportamento alimentar e estratégias de controle."
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 2: BREADCRUMB LIST */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.nutricaocommarco.com.br/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": "https://www.nutricaocommarco.com.br/blog"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "O que é Fome Emocional?",
-                "item": `https://www.nutricaocommarco.com.br${pathname}`
-              }
-            ]
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 3: FAQ PAGE */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.pergunta,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.resposta
-              }
-            }))
-          })}
-        </script>
-      </Helmet>
-
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
       <div className="bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
+        {/* BOTÃO INTELIGENTE */}
+        <button 
+          onClick={() => state?.fromBlog ? navigate(-1) : navigate('/blog')}
+          className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit bg-transparent border-none cursor-pointer p-0"
+        >
           <ChevronLeft size={20} /> Voltar para o Blog
-        </Link>
+        </button>
 
         <article className="prose prose-lg max-w-none text-left">
 
@@ -176,12 +105,13 @@ export default function FomeEmocional() {
           </div>
 
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+            {/* ÁUDIO */}
             <div className="p-5 md:p-6 flex flex-col gap-3">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 mb-4">
                 <Headphones className="text-green-700 w-6 h-6" />
-                <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+                <h2 className="text-base font-black text-slate-800 italic uppercase tracking-widest m-0">Ouça este artigo</h2>
               </div>
-              <audio controls className="w-full h-10 outline-none">
+              <audio preload="none" controls className="w-full h-10 outline-none">
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Fome-Emocional.mp3" type="audio/mpeg" />
                 Seu navegador não suporta o áudio.
               </audio>
@@ -223,12 +153,15 @@ export default function FomeEmocional() {
               Você abre a geladeira à noite sem saber exatamente o que quer? Come até não aguentar mais, mas continua com uma sensação de vazio inexplicável? Acredite, o seu estômago não está roncando — é o seu cérebro pedindo socorro. Conhecer os verdadeiros <strong>fome emocional sintomas</strong> é o primeiro passo para retomar o controle da sua vida.
             </p>
 
-            {/* IMAGEM DE CAPA */}
+            {/* IMAGEM ESTRATÉGICA COM LAZY */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
               <img 
                 src={fomeEmocionalCapa} 
                 alt="Pingus mascote reflexivo diante de um pote de sorvete, ilustrando o desafio da fome emocional." 
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+                width="800"
+                height="500"
+                loading="lazy" 
               />
               <div className="bg-green-50 p-4 text-center">
                 <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
@@ -245,7 +178,7 @@ export default function FomeEmocional() {
               A fome emocional não é uma falha de caráter ou mera "falta de vergonha na cara". Ela é uma cascata fisiológica complexa. Quando você está cronicamente estressado, seu corpo inunda a corrente sanguínea com <strong>Cortisol</strong>. O Hipotálamo (área do cérebro) interpreta esse estresse como uma ameaça à sobrevivência e exige energia rápida.
             </p>
             <p>
-              Qual é a forma mais rápida de energia? Carboidratos refinados e gorduras. Ao consumir esses alimentos, o seu <strong>Sistema de Recompensa Dopaminérgico</strong> é ativado, disparando <em>Dopamina</em> e anestesiando temporariamente a dor emocional. Isso é bem diferente da fome biológica, que é orquestrada de forma compassada pela <Link to="/hormonioss_da_fome_emagrecimento" className="text-green-700 font-semibold hover:underline">Grelina e Leptina (os hormônios da fome)</Link>.
+              Qual é a forma mais rápida de energia? Carboidratos refinados e gorduras. Ao consumir esses alimentos, o seu <strong>Sistema de Recompensa Dopaminérgico</strong> é ativado, disparando <em>Dopamina</em> e anestesiando temporariamente a dor emocional. Isso é bem diferente da fome biológica, que é orquestrada de forma compassada pela <Link to="/hormonios_da_fome_emagrecimento" className="text-green-700 font-semibold hover:underline">Grelina e Leptina (os hormônios da fome)</Link>.
             </p>
             
             <p className="bg-slate-100 p-6 rounded-2xl border border-slate-200 text-slate-700 italic mt-6">
@@ -278,64 +211,68 @@ export default function FomeEmocional() {
 
             <p>A culpa no dia seguinte muitas vezes faz a pessoa subir na balança de forma punitiva. É crucial entender <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-700 font-semibold hover:underline">qual o melhor horário para se pesar</Link> e como a retenção de líquidos pós-compulsão afeta os números. Para não pirar, foque na composição corporal real — entenda <Link to="/o_que_e_antropometria" className="text-green-700 font-semibold hover:underline">o que é a antropometria</Link> ou se a sua <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-700 font-semibold hover:underline">bioimpedância é confiável</Link> — em vez de se julgar por flutuações diárias na balança de casa.</p>
 
-{/* AFILIADO MERCADO LIVRE - O PINGUS APROVA */}
-<div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
-    {/* SELO NO CANTO SUPERIOR */}
-    <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
-        <Zap size={14} className="fill-white" />
-        <span>O Pingus Aprova!</span>
-    </div>
+            {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA */}
+            <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
+                {/* SELO NO CANTO SUPERIOR */}
+                <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+                    <Zap size={14} className="fill-white" />
+                    <span>O Pingus Aprova!</span>
+                </div>
 
-    <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
-        {/* FOTO DO PINGUS (AUTORIDADE) */}
-        <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-            <img 
-                src={`${githubImgBase}logoN_pingus.webp`} 
-                alt="Selo de Qualidade Pingus" 
-                className="w-full h-full object-contain" 
-            />
-        </div>
+                <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
+                    {/* FOTO DO PINGUS (AUTORIDADE) */}
+                    <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
+                        <img 
+                            src={`${githubImgBase}logoN_pingus.webp`} 
+                            alt="Selo de Qualidade Pingus" 
+                            className="w-full h-full object-contain" 
+                            width="160"
+                            height="160"
+                            loading="lazy"
+                        />
+                    </div>
 
-        <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-            <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                Balança de Bioimpedância <span className="text-green-700">8 Eletrodos</span>
-            </h4>
-            
-            {/* IMAGEM DO PRODUTO */}
-            <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
-                <img 
-                    src={`${githubImgBase}Afiliado/Bia.webp`} 
-                    alt="Balança de Bioimpedância 8 eletrodos e dupla frequência" 
-                    className="w-full h-auto" 
-                />
+                    <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+                        <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                            Balança de Bioimpedância <span className="text-green-700">8 Eletrodos</span>
+                        </h4>
+                        
+                        {/* IMAGEM DO PRODUTO */}
+                        <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
+                            <img 
+                                src={`${githubImgBase}Afiliado/Bia.webp`} 
+                                alt="Balança de Bioimpedância 8 eletrodos e dupla frequência" 
+                                className="w-full h-auto" 
+                                width="200"
+                                height="200"
+                                loading="lazy"
+                            />
+                        </div>
+
+                        <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
+                            Acompanhar a sua <strong>composição corporal real</strong> (massa magra e gordura visceral) é o segredo para parar de se punir com o peso da balança comum. Eu indico este modelo de dupla frequência pela sua precisão clínica.
+                        </p>
+
+                        {/* BOTÃO COM LINK AFILIADO */}
+                        <a 
+                            href="https://meli.la/1aBg9YM" 
+                            rel="sponsored noopener noreferrer" 
+                            target="_blank"
+                            className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                        >
+                            <ShoppingCart size={16} />
+                            Comprar no Mercado Livre
+                        </a>
+                    </div>
+                </div>
+
+                {/* DISCLOSURE OBRIGATÓRIO */}
+                <div className="mt-12 pt-6 border-t border-green-50 text-center">
+                    <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
+                        Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece o apoio.
+                    </p>
+                </div>
             </div>
-
-            <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                Acompanhar a sua <strong>composição corporal real</strong> (massa magra e gordura visceral) é o segredo para parar de se punir com o peso da balança comum. Eu indico este modelo de dupla frequência pela sua precisão clínica.
-            </p>
-
-            {/* BOTÃO COM LINK AFILIADO */}
-            <a 
-                href="https://meli.la/1aBg9YM" 
-                rel="sponsored noopener noreferrer" 
-                target="_blank"
-                className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-            >
-                <ShoppingCart size={16} />
-                Comprar no Mercado Livre
-            </a>
-        </div>
-    </div>
-
-    {/* DISCLOSURE OBRIGATÓRIO */}
-    <div className="mt-12 pt-6 border-t border-green-50 text-center">
-        <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
-            Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece o apoio.
-        </p>
-    </div>
-</div>
-
-
 
             {/* SEÇÃO 3: DIFERENCIAÇÃO */}
             <h2 id="comparativo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
@@ -538,15 +475,9 @@ export default function FomeEmocional() {
                 </div>
                 <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Por que comemos nossas emoções?</h3>
               </div>
+              {/* VÍDEO OTIMIZADO */}
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                <iframe 
-                  src="https://www.youtube.com/embed/awWmS1XlvjE" 
-                  title="Vídeo Nutrição Comportamental - Paulo Muzy" 
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                ></iframe>
+                  <YouTubeLazy videoId="awWmS1XlvjE" title="Vídeo Nutrição Comportamental - Paulo Muzy" />
               </div>
             </div>
 
@@ -557,6 +488,9 @@ export default function FomeEmocional() {
                   src={`${githubImgBase}capa_fome.webp`} 
                   alt="Capa do E-book Entendendo a Fome" 
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                  width="400"
+                  height="400"
+                  loading="lazy"
                 />
               </div>
               <div className="flex-1 text-center md:text-left flex flex-col justify-center">
@@ -627,7 +561,7 @@ export default function FomeEmocional() {
                       </h3>
                       <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
                     </button>
-                    <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
+                    <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
                       <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">{faq.resposta}</p>
                     </div>
                   </div>
@@ -644,7 +578,14 @@ export default function FomeEmocional() {
         {/* AUTOR */}
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
-            <img src={`${githubImgBase}Eu_1.webp`} alt="Marco Aurélio Jr." className="w-full h-full object-cover" />
+            <img 
+              src={`${githubImgBase}Eu_1.webp`} 
+              alt="Marco Aurélio Jr." 
+              className="w-full h-full object-cover" 
+              width="96"
+              height="96"
+              loading="lazy"
+            />
           </div>
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
@@ -652,7 +593,7 @@ export default function FomeEmocional() {
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
               Apaixonado pela fisiologia e pelo comportamento humano, Marco foca em traduzir o rigor científico para a prática do dia a dia, ajudando você a construir uma relação mais leve e sem radicalismos com a comida.
             </p>
-            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+            <a href="https://instagram.com/Nutricao_com_Marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
               Siga @Nutricao_com_Marco
             </a>
           </div>
