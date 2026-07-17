@@ -172,7 +172,7 @@ return (
                 <Link to="/calculadora-de-gasto-calorico" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-600">Gasto Calórico</Link>
                 <Link to="/planilha" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-green-600 hover:text-green-700 flex items-center gap-1">🔥 Planilha Antropométrica</Link>
               </div>
-            </div>
+            </div> 
 
             <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" onClick={() => setIsMenuOpen(false)} className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-all shadow-md italic text-center text-sm font-bold uppercase tracking-widest">Instagram</a>
           </div>
