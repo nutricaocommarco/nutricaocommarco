@@ -15,7 +15,7 @@ const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Caminhos das imagens
 const tirzepatidaCapa = `${githubImgBase}Blog/Tirzepatida-para-que-serve.webp`;
-const tirzepatidaGrafico = `${githubImgBase}Blog/Tirzepatida-Grafico.jpg`;
+const tirzepatidaGrafico = `${githubImgBase}Blog/Tirzepatida-Grafico.webp`;
 
 export default function TirzepatidaParaQueServe() {
   const { pathname } = useLocation();
