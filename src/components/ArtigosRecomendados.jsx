@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 
 // 🧠 1. Importando o Cérebro Central! 
-// Ajuste o caminho '../data/posts' dependendo de onde a sua pasta components está
 import { posts } from '../data/posts'; 
 
 export default function ArtigosRecomendados({ currentPath }) {
@@ -25,7 +24,14 @@ export default function ArtigosRecomendados({ currentPath }) {
         {artigosSorteados.map((artigo, index) => (
           <Link key={artigo.id || index} to={artigo.link} className="bg-slate-50 rounded-3xl border border-slate-100 overflow-hidden hover:-translate-y-2 transition-transform duration-300 group flex flex-col text-left">
             <div className="h-40 overflow-hidden">
-              <img src={artigo.img} alt={artigo.titulo} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img 
+                src={artigo.img} 
+                alt={artigo.titulo} 
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                loading="lazy" // <-- Evita engarrafar a rede no início da página
+                width="280"    // <-- Dimensão estimada para o grid desktop
+                height="160"   // <-- Casando perfeitamente com os 160px do h-40
+              />
             </div>
             <div className="p-6 flex flex-col flex-grow text-left">
               <span className="text-[10px] font-black bg-green-100 text-green-700 px-2 py-1 rounded-full uppercase tracking-widest mb-3 w-fit">{artigo.tag}</span>
