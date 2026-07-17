@@ -5,8 +5,7 @@ export default function YouTubeLazy({ videoId, title }) {
   const [showVideo, setShowVideo] = useState(false);
 
   return (
-    <div className="w-full aspect-video rounded-2xl overflow-hidden shadow-xl bg-black border-4 border-slate-700 relative group">
-      {showVideo ? (
+      <div className="w-full h-full relative group bg-black">      {showVideo ? (
         <iframe
           width="100%"
           height="100%"
