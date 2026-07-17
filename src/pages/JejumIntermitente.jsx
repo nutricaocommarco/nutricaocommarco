@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import YouTubeLazy from '../components/YouTubeLazy';
-import { Link, useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   ChevronLeft, HelpCircle, Activity, Clock, Shield, 
   Zap, ChevronRight, Headphones, ChevronDown, ShoppingCart, 
@@ -20,9 +19,10 @@ const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 const artigoCapa = `${githubImgBase}Blog/JejumIntermitente_Capa.webp`; 
 
 export default function JejumIntermitente() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const navigate = useNavigate();
 
   // ESTADOS DA CALCULADORA DE JEJUM
   const [ultimaRefeicao, setUltimaRefeicao] = useState('20:00');
@@ -80,17 +80,22 @@ export default function JejumIntermitente() {
 
   return (
     <>
-      <Helmet>
-
-      </Helmet>
-
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
+{/* BOTÃO INTELIGENTE */}
+        <button 
+          onClick={() => {
+            if (state?.fromBlog) {
+              navigate(-1); // Se veio do blog, volta para a página/filtro exato
+            } else {
+              navigate('/blog'); // Se veio do Google, vai para a página 1 do blog
+            }
+          }}
+          className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit appearance-none bg-transparent border-none cursor-pointer p-0"
+        >
           <ChevronLeft size={20} /> Voltar para o Blog
-        </Link>
-
+        </button>
         <article className="prose prose-lg max-w-none text-left">
 
           <div className="mb-8 flex flex-col items-start gap-2">
