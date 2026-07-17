@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, Activity, Leaf, Shield, Heart, FileText, Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, Apple, Coffee, Wheat, Flame, Beaker, CheckCircle2 } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { 
+  ChevronLeft, HelpCircle, Activity, Leaf, Shield, Heart, FileText, 
+  Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
+  Coffee, Wheat, Flame, Beaker, CheckCircle2, Droplet, Database,
+  UtensilsCrossed, Pill, Brain, Wine, Wind, Battery, ShieldAlert, AlertCircle, HeartPulse, Apple
+} from 'lucide-react';
+
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
-import { Helmet } from 'react-helmet-async';
+import YouTubeLazy from '../components/YouTubeLazy';
 
 // Componente Prebioticos lista
 const prebioticosDados = [
@@ -105,7 +111,8 @@ const prebioticosCapa = `${githubImgBase}Blog/Prebioticos.webp`;
 
 // Componente principal da página
 export default function Prebioticos() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
+  const navigate = useNavigate();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
@@ -166,118 +173,16 @@ export default function Prebioticos() {
 
   return (
     <>
-      <Helmet>
-        {/* SEO OTIMIZADO - TÍTULO DO SNIPPET */}
-        <title>O que são Prebióticos? Alimentos, Benefícios e Para Que Servem | Nutrição com Marco</title>
-
-        {/* META DESCRIPTION OTIMIZADA */}
-        <meta name="description" content="Descubra o que são prebióticos, para que servem no seu intestino, quais alimentos são ricos em FOS e inulina, e como eles alimentam sua flora intestinal." />
-
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="O que são Prebióticos? Alimentos, Benefícios e Para Que Servem | Nutrição com Marco" />
-        <meta property="og:description" content="Guia completo sobre prebióticos: mecanismo de ação na microbiota, benefícios práticos para a saúde, doses recomendadas e a lista definitiva de alimentos." />
-        <meta property="og:image" content={prebioticosCapa} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        {/* SCHEMA.ORG 1: ARTIGO OTIMIZADO (COM AUTORIDADE E-E-A-T) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "O que são Prebióticos? Alimentos, Benefícios e Para Que Servem",
-            "image": prebioticosCapa,
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre",
-              "jobTitle": "Estudante de Nutrição",
-              "knowsAbout": ["Nutrição", "Saúde Intestinal", "Nutrição Clínica", "Microbiota", "Fibras Alimentares", "Medicina do Estilo de Vida"]
-            },
-            "publisher": {
-              "@type": "Organization", 
-              "name": "Nutrição com Marco", 
-              "logo": {
-                "@type": "ImageObject", 
-                "url": `${githubImgBase}logoN_pingus.webp`
-              }
-            },
-            "datePublished": datePublishedISO,
-            "dateModified": dateModifiedISO,
-            "description": "Descubra o que são prebióticos, para que servem no seu intestino, quais alimentos são ricos em FOS e inulina, e como eles alimentam sua flora intestinal."
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 2: MEDICAL WEB PAGE (AVANÇADO PARA YMYL) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MedicalWebPage",
-            "name": "O que são Prebióticos? Alimentos, Benefícios e Para Que Servem",
-            "url": `https://www.nutricaocommarco.com.br${pathname}`,
-            "about": [
-              {"@type": "MedicalEntity", "name": "Prebiótico"},
-              {"@type": "MedicalEntity", "name": "Microbiota Intestinal"},
-              {"@type": "MedicalEntity", "name": "Fibra Alimentar"},
-              {"@type": "MedicalEntity", "name": "Saúde Gastrointestinal"}
-            ],
-            "audience": {
-              "@type": "MedicalAudience",
-              "audienceType": "Pacientes"
-            }
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 3: BREADCRUMB LIST */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.nutricaocommarco.com.br/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": "https://www.nutricaocommarco.com.br/blog"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "O que são Prebióticos?",
-                "item": `https://www.nutricaocommarco.com.br${pathname}`
-              }
-            ]
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 4: FAQ PAGE (SINCRONIZADO COM O ARRAY) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.pergunta,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.resposta
-              }
-            }))
-          })}
-        </script>
-      </Helmet>
-
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
+        {/* BOTÃO INTELIGENTE */}
+        <button 
+          onClick={() => state?.fromBlog ? navigate(-1) : navigate('/blog')}
+          className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit bg-transparent border-none cursor-pointer p-0"
+        >
           <ChevronLeft size={20} /> Voltar para o Blog
-        </Link>
+        </button>
 
         <article className="prose prose-lg max-w-none text-left">
 
@@ -300,12 +205,13 @@ export default function Prebioticos() {
           </div>
 
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+            {/* ÁUDIO */}
             <div className="p-5 md:p-6 flex flex-col gap-3">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 mb-4">
                 <Headphones className="text-green-700 w-6 h-6" />
-                <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+                <h2 className="text-base font-black text-slate-800 italic uppercase tracking-widest m-0">Ouça este artigo</h2>
               </div>
-              <audio controls className="w-full h-10 outline-none">
+              <audio preload="none" controls className="w-full h-10 outline-none">
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Prebioticos.mp3" type="audio/mpeg" />
                 Seu navegador não suporta o áudio.
               </audio>
@@ -346,12 +252,16 @@ export default function Prebioticos() {
               Passamos a vida inteira focados no que nós estamos comendo, mas frequentemente esquecemos que não estamos sozinhos nessa digestão. O nosso intestino abriga trilhões de microrganismos que trabalham incansavelmente na linha de frente da nossa imunidade, na digestão e na absorção de nutrientes. Para que esse exército microscópico trabalhe a seu favor, ele precisa ser muito bem alimentado. É exatamente aí que entram os prebióticos, os verdadeiros combustíveis da saúde intestinal.
             </p>
 
+            {/* IMAGEM ESTRATÉGICA COM LAZY */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
               <img 
                 src={prebioticosCapa} 
                 alt="Mesa repleta de alimentos prebióticos naturais como aveia, bananas, cebola, alho, aspargos e sementes em um ambiente claro e saudável." 
                 title="Alimentos ricos em prebióticos para a saúde da microbiota intestinal"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
+                width="800"
+                height="500"
+                loading="lazy" 
                 onError={(e) => {
                   e.target.onerror = null; 
                   e.target.src="https://images.unsplash.com/photo-1607969391576-61e38da857b2?auto=format&fit=crop&q=80&w=800";
@@ -448,6 +358,9 @@ export default function Prebioticos() {
                             src={`${githubImgBase}logoN_pingus.webp`} 
                             alt="Selo de Qualidade Pingus" 
                             className="w-full h-full object-contain" 
+                            width="160"
+                            height="160"
+                            loading="lazy"
                             onError={(e) => {
                               e.target.onerror = null; 
                               e.target.src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>🐧</text></svg>";
@@ -464,6 +377,9 @@ export default function Prebioticos() {
                                 src={`${githubImgBase}/Afiliado/Potes.webp`} 
                                 alt="Kit de Potes Herméticos de Vidro para conservação de alimentos" 
                                 className="w-full h-auto" 
+                                width="200"
+                                height="200"
+                                loading="lazy"
                             />
                         </div>
 
@@ -524,7 +440,7 @@ export default function Prebioticos() {
               Você precisa de pelo menos 4g de prebióticos por dia para promover o crescimento das culturas probióticas no intestino. A Sociedade Brasileira de Nutrição Parenteral e Enteral indica que quantidades entre 5g e 10g são muito bem toleradas e recomendadas para a manutenção da saúde. Para recuperação de bifidobactérias, as doses podem subir, mas cuidado: doses maiores que 14g por dia de uma só vez podem causar desconforto intestinal severo. O equilíbrio é a chave! Para medir seus resultados reais durante o processo de emagrecimento ou ganho de massa magra, descubra se sua <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-700 font-semibold hover:underline">balança de bioimpedância é confiável</Link> e entenda os conceitos de composição corporal no nosso artigo sobre <Link to="/o_que_e_antropometria" className="text-green-700 font-semibold hover:underline">o que é antropometria</Link>.
             </p>
             
-// Inicio do Vídeo do Youtube
+            {/* Inicio do Vídeo do Youtube OTIMIZADO */}
             <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <PlayCircle className="text-green-700"/> Aprofunde-se: 6 Alimentos Prebióticos
             </h2>
@@ -540,18 +456,10 @@ export default function Prebioticos() {
                 <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">6 Alimentos Prebióticos</h3>
               </div>
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                <iframe 
-                  src="https://www.youtube.com/embed/ytMJD0TpEk0" 
-                  title="Vídeo 6 Alimentos Prebióticos" 
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                ></iframe>
+                <YouTubeLazy videoId="ytMJD0TpEk0" title="Vídeo 6 Alimentos Prebióticos" />
               </div>
             </div>
-{/* FIM do Vídeo do YouTube */}
-
+            {/* FIM do Vídeo do YouTube */}
 
             {/* Inicio da Lista de alimentos inserida */}
             <div className="bg-slate-50 py-16 px-4 md:px-8 font-sans rounded-[3rem] my-10 shadow-sm border border-slate-100">
@@ -626,7 +534,7 @@ export default function Prebioticos() {
                       </h3>
                       <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
                     </button>
-                    <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
+                    <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
                       <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">{faq.resposta}</p>
                     </div>
                   </div>
@@ -646,6 +554,9 @@ export default function Prebioticos() {
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr." 
               className="w-full h-full object-cover" 
+              width="96"
+              height="96"
+              loading="lazy"
               onError={(e) => {
                 e.target.onerror = null; 
                 e.target.src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>👨‍⚕️</text></svg>";
