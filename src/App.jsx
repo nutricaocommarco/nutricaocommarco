@@ -276,7 +276,6 @@ export default function App() {
       </Router>
       
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,900;1,900&display=swap');
         @keyframes bounce-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         @keyframes bounce-short { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
         .animate-bounce-slow { animation: bounce-slow 3s ease-in-out infinite; }
