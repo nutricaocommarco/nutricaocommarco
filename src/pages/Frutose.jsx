@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import YouTubeLazy from '../components/YouTubeLazy';
 import { ChevronLeft, HelpCircle, PlayCircle, Headphones, ChevronRight, Activity, Scale, AlertTriangle, BookOpen } from 'lucide-react';
+
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
-import { Helmet } from 'react-helmet-async';
+
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 const datePublishedISO = "2026-03-20";
@@ -14,8 +16,10 @@ const artigoCapa = `${githubImgBase}Blog/frutose_bananas.webp`;
 const keywords = "quantas frutas posso comer por dia, frutose faz mal, gordura no fígado, dieta com frutas, esteatose hepática";
 
 export default function Frutose() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const navigate = useNavigate();
   const pageUrl = `https://www.nutricaocommarco.com.br${pathname}`;
 
   useEffect(() => {
@@ -43,17 +47,22 @@ export default function Frutose() {
 
   return (
     <>
-      <Helmet>
-
-      </Helmet>
-
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
-        {/* Botão de Voltar */}
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
+        {/* BOTÃO INTELIGENTE */}
+        <button 
+          onClick={() => {
+            if (state?.fromBlog) {
+              navigate(-1); // Se veio do blog, volta para a página/filtro exato
+            } else {
+              navigate('/blog'); // Se veio do Google, vai para a página 1 do blog
+            }
+          }}
+          className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit appearance-none bg-transparent border-none cursor-pointer p-0"
+        >
           <ChevronLeft size={20} /> Voltar para o Blog
-        </Link>
+        </button>
 
         <article className="prose prose-lg max-w-none">
           <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Nutrição Clínica</span>
@@ -82,7 +91,7 @@ export default function Frutose() {
                 <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
-              <audio controls className="w-full h-10 outline-none">
+                <audio preload="none" controls className="w-full h-10 outline-none" title="Áudio explicando sobre Quantas Frutas posso comer por dia">
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Frutas.mp3" type="audio/mpeg" />
                 Seu navegador não suporta o elemento de áudio.
               </audio>
@@ -149,7 +158,15 @@ export default function Frutose() {
 
             {/* IMAGEM DE CAPA - O CAMINHO FOI CORRIGIDO AQUI TAMBÉM */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img src={artigoCapa} alt="Frutas variadas e metabolismo da frutose" title="Mitos e verdades sobre o consumo de frutas" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img 
+              src={artigoCapa} 
+              alt="Frutas variadas e metabolismo da frutose" 
+              title="Mitos e verdades sobre o consumo de frutas" 
+              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+              width="896"
+              height="635"
+              fetchpriority="high"
+                 />
               <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest">O impacto da frutose natural versus o açúcar adicionado.</p></div>
             </div>
 
@@ -306,15 +323,10 @@ export default function Frutose() {
                 </div>
                 <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Entenda o metabolismo da Frutose</h3>
               </div>
+              
+            {/* VÍDEO OTIMIZADO COM YOUTUBELAZY */}
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                <iframe 
-                  src="https://www.youtube.com/embed/GjcchiFKBt4" 
-                  title="Comer Frutas no Almoço" 
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                ></iframe>
+                <YouTubeLazy videoId="GjcchiFKBt4" title="Comer Frutas no Almoço - Nutrição com Marco" />
               </div>
             </div>
 
@@ -363,6 +375,9 @@ export default function Frutose() {
               alt="Marco Aurélio Jr. - Nutricionista e Autor do Artigo." 
               title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador Antropométrico ISAK Nível 1."
               className="w-full h-full object-cover"
+              width="96"
+              height="96"
+              loading="lazy"
             />
           </div>
 
