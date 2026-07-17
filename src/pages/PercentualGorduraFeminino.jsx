@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   ChevronLeft, HelpCircle, Activity, Leaf, Shield, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
@@ -9,6 +8,7 @@ import {
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
+import YouTubeLazy from '../components/YouTubeLazy';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -31,7 +31,8 @@ const tabelaGordura = [
 ];
 
 export default function PercentualGorduraFemininoComponent() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
+  const navigate = useNavigate();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
@@ -78,16 +79,16 @@ export default function PercentualGorduraFemininoComponent() {
 
   return (
     <>
-      <Helmet>
-
-      </Helmet>
-
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
+        {/* BOTÃO INTELIGENTE */}
+        <button 
+          onClick={() => state?.fromBlog ? navigate(-1) : navigate('/blog')}
+          className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit bg-transparent border-none cursor-pointer p-0"
+        >
           <ChevronLeft size={20} /> Voltar para o Blog
-        </Link>
+        </button>
 
         <article className="prose prose-lg max-w-none text-left">
 
@@ -126,7 +127,7 @@ export default function PercentualGorduraFemininoComponent() {
                 <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
-              <audio controls className="w-full h-10 outline-none">
+              <audio preload="none" controls className="w-full h-10 outline-none">
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/percentual-gordura-feminino-ideal.mp3" type="audio/mpeg" />
                 O seu navegador não suporta o áudio.
               </audio>
@@ -175,6 +176,9 @@ export default function PercentualGorduraFemininoComponent() {
                 alt="Diagrama visual demonstrando a variação da composição corporal feminina através de diferentes métodos de avaliação antropométrica." 
                 title="A Composição Corporal Feminina na Avaliação Física"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
+                width="800"
+                height="500"
+                loading="lazy"
                 onError={(e) => {
                   e.target.onerror = null; 
                   e.target.src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=800";
@@ -269,15 +273,7 @@ export default function PercentualGorduraFemininoComponent() {
             
             <div className="my-10 p-6 md:p-8 bg-green-50 border border-green-100 rounded-[2.5rem] shadow-sm flex flex-col md:flex-row items-center gap-8">
                 <div className="w-full md:w-1/2 aspect-video rounded-2xl overflow-hidden shadow-xl shrink-0 bg-slate-900 border-4 border-white">
-                    <iframe
-                        width="100%"
-                        height="100%"
-                        src="https://www.youtube.com/embed/7HxdNxnlFLM"
-                        title="Diferenças entre obesidade Ginoide e Androide"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                    ></iframe>
+                    <YouTubeLazy videoId="7HxdNxnlFLM" title="Diferenças entre obesidade Ginoide e Androide" />
                 </div>
                 <div className="flex-1 text-center md:text-left">
                     <h3 className="text-2xl font-black text-slate-800 italic uppercase mb-4 flex items-center justify-center md:justify-start gap-2">
@@ -353,6 +349,9 @@ export default function PercentualGorduraFemininoComponent() {
                             src={`${githubImgBase}logoN_pingus.webp`} 
                             alt="Mascote Pingus endossando produto científico" 
                             className="w-full h-full object-contain" 
+                            width="160"
+                            height="160"
+                            loading="lazy"
                         />
                     </div>
 
@@ -366,6 +365,9 @@ export default function PercentualGorduraFemininoComponent() {
                                 src={`${githubImgBase}Afiliado/FitaCescorf.webp`} 
                                 alt="Fita Antropométrica Cescorf indicada no padrão ISAK" 
                                 className="w-full h-auto" 
+                                width="200"
+                                height="200"
+                                loading="lazy"
                                 onError={(e) => {
                                   e.target.onerror = null; 
                                   e.target.src="https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&q=80&w=400";
@@ -407,18 +409,10 @@ export default function PercentualGorduraFemininoComponent() {
               O cálculo é incrivelmente simples: basta dividir a medida da circunferência da sua cintura pela sua altura. A ciência estabelece um ponto de corte universal e rigoroso de <strong>0,5</strong>. Ou seja, se a medida da sua cintura for maior que a metade da sua altura total, isso indica um acúmulo patológico de gordura visceral, servindo como um alerta vermelho para a sua saúde metabólica e resistência à insulina, independentemente de você parecer magra na balança.
             </p>
 
-            {/* VIDEO: COMO MEDIR A CINTURA (LÓGICAMENTE LOGO ABAIXO DA RCE) */}
+            {/* VIDEO: COMO MEDIR A CINTURA */}
             <div className="my-10 p-6 md:p-8 bg-green-50 border border-green-100 rounded-[2.5rem] shadow-sm flex flex-col md:flex-row items-center gap-8">
                 <div className="w-full md:w-1/3 aspect-[9/16] max-w-[280px] rounded-2xl overflow-hidden shadow-xl shrink-0 bg-slate-900 mx-auto md:mx-0 border-4 border-white">
-                    <iframe
-                        width="100%"
-                        height="100%"
-                        src="https://www.youtube.com/embed/qg6cSQaJhKs"
-                        title="Como medir a circunferência da cintura"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                    ></iframe>
+                    <YouTubeLazy videoId="qg6cSQaJhKs" title="Como medir a circunferência da cintura" />
                 </div>
                 <div className="flex-1 text-center md:text-left">
                     <h3 className="text-2xl font-black text-slate-800 italic uppercase mb-4 flex items-center justify-center md:justify-start gap-2">
@@ -549,6 +543,9 @@ export default function PercentualGorduraFemininoComponent() {
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr." 
               className="w-full h-full object-cover" 
+              width="96"
+              height="96"
+              loading="lazy"
               onError={(e) => {
                 e.target.onerror = null; 
                 e.target.src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>👨‍⚕️</text></svg>";
