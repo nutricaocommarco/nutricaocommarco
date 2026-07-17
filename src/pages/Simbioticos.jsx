@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   ChevronLeft, HelpCircle, Activity, Leaf, Shield, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
@@ -10,6 +9,7 @@ import {
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
+import YouTubeLazy from '../components/YouTubeLazy';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -53,7 +53,8 @@ const simbioticosDados = [
 ];
 
 export default function SimbioticosComponent() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
+  const navigate = useNavigate();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
@@ -86,106 +87,16 @@ export default function SimbioticosComponent() {
 
   return (
     <>
-      <Helmet>
-        <title>O que são Simbióticos? A União de Pre e Probióticos | Nutrição com Marco</title>
-        <meta name="description" content="Descubra o que são os alimentos simbióticos, como a união de prebióticos e probióticos transforma a sua flora e as melhores combinações para o emagrecimento." />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="O que são Simbióticos? A Sinergia Intestinal | Nutrição com Marco" />
-        <meta property="og:description" content="Guia definitivo sobre Simbióticos: aprenda a combinar prebióticos e probióticos na mesma refeição para blindar a sua imunidade e microbiota." />
-        <meta property="og:image" content={simbioticosCapa} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "O que são Simbióticos? A União de Prebióticos e Probióticos",
-            "image": simbioticosCapa,
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre",
-              "jobTitle": "Estudante de Nutrição",
-              "knowsAbout": ["Nutrição", "Simbióticos", "Saúde Intestinal", "Nutrição Clínica", "Microbiota", "Medicina do Estilo de Vida"]
-            },
-            "publisher": {
-              "@type": "Organization", 
-              "name": "Nutrição com Marco", 
-              "logo": {
-                "@type": "ImageObject", 
-                "url": `${githubImgBase}logoN_pingus.webp`
-              }
-            },
-            "datePublished": datePublishedISO,
-            "dateModified": dateModifiedISO,
-            "description": "Descubra o que são os alimentos simbióticos e como a união estratégica de prebióticos e probióticos transforma a saúde do seu intestino."
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MedicalWebPage",
-            "name": "O que são Simbióticos? A União de Pre e Probióticos",
-            "url": `https://www.nutricaocommarco.com.br${pathname}`,
-            "about": [
-              {"@type": "MedicalEntity", "name": "Simbiótico"},
-              {"@type": "MedicalEntity", "name": "Probiótico"},
-              {"@type": "MedicalEntity", "name": "Prebiótico"},
-              {"@type": "MedicalEntity", "name": "Microbiota Intestinal"}
-            ],
-            "audience": {
-              "@type": "MedicalAudience",
-              "audienceType": "Pacientes"
-            }
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.nutricaocommarco.com.br/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": "https://www.nutricaocommarco.com.br/blog"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "O que são Simbióticos?",
-                "item": `https://www.nutricaocommarco.com.br${pathname}`
-              }
-            ]
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.pergunta,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.resposta
-              }
-            }))
-          })}
-        </script>
-      </Helmet>
-
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
+        {/* BOTÃO INTELIGENTE */}
+        <button 
+          onClick={() => state?.fromBlog ? navigate(-1) : navigate('/blog')}
+          className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit bg-transparent border-none cursor-pointer p-0"
+        >
           <ChevronLeft size={20} /> Voltar para o Blog
-        </Link>
+        </button>
 
         <article className="prose prose-lg max-w-none text-left">
 
@@ -208,12 +119,13 @@ export default function SimbioticosComponent() {
           </div>
 
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+            {/* ÁUDIO */}
             <div className="p-5 md:p-6 flex flex-col gap-3">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 mb-4">
                 <Headphones className="text-green-700 w-6 h-6" />
-                <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+                <h2 className="text-base font-black text-slate-800 italic uppercase tracking-widest m-0">Ouça este artigo</h2>
               </div>
-              <audio controls className="w-full h-10 outline-none">
+              <audio preload="none" controls className="w-full h-10 outline-none">
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Simbioticos.mp3" type="audio/mpeg" />
                 O seu navegador não suporta o áudio.
               </audio>
@@ -257,12 +169,16 @@ export default function SimbioticosComponent() {
               Até agora, explorámos de forma isolada os dois mundos vitais que compõem a base da nossa saúde gastrointestinal. Contudo, na prática da nutrição clínica e da medicina do estilo de vida, a verdadeira revolução metabólica não acontece quando ingerimos nutrientes isolados, mas sim quando aproveitamos a sinergia perfeita entre eles. Os alimentos simbióticos não são uma nova classe de microrganismos recém-descobertos em laboratório, mas sim um conceito estratégico formidável. Trata-se da garantia biológica de que as bactérias benéficas que ingere terão exatamente o suporte nutricional necessário para sobreviver ao ambiente inóspito do trato digestivo e, finalmente, prosperar de forma soberana lá no final do caminho, no seu cólon.
             </p>
 
+            {/* IMAGEM ESTRATÉGICA COM LAZY */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
               <img 
                 src={simbioticosCapa} 
                 alt="Pingus, nosso mascote, preparando uma refeição simbiótica perfeita com iogurte, aveia e frutas." 
                 title="A união perfeita de alimentos na refeição simbiótica"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
+                width="800"
+                height="500"
+                loading="lazy"
                 onError={(e) => {
                   e.target.onerror = null; 
                   e.target.src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800";
@@ -401,6 +317,7 @@ export default function SimbioticosComponent() {
               O impacto terapêutico desta união vai muito além da prevenção pediátrica, mostrando-se um verdadeiro salva-vidas em cenários hospitalares de altíssima complexidade. Conforme documentado num estudo detalhado sobre o <a href="https://share.google/ZqKA6oueGUWqsioaB" target="_blank" rel="noopener noreferrer" className="text-green-700 font-semibold hover:underline">uso terapêutico dos simbióticos</a>, ensaios clínicos que avaliaram o período perioperatório de cirurgias de grande porte — como resseções de cancro do esófago e procedimentos hepáticos severos — revelaram uma recuperação surpreendente dos doentes. A introdução de compostos simbióticos antes e após as cirurgias reduziu drasticamente as taxas de complicações infeciosas pós-operatórias. Os dados revelaram que a suplementação restaurou a integridade da barreira intestinal, frequentemente devastada pelo stresse cirúrgico e por antibióticos, além de reequilibrar a produção de ácidos orgânicos vitais na flora biológica. Tais experiências atestam de forma categórica que nutrir as bactérias com o seu combustível correto não é apenas um hábito de bem-estar diário, mas sim uma intervenção clínica poderosa capaz de acelerar a cura e proteger a vida humana em situações extremas.
             </p>
 
+            {/* AFILIADO MERCADO LIVRE */}
             <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
                 <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
@@ -412,6 +329,9 @@ export default function SimbioticosComponent() {
                             src={`${githubImgBase}logoN_pingus.webp`} 
                             alt="Selo de Qualidade Pingus" 
                             className="w-full h-full object-contain" 
+                            width="160"
+                            height="160"
+                            loading="lazy"
                             onError={(e) => {
                               e.target.onerror = null; 
                               e.target.src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>🐧</text></svg>";
@@ -428,6 +348,9 @@ export default function SimbioticosComponent() {
                                 src={`${githubImgBase}Afiliado/Liquidificador.webp`} 
                                 alt="Liquidificador Portátil recarregável para preparar vitaminas simbióticas" 
                                 className="w-full h-auto" 
+                                width="200"
+                                height="200"
+                                loading="lazy"
                                 onError={(e) => {
                                   e.target.onerror = null; 
                                   e.target.src="https://images.unsplash.com/photo-1570222094114-d054a817e56b?auto=format&fit=crop&q=80&w=400";
@@ -502,6 +425,7 @@ export default function SimbioticosComponent() {
               </div>
             </div>
 
+            {/* VÍDEO DO YOUTUBE OTIMIZADO COM YOUTUBELAZY */}
             <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <PlayCircle className="text-green-700"/> Aprofunde-se: A Arte da Combinação Alimentar
             </h2>
@@ -517,17 +441,11 @@ export default function SimbioticosComponent() {
                 <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight">Saúde Intestinal em Prática</h3>
               </div>
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                <iframe 
-                  src="https://www.youtube.com/embed/1sISguPDlhY" 
-                  title="Vídeo sobre Saúde Intestinal e Combinação" 
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                ></iframe>
+                <YouTubeLazy videoId="1sISguPDlhY" title="Vídeo sobre Saúde Intestinal e Combinação" />
               </div>
             </div>
 
+            {/* FAQ OTIMIZADO */}
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
                 <HelpCircle className="text-green-700" /> Perguntas Frequentes sobre Simbióticos
@@ -544,7 +462,7 @@ export default function SimbioticosComponent() {
                       </h3>
                       <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
                     </button>
-                    <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
+                    <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
                       <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">{faq.resposta}</p>
                     </div>
                   </div>
@@ -558,12 +476,16 @@ export default function SimbioticosComponent() {
 
         <ArtigosRecomendados currentPath={pathname} />
 
+        {/* AUTOR */}
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
             <img 
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr." 
               className="w-full h-full object-cover" 
+              width="96"
+              height="96"
+              loading="lazy"
               onError={(e) => {
                 e.target.onerror = null; 
                 e.target.src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>👨‍⚕️</text></svg>";
