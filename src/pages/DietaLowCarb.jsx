@@ -580,9 +580,8 @@ export default function DietaLowCarb() {
               className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
               width="896"
               height="635"
-              fetchpriority="high"
-              srcSet={`${githubImgBase}Blog/LowCarb_Capa_mobile.webp 600w, ${githubImgBase}Blog/LowCarb_Capa.webp 900w`}
-              sizes="(max-width: 600px) 600px, 900px"
+              loading="lazy"
+              sizes="(max-width: 896px) 100vw, 896px"
               onError={(e) => { e.target.onerror = null; e.target.src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=800"; }}
             />
             <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
