@@ -314,15 +314,22 @@ export default function Blog() {
       <PaginationControls />
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {currentPosts.map((post) => (
-{/* Adicione o state={{ fromBlog: true }} */}
-<Link key={post.id} to={post.link} state={{ fromBlog: true }} className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">            <div className="h-64 overflow-hidden border-b border-slate-50">
-              <img 
-                src={post.imgSrc} 
-                alt={post.title} 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-              />
-            </div>
+{/* Como deve ficar o seu loop de posts por volta da linha 317: */}
+{currentPosts.map((post) => (
+  <Link 
+    key={post.id} 
+    to={post.link} 
+    state={{ fromBlog: true }} 
+    className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left"
+  >
+    <div className="h-64 overflow-hidden border-b border-slate-50">
+      <img 
+        src={post.imgSrc} 
+        alt={post.title} 
+        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+      />
+    </div>
+    {/* ... o restante do card continua igual ... */}
             <div className="p-8 flex flex-col flex-grow">
               <div className="flex items-center gap-3 mb-4">
                 <span className={`text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest ${post.isNew ? 'bg-green-100 text-green-700' : 'bg-green-50 text-green-700'}`}>
