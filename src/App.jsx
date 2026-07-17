@@ -79,12 +79,16 @@ function Layout({ children }) {
   const location = useLocation();
 
 useEffect(() => {
-    // Define a função de scroll aqui dentro
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+  // Otimizado: Só atualiza o estado se o valor booleano mudar de fato
+  const handleScroll = () => {
+    const isScrolled = window.scrollY > 50;
+    setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
+  };
     
-    window.addEventListener('scroll', handleScroll);
-    setIsMenuOpen(false);
-
+// O uso de passive: true avisa o navegador que a função não vai travar a rolagem da página
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  setIsMenuOpen(false);
+  
     // Garante que o Pingus apareça na aba do navegador
     let link = document.querySelector("link[rel~='icon']");
     if (!link) {
