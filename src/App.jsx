@@ -137,9 +137,15 @@ return (
             <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-600 text-white px-6 py-2.5 rounded-full hover:bg-green-700 transition-all shadow-md italic">Instagram</a>
           </div>
 
-          <button className="md:hidden text-slate-800 p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+{/* MENU DESKTOP TERMINA AQUI */}
+
+<button 
+  className="md:hidden text-slate-800 p-2" 
+  onClick={() => setIsMenuOpen(!isMenuOpen)}
+  aria-label={isMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"} // <-- Adicionado aqui!
+>
+  {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+</button>
         </div>
 
         {/* MENU MOBILE / CELULAR */}
@@ -177,20 +183,37 @@ return (
         {children}
       </main>
 
-      <footer className="bg-slate-900 text-white py-20 text-center mt-auto">
-        <div className="container mx-auto px-6 text-center">
-          <Link to="/" className="flex items-center justify-center gap-3 mb-10 group">
-            <img src={`${githubImgBase}logoN_pingus.webp`} alt="Logo" title="Nutrição com Marco - Fisiologia, Composição Corporal e Saúde" className="w-12 h-12 object-contain group-hover:rotate-6 transition-transform" />
-            <span className="text-xl font-black uppercase italic tracking-tighter text-white">Nutrição com Marco</span>
-          </Link>
-          <div className="flex justify-center gap-8 mb-16">
-            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 border border-white/10 text-white"><Instagram size={24}/></a>
-            <a href="mailto:contato@nutricaocommarco.com.br" className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 border border-white/10 text-white"><Mail size={24}/></a>
-          </div>
-          <p className="text-slate-500 text-xs font-bold tracking-[0.2em] uppercase mb-1">#NutriçãoComCiência #Antropometria #ISAK1 #ConsultaOnline</p>
-          <p className="text-slate-600 text-xs font-bold tracking-[0.2em] uppercase">© 2026 Nutrição com Marco • Rio de Janeiro</p>
-        </div>
-      </footer>
+<footer className="bg-slate-900 text-white py-20 text-center mt-auto">
+  <div className="container mx-auto px-6 text-center">
+    <Link to="/" className="flex items-center justify-center gap-3 mb-10 group">
+      <img src={`${githubImgBase}logoN_pingus.webp`} alt="Logo" title="Nutrição com Marco - Fisiologia, Composição Corporal e Saúde" className="w-12 h-12 object-contain group-hover:rotate-6 transition-transform" />
+      <span className="text-xl font-black uppercase italic tracking-tighter text-white">Nutrição com Marco</span>
+    </Link>
+    
+    {/* ÍCONES DE REDES SOCIAIS CORRIGIDOS COM ARIA-LABEL */}
+    <div className="flex justify-center gap-8 mb-16">
+      <a 
+        href="https://instagram.com/nutricao_com_marco" 
+        target="_blank" 
+        rel="noreferrer" 
+        className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 border border-white/10 text-white"
+        aria-label="Acessar o perfil do Instagram de Nutrição com Marco"
+      >
+        <Instagram size={24}/>
+      </a>
+      <a 
+        href="mailto:contato@nutricaocommarco.com.br" 
+        className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 border border-white/10 text-white"
+        aria-label="Enviar um e-mail de contato para Marco Aurélio"
+      >
+        <Mail size={24}/>
+      </a>
+    </div>
+    
+    <p className="text-slate-500 text-xs font-bold tracking-[0.2em] uppercase mb-1">#NutriçãoComCiência #Antropometria #ISAK1 #ConsultaOnline</p>
+    <p className="text-slate-600 text-xs font-bold tracking-[0.2em] uppercase">© 2026 Nutrição com Marco • Rio de Janeiro</p>
+  </div>
+</footer>
     </div>
   );
 }
