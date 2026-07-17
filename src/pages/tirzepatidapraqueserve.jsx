@@ -14,7 +14,7 @@ const dateModifiedISO = "2026-03-26";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Caminhos das imagens
-const tirzepatidaCapa = `${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`;
+const tirzepatidaCapa = `${githubImgBase}Blog/Tirzepatida-para-que-serve.webppg`;
 const tirzepatidaGrafico = `${githubImgBase}Blog/Tirzepatida-Grafico.jpg`;
 
 export default function TirzepatidaParaQueServe() {
