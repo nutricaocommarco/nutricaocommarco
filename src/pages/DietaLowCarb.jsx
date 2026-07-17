@@ -889,25 +889,16 @@ export default function DietaLowCarb() {
               Ainda ficou com algumas dúvidas de como formatar seus macros e entender o conceito a fundo para começar ainda hoje? A excelente Nutricionista Patricia Leite preparou um material fantástico explicando o maior erro de quem tenta fazer Low Carb por conta própria: esquecer da saúde intestinal. Assista para entender como fazer da forma correta e sem sofrimento:
             </p>
 
-            <div className="my-10 p-6 md:p-8 bg-slate-900 rounded-[2.5rem] shadow-2xl flex flex-col md:flex-row items-center gap-8 border border-slate-800">
+<div className="my-10 p-6 md:p-8 bg-slate-900 rounded-[2.5rem] shadow-2xl flex flex-col md:flex-row items-center gap-8 border border-slate-800">
                 <div className="w-full md:w-1/2 aspect-video rounded-2xl overflow-hidden shadow-xl shrink-0 bg-black border-4 border-slate-700 relative">
-                    <iframe
-                        width="100%"
-                        height="100%"
-                        src="https://www.youtube.com/embed/zl7MqZQGWV0"
-                        title="Dieta Low Carb e Intestino - O que você precisa saber com Patricia Leite"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                        className="absolute top-0 left-0 w-full h-full"
-                    ></iframe>
+                    <YouTubeLazy videoId="zl7MqZQGWV0" title="Dieta Low Carb e Intestino - O que você precisa saber com Patricia Leite" />
                 </div>
                 <div className="flex-1 text-center md:text-left">
                     <h3 className="text-2xl font-black text-white italic uppercase mb-4 flex items-center justify-center md:justify-start gap-2">
                         <PlayCircle className="text-green-500" /> Low Carb e a Microbiota
                     </h3>
                     <p className="text-slate-300 font-medium leading-relaxed mb-6">
-                        Assista para entender por que uma Low Carb baseada apenas em carnes, queijo e bacon pode travar seu emagrecimento e inflamar seu corpo. Descubra a verdadeira importância de abusar dos vegetais e como isso se conecta com o poder dos <Link to="/o-que-sao-prebioticos" className="text-green-400 font-bold hover:underline">prebióticos</Link> e <Link to="/o-que-sao-probioticos" className="text-green-400 font-bold hover:underline">probióticos</Link> na sua rotina metabólica!
+                        Assista para entender por que uma Low Carb baseada apenas em carnes, queijo e bacon pode travar seu emagrecimento e inflamar seu corpo. Descubra a verdadeira importância de abusar dos vegetais e como isso se conecta com o poder dos <Link to="/o-que-sao-prebioticos" className="text-green-700 font-bold hover:underline">prebióticos</Link> e <Link to="/o-que-sao-probioticos" className="text-green-700 font-bold hover:underline">probióticos</Link> na sua rotina metabólica!
                     </p>
                 </div>
             </div>
