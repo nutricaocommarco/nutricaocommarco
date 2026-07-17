@@ -107,7 +107,7 @@ const postsData = [
   {
     id: 14,
     link: "/tirzepatida-para-que-serve",
-    imgSrc: `${githubImgBase}Blog/Tirzepatida-para-que-serve.jpg`,
+    imgSrc: `${githubImgBase}Blog/Tirzepatida-para-que-serve.webp`,
     tag: "Tratamento Farmacológico",
     title: "Tirzepatida: Para Que Serve, Como Funciona e Seus Efeitos",
     desc: "Descubra para que serve a Tirzepatida, entenda seu mecanismo de ação duplo (GLP-1 e GIP), os principais efeitos colaterais e o potencial na perda de peso.",
@@ -211,7 +211,7 @@ const postsData = [
   {
     id: 1,
     link: "/a_balanca_de_bioimpedancia_e_confiavel",
-    imgSrc: `${githubImgBase}Blog/Bia1.jpg`,
+    imgSrc: `${githubImgBase}Blog/Bia1.webp`,
     tag: "Composição Corporal",
     title: "A balança de bioimpedância é confiável?",
     desc: "Entenda se a balança de bioimpedância é confiável e os fatores que alteram o resultado."
