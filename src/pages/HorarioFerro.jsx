@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { 
   ChevronLeft, HelpCircle, Activity, Leaf, Heart, FileText, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, 
@@ -10,6 +9,7 @@ import {
 
 import Newsletter from '../components/Newsletter';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
+import YouTubeLazy from '../components/YouTubeLazy';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -18,12 +18,13 @@ const datePublishedISO = "2026-04-10";
 const dateModifiedISO = "2026-04-10";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
-// Variáveis corrigidas para o Helmet
+// Variáveis corrigidas
 const artigoCapa = `${githubImgBase}Blog/HorarioFerro.webp`; 
 const keywords = "melhor horario para tomar ferro, como tomar sulfato ferroso, ferro e vitamina c, ferro e calcio, ferro em jejum, sintomas de falta de ferro";
 
 export default function MelhorHorarioFerro() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
+  const navigate = useNavigate();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
@@ -52,17 +53,17 @@ export default function MelhorHorarioFerro() {
 
   return (
     <>
-      <Helmet>
-
-      </Helmet>
-
     <div className="min-h-screen bg-slate-50 font-sans">
     <section className="py-24 px-4 sm:px-6 container mx-auto max-w-4xl text-left">
       <div className="bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
+        {/* BOTÃO INTELIGENTE */}
+        <button 
+          onClick={() => state?.fromBlog ? navigate(-1) : navigate('/blog')}
+          className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit bg-transparent border-none cursor-pointer p-0"
+        >
           <ChevronLeft size={20} /> Voltar para o Blog
-        </Link>
+        </button>
 
         <article className="prose prose-lg max-w-none text-left">
 
@@ -85,12 +86,13 @@ export default function MelhorHorarioFerro() {
           </div>
 
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+            {/* ÁUDIO */}
             <div className="p-5 md:p-6 flex flex-col gap-3">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 mb-4">
                 <Headphones className="text-green-700 w-6 h-6" />
-                <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+                <h2 className="text-base font-black text-slate-800 italic uppercase tracking-widest m-0">Ouça este artigo</h2>
               </div>
-              <audio controls className="w-full h-10 outline-none">
+              <audio preload="none" controls className="w-full h-10 outline-none">
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/MelhorHorarioFerro.mp3" type="audio/mpeg" />
                 Seu navegador não suporta o áudio.
               </audio>
@@ -139,13 +141,16 @@ export default function MelhorHorarioFerro() {
               Quando os seus estoques começam a cair, o corpo acende um alerta vermelho que afeta praticamente toda a sua rotina. Os sintomas de falta de ferro no organismo costumam surgir de forma silenciosa e vão se agravando conforme a anemia ferropriva se instala. O sinal mais clássico é um cansaço esmagador e inexplicável, acompanhado de palidez na pele e nas mucosas, principalmente na parte interna dos olhos. Como o mineral é fundamental para a saúde estrutural, é muito comum observar queda de cabelo acentuada e unhas quebradiças, um quadro que muitas vezes confunde os pacientes que tentam tratar o problema apenas com cosméticos ou investigando a <Link to="/vitamina_a_para_que_serve" className="text-green-700 font-semibold hover:underline">vitamina A</Link> sem olhar para a ferritina. Além disso, a falta de oxigenação no cérebro causa dores de cabeça frequentes, tonturas ao levantar rápido e dificuldade extrema de concentração.
             </p>
 
-            {/* IMAGEM DE CAPA */}
+            {/* IMAGEM ESTRATÉGICA COM LAZY */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
               <img 
                 src={`${githubImgBase}Blog/HorarioFerro.webp`} 
                 alt="Mascote Pingus assustado ao tentar comer uma barra de ferro em um prato, ilustrando de forma humorada a suplementação e absorção de ferro" 
                 title="Qual o melhor horário para tomar suplemento de ferro? O Pingus te explica!"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+                width="800"
+                height="500"
+                loading="lazy" 
               />
               <div className="bg-green-50 p-4 text-center">
                 <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
@@ -253,6 +258,9 @@ export default function MelhorHorarioFerro() {
                             src={`${githubImgBase}logoN_pingus.webp`} 
                             alt="Selo de Qualidade Pingus" 
                             className="w-full h-full object-contain" 
+                            width="160"
+                            height="160"
+                            loading="lazy"
                         />
                     </div>
 
@@ -266,6 +274,9 @@ export default function MelhorHorarioFerro() {
                               src={`${githubImgBase}Afiliado/PortaComprimidos.webp`} 
                               alt="Porta Comprimidos Semanal Organizador" 
                               className="w-full h-auto object-cover" 
+                              width="200"
+                              height="200"
+                              loading="lazy"
                             />
                         </div>
 
@@ -349,7 +360,7 @@ export default function MelhorHorarioFerro() {
               </table>
             </div>
 
-            {/* VÍDEO DO YOUTUBE */}
+            {/* VÍDEO DO YOUTUBE - OTIMIZADO COM YOUTUBELAZY */}
             <div className="my-16 p-6 md:p-10 bg-slate-900 rounded-[3.5rem] border border-slate-800 shadow-2xl">
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-[0_0_15px_rgba(22,163,74,0.5)]">
@@ -357,15 +368,8 @@ export default function MelhorHorarioFerro() {
                 </div>
                 <h3 className="text-xl font-black text-white uppercase italic leading-tight">Metabolismo do Ferro: Entenda a Fisiologia</h3>
               </div>
-              <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-700 bg-black">
-                <iframe 
-                  src="https://www.youtube.com/embed/-s11HT8KT2A" 
-                  title="Metabolismo do Ferro" 
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                ></iframe>
+              <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-700 bg-slate-900">
+                  <YouTubeLazy videoId="-s11HT8KT2A" title="Metabolismo do Ferro" />
               </div>
             </div>
 
@@ -403,7 +407,7 @@ export default function MelhorHorarioFerro() {
         {/* AUTOR */}
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
-            <img src={`${githubImgBase}Eu_1.webp`} alt="Marco Aurélio Jr." className="w-full h-full object-cover" />
+            <img src={`${githubImgBase}Eu_1.webp`} alt="Marco Aurélio Jr." className="w-full h-full object-cover" width="96" height="96" loading="lazy" />
           </div>
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
