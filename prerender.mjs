@@ -168,7 +168,7 @@ const postsBlog = [
   { 
     id: 14, 
     link: "/tirzepatida-para-que-serve", 
-    img: `${githubImgBase}Blog/Tirzepatida-para-que-serve.webppg`, 
+    img: `${githubImgBase}Blog/Tirzepatida-para-que-serve.webp`, 
     titulo: "Tirzepatida: Para Que Serve e Os Efeitos Colaterais (Atualizado) | Nutrição com Marco", 
     desc: "Mounjaro (Tirzepatida) no emagrecimento: entenda a fundo como atua o duplo mecanismo GLP-1 e GIP e descubra os reais efeitos no controle do apetite e para que serve.", 
     data: "2026-03-26",

@@ -554,7 +554,7 @@ export default function FomeEmocional() {
             <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl overflow-hidden flex flex-col md:flex-row items-center gap-8 p-8 md:p-10 group">
               <div className="w-full md:w-1/3 shrink-0 rounded-2xl overflow-hidden shadow-lg border border-slate-100">
                 <img 
-                  src={`${githubImgBase}capa_fome.jpg`} 
+                  src={`${githubImgBase}capa_fome.webp`} 
                   alt="Capa do E-book Entendendo a Fome" 
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
                 />
