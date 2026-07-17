@@ -315,8 +315,8 @@ export default function Blog() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
         {currentPosts.map((post) => (
-          <Link key={post.id} to={post.link} className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">
-            <div className="h-64 overflow-hidden border-b border-slate-50">
+{/* Adicione o state={{ fromBlog: true }} */}
+<Link key={post.id} to={post.link} state={{ fromBlog: true }} className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col text-left">            <div className="h-64 overflow-hidden border-b border-slate-50">
               <img 
                 src={post.imgSrc} 
                 alt={post.title} 
