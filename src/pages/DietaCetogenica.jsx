@@ -1,4 +1,4 @@
-pgimport React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import YouTubeLazy from '../components/YouTubeLazy';
 import { 
