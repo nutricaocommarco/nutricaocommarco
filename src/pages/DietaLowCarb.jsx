@@ -692,9 +692,13 @@ export default function DietaLowCarb() {
                       onChange={(e) => setFoodQty(e.target.value)}
                       className="w-full bg-white border border-slate-200 p-3 rounded-xl outline-none font-medium text-slate-700"
                     />
-                    <button type="submit" className="bg-green-700 text-white p-3 rounded-xl hover:bg-green-700 transition w-12 h-12 flex items-center justify-center shrink-0">
-                      <PlusCircle size={20} />
-                    </button>
+                  <button 
+                  type="submit" 
+                  className="bg-green-700 text-white p-3 rounded-xl hover:bg-green-700 transition w-12 h-12 flex items-center justify-center shrink-0"
+                  aria-label="Adicionar alimento ao prato"
+                  >
+                  <PlusCircle size={20} />
+                  </button>
                   </form>
                 </div>
 
