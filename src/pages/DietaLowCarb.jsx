@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { 
   ChevronLeft, HelpCircle, Activity, Clock, Shield, 
@@ -424,9 +424,10 @@ const foodDatabase = [
 
 
 export default function DietaLowCarb() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const navigate = useNavigate();
   
   // Estados da Calculadora
   const [carbLimit, setCarbLimit] = useState(130);
@@ -492,9 +493,19 @@ export default function DietaLowCarb() {
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
+{/* BOTÃO INTELIGENTE */}
+        <button 
+          onClick={() => {
+            if (state?.fromBlog) {
+              navigate(-1); // Se veio do blog, volta para a página/filtro exato
+            } else {
+              navigate('/blog'); // Se veio do Google, vai para a página 1 do blog
+            }
+          }}
+          className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit appearance-none bg-transparent border-none cursor-pointer p-0"
+        >
           <ChevronLeft size={20} /> Voltar para o Blog
-        </Link>
+        </button>
 
         <article className="prose prose-lg max-w-none text-left">
           
