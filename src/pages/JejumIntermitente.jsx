@@ -119,7 +119,7 @@ export default function JejumIntermitente() {
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
                 <Headphones className="text-green-600 w-6 h-6" />
-                <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+                <strong className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</strong>
               </div>
               <audio controls className="w-full h-10 outline-none" title="Áudio narrando o artigo sobre O Que é Jejum Intermitente">
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/jejum-intermitente.mp3" type="audio/mpeg" />
@@ -553,6 +553,7 @@ export default function JejumIntermitente() {
         onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
         className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
         aria-expanded={openFaqIndex === index}
+        aria-label={`Abrir resposta para: ${faq.pergunta}`}
       >
         <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-600' : 'text-slate-800 group-hover:text-green-600'}`}>
           {faq.pergunta}
