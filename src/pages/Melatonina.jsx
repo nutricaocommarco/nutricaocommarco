@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   ChevronLeft, HelpCircle, Activity, Shield, FileText, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
@@ -10,6 +9,7 @@ import {
 
 import Newsletter from '../components/Newsletter';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
+import YouTubeLazy from '../components/YouTubeLazy';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -20,7 +20,8 @@ const melatoninaCapa = `${githubImgBase}Blog/Melatonina.webp`;
 const cicloCircadianoCapa = `${githubImgBase}Blog/CicloCircadiano.webp`;
 
 export default function Melatonina() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
+  const navigate = useNavigate();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
@@ -130,152 +131,16 @@ export default function Melatonina() {
 
   return (
     <>
-      <Helmet>
-        {/* SEO OTIMIZADO - TÍTULO DO SNIPPET */}
-        <title>Efeitos Colaterais da Melatonina: Vicia? Riscos e Doses | Nutrição com Marco</title>
-
-        {/* META DESCRIPTION OTIMIZADA */}
-        <meta name="description" content="Descubra a verdade científica sobre a melatonina: ela vicia? Faz mal? Entenda os efeitos colaterais, riscos psicológicos e como dosar corretamente para dormir bem." />
-
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Efeitos Colaterais da Melatonina: Vicia? Riscos e Doses | Nutrição com Marco" />
-        <meta property="og:description" content="A ciência por trás do hormônio do sono. Riscos, benefícios, quem não pode tomar e a verdade sobre a dependência psicológica." />
-        <meta property="og:image" content={melatoninaCapa} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        {/* SCHEMA.ORG 1: ARTIGO OTIMIZADO */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Efeitos Colaterais da Melatonina: Vicia? Faz Mal? A Verdade Científica",
-            "image": melatoninaCapa,
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre",
-              "jobTitle": "Estudante de Nutrição",
-              "knowsAbout": ["Nutrição", "Fisiologia do Sono", "Endocrinologia Básica", "Metabolismo", "Higiene do Sono"]
-            },
-            "publisher": {
-              "@type": "Organization", 
-              "name": "Nutrição com Marco", 
-              "logo": {
-                "@type": "ImageObject", 
-                "url": `${githubImgBase}logoN_pingus.webp`
-              }
-            },
-            "datePublished": datePublishedISO,
-            "dateModified": dateModifiedISO,
-            "description": "Entenda os reais efeitos colaterais da suplementação de melatonina, a diferença entre dependência química e psicológica, e como melhorar a higiene do sono naturalmente."
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 2: MEDICAL WEB PAGE */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MedicalWebPage",
-            "name": "Efeitos Colaterais da Melatonina e Segurança",
-            "url": `https://www.nutricaocommarco.com.br${pathname}`,
-            "about": [
-              {"@type": "MedicalEntity", "name": "Melatonina"},
-              {"@type": "MedicalEntity", "name": "Insônia"},
-              {"@type": "MedicalEntity", "name": "Higiene do Sono"},
-              {"@type": "MedicalEntity", "name": "Efeito Colateral"}
-            ],
-            "audience": {
-              "@type": "MedicalAudience",
-              "audienceType": "Pacientes"
-            }
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 3: BREADCRUMB LIST */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.nutricaocommarco.com.br/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": "https://www.nutricaocommarco.com.br/blog"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Efeitos Colaterais da Melatonina",
-                "item": `https://www.nutricaocommarco.com.br${pathname}`
-              }
-            ]
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 4: FAQ PAGE */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.pergunta,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.resposta
-              }
-            }))
-          })}
-        </script>
-        
-        {/* SCHEMA.ORG 5: VIDEO OBJECT */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "VideoObject",
-            "name": "Como a melatonina funciona",
-            "description": "Explicação visual detalhando a fisiologia da melatonina e o seu impacto direto na saúde do corpo inteiro e no ciclo circadiano.",
-            "thumbnailUrl": "https://img.youtube.com/vi/g94wfvhMl14/maxresdefault.jpg",
-            "uploadDate": datePublishedISO,
-            "embedUrl": "https://www.youtube.com/embed/g94wfvhMl14",
-            "publisher": {
-              "@type": "Organization",
-              "name": "Nutrição com Marco",
-              "logo": {
-                "@type": "ImageObject",
-                "url": `${githubImgBase}logoN_pingus.webp`
-              }
-            }
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 6: AUDIO OBJECT */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "AudioObject",
-            "name": "Áudio: Efeitos Colaterais da Melatonina",
-            "description": "Versão narrada em áudio do artigo completo sobre a fisiologia do sono, os riscos da melatonina e como dormir melhor.",
-            "contentUrl": "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Melatonina.mp3",
-            "encodingFormat": "audio/mpeg",
-            "duration": "PT5M"
-          })}
-        </script>
-      </Helmet>
-
       <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
         <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-          <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
+          {/* BOTÃO INTELIGENTE */}
+          <button 
+            onClick={() => state?.fromBlog ? navigate(-1) : navigate('/blog')}
+            className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit bg-transparent border-none cursor-pointer p-0"
+          >
             <ChevronLeft size={20} /> Voltar para o Blog
-          </Link>
+          </button>
 
           <article className="prose prose-lg max-w-none text-left">
 
@@ -298,12 +163,13 @@ export default function Melatonina() {
             </div>
 
             <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+              {/* ÁUDIO */}
               <div className="p-5 md:p-6 flex flex-col gap-3">
                 <div className="flex items-center gap-3">
                   <Headphones className="text-green-700 w-6 h-6" />
                   <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
                 </div>
-                <audio controls className="w-full h-10 outline-none rounded-full">
+                <audio preload="none" controls className="w-full h-10 outline-none rounded-full">
                   <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Melatonina.mp3" type="audio/mpeg" />
                   O seu navegador não suporta o áudio.
                 </audio>
@@ -343,12 +209,16 @@ export default function Melatonina() {
 
             <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
+              {/* IMAGEM ESTRATÉGICA COM LAZY */}
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
                 <img 
                   src={melatoninaCapa} 
                   alt="Pingus, o pinguim mascote do portal Nutrição com Marco, com cara de sono e máscara de dormir na cabeça, pingando gotas de um frasco de Melatonina na boca ao lado de sua cama." 
                   title="Pingus tomando sua dose em gotas de Melatonina antes de deitar"
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
+                  width="800"
+                  height="500"
+                  loading="lazy"
                   onError={(e) => {
                     e.target.onerror = null; 
                     e.target.src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&q=80&w=800";
@@ -441,7 +311,7 @@ export default function Melatonina() {
                 Um mito extremamente comum é o de que tomar o suplemento faz a sua glândula pineal "ficar preguiçosa" e parar de trabalhar. Na realidade, a produção de <strong>melatonina</strong> não obedece a mecanismos de retroalimentação negativa, o que significa que a alta concentração do hormônio no sangue não inibe a sua própria fabricação endógena. O verdadeiro problema das superdosagens é que elas potencializam os <strong>colaterais da melatonina</strong>, pois o corpo demora muito mais para metabolizar o excesso da substância, resultando em forte letargia no dia seguinte. Por isso, para evitar <strong>efeitos colaterais</strong>, abordagens clínicas assertivas recomendam iniciar o tratamento com doses muito baixas, na casa de 1 mg por dia.
               </p>
 
-              {/* VÍDEO DO YOUTUBE */}
+              {/* VÍDEO OTIMIZADO COM YOUTUBELAZY */}
               <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <PlayCircle className="text-green-700"/> Aprofunde-se: A Fisiologia da Melatonina
               </h2>
@@ -457,14 +327,7 @@ export default function Melatonina() {
                   <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight">Como a melatonina funciona</h3>
                 </div>
                 <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                  <iframe 
-                    src="https://www.youtube.com/embed/g94wfvhMl14" 
-                    title="Vídeo sobre a Fisiologia da Melatonina" 
-                    className="absolute top-0 left-0 w-full h-full"
-                    frameBorder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowFullScreen
-                  ></iframe>
+                  <YouTubeLazy videoId="g94wfvhMl14" title="Vídeo sobre a Fisiologia da Melatonina" />
                 </div>
               </div>
 
@@ -527,6 +390,9 @@ export default function Melatonina() {
                               src={`${githubImgBase}logoN_pingus.webp`} 
                               alt="Selo de Qualidade Pingus" 
                               className="w-full h-full object-contain" 
+                              width="160"
+                              height="160"
+                              loading="lazy"
                           />
                       </div>
 
@@ -540,6 +406,9 @@ export default function Melatonina() {
                                 src={`${githubImgBase}Afiliado/MascaraDormir.webp`} 
                                 alt="Máscara de Dormir Premium 3D Blackout" 
                                 className="w-full h-auto object-cover" 
+                                width="200"
+                                height="200"
+                                loading="lazy"
                               />
                           </div>
 
@@ -640,6 +509,9 @@ export default function Melatonina() {
                 src={`${githubImgBase}Eu_1.webp`} 
                 alt="Marco Aurélio Jr." 
                 className="w-full h-full object-cover" 
+                width="96"
+                height="96"
+                loading="lazy"
                 onError={(e) => {
                   e.target.onerror = null; 
                   e.target.src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>👨‍⚕️</text></svg>";
