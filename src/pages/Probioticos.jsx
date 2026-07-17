@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   ChevronLeft, HelpCircle, Activity, Leaf, Shield, Heart, FileText, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
@@ -10,6 +9,7 @@ import {
 
 import Newsletter from '../components/Newsletter';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
+import YouTubeLazy from '../components/YouTubeLazy';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -56,7 +56,8 @@ const probioticosDados = [
 ];
 
 export default function Probioticos() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
+  const navigate = useNavigate();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
@@ -90,118 +91,16 @@ export default function Probioticos() {
 
   return (
     <>
-      <Helmet>
-        {/* SEO OTIMIZADO - TÍTULO DO SNIPPET (aprox 60 caracteres) */}
-        <title>O que são Probióticos? Lactobacillus e Benefícios | Nutrição com Marco</title>
-
-        {/* META DESCRIPTION OTIMIZADA (aprox 155 caracteres) */}
-        <meta name="description" content="Descubra o que são probióticos e Lactobacillus, para que servem no intestino, seus benefícios para a imunidade e quais as melhores fontes naturais." />
-
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="O que são Probióticos? Lactobacillus e Benefícios | Nutrição com Marco" />
-        <meta property="og:description" content="Guia completo sobre probióticos: mecanismo de ação, benefícios reais dos Lactobacillus, como suplementar corretamente e lista de alimentos." />
-        <meta property="og:image" content={probioticosCapa} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        {/* SCHEMA.ORG 1: ARTIGO OTIMIZADO (COM AUTORIDADE E-E-A-T) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "O que são Probióticos e para que servem os Lactobacillus?",
-            "image": probioticosCapa,
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre",
-              "jobTitle": "Estudante de Nutrição",
-              "knowsAbout": ["Nutrição", "Saúde Intestinal", "Nutrição Clínica", "Microbiota", "Imunidade", "Medicina do Estilo de Vida"]
-            },
-            "publisher": {
-              "@type": "Organization", 
-              "name": "Nutrição com Marco", 
-              "logo": {
-                "@type": "ImageObject", 
-                "url": `${githubImgBase}logoN_pingus.webp`
-              }
-            },
-            "datePublished": datePublishedISO,
-            "dateModified": dateModifiedISO,
-            "description": "Entenda o que são probióticos, para que servem os famosos lactobacillus, e como essas bactérias boas blindam o seu intestino e a sua imunidade."
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 2: MEDICAL WEB PAGE (AVANÇADO PARA YMYL) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MedicalWebPage",
-            "name": "O que são Probióticos? Lactobacillus, Benefícios e Para Que Servem",
-            "url": `https://www.nutricaocommarco.com.br${pathname}`,
-            "about": [
-              {"@type": "MedicalEntity", "name": "Probiótico"},
-              {"@type": "MedicalEntity", "name": "Lactobacillus"},
-              {"@type": "MedicalEntity", "name": "Microbiota Intestinal"},
-              {"@type": "MedicalEntity", "name": "Disbiose"}
-            ],
-            "audience": {
-              "@type": "MedicalAudience",
-              "audienceType": "Pacientes"
-            }
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 3: BREADCRUMB LIST */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.nutricaocommarco.com.br/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": "https://www.nutricaocommarco.com.br/blog"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "O que são Probióticos?",
-                "item": `https://www.nutricaocommarco.com.br${pathname}`
-              }
-            ]
-          })}
-        </script>
-
-        {/* SCHEMA.ORG 4: FAQ PAGE (SINCRONIZADO COM O ARRAY) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.pergunta,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.resposta
-              }
-            }))
-          })}
-        </script>
-      </Helmet>
-
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
+        {/* BOTÃO INTELIGENTE */}
+        <button 
+          onClick={() => state?.fromBlog ? navigate(-1) : navigate('/blog')}
+          className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit bg-transparent border-none cursor-pointer p-0"
+        >
           <ChevronLeft size={20} /> Voltar para o Blog
-        </Link>
+        </button>
 
         <article className="prose prose-lg max-w-none text-left">
 
@@ -224,12 +123,13 @@ export default function Probioticos() {
           </div>
 
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+            {/* ÁUDIO */}
             <div className="p-5 md:p-6 flex flex-col gap-3">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 mb-4">
                 <Headphones className="text-green-700 w-6 h-6" />
-                <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+                <h2 className="text-base font-black text-slate-800 italic uppercase tracking-widest m-0">Ouça este artigo</h2>
               </div>
-              <audio controls className="w-full h-10 outline-none">
+              <audio preload="none" controls className="w-full h-10 outline-none">
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Probioticos.mp3" type="audio/mpeg" />
                 Seu navegador não suporta o áudio.
               </audio>
@@ -272,12 +172,16 @@ export default function Probioticos() {
               Se no nosso artigo anterior aprendemos detalhadamente <Link to="/o-que-sao-prebioticos" className="text-green-700 font-semibold hover:underline">o que são prebióticos</Link> (o combustível), agora vamos focar nos trabalhadores incansáveis do seu corpo. Os probióticos não são apenas uma tendência do mercado de suplementos; eles são, fisiologicamente, os moradores essenciais da sua microbiota intestinal. Sem essas bactérias vivas e ativas, todo o seu sistema de defesa, digestão e até mesmo o seu humor podem entrar em colapso.
             </p>
 
+            {/* IMAGEM ESTRATÉGICA COM LAZY */}
             <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
               <img 
                 src={probioticosCapa} 
                 alt="Pingus, nosso pinguim mascote, segurando e bebendo um frasco gigante de Yakult repleto de probióticos." 
                 title="Pingus tomando um Yakult rico em Lactobacillus vivos"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
+                width="800"
+                height="500"
+                loading="lazy"
                 onError={(e) => {
                   e.target.onerror = null; 
                   e.target.src="https://images.unsplash.com/photo-1517093602195-b40af9688b46?auto=format&fit=crop&q=80&w=800";
@@ -385,7 +289,7 @@ export default function Probioticos() {
               Caso você esteja engajado em um alto rendimento esportivo, como se preparar para um <Link to="/nutricao_para_ironman_703" className="text-green-700 font-semibold hover:underline">Ironman 70.3</Link>, a imunomodulação por probióticos é quase obrigatória para prevenir infecções de trato respiratório superior após treinos exaustivos que deprimem o sistema imune.
             </p>
             
-            {/* Inicio do Vídeo do Youtube */}
+            {/* Inicio do Vídeo do Youtube - OTIMIZADO */}
             <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <PlayCircle className="text-green-700"/> Aprofunde-se: Prebióticos vs Probióticos
             </h2>
@@ -401,14 +305,7 @@ export default function Probioticos() {
                 <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight">Como funcionam (Yakult)</h3>
               </div>
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                <iframe 
-                  src="https://www.youtube.com/embed/0ktZQ3IaOR4" 
-                  title="Vídeo Yakult: Como funcionam Prebióticos e Probióticos" 
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                ></iframe>
+                <YouTubeLazy videoId="0ktZQ3IaOR4" title="Vídeo Yakult: Como funcionam Prebióticos e Probióticos" />
               </div>
             </div>
             {/* Fim do Vídeo do Youtube */}
@@ -471,7 +368,10 @@ export default function Probioticos() {
                         <img 
                             src={`${githubImgBase}logoN_pingus.webp`} 
                             alt="Selo de Qualidade Pingus" 
-                            className="w-full h-full object-contain" 
+                            className="w-full h-full object-contain"
+                            width="160"
+                            height="160"
+                            loading="lazy" 
                             onError={(e) => {
                               e.target.onerror = null; 
                               e.target.src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>🐧</text></svg>";
@@ -488,6 +388,9 @@ export default function Probioticos() {
                                 src={`${githubImgBase}Afiliado/Iogurteira.webp`} 
                                 alt="Iogurteira Elétrica para preparo caseiro de probióticos" 
                                 className="w-full h-auto" 
+                                width="200"
+                                height="200"
+                                loading="lazy"
                             />
                         </div>
 
@@ -529,7 +432,7 @@ export default function Probioticos() {
                       </h3>
                       <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
                     </button>
-                    <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
+                    <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
                       <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">{faq.resposta}</p>
                     </div>
                   </div>
@@ -549,6 +452,9 @@ export default function Probioticos() {
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr." 
               className="w-full h-full object-cover" 
+              width="96"
+              height="96"
+              loading="lazy"
               onError={(e) => {
                 e.target.onerror = null; 
                 e.target.src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>👨‍⚕️</text></svg>";
@@ -559,7 +465,7 @@ export default function Probioticos() {
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
             <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
-              Apaixonado pela fisiologia e pelo comportamento humano, Marco foca em traduzir o rigor científico para a prática do dia a dia, ajudando você a construir uma relação mais leve e sem radicalismos com a comida, cuidando do corpo desde o intestino até a mente.
+              Apaixonado pela fisiologia e pelo comportamento humano, Marco foca em traduzir o rigor científico para a prática do dia a dia, ajudando a construir uma relação mais leve e sem radicalismos com a comida, cuidando do corpo desde o intestino até a mente.
             </p>
             <a href="https://instagram.com/Nutricao_com_Marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
               Siga @Nutricao_com_Marco
