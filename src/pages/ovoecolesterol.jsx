@@ -353,7 +353,7 @@ export default function OvoColesterol() {
 
                         {/* BOTÃO COM LINK AFILIADO */}
                         <a 
-                            href="SEU_LINK_DE_AFILIADO_ML_AQUI" 
+                            href="https://meli.la/1KmaEhC" 
                             rel="sponsored noopener noreferrer" 
                             target="_blank"
                             className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
