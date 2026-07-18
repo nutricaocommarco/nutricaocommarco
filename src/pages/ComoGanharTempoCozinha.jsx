@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   ChevronLeft, HelpCircle, Activity, ChefHat, Clock, FileText, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
-  Snowflake, Utensils, AlertTriangle, CheckCircle2, Beef, Calculator
+  Snowflake, Utensils, AlertTriangle, CheckCircle2, Beef, Calculator, Leaf
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
