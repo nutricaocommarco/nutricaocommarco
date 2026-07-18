@@ -470,7 +470,7 @@ export default function OQueEDietaMediterranea() {
               </div>
             </div>
 
-            {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (FRIGIDEIRA SEM ÓLEO) */}
+{/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (FRIGIDEIRA SEM ÓLEO) */}
             <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
                 {/* SELO NO CANTO SUPERIOR */}
                 <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
@@ -478,6 +478,7 @@ export default function OQueEDietaMediterranea() {
                     <span>O Pingus Aprova!</span>
                 </div>
 
+                {/* CONTAINER FLEXÍVEL (IMAGEM + TEXTO) */}
                 <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
                     {/* FOTO DO PINGUS (AUTORIDADE) */}
                     <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
@@ -523,7 +524,15 @@ export default function OQueEDietaMediterranea() {
                             Comprar no Mercado Livre
                         </a>
                     </div>
+                </div> {/* FIM DO CONTAINER FLEXÍVEL */}
+
+                {/* DISCLOSURE OBRIGATÓRIO (AGORA FORA DO CONTAINER FLEXÍVEL) */}
+                <div className="mt-12 pt-6 border-t border-green-50 text-center">
+                    <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
+                        Ao comprar pelo link, o blog recebe uma comissão que ajuda a manter os nossos artigos científicos gratuitos, sem gerar custo nenhum para você.
+                    </p>
                 </div>
+            </div>
 
             {/* SEÇÃO DE CONCLUSÃO */}
             <h2 id="conclusao" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
