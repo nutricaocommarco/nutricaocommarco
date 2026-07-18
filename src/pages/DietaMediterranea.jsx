@@ -155,7 +155,7 @@ export default function OQueEDietaMediterranea() {
               <Zap className="text-green-700" /> Resposta Direta: O que é Dieta Mediterrânea?
             </h2>
             <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
-              A <strong>Dieta Mediterrânea</strong> não é um regime passageiro, mas um modo de vida baseado nos hábitos alimentares de populações que vivem ao redor do Mar Mediterrâneo[span_0](start_span)[span_0](end_span). A sua base é pesco-vegetariana, riquíssima em frutas, vegetais, leguminosas, grãos integrais, peixes e sementes[span_1](start_span)[span_1](end_span). O seu principal trunfo é o uso abundante do <strong>azeite de oliva extra virgem</strong> como principal fonte de gordura boa[span_2](start_span)[span_2](end_span). É comprovadamente o melhor padrão alimentar do mundo para proteger a saúde cardiovascular e promover a longevidade[span_3](start_span)[span_3](end_span).
+              A <strong>Dieta Mediterrânea</strong> não é um regime passageiro, mas um modo de vida baseado nos hábitos alimentares de populações que vivem ao redor do Mar Mediterrâneo. A sua base é pesco-vegetariana, riquíssima em frutas, vegetais, leguminosas, grãos integrais, peixes e sementes. O seu principal trunfo é o uso abundante do <strong>azeite de oliva extra virgem</strong> como principal fonte de gordura boa. É comprovadamente o melhor padrão alimentar do mundo para proteger a saúde cardiovascular e promover a longevidade.
             </p>
           </div>
 
@@ -202,6 +202,7 @@ export default function OQueEDietaMediterranea() {
                   <li><a href="#comparativo" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Comparação com outras dietas</a></li>
                   <li><a href="#video" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><PlayCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Vídeo Explicativo</a></li>
                   <li><a href="#afiliado" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><ShoppingCart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O Segredo do Azeite</a></li>
+                  <li><a href="#conclusao" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><CheckCircle2 size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Conclusão da Ciência</a></li>
                   <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes (FAQ)</a></li>
                 </ul>
               </div>
@@ -240,20 +241,20 @@ export default function OQueEDietaMediterranea() {
               <Globe className="text-green-700"/> A História: O Estudo dos 7 Países e as Blue Zones
             </h2>
             <p>
-              Para entendermos a força desse estilo de vida, precisamos voltar aos anos 50. O fisiologista Ancel Keys liderou uma pesquisa colossal conhecida como "O Estudo dos Sete Países[span_4](start_span)"[span_4](end_span). O objetivo era mapear o estilo de vida, o <Link to="/calculadora-de-imc" className="text-green-700 font-bold hover:underline">Índice de Massa Corporal (IMC)</Link> e a mortalidade de várias nações[span_5](start_span)[span_5](end_span). 
+              Para entendermos a força desse estilo de vida, precisamos voltar aos anos 50. O fisiologista Ancel Keys liderou uma pesquisa colossal conhecida como "O Estudo dos Sete Países". O objetivo era mapear o estilo de vida, o <Link to="/calculadora-de-imc" className="text-green-700 font-bold hover:underline">Índice de Massa Corporal (IMC)</Link> e a mortalidade de várias nações. 
             </p>
             <p>
-              Keys notou algo impressionante: populações que viviam na Grécia, no sul da Itália e em ilhas do Mediterrâneo apresentavam taxas inacreditavelmente baixas de mortalidade por doença coronariana, mesmo consumindo uma quantidade considerável de gorduras em seu cardápio diário[span_6](start_span)[span_6](end_span). A grande virada de chave para a ciência foi perceber que o vilão do coração não era a gordura em si, mas o <strong>tipo de gordura</strong>. 
+              Keys notou algo impressionante: populações que viviam na Grécia, no sul da Itália e em ilhas do Mediterrâneo apresentavam taxas inacreditavelmente baixas de mortalidade por doença coronariana, mesmo consumindo uma quantidade considerável de gorduras em seu cardápio diário. A grande virada de chave para a ciência foi perceber que o vilão do coração não era a gordura em si, mas o <strong>tipo de gordura</strong>. 
             </p>
             <p>
-              Essas populações mediterrâneas consumiam quase exclusivamente gorduras monoinsaturadas (vindas das azeitonas) e poli-insaturadas (vindas dos peixes e castanhas), ignorando completamente os alimentos ultraprocessados que dominavam o Ocidente[span_7](start_span)[span_7](end_span). Hoje, locais como a Sardenha (Itália) e a Ilha de Ikaria (Grécia) são classificados como <strong>Blue Zones</strong>, regiões onde os habitantes vivem rotineiramente mais de 100 anos com excelente saúde cerebral e física[span_8](start_span)[span_8](end_span).
+              Essas populações mediterrâneas consumiam quase exclusivamente gorduras monoinsaturadas (vindas das azeitonas) e poli-insaturadas (vindas dos peixes e castanhas), ignorando completamente os alimentos ultraprocessados que dominavam o Ocidente. Hoje, locais como a Sardenha (Itália) e a Ilha de Ikaria (Grécia) são classificados como <strong>Blue Zones</strong>, regiões onde os habitantes vivem rotineiramente mais de 100 anos com excelente saúde cerebral e física.
             </p>
 
             <h2 id="piramide" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Activity className="text-green-700"/> A Pirâmide da Dieta Mediterrânea: O que comer na prática?
             </h2>
             <p>
-              A palavra dieta vem do grego <em>diaita</em>, que significa "modo de vida[span_9](start_span)"[span_9](end_span). É exatamente isso que a Dieta Mediterrânea propõe: não é um cardápio fechado de gaveta, mas um padrão de escolhas inteligente[span_10](start_span)[span_10](end_span). Veja como a pirâmide se estrutura:
+              A palavra dieta vem do grego <em>diaita</em>, que significa "modo de vida". É exatamente isso que a Dieta Mediterrânea propõe: não é um cardápio fechado de gaveta, mas um padrão de escolhas inteligente. Veja como a pirâmide se estrutura:
             </p>
 
             <ul className="list-none space-y-4 my-8 p-0">
@@ -261,21 +262,21 @@ export default function OQueEDietaMediterranea() {
                 <Leaf className="w-8 h-8 text-green-600 shrink-0 mt-1" />
                 <div>
                   <strong className="text-slate-800 block text-lg mb-1">Base Diária (A Fundação):</strong>
-                  <span className="text-slate-600 text-base">Consumo muito elevado e variado de vegetais crus e cozidos, frutas de diversas cores, grãos inteiros e pães fibrosos, além de leguminosas (feijões, lentilhas) e oleaginosas (nozes, sementes)[span_11](start_span)[span_11](end_span). O <strong>Azeite de Oliva Extra Virgem</strong> é o rei absoluto, usado como a principal fonte de gordura para o preparo de refeições e temperos[span_12](start_span)[span_12](end_span). Temperos artificiais dão lugar a ervas aromáticas frescas, alho e cebola[span_13](start_span)[span_13](end_span).</span>
+                  <span className="text-slate-600 text-base">Consumo muito elevado e variado de vegetais crus e cozidos, frutas de diversas cores, grãos inteiros e pães fibrosos, além de leguminosas (feijões, lentilhas) e oleaginosas (nozes, sementes). O <strong>Azeite de Oliva Extra Virgem</strong> é o rei absoluto, usado como a principal fonte de gordura para o preparo de refeições e temperos. Temperos artificiais dão lugar a ervas aromáticas frescas, alho e cebola.</span>
                 </div>
               </li>
               <li className="bg-slate-50 p-6 rounded-3xl border border-slate-100 flex items-start gap-4">
                 <Fish className="w-8 h-8 text-blue-500 shrink-0 mt-1" />
                 <div>
                   <strong className="text-slate-800 block text-lg mb-1">Consumo Semanal Frequente (2 a 4x):</strong>
-                  <span className="text-slate-600 text-base">O mar dita as regras das proteínas. Peixes e pescados devem aparecer na mesa pelo menos duas vezes por semana[span_14](start_span)[span_14](end_span). O consumo de aves, ovos (2 a 4 vezes) e laticínios (de preferência magros, como queijos e iogurtes naturais) é bem-vindo, mas em porções controladas[span_15](start_span)[span_15](end_span).</span>
+                  <span className="text-slate-600 text-base">O mar dita as regras das proteínas. Peixes e pescados devem aparecer na mesa pelo menos duas vezes por semana. O consumo de aves, ovos (2 a 4 vezes) e laticínios (de preferência magros, como queijos e iogurtes naturais) é bem-vindo, mas em porções controladas.</span>
                 </div>
               </li>
               <li className="bg-slate-50 p-6 rounded-3xl border border-slate-100 flex items-start gap-4">
                 <XCircle className="w-8 h-8 text-red-500 shrink-0 mt-1" />
                 <div>
                   <strong className="text-slate-800 block text-lg mb-1">No Topo da Pirâmide (Raramente):</strong>
-                  <span className="text-slate-600 text-base">Carnes vermelhas e doces ficam para o topo da pirâmide, sendo consumidos em pequenas porções e com pouca frequência (algumas vezes ao mês)[span_16](start_span)[span_16](end_span). Carnes ultraprocessadas (como embutidos, salsichas e presuntos) e margarinas ricas em gordura trans são praticamente banidas do cotidiano[span_17](start_span)[span_17](end_span).</span>
+                  <span className="text-slate-600 text-base">Carnes vermelhas e doces ficam para o topo da pirâmide, sendo consumidos em pequenas porções e com pouca frequência (algumas vezes ao mês). Carnes ultraprocessadas (como embutidos, salsichas e presuntos) e margarinas ricas em gordura trans são praticamente banidas do cotidiano.</span>
                 </div>
               </li>
             </ul>
@@ -284,18 +285,18 @@ export default function OQueEDietaMediterranea() {
               <Heart className="text-green-700"/> A Ciência: Estudo PREDIMED e Proteção ao Coração
             </h2>
             <p>
-              O status de "melhor dieta do mundo" não foi ganho por votos na internet, mas por ensaios clínicos monumentais. Um dos mais poderosos foi o estudo espanhol <strong>PREDIMED</strong>, publicado no <em>The New England Journal of Medicine</em> em 2013[span_18](start_span)[span_18](end_span). 
+              O status de "melhor dieta do mundo" não foi ganho por votos na internet, mas por ensaios clínicos monumentais. Um dos mais poderosos foi o estudo espanhol <strong>PREDIMED</strong>, publicado no <em>The New England Journal of Medicine</em> em 2013. 
             </p>
             <p>
-              O estudo queria verificar se essa dieta realmente protegia o coração de pessoas em alto risco cardiovascular[span_19](start_span)[span_19](end_span). Eles dividiram as pessoas em três grupos: um seguiu a Dieta Mediterrânea consumindo bastante Azeite Extra Virgem (4 colheres/dia); o segundo seguiu a dieta recebendo um mix diário de nozes; e o terceiro grupo (controle) recebeu ordens apenas para reduzir gorduras totais (Low Fat)[span_20](start_span)[span_20](end_span).
+              O estudo queria verificar se essa dieta realmente protegia o coração de pessoas em alto risco cardiovascular. Eles dividiram as pessoas em três grupos: um seguiu a Dieta Mediterrânea consumindo bastante Azeite Extra Virgem (4 colheres/dia); o segundo seguiu a dieta recebendo um mix diário de nozes; e o terceiro grupo (controle) recebeu ordens apenas para reduzir gorduras totais (Low Fat).
             </p>
             <p>
-              Os resultados foram tão drásticos que o conselho de ética mandou interromper o estudo antes do prazo: os grupos que seguiram a dieta mediterrânea tiveram uma redução muito significativa em infartos, mortes cardíacas e, de forma extremamente marcante, na incidência de <strong>Derrames (AVC)</strong> em comparação com quem apenas cortou as gorduras[span_21](start_span)[span_21](end_span).
+              Os resultados foram tão drásticos que o conselho de ética mandou interromper o estudo antes do prazo: os grupos que seguiram a dieta mediterrânea tiveram uma redução muito significativa em infartos, mortes cardíacas e, de forma extremamente marcante, na incidência de <strong>Derrames (AVC)</strong> em comparação com quem apenas cortou as gorduras.
             </p>
 
             <blockquote className="my-10 border-l-4 border-green-600 bg-green-50 p-6 md:p-8 rounded-r-3xl shadow-sm">
               <p className="m-0 text-xl md:text-2xl font-black text-green-900 italic leading-relaxed">
-                O grande responsável por essa blindagem nas artérias? Os compostos fenólicos do azeite. Substâncias potentes como a <strong>oleuropeína e o hidroxitirosol</strong> atuam como antioxidantes naturais no nosso sangue, combatendo o estresse celular, desinflamando as veias e evitando a oxidação perigosa do <Link to="/colesterol-hdl-ldl" className="text-green-700 font-bold hover:underline">colesterol LDL</Link>[span_22](start_span)[span_22](end_span).
+                O grande responsável por essa blindagem nas artérias? Os compostos fenólicos do azeite. Substâncias potentes como a <strong>oleuropeína e o hidroxitirosol</strong> atuam como antioxidantes naturais no nosso sangue, combatendo o estresse celular, desinflamando as veias e evitando a oxidação perigosa do <Link to="/colesterol-hdl-ldl" className="text-green-700 font-bold hover:underline">colesterol LDL</Link>.
               </p>
             </blockquote>
 
@@ -303,10 +304,10 @@ export default function OQueEDietaMediterranea() {
               <Dna className="text-green-700"/> O Impacto Oculto na Microbiota Intestinal
             </h2>
             <p>
-              Você não come apenas para o seu estômago; você come para os trilhões de bactérias que moram dentro de você. Uma revisão de estudos (Merra et al.) demonstrou que a alta ingestão de fibras complexas (acessíveis à microbiota), vitaminas e ácidos graxos insaturados aumenta a diversidade dos micróbios no nosso intestino[span_23](start_span)[span_23](end_span). 
+              Você não come apenas para o seu estômago; você come para os trilhões de bactérias que moram dentro de você. Uma revisão de estudos demonstrou que a alta ingestão de fibras complexas (acessíveis à microbiota), vitaminas e ácidos graxos insaturados aumenta a diversidade dos micróbios no nosso intestino. 
             </p>
             <p className="bg-blue-50 p-6 rounded-2xl border border-blue-100 text-blue-900 italic mt-6">
-              A Dieta Mediterrânea promove ativamente o crescimento de colônias de bactérias do bem, como <em>Lactobacilli</em>, <em>Bifidobacteria</em> e <em>Bacteroides</em>[span_24](start_span)[span_24](end_span). Ao fermentarem as fibras de grãos integrais e leguminosas, essas bactérias produzem ácidos graxos de cadeia curta (como acetato e butirato), que reforçam a parede intestinal, evitam que toxinas vazem para o sangue (Leaky Gut) e turbinam o seu metabolismo basal e a sua sensibilidade à insulina[span_25](start_span)[span_25](end_span).
+              A Dieta Mediterrânea promove ativamente o crescimento de colônias de bactérias do bem, como <em>Lactobacilli</em>, <em>Bifidobacteria</em> e <em>Bacteroides</em>. Ao fermentarem as fibras de grãos integrais e leguminosas, essas bactérias produzem ácidos graxos de cadeia curta (como acetato e butirato), que reforçam a parede intestinal, evitam que toxinas vazem para o sangue (Leaky Gut) e turbinam o seu metabolismo basal e a sua sensibilidade à insulina.
             </p>
 
             <h2 id="emagrecimento" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
@@ -316,10 +317,10 @@ export default function OQueEDietaMediterranea() {
               Essa é a pergunta de ouro no consultório. Se a dieta tem tanto azeite, nozes e peixes (fontes de gordura e calorias), ela engorda? A resposta científica é: <strong>ela não só não engorda, como é excelente para o emagrecimento sustentável</strong>. No entanto, precisamos ser honestos.
             </p>
             <p>
-              O estudo CARDIVEG comparou diretamente a dieta mediterrânea de baixa caloria com uma dieta vegetariana de baixa caloria por 3 meses[span_26](start_span)[span_26](end_span). A conclusão clínica foi que <strong>ambas as dietas foram igualmente eficazes na redução do peso corporal e na perda de massa gorda</strong>[span_27](start_span)[span_27](end_span). Ou seja, para o ponteiro da balança descer de verdade, o que manda é a magnitude do seu déficit calórico[span_28](start_span)[span_28](end_span). Se você comer baldes de azeite e montanhas de arroz integral, não vai emagrecer. 
+              O estudo CARDIVEG comparou diretamente a dieta mediterrânea de baixa caloria com uma dieta vegetariana de baixa caloria por 3 meses. A conclusão clínica foi que <strong>ambas as dietas foram igualmente eficazes na redução do peso corporal e na perda de massa gorda</strong>. Ou seja, para o ponteiro da balança descer de verdade, o que manda é a magnitude do seu déficit calórico. Se você comer baldes de azeite e montanhas de arroz integral, não vai emagrecer. 
             </p>
             <p>
-              Contudo, a grande diferença está na saúde dos seus exames de sangue e na facilidade de adesão! O estudo também comprovou que a Dieta Mediterrânea levou a uma maior redução dos níveis de triglicerídeos no sangue do que a dieta vegetariana[span_29](start_span)[span_29](end_span). Como esse padrão alimentar é muito farto, a sua digestão fica mais lenta e os níveis do <Link to="/hormonios-fome-saciedade" className="text-green-700 font-bold hover:underline">hormônio da saciedade disparam</Link>. Você emagrece sem passar o dia de mau humor, blindando-se contra a perigosa <Link to="/fome-emocional" className="text-green-700 font-bold hover:underline">fome emocional</Link>.
+              Contudo, a grande diferença está na saúde dos seus exames de sangue e na facilidade de adesão! O estudo também comprovou que a Dieta Mediterrânea levou a uma maior redução dos níveis de triglicerídeos no sangue do que a dieta vegetariana. Como esse padrão alimentar é muito farto, a sua digestão fica mais lenta e os níveis do <Link to="/hormonios_da_fome_emagrecimento" className="text-green-700 font-bold hover:underline">hormônio da saciedade disparam</Link>. Você emagrece sem passar o dia de mau humor, blindando-se contra a perigosa <Link to="/o-que-e-fome-emocional" className="text-green-700 font-bold hover:underline">fome emocional</Link>.
             </p>
 
             {/* ELEMENTO INTERATIVO: CALCULADORA PREDIMED */}
@@ -506,7 +507,7 @@ export default function OQueEDietaMediterranea() {
                         </div>
 
                         <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                            O coração metabólico da Dieta Mediterrânea é o azeite de oliva, riquíssimo nos antioxidantes oleuropeína e hidroxitirosol[span_30](start_span)[span_30](end_span). O grande erro é comprar azeites misturados ou super refinados nos supermercados. Para blindar a sua saúde, você precisa de um <strong>Azeite Extra Virgem genuíno, prensado a frio, envasado em vidro escuro e com acidez garantida menor que 0,2%</strong>.
+                            O coração metabólico da Dieta Mediterrânea é o azeite de oliva, riquíssimo nos antioxidantes oleuropeína e hidroxitirosol. O grande erro é comprar azeites misturados ou super refinados nos supermercados. Para blindar a sua saúde, você precisa de um <strong>Azeite Extra Virgem genuíno, prensado a frio, envasado em vidro escuro e com acidez garantida menor que 0,2%</strong>.
                         </p>
 
                         <a 
@@ -527,6 +528,17 @@ export default function OQueEDietaMediterranea() {
                     </p>
                 </div>
             </div>
+
+            {/* SEÇÃO DE CONCLUSÃO */}
+            <h2 id="conclusao" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <CheckCircle2 className="text-green-700"/> Conclusão: O Veredito da Ciência
+            </h2>
+            <p>
+              Para resumir o que a ciência nos mostra, a Dieta Mediterrânea é uma linha alimentar basicamente pesco-vegetariana, que faz parte da cultura de diversos povos e começou a ganhar atenção global após o Estudo dos 7 Países[span_0](start_span)[span_0](end_span). Ela se destaca por ser extremamente rica em compostos bioativos, compostos fenólicos e antioxidantes, além de exigir um consumo baixíssimo de alimentos ultraprocessados[span_1](start_span)[span_1](end_span).
+            </p>
+            <p>
+              O seu grande diferencial é o alto consumo de gorduras boas (MUFAs) e grãos integrais[span_2](start_span)[span_2](end_span). É fundamental lembrar que ela não apresenta vantagem mágica no emagrecimento frente a outras linhas saudáveis com igual déficit calórico, mas a sua facilidade de adesão e os imensos benefícios cardiovasculares a tornam uma das melhores estratégias para a saúde e longevidade[span_3](start_span)[span_3](end_span).
+            </p>
 
             {/* FAQ DINÂMICO */}
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
