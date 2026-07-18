@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   ChevronLeft, HelpCircle, Activity, Leaf, Heart, FileText, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
-  Droplet, Fish, Wheat, Wine, CheckCircle2, XCircle, Globe, Scale, Brain, Dna
+  Droplet, Fish, Wheat, Wine, CheckCircle2, XCircle, Globe, Scale, Brain, Dna, Target
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
