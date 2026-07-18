@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Calculator, Activity, Info, CheckCircle2, User, HeartPulse, AlertTriangle, Settings, Zap, Dumbbell, Timer } from 'lucide-react';
 
-const CalculatorImage = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Calculadora-de-Gasto-Calorico.jpg";
+const CalculatorImage = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Calculadora-de-Gasto-Calorico.webp";
 
 // Dicionário de METs Expandido para o Modo Avançado
 const metOptions = [
