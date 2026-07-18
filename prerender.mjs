@@ -45,6 +45,21 @@ const rotasEstaticas = [
 // 📝 2. TODOS OS POSTS DO BLOG
 const postsBlog = [
   { 
+    id: 29, 
+    link: "/como-ganhar-tempo-na-cozinha", 
+    img: `${githubImgBase}Blog/GanharTempo_Capa.webp`, 
+    titulo: "Como Ganhar Tempo na Cozinha: O Guia do Congelamento e Mise en Place", 
+    desc: "Aprenda como ganhar tempo na cozinha organizando suas marmitas. Descubra a técnica do Mise en Place, a Matriz 3x3 e os segredos do congelamento inteligente.", 
+    data: "2026-07-18",
+    schemasExtra: [
+      getMedicalSchema(
+        "Organização Alimentar e Congelamento Inteligente", 
+        "https://www.nutricaocommarco.com.br/como-ganhar-tempo-na-cozinha", 
+        ["Nutrição Comportamental", "Preparo de Refeições", "Conservação de Alimentos", "Mise en Place"]
+      )
+    ]
+  },
+  { 
     id: 28, // Ajuste o ID conforme a sequência do seu blog
     link: "/o-que-e-dieta-mediterranea", 
     img: `${githubImgBase}Blog/DietaMediterranea_Capa.webp`, 
