@@ -77,6 +77,9 @@ export default function ComoGanharTempoCozinha() {
   // Estados da Calculadora
   const [carneSelecionada, setCarneSelecionada] = useState(dadosCarnes[0].nome);
   const [quantidadeCrua, setQuantidadeCrua] = useState(500);
+  const [tamanhoPorcao, setTamanhoPorcao] = useState(100);
+  const [tipoReferencia, setTipoReferencia] = useState("pronto");
+  const [pessoas, setPessoas] = useState(2);
   const [resultadoCalculadora, setResultadoCalculadora] = useState(null);
 
   useEffect(() => {
@@ -85,13 +88,25 @@ export default function ComoGanharTempoCozinha() {
 
   const handleCalcularRendimento = () => {
     const carne = dadosCarnes.find(c => c.nome === carneSelecionada);
-    if (carne && quantidadeCrua > 0) {
+    if (carne && quantidadeCrua > 0 && tamanhoPorcao > 0 && pessoas > 0) {
       const pesoPerdido = quantidadeCrua * carne.perda;
       const pesoCozido = quantidadeCrua - pesoPerdido;
+      
+      const pesoBaseParaDivisao = tipoReferencia === 'pronto' ? pesoCozido : quantidadeCrua;
+      const totalPorcoes = Math.floor(pesoBaseParaDivisao / tamanhoPorcao);
+      const sobraNaBase = (pesoBaseParaDivisao % tamanhoPorcao).toFixed(0);
+      const refeicoesCompletas = Math.floor(totalPorcoes / pessoas);
+
       setResultadoCalculadora({
         cozido: pesoCozido.toFixed(0),
         perda: pesoPerdido.toFixed(0),
-        percentual: (carne.perda * 100).toFixed(0)
+        percentual: (carne.perda * 100).toFixed(0),
+        totalPorcoes,
+        refeicoesCompletas,
+        pessoasInput: pessoas,
+        tamanhoPorcaoInput: tamanhoPorcao,
+        tipoReferencia,
+        sobra: sobraNaBase
       });
     }
   };
@@ -362,7 +377,7 @@ export default function ComoGanharTempoCozinha() {
               <Calculator className="text-green-700"/> Calculadora Interativa: Rendimento de Proteínas
             </h2>
             <p className="mb-8">
-              Um dos maiores erros de quem tenta organizar a semana é não calcular o quanto a carne "encolhe" na panela. Se você precisa de 120g de frango pronto na marmita, comprar exatos 120g no mercado não vai funcionar, pois a perda de água e gordura altera o peso final. Use nossa ferramenta baseada nas tabelas oficiais de rendimento para não faltar comida na sua dieta!
+              Um dos maiores erros de quem tenta organizar a semana é não calcular o quanto a carne "encolhe" na panela. Se você precisa de 120g de frango pronto na marmita, comprar exatos 120g no mercado não vai funcionar, pois a perda de água e gordura altera o peso final. Use nossa ferramenta baseada nas tabelas oficiais de rendimento para planejar suas compras perfeitamente!
             </p>
 
             <div className="my-10 bg-white border border-slate-200 shadow-xl rounded-[3rem] overflow-hidden">
@@ -371,18 +386,18 @@ export default function ComoGanharTempoCozinha() {
                   <Calculator className="text-green-500" /> Rendimento Real
                 </strong>
                 <p className="text-slate-300 font-medium mt-2 m-0 text-sm md:text-base">
-                  Descubra o peso real da proteína depois de pronta para organizar suas compras.
+                  Simule o peso exato e descubra quantas refeições você consegue montar.
                 </p>
               </div>
 
               <div className="p-6 md:p-10 flex flex-col items-center gap-6">
-                <div className="w-full max-w-md space-y-4">
+                <div className="w-full max-w-lg space-y-5">
                   <div>
-                    <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Selecione o Corte e Preparo</label>
+                    <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">1. Selecione o Corte e Preparo</label>
                     <select 
                       value={carneSelecionada}
                       onChange={(e) => setCarneSelecionada(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm font-bold rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 p-4 outline-none transition-all shadow-inner"
+                      className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm font-bold rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 p-4 h-[55px] outline-none transition-all shadow-inner"
                     >
                       {dadosCarnes.map((carne, idx) => (
                         <option key={idx} value={carne.nome}>{carne.nome}</option>
@@ -391,13 +406,46 @@ export default function ComoGanharTempoCozinha() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Peso Cru Comprado (em gramas)</label>
+                    <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">2. Peso Cru Comprado (em gramas)</label>
                     <input 
                       type="number" 
                       value={quantidadeCrua}
-                      onChange={(e) => setQuantidadeCrua(e.target.value)}
+                      onChange={(e) => setQuantidadeCrua(Number(e.target.value))}
                       className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-xl font-black rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 block p-4 text-center outline-none transition-all shadow-inner"
                       placeholder="Ex: 500"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">3. Porção por pessoa (g)</label>
+                      <input 
+                        type="number" 
+                        value={tamanhoPorcao}
+                        onChange={(e) => setTamanhoPorcao(Number(e.target.value))}
+                        className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-lg font-black rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 block p-4 h-[55px] text-center outline-none transition-all shadow-inner"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">4. A porção é do peso:</label>
+                      <select 
+                        value={tipoReferencia}
+                        onChange={(e) => setTipoReferencia(e.target.value)}
+                        className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm font-bold rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 p-4 h-[55px] outline-none transition-all shadow-inner text-center text-center-last"
+                      >
+                        <option value="pronto">Pronto</option>
+                        <option value="cru">Cru</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">5. Para quantas pessoas?</label>
+                    <input 
+                      type="number" 
+                      value={pessoas}
+                      onChange={(e) => setPessoas(Number(e.target.value))}
+                      className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-lg font-black rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 block p-4 text-center outline-none transition-all shadow-inner"
                     />
                   </div>
 
@@ -405,20 +453,40 @@ export default function ComoGanharTempoCozinha() {
                     onClick={handleCalcularRendimento}
                     className="w-full bg-green-700 text-white h-[60px] rounded-2xl font-black uppercase text-sm tracking-widest shadow-lg hover:bg-green-800 transition-all mt-4"
                   >
-                    Calcular Peso Final
+                    Calcular Planejamento
                   </button>
                 </div>
 
                 {resultadoCalculadora && (
-                  <div className="w-full max-w-md mt-6 p-6 rounded-[2rem] border-2 bg-green-50 border-green-200 text-center animate-fade-in">
-                    <span className="text-xs font-black uppercase tracking-widest text-green-800 block mb-2">O peso final pronto será de aprox:</span>
-                    <span className="text-5xl font-black italic text-green-700 drop-shadow-sm block mb-4">
-                      {resultadoCalculadora.cozido}g
-                    </span>
-                    <div className="flex flex-col gap-1 text-sm font-medium text-green-900 bg-white p-4 rounded-xl border border-green-100 text-left">
-                      <p className="m-0 flex justify-between"><span>Perda de água/gordura:</span> <strong>{resultadoCalculadora.perda}g</strong></p>
-                      <p className="m-0 flex justify-between"><span>Percentual de redução:</span> <strong>{resultadoCalculadora.percentual}%</strong></p>
+                  <div className="w-full max-w-lg mt-6 p-6 rounded-[2rem] border-2 bg-green-50 border-green-200 text-center animate-fade-in flex flex-col gap-4">
+                    
+                    <div>
+                      <span className="text-xs font-black uppercase tracking-widest text-green-800 block mb-1">Peso Total (Pronto para consumo):</span>
+                      <span className="text-5xl font-black italic text-green-700 drop-shadow-sm block">
+                        {resultadoCalculadora.cozido}g
+                      </span>
                     </div>
+
+                    <div className="bg-white p-3 rounded-xl border border-green-100 text-sm font-medium text-green-900">
+                      <p className="m-0 flex justify-between"><span>Perda (água/gordura na panela):</span> <strong>{resultadoCalculadora.perda}g ({resultadoCalculadora.percentual}%)</strong></p>
+                    </div>
+
+                    <div className="border-t border-green-200 pt-4 flex flex-col gap-2 text-sm text-green-900 text-left">
+                      <h4 className="font-black uppercase tracking-widest text-xs text-green-800 text-center mb-2">Planejamento das Marmitas</h4>
+                      <p className="m-0 flex items-center justify-between bg-white p-3 rounded-lg border border-green-100 shadow-sm">
+                        <span>Total de Porções:</span> 
+                        <strong>{resultadoCalculadora.totalPorcoes} porções de {resultadoCalculadora.tamanhoPorcaoInput}g</strong>
+                      </p>
+                      <p className="m-0 flex items-center justify-between bg-white p-3 rounded-lg border border-green-100 shadow-sm">
+                        <span>Rendimento Prático:</span> 
+                        <strong>{resultadoCalculadora.refeicoesCompletas} Refeição(ões) para {resultadoCalculadora.pessoasInput} pessoa(s)</strong>
+                      </p>
+                      <p className="m-0 flex items-center justify-between bg-white p-3 rounded-lg border border-green-100 shadow-sm text-xs">
+                        <span>Sobra ({resultadoCalculadora.tipoReferencia}):</span> 
+                        <strong>{resultadoCalculadora.sobra}g</strong>
+                      </p>
+                    </div>
+
                   </div>
                 )}
               </div>
