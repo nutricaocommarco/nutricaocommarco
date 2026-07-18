@@ -55,6 +55,7 @@ const JejumIntermitente = lazyRetry(() => import('./pages/JejumIntermitente'));
 const DietaCetogenica = lazyRetry(() => import('./pages/DietaCetogenica'));
 const DietaLowCarb = lazyRetry(() => import('./pages/DietaLowCarb'));
 const DietaMediterranea = lazyRetry(() => import('./pages/DietaMediterranea'));
+const ComoGanharTempoCozinha = lazyRetry(() => import('./pages/ComoGanharTempoCozinha'));
 
 
 
@@ -273,6 +274,7 @@ export default function App() {
               <Route path="/o-que-e-dieta-cetogenica" element={<DietaCetogenica />} />
               <Route path="/o-que-e-dieta-low-carb" element={<DietaLowCarb />} />
               <Route path="/o-que-e-dieta-mediterranea" element={<DietaMediterranea />} />
+              <Route path="/como-ganhar-tempo-na-cozinha" element={<ComoGanharTempoCozinha />} />
 
             </Routes>
           </Suspense>
