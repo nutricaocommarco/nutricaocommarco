@@ -470,18 +470,20 @@ export default function OQueEDietaMediterranea() {
               </div>
             </div>
 
-            {/* BLOCO AFILIADO */}
-            <div id="afiliado" className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
+            {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (FRIGIDEIRA SEM ÓLEO) */}
+            <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
+                {/* SELO NO CANTO SUPERIOR */}
                 <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
                     <span>O Pingus Aprova!</span>
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
+                    {/* FOTO DO PINGUS (AUTORIDADE) */}
                     <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
                         <img 
                             src={`${githubImgBase}logoN_pingus.webp`} 
-                            alt="Mascote Pingus endossando azeite extra virgem de qualidade para a Dieta Mediterrânea." 
+                            alt="Selo de Qualidade Pingus" 
                             className="w-full h-full object-contain" 
                             width="160"
                             height="160"
@@ -491,43 +493,37 @@ export default function OQueEDietaMediterranea() {
 
                     <div className="flex-1 text-center md:text-left flex flex-col justify-center">
                         <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                            Azeite Extra Virgem <span className="text-green-700">Acidez Máxima 0,2%</span>
+                            Frigideira Antiaderente <span className="text-green-700">Cerâmica Premium</span>
                         </h4>
 
-                        <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm bg-white p-2">
+                        {/* IMAGEM DO PRODUTO ATUALIZADA */}
+                        <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
                             <img 
-                                src={`${githubImgBase}Afiliado/Azeite.webp`} 
-                                alt="Garrafa de Azeite de Oliva Extra Virgem Premium com Baixa Acidez" 
+                                src={`${githubImgBase}Afiliado/Frigideira01.webp`} 
+                                alt="Frigideira Antiaderente de Cerâmica" 
                                 className="w-full h-auto object-contain" 
                                 width="200"
                                 height="200"
                                 loading="lazy"
-                                onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&q=80&w=400"; }}
                             />
                         </div>
 
                         <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                            O coração metabólico da Dieta Mediterrânea é o azeite de oliva, riquíssimo nos antioxidantes oleuropeína e hidroxitirosol. O grande erro é comprar azeites misturados ou super refinados nos supermercados. Para blindar a sua saúde, você precisa de um <strong>Azeite Extra Virgem genuíno, prensado a frio, envasado em vidro escuro e com acidez garantida menor que 0,2%</strong>.
+                            Uma alimentação não precisa ser rica em manteiga ou óleo todo dia. Para garantir os benefícios de uma alimentação gostosa e saudável sem adicionar gorduras ruins à sua rotina, <strong>o ideal é uma frigideira de cerâmica de alta qualidade, onde o alimento não gruda, dispensando o uso de óleo</strong>. É praticidade e saúde na cozinha.
                         </p>
 
+                        {/* BOTÃO COM LINK AFILIADO */}
                         <a 
-                            href="https://meli.la/2S5HJEg" 
+                            href="https://meli.la/1KmaEhC" 
                             rel="sponsored noopener noreferrer" 
                             target="_blank"
                             className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
                         >
                             <ShoppingCart size={16} />
-                            Comprar Azeite de Qualidade
+                            Comprar no Mercado Livre
                         </a>
                     </div>
                 </div>
-
-                <div className="mt-12 pt-6 border-t border-green-50 text-center">
-                    <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
-                        Ao comprar pelo link, o blog recebe uma comissão que ajuda a manter os nossos artigos científicos gratuitos, sem gerar custo nenhum para você.
-                    </p>
-                </div>
-            </div>
 
             {/* SEÇÃO DE CONCLUSÃO */}
             <h2 id="conclusao" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
