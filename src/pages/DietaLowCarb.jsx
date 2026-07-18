@@ -869,7 +869,7 @@ export default function DietaLowCarb() {
 
                         {/* BOTÃO MERCADO LIVRE */}
                         <a 
-                            href="https://meli.la/2E9d1zF" 
+                            href="https://meli.la/2e8sxv1" 
                             rel="sponsored noopener noreferrer" 
                             target="_blank"
                             aria-label="Comprar Balança de Cozinha no Mercado Livre"
