@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ChevronLeft, HelpCircle, PlayCircle, Headphones, ChevronRight, Activity, Leaf, Scale, Heart, AlertTriangle, FileText, Zap, ShoppingCart } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
-import { Helmet } from 'react-helmet-async';
+import YouTubeLazy from '../components/YouTubeLazy';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -66,82 +66,42 @@ const comparativoTratamentos = [
 ];
 
 export default function RetatrutidaOQueE() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
+  const navigate = useNavigate();
   const [isTocOpen, setIsTocOpen] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  const faqs = [
+    {
+      pergunta: "O que é a retatrutida?",
+      resposta: "A retatrutida (LY3437943) é uma medicação em desenvolvimento classificada como um agonista triplo. Ela atua simulando a ação de três hormônios simultaneamente: GLP-1, GIP e Glucagon, oferecendo uma abordagem multitarefa para o emagrecimento."
+    },
+    {
+      pergunta: "Qual a perda de peso esperada com a retatrutida?",
+      resposta: "Nos estudos clínicos de Fase 2 (TRIUMPH-1), os participantes que utilizaram a dose máxima alcançaram uma redução média de peso corporal de até 24,2% ao longo de 48 semanas."
+    },
+    {
+      pergunta: "Em que fase de aprovação está a Retatrutida?",
+      resposta: "A Retatrutida concluiu com sucesso os testes de Fase 2 (mostrando eficácia) e atualmente está na Fase 3 dos testes clínicos. Esta é a fase final e crucial de testes em grande escala antes da submissão para registro e aprovação por órgãos como a ANVISA."
+    }
+  ];
+
   return (
     <>
-      <Helmet>
-        <title>Retatrutida o que é? A nova fronteira da ciência | Nutrição com Marco</title>
-        <meta name="description" content="Descubra o que é a retatrutida, o novo medicamento agonista triplo (GLP-1, GIP e Glucagon) e seus resultados impressionantes na perda de peso. Entenda em que fase de aprovação ela está." />
-
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Retatrutida o que é? A nova fronteira da ciência | Nutrição com Marco" />
-        <meta property="og:description" content="Descubra o que é a retatrutida, o novo medicamento agonista triplo e seus resultados impressionantes na perda de peso. Entenda em que fase de aprovação ela está." />
-        <meta property="og:image" content={`${githubImgBase}Blog/retatrutida_molecula.webp`} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Retatrutida o que é? A nova fronteira da ciência contra a obesidade",
-            "image": `${githubImgBase}Blog/retatrutida_molecula.webp`,
-            "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
-            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.webp`}},
-            "datePublished": "2026-03-24",
-            "dateModified": "2026-03-24",
-            "description": "Descubra o que é a retatrutida, o novo medicamento agonista triplo (GLP-1, GIP e Glucagon) e seus resultados impressionantes na perda de peso."
-          })}
-        </script>
-
-        {/* INÍCIO DO SCHEMA.ORG PARA FAQ */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "O que é a retatrutida?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A retatrutida (LY3437943) é uma medicação em desenvolvimento classificada como um agonista triplo. Ela atua simulando a ação de três hormônios simultaneamente: GLP-1, GIP e Glucagon, oferecendo uma abordagem multitarefa para o emagrecimento."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Qual a perda de peso esperada com a retatrutida?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Nos estudos clínicos de Fase 2 (TRIUMPH-1), os participantes que utilizaram a dose máxima alcançaram uma redução média de peso corporal de até 24,2% ao longo de 48 semanas."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Em que fase de aprovação está a Retatrutida?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A Retatrutida concluiu com sucesso os testes de Fase 2 (mostrando eficácia) e atualmente está na Fase 3 dos testes clínicos. Esta é a fase final e crucial de testes em grande escala antes da submissão para registro e aprovação por órgãos como a ANVISA."
-                }
-              }
-            ]
-          })}
-        </script>
-        {/* FIM DO SCHEMA.ORG PARA FAQ */}
-      </Helmet>
-
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
         {/* Botão de Voltar */}
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
+        <button 
+          onClick={() => state?.fromBlog ? navigate(-1) : navigate('/blog')}
+          className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit bg-transparent border-none cursor-pointer p-0"
+        >
           <ChevronLeft size={20} /> Voltar para o Blog
-        </Link>
+        </button>
 
         <article className="prose prose-lg max-w-none text-left">
           <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Tratamento Farmacológico</span>
@@ -170,7 +130,7 @@ export default function RetatrutidaOQueE() {
                 <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
-              <audio controls className="w-full h-10 outline-none">
+              <audio preload="none" controls className="w-full h-10 outline-none">
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Retatrutida.mp3" type="audio/mpeg" />
                 Seu navegador não suporta o elemento de áudio.
               </audio>
@@ -254,6 +214,9 @@ export default function RetatrutidaOQueE() {
                 alt="Ilustração médica representando a molécula de retatrutida e seus três receptores de ação no organismo." 
                 title="Mecanismo de Ação da Retatrutida"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+                width="800"
+                height="500"
+                loading="lazy"
               />
               <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">A Retatrutida representa um salto científico ao ativar três vias hormonais simultâneas.</p></div>
             </div>
@@ -340,14 +303,7 @@ export default function RetatrutidaOQueE() {
                 <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Análise médica sobre os novos tratamentos</h3>
               </div>
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                <iframe 
-                  src="https://www.youtube.com/embed/7Sk7CWqeH9Y" 
-                  title="Análise do Dr. Stocker sobre Fármacos de Emagrecimento" 
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                ></iframe>
+                <YouTubeLazy videoId="FHqBPiCY-kY" title="Análise do Dr. Stocker sobre Fármacos de Emagrecimento" />
               </div>
             </div>
 
@@ -477,9 +433,9 @@ export default function RetatrutidaOQueE() {
                   {/* Fase */}
                   <div className="p-4 flex flex-col justify-center items-center text-center col-span-2">
                     {farmaco.fase.includes('Aprovado') || farmaco.fase.includes('Ouro') ? (
-                      <span className="bg-slate-100 text-slate-800 px-2 py-1 rounded-full text-[9px] lg:text-[10px] font-black uppercase text-center leading-none flex items-center justify-center h-fit">Aprovado</span>
+                      <span className="bg-slate-100 text-slate-800 px-2 py-1 rounded-full text-[9px] lg:text-[10px] font-black uppercase text-center leading-none flex items-center justify-center h-fit w-fit mx-auto">Aprovado</span>
                     ) : (
-                      <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-[9px] lg:text-[10px] font-black uppercase text-center leading-none flex items-center justify-center h-fit">Em Testes</span>
+                      <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-[9px] lg:text-[10px] font-black uppercase text-center leading-none flex items-center justify-center h-fit w-fit mx-auto">Em Testes</span>
                     )}
                     <span className={`block text-[9px] lg:text-[10px] font-bold mt-2 ${farmaco.cor.includes('600') || farmaco.cor.includes('800') ? 'text-slate-300' : 'text-slate-500' } leading-tight`}>{farmaco.fase}</span>
                   </div>
@@ -543,63 +499,63 @@ export default function RetatrutidaOQueE() {
             </div>
             {/* FIM DA NOVA SEÇÃO DE COMPARAÇÃO */}
 
-{/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (BALANÇA DE COZINHA - RETATRUTIDA) */}
-<div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
-    {/* SELO NO CANTO SUPERIOR */}
-    <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
-        <Zap size={14} className="fill-white" />
-        <span>O Pingus Aprova!</span>
-    </div>
+            {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (BALANÇA DE COZINHA - RETATRUTIDA) */}
+            <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
+                <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+                    <Zap size={14} className="fill-white" />
+                    <span>O Pingus Aprova!</span>
+                </div>
 
-    <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
-        {/* FOTO DO PINGUS (AUTORIDADE) */}
-        <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-            <img 
-                src={`${githubImgBase}logoN_pingus.webp`} 
-                alt="Selo de Qualidade Pingus" 
-                className="w-full h-full object-contain" 
-            />
-        </div>
+                <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
+                    <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
+                        <img 
+                            src={`${githubImgBase}logoN_pingus.webp`} 
+                            alt="Selo de Qualidade Pingus" 
+                            className="w-full h-full object-contain" 
+                            width="160"
+                            height="160"
+                            loading="lazy"
+                        />
+                    </div>
 
-        <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-            <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                Balança de Cozinha Digital <span className="text-green-700">Custo-Benefício</span>
-            </h4>
-            
-            {/* IMAGEM DO PRODUTO */}
-            <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
-                <img 
-                    src={`${githubImgBase}Afiliado/BalancaCozinha.webp`} 
-                    alt="Balança de Cozinha Digital Simples" 
-                    className="w-full h-auto object-contain" 
-                />
+                    <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+                        <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                            Balança de Cozinha Digital <span className="text-green-700">Custo-Benefício</span>
+                        </h4>
+                        
+                        <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
+                            <img 
+                                src={`${githubImgBase}Afiliado/BalancaCozinha.webp`} 
+                                alt="Balança de Cozinha Digital Simples" 
+                                className="w-full h-auto object-contain" 
+                                width="200"
+                                height="200"
+                                loading="lazy"
+                            />
+                        </div>
+
+                        <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
+                            A Retatrutida promove uma perda de peso extrema e praticamente zera o seu apetite. O grande perigo disso é a desnutrição e a perda severa de massa muscular (sarcopenia). Ter uma balança de cozinha garante que, <strong>mesmo sem vontade de comer, você bata a meta de proteínas diária</strong>. Eu usei este modelo simples por muitos anos e garanto: ele entrega toda a precisão que você precisa para proteger seus músculos, sem pesar no bolso!
+                        </p>
+
+                        <a 
+                            href="https://meli.la/2e8sxv1" 
+                            rel="sponsored noopener noreferrer" 
+                            target="_blank"
+                            className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                        >
+                            <ShoppingCart size={16} />
+                            Comprar no Mercado Livre
+                        </a>
+                    </div>
+                </div>
+
+                <div className="mt-12 pt-6 border-t border-green-50 text-center">
+                    <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
+                        Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece o apoio.
+                    </p>
+                </div>
             </div>
-
-            <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                A Retatrutida promove uma perda de peso extrema e praticamente zera o seu apetite. O grande perigo disso é a desnutrição e a perda severa de massa muscular (sarcopenia). Ter uma balança de cozinha garante que, <strong>mesmo sem vontade de comer, você bata a meta de proteínas diária</strong>. Eu usei este modelo simples por muitos anos e garanto: ele entrega toda a precisão que você precisa para proteger seus músculos, sem pesar no bolso!
-            </p>
-
-            {/* BOTÃO COM LINK AFILIADO */}
-            <a 
-                href="https://meli.la/2e8sxv1" 
-                rel="sponsored noopener noreferrer" 
-                target="_blank"
-                className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-            >
-                <ShoppingCart size={16} />
-                Comprar no Mercado Livre
-            </a>
-        </div>
-    </div>
-
-    {/* DISCLOSURE OBRIGATÓRIO */}
-    <div className="mt-12 pt-6 border-t border-green-50 text-center">
-        <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
-            Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece o apoio.
-        </p>
-    </div>
-</div>
-
 
             <h2 id="nutricao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Heart className="text-green-700"/> O Pilar Insubstituível da Nutrição
@@ -675,6 +631,9 @@ export default function RetatrutidaOQueE() {
               alt="Marco Aurélio Jr. - Nutricionista e Autor do Artigo." 
               title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador Antropométrico ISAK Nível 1."
               className="w-full h-full object-cover"
+              width="96"
+              height="96"
+              loading="lazy"
             />
           </div>
 
