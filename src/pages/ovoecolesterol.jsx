@@ -281,7 +281,7 @@ export default function OvoColesterol() {
             <p>Esse é, de longe, o maior mito que a nutrição precisou desconstruir. A literatura mais antiga apontava que a ingestão de colesterol na dieta elevaria o colesterol do sangue. No entanto, a ciência evoluiu e mostrou que essa relação não é direta ou prejudicial na prática clínica.</p>
 
             <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-700 text-slate-700">
-              <li className="font-bold text-lg pl-1">Estudos amplos show que a cada 100 mg de colesterol dietético ingerido (um ovo grande tem em média 225 mg), o colesterol total no plasma aumenta ínfimos 2,2 mg/dL.</li>
+              <li className="font-bold text-lg pl-1">Estudos amplos mostram que a cada 100 mg de colesterol dietético ingerido (um ovo grande tem em média 225 mg), o colesterol total no plasma aumenta ínfimos 2,2 mg/dL.</li>
               <li className="font-bold text-lg pl-1">Essa leve alteração aumenta as partículas de LDL grandes (não aterogênicas), o que na verdade é uma modulação benéfica, pois essas moléculas volumosas têm dificuldade de penetrar nas artérias.</li>
               <li className="font-bold text-lg pl-1">A ingestão de ovos melhora a funcionalidade do colesterol HDL (o famoso "bom" colesterol), proporcionando uma melhor atividade anti-inflamatória e antioxidante no corpo.</li>
             </ul>
