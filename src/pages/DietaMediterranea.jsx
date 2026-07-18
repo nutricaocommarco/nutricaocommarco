@@ -140,7 +140,7 @@ export default function OQueEDietaMediterranea() {
           
           {/* TAGS E DATA */}
           <div className="mb-8 flex flex-col items-start gap-2">
-            <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Saúde, Estilo de Vida e Longevidade</span>
+            <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Dietas da Moda</span>
             <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
           </div>
 
