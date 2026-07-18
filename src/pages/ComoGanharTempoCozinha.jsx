@@ -165,7 +165,7 @@ export default function ComoGanharTempoCozinha() {
               <Zap className="text-green-700" /> Resposta Rápida: Como ganhar tempo na cozinha?
             </h2>
             <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
-              A melhor forma de ganhar tempo na cozinha é adotar a técnica profissional de <strong>Mise en Place</strong>. Isso significa tirar um dia na semana para higienizar, branquear legumes, pré-assar tubérculos e porcionar proteínas cruas ou em molhos. Combinando esse mise en place com o <strong>congelamento inteligente em potes herméticos</strong>, você finaliza refeições variadas em apenas 15 a 30 minutos todos os dias.
+              A melhor forma de ganhar tempo na cozinha é adotar a técnica profissional de <strong>Mise en Place</strong>. Isso significa tirar um dia na semana para higienizar, branquear legumes, pré-assar tubérculos e porcionar proteínas cruas ou em molhos. Combinando esse método com o <strong>congelamento inteligente em potes herméticos</strong>, você finaliza refeições variadas em apenas 15 a 30 minutos todos os dias.
             </p>
           </div>
 
@@ -205,6 +205,7 @@ export default function ComoGanharTempoCozinha() {
                 <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
                   <li><a href="#miseenplace" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><ChefHat size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O Segredo: Mise en Place</a></li>
                   <li><a href="#matriz3x3" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A Matriz 3x3 de Cardápios</a></li>
+                  <li><a href="#bases" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Utensils size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Bases Prontas (Cebola, Alho e Talos)</a></li>
                   <li><a href="#congelamento" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Snowflake size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Congelamento Inteligente</a></li>
                   <li><a href="#embalagens" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Guia de Embalagens</a></li>
                   <li><a href="#calculadora" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Calculator size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Calculadora de Rendimento</a></li>
@@ -293,7 +294,17 @@ export default function ComoGanharTempoCozinha() {
               Com esse mise en place, o seu prato de terça-feira pode ser o Acém cozido, finalizado na panela com a mandioca pré-cozida e a cenoura, ficando pronto em exatos 15 minutos!
             </p>
 
-            <h2 id="congelamento" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+            <h2 id="bases" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+              <Utensils className="text-green-700"/> Bases Prontas: O Segredo do Sabor sem Esforço
+            </h2>
+            <p>
+              Você não precisa picar cebola e alho todo santo dia. Além de sujar a tábua e deixar as mãos com cheiro forte, essa é uma das tarefas que mais gera preguiça na hora de cozinhar. Para otimizar o seu Mise en Place, invista em <strong>Bases Prontas</strong>.
+            </p>
+            <p>
+              Bata a cebola limpa em um processador (usando a função "pulsar" para não virar líquido) e coloque em forminhas de gelo ou faça placas planas dentro de sacos Ziplock. Assim, você terá "tabletes" de cebola que duram meses no freezer. Para o alho, compre ele já descascado e bata com um fio de óleo e umas gotas de limão para evitar a oxidação; essa pasta de alho pode ficar na sua geladeira pronta para uso. Não jogue fora os talos de brócolis, couve e espinafre! Cozinhe rapidamente, processe até virar pequenos pedaços e congele em cubinhos: isso vai agregar muita fibra e sabor a qualquer refogado, molho ou sopa da sua semana, praticando o "zero desperdício".
+            </p>
+
+            <h2 id="congelamento" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Snowflake className="text-green-700"/> Congelamento Inteligente: Pare de Estragar Comida
             </h2>
             <p>
