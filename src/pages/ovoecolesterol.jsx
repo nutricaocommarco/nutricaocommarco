@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, PlayCircle, Headphones, ChevronRight, Activity, Leaf, Scale, Heart, FileText, Zap, ShoppingCart } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { ChevronLeft, HelpCircle, Activity, Leaf, Scale, Heart, FileText, Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, Apple, Coffee, Wheat, Flame, Beaker, CheckCircle2 } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
-import { Helmet } from 'react-helmet-async';
+import YouTubeLazy from '../components/YouTubeLazy';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -60,93 +60,46 @@ const tabelaNutricionalOvo = [
 ];
 
 export default function OvoColesterol() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
+  const navigate = useNavigate();
   const [isTocOpen, setIsTocOpen] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  const faqs = [
+    {
+      pergunta: "Comer ovo todo dia aumenta o colesterol?",
+      resposta: "Não necessariamente. O colesterol dietético presente no ovo tem um impacto muito pequeno no colesterol sanguíneo da maioria das pessoas. Estudos mostram que o consumo adequado pode até melhorar a funcionalidade do colesterol HDL (o 'bom' colesterol) e modular as partículas de LDL de forma menos prejudicial."
+    },
+    {
+      pergunta: "Quem tem colesterol alto pode comer ovo?",
+      resposta: "Sim, na maioria dos casos, desde que inserido em uma dieta baseada nas recomendações nutricionais. Estudos demonstram que o ovo melhora a funcionalidade do colesterol HDL e modula o LDL, sendo seguro quando inserido em uma matriz alimentar equilibrada."
+    },
+    {
+      pergunta: "Quantos ovos por dia faz mal à saúde?",
+      resposta: "Não há uma resposta única, mas a literatura científica aponta que a ingestão de 1 a 3 ovos inteiros por dia é totalmente segura para indivíduos saudáveis, oferecendo um aporte nutritivo denso e benefícios antioxidantes, sem malefícios ao perfil lipídico."
+    },
+    {
+      pergunta: "Ovo aumenta o LDL?",
+      resposta: "O consumo de ovos pode aumentar levemente o colesterol LDL grandes. No entanto, essa leve alteração não aumenta o risco cardiovascular, pois essas moléculas volumosas têm dificuldade de penetrar nas artérias e causar aterosclerose."
+    }
+  ];
+
   return (
     <>
-      <Helmet>
-        {/* SEO OTIMIZADO - TÍTULO DO SNIPPET (aprox 60 caracteres) */}
-        <title>Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Científica | Nutrição com Marco</title>
-
-        {/* META DESCRIPTION OTIMIZADA (aprox 155 caracteres) */}
-        <meta name="description" content="Comer ovo todo dia aumenta o colesterol? Descubra a verdade científica, entenda HDL, LDL e Triglicerídios, e quantos ovos você pode consumir com segurança." />
-
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Científica | Nutrição com Marco" />
-        <meta property="og:description" content="Comer ovo todo dia faz mal à saúde? Ovo aumenta LDL ou HDL? Desvendamos tudo com base em estudos científicos atualizados." />
-        <meta property="og:image" content={`${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.webp`} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        {/* SCHEMA.ORG PARA ARTIGO OTIMIZADO */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Científica",
-            "image": `${githubImgBase}Blog/comer-ovo-todo-dia-aumenta-o-colesterol.webp`,
-            "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
-            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.webp`}},
-            "datePublished": datePublishedISO,
-            "dateModified": dateModifiedISO,
-            "description": "Descubra a verdade científica sobre se comer ovo todo dia aumenta o colesterol e entenda o impacto no perfil lipídico."
-          })}
-        </script>
-
-        {/* INÍCIO DO SCHEMA.ORG PARA FAQ - PERGUNTAS EXATAS DO GOOGLE */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Comer ovo todo dia aumenta o colesterol?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Não necessariamente. O colesterol dietético presente no ovo tem um impacto muito pequeno no colesterol sanguíneo da maioria das pessoas. Estudos mostram que o consumo adequado pode até melhorar a funcionalidade do colesterol HDL (o 'bom' colesterol)."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Quem tem colesterol alto pode comer ovo?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Sim, na maioria dos casos, desde que inserido em uma dieta equilibrada. O ovo melhora as partículas de LDL para um formato menos prejudicial e melhora a função do HDL."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Quantos ovos por dia faz mal?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A literatura científica indica que a ingestão de 1 a 3 ovos inteiros por dia é segura para indivíduos saudáveis e traz benefícios nutricionais e cardiovasculares."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Ovo aumenta o LDL?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "O ovo pode aumentar levemente o colesterol total, mas esse aumento ocorre principalmente nas partículas de LDL grandes (não aterogênicas), que são menos propensas a causar doenças cardíacas."
-                }
-              }
-            ]
-          })}
-        </script>
-        {/* FIM DO SCHEMA.ORG PARA FAQ */}
-      </Helmet>
-
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
+        {/* BOTÃO INTELIGENTE */}
+        <button 
+          onClick={() => state?.fromBlog ? navigate(-1) : navigate('/blog')}
+          className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit bg-transparent border-none cursor-pointer p-0"
+        >
           <ChevronLeft size={20} /> Voltar para o Blog
-        </Link>
+        </button>
 
         <article className="prose prose-lg max-w-none text-left">
 
@@ -172,12 +125,13 @@ export default function OvoColesterol() {
           </div>
 
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+            {/* ÁUDIO COM PRELOAD NONE */}
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
                 <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
-              <audio controls className="w-full h-10 outline-none">
+              <audio preload="none" controls className="w-full h-10 outline-none">
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/OvoColesterol.mp3" type="audio/mpeg" />
                 Seu navegador não suporta o elemento de áudio.
               </audio>
@@ -231,7 +185,7 @@ export default function OvoColesterol() {
                     </a>
                   </li>
                   <li>
-                    <a href="#comer-ovo-todo dia-faz-mal" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
+                    <a href="#comer-ovo-todo-dia-faz-mal" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
                       <Leaf size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />
                       Comer ovo todo dia faz mal à saúde?
                     </a>
@@ -263,6 +217,9 @@ export default function OvoColesterol() {
                 alt="Comer ovo todo dia aumenta o colesterol? Entenda a verdade científica" 
                 title="Benefícios do Ovo e Colesterol"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+                width="800"
+                height="500"
+                loading="lazy"
               />
               <div className="bg-green-50 p-4 text-center">
                 <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
@@ -324,7 +281,7 @@ export default function OvoColesterol() {
             <p>Esse é, de longe, o maior mito que a nutrição precisou desconstruir. A literatura mais antiga apontava que a ingestão de colesterol na dieta elevaria o colesterol do sangue. No entanto, a ciência evoluiu e mostrou que essa relação não é direta ou prejudicial na prática clínica.</p>
 
             <ul className="list-disc pl-6 space-y-3 m-0 mt-2 marker:text-green-700 text-slate-700">
-              <li className="font-bold text-lg pl-1">Estudos amplos mostram que a cada 100 mg de colesterol dietético ingerido (um ovo grande tem em média 225 mg), o colesterol total no plasma aumenta ínfimos 2,2 mg/dL.</li>
+              <li className="font-bold text-lg pl-1">Estudos amplos show que a cada 100 mg de colesterol dietético ingerido (um ovo grande tem em média 225 mg), o colesterol total no plasma aumenta ínfimos 2,2 mg/dL.</li>
               <li className="font-bold text-lg pl-1">Essa leve alteração aumenta as partículas de LDL grandes (não aterogênicas), o que na verdade é uma modulação benéfica, pois essas moléculas volumosas têm dificuldade de penetrar nas artérias.</li>
               <li className="font-bold text-lg pl-1">A ingestão de ovos melhora a funcionalidade do colesterol HDL (o famoso "bom" colesterol), proporcionando uma melhor atividade anti-inflamatória e antioxidante no corpo.</li>
             </ul>
@@ -367,6 +324,9 @@ export default function OvoColesterol() {
                             src={`${githubImgBase}logoN_pingus.webp`} 
                             alt="Selo de Qualidade Pingus" 
                             className="w-full h-full object-contain" 
+                            width="160"
+                            height="160"
+                            loading="lazy"
                         />
                     </div>
 
@@ -381,6 +341,9 @@ export default function OvoColesterol() {
                                 src={`${githubImgBase}Afiliado/Frigideira01.webp`} 
                                 alt="Frigideira Antiaderente de Cerâmica" 
                                 className="w-full h-auto object-contain" 
+                                width="200"
+                                height="200"
+                                loading="lazy"
                             />
                         </div>
 
@@ -445,7 +408,7 @@ export default function OvoColesterol() {
                 É fundamental destacar que, embora as evidências científicas gerais sejam muito positivas para o consumo de ovos, sua saúde é única. Fazer o acompanhamento com um nutricionista é crucial. Este profissional vai avaliar seus exames de sangue atuais, sua rotina de treinos, histórico familiar e objetivos para determinar a quantidade ideal de ovos e o ajuste de outras fontes de colesterol e gordura na sua dieta diária.
             </p>
 
-            {/* VÍDEO RECOMENDADO EM DESTAQUE */}
+            {/* VÍDEO RECOMENDADO EM DESTAQUE - OTIMIZADO COM YOUTUBELAZY */}
             <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               Palavra da Especialista: Ovo Aumenta o Colesterol?
             </h2>
@@ -460,14 +423,7 @@ export default function OvoColesterol() {
                 <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Ovo Aumenta o Colesterol? [DICAS e CUIDADOS]</h3>
               </div>
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                <iframe 
-                  src="https://www.youtube.com/embed/8q_bkOUPX4Q" 
-                  title="Ovo Aumenta o Colesterol? [DICAS e CUIDADOS] - Dra. Patricia Leite" 
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                ></iframe>
+                <YouTubeLazy videoId="8q_bkOUPX4Q" title="Ovo Aumenta o Colesterol? [DICAS e CUIDADOS] - Dra. Patricia Leite" />
               </div>
             </div>
 
@@ -508,6 +464,9 @@ export default function OvoColesterol() {
               alt="Marco Aurélio Jr. - Autor do Artigo." 
               title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador Antropométrico ISAK Nível 1."
               className="w-full h-full object-cover"
+              width="96"
+              height="96"
+              loading="lazy"
             />
           </div>
 
