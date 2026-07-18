@@ -45,6 +45,22 @@ const rotasEstaticas = [
 // 📝 2. TODOS OS POSTS DO BLOG
 const postsBlog = [
   { 
+    id: 28, // Ajuste o ID conforme a sequência do seu blog
+    link: "/o-que-e-dieta-mediterranea", 
+    img: `${githubImgBase}Blog/DietaMediterranea_Capa.webp`, 
+    titulo: "O Que É Dieta Mediterrânea? O Segredo para Saúde e Longevidade", 
+    desc: "Descubra o que é dieta mediterrânea na prática. Entenda como o consumo de azeite extra virgem, peixes e vegetais protege o coração e ajuda a emagrecer sem restrições extremas.", 
+    data: "2026-07-20",
+    schemasExtra: [
+      getMedicalSchema(
+        "O Que É Dieta Mediterrânea e Benefícios Cardiovasculares", 
+        "https://www.nutricaocommarco.com.br/o-que-e-dieta-mediterranea", 
+        ["Dieta Mediterrânea", "Saúde Cardiovascular", "Longevidade", "Nutrição Clínica"]
+      )
+    ]
+  },
+
+  { 
     id: 27, 
     link: "/o-que-e-dieta-low-carb", 
     img: `${githubImgBase}Blog/LowCarb_Capa.webp`, 
