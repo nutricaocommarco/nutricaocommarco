@@ -466,7 +466,7 @@ export default function OQueEDietaMediterranea() {
                 <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight m-0">Como fazer a Dieta Mediterrânea</h3>
               </div>
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                <YouTubeLazy videoId="v1bQmb2y7Lg" title="O Que é Dieta Mediterrânea e Como Fazer" />
+                <YouTubeLazy videoId="Axo9aie0PAU" title="O Que é Dieta Mediterrânea e Como Fazer" />
               </div>
             </div>
 
