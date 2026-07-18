@@ -534,10 +534,10 @@ export default function OQueEDietaMediterranea() {
               <CheckCircle2 className="text-green-700"/> Conclusão: O Veredito da Ciência
             </h2>
             <p>
-              Para resumir o que a ciência nos mostra, a Dieta Mediterrânea é uma linha alimentar basicamente pesco-vegetariana, que faz parte da cultura de diversos povos e começou a ganhar atenção global após o Estudo dos 7 Países[span_0](start_span)[span_0](end_span). Ela se destaca por ser extremamente rica em compostos bioativos, compostos fenólicos e antioxidantes, além de exigir um consumo baixíssimo de alimentos ultraprocessados[span_1](start_span)[span_1](end_span).
+              Para resumir o que a ciência nos mostra, a Dieta Mediterrânea é uma linha alimentar basicamente pesco-vegetariana, que faz parte da cultura de diversos povos e começou a ganhar atenção global após o Estudo dos 7 Países. Ela se destaca por ser extremamente rica em compostos bioativos, compostos fenólicos e antioxidantes, além de exigir um consumo baixíssimo de alimentos ultraprocessados.
             </p>
             <p>
-              O seu grande diferencial é o alto consumo de gorduras boas (MUFAs) e grãos integrais[span_2](start_span)[span_2](end_span). É fundamental lembrar que ela não apresenta vantagem mágica no emagrecimento frente a outras linhas saudáveis com igual déficit calórico, mas a sua facilidade de adesão e os imensos benefícios cardiovasculares a tornam uma das melhores estratégias para a saúde e longevidade[span_3](start_span)[span_3](end_span).
+              O seu grande diferencial é o alto consumo de gorduras boas (MUFAs) e grãos integrais. É fundamental lembrar que ela não apresenta vantagem mágica no emagrecimento frente a outras linhas saudáveis com igual déficit calórico, mas a sua facilidade de adesão e os imensos benefícios cardiovasculares a tornam uma das melhores estratégias para a saúde e longevidade.
             </p>
 
             {/* FAQ DINÂMICO */}
