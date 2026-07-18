@@ -57,7 +57,7 @@ const comparativoEmbalagens = [
   }
 ];
 
-// Dados da Calculadora de Rendimento de Carnes (Baseado no Source 30)
+// Dados da Calculadora de Rendimento de Carnes
 const dadosCarnes = [
   { nome: "Peito de Frango (Grelhado)", perda: 0.17 },
   { nome: "Sobrecoxa Desossada (Grelhada)", perda: 0.22 },
@@ -99,23 +99,23 @@ export default function ComoGanharTempoCozinha() {
   const faqs = [
     {
       pergunta: "Posso congelar marmita de estrogonofe completa?",
-      resposta: "Pode, mas o creme vai perder a cremosidade e talhar[cite: 23]. O método inteligente é congelar a carne e a base do molho. O creme de leite entra apenas na panela, na hora de aquecer[cite: 23]."
+      resposta: "Pode, mas o creme vai perder a cremosidade e talhar. O método inteligente é congelar a carne e a base do molho. O creme de leite entra apenas na panela, na hora de aquecer."
     },
     {
       pergunta: "Arroz congelado fica com textura de mingau?",
-      resposta: "Só se você cozinhar demais antes de congelar. Para o arroz ficar soltinho, cozinhe 'al dente', esfrie espalhado em uma assadeira para não reter vapor, e guarde em embalagens rasas[cite: 23, 27]."
+      resposta: "Só se você cozinhar demais antes de congelar. Para o arroz ficar soltinho, cozinhe 'al dente', esfrie espalhado em uma assadeira para não reter vapor, e guarde em embalagens rasas."
     },
     {
       pergunta: "Quais legumes nunca devem ir para o freezer?",
-      resposta: "Pepino, alface, rúcula, tomate cru para salada, chuchu cru e abobrinha crua fatiada[cite: 22]. Eles possuem muita água e paredes celulares finas. Ao descongelar, viram uma 'esponja aguada'[cite: 22, 23]."
+      resposta: "Pepino, alface, rúcula, tomate cru para salada, chuchu cru e abobrinha crua fatiada. Eles possuem muita água e paredes celulares finas. Ao descongelar, viram uma 'esponja aguada'."
     },
     {
       pergunta: "Por que cria uma 'neve' de gelo grossa dentro do meu pote?",
-      resposta: "Isso acontece porque a comida entrou quente no pote ou sobrou muito ar na embalagem[cite: 27]. O vapor vira cristais de gelo. O conserto é espalhar a comida até parar o vapor e tirar todo o ar antes de fechar[cite: 27]."
+      resposta: "Isso acontece porque a comida entrou quente no pote ou sobrou muito ar na embalagem. O vapor vira cristais de gelo. O conserto é espalhar a comida até parar o vapor e tirar todo o ar antes de fechar."
     },
     {
       pergunta: "Quanto tempo dura uma marmita congelada?",
-      resposta: "A regra de ouro do congelamento inteligente é: 90 dias no freezer[cite: 26]. Depois disso, o alimento continua seguro para consumo, mas perde muita qualidade de sabor e textura[cite: 26]."
+      resposta: "A regra de ouro do congelamento inteligente é: 90 dias no freezer. Depois disso, o alimento continua seguro para consumo, mas perde muita qualidade de sabor e textura."
     }
   ];
 
@@ -150,7 +150,7 @@ export default function ComoGanharTempoCozinha() {
               <Zap className="text-green-700" /> Resposta Rápida: Como ganhar tempo na cozinha?
             </h2>
             <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
-              A melhor forma de ganhar tempo na cozinha é adotar a técnica profissional de <strong>Mise en Place</strong> (Praça Pronta). Isso significa tirar um dia na semana para higienizar, branquear legumes, pré-assar tubérculos e porcionar proteínas cruas ou em molhos[cite: 18, 21]. Combinando essa praça com o <strong>congelamento inteligente em potes herméticos</strong>, você finaliza refeições variadas em apenas 15 a 30 minutos todos os dias[cite: 21, 26].
+              A melhor forma de ganhar tempo na cozinha é adotar a técnica profissional de <strong>Mise en Place</strong>. Isso significa tirar um dia na semana para higienizar, branquear legumes, pré-assar tubérculos e porcionar proteínas cruas ou em molhos. Combinando esse mise en place com o <strong>congelamento inteligente em potes herméticos</strong>, você finaliza refeições variadas em apenas 15 a 30 minutos todos os dias.
             </p>
           </div>
 
@@ -234,67 +234,67 @@ export default function ComoGanharTempoCozinha() {
               <ChefHat className="text-green-700"/> O Segredo dos Restaurantes: O que é Mise en Place?
             </h2>
             <p>
-              Você já reparou que, ao pedir um prato em um bom restaurante, ele chega na sua mesa em 15 a 30 minutos? Você realmente acha que eles começaram a picar a cebola e cozinhar a batata quando o seu pedido chegou[cite: 18]? 
+              Você já reparou que, ao pedir um prato em um bom restaurante, ele chega na sua mesa em 15 a 30 minutos? Você realmente acha que eles começaram a picar a cebola e cozinhar a batata quando o seu pedido chegou? 
             </p>
             <p>
-              O grande truque da alta gastronomia chama-se <strong>Mise en Place</strong> (pronuncia-se "miz an plas"), que significa "Praça Pronta"[cite: 18]. Isso quer dizer ter todos os ingredientes já higienizados, cortados, branqueados e porcionados antes mesmo de a panela ir ao fogo[cite: 18]. Ao invés de cozinhar refeições completas todos os dias, você deve tirar algumas horas do seu domingo para criar "módulos" de ingredientes que duram a semana toda.
+              O grande truque da alta gastronomia chama-se <strong>Mise en Place</strong> (pronuncia-se "miz an plas"), que significa "colocar no lugar". Isso quer dizer ter todos os ingredientes já higienizados, cortados, branqueados e porcionados antes mesmo de a panela ir ao fogo. Ao invés de cozinhar refeições completas todos os dias, você deve tirar algumas horas do seu domingo para criar "módulos" de ingredientes que duram a semana toda.
             </p>
 
             <h2 id="matriz3x3" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Activity className="text-green-700"/> A Matriz 3x3: Como Variar o Cardápio da Semana
             </h2>
             <p>
-              Um erro comum que destrói a <Link to="/o-que-sao-simbioticos" className="text-green-700 font-bold hover:underline">saúde do seu intestino</Link> e a sua vontade de comer bem é a monotonia de comer frango com batata-doce todos os dias. Para evitar isso e ganhar tempo, usamos a técnica da <strong>Matriz 3x3</strong>[cite: 16]. 
+              Um erro comum que destrói a <Link to="/o-que-sao-simbioticos" className="text-green-700 font-bold hover:underline">saúde do seu intestino</Link> e a sua vontade de comer bem é a monotonia de comer frango com batata-doce todos os dias. Para evitar isso e ganhar tempo, usamos a técnica da <strong>Matriz 3x3</strong>. 
             </p>
             <p>
-              A estratégia consiste em preparar, em lote, 3 fontes de Proteína, 3 de Carboidratos e 3 tipos de Legumes[cite: 16]. Com esses 9 itens pré-prontos (armazenados em potes herméticos), você consegue fazer até <strong>27 combinações diferentes</strong> na hora de finalizar o prato[cite: 16]. Veja um exemplo prático:
+              A estratégia consiste em preparar, em lote, 3 fontes de Proteína, 3 de Carboidratos e 3 tipos de Legumes. Com esses 9 itens pré-prontos (armazenados em potes herméticos), você consegue fazer até <strong>27 combinações diferentes</strong> na hora de finalizar o prato. Veja um exemplo prático:
             </p>
 
             <ul className="list-none space-y-4 my-8 p-0">
               <li className="bg-slate-50 p-6 rounded-3xl border border-slate-100 flex items-start gap-4">
                 <Beef className="w-8 h-8 text-rose-600 shrink-0 mt-1" />
                 <div>
-                  <strong className="text-slate-800 block text-lg mb-1">Módulo 1: Proteínas</strong>
-                  <span className="text-slate-600 text-base">Deixe preparado: Acém em cubos guisado na panela de pressão (dura 2 dias na geladeira ou 3 meses no freezer), bifes de contra-filé já cortados e porcionados crus, e sassami de frango temperado[cite: 21].</span>
+                  <strong className="text-slate-800 block text-lg mb-1">Proteínas</strong>
+                  <span className="text-slate-600 text-base">Deixe preparado: Acém em cubos guisado na panela de pressão (dura 2 dias na geladeira ou 3 meses no freezer), bifes de contra-filé já cortados e porcionados crus, e sassami de frango temperado.</span>
                 </div>
               </li>
               <li className="bg-slate-50 p-6 rounded-3xl border border-slate-100 flex items-start gap-4">
                 <Utensils className="w-8 h-8 text-amber-500 shrink-0 mt-1" />
                 <div>
-                  <strong className="text-slate-800 block text-lg mb-1">Módulo 2: Carboidratos</strong>
-                  <span className="text-slate-600 text-base">Cozinhe no mínimo 1 kg de arroz de uma vez, resfrie espalhado em uma assadeira e porcione. Deixe batatas cozidas <em>al dente</em> prontas na geladeira (duram 5 a 7 dias) e mandioca pré-cozida[cite: 21].</span>
+                  <strong className="text-slate-800 block text-lg mb-1">Carboidratos</strong>
+                  <span className="text-slate-600 text-base">Cozinhe no mínimo 1 kg de arroz de uma vez, resfrie espalhado em uma assadeira e porcione. Deixe batatas cozidas <em>al dente</em> prontas na geladeira (duram 5 a 7 dias) e mandioca pré-cozida.</span>
                 </div>
               </li>
               <li className="bg-slate-50 p-6 rounded-3xl border border-slate-100 flex items-start gap-4">
                 <Leaf className="w-8 h-8 text-green-500 shrink-0 mt-1" />
                 <div>
-                  <strong className="text-slate-800 block text-lg mb-1">Módulo 3: Legumes e Vegetais</strong>
-                  <span className="text-slate-600 text-base">Folhas de espinafre já higienizadas; floretes de couve-flor branqueados por 1-2 minutos; cenouras raladas cruas e guardadas em potes[cite: 21].</span>
+                  <strong className="text-slate-800 block text-lg mb-1">Legumes e Vegetais</strong>
+                  <span className="text-slate-600 text-base">Folhas de espinafre já higienizadas; floretes de couve-flor branqueados por 1-2 minutos; cenouras raladas cruas e guardadas em potes.</span>
                 </div>
               </li>
             </ul>
 
             <p className="bg-blue-50 p-6 rounded-2xl border border-blue-100 text-blue-900 italic mt-6">
-              Com essa praça pronta, o seu prato de terça-feira pode ser o Acém cozido, finalizado na panela com a mandioca pré-cozida e a cenoura, ficando pronto em exatos 15 minutos[cite: 21]!
+              Com esse mise en place, o seu prato de terça-feira pode ser o Acém cozido, finalizado na panela com a mandioca pré-cozida e a cenoura, ficando pronto em exatos 15 minutos!
             </p>
 
             <h2 id="congelamento" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Snowflake className="text-green-700"/> Congelamento Inteligente: Pare de Estragar Comida
             </h2>
             <p>
-              Congelar não é apenas jogar a sobra da panela no freezer[cite: 26]. Para não sofrer com a <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 font-bold hover:underline">inflamação e o efeito sanfona</Link>, a sua comida precisa estar apetitosa ao ser descongelada. Para isso, existem 4 regras âncoras fundamentais[cite: 26]:
+              Congelar não é apenas jogar a sobra da panela no freezer. Para não sofrer com a <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 font-bold hover:underline">inflamação e o efeito sanfona</Link>, a sua comida precisa estar apetitosa ao ser descongelada. Para isso, existem 4 regras âncoras fundamentais:
             </p>
 
             <ol className="list-decimal pl-6 space-y-4 my-8 marker:font-black marker:text-green-700">
-              <li><strong className="text-slate-800">A Regra dos 90 Dias:</strong> A qualidade máxima do alimento no freezer se mantém por 90 dias[cite: 26]. Depois disso, ele não estraga, mas perde sabor e textura[cite: 26].</li>
-              <li><strong className="text-slate-800">A Regra das 48h (Geladeira):</strong> Cozinhou no domingo? Terça-feira é o limite: ou você come o que está na geladeira, ou congela imediatamente, ou joga fora[cite: 26].</li>
-              <li><strong className="text-slate-800">Embale SEM Ar:</strong> Quanto mais oxigênio dentro do pote, maior a formação de cristais de gelo e "queimaduras de frio" na comida[cite: 26].</li>
-              <li><strong className="text-slate-800">Resfriamento Rápido:</strong> Os alimentos devem ser cozidos <em>al dente</em>, e o calor deve ser dispersado rapidamente (espalhando na assadeira) antes de ir para o pote, para não virar papa no descongelamento[cite: 26].</li>
+              <li><strong className="text-slate-800">A Regra dos 90 Dias:</strong> A qualidade máxima do alimento no freezer se mantém por 90 dias. Depois disso, ele não estraga, mas perde sabor e textura.</li>
+              <li><strong className="text-slate-800">A Regra das 48h (Geladeira):</strong> Cozinhou no domingo? Terça-feira é o limite: ou você come o que está na geladeira, ou congela imediatamente, ou joga fora.</li>
+              <li><strong className="text-slate-800">Embale SEM Ar:</strong> Quanto mais oxigênio dentro do pote, maior a formação de cristais de gelo e "queimaduras de frio" na comida.</li>
+              <li><strong className="text-slate-800">Resfriamento Rápido:</strong> Os alimentos devem ser cozidos <em>al dente</em>, e o calor deve ser dispersado rapidamente (espalhando na assadeira) antes de ir para o pote, para não virar papa no descongelamento.</li>
             </ol>
 
             <h3 className="text-xl font-bold text-slate-800 mt-8 mb-4">O Segredo do Branqueamento de Legumes</h3>
             <p>
-              Você já congelou uma vagem e ela ficou molenga e cinza? Faltou o <strong>Branqueamento</strong>. Essa técnica consiste em ferver os legumes firmes (brócolis, cenoura, couve-flor) por 1 a 3 minutos e, em seguida, mergulhá-los imediatamente em água gelada para dar um choque térmico[cite: 22, 27]. Isso mantém a cor viva e a textura crocante no freezer por até 90 dias[cite: 22].
+              Você já congelou uma vagem e ela ficou molenga e cinza? Faltou o <strong>Branqueamento</strong>. Essa técnica consiste em ferver os legumes firmes (brócolis, cenoura, couve-flor) por 1 a 3 minutos e, em seguida, mergulhá-los imediatamente em água gelada para dar um choque térmico. Isso mantém a cor viva e a textura crocante no freezer por até 90 dias.
             </p>
 
             {/* SEÇÃO INTERATIVA: TABELA (DESKTOP) E CARDS (MOBILE) */}
@@ -302,7 +302,7 @@ export default function ComoGanharTempoCozinha() {
               <FileText className="text-green-700"/> O Guia Definitivo: O que pode e como embalar?
             </h2>
             <p className="mb-8">
-              A escolha da embalagem dita se a sua marmita vai ficar com gosto de "geladeira velha" ou se parecerá fresca. Veja as melhores práticas de armazenamento[cite: 20, 28]:
+              A escolha da embalagem dita se a sua marmita vai ficar com gosto de "geladeira velha" ou se parecerá fresca. Veja as melhores práticas de armazenamento:
             </p>
 
             {/* TABELA DESKTOP */}
@@ -362,7 +362,7 @@ export default function ComoGanharTempoCozinha() {
               <Calculator className="text-green-700"/> Calculadora Interativa: Rendimento de Proteínas
             </h2>
             <p className="mb-8">
-              Um dos maiores erros de quem tenta organizar a semana é não calcular o quanto a carne "encolhe" na panela[cite: 30]. Se você precisa de 120g de frango pronto na marmita, comprar exatos 120g no mercado não vai funcionar, pois a perda de água e gordura altera o peso final[cite: 30]. Use nossa ferramenta baseada nas tabelas oficiais de rendimento para não faltar comida na sua dieta!
+              Um dos maiores erros de quem tenta organizar a semana é não calcular o quanto a carne "encolhe" na panela. Se você precisa de 120g de frango pronto na marmita, comprar exatos 120g no mercado não vai funcionar, pois a perda de água e gordura altera o peso final. Use nossa ferramenta baseada nas tabelas oficiais de rendimento para não faltar comida na sua dieta!
             </p>
 
             <div className="my-10 bg-white border border-slate-200 shadow-xl rounded-[3rem] overflow-hidden">
@@ -428,7 +428,7 @@ export default function ComoGanharTempoCozinha() {
               <AlertTriangle className="text-green-700"/> Solução Rápida: Consertando Erros Comuns no Freezer
             </h2>
             <p>
-              Cometeu um erro ao embalar? Aqui estão as soluções definitivas para os maiores pesadelos das marmitas congeladas[cite: 19, 27]:
+              Cometeu um erro ao embalar? Aqui estão as soluções definitivas para os maiores pesadelos das marmitas congeladas:
             </p>
 
             <ul className="list-none space-y-4 my-8 p-0">
@@ -436,21 +436,21 @@ export default function ComoGanharTempoCozinha() {
                 <AlertTriangle className="w-6 h-6 text-rose-600 shrink-0 mt-1" />
                 <div>
                   <strong className="text-rose-900 block text-lg mb-1">O Problema: Manchas brancas e secas na comida ("queimadura de frio").</strong>
-                  <span className="text-rose-800 text-base"><strong>A Causa:</strong> O ar seco do freezer entrou em contato direto com o alimento devido a um plástico fino ou tampa frouxa[cite: 19, 27].<br/><strong>A Solução:</strong> Use filme plástico bem colado na comida e envolva com um saco Ziplock grosso, retirando o máximo de ar possível[cite: 19, 27].</span>
+                  <span className="text-rose-800 text-base"><strong>A Causa:</strong> O ar seco do freezer entrou em contato direto com o alimento devido a um plástico fino ou tampa frouxa.<br/><strong>A Solução:</strong> Use filme plástico bem colado na comida e envolva com um saco Ziplock grosso, retirando o máximo de ar possível.</span>
                 </div>
               </li>
               <li className="bg-amber-50 p-6 rounded-3xl border border-amber-100 flex items-start gap-4">
                 <AlertTriangle className="w-6 h-6 text-amber-600 shrink-0 mt-1" />
                 <div>
                   <strong className="text-amber-900 block text-lg mb-1">O Problema: Pacotinhos grudados uns nos outros.</strong>
-                  <span className="text-amber-800 text-base"><strong>A Causa:</strong> O exterior do pote ou do saco estava úmido no momento de ir para o freezer[cite: 19, 27].<br/><strong>A Solução:</strong> Seque muito bem o lado de fora de todas as embalagens com um pano de prato antes de empilhá-las no gelo[cite: 19, 27].</span>
+                  <span className="text-amber-800 text-base"><strong>A Causa:</strong> O exterior do pote ou do saco estava úmido no momento de ir para o freezer.<br/><strong>A Solução:</strong> Seque muito bem o lado de fora de todas as embalagens com um pano de prato antes de empilhá-las no gelo.</span>
                 </div>
               </li>
               <li className="bg-blue-50 p-6 rounded-3xl border border-blue-100 flex items-start gap-4">
                 <AlertTriangle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
                 <div>
                   <strong className="text-blue-900 block text-lg mb-1">O Problema: Sopa separou em água e parte sólida.</strong>
-                  <span className="text-blue-800 text-base"><strong>A Causa:</strong> A água livre se solta durante o processo de congelamento de líquidos[cite: 19, 27].<br/><strong>A Solução:</strong> Bata ligeiramente o caldo ao reaquecer. Se necessário, dissolva 1 colher de chá de amido e ferva por 1 minuto para reestruturar[cite: 19, 27].</span>
+                  <span className="text-blue-800 text-base"><strong>A Causa:</strong> A água livre se solta durante o processo de congelamento de líquidos.<br/><strong>A Solução:</strong> Bata ligeiramente o caldo ao reaquecer. Se necessário, dissolva 1 colher de chá de amido e ferva por 1 minuto para reestruturar.</span>
                 </div>
               </li>
             </ul>
@@ -521,7 +521,7 @@ export default function ComoGanharTempoCozinha() {
               <CheckCircle2 className="text-green-700"/> Conclusão: Organização é Liberdade
             </h2>
             <p>
-              Ganhar tempo na cozinha não tem a ver com cozinhar apressado ou pular etapas, mas sim com inteligência logística[cite: 18]. Ao implementar as técnicas de restaurantes (como o branqueamento e a Praça Pronta) na sua casa, você reduz drasticamente o trabalho diário, o desperdício de dinheiro e, de quebra, domina a sua <Link to="/o-que-e-jejum-intermitente" className="text-green-700 font-bold hover:underline">janela alimentar</Link>[cite: 18, 22]. Uma geladeira bem estruturada é o maior investimento que você pode fazer pelo seu metabolismo e pela sua paz mental.
+              Ganhar tempo na cozinha não tem a ver com cozinhar apressado ou pular etapas, mas sim com inteligência logística. Ao implementar as técnicas de restaurantes (como o branqueamento e o Mise en Place) na sua casa, você reduz drasticamente o trabalho diário, o desperdício de dinheiro e, de quebra, domina a sua <Link to="/o-que-e-jejum-intermitente" className="text-green-700 font-bold hover:underline">janela alimentar</Link>. Uma geladeira bem estruturada é o maior investimento que você pode fazer pelo seu metabolismo e pela sua paz mental.
             </p>
 
             {/* FAQ DINÂMICO */}
