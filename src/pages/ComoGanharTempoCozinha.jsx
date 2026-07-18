@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   ChevronLeft, HelpCircle, Activity, ChefHat, Clock, FileText, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
-  Snowflake, Utensils, AlertTriangle, CheckCircle2, Beef, Calculator, Leaf
+  Snowflake, Utensils, AlertTriangle, CheckCircle2, Beef, Calculator, Leaf, Database, Droplet
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
@@ -54,6 +54,42 @@ const comparativoEmbalagens = [
     ziplock: "Evite",
     dica: "Congele a base sem o creme de leite e adicione o lácteo só na hora.",
     icone: <AlertTriangle className="w-6 h-6 text-orange-500" />
+  }
+];
+
+// Dados das Bases Prontas (Mise en Place)
+const basesMiseEnPlace = [
+  {
+    id: 1,
+    nome: "Tabletes de Cebola",
+    ingredientes: "Cebolas descascadas e sem raiz.",
+    preparo: "Bater no processador (função pulsar) para manter cubinhos minúsculos. Não use o liquidificador para não virar líquido.",
+    armazenamento: "Congelar em forminhas de silicone ou placa plana no saco Ziplock (dura 90 dias).",
+    icone: <Database className="w-6 h-6 text-amber-600" />
+  },
+  {
+    id: 2,
+    nome: "Pasta de Alho",
+    ingredientes: "Alho descascado, um fio de óleo, uma pitada de sal e gotas de limão.",
+    preparo: "Processar até virar pasta. O óleo isola do oxigênio, o sal desacelera a fermentação e o limão evita que oxide e escureça.",
+    armazenamento: "Potes pequenos de vidro na geladeira (dura até 30 dias).",
+    icone: <Droplet className="w-6 h-6 text-slate-400" />
+  },
+  {
+    id: 3,
+    nome: "Caldo de Legumes Cru",
+    ingredientes: "1 parte de cenoura, 1 parte de alho-poró, 1 parte de salsão, sal, pimenta e ervas.",
+    preparo: "Processar finamente os vegetais crus até formarem uma pasta altamente concentrada em sabor. Derrete instantaneamente na panela.",
+    armazenamento: "Forminhas de gelo no congelador (dura 90 dias).",
+    icone: <Leaf className="w-6 h-6 text-green-500" />
+  },
+  {
+    id: 4,
+    nome: "Cubo de Talos (Zero Desperdício)",
+    ingredientes: "Talos de brócolis, couve-flor, espinafre e couve.",
+    preparo: "Ferver os talos por 5 minutos (para amolecer e tirar amargor) e processar com um pouco de sal até ficar granulado.",
+    armazenamento: "Congelar em cubinhos para enriquecer molhos, arroz e sopas com pura fibra.",
+    icone: <Activity className="w-6 h-6 text-emerald-600" />
   }
 ];
 
@@ -165,7 +201,7 @@ export default function ComoGanharTempoCozinha() {
               <Zap className="text-green-700" /> Resposta Rápida: Como ganhar tempo na cozinha?
             </h2>
             <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
-              A melhor forma de ganhar tempo na cozinha é adotar a técnica profissional de <strong>Mise en Place</strong>. Isso significa tirar um dia na semana para higienizar, branquear legumes, pré-assar tubérculos e porcionar proteínas cruas ou em molhos. Combinando esse método com o <strong>congelamento inteligente em potes herméticos</strong>, você finaliza refeições variadas em apenas 15 a 30 minutos todos os dias.
+              Se você quer descobrir <strong>como ganhar tempo na cozinha</strong>, a melhor forma é adotar a técnica profissional de <strong>Mise en Place</strong>. Isso significa tirar um dia na semana para higienizar, branquear legumes, pré-assar tubérculos e porcionar proteínas cruas ou em molhos. Combinando esse método com o <strong>congelamento inteligente em potes herméticos</strong>, você economiza horas de trabalho e finaliza refeições variadas em apenas 15 a 30 minutos diários.
             </p>
           </div>
 
@@ -205,7 +241,7 @@ export default function ComoGanharTempoCozinha() {
                 <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
                   <li><a href="#miseenplace" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><ChefHat size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O Segredo: Mise en Place</a></li>
                   <li><a href="#matriz3x3" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A Matriz 3x3 de Cardápios</a></li>
-                  <li><a href="#bases" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Utensils size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Bases Prontas (Cebola, Alho e Talos)</a></li>
+                  <li><a href="#bases" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Utensils size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Bases Prontas do Mise en Place</a></li>
                   <li><a href="#congelamento" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Snowflake size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Congelamento Inteligente</a></li>
                   <li><a href="#embalagens" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Guia de Embalagens</a></li>
                   <li><a href="#calculadora" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Calculator size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Calculadora de Rendimento</a></li>
@@ -224,7 +260,7 @@ export default function ComoGanharTempoCozinha() {
               Quem nunca chegou cansado do trabalho, abriu a geladeira, encarou uma bandeja de frango congelado e uma alface murcha, e acabou pedindo um delivery? A frustração de tentar manter uma alimentação saudável, aliada à <Link to="/o-que-e-fome-emocional" className="text-green-700 font-bold hover:underline">fome emocional</Link>, destrói a disciplina de qualquer um. 
             </p>
             <p>
-              A verdade é que fazer dieta não é sobre ter força de vontade infinita, é sobre ter um <strong>ambiente preparado</strong>. O segredo para não engordar e proteger o seu <Link to="/quantas-calorias-gasto-por-dia" className="text-green-700 font-bold hover:underline">gasto calórico</Link> não está em cozinhar todos os dias, mas sim em aplicar metodologias de restaurantes na cozinha da sua casa.
+              A verdade é que fazer dieta não é sobre ter força de vontade infinita, é sobre ter um <strong>ambiente preparado</strong>. Muitas pessoas me perguntam frequentemente <strong>como ganhar tempo na cozinha</strong> de verdade e proteger o <Link to="/quantas-calorias-gasto-por-dia" className="text-green-700 font-bold hover:underline">gasto calórico</Link>. O segredo não está em cozinhar todos os dias, mas sim em aplicar métodos de restaurantes na rotina da sua casa.
             </p>
 
             {/* IMAGEM DE CAPA COM LAZY LOADING E DIMENSÕES */}
@@ -241,26 +277,26 @@ export default function ComoGanharTempoCozinha() {
               />
               <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
                 <p className="text-sm md:text-base text-slate-600 font-bold uppercase tracking-widest text-center m-0">
-                  Uma geladeira organizada é a melhor arma contra o ganho de peso.
+                  Uma geladeira bem organizada é a sua melhor arma contra o ganho de peso.
                 </p>
               </figcaption>
             </figure>
 
             <h2 id="miseenplace" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <ChefHat className="text-green-700"/> O Segredo dos Restaurantes: O que é Mise en Place?
+              <ChefHat className="text-green-700"/> O Segredo de Como Ganhar Tempo na Cozinha: O Mise en Place
             </h2>
             <p>
-              Você já reparou que, ao pedir um prato em um bom restaurante, ele chega na sua mesa em 15 a 30 minutos? Você realmente acha que eles começaram a picar a cebola e cozinhar a batata quando o seu pedido chegou? 
+              Você já reparou que, ao pedir um prato em um bom restaurante, ele chega na sua mesa em 15 a 30 minutos? Você realmente acha que eles começaram a picar a cebola e cozinhar a batata no exato momento em que o seu pedido chegou à cozinha? 
             </p>
             <p>
-              O grande truque da alta gastronomia chama-se <strong>Mise en Place</strong> (pronuncia-se "miz an plas"), que significa "colocar no lugar". Isso quer dizer ter todos os ingredientes já higienizados, cortados, branqueados e porcionados antes mesmo de a panela ir ao fogo. Ao invés de cozinhar refeições completas todos os dias, você deve tirar algumas horas do seu domingo para criar "módulos" de ingredientes que duram a semana toda.
+              O grande truque da alta gastronomia chama-se <strong>Mise en Place</strong> (pronuncia-se "miz an plas"), que significa "colocar no lugar". Isso quer dizer ter todos os ingredientes já higienizados, cortados, branqueados e porcionados antes mesmo de a panela ir ao fogo. Ao invés de cozinhar refeições completas todos os dias, a principal resposta de como ganhar tempo na cozinha é tirar algumas horas do seu domingo para criar "módulos" de ingredientes que duram a semana toda.
             </p>
 
             <h2 id="matriz3x3" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Activity className="text-green-700"/> A Matriz 3x3: Como Variar o Cardápio da Semana
+              <Activity className="text-green-700"/> A Matriz 3x3: Variando o Cardápio com Facilidade
             </h2>
             <p>
-              Um erro comum que destrói a <Link to="/o-que-sao-simbioticos" className="text-green-700 font-bold hover:underline">saúde do seu intestino</Link> e a sua vontade de comer bem é a monotonia de comer frango com batata-doce todos os dias. Para evitar isso e ganhar tempo, usamos a técnica da <strong>Matriz 3x3</strong>. 
+              Um erro comum que destrói a <Link to="/o-que-sao-simbioticos" className="text-green-700 font-bold hover:underline">saúde do seu intestino</Link> e a sua vontade de comer bem é a monotonia de comer frango com batata-doce todos os dias. Para evitar isso e aprender a economizar tempo cozinhando, usamos a técnica da <strong>Matriz 3x3</strong>. 
             </p>
             <p>
               A estratégia consiste em preparar, em lote, 3 fontes de Proteína, 3 de Carboidratos e 3 tipos de Legumes. Com esses 9 itens pré-prontos (armazenados em potes herméticos), você consegue fazer até <strong>27 combinações diferentes</strong> na hora de finalizar o prato. Veja um exemplo prático:
@@ -291,36 +327,90 @@ export default function ComoGanharTempoCozinha() {
             </ul>
 
             <p className="bg-blue-50 p-6 rounded-2xl border border-blue-100 text-blue-900 italic mt-6">
-              Com esse mise en place, o seu prato de terça-feira pode ser o Acém cozido, finalizado na panela com a mandioca pré-cozida e a cenoura, ficando pronto em exatos 15 minutos!
+              Com esse Mise en Place, o seu prato de terça-feira pode ser o Acém cozido, finalizado na panela com a mandioca pré-cozida e a cenoura ralada, ficando pronto em exatos 15 minutos!
             </p>
 
             <h2 id="bases" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <Utensils className="text-green-700"/> Bases Prontas: O Segredo do Sabor sem Esforço
+              <Utensils className="text-green-700"/> Bases Prontas para o Mise en Place Perfeito
             </h2>
             <p>
-              Você não precisa picar cebola e alho todo santo dia. Além de sujar a tábua e deixar as mãos com cheiro forte, essa é uma das tarefas que mais gera preguiça na hora de cozinhar. Para otimizar o seu Mise en Place, invista em <strong>Bases Prontas</strong>.
+              Você não precisa picar cebola e alho todo santo dia. Além de sujar a tábua e deixar as mãos com cheiro forte, essa é uma das tarefas que mais gera preguiça e rouba o seu tempo na hora de cozinhar. Para otimizar a sua rotina, o investimento em <strong>Bases Aromáticas Prontas</strong> é obrigatório.
             </p>
             <p>
-              Bata a cebola limpa em um processador (usando a função "pulsar" para não virar líquido) e coloque em forminhas de gelo ou faça placas planas dentro de sacos Ziplock. Assim, você terá "tabletes" de cebola que duram meses no freezer. Para o alho, compre ele já descascado e bata com um fio de óleo e umas gotas de limão para evitar a oxidação; essa pasta de alho pode ficar na sua geladeira pronta para uso. Não jogue fora os talos de brócolis, couve e espinafre! Cozinhe rapidamente, processe até virar pequenos pedaços e congele em cubinhos: isso vai agregar muita fibra e sabor a qualquer refogado, molho ou sopa da sua semana, praticando o "zero desperdício".
+              Pense no alho e na cebola. O ideal é comprar alho já descascado e processá-lo com um fio de óleo, uma pitada de sal e algumas gotas de limão (o limão evita a oxidação e o escurecimento da pasta), garantindo durabilidade de até um mês na geladeira. Já a cebola não deve virar um purê: use a função "pulsar" do processador para manter pequenos cubinhos e congele-a espalhada de forma achatada em um saco ziplock, quebrando apenas os "tabletes" na hora de colocar na panela. 
+            </p>
+            <p>
+              Mas o grande coringa dos restaurantes é o <strong>Caldo de Legumes Cru</strong>. Sabe aquele tempero em tablete ultraprocessado cheio de sódio? Nós criamos a versão perfeita e natural dele. Basta pegar cenoura, a parte grossa do alho-poró, salsão, sal, pimenta, e ervas como tomilho e alecrim, e bater tudo no processador. Como a mistura fica granulada e úmida, nós não a cozinhamos: colocamos a pasta crua direto em forminhas de silicone no freezer. Como os pedaços são minúsculos, ao jogar esse cubinho na panela quente junto com o arroz, o feijão ou a carne, ele derrete, cozinha instantaneamente e inunda o prato de sabor natural. O mesmo vale para o "zero desperdício": ferva os talos duros de espinafre e brócolis por 5 minutos, processe-os finamente e congele em cubos para adicionar fibras puras a qualquer refogado!
             </p>
 
-            <h2 id="congelamento" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+            {/* TABELA DESKTOP DAS BASES PRONTAS */}
+            <div className="hidden md:block my-8 bg-white border border-slate-200 shadow-xl rounded-[2rem] overflow-hidden">
+              <table className="w-full text-left border-collapse">
+                <thead className="bg-slate-50 border-b border-slate-200">
+                  <tr>
+                    <th className="p-5 font-black uppercase tracking-widest text-[11px] text-slate-500 w-1/4">Base Pronta</th>
+                    <th className="p-5 font-black uppercase tracking-widest text-[11px] text-green-700 bg-green-50/50 w-1/4">Ingredientes Essenciais</th>
+                    <th className="p-5 font-black uppercase tracking-widest text-[11px] text-blue-700 bg-blue-50/50 w-1/4">Técnica de Preparo</th>
+                    <th className="p-5 font-black uppercase tracking-widest text-[11px] text-slate-500 w-1/4">Armazenamento Correto</th>
+                  </tr>
+                </thead>
+                <tbody className="text-sm font-medium">
+                  {basesMiseEnPlace.map((item) => (
+                    <tr key={item.id} className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+                      <td className="p-5 border-r border-slate-100">
+                        <div className="flex items-center gap-3 font-black text-slate-800 italic">
+                          <div className="p-2 bg-slate-100 rounded-lg shrink-0">{item.icone}</div>
+                          {item.nome}
+                        </div>
+                      </td>
+                      <td className="p-5 border-r border-slate-100 text-slate-700">{item.ingredientes}</td>
+                      <td className="p-5 border-r border-slate-100 text-slate-700">{item.preparo}</td>
+                      <td className="p-5 text-slate-500">{item.armazenamento}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* CARDS MOBILE DAS BASES PRONTAS */}
+            <div className="md:hidden space-y-6 my-8">
+              {basesMiseEnPlace.map((item) => (
+                <div key={item.id} className="bg-white p-6 rounded-3xl shadow-md border border-slate-100 flex flex-col gap-4">
+                  <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
+                    <div className="p-2 bg-slate-50 rounded-xl">{item.icone}</div>
+                    <span className="font-black text-lg italic uppercase text-slate-800">{item.nome}</span>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <div className="bg-green-50/50 p-3 rounded-xl border border-green-100">
+                      <span className="block text-[10px] uppercase tracking-widest font-black text-green-700 mb-1">Preparo & Ingredientes:</span>
+                      <span className="text-sm font-bold text-slate-700">{item.ingredientes} {item.preparo}</span>
+                    </div>
+                    <div className="bg-blue-50/50 p-3 rounded-xl border border-blue-100">
+                      <span className="block text-[10px] uppercase tracking-widest font-black text-blue-700 mb-1">Armazenamento:</span>
+                      <span className="text-sm font-bold text-slate-700">{item.armazenamento}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <h2 id="congelamento" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Snowflake className="text-green-700"/> Congelamento Inteligente: Pare de Estragar Comida
             </h2>
             <p>
-              Congelar não é apenas jogar a sobra da panela no freezer. Para não sofrer com a <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 font-bold hover:underline">inflamação e o efeito sanfona</Link>, a sua comida precisa estar apetitosa ao ser descongelada. Para isso, existem 4 regras âncoras fundamentais:
+              Saber como ganhar tempo na cozinha passa diretamente por parar de jogar comida fora. Congelar não é apenas jogar a sobra da panela no fundo do freezer. Para não sofrer com a <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 font-bold hover:underline">inflamação e o efeito sanfona</Link>, a sua comida precisa estar incrivelmente apetitosa ao ser descongelada. Para isso, existem 4 regras âncoras fundamentais:
             </p>
 
             <ol className="list-decimal pl-6 space-y-4 my-8 marker:font-black marker:text-green-700">
-              <li><strong className="text-slate-800">A Regra dos 90 Dias:</strong> A qualidade máxima do alimento no freezer se mantém por 90 dias. Depois disso, ele não estraga, mas perde sabor e textura.</li>
-              <li><strong className="text-slate-800">A Regra das 48h (Geladeira):</strong> Cozinhou no domingo? Terça-feira é o limite: ou você come o que está na geladeira, ou congela imediatamente, ou joga fora.</li>
-              <li><strong className="text-slate-800">Embale SEM Ar:</strong> Quanto mais oxigênio dentro do pote, maior a formação de cristais de gelo e "queimaduras de frio" na comida.</li>
-              <li><strong className="text-slate-800">Resfriamento Rápido:</strong> Os alimentos devem ser cozidos <em>al dente</em>, e o calor deve ser dispersado rapidamente (espalhando na assadeira) antes de ir para o pote, para não virar papa no descongelamento.</li>
+              <li><strong className="text-slate-800">A Regra dos 90 Dias:</strong> A qualidade máxima do alimento no freezer se mantém por 90 dias. Depois disso, ele não estraga, mas perde muito do seu sabor e da sua textura natural.</li>
+              <li><strong className="text-slate-800">A Regra das 48h (Geladeira):</strong> Cozinhou no domingo? A Terça-feira é o seu limite: ou você come o que está na geladeira, ou congela imediatamente, ou joga no lixo.</li>
+              <li><strong className="text-slate-800">Embale SEM Ar:</strong> Quanto mais oxigênio você deixar dentro do pote ou do saco plástico, maior será a formação de cristais de gelo e "queimaduras de frio" na superfície da comida.</li>
+              <li><strong className="text-slate-800">Resfriamento Rápido:</strong> Os alimentos devem ser cozidos apenas <em>al dente</em>, e o calor da panela deve ser dispersado rapidamente (espalhando os grãos em uma assadeira grande) antes de ir para o pote de vidro, para não virarem papa no momento do descongelamento.</li>
             </ol>
 
             <h3 className="text-xl font-bold text-slate-800 mt-8 mb-4">O Segredo do Branqueamento de Legumes</h3>
             <p>
-              Você já congelou uma vagem e ela ficou molenga e cinza? Faltou o <strong>Branqueamento</strong>. Essa técnica consiste em ferver os legumes firmes (brócolis, cenoura, couve-flor) por 1 a 3 minutos e, em seguida, mergulhá-los imediatamente em água gelada para dar um choque térmico. Isso mantém a cor viva e a textura crocante no freezer por até 90 dias.
+              Você já congelou uma vagem e, ao esquentar, ela ficou molenga e cinza? Faltou o <strong>Branqueamento</strong>. Essa técnica essencial consiste em ferver os legumes firmes (como brócolis, cenoura e couve-flor) por 1 a 3 minutos na água quente e, em seguida, mergulhá-los imediatamente em uma bacia com água e gelo para dar um violento choque térmico. Isso cessa o cozimento, fixa a clorofila e mantém a cor viva e a textura absolutamente crocante no freezer por até 90 dias.
             </p>
 
             {/* SEÇÃO INTERATIVA: TABELA (DESKTOP) E CARDS (MOBILE) */}
@@ -328,7 +418,7 @@ export default function ComoGanharTempoCozinha() {
               <FileText className="text-green-700"/> O Guia Definitivo: O que pode e como embalar?
             </h2>
             <p className="mb-8">
-              A escolha da embalagem dita se a sua marmita vai ficar com gosto de "geladeira velha" ou se parecerá fresca. Veja as melhores práticas de armazenamento:
+              A escolha correta da embalagem dita se a sua marmita de quarta-feira vai ficar com gosto de "geladeira velha" ou se parecerá fresca. Veja as melhores práticas de armazenamento para ganhar tempo cozinhando:
             </p>
 
             {/* TABELA DESKTOP */}
@@ -388,7 +478,7 @@ export default function ComoGanharTempoCozinha() {
               <Calculator className="text-green-700"/> Calculadora Interativa: Rendimento de Proteínas
             </h2>
             <p className="mb-8">
-              Um dos maiores erros de quem tenta organizar a semana é não calcular o quanto a carne "encolhe" na panela. Se você precisa de 120g de frango pronto na marmita, comprar exatos 120g no mercado não vai funcionar, pois a perda de água e gordura altera o peso final. Use nossa ferramenta baseada nas tabelas oficiais de rendimento para planejar suas compras perfeitamente!
+              Um dos maiores erros de quem tenta organizar a semana é não calcular o quanto a carne "encolhe" na panela. Se você precisa de 120g de frango pronto na marmita, comprar exatos 120g no açougue não vai funcionar, pois a perda de água e gordura no fogo altera dramaticamente o peso final. Use nossa ferramenta baseada nas tabelas oficiais de rendimento para planejar suas compras de forma exata e econômica!
             </p>
 
             <div className="my-10 bg-white border border-slate-200 shadow-xl rounded-[3rem] overflow-hidden">
@@ -507,7 +597,7 @@ export default function ComoGanharTempoCozinha() {
               <AlertTriangle className="text-green-700"/> Solução Rápida: Consertando Erros Comuns no Freezer
             </h2>
             <p>
-              Cometeu um erro ao embalar? Aqui estão as soluções definitivas para os maiores pesadelos das marmitas congeladas:
+              Ainda na missão de entender de fato como ganhar tempo na cozinha e como conservar seus alimentos, você já deve ter cometido um erro ao embalar uma marmita, certo? Aqui estão as soluções definitivas para os maiores pesadelos dos potes congelados:
             </p>
 
             <ul className="list-none space-y-4 my-8 p-0">
@@ -515,30 +605,30 @@ export default function ComoGanharTempoCozinha() {
                 <AlertTriangle className="w-6 h-6 text-rose-600 shrink-0 mt-1" />
                 <div>
                   <strong className="text-rose-900 block text-lg mb-1">O Problema: Manchas brancas e secas na comida ("queimadura de frio").</strong>
-                  <span className="text-rose-800 text-base"><strong>A Causa:</strong> O ar seco do freezer entrou em contato direto com o alimento devido a um plástico fino ou tampa frouxa.<br/><strong>A Solução:</strong> Use filme plástico bem colado na comida e envolva com um saco Ziplock grosso, retirando o máximo de ar possível.</span>
+                  <span className="text-rose-800 text-base"><strong>A Causa:</strong> O ar extremamente seco do freezer entrou em contato direto com o alimento devido a um plástico muito fino ou a uma tampa mal fechada.<br/><strong>A Solução:</strong> Use um plástico filme grudado diretamente na superfície da comida e, por fora, envolva com um saco Ziplock mais grosso, retirando totalmente o ar do interior.</span>
                 </div>
               </li>
               <li className="bg-amber-50 p-6 rounded-3xl border border-amber-100 flex items-start gap-4">
                 <AlertTriangle className="w-6 h-6 text-amber-600 shrink-0 mt-1" />
                 <div>
-                  <strong className="text-amber-900 block text-lg mb-1">O Problema: Pacotinhos grudados uns nos outros.</strong>
-                  <span className="text-amber-800 text-base"><strong>A Causa:</strong> O exterior do pote ou do saco estava úmido no momento de ir para o freezer.<br/><strong>A Solução:</strong> Seque muito bem o lado de fora de todas as embalagens com um pano de prato antes de empilhá-las no gelo.</span>
+                  <strong className="text-amber-900 block text-lg mb-1">O Problema: Pacotinhos colados uns nos outros como pedra de gelo.</strong>
+                  <span className="text-amber-800 text-base"><strong>A Causa:</strong> O exterior do pote ou do saco estava úmido no momento exato de entrar no freezer.<br/><strong>A Solução:</strong> Seque meticulosamente o lado de fora de todas as embalagens com um pano de prato grosso antes de empilhá-las no gelo.</span>
                 </div>
               </li>
               <li className="bg-blue-50 p-6 rounded-3xl border border-blue-100 flex items-start gap-4">
                 <AlertTriangle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
                 <div>
-                  <strong className="text-blue-900 block text-lg mb-1">O Problema: Sopa separou em água e parte sólida.</strong>
-                  <span className="text-blue-800 text-base"><strong>A Causa:</strong> A água livre se solta durante o processo de congelamento de líquidos.<br/><strong>A Solução:</strong> Bata ligeiramente o caldo ao reaquecer. Se necessário, dissolva 1 colher de chá de amido e ferva por 1 minuto para reestruturar.</span>
+                  <strong className="text-blue-900 block text-lg mb-1">O Problema: A sopa separou em uma água estranha e parte sólida no fundo.</strong>
+                  <span className="text-blue-800 text-base"><strong>A Causa:</strong> A água livre, natural do alimento, solta-se facilmente durante o processo físico de congelamento de líquidos ricos em sabor.<br/><strong>A Solução:</strong> Bata ligeiramente e de forma vigorosa o caldo ao reaquecer. Se for necessário encorpar mais, dissolva 1 colherzinha de chá de amido e ferva por 1 minuto na panela para reestruturar a sopa.</span>
                 </div>
               </li>
             </ul>
 
             <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <PlayCircle className="text-green-700"/> Aprofunde-se: Organização na Prática
+              <PlayCircle className="text-green-700"/> Aprofunde-se: O Segredo Definitivo de Como Ganhar Tempo Cozinhando
             </h2>
             <p>
-              Para ver com clareza como aplicar essas estratégias na sua cozinha e acabar com o estresse da semana, deixo aqui um vídeo excelente detalhando a rotina de marmitas.
+              Para ver com máxima clareza como aplicar todas essas estratégias logísticas na sua cozinha real e acabar para sempre com o estresse da semana agitada, deixo aqui um vídeo excelente detalhando, no passo a passo, a rotina de marmitas inteligentes.
             </p>
 
             {/* VIDEO LAZY LOADING */}
@@ -547,10 +637,10 @@ export default function ComoGanharTempoCozinha() {
                 <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
                   <PlayCircle size={24} />
                 </div>
-                <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight m-0">Aprenda o Passo a Passo das Marmitas</h3>
+                <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight m-0">Aprenda o Passo a Passo da Praça e Marmitas</h3>
               </div>
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                <YouTubeLazy videoId="vT4n0o_iKus" title="Como Fazer Marmitas para a Semana" />
+                <YouTubeLazy videoId="vT4n0o_iKus" title="Como Fazer Marmitas para a Semana e Ganhar Tempo" />
               </div>
             </div>
 
@@ -558,14 +648,14 @@ export default function ComoGanharTempoCozinha() {
             <div id="afiliado" className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
                 <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
-                    <span>Recomendação do Nutri!</span>
+                    <span>Recomendação Oficial do Nutri!</span>
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
                     <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-[2rem] overflow-hidden flex items-center justify-center p-0 shadow-inner border border-slate-100">
                         <img 
                             src={ebookCapa} 
-                            alt="Capa do Ebook de Receitas do Marco Aurélio" 
+                            alt="Capa do Ebook de Receitas Funcionais e Inteligentes do Marco Aurélio" 
                             className="w-full h-full object-cover" 
                             width="160"
                             height="160"
@@ -575,11 +665,11 @@ export default function ComoGanharTempoCozinha() {
 
                     <div className="flex-1 text-center md:text-left flex flex-col justify-center">
                         <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                            Livro Digital: <span className="text-green-700">25 Receitas Práticas & Mise en Place</span>
+                            Livro Digital: <span className="text-green-700">25 Receitas Práticas & Estrutura de Mise en Place</span>
                         </h4>
 
                         <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                            Gostou das dicas de organização deste artigo? Para não errar na hora de estruturar a sua semana, baixe o meu E-book Completo. Você terá acesso a 25 receitas divididas entre lanches, pratos principais e sobremesas, além de um guia prático de <em>Mise en Place</em> para transformar ingredientes básicos em pratos incríveis em menos de 15 minutos!
+                            Se você quer não apenas ler sobre a teoria, mas aplicar a exata metodologia de <strong>como ganhar tempo na cozinha</strong>, baixe o meu E-book Completo. Você terá acesso a 25 receitas incríveis (divididas entre lanches rápidos, pratos principais suculentos e sobremesas sem culpa), além de um guia técnico de <em>Mise en Place</em> para transformar ingredientes básicos em pratos perfeitos em menos de 15 minutos!
                         </p>
 
                         <a 
@@ -589,7 +679,7 @@ export default function ComoGanharTempoCozinha() {
                             className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-800 transition-all duration-300 w-full md:w-fit italic"
                         >
                             <ShoppingCart size={16} />
-                            Adquirir E-book por R$ 9,90
+                            Adquirir E-book por apenas R$ 9,90
                         </a>
                     </div>
                 </div>
@@ -597,10 +687,10 @@ export default function ComoGanharTempoCozinha() {
 
             {/* SEÇÃO DE CONCLUSÃO */}
             <h2 id="conclusao" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-              <CheckCircle2 className="text-green-700"/> Conclusão: Organização é Liberdade
+              <CheckCircle2 className="text-green-700"/> Conclusão: A Organização é a Verdadeira Liberdade
             </h2>
             <p>
-              Ganhar tempo na cozinha não tem a ver com cozinhar apressado ou pular etapas, mas sim com inteligência logística. Ao implementar as técnicas de restaurantes (como o branqueamento e o Mise en Place) na sua casa, você reduz drasticamente o trabalho diário, o desperdício de dinheiro e, de quebra, domina a sua <Link to="/o-que-e-jejum-intermitente" className="text-green-700 font-bold hover:underline">janela alimentar</Link>. Uma geladeira bem estruturada é o maior investimento que você pode fazer pelo seu metabolismo e pela sua paz mental.
+              Descobrir, de fato, <strong>como ganhar tempo na cozinha</strong> não tem relação nenhuma com cozinhar apressadamente e correndo perigo, ou simplesmente pular etapas valiosas. Trata-se inteiramente de inteligência logística aplicada ao cotidiano. Ao implementar com seriedade as táticas de restaurantes de alto nível (como o branqueamento em choque térmico, as bases prontas e o rigoroso <em>Mise en Place</em>) na sua própria casa, você reduz drasticamente o trabalho diário com panelas, evita o enorme desperdício de dinheiro com alimentos estragados e domina com facilidade a sua <Link to="/o-que-e-jejum-intermitente" className="text-green-700 font-bold hover:underline">janela alimentar e seus macronutrientes</Link>. Lembre-se: uma geladeira inteligentemente estruturada é o maior e melhor investimento que você pode fazer diariamente pelo seu metabolismo e pela sua paz mental!
             </p>
 
             {/* FAQ DINÂMICO */}
@@ -652,10 +742,10 @@ export default function ComoGanharTempoCozinha() {
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
             <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
-              Acredito que a nutrição precisa ser prática e aplicável à vida real. Ao invés de focar em restrições impossíveis de manter, dedico meus estudos a ensinar você a organizar o seu ambiente e entender a resposta metabólica do seu corpo, unindo a ciência clínica a uma rotina leve e descomplicada.
+              Acredito que a nutrição precisa ser imensamente prática e aplicável à vida real do paciente. Ao invés de focar excessivamente em restrições impossíveis de manter no longo prazo, dedico meus estudos a ensinar você a organizar profundamente o seu ambiente e entender a verdadeira resposta metabólica do seu corpo, unindo a ciência clínica a uma rotina leve e descomplicada!
             </p>
             <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
-              Siga @Nutricao_com_Marco
+              Siga @Nutricao_com_Marco no Instagram
             </a>
           </div>
         </div>
