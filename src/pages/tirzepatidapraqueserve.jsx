@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, Activity, Leaf, Scale, Heart, FileText, Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { ChevronLeft, HelpCircle, Activity, Leaf, Scale, Heart, FileText, Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
-import { Helmet } from 'react-helmet-async';
+import YouTubeLazy from '../components/YouTubeLazy';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -13,12 +13,13 @@ const dateModifiedISO = "2026-03-26";
 // Converte "YYYY-MM-DD" para "DD/MM/YYYY"
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
-// Caminhos das imagens
+// Caminhos das imagens - GRÁFICO ATUALIZADO PARA .WEBP
 const tirzepatidaCapa = `${githubImgBase}Blog/Tirzepatida-para-que-serve.webp`;
 const tirzepatidaGrafico = `${githubImgBase}Blog/Tirzepatida-Grafico.webp`;
 
 export default function TirzepatidaParaQueServe() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
+  const navigate = useNavigate();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
@@ -90,16 +91,16 @@ export default function TirzepatidaParaQueServe() {
 
   return (
     <>
-<Helmet>
-
-      </Helmet>
-
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
-        <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
+        {/* BOTÃO INTELIGENTE */}
+        <button 
+          onClick={() => state?.fromBlog ? navigate(-1) : navigate('/blog')}
+          className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit bg-transparent border-none cursor-pointer p-0"
+        >
           <ChevronLeft size={20} /> Voltar para o Blog
-        </Link>
+        </button>
 
         <article className="prose prose-lg max-w-none text-left">
 
@@ -125,12 +126,14 @@ export default function TirzepatidaParaQueServe() {
           </div>
 
           <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
+            
+            {/* ÁUDIO COM PRELOAD NONE */}
             <div className="p-5 md:p-6 flex flex-col gap-3">
               <div className="flex items-center gap-3">
                 <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
               </div>
-              <audio controls className="w-full h-10 outline-none">
+              <audio preload="none" controls className="w-full h-10 outline-none">
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/Tirzepatida.mp3" type="audio/mpeg" />
                 Seu navegador não suporta o elemento de áudio.
               </audio>
@@ -237,20 +240,23 @@ export default function TirzepatidaParaQueServe() {
             </h2>
             <p>A tirzepatida é uma medicação inovadora aprovada pela Anvisa inicialmente para o tratamento do diabetes tipo 2, mas que ganhou destaque global pelo seu potente efeito no controle da obesidade. Diferente de medicações mais antigas, ela é um duplo agonista, o que significa que ela imita dois hormônios naturais do nosso intestino: o GLP-1 (peptídeo semelhante ao glucagon 1) e o GIP (polipeptídeo insulinotrópico dependente de glicose). Enquanto o GLP-1 é amplamente conhecido por retardar o esvaziamento gástrico e sinalizar saciedade ao cérebro, o GIP atua de forma complementar melhorando a sensibilidade à insulina e a maneira como o corpo processa a gordura.</p>
 
-        {/* IMAGEM DE CAPA COM SEO OTIMIZADO */}
-          <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-            <img 
-              src={tirzepatidaCapa} 
-              alt="Caixa e caneta injetável de Tirzepatida 5mg, conhecida comercialmente como Mounjaro, utilizada para tratamento metabólico e emagrecimento." 
-              title="Tirzepatida 5mg (Mounjaro) - Medicação para Emagrecimento e Controle Metabólico"
-              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
-            />
-            <div className="bg-green-50 p-4 text-center">
-              <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
-                A tirzepatida representa um marco científico no tratamento da obesidade e saúde metabólica.
-              </p>
+            {/* IMAGEM DE CAPA COM LAZY */}
+            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
+              <img 
+                src={tirzepatidaCapa} 
+                alt="Caixa e caneta injetável de Tirzepatida 5mg, conhecida comercialmente como Mounjaro, utilizada para tratamento metabólico e emagrecimento." 
+                title="Tirzepatida 5mg (Mounjaro) - Medicação para Emagrecimento e Controle Metabólico"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+                width="800"
+                height="500"
+                loading="lazy"
+              />
+              <div className="bg-green-50 p-4 text-center">
+                <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
+                  A tirzepatida representa um marco científico no tratamento da obesidade e saúde metabólica.
+                </p>
+              </div>
             </div>
-          </div>
 
             <p>O mecanismo de ação da tirzepatida é tão profundo que ela não apenas reduz a fome, mas altera a "recompensa" cerebral associada à comida, ajudando a silenciar o chamado "barulho mental" por alimentos hipercalóricos. Se você quer entender mais a fundo como a fome é regulada no cérebro, recomendo a leitura do nosso artigo sobre os <Link to="/hormonios_da_fome_emagrecimento" className="text-green-700 font-semibold hover:underline">hormônios da fome no emagrecimento</Link>. Isso explica por que, nos estudos clínicos, os pacientes alcançaram resultados superiores a outros tratamentos injetáveis disponíveis no mercado brasileiro.</p>
 
@@ -312,61 +318,62 @@ export default function TirzepatidaParaQueServe() {
             {/* FIM DA TABELA DE EFEITOS COLATERAIS */}
 
             {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (BALANÇA DE COZINHA) */}
-<div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
-    {/* SELO NO CANTO SUPERIOR */}
-    <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
-        <Zap size={14} className="fill-white" />
-        <span>O Pingus Aprova!</span>
-    </div>
+            <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
+                <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+                    <Zap size={14} className="fill-white" />
+                    <span>O Pingus Aprova!</span>
+                </div>
 
-    <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
-        {/* FOTO DO PINGUS (AUTORIDADE) */}
-        <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-            <img 
-                src={`${githubImgBase}logoN_pingus.webp`} 
-                alt="Selo de Qualidade Pingus" 
-                className="w-full h-full object-contain" 
-            />
-        </div>
+                <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
+                    <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
+                        <img 
+                            src={`${githubImgBase}logoN_pingus.webp`} 
+                            alt="Selo de Qualidade Pingus" 
+                            className="w-full h-full object-contain" 
+                            width="160"
+                            height="160"
+                            loading="lazy"
+                        />
+                    </div>
 
-        <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-            <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                Balança de Cozinha Digital <span className="text-green-700">Custo-Benefício</span>
-            </h4>
-            
-            {/* IMAGEM DO PRODUTO */}
-            <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
-                <img 
-                    src={`${githubImgBase}Afiliado/BalancaCozinha.webp`} 
-                    alt="Balança de Cozinha Digital Simples" 
-                    className="w-full h-auto object-contain" 
-                />
+                    <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+                        <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                            Balança de Cozinha Digital <span className="text-green-700">Custo-Benefício</span>
+                        </h4>
+                        
+                        <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
+                            <img 
+                                src={`${githubImgBase}Afiliado/BalancaCozinha.webp`} 
+                                alt="Balança de Cozinha Digital Simples" 
+                                className="w-full h-auto object-contain"
+                                width="200"
+                                height="200"
+                                loading="lazy" 
+                            />
+                        </div>
+
+                        <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
+                            A Tirzepatida vai silenciar a sua fome, mas é aí que mora o perigo: a desnutrição e a perda de massa magra. Ter uma balança de cozinha garante que, <strong>mesmo sem apetite, você bata a meta de proteínas</strong>. Eu usei este modelo simples e barato por muitos anos e garanto: ele entrega toda a precisão que você precisa no dia a dia, sem pesar no bolso!
+                        </p>
+
+                        <a 
+                            href="https://meli.la/2e8sxv1" 
+                            rel="sponsored noopener noreferrer" 
+                            target="_blank"
+                            className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                        >
+                            <ShoppingCart size={16} />
+                            Comprar no Mercado Livre
+                        </a>
+                    </div>
+                </div>
+
+                <div className="mt-12 pt-6 border-t border-green-50 text-center">
+                    <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
+                        Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece o apoio.
+                    </p>
+                </div>
             </div>
-
-            <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                A Tirzepatida vai silenciar a sua fome, mas é aí que mora o perigo: a desnutrição e a perda de massa magra. Ter uma balança de cozinha garante que, <strong>mesmo sem apetite, você bata a meta de proteínas</strong>. Eu usei este modelo simples e barato por muitos anos e garanto: ele entrega toda a precisão que você precisa no dia a dia, sem pesar no bolso!
-            </p>
-
-            {/* BOTÃO COM LINK AFILIADO */}
-            <a 
-                href="https://meli.la/2e8sxv1" 
-                rel="sponsored noopener noreferrer" 
-                target="_blank"
-                className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-            >
-                <ShoppingCart size={16} />
-                Comprar no Mercado Livre
-            </a>
-        </div>
-    </div>
-
-    {/* DISCLOSURE OBRIGATÓRIO */}
-    <div className="mt-12 pt-6 border-t border-green-50 text-center">
-        <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
-            Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece o apoio.
-        </p>
-    </div>
-</div>
 
             <h2 id="efeito-rebote" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Activity className="text-green-700"/> O medo do Efeito Rebote e a importância do Desmame
@@ -375,20 +382,22 @@ export default function TirzepatidaParaQueServe() {
 
             <p className="font-semibold text-slate-800 bg-slate-100 p-6 rounded-2xl border border-slate-200">Aqui é importante dizer que a prescrição de GLP-1 não cura a obesidade, mas a trata de forma muito semelhante à que um medicamento para pressão arterial atenua a hipertensão. Remova a medicação e, na ausência de uma intervenção significativa e contínua de medicina do estilo de vida, o reganho de peso ocorrerá no paciente obeso com a mesma certeza que a pressão arterial cronicamente alta retornará no paciente hipertenso.</p>
 
-           {/* Inserção do Gráfico SURMOUNT-3 */}
+           {/* Inserção do Gráfico SURMOUNT-3 COM LAZY */}
             <div className="my-10 rounded-2xl overflow-hidden border border-slate-100 shadow-xl group">
                 <img
                     src={tirzepatidaGrafico}
                     alt="Gráfico mostrando a variação percentual média de peso corporal ao longo de 84 semanas no estudo SURMOUNT-3, comparando o grupo que continuou com Tirzepatida versus o grupo que mudou para Placebo após 12 semanas de intervenção intensiva de estilo de vida. Fonte: Nature Medicine, 2023."
                     title="Evidência SURMOUNT-3: Tirzepatida previne o reganho de peso após intervenção de estilo de vida"
                     className="w-full h-auto group-hover:scale-105 transition-transform duration-700"
+                    width="800"
+                    height="500"
+                    loading="lazy"
                 />
                  <div className="p-4 bg-slate-50 text-center text-xs text-slate-500 font-medium">
                     Gráfico adaptado de Jastreboff et al., 2023 (Nature Medicine). Mostra a variação percentual média de peso desde o início da fase de intervenção intensiva de estilo de vida lead-in (semana -12) até a semana 72 do período de tratamento randomizado duplo-cego (totalizando 84 semanas). O grupo placebo demonstra a rápida recuperação de peso comum no "efeito sanfona".
                 </div>
             </div>
 
-            {/* Explicação baseada no PDF com link interno */}
             <p>Os dados científicos do estudo <strong>SURMOUNT-3</strong> (Jastreboff et al., 2023), publicado na prestigiada revista <em>Nature Medicine</em>, trazem evidências visuais devastadoramente claras sobre a necessidade de gerenciamento contínuo da obesidade.</p>
 
             <p>O gráfico acima ilustra os resultados de participantes que alcançaram uma perda de peso média de ~6.9% durante um período "lead-in" de 12 semanas de intervenção intensiva de estilo de vida (dieta de baixas calorias, exercícios e aconselhamento). Após essas 12 semanas, eles foram randomizados para continuar o tratamento com Tirzepatida (dose máxima tolerada) ou mudar para um Placebo.</p>
@@ -433,7 +442,7 @@ export default function TirzepatidaParaQueServe() {
               </div>
             </div>
 
-            {/* VÍDEO RECOMENDADO EM DESTAQUE */}
+            {/* VÍDEO RECOMENDADO EM DESTAQUE COM YOUTUBELAZY */}
             <h2 id="video-especialista" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <PlayCircle className="text-green-700"/> Palavra do Especialista: Multiplicando os Efeitos
             </h2>
@@ -448,21 +457,14 @@ export default function TirzepatidaParaQueServe() {
                 <h3 className="text-xl font-black text-slate-800 uppercase italic leading-tight">Como Multiplicar o Efeito do Mounjaro</h3>
               </div>
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                <iframe 
-                  src="https://www.youtube.com/embed/TBPP_wa087k" 
-                  title="Como Multiplicar o Efeito do Mounjaro - Dr Stocker" 
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                ></iframe>
+                  <YouTubeLazy videoId="TBPP_wa087k" title="Como Multiplicar o Efeito do Mounjaro - Dr Stocker" />
               </div>
             </div>
 
             <h2 id="comparacao" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Scale className="text-green-700"/> Comparação Tirzepatida x Retatrutida (LY3437943)
             </h2>
-            <p>Enquanto a tirzepatida é um duplo agonista atuando no GLP-1 e GIP, a ciência já estuda o próximo passo: a <Link to="/retatrutida_o_que_e" className="text-green-700 font-semibold hover:underline">Retatrutida</Link>. Esta nova molécula é um triplo agonista (GIP, GLP-1 e Glucagon). Os estudos de fase 2 mostram que a retatrutida pode levar a uma redução média de peso ainda maior (cerca de 24,2% após 48 semanas) e atua de forma muito potente na redução da gordura hepática e níveis de LDL. A tirzepatida já é uma realidade impressionante, mas a evolução dos tratamentos aponta para resultados ainda mais expressivos no futuro.</p>
+            <p>Enquanto a tirzepatida é um duplo agonista atuando no GLP-1 e GIP, a ciência já estuda o próximo passo: a <Link to="/retatrutida_o_que_e" className="text-green-700 font-semibold hover:underline">Retatrutida</Link>. Esta nova molécula é um triplo agonista (GIP, GLP-1 e Glucagon). Os estudos de fase 2 show que a retatrutida pode levar a uma redução média de peso ainda maior (cerca de 24,2% após 48 semanas) e atua de forma muito potente na redução da gordura hepática e níveis de LDL. A tirzepatida já é uma realidade impressionante, mas a evolução dos tratamentos aponta para resultados ainda mais expressivos no futuro.</p>
 
             {/* TABELA COMPARATIVA (DESKTOP) OTIMIZADA PARA NAO QUEBRAR */}
             <div className="my-10 bg-white border border-slate-100 shadow-2xl rounded-[3rem] overflow-hidden hidden md:block">
@@ -595,6 +597,9 @@ export default function TirzepatidaParaQueServe() {
               alt="Marco Aurélio Jr. - Autor do Artigo." 
               title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador Antropométrico ISAK Nível 1."
               className="w-full h-full object-cover"
+              width="96"
+              height="96"
+              loading="lazy"
             />
           </div>
 
