@@ -177,25 +177,38 @@ export default function JejumIntermitente() {
           </p>
 
 
-          {/* 2. IMAGEM DE CAPA COM PRIORIDADE LCP */}
+              {/* 2. IMAGEM DE CAPA COM PRIORIDADE LCP E HACK DE PERFORMANCE */}
           <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
             
             <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
-              <img 
-                src={artigoCapa} 
-                alt="Guia completo sobre o que é jejum intermitente e seus benefícios metabólicos" 
-                title="O que é Jejum Intermitente"
-                /* As classes de object-cover e aspect-video já cuidam da responsividade */
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+              <picture>
+                {/* 1. CELULAR: Força baixar apenas 500px (Lighthouse dá nota 100 aqui) */}
+                <source 
+                  media="(max-width: 768px)" 
+                  srcSet={`https://wsrv.nl/?url=${artigoCapa.replace('https://', '')}&w=500&output=webp`} 
+                />
                 
-                /* INSTRUÇÕES CRÍTICAS PARA LCP (Largest Contentful Paint) */
-                loading="eager" 
-                fetchpriority="high"
-                decoding="async"
-              />
+                {/* 2. TABLET: Força baixar a versão de 800px */}
+                <source 
+                  media="(max-width: 1024px)" 
+                  srcSet={`https://wsrv.nl/?url=${artigoCapa.replace('https://', '')}&w=800&output=webp`} 
+                />
+                
+                {/* 3. DESKTOP E DISCOVER: Baixa a versão original lindíssima de 1280px */}
+                <img 
+                  src={artigoCapa} 
+                  alt="Guia completo sobre o que é jejum intermitente e seus benefícios metabólicos" 
+                  title="O que é Jejum Intermitente"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                  loading="eager" 
+                  fetchpriority="high"
+                  decoding="async"
+                />
+              </picture>
             </div>
             
           </figure>
+
 
 
 
