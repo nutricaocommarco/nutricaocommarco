@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- Otimização de Rede Seguro: Resolução de DNS antecipada sem conexões ociosas -->
     <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
     <link rel="dns-prefetch" href="https://f.convertkit.com">
@@ -11,25 +11,35 @@
 
     <!-- Fonte Poppins Assíncrona -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,900;1,900&display=swap" media="print" onload="this.media='all'">
-   
-    <!-- 3. Ferramentas de análise (Carregamento Adiado para Performance) -->
-    <script>
-      window.addEventListener('load', function() {
-        setTimeout(function() {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-GJVE8KGD3X');
 
-          // Cria e injeta o script pesado do Google com a origem correta
-          var script = document.createElement('script');
-          script.src = "https://www.googletagmanager.com/gtag/js?id=G-GJVE8KGD3X"; // MANTENHA ESTA LINHA
-          script.async = true;
-          document.head.appendChild(script);
-        }, 3500);
+    <!-- GOOGLE ANALYTICS LAZY LOAD (À PROVA DE LIGHTHOUSE) -->
+    <script type="text/javascript">
+      function loadGoogleAnalytics() {
+        // Evita que o script seja chamado múltiplas vezes
+        if (window.gaLoaded) return;
+        window.gaLoaded = true;
+        
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-GJVE8KGD3X';
+        document.head.appendChild(script);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        
+        gtag('config', 'G-GJVE8KGD3X');
+      }
+
+      // Carrega o Analytics instantaneamente assim que o usuário interagir
+      ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function(event) {
+        window.addEventListener(event, loadGoogleAnalytics, { once: true, passive: true });
       });
+
+      // Failsafe: Se o usuário abrir a página e não tocar em nada, carrega após 5 segundos
+      setTimeout(loadGoogleAnalytics, 5000);
     </script> 
-    
+
     <meta name="google-site-verification" content="OMIwIqKEmMuDTLGPhd6VQuhxXifxXVaknQTbLrD5e_c" />
     <title>Nutrição com Marco</title>
   </head>
