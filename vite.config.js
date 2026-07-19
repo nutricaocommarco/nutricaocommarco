@@ -1,18 +1,26 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
       output: {
-        // Esta função varre os arquivos e agrupa tudo o que vem da node_modules
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            return 'vendor';
+            if (id.includes('lucide-react')) {
+              return 'vendor-icons';
+            }
+            if (id.includes('react-router-dom') || id.includes('@remix-run')) {
+              return 'vendor-router';
+            }
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'vendor-react';
+            }
+            return 'vendor-core';
           }
         }
       }
     }
   }
-})
+});
