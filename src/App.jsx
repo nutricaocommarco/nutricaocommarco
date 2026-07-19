@@ -92,14 +92,16 @@ useEffect(() => {
   window.addEventListener('scroll', handleScroll, { passive: true });
   setIsMenuOpen(false);
   
-    // Garante que o Pingus apareça na aba do navegador
+// Garante que o Pingus apareça na aba do navegador
     let link = document.querySelector("link[rel~='icon']");
     if (!link) {
       link = document.createElement('link');
       link.rel = 'icon';
       document.head.appendChild(link);
     }
-    link.href = 'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/logoN_pingus.webp';
+    link.type = 'image/webp';
+    link.href = '/logoN_pingus.webp';
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 

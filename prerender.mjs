@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 // 🔗 Link base das imagens no seu GitHub
-const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+const githubImgBase = "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/";
 
 // ==========================================
 // 🧠 FUNÇÕES GERADORAS DE SCHEMAS AVANÇADOS
