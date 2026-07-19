@@ -512,7 +512,7 @@ export default function DietaLowCarb() {
           
           <div className="mb-8 flex flex-col items-start gap-2">
             <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Dietas da Moda</span>
-            <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
+            <span className="text-[11px] text-slate-500 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
@@ -630,7 +630,7 @@ export default function DietaLowCarb() {
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="p-5 font-bold text-slate-800">Flexibilidade</td>
-                    <td className="p-5">É alta. Permite que você encaixe frutas um pouco mais doces (como uma maçã ou banana ocasional) e o uso de raízes ou tubérculos, servindo até para saber se o <Link to="/diabetico_pode_comer_beterraba" className="text-green-700 hover:underline">diabético pode comer beterraba</Link> na sua rotina.</td>
+                    <td className="p-5">É alta. Permite que você encaixe frutas um pouco mais doces (como uma maçã ou banana ocasional) e o uso de raízes ou tubérculos, servindo até para saber se o <Link to="/diabetico_pode_comer_beterraba" className="text-green-700 underline hover:text-green-800">diabético pode comer beterraba</Link> na sua rotina.</td>
                     <td className="p-5">É baixíssima. É focada quase que exclusivamente no consumo de gorduras, muitos vegetais folhosos e em proteínas que devem ser rigorosamente calculadas.</td>
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
