@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import YouTubeLazy from '../components/YouTubeLazy';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
@@ -29,32 +29,9 @@ export default function JejumIntermitente() {
   const [protocolo, setProtocolo] = useState('16');
   const [resultadoJejum, setResultadoJejum] = useState(null);
 
-  // LAZY LOAD DA NEWSLETTER (CONVERTKIT)
-  const newsletterRef = useRef(null);
-  const [showNewsletter, setShowNewsletter] = useState(false);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-
-  // OBSERVER PARA O CONVERTKIT NÃO DESTRUIR O LCP
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setShowNewsletter(true);
-          observer.disconnect(); // Desliga após injetar o script do ConvertKit
-        }
-      },
-      { rootMargin: '500px' } // Começa a carregar 500px antes do usuário chegar no final da página
-    );
-
-    if (newsletterRef.current) {
-      observer.observe(newsletterRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   // LÓGICA DA CALCULADORA DE JEJUM
   const calcularJanela = (e) => {
@@ -617,10 +594,7 @@ export default function JejumIntermitente() {
               </div>            
             </div>
 
-            {/* CAIXA DE CARREGAMENTO DO CONVERTKIT */}
-            <div ref={newsletterRef} className="min-h-[200px] w-full">
-              {showNewsletter && <Newsletter />}
-            </div>
+            <Newsletter />
 
           </div>
         </article>
