@@ -195,7 +195,9 @@ function Layout({ children }) {
           </div>
           
           <p className="text-slate-400 text-xs font-bold tracking-[0.2em] uppercase mb-1">#NutriçãoComCiência #Antropometria #ISAK1 #ConsultaOnline</p>
-          <p className="text-slate-600 text-xs font-bold tracking-[0.2em] uppercase">© 2026 Nutrição com Marco • Rio de Janeiro</p>
+          <p className="text-slate-400 text-xs font-bold tracking-[0.2em] uppercase">
+           © 2026 Nutrição com Marco • Rio de Janeiro
+          </p>
         </div>
       </footer>
     </div>
