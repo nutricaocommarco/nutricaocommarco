@@ -1,19 +1,18 @@
+import React, { useState, useEffect, Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { Instagram, Menu, X, Mail, ChevronDown } from 'lucide-react';
+import { HelmetProvider } from 'react-helmet-async';
+
 const lazyRetry = (importFn) => {
   return lazy(async () => {
     try {
       return await importFn();
     } catch (err) {
-      // Se falhar ao carregar o chunk (por causa de um deploy novo), força um refresh
       window.location.reload();
       return { default: () => null };
     }
   });
 };
-
-import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Instagram, Menu, X, Mail, ChevronDown } from 'lucide-react';
-import { HelmetProvider } from 'react-helmet-async';
 
 const Home = lazyRetry(() => import('./pages/Home'));
 const Certificacoes = lazyRetry(() => import('./pages/Certificacoes')); 
@@ -57,11 +56,8 @@ const DietaLowCarb = lazyRetry(() => import('./pages/DietaLowCarb'));
 const DietaMediterranea = lazyRetry(() => import('./pages/DietaMediterranea'));
 const ComoGanharTempoCozinha = lazyRetry(() => import('./pages/ComoGanharTempoCozinha'));
 
-
-
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
-// Componente simples de carregamento
 const LoadingSpinner = () => (
   <div className="flex justify-center items-center h-screen text-green-700 font-black">
     Carregando...
@@ -81,18 +77,19 @@ function Layout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-useEffect(() => {
-  // Otimizado: Só atualiza o estado se o valor booleano mudar de fato
-  const handleScroll = () => {
-    const isScrolled = window.scrollY > 50;
-    setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
+    };
+      
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    setIsMenuOpen(false);
     
-// O uso de passive: true avisa o navegador que a função não vai travar a rolagem da página
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  setIsMenuOpen(false);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location.pathname]);
 
-return (
+  return (
     <div className="min-h-screen font-sans text-slate-800 bg-gradient-to-br from-green-50 to-white flex flex-col selection:bg-green-200">
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || location.pathname !== '/' ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center relative">
@@ -101,11 +98,9 @@ return (
             <span className="text-xl font-black tracking-tight text-slate-900 uppercase ml-1">NUTRIÇÃO COM <span className="text-green-700">MARCO</span></span>
           </Link>
 
-          {/* MENU DESKTOP */}
           <div className="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-widest">
             <Link to="/" className={`py-1 border-b-2 transition-all ${location.pathname === '/' ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent hover:text-green-700'}`}>Início</Link>
 
-            {/* Dropdown: Sobre */}
             <div className="relative group">
               <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/sobre', '/certificacoes'].includes(location.pathname) ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-700'}`}>
                 Sobre <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
@@ -119,7 +114,6 @@ return (
             <Link to="/blog" className={`py-1 border-b-2 transition-all ${location.pathname.includes('/blog') ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent hover:text-green-700'}`}>Blog</Link>
             <Link to="/planos" className={`py-1 border-b-2 transition-all ${location.pathname === '/planos' ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent hover:text-green-700'}`}>Planos</Link>
 
-            {/* Dropdown: Recursos */}
             <div className="relative group">
               <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/calculadora-de-gasto-calorico', '/planilha'].includes(location.pathname) ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-700'}`}>
                 Recursos <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
@@ -133,23 +127,19 @@ return (
             <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="bg-green-700 text-white px-6 py-2.5 rounded-full hover:bg-green-700 transition-all shadow-md italic">Instagram</a>
           </div>
 
-{/* MENU DESKTOP TERMINA AQUI */}
-
-<button 
-  className="md:hidden text-slate-800 p-2" 
-  onClick={() => setIsMenuOpen(!isMenuOpen)}
-  aria-label={isMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"} // <-- Adicionado aqui!
->
-  {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-</button>
+          <button 
+            className="md:hidden text-slate-800 p-2" 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
+          >
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
 
-        {/* MENU MOBILE / CELULAR */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-green-100 shadow-xl py-6 px-6 flex flex-col gap-6 max-h-[85vh] overflow-y-auto">
             <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Início</Link>
 
-            {/* Mobile: Grupo Sobre */}
             <div className="flex flex-col gap-3 pb-2 border-b border-green-50">
               <span className="text-lg font-black uppercase tracking-widest text-slate-800">Sobre</span>
               <div className="flex flex-col gap-3 pl-4 border-l-2 border-green-200">
@@ -161,7 +151,6 @@ return (
             <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Blog</Link>
             <Link to="/planos" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Planos</Link>
 
-            {/* Mobile: Grupo Recursos */}
             <div className="flex flex-col gap-3 pb-2 border-b border-green-50">
               <span className="text-lg font-black uppercase tracking-widest text-slate-800">Recursos</span>
               <div className="flex flex-col gap-3 pl-4 border-l-2 border-green-200">
@@ -179,37 +168,36 @@ return (
         {children}
       </main>
 
-<footer className="bg-slate-900 text-white py-20 text-center mt-auto">
-  <div className="container mx-auto px-6 text-center">
-    <Link to="/" className="flex items-center justify-center gap-3 mb-10 group">
-      <img src={`${githubImgBase}logoN_pingus.webp`} alt="Logo" title="Nutrição com Marco - Fisiologia, Composição Corporal e Saúde" className="w-12 h-12 object-contain group-hover:rotate-6 transition-transform" />
-      <span className="text-xl font-black uppercase italic tracking-tighter text-white">Nutrição com Marco</span>
-    </Link>
-    
-    {/* ÍCONES DE REDES SOCIAIS CORRIGIDOS COM ARIA-LABEL */}
-    <div className="flex justify-center gap-8 mb-16">
-      <a 
-        href="https://instagram.com/nutricao_com_marco" 
-        target="_blank" 
-        rel="noreferrer" 
-        className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-700 hover:scale-110 transition-all duration-300 border border-white/10 text-white"
-        aria-label="Acessar o perfil do Instagram de Nutrição com Marco"
-      >
-        <Instagram size={24}/>
-      </a>
-      <a 
-        href="mailto:contato@nutricaocommarco.com.br" 
-        className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-700 hover:scale-110 transition-all duration-300 border border-white/10 text-white"
-        aria-label="Enviar um e-mail de contato para Marco Aurélio"
-      >
-        <Mail size={24}/>
-      </a>
-    </div>
-    
-    <p className="text-slate-500 text-xs font-bold tracking-[0.2em] uppercase mb-1">#NutriçãoComCiência #Antropometria #ISAK1 #ConsultaOnline</p>
-    <p className="text-slate-600 text-xs font-bold tracking-[0.2em] uppercase">© 2026 Nutrição com Marco • Rio de Janeiro</p>
-  </div>
-</footer>
+      <footer className="bg-slate-900 text-white py-20 text-center mt-auto">
+        <div className="container mx-auto px-6 text-center">
+          <Link to="/" className="flex items-center justify-center gap-3 mb-10 group">
+            <img src={`${githubImgBase}logoN_pingus.webp`} alt="Logo" title="Nutrição com Marco - Fisiologia, Composição Corporal e Saúde" className="w-12 h-12 object-contain group-hover:rotate-6 transition-transform" />
+            <span className="text-xl font-black uppercase italic tracking-tighter text-white">Nutrição com Marco</span>
+          </Link>
+          
+          <div className="flex justify-center gap-8 mb-16">
+            <a 
+              href="https://instagram.com/nutricao_com_marco" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-700 hover:scale-110 transition-all duration-300 border border-white/10 text-white"
+              aria-label="Acessar o perfil do Instagram de Nutrição com Marco"
+            >
+              <Instagram size={24}/>
+            </a>
+            <a 
+              href="mailto:contato@nutricaocommarco.com.br" 
+              className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-700 hover:scale-110 transition-all duration-300 border border-white/10 text-white"
+              aria-label="Enviar um e-mail de contato para Marco Aurélio"
+            >
+              <Mail size={24}/>
+            </a>
+          </div>
+          
+          <p className="text-slate-500 text-xs font-bold tracking-[0.2em] uppercase mb-1">#NutriçãoComCiência #Antropometria #ISAK1 #ConsultaOnline</p>
+          <p className="text-slate-600 text-xs font-bold tracking-[0.2em] uppercase">© 2026 Nutrição com Marco • Rio de Janeiro</p>
+        </div>
+      </footer>
     </div>
   );
 }
@@ -220,7 +208,7 @@ export default function App() {
       <Router>
         <ScrollToTop />
         <Layout>
-<Suspense fallback={<LoadingSpinner />}>
+          <Suspense fallback={<LoadingSpinner />}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/admin-pingus-email" element={<GeradorEmailSecreto />} />
@@ -264,7 +252,6 @@ export default function App() {
               <Route path="/o-que-e-dieta-low-carb" element={<DietaLowCarb />} />
               <Route path="/o-que-e-dieta-mediterranea" element={<DietaMediterranea />} />
               <Route path="/como-ganhar-tempo-na-cozinha" element={<ComoGanharTempoCozinha />} />
-
             </Routes>
           </Suspense>
         </Layout>
