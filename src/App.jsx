@@ -91,19 +91,6 @@ useEffect(() => {
 // O uso de passive: true avisa o navegador que a função não vai travar a rolagem da página
   window.addEventListener('scroll', handleScroll, { passive: true });
   setIsMenuOpen(false);
-  
-// Garante que o Pingus apareça na aba do navegador
-    let link = document.querySelector("link[rel~='icon']");
-    if (!link) {
-      link = document.createElement('link');
-      link.rel = 'icon';
-      document.head.appendChild(link);
-    }
-    link.type = 'image/webp';
-    link.href = '/logoN_pingus.webp';
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [location.pathname]);
 
 return (
     <div className="min-h-screen font-sans text-slate-800 bg-gradient-to-br from-green-50 to-white flex flex-col selection:bg-green-200">
