@@ -193,14 +193,6 @@ export default function JejumIntermitente() {
             </div>
           </figure>
 
-      
-            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
-              <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
-                Entender o que é jejum intermitente e como organizar sua janela de alimentação é o primeiro grande passo para a adaptação do seu metabolismo.
-              </p>
-            </figcaption>
-          </figure>
-
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
