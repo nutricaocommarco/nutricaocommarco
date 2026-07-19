@@ -176,19 +176,24 @@ export default function JejumIntermitente() {
             Se você quer entender o que é jejum intermitente sem complicações, veio ao lugar certo. Essa estratégia virou uma febre no mundo do emagrecimento, mas muita gente ainda se confunde com tanta informação misturada na internet. Em vez de focar apenas no tipo de alimento que você coloca no prato, o jejum intermitente foca em <strong>quando você come</strong>, sendo simplesmente uma forma de alinhar o seu dia respeitando o relógio biológico e o seu <Link to="/o-que-e-ciclo-circadiano" className="text-green-700 font-bold hover:underline">ciclo circadiano</Link>. 
           </p>
 
-          {/* 2. IMAGEM DE CAPA COM SEO INVISÍVEL */}
-          <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
-            <img 
-            src={artigoCapa} 
-            alt="Guia completo sobre o que é jejum intermitente e seus benefícios metabólicos" 
-            title="O que é Jejum Intermitente"
-            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
-            width="896" 
-            height="635" 
-            loading="lazy"
-            sizes="(max-width: 896px) 100vw, 896px"
-              />
+   
+                {/* 2. IMAGEM DE CAPA RESPONSIVA (PROPORÇÃO TRAVADA EM 16:9) */}
+          <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
             
+            {/* Contêiner que segura a proporção perfeita e zera o CLS (Layout Shift) */}
+            <div className="relative w-full aspect-video overflow-hidden">
+              <img 
+                src={artigoCapa} 
+                alt="Guia completo sobre o que é jejum intermitente e seus benefícios metabólicos" 
+                title="O que é Jejum Intermitente"
+                /* absolute e inset-0 grudam a imagem na caixa de vídeo, object-cover evita achatamento */
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                loading="lazy"
+              />
+            </div>
+          </figure>
+
+      
             <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
               <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
                 Entender o que é jejum intermitente e como organizar sua janela de alimentação é o primeiro grande passo para a adaptação do seu metabolismo.
