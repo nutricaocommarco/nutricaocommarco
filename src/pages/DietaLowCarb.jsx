@@ -423,7 +423,6 @@ const foodDatabase = [
   { id: 400, name: "Vatapá", carbs: 8.9 }
 ];
 
-
 export default function DietaLowCarb() {
   const { pathname, state } = useLocation();
   const [isTocOpen, setIsTocOpen] = useState(false);
@@ -512,7 +511,7 @@ export default function DietaLowCarb() {
           
           <div className="mb-8 flex flex-col items-start gap-2">
             <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Dietas da Moda</span>
-            <span className="text-[11px] text-slate-500 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
+            <span className="text-[11px] text-slate-600 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
@@ -619,7 +618,7 @@ export default function DietaLowCarb() {
                   <tr>
                     <th className="p-5 w-1/4">Característica</th>
                     <th className="p-5 w-1/3 text-green-700">Dieta Low Carb</th>
-                    <th className="p-5 w-1/3 text-orange-600">Dieta Cetogênica (Keto)</th>
+                    <th className="p-5 w-1/3 text-orange-800">Dieta Cetogênica (Keto)</th>
                   </tr>
                 </thead>
                 <tbody className="text-sm font-medium text-slate-600 divide-y divide-slate-100">
@@ -713,7 +712,7 @@ export default function DietaLowCarb() {
                           key={limit}
                           type="button"
                           onClick={() => setCarbLimit(limit)}
-                          className={`flex-1 py-2 rounded-xl text-xs font-black transition-all duration-300 ${carbLimit === limit ? 'bg-green-500 text-white shadow-[0_0_15px_rgba(34,197,94,0.4)] scale-105' : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white'}`}
+                          className={`flex-1 py-2 rounded-xl text-xs font-black transition-all duration-300 ${carbLimit === limit ? 'bg-green-700 text-white shadow-[0_0_15px_rgba(21,128,61,0.4)] scale-105' : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white'}`}
                         >
                           {limit}g
                         </button>
@@ -897,7 +896,7 @@ export default function DietaLowCarb() {
                         <PlayCircle className="text-green-500" /> Low Carb e a Microbiota
                     </h3>
                     <p className="text-slate-300 font-medium leading-relaxed mb-6">
-                        Assista para entender por que uma Low Carb baseada apenas em carnes, queijo e bacon pode travar seu emagrecimento e inflamar seu corpo. Descubra a verdadeira importância de abusar dos vegetais e como isso se conecta com o poder dos <Link to="/o-que-sao-prebioticos" className="text-green-700 font-bold hover:underline">prebióticos</Link> e <Link to="/o-que-sao-probioticos" className="text-green-700 font-bold hover:underline">probióticos</Link> na sua rotina metabólica!
+                        Assista para entender por que uma Low Carb baseada apenas em carnes, queijo e bacon pode travar seu emagrecimento e inflamar seu corpo. Descubra a verdadeira importância de abusar dos vegetais e como isso se conecta com o poder dos <Link to="/o-que-sao-prebioticos" className="text-green-400 font-bold hover:underline">prebióticos</Link> e <Link to="/o-que-sao-probioticos" className="text-green-400 font-bold hover:underline">probióticos</Link> na sua rotina metabólica!
                     </p>
                 </div>
             </div>
