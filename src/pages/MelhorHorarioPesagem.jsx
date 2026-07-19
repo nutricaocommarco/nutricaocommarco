@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   ChevronLeft, HelpCircle, Scale, Clock, Activity, Droplets, 
@@ -17,9 +17,31 @@ export default function MelhorHorarioPesagem() {
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
+  // NOVO: Referência e Estado para o Instagram Lazy Load
+  const instaRef = useRef(null);
+  const [showInsta, setShowInsta] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShowInsta(true);
+          observer.disconnect(); // Desliga o observador após carregar
+        }
+      },
+      { rootMargin: '300px' } // Começa a carregar 300 pixels antes de aparecer
+    );
+
+    if (instaRef.current) {
+      observer.observe(instaRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
@@ -244,7 +266,7 @@ export default function MelhorHorarioPesagem() {
               </div>
               {/* FIM LINK INTERNO ESTRATÉGICO */}
 
-              {/* SESSÃO DO VÍDEO DO INSTAGRAM */}
+{/* SESSÃO DO VÍDEO DO INSTAGRAM (COM LAZY LOAD AVANÇADO) */}
               <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
@@ -255,16 +277,31 @@ export default function MelhorHorarioPesagem() {
                 <p className="text-slate-600 mb-6 font-medium italic text-left">
                   Complementando a nossa leitura, veja no vídeo abaixo como eu faço uma avaliação nos padrões internacionais para saber exatamente quanto de gordura e musculo você tem!
                 </p>
-                <div className="relative w-full overflow-hidden rounded-[2.5rem] shadow-2xl flex justify-center bg-white border border-green-100">
-                  <iframe 
-                    src="https://www.instagram.com/p/DVOiA9SkS-k/embed" 
-                    width="400" 
-                    height="480" 
-                    frameBorder="0" 
-                    scrolling="no" 
-                    allowtransparency="true" 
-                    className="max-w-full"
-                  ></iframe>
+                
+                {/* CONTAINER OBSERVADO PELO REACT COM MIN-HEIGHT PARA EVITAR CLS */}
+                <div 
+                  ref={instaRef} 
+                  className="relative w-full min-h-[480px] overflow-hidden rounded-[2.5rem] shadow-2xl flex justify-center bg-white border border-green-100"
+                >
+                  {showInsta ? (
+                    <iframe 
+                      src="https://www.instagram.com/p/DVOiA9SkS-k/embed" 
+                      width="400" 
+                      height="480" 
+                      frameBorder="0" 
+                      scrolling="no" 
+                      allowtransparency="true" 
+                      loading="lazy"
+                      title="Vídeo de Avaliação Antropométrica"
+                      className="max-w-full"
+                    ></iframe>
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center bg-slate-100 animate-pulse">
+                      <span className="text-slate-400 font-bold uppercase tracking-widest text-sm flex items-center gap-2">
+                        <Activity className="animate-spin w-5 h-5 text-green-700" /> Carregando Vídeo...
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
               {/* FIM DA SESSÃO DO VÍDEO */}
