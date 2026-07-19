@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, HelpCircle, Scale, Pill, Flame, Target, Headphones, PlayCircle, ChevronRight, Activity } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
+import ImagemOtimizada from '../components/ImagemOtimizada';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
 

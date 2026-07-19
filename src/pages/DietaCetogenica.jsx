@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import ImagemOtimizada from '../components/ImagemOtimizada';
 import YouTubeLazy from '../components/YouTubeLazy';
 import { 
   ChevronLeft, HelpCircle, Activity, Clock, Shield, 

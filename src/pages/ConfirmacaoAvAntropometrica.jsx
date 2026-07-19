@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import ImagemOtimizada from '../components/ImagemOtimizada';
 import { Helmet } from 'react-helmet-async';
 import { 
   CheckCircle2, CalendarCheck, Shirt, Coffee, 

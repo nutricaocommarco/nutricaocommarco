@@ -11,6 +11,7 @@ import {
 
 import Newsletter from '../components/Newsletter';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
+import ImagemOtimizada from '../components/ImagemOtimizada';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 

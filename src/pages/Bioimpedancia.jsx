@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, PlayCircle, HelpCircle, Zap, Headphones, ChevronRight, Activity, AlertTriangle } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
+import ImagemOtimizada from '../components/ImagemOtimizada';
 import { Helmet } from 'react-helmet-async';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";

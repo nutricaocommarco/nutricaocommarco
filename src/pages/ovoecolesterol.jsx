@@ -4,6 +4,7 @@ import { ChevronLeft, HelpCircle, Activity, Leaf, Scale, Heart, FileText, Zap, C
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import YouTubeLazy from '../components/YouTubeLazy';
+import ImagemOtimizada from '../components/ImagemOtimizada';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 

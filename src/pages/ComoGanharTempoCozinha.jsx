@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import ImagemOtimizada from '../components/ImagemOtimizada';
 import { 
   ChevronLeft, HelpCircle, Activity, ChefHat, Clock, FileText, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 

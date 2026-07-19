@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { CheckCircle, Home, ArrowRight, Sparkles } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import ImagemOtimizada from '../components/ImagemOtimizada';
 
 export default function InscricaoConfirmada() {
   useEffect(() => {

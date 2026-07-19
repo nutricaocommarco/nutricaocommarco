@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import ImagemOtimizada from '../components/ImagemOtimizada';
 import { ChevronLeft, HelpCircle, PlayCircle, Headphones, ChevronRight, Activity, Flame, TrendingDown, Scale } from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';

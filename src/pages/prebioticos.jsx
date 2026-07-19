@@ -10,6 +10,7 @@ import {
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import YouTubeLazy from '../components/YouTubeLazy';
+import ImagemOtimizada from '../components/ImagemOtimizada';
 
 // Componente Prebioticos lista
 const prebioticosDados = [

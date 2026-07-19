@@ -5,7 +5,7 @@ import { ChevronLeft, HelpCircle, PlayCircle, Headphones, ChevronRight, Activity
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
-
+import ImagemOtimizada from '../components/ImagemOtimizada';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 const datePublishedISO = "2026-03-20";

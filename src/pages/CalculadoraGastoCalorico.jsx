@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import ImagemOtimizada from '../components/ImagemOtimizada';
 import { Calculator, Activity, Info, CheckCircle2, User, HeartPulse, AlertTriangle, Settings, Zap, Dumbbell, Timer } from 'lucide-react';
 
 const CalculatorImage = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Calculadora-de-Gasto-Calorico.webp";

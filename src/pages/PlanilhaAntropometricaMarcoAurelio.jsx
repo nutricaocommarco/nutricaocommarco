@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import ImagemOtimizada from '../components/ImagemOtimizada';
 import { 
   Calculator, Activity, CheckCircle, User, HeartPulse, 
   Sparkles, Percent, CreditCard, Video, GitBranch, Target, 
