@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import YouTubeLazy from '../components/YouTubeLazy';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
@@ -29,9 +29,32 @@ export default function JejumIntermitente() {
   const [protocolo, setProtocolo] = useState('16');
   const [resultadoJejum, setResultadoJejum] = useState(null);
 
+  // LAZY LOAD DA NEWSLETTER (CONVERTKIT)
+  const newsletterRef = useRef(null);
+  const [showNewsletter, setShowNewsletter] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  // OBSERVER PARA O CONVERTKIT NÃO DESTRUIR O LCP
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShowNewsletter(true);
+          observer.disconnect(); // Desliga após injetar o script do ConvertKit
+        }
+      },
+      { rootMargin: '500px' } // Começa a carregar 500px antes do usuário chegar no final da página
+    );
+
+    if (newsletterRef.current) {
+      observer.observe(newsletterRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   // LÓGICA DA CALCULADORA DE JEJUM
   const calcularJanela = (e) => {
@@ -46,7 +69,7 @@ export default function JejumIntermitente() {
     novaHora = novaHora % 24;
 
     const horaFormatada = novaHora.toString().padStart(2, '0') + ':' + minutos.toString().padStart(2, '0');
-    
+
     let diaTexto = diasPassados === 0 ? "de hoje" : diasPassados === 1 ? "do dia seguinte" : "daqui a dois dias";
 
     setResultadoJejum({
@@ -55,7 +78,7 @@ export default function JejumIntermitente() {
       horasJejum: horasJejum
     });
   };
-  
+
   const faqs = [
     {
       pergunta: "O que exatamente está liberado para tomar durante a janela de jejum?",
@@ -106,7 +129,7 @@ export default function JejumIntermitente() {
           <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
             O Que é Jejum Intermitente? Guia Definitivo e Científico
           </h1>
-          
+
           {/* 1. RESPOSTA DIRETA NO TOPO */}
           <div className="mb-10 p-6 md:p-10 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-6 text-left">
             <div>
@@ -179,7 +202,7 @@ export default function JejumIntermitente() {
 
               {/* 2. IMAGEM DE CAPA COM PRIORIDADE LCP E HACK DE PERFORMANCE */}
           <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
-            
+
             <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
               <picture>
                 {/* 1. CELULAR: Força baixar apenas 500px (Lighthouse dá nota 100 aqui) */}
@@ -187,13 +210,13 @@ export default function JejumIntermitente() {
                   media="(max-width: 768px)" 
                   srcSet={`https://wsrv.nl/?url=${artigoCapa.replace('https://', '')}&w=500&output=webp`} 
                 />
-                
+
                 {/* 2. TABLET: Força baixar a versão de 800px */}
                 <source 
                   media="(max-width: 1024px)" 
                   srcSet={`https://wsrv.nl/?url=${artigoCapa.replace('https://', '')}&w=800&output=webp`} 
                 />
-                
+
                 {/* 3. DESKTOP E DISCOVER: Baixa a versão original lindíssima de 1280px */}
                 <img 
                   src={artigoCapa} 
@@ -206,7 +229,7 @@ export default function JejumIntermitente() {
                 />
               </picture>
             </div>
-            
+
           </figure>
 
 
@@ -362,21 +385,21 @@ export default function JejumIntermitente() {
                     )}
                 </div>
             </div> 
-            
+
             <h2 id="mrbeast" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Video className="text-green-700"/> A Experiência Real: 14 Dias Sem Comer (MrBeast)
             </h2>
             <p className="mb-6">
               Para sair um pouco da teoria médica sobre o que é jejum intermitente e ver como o corpo humano lida com a privação de alimentos na prática, o fenômeno da internet <strong>MrBeast</strong> documentou o seu desafio de passar incríveis 14 dias em jejum consecutivo, ingerindo apenas água e eletrólitos. O vídeo ilustra perfeitamente a verdadeira <Link to="/o-que-e-fome-emocional" className="text-green-700 font-bold hover:underline">fome emocional</Link> e a barreira mental dos primeiros dias.
             </p>
-            
+
             <div className="my-10 p-6 md:p-8 bg-slate-900 rounded-[2.5rem] shadow-2xl flex flex-col md:flex-row items-center gap-8 border border-slate-800">
                 <div className="w-full md:w-1/2 aspect-video rounded-2xl overflow-hidden shadow-xl shrink-0 bg-black border-4 border-slate-700 relative">
-               
+
                   <YouTubeLazy videoId="Kq3dcD3Hnik" title="Documentário sobre 14 dias em Jejum Intermitente por MrBeast" />
-                  
+
                 </div>
-              
+
                 <div className="flex-1 text-center md:text-left">
                     <strong className="text-2xl font-black text-white italic uppercase mb-4 flex items-center justify-center md:justify-start gap-2 block">
                         <PlayCircle className="text-green-500" /> Além do Limite
@@ -572,28 +595,33 @@ export default function JejumIntermitente() {
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
                 <HelpCircle className="text-green-700" /> Perguntas Frequentes sobre o Jejum (FAQ)
               </h2>
-<div className="space-y-4">
-  {faqs.map((faq, index) => (
-    <div key={index} className="bg-slate-50 rounded-3xl border border-green-100 overflow-hidden transition-all duration-300">
-      <button 
-        onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-        className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
-        aria-expanded={openFaqIndex === index}
-        aria-label={`Abrir resposta para: ${faq.pergunta}`}
-      >
-        <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-700' : 'text-slate-800 group-hover:text-green-700'}`}>
-          {faq.pergunta}
-        </h3>
-        <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
-      </button>
-      <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
-        <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">{faq.resposta}</p>
-      </div>
-    </div>
-  ))}
-</div>            </div>
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <div key={index} className="bg-slate-50 rounded-3xl border border-green-100 overflow-hidden transition-all duration-300">
+                    <button 
+                      onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                      className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
+                      aria-expanded={openFaqIndex === index}
+                      aria-label={`Abrir resposta para: ${faq.pergunta}`}
+                    >
+                      <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-700' : 'text-slate-800 group-hover:text-green-700'}`}>
+                        {faq.pergunta}
+                      </h3>
+                      <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
+                    </button>
+                    <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
+                      <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">{faq.resposta}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>            
+            </div>
 
-            <Newsletter />
+            {/* CAIXA DE CARREGAMENTO DO CONVERTKIT */}
+            <div ref={newsletterRef} className="min-h-[200px] w-full">
+              {showNewsletter && <Newsletter />}
+            </div>
+
           </div>
         </article>
 
@@ -602,12 +630,12 @@ export default function JejumIntermitente() {
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
             <img 
-  src={`${githubImgBase}Eu_1.webp`} 
-  alt="Marco Aurélio Jr. - Autor e Nutricionista em formação" 
-  className="w-full h-full object-cover" 
-  loading="lazy"
-  width="96"
-  height="96" 
+              src={`${githubImgBase}Eu_1.webp`} 
+              alt="Marco Aurélio Jr. - Autor e Nutricionista em formação" 
+              className="w-full h-full object-cover" 
+              loading="lazy"
+              width="96"
+              height="96" 
               onError={(e) => {
                 e.target.onerror = null; 
                 e.target.src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>👨‍⚕️</text></svg>";
