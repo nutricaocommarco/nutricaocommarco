@@ -171,26 +171,21 @@ export default function PercentualGorduraFemininoComponent() {
               Quantas vezes você subiu em uma balança, olhou para o número refletido e sentiu frustração imediata sem entender absolutamente nada sobre o que aquela massa corporal realmente significava? A busca pelo corpo ideal é constantemente bombardeada por desinformação, fazendo com que milhares de mulheres travem uma guerra diária contra a própria biologia ao tentar atingir índices de gordura corporal perigosamente baixos e insustentáveis. Compreender a sua composição corporal não é apenas uma questão de estética, mas um poderoso ato de libertação e de proteção à sua fisiologia endócrina.
             </p>
 
-            <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
-              <img 
-                src={artigoCapa} 
-                alt="Diagrama visual demonstrando a variação da composição corporal feminina através de diferentes métodos de avaliação antropométrica." 
+<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <ImagemOtimizada 
+                src={artigoCapa}
+                alt="Diagrama visual demonstrando a variação da composição corporal feminina através de diferentes métodos de avaliação antropométrica."
                 title="A Composição Corporal Feminina na Avaliação Física"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
-                width="800"
-                height="500"
-                loading="lazy"
-                onError={(e) => {
-                  e.target.onerror = null; 
-                  e.target.src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=800";
-                }}
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
               />
-              <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
-                <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
-                  O peso na balança é cego. A verdadeira saúde metabólica é revelada através de uma avaliação criteriosa da composição corporal, diferenciando massa muscular de gordura essencial.
-                </p>
-              </figcaption>
-            </figure>
+            </div>
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-sm md:text-base text-slate-600 font-medium italic text-center m-0">
+                O peso na balança é cego. A verdadeira saúde metabólica é revelada através de uma avaliação criteriosa da composição corporal, diferenciando massa muscular de gordura essencial.
+              </p>
+            </figcaption>
+          </figure>
 
             <h2 id="a-verdade" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Dna className="text-green-700"/> A Fisiologia Feminina e a Gordura Essencial

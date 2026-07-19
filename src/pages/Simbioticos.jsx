@@ -170,27 +170,21 @@ export default function SimbioticosComponent() {
               Até agora, explorámos de forma isolada os dois mundos vitais que compõem a base da nossa saúde gastrointestinal. Contudo, na prática da nutrição clínica e da medicina do estilo de vida, a verdadeira revolução metabólica não acontece quando ingerimos nutrientes isolados, mas sim quando aproveitamos a sinergia perfeita entre eles. Os alimentos simbióticos não são uma nova classe de microrganismos recém-descobertos em laboratório, mas sim um conceito estratégico formidável. Trata-se da garantia biológica de que as bactérias benéficas que ingere terão exatamente o suporte nutricional necessário para sobreviver ao ambiente inóspito do trato digestivo e, finalmente, prosperar de forma soberana lá no final do caminho, no seu cólon.
             </p>
 
-            {/* IMAGEM ESTRATÉGICA COM LAZY */}
-            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img 
-                src={simbioticosCapa} 
-                alt="Pingus, nosso mascote, preparando uma refeição simbiótica perfeita com iogurte, aveia e frutas." 
+<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <ImagemOtimizada 
+                src={simbioticosCapa}
+                alt="Pingus, nosso mascote, preparando uma refeição simbiótica perfeita com iogurte, aveia e frutas."
                 title="A união perfeita de alimentos na refeição simbiótica"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
-                width="800"
-                height="500"
-                loading="lazy"
-                onError={(e) => {
-                  e.target.onerror = null; 
-                  e.target.src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800";
-                }}
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="bg-green-50 p-4 text-center">
-                <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
-                  Pingus a preparar a sua taça simbiótica diária para máxima imunidade.
-                </p>
-              </div>
             </div>
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-xs md:text-sm text-green-700 font-bold uppercase tracking-widest text-center m-0">
+                Pingus a preparar a sua taça simbiótica diária para máxima imunidade.
+              </p>
+            </figcaption>
+          </figure>
 
             <div className="my-12 grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="p-8 bg-emerald-50 border border-emerald-100 rounded-[2.5rem] shadow-sm flex flex-col justify-between">

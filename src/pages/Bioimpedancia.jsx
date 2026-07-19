@@ -18,74 +18,6 @@ export default function Bioimpedancia() {
 
   return (
    <>
-    <Helmet>
-        <title>A balança de bioimpedância é confiável? | Nutrição com Marco</title>
-        <meta name="description" content="Entenda se a balança de bioimpedância é confiável, como ela funciona e o que altera o seu percentual de gordura." />
-
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="A balança de bioimpedância é confiável? | Nutrição com Marco" />
-        <meta property="og:description" content="Entenda se a balança de bioimpedância é confiável, como ela funciona e o que altera o seu percentual de gordura." />
-        <meta property="og:image" content={`${githubImgBase}Blog/bioimpedancia.png`} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "A Balança de Bioimpedância é Realmente Confiável?",
-            "image": `${githubImgBase}Blog/bioimpedancia.png`,
-            "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
-            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.webp`}},
-            "datePublished": "2026-03-20",
-            "dateModified": "2026-03-21",
-            "description": "Entenda se a balança de bioimpedância é confiável, como ela funciona e o que altera o seu percentual de gordura."
-          })}
-        </script>
-
-        {/* INÍCIO DO SCHEMA.ORG PARA FAQ (ATUALIZADO PARA SEO 950+) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "A balança de bioimpedância acerta meu percentual de gordura?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Não exatamente de forma direta. Ela fornece uma estimativa baseada na sua água corporal. Como o corpo humano flutua em hidratação, os valores de gordura podem variar dependendo da quantidade de água retida no momento da pesagem."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Qual o melhor horário para fazer bioimpedância?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "O horário ideal é pela manhã, em jejum, após esvaziar a bexiga e antes de praticar qualquer atividade física. Padronizar essas condições é o único jeito de garantir que as estimativas sejam minimamente comparáveis ao longo do tempo."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "A bioimpedância substitui as dobras cutâneas?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Não. Para quem busca precisão clínica e isolamento de oscilações hídricas, a antropometria (método ISAK) é muito mais consistente, sendo o padrão-ouro acessível para medir a gordura subcutânea real."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Por que meu percentual muda tanto de um dia para o outro?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Essa flutuação rápida raramente é ganho ou perda de gordura real. Trata-se de variações na sua água corporal total, que podem ser causadas pelo consumo de sódio, carboidratos, ciclo menstrual, suor ou nível de hidratação no dia."
-                }
-              }
-            ]
-          })}
-        </script>
-        {/* FIM DO SCHEMA.ORG PARA FAQ */}
-      </Helmet>
-
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
@@ -197,10 +129,21 @@ export default function Bioimpedancia() {
             </div>
             {/* FIM DO BLOCO CITÁVEL */}
 
-            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img src={`${githubImgBase}Blog/Bia1.webp`} alt="Balança de Bioimpedância" title="Confiabilidade da Bioimpedância" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-              <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">A bioimpedância estima o corpo através da água e não mede a gordura diretamente.</p></div>
+          <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <ImagemOtimizada 
+                src={`${githubImgBase}Blog/Bia1.webp`}
+                alt="Balança de Bioimpedância"
+                title="Confiabilidade da Bioimpedância"
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+              />
             </div>
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-xs md:text-sm text-green-700 font-bold uppercase tracking-widest text-center m-0">
+                A bioimpedância estima o corpo através da água e não mede a gordura diretamente.
+              </p>
+            </figcaption>
+          </figure>
 
             <p>E aqui está o ponto-chave: <strong>ela não mede gordura diretamente — ela mede, principalmente, a quantidade de água corporal.</strong> A partir disso, utiliza equações para estimar os demais componentes. Ou seja, qualquer fator que altere a quantidade ou a distribuição de água no corpo pode impactar significativamente o resultado. Por isso, a bioimpedância não é 100% confiável, especialmente quando o protocolo não é seguido corretamente.</p>
 

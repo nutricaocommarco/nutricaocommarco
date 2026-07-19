@@ -103,10 +103,6 @@ const handleFormSubmit = async (e) => {
 
   return (
     <>
-      <Helmet>
-
-      </Helmet>
-
       <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
         <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
@@ -184,20 +180,21 @@ const handleFormSubmit = async (e) => {
                 Se você já sentiu que a sua dieta parece parar de funcionar misteriosamente em algumas semanas do mês, saiba que o problema não é a sua força de vontade, mas sim a dúvida de o que comer na TPM. A grande verdade é que a imensa maioria dos planos alimentares tradicionais ignora um dos fatores mais determinantes na fisiologia da mulher: a flutuação hormonal ao longo do ciclo menstrual. Entender como o seu corpo metaboliza energia, lida com o apetite e estoca líquidos durante a Tensão Pré-Menstrual (TPM) e dominar o que comer na TPM é o verdadeiro segredo para parar de lutar contra a própria biologia e alcançar um emagrecimento sustentável, inteligente e sem sofrimento.
               </p>
 
-              {/* IMAGEM COM ALT TEXT OTIMIZADO */}
-              <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative text-center">
-                <img 
-                  src={tpmCapa} 
-                  alt="Descubra exatamente o que comer na TPM para aliviar os sintomas do ciclo menstrual e emagrecer" 
-                  title="O Que Comer na TPM e o Metabolismo"
-                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200 mx-auto" 
-                />
-                <div className="bg-green-50/90 backdrop-blur-sm p-4 absolute bottom-0 w-full border-t border-green-100">
-                  <p className="text-xs text-green-800 font-bold uppercase tracking-widest m-0 text-center">
-                    Entender o que comer na TPM não é restringir, é trabalhar com a sua biologia.
-                  </p>
-                </div>
-              </div>
+<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <ImagemOtimizada 
+                src={tpmCapa}
+                alt="Descubra exatamente o que comer na TPM para aliviar os sintomas do ciclo menstrual e emagrecer"
+                title="O Que Comer na TPM e o Metabolismo"
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-xs md:text-sm text-green-700 font-bold uppercase tracking-widest text-center m-0">
+                Entender o que comer na TPM não é restringir, é trabalhar com a sua biologia.
+              </p>
+            </figcaption>
+          </figure>
 
               <h2 id="diferenca-emagrecimento" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Brain className="text-green-700"/> O Que Comer na TPM e a Diferença no Emagrecimento Feminino

@@ -18,66 +18,6 @@ export default function VitaminaA() {
 
   return (
     <>
-    <Helmet>
-        <title>Vitamina A para que serve? | Nutrição com Marco</title>
-        <meta name="description" content="Entenda as diferenças entre retinol, retinal e ácido retinóico, e descubra como a Vitamina A atua no seu metabolismo muito além da visão." />
-
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Vitamina A para que serve? | Nutrição com Marco" />
-        <meta property="og:description" content="Entenda as diferenças entre retinol, retinal e ácido retinóico, e descubra como a Vitamina A atua no seu metabolismo muito além da visão." />
-        <meta property="og:image" content={`${githubImgBase}Blog/vitamina_a.webp`} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Vitamina A: Muito Além da Visão – Para que Serve e Como Funciona no Corpo",
-            "image": `${githubImgBase}Blog/vitamina_a.webp`,
-            "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
-            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.webp`}},
-            "datePublished": "2026-03-20",
-            "dateModified": "2026-03-21",
-            "description": "Entenda as diferenças entre retinol, retinal e ácido retinóico, e descubra como a Vitamina A atua no seu metabolismo muito além da visão."
-          })}
-        </script>
-
-        {/* INÍCIO DO SCHEMA.ORG PARA FAQ (ATUALIZADO PARA SEO 950+) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Comer muita cenoura realmente melhora a visão?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Sim, mas até certo ponto. A cenoura é riquíssima em betacaroteno, uma pró-vitamina A que o corpo converte em retinal. O retinal previne a chamada cegueira noturna, no entanto, não vai corrigir o grau dos seus óculos caso você tenha problemas como miopia."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Qual a diferença entre tomar suplemento de vitamina A e usar cremes com ácido retinóico?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A diferença está na forma de atuação. Um suplemento oral de retinol tem um efeito sistêmico no corpo (visão e imunidade). Já os cremes com ácido retinóico agem localmente onde são aplicados, acelerando a renovação celular da pele, sem atuar na sua visão."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "É possível ter excesso de vitamina A no organismo?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Sim, a hipervitaminose A. Como a vitamina A é lipossolúvel, o que o corpo não usa é estocado no fígado. O excesso de suplementos de retinol pode causar toxicidade hepática, dores de cabeça e ressecamento da pele."
-                }
-              }
-            ]
-          })}
-        </script>
-        {/* FIM DO SCHEMA.ORG PARA FAQ */}
-      </Helmet>
-
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
@@ -179,11 +119,21 @@ export default function VitaminaA() {
 
             <p>Para entender melhor suas funções, é fundamental conhecer as três principais formas ativas da vitamina A no corpo: <strong>retinol, retinal e ácido retinóico</strong>. Apesar de estarem relacionadas, cada uma possui características químicas e funções específicas.</p>
 
-            {/* IMAGEM ESTRATÉGICA */}
-            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img src={`${githubImgBase}Blog/vitamina_a.webp`} alt="Metabolismo da Vitamina A: Retinol, Retinal e Ácido Retinóico" title="Vitamina A e suas formas ativas" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest">As três formas da Vitamina A e suas funções no metabolismo.</p></div>
+<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <ImagemOtimizada 
+                src={`${githubImgBase}Blog/vitamina_a.webp`}
+                alt="Metabolismo da Vitamina A: Retinol, Retinal e Ácido Retinóico"
+                title="Vitamina A e suas formas ativas"
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+              />
             </div>
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-xs md:text-sm text-green-700 font-bold uppercase tracking-widest text-center m-0">
+                As três formas da Vitamina A e suas funções no metabolismo.
+              </p>
+            </figcaption>
+          </figure>
 
             <h2 id="o-que-e" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               O que é a vitamina A e como ela é absorvida?

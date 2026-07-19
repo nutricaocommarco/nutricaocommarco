@@ -156,19 +156,22 @@ export default function Frutose() {
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed text-left">
             <p>Se você já ouviu por aí que "fruta engorda" ou que a "frutose destrói o fígado", saiba que a ciência conta uma história bem diferente e muito mais contextualizada. Na nutrição, o detalhe está na fonte e na dose. Vamos entender por que o açúcar natural da fruta não deve ser o vilão da sua dieta, mas sim um aliado da sua saúde.</p>
 
-            {/* IMAGEM DE CAPA - O CAMINHO FOI CORRIGIDO AQUI TAMBÉM */}
-            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img 
-              src={artigoCapa} 
-              alt="Frutas variadas e metabolismo da frutose" 
-              title="Mitos e verdades sobre o consumo de frutas" 
-              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
-              width="896"
-              height="635"
-              fetchpriority="high"
-                 />
-              <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest">O impacto da frutose natural versus o açúcar adicionado.</p></div>
+<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <ImagemOtimizada 
+                src={artigoCapa}
+                alt="Frutas variadas e metabolismo da frutose"
+                title="Mitos e verdades sobre o consumo de frutas"
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+                priority="high"
+              />
             </div>
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-xs md:text-sm text-green-700 font-bold uppercase tracking-widest text-center m-0">
+                O impacto da frutose natural versus o açúcar adicionado.
+              </p>
+            </figcaption>
+          </figure>
 
             <h2 id="metabolismo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               O Metabolismo da Frutose: Glicose vs. Frutose

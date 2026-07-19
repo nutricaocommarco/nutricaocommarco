@@ -208,19 +208,21 @@ export default function RetatrutidaOQueE() {
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
             <p>O cenário do tratamento da obesidade e das doenças metabólicas está passando por uma evolução tecnológica extremamente acelerada e empolgante. Até bem pouco tempo atrás, as atenções estavam voltadas quase que exclusivamente para o sucesso das terapias de primeira e segunda geração, focadas principalmente na via do hormônio GLP-1. No entanto, a ciência metabólica acaba de revelar uma nova e promissora molécula que vem conquistando o protagonismo nas discussões médicas: a retatrutida.</p>
 
-            {/* IMAGEM DE CAPA */}
-            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img 
-                src={`${githubImgBase}Blog/retatrutida_molecula.webp`} 
-                alt="Ilustração médica representando a molécula de retatrutida e seus três receptores de ação no organismo." 
+<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <ImagemOtimizada 
+                src={`${githubImgBase}Blog/retatrutida_molecula.webp`}
+                alt="Ilustração médica representando a molécula de retatrutida e seus três receptores de ação no organismo."
                 title="Mecanismo de Ação da Retatrutida"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
-                width="800"
-                height="500"
-                loading="lazy"
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">A Retatrutida representa um salto científico ao ativar três vias hormonais simultâneas.</p></div>
             </div>
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-xs md:text-sm text-green-700 font-bold uppercase tracking-widest text-center m-0">
+                A Retatrutida representa um salto científico ao ativar três vias hormonais simultâneas.
+              </p>
+            </figcaption>
+          </figure>
 
             <p>Compreender o que é a retatrutida e como ela interage com a nossa complexa fisiologia é essencial para entender por que essa substância representa um avanço tão significativo, oferecendo uma eficácia de perda de peso que supera as terapias lançadas anteriormente no mercado.</p>
 

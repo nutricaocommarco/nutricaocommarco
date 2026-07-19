@@ -18,87 +18,6 @@ export default function HormoniosFome() {
 
   return (
     <>
-      <Helmet>
-        <title>Hormônios da Fome: Como Grelina e Leptina Controlam seu Peso | Nutrição com Marco</title>
-        <meta name="description" content="Entenda como Grelina, Leptina e GLP-1 sabotam sua dieta. Descubra por que a fome aumenta após emagrecer e como a ciência de 2025 explica a inflamação adiposa no reganho de peso." />
-
-        {/* OPEN GRAPH (Redes Sociais) */}
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Hormônios da Fome: O Guia Científico do Reganho de Peso | Nutrição com Marco" />
-        <meta property="og:description" content="Entenda a biologia por trás da fome insaciável pós-dieta. Grelina, Leptina e o papel do GLP-1 explicados pela ciência moderna." />
-        <meta property="og:image" content={`${githubImgBase}Blog/Hormfome.webp`} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        {/* SCHEMA.ORG PARA O ARTIGO (Google) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Hormônios da Fome: Como Grelina e Leptina Controlam seu Peso",
-            "image": `${githubImgBase}Blog/Hormfome.webp`,
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Nutrição com Marco",
-              "logo": {
-                "@type": "ImageObject",
-                "url": `${githubImgBase}logoN_pingus.webp`
-              }
-            },
-            "datePublished": "2026-03-20", 
-            "dateModified": "2026-03-21",
-            "description": "Entenda a fisiologia por trás do aumento da fome após a perda de peso, analisando o papel da Grelina, Leptina, GLP-1 e a inflamação do tecido adiposo."
-          })}
-        </script>
-
-        {/* SCHEMA.ORG PARA FAQ */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "O que acontece com a Grelina quando eu emagreço rápido?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A Grelina é o hormônio que estimula a fome. Seus níveis sobem agressivamente após períodos de perda de peso rápida ou restrição calórica severa. Essa é uma das principais adaptações do corpo para tentar forçar você a recuperar a energia (gordura) que ele perdeu."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Como a Leptina influencia o reganho de peso?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A Leptina sinaliza saciedade ao cérebro e seus níveis acompanham a quantidade de gordura corporal. Ao emagrecer, a leptina cai, retirando o freio da fome. Curiosamente, no reganho de peso (obesidade), a leptina sobe, mas a inflamação adiposa causa 'resistência à leptina', impedindo que o cérebro receba o sinal de saciedade corretamente."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Qual a diferença entre o GLP-1 natural e o dos medicamentos como Ozempic?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "O GLP-1 natural é produzido pelo intestino logo após as refeições e dura apenas alguns minutos na corrente sanguínea. Os medicamentos (agonistas) são versões sintéticas modificadas para durar dias no corpo, mantendo a sensação de saciedade e o controle da insulina por muito mais tempo, facilitando a adesão à dieta."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Por que a inflamação adiposa dificulta o controle da fome?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A inflamação crônica no tecido adiposo desregula a comunicação hormonal e contribui para a resistência à insulina e à leptina. Isso cria um ciclo vicioso onde o corpo não recebe ou não processa corretamente os sinais de saciedade, mantendo a sensação de fome mesmo quando há energia (gordura) estocada em excesso."
-                }
-              }
-            ]
-          })}
-        </script>
-        {/* FIM DO SCHEMA.ORG PARA FAQ */}
-      </Helmet>
-
       <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
         <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
@@ -200,16 +119,21 @@ export default function HormoniosFome() {
 
               <p>O emagrecimento, embora excelente para a saúde cardiovascular e metabólica, gera um alerta vermelho no organismo. No consultório, quando analiso a <Link to="/o_que_e_antropometria" className="text-green-700 underline hover:text-green-700 font-bold transition-colors">antropometria ISAK 1</Link> de um paciente que reganhou peso rápido, muitas vezes vejo que a perda inicial foi agressiva demais, ignorando a fisiologia. O corpo interpreta a perda de gordura como uma ameaça à sobrevivência e reage ativando adaptações metabólicas potentes: diminui o gasto de energia (metabolismo basal) e gera um aumento expressivo nos <strong className="text-slate-800">hormônios da fome</strong>. Essa pressão biológica é o que muitas vezes nos empurra de volta, de forma quase inconsciente, aos antigos hábitos alimentares.</p>
 
-              {/* IMAGEM ESTRATÉGICA COM ALT E TITLE ARRUMADOS */}
-              <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-                <img 
-                  src={`${githubImgBase}Blog/Hormfome.webp`} 
-                  alt="Ilustração mostrando Ghrelina e Leptina, hormônios da fome, agindo no cérebro." 
-                  title="Como os hormônios Grelina e Leptina controlam o apetite e o peso."
-                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
-                />
-                <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">A batalha pela manutenção do peso ocorre no nível hormonal, não apenas na força de vontade.</p></div>
-              </div>
+<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <ImagemOtimizada 
+                src={`${githubImgBase}Blog/Hormfome.webp`}
+                alt="Ilustração mostrando Ghrelina e Leptina, hormônios da fome, agindo no cérebro."
+                title="Como os hormônios Grelina e Leptina controlam o apetite e o peso."
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-xs md:text-sm text-green-700 font-bold uppercase tracking-widest text-center m-0">
+                A batalha pela manutenção do peso ocorre no nível hormonal, não apenas na força de vontade.
+              </p>
+            </figcaption>
+          </figure>
 
               <h2 id="grelina-leptina" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Scale className="text-green-700"/> Grelina vs. Leptina: O Cabo de Guerra Invisível do Apetite

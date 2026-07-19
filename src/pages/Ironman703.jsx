@@ -18,87 +18,6 @@ export default function Ironman703() {
 
   return (
     <>
-      <Helmet>
-        <title>Nutrição para Ironman 70.3: Guia Completo | Nutrição com Marco</title>
-        <meta name="description" content="Descubra o guia completo de nutrição para Ironman 70.3. Aprenda a calcular calorias, evitar câimbras, distribuir macronutrientes e usar cafeína para turbinar seu desempenho no triatlo." />
-
-        {/* OPEN GRAPH (Redes Sociais) */}
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Nutrição para Ironman 70.3: O Guia Definitivo para Triatletas" />
-        <meta property="og:description" content="Fadiga e câimbras nos treinos longos? Aprenda a estruturar a nutrição, hidratação e suplementação para provas de endurance e triatlo." />
-        <meta property="og:image" content={`${githubImgBase}Blog/nutricao_ironman_703.webp`} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        {/* SCHEMA.ORG (Google) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Nutrição para Ironman 70.3: O Guia Definitivo para Triatletas",
-            "image": `${githubImgBase}Blog/nutricao_ironman_703.webp`,
-            "author": {
-              "@type": "Person",
-              "name": "Marco Aurélio Jr.",
-              "url": "https://www.nutricaocommarco.com.br/sobre"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Nutrição com Marco",
-              "logo": {
-                "@type": "ImageObject",
-                "url": `${githubImgBase}logoN_pingus.webp`
-              }
-            },
-            "datePublished": "2026-03-25",
-            "dateModified": "2026-03-21",
-            "description": "Descubra o guia completo de nutrição para Ironman 70.3. Aprenda a calcular calorias, evitar câimbras, distribuir macronutrientes e usar cafeína para turbinar seu desempenho no triatlo."
-          })}
-        </script>
-
-        {/* INÍCIO DO SCHEMA.ORG PARA FAQ (ATUALIZADO PARA SEO 950+) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Por que sinto fadiga excessiva durante os treinos de triatlo?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A fadiga precoce em provas de endurance geralmente indica o esgotamento dos estoques de glicogênio muscular. Isso ocorre quando a ingestão diária de carboidratos (ou a reposição intra-treino) não é suficiente para a sua altíssima demanda energética."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Apenas comer banana evita câimbras no pedal?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Não. O potássio (presente na banana) tem pouca relação com a prevenção de câimbras associadas ao exercício. O foco principal deve ser a reposição de Sódio (perdido em abundância no suor) e a hidratação constante."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Devo tomar Creatina para fazer um Ironman 70.3?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Geralmente não é recomendado para triatletas amadores. A creatina otimiza explosões curtas de força e causa retenção de água intramuscular, o que pode aumentar seu peso corporal e prejudicar a mecânica da corrida longa."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Como usar cafeína para correr e pedalar melhor?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "O protocolo científico indica de 3 a 6 mg de cafeína por quilo de peso corporal, cerca de 1 hora antes da atividade. Ela age no sistema nervoso central, reduzindo a sensação de cansaço. É crucial testar nos treinos antes do dia oficial da prova."
-                }
-              }
-            ]
-          })}
-        </script>
-        {/* FIM DO SCHEMA.ORG PARA FAQ */}
-      </Helmet>
-
       <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
         <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
@@ -206,15 +125,21 @@ export default function Ironman703() {
 
               <p>O resultado dessa conta que não fecha? Fadiga extrema constante, câimbras paralisantes no meio do pedal e uma dependência perigosa de refeições rápidas e processadas. Para que você cruze a linha de chegada com energia, a ciência da nutrição esportiva precisa ser aplicada de forma estratégica e individualizada.</p>
 
-              <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-                <img 
-                    src={`${githubImgBase}Blog/nutricao_ironman_703.webp`} 
-                    alt="Atleta de triatlo pedalando em uma competição de Ironman 70.3" 
-                    title="Nutrição Estratégica para Triatlo e Provas de Ironman 70.3"
-                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
-                />
-                <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">A performance no triatlo é definida pela capacidade do corpo de gerar e gerir energia.</p></div>
-              </div>
+<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <ImagemOtimizada 
+                src={`${githubImgBase}Blog/nutricao_ironman_703.webp`}
+                alt="Atleta de triatlo pedalando em uma competição de Ironman 70.3"
+                title="Nutrição Estratégica para Triatlo e Provas de Ironman 70.3"
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-xs md:text-sm text-green-700 font-bold uppercase tracking-widest text-center m-0">
+                A performance no triatlo é definida pela capacidade do corpo de gerar e gerir energia.
+              </p>
+            </figcaption>
+          </figure>
 
               <h2 id="avaliacao-fisica" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
                 <Activity className="text-green-700"/> 1. Além da Balança: A Avaliação Física do Triatleta

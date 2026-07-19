@@ -154,22 +154,21 @@ export default function FomeEmocional() {
               Você abre a geladeira à noite sem saber exatamente o que quer? Come até não aguentar mais, mas continua com uma sensação de vazio inexplicável? Acredite, o seu estômago não está roncando — é o seu cérebro pedindo socorro. Conhecer os verdadeiros <strong>fome emocional sintomas</strong> é o primeiro passo para retomar o controle da sua vida.
             </p>
 
-            {/* IMAGEM ESTRATÉGICA COM LAZY */}
-            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img 
-                src={fomeEmocionalCapa} 
-                alt="Pingus mascote reflexivo diante de um pote de sorvete, ilustrando o desafio da fome emocional." 
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
-                width="800"
-                height="500"
-                loading="lazy" 
+<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <ImagemOtimizada 
+                src={fomeEmocionalCapa}
+                alt="Pingus mascote reflexivo diante de um pote de sorvete, ilustrando o desafio da fome emocional."
+                title="Fome Emocional e Comportamento Alimentar"
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="bg-green-50 p-4 text-center">
-                <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
-                  A fome emocional usa a comida como um curativo temporário para emoções, ignorando a saciedade do corpo.
-                </p>
-              </div>
             </div>
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-xs md:text-sm text-green-700 font-bold uppercase tracking-widest text-center m-0">
+                A fome emocional usa a comida como um curativo temporário para emoções, ignorando a saciedade do corpo.
+              </p>
+            </figcaption>
+          </figure>
 
             {/* SEÇÃO 1: FISIOLOGIA (O DIFERENCIAL) */}
             <h2 id="fisiologia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">

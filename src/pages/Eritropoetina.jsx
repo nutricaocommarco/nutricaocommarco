@@ -18,66 +18,6 @@ export default function Eritropoetina() {
 
   return (
     <>
-      <Helmet>
-        <title>Doping na Altitude: Eritropoetina e Ética no Esporte | Nutrição com Marco</title>
-        <meta name="description" content="Entenda os riscos fatais do uso sintético do hormônio eritropoetina e da transfusão de hemácias no esporte de alta performance." />
-
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Doping na Altitude: Eritropoetina e Ética no Esporte | Nutrição com Marco" />
-        <meta property="og:description" content="Entenda os riscos fatais do uso sintético do hormônio eritropoetina e da transfusão de hemácias no esporte de alta performance." />
-        <meta property="og:image" content={`${githubImgBase}Blog/eritropoietina.webp`} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "O Dilema do Sangue na Altitude: Como o Hormônio Eritropoetina e a Transfusão de Hemácias Afetam a Ética no Esporte",
-            "image": `${githubImgBase}Blog/eritropoietina.webp`,
-            "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
-            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.webp`}},
-            "datePublished": "2026-03-20",
-            "dateModified": "2026-03-21",
-            "description": "Entenda os riscos fatais do uso sintético do hormônio eritropoetina e da transfusão de hemácias no esporte de alta performance."
-          })}
-        </script>
-
-        {/* INÍCIO DO SCHEMA.ORG PARA FAQ (ATUALIZADO PARA SEO 950+) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Qual é o principal perigo de usar o hormônio eritropoetina sintético sem indicação médica?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "O maior risco é o aumento exagerado da viscosidade do sangue. Isso obriga o coração a trabalhar com uma carga muito mais pesada e facilita a formação de trombos, podendo causar infartos ou derrames cerebrais fatais."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Por que a transfusão de hemácias é proibida mesmo que o sangue seja do próprio atleta?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Ela é proibida porque altera artificialmente a capacidade de transporte de oxigênio, criando uma vantagem injusta e oferecendo riscos graves à saúde devido ao espessamento súbito do sangue circulante no momento da prova."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Existe alguma forma legal de aumentar o oxigênio no sangue para provas na altitude?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Sim, a forma legal e segura é o processo natural de aclimatização. Ao chegar ao local da prova com semanas de antecedência, o corpo produz seu próprio hormônio eritropoetina em níveis seguros, adaptando-se ao ar rarefeito gradualmente."
-                }
-              }
-            ]
-          })}
-        </script>
-        {/* FIM DO SCHEMA.ORG PARA FAQ */}
-      </Helmet>
-
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
@@ -171,10 +111,21 @@ export default function Eritropoetina() {
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
             <p>Correr uma maratona em um lugar como San Pedro do Atacama, a 2.500 metros acima do nível do mar, é um teste de fogo para qualquer ser humano. Para um corredor que sai do Rio de Janeiro, acostumado com a abundância de oxigênio do litoral, o impacto é imediato. O ar rarefeito da altitude faz com que cada respiração pareça insuficiente, forçando o organismo a buscar saídas para não entrar em colapso. É nesse cenário de pressão extrema que muitos atletas se veem diante de propostas tentadoras, porém perigosas e ilegais, que prometem melhorar o desempenho de forma artificial, mas que colocam a vida em risco.</p>
 
-            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img src={`${githubImgBase}Blog/eritropoietina.webp`} alt="Esporte em alta altitude e o hormônio eritropoetina" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">O ar rarefeito impõe desafios extremos ao sistema cardiovascular do atleta.</p></div>
+<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <ImagemOtimizada 
+                src={`${githubImgBase}Blog/eritropoietina.webp`}
+                alt="Esporte em alta altitude e o hormônio eritropoetina"
+                title="Hormônio Eritropoetina no Esporte"
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+              />
             </div>
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-xs md:text-sm text-green-700 font-bold uppercase tracking-widest text-center m-0">
+                O ar rarefeito impõe desafios extremos ao sistema cardiovascular do atleta.
+              </p>
+            </figcaption>
+          </figure>
 
             <h2 id="papel-eritropoetina" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Entenda o papel do hormônio eritropoetina no desempenho físico</h2>
             <p>O hormônio eritropoetina, também conhecido pela sigla EPO, é uma substância produzida naturalmente pelos nossos rins com uma função muito clara, que é estimular a medula óssea a fabricar mais glóbulos vermelhos. Essas células são os veículos que transportam o oxigênio para os <Link to="/o_que_e_antropometria" className="text-green-700 underline hover:text-green-700 font-bold transition-colors">músculos</Link> durante o exercício. Em condições normais de altitude, o corpo aumenta a produção desse hormônio de forma gradual para se adaptar à falta de O2.</p>

@@ -18,66 +18,6 @@ export default function EfeitoSanfona() {
 
   return (
     <>
-      <Helmet>
-        <title>Efeito Sanfona e Inflamação Invisível | Nutrição com Marco</title>
-        <meta name="description" content="Descubra por que o reganho de peso é mais perigoso que a obesidade estável e como a memória das suas células de gordura impacta sua saúde." />
-
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Efeito Sanfona e Inflamação Invisível | Nutrição com Marco" />
-        <meta property="og:description" content="Descubra por que o reganho de peso é mais perigoso que a obesidade estável e como a memória das suas células de gordura impacta sua saúde." />
-        <meta property="og:image" content={`${githubImgBase}Blog/efeito_sanfona.png`} />
-        <meta property="og:url" content={`https://www.nutricaocommarco.com.br${pathname}`} />
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "O Perigo Oculto do Efeito Sanfona: Por que engordar e emagrecer inflama o seu corpo",
-            "image": `${githubImgBase}Blog/efeito_sanfona.png`,
-            "author": {"@type": "Person", "name": "Marco Aurélio Jr.", "url": "https://www.nutricaocommarco.com.br/sobre"},
-            "publisher": {"@type": "Organization", "name": "Nutrição com Marco", "logo": {"@type": "ImageObject", "url": `${githubImgBase}logoN_pingus.webp`}},
-            "datePublished": "2026-03-20",
-            "dateModified": "2026-03-21",
-            "description": "Descubra por que o reganho de peso é mais perigoso que a obesidade estável e como a memória das suas células de gordura impacta sua saúde."
-          })}
-        </script>
-
-        {/* INÍCIO DO SCHEMA.ORG PARA FAQ (ATUALIZADO PARA SEO 950+) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "O efeito sanfona estraga o metabolismo para sempre?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Não é permanente, mas cria 'memórias' nas células de gordura que as tornam mais propensas a inflamar novamente de forma rápida. O corpo precisa de tempo e de uma dieta estável para se recuperar fisiologicamente dessa inflamação."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Por que sinto mais fome após emagrecer?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "É uma resposta de sobrevivência. O corpo reduz o gasto de energia (metabolismo basal) e aumenta drasticamente a produção de hormônios da fome, como a Grelina, para tentar forçar a reposição dos estoques de gordura perdidos."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "É melhor ficar acima do peso do que viver no efeito sanfona?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Sim, a ciência atual sugere que flutuações constantes e bruscas de peso podem ser mais prejudiciais ao sistema cardiovascular do que manter um peso estável, mesmo que este esteja acima do considerado ideal, devido à severidade da inflamação gerada no reganho."
-                }
-              }
-            ]
-          })}
-        </script>
-        {/* FIM DO SCHEMA.ORG PARA FAQ */}
-      </Helmet>
-
     <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
       <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
@@ -178,16 +118,21 @@ export default function EfeitoSanfona() {
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
             <p>Você já sentiu que, logo após terminar uma dieta e perder peso, o seu corpo parece fazer um esforço enorme para ganhar tudo de novo? Esse vaivém da balança, conhecido como efeito sanfona ou ciclo de peso, é um dos maiores desafios para quem busca saúde, já que a grande maioria das pessoas que tentam emagrecer acaba enfrentando dificuldades reais para manter o peso mais baixo a longo prazo.</p>
 
-            {/* IMAGEM DE CAPA COM ALT E TITLE ARRUMADOS */}
-            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img 
-                src={`${githubImgBase}Blog/efeito_sanfona.webp`} 
-                alt="Ilustração do metabolismo e o impacto do efeito sanfona" 
+<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <ImagemOtimizada 
+                src={`${githubImgBase}Blog/efeito_sanfona.webp`}
+                alt="Ilustração do metabolismo e o impacto do efeito sanfona"
                 title="Os perigos do reganho de peso e a inflamação celular invisível"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">O reganho de peso é um evento inflamatório agressivo para as células.</p></div>
             </div>
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-xs md:text-sm text-green-700 font-bold uppercase tracking-widest text-center m-0">
+                O reganho de peso é um evento inflamatório agressivo para as células.
+              </p>
+            </figcaption>
+          </figure>
 
             <p>A ciência moderna nos mostra que isso acontece porque o nosso corpo não encara o emagrecimento apenas como uma mudança estética, mas como um evento que mexe profundamente com o funcionamento das nossas células de gordura e com o equilíbrio do nosso metabolismo. Essa oscilação constante está ligada a riscos aumentados de doenças cardiovasculares e diabetes, provando que o impacto vai muito além do que vemos no espelho.</p>
 

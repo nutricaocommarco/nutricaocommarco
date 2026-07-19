@@ -253,27 +253,21 @@ export default function Prebioticos() {
               Passamos a vida inteira focados no que nós estamos comendo, mas frequentemente esquecemos que não estamos sozinhos nessa digestão. O nosso intestino abriga trilhões de microrganismos que trabalham incansavelmente na linha de frente da nossa imunidade, na digestão e na absorção de nutrientes. Para que esse exército microscópico trabalhe a seu favor, ele precisa ser muito bem alimentado. É exatamente aí que entram os prebióticos, os verdadeiros combustíveis da saúde intestinal.
             </p>
 
-            {/* IMAGEM ESTRATÉGICA COM LAZY */}
-            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img 
-                src={prebioticosCapa} 
-                alt="Mesa repleta de alimentos prebióticos naturais como aveia, bananas, cebola, alho, aspargos e sementes em um ambiente claro e saudável." 
+<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <ImagemOtimizada 
+                src={prebioticosCapa}
+                alt="Mesa repleta de alimentos prebióticos naturais como aveia, bananas, cebola, alho, aspargos e sementes em um ambiente claro e saudável."
                 title="Alimentos ricos em prebióticos para a saúde da microbiota intestinal"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
-                width="800"
-                height="500"
-                loading="lazy" 
-                onError={(e) => {
-                  e.target.onerror = null; 
-                  e.target.src="https://images.unsplash.com/photo-1607969391576-61e38da857b2?auto=format&fit=crop&q=80&w=800";
-                }}
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="bg-green-50 p-4 text-center">
-                <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
-                  Cuidar do intestino é nutrir as bactérias que protegem você todos os dias.
-                </p>
-              </div>
             </div>
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-xs md:text-sm text-green-700 font-bold uppercase tracking-widest text-center m-0">
+                Cuidar do intestino é nutrir as bactérias que protegem você todos os dias.
+              </p>
+            </figcaption>
+          </figure>
 
             <h2 id="fisiologia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Zap className="text-green-700"/> Como os prebióticos funcionam no intestino

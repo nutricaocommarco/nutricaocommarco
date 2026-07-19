@@ -162,19 +162,21 @@ export default function MelhorHorarioPesagem() {
 
               <p>A balança tradicional mede absolutamente tudo o que está sobre ela: seus ossos, órgãos, pele, sangue, a água que você bebeu e a comida que ainda está sendo digerida. Ela mede a atração gravitacional da Terra sobre o seu corpo, e não a sua quantidade de gordura. É por isso que o peso corporal humano não é um número estático. É perfeitamente normal e fisiológico que ele flutue de 0,5 até impressionantes 3kg em um único dia.</p>
 
-              {/* IMAGEM ESTRATÉGICA COM LAZY LOADING */}
-              <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-                <img 
-                  src={`${githubImgBase}Blog/melhor_horario_pesagem.webp`} 
-                  alt="Mascote Pinguim Nutri em pé sobre uma balança digital, demonstrando o peso." 
-                  title="A importância de se pesar sempre no mesmo horário e condições com a balança correta"
-                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
-                  width="800"
-                  height="500"
-                  loading="lazy"
-                />
-                <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">Consistência é o segredo para não se frustrar com os números da balança.</p></div>
-              </div>
+<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <ImagemOtimizada 
+                src={`${githubImgBase}Blog/melhor_horario_pesagem.webp`}
+                alt="Mascote Pinguim Nutri em pé sobre uma balança digital, demonstrando o peso."
+                title="A importância de se pesar sempre no mesmo horário e condições com a balança correta"
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-xs md:text-sm text-green-700 font-bold uppercase tracking-widest text-center m-0">
+                Consistência é o segredo para não se frustrar com os números da balança.
+              </p>
+            </figcaption>
+          </figure>
 
               {/* MICRO GEO HACK: PERGUNTA NATURAL NO MEIO DO TEXTO */}
               <h3 id="horario-certo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">

@@ -173,27 +173,21 @@ export default function Probioticos() {
               Se no nosso artigo anterior aprendemos detalhadamente <Link to="/o-que-sao-prebioticos" className="text-green-700 font-semibold hover:underline">o que são prebióticos</Link> (o combustível), agora vamos focar nos trabalhadores incansáveis do seu corpo. Os probióticos não são apenas uma tendência do mercado de suplementos; eles são, fisiologicamente, os moradores essenciais da sua microbiota intestinal. Sem essas bactérias vivas e ativas, todo o seu sistema de defesa, digestão e até mesmo o seu humor podem entrar em colapso.
             </p>
 
-            {/* IMAGEM ESTRATÉGICA COM LAZY */}
-            <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-              <img 
-                src={probioticosCapa} 
-                alt="Pingus, nosso pinguim mascote, segurando e bebendo um frasco gigante de Yakult repleto de probióticos." 
+<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <ImagemOtimizada 
+                src={probioticosCapa}
+                alt="Pingus, nosso pinguim mascote, segurando e bebendo um frasco gigante de Yakult repleto de probióticos."
                 title="Pingus tomando um Yakult rico em Lactobacillus vivos"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
-                width="800"
-                height="500"
-                loading="lazy"
-                onError={(e) => {
-                  e.target.onerror = null; 
-                  e.target.src="https://images.unsplash.com/photo-1517093602195-b40af9688b46?auto=format&fit=crop&q=80&w=800";
-                }}
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="bg-green-50 p-4 text-center">
-                <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
-                  Pingus recarregando sua flora intestinal com um verdadeiro banquete de bactérias boas.
-                </p>
-              </div>
             </div>
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-xs md:text-sm text-green-700 font-bold uppercase tracking-widest text-center m-0">
+                Pingus recarregando sua flora intestinal com um verdadeiro banquete de bactérias boas.
+              </p>
+            </figcaption>
+          </figure>
 
             <h2 id="fisiologia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Zap className="text-green-700"/> A Ciência: Como as bactérias boas agem no corpo?

@@ -233,39 +233,22 @@ export default function CalculadoraGastoCalorico() {
           <div className="space-y-4 md:space-y-6 text-base md:text-lg text-slate-600 font-medium leading-relaxed">
             <p>Se você está se perguntando como calcular meu gasto calórico diário de forma precisa, a resposta mais eficiente e segura é utilizar uma <strong>Calculadora de Gasto Calórico</strong> desenvolvida com base científica rigorosa. Entender exatamente a quantidade de energia que o seu corpo consome todos os dias é o primeiro passo absoluto para qualquer objetivo estético ou de saúde, seja ele emagrecer de forma sustentável, manter o peso atual ou focar no ganho de massa muscular. Muitas pessoas tentam adivinhar a sua taxa metabólica basal ou o seu gasto energético total e acabam frustradas com a falta de resultados práticos na balança ou no espelho por estarem consumindo a quantidade errada de nutrientes.</p>
 
-          <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
-
+<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
             <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
-
-              <picture>
-                {/* 1. CELULAR: Força baixar apenas 500px (Lighthouse dá nota 100 aqui) */}
-                <source 
-                  media="(max-width: 768px)" 
-                  srcSet={`https://wsrv.nl/?url=${artigoCapa.replace('https://', '')}&w=500&output=webp`} 
-                />
-
-                {/* 2. TABLET: Força baixar a versão de 800px */}
-                <source 
-                  media="(max-width: 1024px)" 
-                  srcSet={`https://wsrv.nl/?url=${artigoCapa.replace('https://', '')}&w=800&output=webp`} 
-                />
-
-                {/* 3. DESKTOP E DISCOVER: Baixa a versão original lindíssima de 1280px */}
-                <img 
-                  src={CalculatorImage} 
-                  alt="Mascote Pingus vestido de nutricionista apontando para a Calculadora de Gasto Calórico." 
-                  title="Calculadora de Gasto Calórico e Taxa Metabólica Basal"
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-                  loading="eager" 
-                  fetchpriority="high"
-                  decoding="async"
-                /> 
-              </picture>
+              <ImagemOtimizada 
+                src={CalculatorImage}
+                alt="Mascote Pingus vestido de nutricionista apontando para a Calculadora de Gasto Calórico."
+                title="Calculadora de Gasto Calórico e Taxa Metabólica Basal"
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+                priority="high"
+              />
             </div>
-              <figcaption className="mt-4 text-sm text-slate-600 font-medium italic text-center max-w-lg">
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-sm md:text-base text-slate-600 font-medium italic text-center m-0 max-w-lg mx-auto">
                 Nossa Calculadora de Gasto Calórico analisa o seu perfil físico e nível de atividade para descobrir a sua necessidade energética exata.
-              </figcaption>
-          </figure>  
+              </p>
+            </figcaption>
+          </figure>
             
 
             

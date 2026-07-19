@@ -126,10 +126,21 @@ export default function Feijao() {
             <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
               <p>Se você já sentiu a barriga estufada depois de comer feijão, saiba que isso é extremamente comum e tem uma explicação científica exata. Apesar de ser um alimento incrivelmente nutritivo, rico em fibras, proteínas e minerais, o feijão contém compostos específicos que podem causar fermentação no intestino, levando à formação de gases. A boa notícia é que existem formas simples e comprovadas de reduzir ou até evitar completamente esse desconforto no seu dia a dia.</p>
 
-              <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
-                <img src={`${githubImgBase}Blog/feijao.webp`} alt="Preparo correto do feijão para evitar gases" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">O preparo correto das leguminosas transforma a sua resposta digestiva.</p></div>
-              </div>
+<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <ImagemOtimizada 
+                src={`${githubImgBase}Blog/feijao.webp`}
+                alt="Preparo correto do feijão para evitar gases"
+                title="Preparo Correto do Feijão"
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-xs md:text-sm text-green-700 font-bold uppercase tracking-widest text-center m-0">
+                O preparo correto das leguminosas transforma a sua resposta digestiva.
+              </p>
+            </figcaption>
+          </figure>
 
               <h2 id="por-que-da-gases" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Por que o feijão dá gases?</h2>
               <p>O principal motivo para esse estufamento está na presença de carboidratos específicos chamados oligossacarídeos, tendo a rafinose como o principal exemplo. A fisiologia do nosso corpo não possui as ferramentas enzimáticas necessárias para quebrar esses compostos no intestino delgado. Como resultado, eles chegam totalmente intactos ao intestino grosso, onde são rapidamente fermentados pelas bactérias que compõem a nossa microbiota. Esse processo de fermentação bacteriana produz gases intensos como hidrogênio, metano e dióxido de carbono, o que gera aquele conhecido estufamento, desconforto abdominal e flatulência.</p>
