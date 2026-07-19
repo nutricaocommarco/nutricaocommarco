@@ -6,7 +6,7 @@ const CalculatorImage = "https://raw.githubusercontent.com/nutricaocommarco/nutr
 
 // Dicionário de METs Expandido para o Modo Avançado
 const metOptions = [
-{ label: "Selecione a atividade...", value: "0" },
+  { label: "Selecione a atividade...", value: "0" },
   { label: "🏋️ Musculação (Pesada / Intensa)", value: "6.0" },
   { label: "🏋️ Musculação (Moderada)", value: "3.5" },
   { label: "🏋️ Crossfit / Treino Funcional", value: "8.0" },
@@ -125,28 +125,19 @@ export default function CalculadoraGastoCalorico() {
   const determineBestFormula = (hasBF, bfValue, isMale, userSelectedBodyType) => {
     let bodyType = userSelectedBodyType;
 
-    // LÓGICA COM PERCENTUAL DE GORDURA
     if (hasBF) {
       const isActuallyObese = (isMale && bfValue > 25) || (!isMale && bfValue > 32);
       
-      // Se for obeso de verdade, Mifflin
       if (isActuallyObese) return 'mifflin';
-      
-      // Conserta incongruência: marcou obeso mas não é obeso
       if (bodyType === 'obese') bodyType = 'average';
-
-      // Endurance COM %GC vai para Tinsley (Versão Massa Magra)
       if (bodyType === 'endurance') return 'tinsley';
       
-      // Fisiculturista ou Ativo COM %GC vai para Cunningham
       return 'cunningham';
     }
 
-    // LÓGICA SEM PERCENTUAL DE GORDURA
     if (bodyType === 'obese') return 'mifflin';
-    if (bodyType === 'bodybuilder' || bodyType === 'endurance') return 'tinsley'; // Usa a versão Peso Total
+    if (bodyType === 'bodybuilder' || bodyType === 'endurance') return 'tinsley'; 
     
-    // Biotipo Comum sem %GC cai no Harris-Benedict
     return 'harris'; 
   };
 
@@ -194,9 +185,9 @@ export default function CalculadoraGastoCalorico() {
         break;
       case 'tinsley':
         if (hasBF) {
-          bmr = 25.9 * lbm + 284; // Versão LBM (Massa Magra Livre de Gordura)
+          bmr = 25.9 * lbm + 284;
         } else {
-          bmr = 24.8 * weight + 10; // Versão TBW (Peso Corporal Total)
+          bmr = 24.8 * weight + 10;
         }
         selectedFormulaName = 'Tinsley';
         break;
@@ -264,10 +255,13 @@ export default function CalculadoraGastoCalorico() {
                   alt="Mascote Pingus vestido de nutricionista apontando para uma tela digital transparente com a mensagem: Sistema Inteligente Ativado e Cálculo de Gasto Calórico em Andamento." 
                   title="Calculadora Inteligente de Gasto Calórico e Taxa Metabólica Basal"
                   className="max-w-full h-auto rounded-3xl shadow-lg border border-slate-100" 
+                  width="800"
+                  height="500"
+                  loading="lazy"
                 />
-                <figcaption className="mt-4 text-sm text-slate-500 font-medium italic text-center max-w-lg">
+                <motion className="mt-4 text-sm text-slate-600 font-medium italic text-center max-w-lg">
                   Deixe o Pingus analisar o seu perfil físico e nível de atividade para descobrir a sua necessidade energética exata.
-                </figcaption>
+                </motion>
               </figure>
               
               <p>Nossa ferramenta gratuita foi desenhada para acabar de vez com essas dúvidas e facilitar a sua vida, agindo como uma verdadeira calculadora TDEE inteligente que se adapta à sua realidade biológica. Ao invés de exigir que você escolha multiplicadores confusos em tabelas genéricas, o nosso sistema cruza os seus dados básicos com o seu nível real de atividade física diária e o seu perfil corporal específico. Com essas informações em mãos, a inteligência da plataforma seleciona automaticamente a equação matemática mais adequada para o seu biotipo, podendo utilizar a fórmula de Mifflin-St Jeor para a população geral e pessoas com sobrepeso, a clássica equação de Harris-Benedict, ou até mesmo os métodos avançados de Cunningham e Tinsley, que são perfeitos para atletas de musculação e fisiculturistas que buscam o máximo de precisão na dieta.</p>
@@ -290,29 +284,29 @@ export default function CalculadoraGastoCalorico() {
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                   <div>
-                    <label className="block text-xs md:text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Sexo</label>
-                    <select name="gender" value={formData.gender} onChange={handleInputChange} className="w-full p-3 md:p-4 border-2 border-slate-200 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none">
+                    <label htmlFor="gender-select" className="block text-xs md:text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Sexo</label>
+                    <select id="gender-select" name="gender" value={formData.gender} onChange={handleInputChange} className="w-full p-3 md:p-4 border-2 border-slate-200 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none">
                       <option value="M">Masculino</option>
                       <option value="F">Feminino</option>
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs md:text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Idade (anos)</label>
-                    <input type="number" name="age" value={formData.age} onChange={handleInputChange} placeholder="Ex: 30" required className="w-full p-3 md:p-4 border-2 border-slate-200 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none" />
+                    <label htmlFor="age-input" className="block text-xs md:text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Idade (anos)</label>
+                    <input id="age-input" type="number" name="age" value={formData.age} onChange={handleInputChange} placeholder="Ex: 30" rquired className="w-full p-3 md:p-4 border-2 border-slate-200 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none" />
                   </div>
                   <div>
-                    <label className="block text-xs md:text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Peso (kg)</label>
-                    <input type="number" step="0.1" name="weight" value={formData.weight} onChange={handleInputChange} placeholder="Ex: 75.5" required className="w-full p-3 md:p-4 border-2 border-slate-200 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none" />
+                    <label htmlFor="weight-input" className="block text-xs md:text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Peso (kg)</label>
+                    <input id="weight-input" type="number" step="0.1" name="weight" value={formData.weight} onChange={handleInputChange} placeholder="Ex: 75.5" required className="w-full p-3 md:p-4 border-2 border-slate-200 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none" />
                   </div>
                   <div>
-                    <label className="block text-xs md:text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Altura (cm)</label>
-                    <input type="number" name="height" value={formData.height} onChange={handleInputChange} placeholder="Ex: 175" required className="w-full p-3 md:p-4 border-2 border-slate-200 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none" />
+                    <label htmlFor="height-input" className="block text-xs md:text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Altura (cm)</label>
+                    <input id="height-input" type="number" name="height" value={formData.height} onChange={handleInputChange} placeholder="Ex: 175" required className="w-full p-3 md:p-4 border-2 border-slate-200 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none" />
                   </div>
                   <div className="md:col-span-2">
-                    <label className="block text-xs md:text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">
-                      Percentual de Gordura (%) <span className="text-slate-400 font-normal normal-case block sm:inline mt-1 sm:mt-0">- Opcional, aumenta muito a precisão</span>
+                    <label htmlFor="bf-input" className="block text-xs md:text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">
+                      Percentual de Gordura (%) <span className="text-slate-500 font-normal normal-case block sm:inline mt-1 sm:mt-0">- Opcional, aumenta muito a precisão</span>
                     </label>
-                    <input type="number" name="bf" value={formData.bf} onChange={handleInputChange} placeholder="Ex: 15" className="w-full p-3 md:p-4 border-2 border-slate-200 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none" />
+                    <input id="bf-input" type="number" name="bf" value={formData.bf} onChange={handleInputChange} placeholder="Ex: 15" className="w-full p-3 md:p-4 border-2 border-slate-200 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none" />
                   </div>
                 </div>
               </section>
@@ -412,8 +406,8 @@ export default function CalculadoraGastoCalorico() {
 
                   {formData.activityCalcMethod === 'manual' && (
                     <div className="animate-in fade-in duration-300">
-                      <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Fator de Atividade (FA)</label>
-                      <input type="number" step="0.01" min="1.0" max="2.5" name="manualFA" value={formData.manualFA} onChange={handleInputChange} placeholder="Ex: 1.55" className="w-full md:w-1/2 p-3 md:p-4 border-2 border-slate-200 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none" />
+                      <label htmlFor="manual-fa-input" className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Fator de Atividade (FA)</label>
+                      <input id="manual-fa-input" type="number" step="0.01" min="1.0" max="2.5" name="manualFA" value={formData.manualFA} onChange={handleInputChange} placeholder="Ex: 1.55" className="w-full md:w-1/2 p-3 md:p-4 border-2 border-slate-200 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white font-medium text-slate-700 transition-all outline-none" />
                       <p className="mt-4 text-sm text-slate-500 leading-relaxed max-w-2xl">
                         <strong>Guia Rápido:</strong> 1.2 (Sedentário) • 1.375 (Leve) • 1.55 (Moderado) • 1.725 (Intenso) • 1.9 a 2.2 (Extremo / Atleta)
                       </p>
@@ -432,8 +426,9 @@ export default function CalculadoraGastoCalorico() {
                       {[0, 1, 2, 3].map(index => (
                         <div key={index} className="flex flex-col sm:flex-row gap-4 items-end bg-slate-50 p-4 rounded-2xl border border-slate-100">
                           <div className="w-full sm:w-2/3">
-                            <label className="block text-xs font-bold text-slate-600 mb-2 uppercase tracking-wide">Atividade {index + 1}</label>
+                            <label htmlFor={`met-select-${index}`} className="block text-xs font-bold text-slate-600 mb-2 uppercase tracking-wide">Atividade {index + 1}</label>
                             <select 
+                              id={`met-select-${index}`}
                               value={formData.metActivities[index].met} 
                               onChange={(e) => handleMetChange(index, 'met', e.target.value)} 
                               className="w-full p-3 border-2 border-slate-200 rounded-xl focus:ring-2 focus:ring-slate-900 bg-white font-medium text-slate-700 outline-none"
@@ -442,13 +437,14 @@ export default function CalculadoraGastoCalorico() {
                             </select>
                           </div>
                           <div className="w-full sm:w-1/3 relative">
-                            <label className="block text-xs font-black text-green-700 mb-2 uppercase tracking-wide">Tempo POR DIA (Minutos)</label>
+                            <label htmlFor={`minutes-input-${index}`} className="block text-xs font-black text-green-700 mb-2 uppercase tracking-wide">Tempo POR DIA (Minutos)</label>
                             <input 
+                              id={`minutes-input-${index}`}
                               type="number" 
                               placeholder="Ex: 60" 
                               value={formData.metActivities[index].minutes} 
                               onChange={(e) => handleMetChange(index, 'minutes', e.target.value)} 
-                              className="w-full p-3 border-2 border-green-200 rounded-xl focus:ring-2 focus:ring-green-500 bg-white font-medium text-slate-700 outline-none" 
+                              className="w-full p-3 border-2 border-green-200 rounded-xl focus:ring-2 focus:ring-green-500 bg-white font-medium text-slate-700 transition-all outline-none" 
                             />
                           </div>
                         </div>
@@ -480,7 +476,7 @@ export default function CalculadoraGastoCalorico() {
                   <div className="bg-green-50 text-green-900 p-5 md:p-6 rounded-2xl border border-green-200 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 md:gap-4">
                     <CheckCircle2 className="w-6 h-6 flex-shrink-0 sm:mt-1 text-green-700" />
                     <p className="text-sm md:text-base font-medium leading-relaxed">
-                      <strong>Inteligência Artifical Ativada.</strong> O sistema analisa a relação do seu % de Gordura com o seu Perfil Físico, filtrando incongruências, para selecionar a equação metabólica mais confiável para o seu biotipo real.
+                      <strong>Inteligência Avançada Ativada.</strong> O sistema analisa a relação do seu percentual de gordura com o seu Perfil Físico, filtrando incongruências, para selecionar a equação metabólica mais confiável para o seu biotipo real.
                     </p>
                   </div>
                 ) : (
@@ -545,7 +541,7 @@ export default function CalculadoraGastoCalorico() {
                     <span className="font-medium text-slate-300">Equação matemática utilizada: <strong className="text-white ml-1 block sm:inline">{results.formulaUsed}</strong></span>
                   </div>
                   <div className="bg-slate-900 px-4 md:px-5 py-2 md:py-2.5 rounded-full text-green-400 font-black text-[10px] md:text-xs uppercase tracking-widest border border-slate-700 flex-shrink-0">
-                    Fator Equivalente: x{results.activityFactor}
+                    Fator Fisiológico Equivalente: x{results.activityFactor}
                   </div>
                 </div>
 
@@ -553,7 +549,7 @@ export default function CalculadoraGastoCalorico() {
                   <AlertTriangle className="w-8 h-8 text-green-500 flex-shrink-0 sm:mt-1" />
                   <p className="text-xs md:text-sm text-slate-300 font-medium leading-relaxed">
                     <strong className="text-white block mb-1 md:mb-2 text-sm md:text-base uppercase tracking-wider">Atenção Profissional:</strong> 
-                    Esta calculadora matemática entrega uma estimativa científica de alta precisão. No entanto, para um plano alimentar de excelência focado na sua periodização de treinos e adaptado à sua biologia única, é indispensável procurar a orientação de um nutricionista.
+                    Esta calculadora matemática entrega uma estimativa de alta precisão baseada em literatura. No entanto, para um plano de dieta de excelência focado na sua periodização de treinos e adaptado à sua biologia única, é indispensável procurar a orientação de um profissional.
                   </p>
                 </div>
               </div>
