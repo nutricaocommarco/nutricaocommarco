@@ -217,19 +217,36 @@ export default function OQueEDietaMediterranea() {
             <p>
               Saber de fato <strong>o que é dieta mediterrânea</strong> é entender que a nutrição ideal foca muito mais na <em>qualidade</em> e na <em>sinergia</em> dos alimentos, do que em cortar macros de forma desesperada. Vamos mergulhar na ciência desse padrão que a medicina considera o verdadeiro "santo graal" da longevidade.
             </p>
+                         
+          {/* 2. IMAGEM DE CAPA COM PRIORIDADE LCP E HACK DE PERFORMANCE */}
+          <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
 
-            {/* IMAGEM DE CAPA COM LAZY LOADING E DIMENSÕES */}
-            <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative">
-              <img 
-                src={dietaCapa} 
-                alt="Pinguim Pingus com chapéu de chef ao lado da pirâmide da Dieta Mediterrânea, rica em azeite, vegetais, frutas e peixes." 
-                title="A Pirâmide da Dieta Mediterrânea e o Pingus"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-200" 
-                width="800"
-                height="500"
-                loading="lazy"
-                onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=800"; }}
-              />
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <picture>
+                {/* 1. CELULAR: Força baixar apenas 500px (Lighthouse dá nota 100 aqui) */}
+                <source 
+                  media="(max-width: 768px)" 
+                  srcSet={`https://wsrv.nl/?url=${artigoCapa.replace('https://', '')}&w=500&output=webp`} 
+                />
+
+                {/* 2. TABLET: Força baixar a versão de 800px */}
+                <source 
+                  media="(max-width: 1024px)" 
+                  srcSet={`https://wsrv.nl/?url=${artigoCapa.replace('https://', '')}&w=800&output=webp`} 
+                />
+
+                {/* 3. DESKTOP E DISCOVER: Baixa a versão original lindíssima de 1280px */}
+                <img 
+                  src={dietaCapa} 
+                  alt="Pinguim Pingus com chapéu de chef ao lado da pirâmide da Dieta Mediterrânea, rica em azeite, vegetais, frutas e peixes." 
+                  title="A Pirâmide da Dieta Mediterrânea e o Pingus"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                  loading="eager" 
+                  fetchpriority="high"
+                  decoding="async"
+                /> 
+              </picture>
+            </div>
               <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
                 <p className="text-sm md:text-base text-slate-600 font-bold uppercase tracking-widest text-center m-0">
                   O azeite de oliva, os vegetais frescos e os pescados formam o coração de um metabolismo saudável.

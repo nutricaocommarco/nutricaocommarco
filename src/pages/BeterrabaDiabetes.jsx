@@ -184,9 +184,9 @@ export default function DiabeticoPodeComerBeterraba() {
                   fetchpriority="high"
                   decoding="async"
                 /> 
+                <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">A beterraba é uma aliada da saúde do diabético quando consumida corretamente.</p></div>
               </picture>
             </div>
-
           </figure>
 
               <h2 id="o-mito-do-acucar" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">

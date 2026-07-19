@@ -176,7 +176,11 @@ export default function DietaCetogenica() {
                 /> 
               </picture>
             </div>
-
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">
+                Aprender o que é dieta cetogênica e como entrar em cetose exige precisão na seleção de gorduras e no controle dos carboidratos.
+              </p>
+            </figcaption>
           </figure>          
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">

@@ -261,7 +261,9 @@ export default function CalculadoraGastoCalorico() {
                 /> 
               </picture>
             </div>
-
+              <figcaption className="mt-4 text-sm text-slate-600 font-medium italic text-center max-w-lg">
+                Nossa Calculadora de Gasto Calórico analisa o seu perfil físico e nível de atividade para descobrir a sua necessidade energética exata.
+              </figcaption>
           </figure>  
             
 

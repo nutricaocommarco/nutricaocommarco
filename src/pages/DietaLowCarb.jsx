@@ -600,6 +600,7 @@ export default function DietaLowCarb() {
                   decoding="async"
                 /> 
               </picture>
+              
             </div>
             <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
               <p className="text-sm md:text-base text-slate-600 font-medium italic m-0">

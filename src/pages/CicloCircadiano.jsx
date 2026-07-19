@@ -267,6 +267,11 @@ export default function CicloCircadiano() {
                   fetchpriority="high"
                   decoding="async"
                 /> 
+              <div className="bg-green-50 p-4 text-center">
+                <p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">
+                  Sincronizar as suas refeições com a luz do dia otimiza a digestão e a queima de gordura.
+                </p>
+              </div>
               </picture>
             </div>
 
