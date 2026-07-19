@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, HelpCircle, Scale, Clock, Activity, Droplets, Headphones, PlayCircle, AlertTriangle, ChevronRight, ShoppingCart, Zap } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { 
+  ChevronLeft, HelpCircle, Scale, Clock, Activity, Droplets, 
+  Headphones, PlayCircle, AlertTriangle, ChevronRight, 
+  ShoppingCart, Zap, ChevronDown 
+} from 'lucide-react';
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
-import { Helmet } from 'react-helmet-async';
+import YouTubeLazy from '../components/YouTubeLazy';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 export default function MelhorHorarioPesagem() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
+  const navigate = useNavigate();
   const [isTocOpen, setIsTocOpen] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -17,16 +23,16 @@ export default function MelhorHorarioPesagem() {
 
   return (
     <>
-<Helmet>
-
-      </Helmet>
-
       <section className="py-24 bg-slate-50 px-6 container mx-auto max-w-4xl text-left">
         <div className="bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
 
-          <Link to="/blog" className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-400 hover:text-green-700 transition-colors w-fit">
+          {/* BOTÃO INTELIGENTE DE VOLTAR */}
+          <button 
+            onClick={() => state?.fromBlog ? navigate(-1) : navigate('/blog')}
+            className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit bg-transparent border-none cursor-pointer p-0"
+          >
             <ChevronLeft size={20} /> Voltar para o Blog
-          </Link>
+          </button>
 
           <article className="prose prose-lg max-w-none text-left">
             <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">Composição Corporal</span>
@@ -56,11 +62,11 @@ export default function MelhorHorarioPesagem() {
               
               {/* 1. SEÇÃO DO ÁUDIO */}
               <div className="p-5 md:p-6 flex flex-col gap-3">
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 mb-4">
                   <Headphones className="text-green-700 w-6 h-6" />
-                  <h3 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h3>
+                  <h3 className="text-base font-black text-slate-800 italic uppercase tracking-widest m-0">Ouça este artigo</h3>
                 </div>
-                <audio controls className="w-full h-10 outline-none">
+                <audio preload="none" controls className="w-full h-10 outline-none">
                   <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/MelhorHorarioPesagem.mp3" type="audio/mpeg" />
                   Seu navegador não suporta o elemento de áudio.
                 </audio>
@@ -133,13 +139,16 @@ export default function MelhorHorarioPesagem() {
 
               <p>A balança tradicional mede absolutamente tudo o que está sobre ela: seus ossos, órgãos, pele, sangue, a água que você bebeu e a comida que ainda está sendo digerida. Ela mede a atração gravitacional da Terra sobre o seu corpo, e não a sua quantidade de gordura. É por isso que o peso corporal humano não é um número estático. É perfeitamente normal e fisiológico que ele flutue de 0,5 até impressionantes 3kg em um único dia.</p>
 
-              {/* IMAGEM ESTRATÉGICA COM ALT E TITLE ARRUMADOS */}
+              {/* IMAGEM ESTRATÉGICA COM LAZY LOADING */}
               <div className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group">
                 <img 
                   src={`${githubImgBase}Blog/melhor_horario_pesagem.webp`} 
                   alt="Mascote Pinguim Nutri em pé sobre uma balança digital, demonstrando o peso." 
                   title="A importância de se pesar sempre no mesmo horário e condições com a balança correta"
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
+                  width="800"
+                  height="500"
+                  loading="lazy"
                 />
                 <div className="bg-green-50 p-4 text-center"><p className="text-xs text-green-700 font-bold uppercase tracking-widest text-center">Consistência é o segredo para não se frustrar com os números da balança.</p></div>
               </div>
@@ -266,63 +275,68 @@ export default function MelhorHorarioPesagem() {
 
               <p>Muitos especialistas divergem sobre isso. A resposta baseada em evidências é: <strong>Sim, você pode se pesar todos os dias</strong>, contanto que obedeça o Checklist Padrão Ouro e anote o peso para tirar a <strong>média semanal</strong>. A média dilui as flutuações diárias de água e intestino e te mostra a real tendência do seu corpo (seja de emagrecimento ou hipertrofia).</p>
 
-{/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (BALANÇA SIMPLES) */}
-<div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
-    {/* SELO NO CANTO SUPERIOR */}
-    <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
-        <Zap size={14} className="fill-white" />
-        <span>O Pingus Aprova!</span>
-    </div>
+              {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (BALANÇA SIMPLES) */}
+              <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
+                  {/* SELO NO CANTO SUPERIOR */}
+                  <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+                      <Zap size={14} className="fill-white" />
+                      <span>O Pingus Aprova!</span>
+                  </div>
 
-    <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
-        {/* FOTO DO PINGUS (AUTORIDADE) */}
-        <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-            <img 
-                src={`${githubImgBase}logoN_pingus.webp`} 
-                alt="Selo de Qualidade Pingus" 
-                className="w-full h-full object-contain" 
-            />
-        </div>
+                  <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
+                      {/* FOTO DO PINGUS (AUTORIDADE) */}
+                      <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
+                          <img 
+                              src={`${githubImgBase}logoN_pingus.webp`} 
+                              alt="Selo de Qualidade Pingus" 
+                              className="w-full h-full object-contain" 
+                              width="160"
+                              height="160"
+                              loading="lazy"
+                          />
+                      </div>
 
-        <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-            <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                Balança Digital de Banheiro <span className="text-green-700">Custo-Benefício</span>
-            </h4>
-            
-            {/* IMAGEM DO PRODUTO */}
-            <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
-                <img 
-                    src={`${githubImgBase}Afiliado/BalancaSimples.webp`} 
-                    alt="Balança Digital de Banheiro Simples" 
-                    className="w-full h-auto object-contain" 
-                />
-            </div>
+                      <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+                          <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                              Balança Digital de Banheiro <span className="text-green-700">Custo-Benefício</span>
+                          </h4>
+                          
+                          {/* IMAGEM DO PRODUTO COM LAZY */}
+                          <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
+                              <img 
+                                  src={`${githubImgBase}Afiliado/BalancaSimples.webp`} 
+                                  alt="Balança Digital de Banheiro Simples" 
+                                  className="w-full h-auto object-contain" 
+                                  width="200"
+                                  height="200"
+                                  loading="lazy"
+                              />
+                          </div>
 
-            <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                Você não precisa de uma balança cara e cheia de funções em casa para se pesar. O segredo do sucesso é a padronização: use uma balança digital simples e <strong>pese-se sempre nela, nas mesmas condições</strong> (em jejum, ao acordar). O maior erro é ficar usando a balança da farmácia ou da academia como parâmetro de comparação. Tenha o seu próprio equipamento de referência e confie no processo!
-            </p>
+                          <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
+                              Você não precisa de uma balança cara e cheia de funções em casa para se pesar. O segredo do sucesso é a padronização: use uma balança digital simples e <strong>pese-se sempre nela, nas mesmas condições</strong> (em jejum, ao acordar). O maior erro é ficar usando a balança da farmácia ou da academia como parâmetro de comparação. Tenha o seu próprio equipamento de referência e confie no processo!
+                          </p>
 
-            {/* BOTÃO COM LINK AFILIADO */}
-            <a 
-                href="https://meli.la/2LEpbfH" 
-                rel="sponsored noopener noreferrer" 
-                target="_blank"
-                className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-            >
-                <ShoppingCart size={16} />
-                Comprar no Mercado Livre
-            </a>
-        </div>
-    </div>
+                          {/* BOTÃO COM LINK AFILIADO */}
+                          <a 
+                              href="https://meli.la/2LEpbfH" 
+                              rel="sponsored noopener noreferrer" 
+                              target="_blank"
+                              className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                          >
+                              <ShoppingCart size={16} />
+                              Comprar no Mercado Livre
+                          </a>
+                      </div>
+                  </div>
 
-    {/* DISCLOSURE OBRIGATÓRIO */}
-    <div className="mt-12 pt-6 border-t border-green-50 text-center">
-        <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
-            Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece o apoio.
-        </p>
-    </div>
-</div>
-
+                  {/* DISCLOSURE OBRIGATÓRIO */}
+                  <div className="mt-12 pt-6 border-t border-green-50 text-center">
+                      <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
+                          Ao comprar pelo link, recebo uma pequena comissão que apoia este blog científico. Você não paga nada a mais por isso! O Pingus agradece o apoio.
+                      </p>
+                  </div>
+              </div>
 
               <div className="bg-green-700 text-white p-8 rounded-[3rem] shadow-xl my-12 italic font-bold text-center text-xl">
                 “O peso corporal isolado é uma medida extremamente limitada. Avaliar a sua composição corporal e as tendências ao longo das semanas é muito mais relevante do que o desespero de um número único.”
@@ -330,7 +344,7 @@ export default function MelhorHorarioPesagem() {
 
               <p>Comece a observar suas fotos de evolução (tiradas a cada 15 dias, na mesma luz), acompanhe as suas medidas corporais (principalmente a circunferência da cintura e do abdômen) e sinta como suas roupas estão vestindo. Muitas vezes, o seu corpo está mudando drasticamente, e a balança é a última a perceber.</p>
 
-              {/* SESSÃO DO VÍDEO DO YOUTUBE */}
+              {/* SESSÃO DO VÍDEO OTIMIZADA */}
               <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg text-left">
@@ -342,17 +356,10 @@ export default function MelhorHorarioPesagem() {
                   Complementando a nossa leitura, veja a explicação didática sobre como a água, o sódio e o conteúdo intestinal manipulam os números que você vê no visor, e por que a balança não deve ser o seu único parâmetro.
                 </p>
                 <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                  <iframe 
-                    src="https://www.youtube.com/embed/Mu_AQHlNqGw" 
-                    title="Por que o peso varia todos os dias e a importância de não se pesar diariamente" 
-                    className="absolute top-0 left-0 w-full h-full"
-                    frameBorder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowFullScreen
-                  ></iframe>
+                  <YouTubeLazy videoId="Mu_AQHlNqGw" title="Por que o peso varia todos os dias e a importância de não se pesar diariamente" />
                 </div>
               </div>
-              {/* FIM DA SESSÃO DO VÍDEO */}
+              {/* FIM DA SESSÃO DO VÍDEO OTIMIZADA */}
 
               {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
               <div className="mt-16 pt-10 border-t border-slate-100 text-left">
@@ -408,6 +415,9 @@ export default function MelhorHorarioPesagem() {
                 alt="Marco Aurélio Jr. - Nutricionista e Autor do Artigo." 
                 title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador Antropométrico ISAK Nível 1."
                 className="w-full h-full object-cover"
+                width="96"
+                height="96"
+                loading="lazy"
               />
             </div>
 
@@ -415,10 +425,10 @@ export default function MelhorHorarioPesagem() {
               <h3 className="text-2xl font-black text-slate-900 italic mb-1">Conteúdo escrito por Marco Aurélio Jr.</h3>
               <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
               <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
-                Apaixonado pela ciência metabólica, Marco dedica seus estudos a compreender a fisiologia humana de forma aprofundada. Especialista em composição corporal com certificação internacional, ele foca em traduzir o rigor dos artigos científicos para a prática do dia a dia. Seu objetivo é ajudar você a entender como o próprio corpo funciona através da educação nutricional baseada em evidências reais.
+                Acredito que a nutrição precisa ser imensamente prática e aplicável à vida real do paciente. Ao invés de focar excessivamente em restrições impossíveis de manter no longo prazo, dedico meus estudos a ensinar você a organizar profundamente o seu ambiente e entender a verdadeira resposta metabólica do seu corpo, unindo a ciência clínica a uma rotina leve e descomplicada!
               </p>
               <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
-                Siga @Nutricao_com_Marco
+                Siga @Nutricao_com_Marco no Instagram
               </a>
             </div>
           </div>
@@ -429,4 +439,3 @@ export default function MelhorHorarioPesagem() {
     </>
   );
 }
-
