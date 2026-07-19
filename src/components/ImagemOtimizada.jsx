@@ -6,9 +6,9 @@ export default function ImagemOtimizada({ src, alt, title, className = "", prior
   
   return (
     <picture>
-      <source media="(max-width: 480px)" srcSet={`https://wsrv.nl/?url=${imgCleanUrl}&w=400&output=webp`} />
-      <source media="(max-width: 768px)" srcSet={`https://wsrv.nl/?url=${imgCleanUrl}&w=600&output=webp`} />
-      <source media="(max-width: 1024px)" srcSet={`https://wsrv.nl/?url=${imgCleanUrl}&w=800&output=webp`} />
+      <source media="(max-width: 480px)" srcSet={`https://wsrv.nl/?url=${imgCleanUrl}&w=400&output=webp&q=70`} />
+      <source media="(max-width: 768px)" srcSet={`https://wsrv.nl/?url=${imgCleanUrl}&w=600&output=webp&q=75`} />
+      <source media="(max-width: 1024px)" srcSet={`https://wsrv.nl/?url=${imgCleanUrl}&w=800&output=webp&q=80`} />
       <img 
         src={src} 
         alt={alt} 
