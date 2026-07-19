@@ -263,24 +263,29 @@ export default function ComoGanharTempoCozinha() {
               A verdade é que fazer dieta não é sobre ter força de vontade infinita, é sobre ter um <strong>ambiente preparado</strong>. Muitas pessoas me perguntam frequentemente <strong>como ganhar tempo na cozinha</strong> de verdade e proteger o <Link to="/quantas-calorias-gasto-por-dia" className="text-green-700 font-bold hover:underline">gasto calórico</Link>. O segredo não está em cozinhar todos os dias, mas sim em aplicar métodos de restaurantes na rotina da sua casa.
             </p>
 
-            {/* IMAGEM DE CAPA COM LAZY LOADING E DIMENSÕES */}
-            <figure className="my-12 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group relative bg-slate-200">
-              <img 
-                src={artigoCapa} 
-                alt="Pinguim Pingus chef com potes herméticos organizados, ensinando como ganhar tempo na cozinha." 
-                title="Mise en Place e Organização Semanal"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
-                width="800"
-                height="500"
-                loading="lazy"
-                onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=800"; }}
-              />
+               {/* IMAGEM DE CAPA RESPONSIVA (COM PROPORÇÃO 16:9 TRAVADA) */}
+            <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+              
+              {/* O contêiner que segura a proporção perfeita e evita pulos na tela (CLS) */}
+              <div className="relative w-full aspect-video overflow-hidden">
+                <img 
+                  src={artigoCapa} 
+                  alt="Pinguim Pingus chef com potes herméticos organizados, ensinando como ganhar tempo na cozinha." 
+                  title="Mise en Place e Organização Semanal"
+                  /* absolute e inset-0 grudam a imagem nas bordas do contêiner, object-cover impede distorções */
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                  loading="lazy"
+                  onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=800"; }}
+                />
+              </div>
+
               <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
                 <p className="text-sm md:text-base text-slate-600 font-bold uppercase tracking-widest text-center m-0">
                   Uma geladeira bem organizada é a sua melhor arma contra o ganho de peso.
                 </p>
               </figcaption>
             </figure>
+
 
             <h2 id="miseenplace" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <ChefHat className="text-green-700"/> O Segredo de Como Ganhar Tempo na Cozinha: O Mise en Place
