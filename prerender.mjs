@@ -95,7 +95,7 @@ const postsBlog = [
     data: "2026-07-14",
     schemasExtra: [getMedicalSchema("Dieta Cetogênica e Emagrecimento", "https://www.nutricaocommarco.com.br/o-que-e-dieta-cetogenica", ["Dieta Cetogênica", "Cetose", "Metabolismo de Gorduras"])]
   },
-  
+
 // 25 ok
   { 
     id: 25, 
@@ -338,10 +338,10 @@ console.log('🚀 Iniciando Robô de SEO Físico Absoluto (Zero Duplicidade)...'
 
 routes.forEach(route => {
   const safePath = route.path.startsWith('/') ? route.path.slice(1) : route.path;
-  
+
   const fileAsHtml = path.join(distPath, `${safePath}.html`);
   const dirAsIndex = path.join(distPath, safePath, 'index.html');
-  
+
   let targetFile = '';
   let fileContent = '';
 
@@ -397,6 +397,7 @@ if (fs.existsSync(fileAsHtml)) {
   const tagsCorretas = `
     <title>${route.title}</title>
     <meta name="description" content="${route.desc}" />
+    <meta name="robots" content="max-image-preview:large" />
     <link rel="canonical" href="${urlAbsoluta}" />
     <meta property="og:type" content="${isBlog ? 'article' : 'website'}" />
     <meta property="og:title" content="${route.title}" />
