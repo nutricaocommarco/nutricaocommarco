@@ -171,7 +171,7 @@ function Layout({ children }) {
       <footer className="bg-slate-900 text-white py-20 text-center mt-auto">
         <div className="container mx-auto px-6 text-center">
           <Link to="/" className="flex items-center justify-center gap-3 mb-10 group">
-            <img src={`${githubImgBase}logoN_pingus.webp`} alt="Logo" title="Nutrição com Marco - Fisiologia, Composição Corporal e Saúde" className="w-12 h-12 object-contain group-hover:rotate-6 transition-transform" />
+            <img src="/logoN_pingus.webp" alt="Logo" title="Nutrição com Marco - Fisiologia, Composição Corporal e Saúde" className="w-12 h-12 object-contain group-hover:rotate-6 transition-transform" />
             <span className="text-xl font-black uppercase italic tracking-tighter text-white">Nutrição com Marco</span>
           </Link>
           
