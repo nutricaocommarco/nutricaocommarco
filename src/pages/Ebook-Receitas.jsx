@@ -11,9 +11,8 @@ import {
   Zap, 
   TrendingUp,
   ShieldCheck,
-  Heart, Award
+  Award
 } from 'lucide-react';
-import ImagemOtimizada from '../components/ImagemOtimizada';
 
 export default function EbookReceitas() {
   const navigate = useNavigate();
@@ -21,6 +20,30 @@ export default function EbookReceitas() {
 
   const checkoutLink = "https://pay.hotmart.com/R106813023M";
   const afiliadoLink = "https://affiliate.hotmart.com/affiliate-recruiting/view/7371R106813044";
+
+  // Depoimentos Estratégicos (Prova Social)
+  const depoimentos = [
+    {
+      id: 1,
+      nome: "Ana Carolina, 34 anos",
+      texto: "Trabalho o dia todo e chegava em casa exausta, acabava sempre pedindo delivery. Esse e-book salvou minha rotina! A técnica 3x3 e os pré-preparos me fazem cozinhar em 15 minutos. Recomendo demais!"
+    },
+    {
+      id: 2,
+      nome: "Ricardo M., 41 anos",
+      texto: "Minha gaveta de legumes vivia cheia de coisas estragando, hoje eu uso 100% do que compro com as técnicas de congelamento. O bolso agradece e a saúde também. Por R$ 9,90, foi o melhor investimento do ano."
+    },
+    {
+      id: 3,
+      nome: "Mariana S., 28 anos",
+      texto: "Sempre odiei fazer dieta porque a comida ficava sem graça. O alho em pasta e as bases de refogado do Marco deixam qualquer prato delicioso! Já perdi 4kg sem sentir que estou de dieta."
+    },
+    {
+      id: 4,
+      nome: "Fernanda L., 39 anos",
+      texto: "Mudou a dinâmica aqui em casa. Agora faço as marmitas da semana no domingo e tenho lanches práticos (o pão de queijo fit é perfeito!) para as crianças. Simples e muito direto ao ponto."
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-slate-50 py-10 px-4 font-sans selection:bg-green-200 selection:text-green-900">
@@ -41,7 +64,7 @@ export default function EbookReceitas() {
             Manter uma alimentação saudável não precisa ser sinônimo de complicação! Descubra que comer bem pode (e deve) ser algo prazeroso, prático e que se encaixa perfeitamente na sua rotina, mesmo nos dias mais corridos.
           </p>
 
-        {/* CAPA DO EBOOK - USANDO IMG DIRETO PARA ARQUIVO LOCAL */}
+          {/* CAPA DO EBOOK - CARREGAMENTO DIRETO DO ARQUIVO LOCAL */}
           <div className="w-full max-w-md mx-auto mb-10 relative group">
             <div className="absolute inset-0 bg-green-100 rounded-3xl transform rotate-3 scale-105 opacity-50 transition-transform group-hover:rotate-6 duration-500" aria-hidden="true"></div>
             <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white">
@@ -211,15 +234,47 @@ export default function EbookReceitas() {
           </div>
         </section>
 
+        {/* SECTION: DEPOIMENTOS (PROVA SOCIAL) */}
+        <section className="mb-16">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">
+              Quem aplicou, <span className="text-green-700">não vive mais sem!</span>
+            </h2>
+            <p className="text-lg text-slate-600">Veja o que estão falando sobre a praticidade do nosso método.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {depoimentos.map((depoimento) => (
+              <div key={depoimento.id} className="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-green-100 hover:shadow-md transition-shadow flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={20} className="text-amber-400 fill-amber-400" aria-hidden="true" />
+                    ))}
+                  </div>
+                  <p className="text-slate-700 italic leading-relaxed mb-6">
+                    "{depoimento.texto}"
+                  </p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-bold uppercase">
+                    {depoimento.nome.charAt(0)}
+                  </div>
+                  <span className="font-bold text-slate-900">{depoimento.nome}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* SECTION: AUTOR E MASCOTE */}
         <section className="bg-green-50 rounded-3xl p-8 md:p-10 mb-16 border border-green-100 flex flex-col md:flex-row items-center gap-8">
           <div className="w-48 h-48 shrink-0 bg-white rounded-full flex items-center justify-center shadow-md border-4 border-white overflow-hidden">
-            {/* O pingus real será inserido aqui pelo usuário, usando uma imagem de fallback ou ícone caso não tenha a URL agora */}
              <ChefHat className="text-green-700 w-24 h-24" aria-hidden="true" />
           </div>
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
-              Criado pelo Marco Aurelio Neves Junior & Píngus
+              Criado por Marco Aurelio Neves Junior & Píngus
             </h2>
             <p className="text-slate-700 leading-relaxed mb-4">
               Tudo neste material foi elaborado com ingredientes acessíveis e combinações inteligentes testadas na prática. Meu objetivo sempre foi democratizar o acesso à nutrição de qualidade, mostrando que o simples funciona quando aplicado com técnica.
