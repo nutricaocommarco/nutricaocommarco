@@ -19,6 +19,9 @@ import ImagemOtimizada from '../components/ImagemOtimizada';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 const artigoCapa = `${githubImgBase}capa_receitas.webp`; 
 
+// Nova constante apontando para o PDF no seu GitHub
+const pdfAmostra = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Receitas-Amostra-Gratis.pdf";
+
 export default function EbookReceitas() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -69,12 +72,10 @@ export default function EbookReceitas() {
             Manter uma alimentação saudável não precisa ser sinônimo de complicação! Descubra que comer bem pode (e deve) ser algo prazeroso, prático e que se encaixa perfeitamente na sua rotina, mesmo nos dias mais corridos.
           </p>
 
-          {/* CAPA DO EBOOK - TAMANHO REDUZIDO E SEM CORTAR AS BORDAS */}
+          {/* CAPA DO EBOOK */}
           <div className="w-full max-w-[260px] md:max-w-[280px] mx-auto mb-12 relative group mt-4">
-            {/* Sombra 3D Inclinada */}
             <div className="absolute inset-0 bg-green-700 rounded-2xl transform rotate-3 opacity-15 transition-transform group-hover:rotate-6 duration-500" aria-hidden="true"></div>
             
-            {/* Contêiner da Capa com padding para proteger as letras da borda arredondada */}
             <div className="relative bg-white p-2 rounded-2xl shadow-2xl border border-slate-200 flex justify-center">
               <img 
                 src={artigoCapa} 
@@ -209,14 +210,13 @@ export default function EbookReceitas() {
             </p>
           </div>
           <a 
-            href="/Ebooks/Receitas-Amostra-Gratis.pdf" 
-            download="Receitas-Amostra-Gratis.pdf" 
+            href={pdfAmostra} 
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Baixar amostra grátis do e-book em PDF"
+            aria-label="Acessar amostra grátis do e-book em PDF"
             className="shrink-0 bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-full text-lg font-bold shadow-lg shadow-blue-700/30 hover:-translate-y-1 transition-all flex items-center gap-2"
           >
-            Baixar Amostra Grátis
+            Acessar Amostra Grátis
           </a>
         </section>
 
