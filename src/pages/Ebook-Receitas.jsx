@@ -177,6 +177,105 @@ export default function EbookReceitas() {
           </div>
         </section>
 
+        {/* SECTION: SUMÁRIO COMPLETO (BASEADO NAS IMAGENS) */}
+        <section className="mb-16 bg-slate-50 p-8 md:p-10 rounded-[3rem] border border-slate-200 shadow-inner">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">
+              Sumário <span className="text-green-700">Completo</span>
+            </h2>
+            <p className="text-lg text-slate-600">Tudo o que você terá acesso imediato ao garantir o seu exemplar hoje.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Card 1 - Fundamentos */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-black text-slate-800 mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">
+                📝 Fundamentos & Planejamento
+              </h3>
+              <ol className="list-decimal list-inside space-y-2 text-slate-600 font-medium ml-2">
+                <li>Contabilizar Refeições</li>
+                <li>Porcionamento Adequado</li>
+                <li>Técnica do 3x3</li>
+              </ol>
+            </div>
+
+            {/* Card 2 - Mise en Place */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-black text-slate-800 mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">
+                🛒 Mise en Place
+              </h3>
+              <ol className="list-decimal list-inside space-y-2 text-slate-600 font-medium ml-2">
+                <li>Tabletes de Cebola</li>
+                <li>Tabletes de Caldo de Legumes Cru</li>
+                <li>Base de Talos</li>
+                <li>Alho em Pasta</li>
+                <li>Salsinha em Pó</li>
+              </ol>
+            </div>
+
+            {/* Card 3 - Lanches */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-black text-slate-800 mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">
+                🥪 Lanches
+              </h3>
+              <ol className="list-decimal list-inside space-y-2 text-slate-600 font-medium ml-2">
+                <li>Overnight Proteico</li>
+                <li className="leading-tight">Crepioca Proteica com Recheio de Whey, Pasta de Amendoim e Banana</li>
+                <li>Geleia da Saciedade</li>
+                <li>Pão de Queijo Fit</li>
+                <li>Pizza de Frigideira Fit</li>
+                <li>Iogurte Caseiro</li>
+                <li>Guacamole</li>
+                <li>Pasta Fit de Queijo com Cenoura</li>
+              </ol>
+            </div>
+
+            {/* Card 4 - Pratos Principais */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-black text-slate-800 mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">
+                🍽️ Pratos Principais
+              </h3>
+              <ol className="list-decimal list-inside space-y-2 text-slate-600 font-medium ml-2">
+                <li>Almôndega Suína Fit</li>
+                <li>Salada de Quinoa ao Molho de Maracujá</li>
+                <li>Tortão de Legumes</li>
+                <li>Salada de Pote Funcional</li>
+                <li>Escondidinho Fit de Frango com Abóbora</li>
+                <li>Tomates Recheados Proteicos</li>
+              </ol>
+            </div>
+
+            {/* Card 5 - Sobremesas */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-black text-slate-800 mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">
+                🍰 Sobremesas Saudáveis
+              </h3>
+              <ol className="list-decimal list-inside space-y-2 text-slate-600 font-medium ml-2">
+                <li>Bolo de Maçã de Micro-ondas</li>
+                <li>Brigadeiro de Tâmara Proteica</li>
+                <li>Bolo de Banana de Micro-ondas</li>
+                <li>Morango Fit do Amor</li>
+                <li className="leading-tight">Sorvete Fit de Banana e Pasta de Amendoim</li>
+                <li>Mousse Protéico de Ovo Cozido</li>
+              </ol>
+            </div>
+
+            {/* Card 6 - Snacks */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-black text-slate-800 mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">
+                🍟 Snacks Funcionais
+              </h3>
+              <ol className="list-decimal list-inside space-y-2 text-slate-600 font-medium ml-2">
+                <li>Grão-de-bico Crocante na Airfryer</li>
+                <li>Crepioca Crocante na Airfryer</li>
+                <li>Chips de Batata-doce na Airfryer</li>
+                <li>Barrinhas Proteicas Caseira</li>
+                <li>Tirinhas Crocantes de Frango</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
         {/* SECTION: RESPONSIVE TABLE VS CARDS */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-slate-800 mb-8 text-center">
