@@ -4,7 +4,7 @@ import ImagemOtimizada from '../components/ImagemOtimizada';
 import { 
   ChevronLeft, HelpCircle, Activity, ChefHat, Clock, FileText, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
-  Snowflake, Utensils, AlertTriangle, CheckCircle2, Beef, Calculator, Leaf, Database, Droplet
+  Snowflake, Utensils, AlertTriangle, CheckCircle2, Beef, Calculator, Leaf, Database, Droplet, Info
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
@@ -650,23 +650,26 @@ export default function ComoGanharTempoCozinha() {
               </div>
             </div>
 
-            {/* BLOCO AFILIADO (PRODUTO PRÓPRIO) */}
+            {/* BLOCO AFILIADO (PRODUTO PRÓPRIO: EBOOK DE RECEITAS) */}
             <div id="afiliado" className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
+                {/* SELO NO CANTO SUPERIOR */}
                 <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
-                    <span>Recomendação Oficial do Nutri!</span>
+                    <span>Acelerador de Resultados</span>
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
-                    <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-[2rem] overflow-hidden flex items-center justify-center p-0 shadow-inner border border-slate-100">
-                        <img 
-                            src={ebookCapa} 
-                            alt="Capa do Ebook de Receitas Funcionais e Inteligentes do Marco Aurélio" 
-                            className="w-full h-full object-cover" 
-                            width="160"
-                            height="160"
-                            loading="lazy"
-                        />
+                    {/* IMAGEM DO PRODUTO (CORRIGIDA NA PROPORÇÃO DE LIVRO) */}
+                    <div className="w-full max-w-[180px] md:max-w-[220px] shrink-0 relative group">
+                        <div className="absolute inset-0 bg-green-700 rounded-2xl transform rotate-3 opacity-15 transition-transform group-hover:rotate-6 duration-500" aria-hidden="true"></div>
+                        <div className="relative bg-white p-2 rounded-2xl shadow-xl border border-slate-200 flex justify-center">
+                            <img 
+                                src={ebookCapa} 
+                                alt="Capa do Ebook de Receitas Funcionais e Inteligentes do Marco Aurélio" 
+                                className="w-full h-auto rounded-xl object-contain transition-transform duration-700 group-hover:scale-[1.02]" 
+                                loading="lazy"
+                            />
+                        </div>
                     </div>
 
                     <div className="flex-1 text-center md:text-left flex flex-col justify-center">
@@ -674,21 +677,34 @@ export default function ComoGanharTempoCozinha() {
                             Livro Digital: <span className="text-green-700">25 Receitas Práticas & Estrutura de Mise en Place</span>
                         </h4>
 
-                        <p className="text-slate-600 text-sm mb-8 leading-relaxed font-medium">
-                            Se você quer não apenas ler sobre a teoria, mas aplicar a exata metodologia de <strong>como ganhar tempo na cozinha</strong>, baixe o meu E-book Completo. Você terá acesso a 25 receitas incríveis (divididas entre lanches rápidos, pratos principais suculentos e sobremesas sem culpa), além de um guia técnico de <em>Mise en Place</em> para transformar ingredientes básicos em pratos perfeitos em menos de 15 minutos!
+                        <p className="text-slate-600 text-sm mb-6 leading-relaxed font-medium">
+                            Se você quer não apenas ler sobre a teoria, mas aplicar a exata metodologia de <strong>como ganhar tempo na cozinha</strong>, baixe o meu E-book Completo. Você terá acesso a 25 receitas incríveis (divididas entre lanches rápidos, pratos principais suculentos e sobremesas sem culpa), além do guia prático para transformar ingredientes básicos em pratos perfeitos em menos de 15 minutos!
                         </p>
 
-                        <a 
-                            href="https://pay.hotmart.com" 
-                            rel="noopener noreferrer" 
-                            target="_blank"
-                            className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-800 transition-all duration-300 w-full md:w-fit italic"
-                        >
-                            <ShoppingCart size={16} />
-                            Adquirir E-book por apenas R$ 9,90
-                        </a>
+                        {/* BOTÕES COM LINK PARA HOTMART E LANDING PAGE */}
+                        <div className="flex flex-col sm:flex-row gap-3 items-center justify-center md:justify-start w-full">
+                          <a 
+                              href="https://pay.hotmart.com/R106813023M" 
+                              rel="noopener noreferrer" 
+                              target="_blank"
+                              aria-label="Comprar o e-book de receitas diretamente na Hotmart por 9,90"
+                              className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-8 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-800 transition-all duration-300 w-full md:w-auto italic"
+                          >
+                              <ShoppingCart size={16} />
+                              Comprar Agora por R$ 9,90
+                          </a>
+                          
+                          <Link 
+                              to="/ebook-receitas" 
+                              aria-label="Ver mais detalhes e o sumário completo do e-book de receitas"
+                              className="inline-flex items-center justify-center gap-2.5 bg-green-50 text-green-700 border border-green-200 px-8 py-4 rounded-full font-black uppercase text-xs shadow-sm hover:bg-green-100 transition-all duration-300 w-full md:w-auto italic"
+                          >
+                              <Info size={16} />
+                              Ver Detalhes do E-book
+                          </Link>
+                        </div>
                     </div>
-                </div>
+                </div> 
             </div>
 
             {/* SEÇÃO DE CONCLUSÃO */}
