@@ -179,15 +179,22 @@ export default function JejumIntermitente() {
           
 <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
             <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
-              <ImagemOtimizada 
-                src={artigoCapa}
-                alt="Guia completo sobre o que é jejum intermitente e seus benefícios metabólicos"
-                title="O que é Jejum Intermitente"
-                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
-                priority="high"
-              />
-            </div>
-          </figure>
+    
+    <ImagemOtimizada 
+      src={artigoCapa}
+      alt="Guia completo sobre o que é jejum intermitente e seus benefícios metabólicos"
+      title="O que é Jejum Intermitente"
+      className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+      priority="high"
+    />
+  </div>
+  <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+    <p className="text-sm md:text-base text-slate-600 font-medium italic text-center m-0">
+      Compreender a fisiologia do jejum intermitente é a chave para otimizar o uso de gordura como fonte de energia com segurança e respaldo científico.
+    </p>
+  </figcaption>
+</figure>
+
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
