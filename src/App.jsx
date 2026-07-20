@@ -116,10 +116,11 @@ function Layout({ children }) {
             <Link to="/planos" className={`py-1 border-b-2 transition-all ${location.pathname === '/planos' ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent hover:text-green-700'}`}>Planos</Link>
 
             <div className="relative group">
-              <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/calculadora-de-gasto-calorico', '/planilha'].includes(location.pathname) ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-700'}`}>
-                Recursos <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
+              <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/calculadora-de-gasto-calorico', '/planilha', '/ebook-receitas'].includes(location.pathname) ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-700'}`}>
+                Produtos <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
               </span>
               <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-white border border-green-100 shadow-xl rounded-xl py-3 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col z-50">
+                <Link to="/ebook-receitas" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/ebook-receitas' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>📕 E-book de Receitas</Link>
                 <Link to="/calculadora-de-gasto-calorico" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/calculadora-de-gasto-calorico' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>Gasto Calórico</Link>
                 <Link to="/planilha" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/planilha' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>🔥 Planilha Antropométrica</Link>
               </div>
@@ -153,8 +154,9 @@ function Layout({ children }) {
             <Link to="/planos" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Planos</Link>
 
             <div className="flex flex-col gap-3 pb-2 border-b border-green-50">
-              <span className="text-lg font-black uppercase tracking-widest text-slate-800">Recursos</span>
+              <span className="text-lg font-black uppercase tracking-widest text-slate-800">Produtos</span>
               <div className="flex flex-col gap-3 pl-4 border-l-2 border-green-200">
+                <Link to="/ebook-receitas" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-green-700 hover:text-green-700 flex items-center gap-1">📕 E-book de Receitas</Link>
                 <Link to="/calculadora-de-gasto-calorico" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-700">Gasto Calórico</Link>
                 <Link to="/planilha" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-green-700 hover:text-green-700 flex items-center gap-1">🔥 Planilha Antropométrica</Link>
               </div>
