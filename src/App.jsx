@@ -55,6 +55,7 @@ const DietaCetogenica = lazyRetry(() => import('./pages/DietaCetogenica'));
 const DietaLowCarb = lazyRetry(() => import('./pages/DietaLowCarb'));
 const DietaMediterranea = lazyRetry(() => import('./pages/DietaMediterranea'));
 const ComoGanharTempoCozinha = lazyRetry(() => import('./pages/ComoGanharTempoCozinha'));
+const EbookReceitas = lazyRetry(() => import('./pages/Ebook-Receitas'));
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -254,6 +255,7 @@ export default function App() {
               <Route path="/o-que-e-dieta-low-carb" element={<DietaLowCarb />} />
               <Route path="/o-que-e-dieta-mediterranea" element={<DietaMediterranea />} />
               <Route path="/como-ganhar-tempo-na-cozinha" element={<ComoGanharTempoCozinha />} />
+              <Route path="/ebook-receitas" element={<EbookReceitas />} />
             </Routes>
           </Suspense>
         </Layout>
