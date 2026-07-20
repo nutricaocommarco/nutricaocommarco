@@ -13,7 +13,6 @@ import {
   ShieldCheck,
   Award
 } from 'lucide-react';
-import ImagemOtimizada from '../components/ImagemOtimizada';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 const artigoCapa = `${githubImgBase}capa_receitas.webp`; 
@@ -68,19 +67,21 @@ export default function EbookReceitas() {
             Manter uma alimentação saudável não precisa ser sinônimo de complicação! Descubra que comer bem pode (e deve) ser algo prazeroso, prático e que se encaixa perfeitamente na sua rotina, mesmo nos dias mais corridos.
           </p>
 
-          {/* CAPA DO EBOOK - CORRIGIDA PARA PROPORÇÃO DE LIVRO */}
-          <div className="w-full max-w-xs md:max-w-sm mx-auto mb-12 relative group mt-4">
-            {/* Sombra/Fundo com efeito 3D inclinado */}
-            <div className="absolute inset-0 bg-green-700 rounded-3xl transform rotate-3 opacity-10 transition-transform group-hover:rotate-6 duration-500" aria-hidden="true"></div>
+          {/* CAPA DO EBOOK - TAMANHO REDUZIDO E SEM CORTAR AS BORDAS */}
+          <div className="w-full max-w-[260px] md:max-w-[280px] mx-auto mb-12 relative group mt-4">
+            {/* Sombra 3D Inclinada */}
+            <div className="absolute inset-0 bg-green-700 rounded-2xl transform rotate-3 opacity-15 transition-transform group-hover:rotate-6 duration-500" aria-hidden="true"></div>
             
-            {/* Container principal da Capa (Formato Retrato/A4) */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-white aspect-[1/1.41]">
-              <ImagemOtimizada 
-                src={artigoCapa}
+            {/* Contêiner da Capa com padding para proteger as letras da borda arredondada */}
+            <div className="relative bg-white p-2 rounded-2xl shadow-2xl border border-slate-200 flex justify-center">
+              <img 
+                src={artigoCapa} 
                 alt="Capa do Ebook Receitas Saudáveis e Nutritivas" 
                 title="Capa do Ebook Receitas Saudáveis e Nutritivas"
-                className="transition-transform duration-700 group-hover:scale-105"
-                priority="high"
+                className="w-full h-auto rounded-xl transition-transform duration-700 group-hover:scale-[1.02] object-contain"
+                loading="eager" 
+                fetchpriority="high"
+                decoding="async" 
               />
             </div>
           </div>
@@ -177,7 +178,7 @@ export default function EbookReceitas() {
           </div>
         </section>
 
-        {/* SECTION: SUMÁRIO COMPLETO (BASEADO NAS IMAGENS) */}
+        {/* SECTION: SUMÁRIO COMPLETO */}
         <section className="mb-16 bg-slate-50 p-8 md:p-10 rounded-[3rem] border border-slate-200 shadow-inner">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-slate-800 mb-4">
