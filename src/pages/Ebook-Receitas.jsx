@@ -11,8 +11,10 @@ import {
   Zap, 
   TrendingUp,
   ShieldCheck,
-  Award
+  Award,
+  Download
 } from 'lucide-react';
+import ImagemOtimizada from '../components/ImagemOtimizada';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 const artigoCapa = `${githubImgBase}capa_receitas.webp`; 
@@ -67,12 +69,10 @@ export default function EbookReceitas() {
             Manter uma alimentação saudável não precisa ser sinônimo de complicação! Descubra que comer bem pode (e deve) ser algo prazeroso, prático e que se encaixa perfeitamente na sua rotina, mesmo nos dias mais corridos.
           </p>
 
-          {/* CAPA DO EBOOK - TAMANHO REDUZIDO E SEM CORTAR AS BORDAS */}
+          {/* CAPA DO EBOOK */}
           <div className="w-full max-w-[260px] md:max-w-[280px] mx-auto mb-12 relative group mt-4">
-            {/* Sombra 3D Inclinada */}
             <div className="absolute inset-0 bg-green-700 rounded-2xl transform rotate-3 opacity-15 transition-transform group-hover:rotate-6 duration-500" aria-hidden="true"></div>
             
-            {/* Contêiner da Capa com padding para proteger as letras da borda arredondada */}
             <div className="relative bg-white p-2 rounded-2xl shadow-2xl border border-slate-200 flex justify-center">
               <img 
                 src={artigoCapa} 
@@ -132,7 +132,6 @@ export default function EbookReceitas() {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Card 1 */}
             <div className="bg-white p-6 rounded-3xl shadow-sm border border-green-100 hover:shadow-md transition-shadow">
               <div className="bg-green-50 w-14 h-14 rounded-full flex items-center justify-center mb-4 border border-green-100">
                 <TrendingUp className="text-green-700" size={24} aria-hidden="true" />
@@ -143,7 +142,6 @@ export default function EbookReceitas() {
               </p>
             </div>
 
-            {/* Card 2 */}
             <div className="bg-white p-6 rounded-3xl shadow-sm border border-green-100 hover:shadow-md transition-shadow">
               <div className="bg-green-50 w-14 h-14 rounded-full flex items-center justify-center mb-4 border border-green-100">
                 <Clock className="text-green-700" size={24} aria-hidden="true" />
@@ -154,7 +152,6 @@ export default function EbookReceitas() {
               </p>
             </div>
 
-            {/* Card 3 */}
             <div className="bg-white p-6 rounded-3xl shadow-sm border border-green-100 hover:shadow-md transition-shadow">
               <div className="bg-green-50 w-14 h-14 rounded-full flex items-center justify-center mb-4 border border-green-100">
                 <Zap className="text-green-700" size={24} aria-hidden="true" />
@@ -165,7 +162,6 @@ export default function EbookReceitas() {
               </p>
             </div>
 
-            {/* Card 4 */}
             <div className="bg-white p-6 rounded-3xl shadow-sm border border-green-100 hover:shadow-md transition-shadow">
               <div className="bg-green-50 w-14 h-14 rounded-full flex items-center justify-center mb-4 border border-green-100">
                 <ChefHat className="text-green-700" size={24} aria-hidden="true" />
@@ -178,6 +174,50 @@ export default function EbookReceitas() {
           </div>
         </section>
 
+        {/* SECTION: GALERIA DE RECEITAS */}
+        <section className="mb-16 text-center">
+          <h2 className="text-3xl font-bold text-slate-800 mb-4">
+            Um gostinho do que <span className="text-green-700">espera por você</span>
+          </h2>
+          <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+            Comida de verdade, fácil de fazer e incrivelmente deliciosa. Olha só algumas das receitas que você vai aprender:
+          </p>
+          <div className="w-full max-w-2xl mx-auto rounded-[2rem] overflow-hidden shadow-xl border border-slate-200">
+            <img 
+              src="/Imagens/Receitas.webp" 
+              alt="Galeria com 6 receitas do Ebook: Mousse, Guacamole, Overnight Oats, Pasta Fit, Barrinhas e Tomates Recheados" 
+              title="Receitas Saudáveis na Prática"
+              className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+              width="600"
+              height="426"
+            />
+          </div>
+        </section>
+
+        {/* SECTION: AMOSTRA GRÁTIS PDF */}
+        <section className="mb-16 bg-blue-50 p-8 md:p-10 rounded-[3rem] border border-blue-100 shadow-sm flex flex-col md:flex-row items-center gap-8 justify-between">
+          <div className="text-center md:text-left flex-1">
+            <h3 className="text-2xl font-black text-slate-900 mb-4 flex items-center justify-center md:justify-start gap-3">
+              <Download className="text-blue-700 shrink-0" size={28} aria-hidden="true" /> 
+              Quer testar antes de comprar?
+            </h3>
+            <p className="text-slate-700 mb-0 leading-relaxed">
+              Baixe uma amostra grátis com duas receitas completas direto do nosso livro: o super prático <strong>Tablete de Cebola</strong> para você ganhar tempo no preparo e o incrível <strong>Brigadeiro de Tâmara Proteica</strong> para matar a vontade de doce mantendo a saúde.
+            </p>
+          </div>
+          <a 
+            href="/Ebooks/Receitas-Amostra-Gratis.pdf" 
+            download 
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Baixar amostra grátis do e-book em PDF"
+            className="shrink-0 bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-full text-lg font-bold shadow-lg shadow-blue-700/30 hover:-translate-y-1 transition-all flex items-center gap-2"
+          >
+            Baixar Amostra Grátis
+          </a>
+        </section>
+
         {/* SECTION: SUMÁRIO COMPLETO */}
         <section className="mb-16 bg-slate-50 p-8 md:p-10 rounded-[3rem] border border-slate-200 shadow-inner">
           <div className="text-center mb-10">
@@ -188,7 +228,6 @@ export default function EbookReceitas() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Card 1 - Fundamentos */}
             <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
               <h3 className="text-xl font-black text-slate-800 mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">
                 📝 Fundamentos & Planejamento
@@ -200,7 +239,6 @@ export default function EbookReceitas() {
               </ol>
             </div>
 
-            {/* Card 2 - Mise en Place */}
             <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
               <h3 className="text-xl font-black text-slate-800 mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">
                 🛒 Mise en Place
@@ -214,7 +252,6 @@ export default function EbookReceitas() {
               </ol>
             </div>
 
-            {/* Card 3 - Lanches */}
             <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
               <h3 className="text-xl font-black text-slate-800 mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">
                 🥪 Lanches
@@ -231,7 +268,6 @@ export default function EbookReceitas() {
               </ol>
             </div>
 
-            {/* Card 4 - Pratos Principais */}
             <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
               <h3 className="text-xl font-black text-slate-800 mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">
                 🍽️ Pratos Principais
@@ -246,7 +282,6 @@ export default function EbookReceitas() {
               </ol>
             </div>
 
-            {/* Card 5 - Sobremesas */}
             <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
               <h3 className="text-xl font-black text-slate-800 mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">
                 🍰 Sobremesas Saudáveis
@@ -261,7 +296,6 @@ export default function EbookReceitas() {
               </ol>
             </div>
 
-            {/* Card 6 - Snacks */}
             <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
               <h3 className="text-xl font-black text-slate-800 mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">
                 🍟 Snacks Funcionais
@@ -283,7 +317,6 @@ export default function EbookReceitas() {
             A Diferença do Nosso Método
           </h2>
 
-          {/* Versão Desktop (Tabela) */}
           <div className="hidden md:block overflow-hidden rounded-3xl border border-slate-200 shadow-sm">
             <table className="w-full text-left text-slate-700 border-collapse">
               <thead>
@@ -318,7 +351,6 @@ export default function EbookReceitas() {
             </table>
           </div>
 
-          {/* Versão Mobile (Cards) */}
           <div className="md:hidden flex flex-col gap-6">
             <div className="bg-white border border-slate-100 rounded-3xl p-5 shadow-sm">
               <h3 className="font-bold text-slate-900 text-lg mb-3 border-b border-slate-100 pb-2">Tempo na Cozinha</h3>
