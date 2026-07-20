@@ -435,7 +435,7 @@ export default function TpmeAlimentacao() {
 
                     <div className="bg-white p-6 rounded-2xl border border-green-100 shadow-sm text-center">
                       <p className="text-sm font-bold text-slate-600 mb-4 uppercase tracking-widest">Essa é apenas a ponta do iceberg.</p>
-                      <a href="https://wa.me/55SEUNUMERO" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-full font-black uppercase shadow-xl transition-all border-none cursor-pointer w-full md:w-auto">
+                      <a href="https://wa.me/5521997704300" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-full font-black uppercase shadow-xl transition-all border-none cursor-pointer w-full md:w-auto">
                         <CalendarCheck size={18} /> Quero Meu Resultado
                       </a>
                     </div>
