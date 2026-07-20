@@ -16,7 +16,6 @@ import {
 import ImagemOtimizada from '../components/ImagemOtimizada';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
-// Correção: Removida a barra (/) antes de capa_receitas para evitar o erro de barra dupla (//) no wsrv.nl
 const artigoCapa = `${githubImgBase}capa_receitas.webp`; 
 
 export default function EbookReceitas() {
@@ -69,30 +68,34 @@ export default function EbookReceitas() {
             Manter uma alimentação saudável não precisa ser sinônimo de complicação! Descubra que comer bem pode (e deve) ser algo prazeroso, prático e que se encaixa perfeitamente na sua rotina, mesmo nos dias mais corridos.
           </p>
 
-          {/* CAPA DO EBOOK - IMAGEM OTIMIZADA */}
-          <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200 w-full max-w-md mx-auto">
-            <div className="relative w-full aspect-[3/4] md:aspect-video overflow-hidden bg-slate-100">
+          {/* CAPA DO EBOOK - CORRIGIDA PARA PROPORÇÃO DE LIVRO */}
+          <div className="w-full max-w-xs md:max-w-sm mx-auto mb-12 relative group mt-4">
+            {/* Sombra/Fundo com efeito 3D inclinado */}
+            <div className="absolute inset-0 bg-green-700 rounded-3xl transform rotate-3 opacity-10 transition-transform group-hover:rotate-6 duration-500" aria-hidden="true"></div>
+            
+            {/* Container principal da Capa (Formato Retrato/A4) */}
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-white aspect-[1/1.41]">
               <ImagemOtimizada 
                 src={artigoCapa}
                 alt="Capa do Ebook Receitas Saudáveis e Nutritivas" 
                 title="Capa do Ebook Receitas Saudáveis e Nutritivas"
-                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+                className="transition-transform duration-700 group-hover:scale-105"
                 priority="high"
               />
             </div>
-          </figure>
+          </div>
 
           <a 
             href={checkoutLink}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Comprar o Ebook Receitas Saudáveis e Nutritivas agora por R$ 9,90"
-            className="flex items-center gap-3 bg-green-700 hover:bg-green-800 text-white px-8 py-5 rounded-full text-xl font-bold shadow-lg shadow-green-700/30 transition-all hover:-translate-y-1"
+            className="flex items-center justify-center gap-3 bg-green-700 hover:bg-green-800 text-white px-8 py-5 rounded-full text-xl md:text-2xl font-bold shadow-2xl shadow-green-700/40 transition-transform hover:-translate-y-1 w-full md:w-auto"
           >
-            <ShoppingCart size={24} aria-hidden="true" />
+            <ShoppingCart size={28} aria-hidden="true" />
             Garantir Meu Ebook por R$ 9,90
           </a>
-          <div className="flex items-center gap-2 mt-4 text-sm text-slate-600">
+          <div className="flex items-center justify-center gap-2 mt-4 text-sm text-slate-600">
             <ShieldCheck size={16} className="text-green-700" aria-hidden="true" />
             <span>Pagamento 100% seguro via Hotmart. Acesso imediato.</span>
           </div>
