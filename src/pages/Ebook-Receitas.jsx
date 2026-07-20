@@ -11,7 +11,7 @@ import {
   Zap, 
   TrendingUp,
   ShieldCheck,
-  Heart
+  Heart, Award
 } from 'lucide-react';
 import ImagemOtimizada from '../components/ImagemOtimizada';
 
