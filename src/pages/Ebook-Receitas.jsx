@@ -69,10 +69,12 @@ export default function EbookReceitas() {
             Manter uma alimentação saudável não precisa ser sinônimo de complicação! Descubra que comer bem pode (e deve) ser algo prazeroso, prático e que se encaixa perfeitamente na sua rotina, mesmo nos dias mais corridos.
           </p>
 
-          {/* CAPA DO EBOOK */}
+          {/* CAPA DO EBOOK - TAMANHO REDUZIDO E SEM CORTAR AS BORDAS */}
           <div className="w-full max-w-[260px] md:max-w-[280px] mx-auto mb-12 relative group mt-4">
+            {/* Sombra 3D Inclinada */}
             <div className="absolute inset-0 bg-green-700 rounded-2xl transform rotate-3 opacity-15 transition-transform group-hover:rotate-6 duration-500" aria-hidden="true"></div>
             
+            {/* Contêiner da Capa com padding para proteger as letras da borda arredondada */}
             <div className="relative bg-white p-2 rounded-2xl shadow-2xl border border-slate-200 flex justify-center">
               <img 
                 src={artigoCapa} 
@@ -184,7 +186,7 @@ export default function EbookReceitas() {
           </p>
           <div className="w-full max-w-2xl mx-auto rounded-[2rem] overflow-hidden shadow-xl border border-slate-200">
             <img 
-              src="/Imagens/Receitas.webp" 
+              src={`${githubImgBase}Receitas.webp`} 
               alt="Galeria com 6 receitas do Ebook: Mousse, Guacamole, Overnight Oats, Pasta Fit, Barrinhas e Tomates Recheados" 
               title="Receitas Saudáveis na Prática"
               className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
@@ -208,7 +210,7 @@ export default function EbookReceitas() {
           </div>
           <a 
             href="/Ebooks/Receitas-Amostra-Gratis.pdf" 
-            download 
+            download="Receitas-Amostra-Gratis.pdf" 
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Baixar amostra grátis do e-book em PDF"
