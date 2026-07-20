@@ -13,10 +13,11 @@ import {
   ShieldCheck,
   Award
 } from 'lucide-react';
+import ImagemOtimizada from '../components/ImagemOtimizada';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
-const artigoCapa = `${githubImgBase}/capa_receitas.webp`;
-
+// Correção: Removida a barra (/) antes de capa_receitas para evitar o erro de barra dupla (//) no wsrv.nl
+const artigoCapa = `${githubImgBase}capa_receitas.webp`; 
 
 export default function EbookReceitas() {
   const navigate = useNavigate();
@@ -68,9 +69,9 @@ export default function EbookReceitas() {
             Manter uma alimentação saudável não precisa ser sinônimo de complicação! Descubra que comer bem pode (e deve) ser algo prazeroso, prático e que se encaixa perfeitamente na sua rotina, mesmo nos dias mais corridos.
           </p>
 
-          {/* CAPA DO EBOOK - CARREGAMENTO DIRETO DO ARQUIVO LOCAL */}
-          <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
-            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+          {/* CAPA DO EBOOK - IMAGEM OTIMIZADA */}
+          <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200 w-full max-w-md mx-auto">
+            <div className="relative w-full aspect-[3/4] md:aspect-video overflow-hidden bg-slate-100">
               <ImagemOtimizada 
                 src={artigoCapa}
                 alt="Capa do Ebook Receitas Saudáveis e Nutritivas" 
