@@ -4,7 +4,7 @@ import {
   ChevronLeft, HelpCircle, Activity, Shield, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
   Brain, Clock, AlertCircle, Database, AlertTriangle, 
-  XCircle, CheckCircle, Leaf, Heart, Droplet, Dumbbell, ClipboardList, Send
+  XCircle, CheckCircle, Leaf, Heart, Droplet, Dumbbell, ClipboardList, Send, CalendarCheck
 } from 'lucide-react';
 
 import Newsletter from '../components/Newsletter';
@@ -29,36 +29,85 @@ export default function TpmeAlimentacao() {
   // Estados do Formulário e Visibilidade
   const [isFormOpen, setIsFormOpen] = useState(false); 
   const [formStatus, setFormStatus] = useState('idle'); 
+  const [analiseGerada, setAnaliseGerada] = useState(''); // Guarda o laudo gerado
+
   const [formData, setFormData] = useState({
     nome: '', email: '', cicloRegular: '', fluxoColicas: '', anticoncepcional: '',
     apetiteMuda: '', fomeAumenta: '', vontadesEspecificas: '',
     disposicaoMensal: '', mudancaHumor: '', sonoPiora: '',
     pesoFlutua: '', praticaExercicio: '', inchacoRetencao: '',
-    aceitaTermos: false, promptInstrucoes: "Interprete os dados acima para o blog 'Nutrição com Marco'. Escreva um e-mail empático e científico para a paciente. Diretrizes: 1. Use autoridade de avaliador ISAK 1 e estudante de nutrição. 2. Mencione o pinguim Pingus. 3. Não prescreva dieta ou suplementos. 4. Explique a fisiologia do inchaço, sono e apetite na TPM. 5. Seja acolhedor e sugira o acompanhamento do ciclo."
+    aceitaTermos: false
   });
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  // Função que automatiza a resposta clínica baseada nas seleções da usuária
+  const gerarAnaliseAutomatica = (dados) => {
+    let laudo = [];
+
+    laudo.push(`Olá, ${dados.nome.split(' ')[0]}! O Pinguim Nutri analisou suas respostas. Aqui está o seu mapa metabólico inicial pré-consulta:`);
+
+    // 1. Anticoncepcional e Ciclo
+    if (dados.anticoncepcional === 'sim') {
+      laudo.push("💊 HORMÔNIOS: Como você usa contraceptivo, seu corpo não sofre a flutuação ovariana natural (ovulação). Os sintomas que você relatou podem ser reflexos da pausa do remédio, adaptação à dosagem ou inflamação basal. A nutrição será vital para modular esse processo inflamatório.");
+    } else {
+      laudo.push("🧬 CICLO NATURAL: Você vive a montanha-russa real da progesterona e do estrogênio. Seus sintomas refletem a queda dupla desses hormônios antes da menstruação, o que exige um ajuste energético estratégico!");
+    }
+
+    // 2. Fome e Vontades
+    if (dados.fomeAumenta === 'sim_muito' || dados.apetiteMuda === 'sim') {
+      laudo.push(`🍽️ APETITE (${dados.vontadesEspecificas ? dados.vontadesEspecificas : 'Doces/Salgados'}): O aumento da sua fome é biológico. Na fase lútea o corpo pode gastar até 300 kcal a mais. O segredo não é passar fome, mas aplicar o 'Aumento Inteligente de Fibras' (aveia, raízes) e fracionar proteínas para não gerar picos de insulina.`);
+    }
+
+    // 3. Humor e Sono
+    if (dados.mudancaHumor === 'irritada' || dados.sonoPiora === 'sim' || dados.disposicaoMensal === 'cai_tpm') {
+      laudo.push("🧠 HUMOR E SONO: A sua queda de energia e irritabilidade pedem precursores de serotonina. Precisamos incluir mais fontes de Triptofano e Magnésio na sua rotina, como cacau 70%, banana e sementes de abóbora.");
+    }
+
+    // 4. Retenção
+    if (dados.pesoFlutua === 'mais2' || dados.inchacoRetencao === 'sim') {
+      laudo.push("💧 RETENÇÃO: Aquele peso extra na balança não é gordura adquirida do dia para a noite, é retenção hídrica pura e lentidão intestinal. Esconda a balança nesses dias e reforce a hidratação!");
+    }
+
+    // 5. Exercício
+    if (dados.praticaExercicio === 'sedentaria') {
+      laudo.push("🏃‍♀️ MOVIMENTO: A sensibilidade à insulina cai naturalmente na TPM. Sair do sedentarismo e iniciar treinos de força será o maior divisor de águas para amenizar a sua vontade de doces.");
+    } else {
+      laudo.push("🏋️‍♀️ TREINO: Excelente que você já treina! Lembre-se de que a capacidade do seu corpo de construir massa muscular não cai na TPM. Mantenha a constância.");
+    }
+
+    return laudo;
+  };
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     setFormStatus('submitting');
+    
+    // 1. Gera a análise baseada na árvore de decisão
+    const analiseArray = gerarAnaliseAutomatica(formData);
+    const analiseTexto = analiseArray.join('\n\n');
+    
+    // 2. Salva no estado para exibir na tela para a paciente
+    setAnaliseGerada(analiseArray);
+
+    // 3. Prepara o payload para enviar ao Formspree com a análise embutida
+    const payloadParaEnvio = {
+      ...formData,
+      LAUDO_AUTOMATICO_GERADO: analiseTexto,
+      aviso_ao_nutri: "Marco, a paciente acabou de ler a análise acima na tela. Entre em contato para marcar a consulta e aprofundar!"
+    };
+
     try {
       const response = await fetch('https://formspree.io/f/xpqojopr', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(payloadParaEnvio)
       });
+      
       if (response.ok) {
         setFormStatus('success');
-        setFormData({
-          nome: '', email: '', cicloRegular: '', fluxoColicas: '', anticoncepcional: '',
-          apetiteMuda: '', fomeAumenta: '', vontadesEspecificas: '',
-          disposicaoMensal: '', mudancaHumor: '', sonoPiora: '',
-          pesoFlutua: '', praticaExercicio: '', inchacoRetencao: '', aceitaTermos: false,
-          promptInstrucoes: "Interprete os dados acima para o blog 'Nutrição com Marco'. Escreva um e-mail empático e científico para a paciente. Diretrizes: 1. Use autoridade de avaliador ISAK 1 e estudante de nutrição. 2. Mencione o pinguim Pingus. 3. Não prescreva dieta ou suplementos. 4. Explique a fisiologia do inchaço, sono e apetite na TPM. 5. Seja acolhedor e sugira o acompanhamento do ciclo."
-        });
       } else {
         setFormStatus('error');
       }
@@ -122,7 +171,7 @@ export default function TpmeAlimentacao() {
       <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
         <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-          {/* BOTÃO VOLTAR (Corrigido Contraste) */}
+          {/* BOTÃO VOLTAR */}
           <button 
             onClick={() => state?.fromBlog ? navigate(-1) : navigate('/blog')}
             className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit appearance-none bg-transparent border-none cursor-pointer p-0"
@@ -138,12 +187,10 @@ export default function TpmeAlimentacao() {
               <span className="text-[11px] text-slate-700 font-bold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
             </div>
 
-            {/* H1 OTIMIZADO E COM IMPORTÂNCIA MÁXIMA */}
             <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
               O Que Comer na TPM: O Guia Definitivo Para Controlar a Fome e Emagrecer
             </h1>
 
-            {/* RESPOSTA DIRETA (FEATURED SNIPPET) */}
             <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-4 text-left">
                 <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
                   Resposta Direta: Afinal, o que comer na TPM?
@@ -153,7 +200,6 @@ export default function TpmeAlimentacao() {
               </p>
             </div>
 
-            {/* ÁUDIO */}
             <div className="my-8 border border-green-100 rounded-[2rem] shadow-sm overflow-hidden flex flex-col transition-all duration-300 bg-slate-50">
               <div className="p-5 md:p-6 flex flex-col gap-3">
                 <div className="flex items-center gap-3">
@@ -167,7 +213,6 @@ export default function TpmeAlimentacao() {
               </div>
               <div className="h-px bg-green-100/60 w-full"></div>
               
-              {/* SUMÁRIO (TOC) OTIMIZADO */}
               <nav className="bg-slate-50">
                 <button 
                   onClick={() => setIsTocOpen(!isTocOpen)}
@@ -252,7 +297,6 @@ export default function TpmeAlimentacao() {
               </p>
               
               {/* COMPONENTE RESPONSIVO (TABELA DESKTOP / CARDS MOBILE) */}
-              {/* Versão Desktop (Tabela) */}
               <div className="hidden md:block my-8 overflow-x-auto bg-white rounded-3xl border border-slate-200 shadow-sm">
                 <table className="w-full text-left min-w-[600px] m-0">
                   <caption className="sr-only">Tabela detalhada mostrando o que comer na TPM para aliviar os sintomas</caption>
@@ -275,7 +319,6 @@ export default function TpmeAlimentacao() {
                 </table>
               </div>
 
-              {/* Versão Mobile (Cards) */}
               <div className="md:hidden space-y-4 my-8">
                 {estrategiasTPM.map((fator) => (
                   <div key={`mob-${fator.id}`} className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden flex flex-col">
@@ -321,7 +364,6 @@ export default function TpmeAlimentacao() {
                 Ou seja, se você mantiver a constância e acertar nas escolhas de <strong>o que comer na TPM</strong>, seu corpo construirá tecido muscular e queimará gordura com enorme eficiência. É óbvio que se as cólicas forem incapacitantes, o repouso é fundamental. Mas você não deve, jamais, abandonar a sua rotina de musculação preventivamente!
               </p>
 
-              {/* AFILIADO MERCADO LIVRE (XIAOMI BAND 9 PRO) */}
               <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
                   <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest z-10 flex items-center gap-2 border-b border-l border-green-700">
                       <Zap size={14} className="fill-white" />
@@ -346,7 +388,6 @@ export default function TpmeAlimentacao() {
                   </div>
               </div>
 
-              {/* VÍDEO DO YOUTUBE - OTIMIZADO COM YOUTUBELAZY */}
               <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3 text-left">
                 <PlayCircle className="text-green-700"/> Fome Física x Fome Emocional na Prática
               </h2>
@@ -359,7 +400,7 @@ export default function TpmeAlimentacao() {
                 </div>
               </div>
 
-              {/* FORMULÁRIO DE CAPTAÇÃO OTIMIZADO PARA ACESSIBILIDADE */}
+              {/* FORMULÁRIO DE CAPTAÇÃO OTIMIZADO E AUTOMATIZADO */}
               <div id="avaliacao" className="mt-20 p-8 md:p-12 bg-white rounded-[3rem] border border-green-100 shadow-2xl relative overflow-hidden transition-all duration-500">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-green-50 rounded-full blur-3xl opacity-50 -mr-20 -mt-20 pointer-events-none"></div>
                 <div className="absolute bottom-0 left-0 w-40 h-40 bg-green-100 rounded-full blur-2xl opacity-40 -ml-10 -mb-10 pointer-events-none"></div>
@@ -369,15 +410,35 @@ export default function TpmeAlimentacao() {
                     <ClipboardList size={32} className="text-green-700" />
                   </div>
                   <h2 className="text-2xl md:text-3xl font-black text-slate-900 uppercase italic mb-4">Análise Gratuita: O Seu Ciclo</h2>
-                  <p className="text-slate-600 font-medium max-w-xl mx-auto mb-6">Responda ao questionário abaixo. Vou analisar o seu perfil com base na fisiologia de o que comer na TPM e enviarei um feedback clínico para o seu e-mail!</p>
+                  <p className="text-slate-600 font-medium max-w-xl mx-auto mb-6">Responda ao questionário abaixo. Nosso sistema vai analisar seu perfil fisiológico e gerar um feedback nutricional instantâneo na tela!</p>
                 </div>
 
                 {formStatus === 'success' ? (
-                  <div className="relative z-10 bg-green-50 rounded-3xl p-8 text-center border border-green-100 animate-fade-in">
-                    <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"><CheckCircle size={40} className="text-white" /></div>
-                    <h3 className="text-2xl font-black text-green-900 italic uppercase mb-2">Recebido com Sucesso!</h3>
-                    <p className="text-green-700 font-medium mb-6">Em breve enviarei as diretrizes do Pingus para a sua caixa de e-mail!</p>
-                    <button onClick={() => { setFormStatus('idle'); setIsFormOpen(false); }} className="text-sm font-bold text-green-700 underline bg-transparent border-none cursor-pointer">Enviar nova análise</button>
+                  <div className="relative z-10 bg-green-50 rounded-3xl p-8 text-left border border-green-100 animate-fade-in shadow-inner">
+                    <div className="flex items-center gap-4 border-b border-green-200 pb-4 mb-6">
+                      <div className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg shrink-0">
+                        <CheckCircle size={28} className="text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-black text-green-900 italic uppercase m-0">Análise Concluída!</h3>
+                        <p className="text-sm text-green-700 font-medium m-0 mt-1">Veja abaixo o diagnóstico preliminar do seu ciclo.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-4 mb-8">
+                      {analiseGerada.map((paragrafo, index) => (
+                        <p key={index} className="text-slate-700 text-sm md:text-base leading-relaxed m-0 font-medium">
+                          {paragrafo}
+                        </p>
+                      ))}
+                    </div>
+
+                    <div className="bg-white p-6 rounded-2xl border border-green-100 shadow-sm text-center">
+                      <p className="text-sm font-bold text-slate-600 mb-4 uppercase tracking-widest">Essa é apenas a ponta do iceberg.</p>
+                      <a href="https://wa.me/55SEUNUMERO" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-full font-black uppercase shadow-xl transition-all border-none cursor-pointer w-full md:w-auto">
+                        <CalendarCheck size={18} /> Quero Agendar Minha Consulta
+                      </a>
+                    </div>
                   </div>
                 ) : (
                   <div className="relative z-10 flex flex-col items-center">
@@ -405,7 +466,6 @@ export default function TpmeAlimentacao() {
                           </div>
                         </div>
 
-                        {/* Ciclo Menstrual */}
                         <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
                           <h3 className="font-black text-slate-800 uppercase tracking-widest mb-6 border-b pb-3 text-sm text-left m-0">2. O Seu Ciclo Menstrual</h3>
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-sm text-left mt-6">
@@ -436,7 +496,6 @@ export default function TpmeAlimentacao() {
                           </div>
                         </div>
 
-                        {/* Apetite */}
                         <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
                           <h3 className="font-black text-slate-800 uppercase tracking-widest mb-6 border-b pb-3 text-sm text-left m-0">3. Apetite na TPM</h3>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5 text-sm text-left mt-6">
@@ -463,7 +522,6 @@ export default function TpmeAlimentacao() {
                           </label>
                         </div>
 
-                        {/* Energia */}
                         <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
                           <h3 className="font-black text-slate-800 uppercase tracking-widest mb-6 border-b pb-3 text-sm text-left m-0">4. Energia e Humor</h3>
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-sm text-left mt-6">
@@ -494,7 +552,6 @@ export default function TpmeAlimentacao() {
                           </div>
                         </div>
 
-                        {/* Peso e Exercício */}
                         <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200">
                           <h3 className="font-black text-slate-800 uppercase tracking-widest mb-6 border-b pb-3 text-sm text-left m-0">5. Peso e Treino</h3>
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-sm text-left mt-6">
@@ -529,7 +586,7 @@ export default function TpmeAlimentacao() {
                           <label className="flex items-start gap-4 cursor-pointer text-left">
                             <input type="checkbox" required checked={formData.aceitaTermos} onChange={(e) => setFormData({...formData, aceitaTermos: e.target.checked})} className="mt-1 w-5 h-5 accent-green-700 rounded cursor-pointer" />
                             <span className="text-[11px] leading-relaxed text-slate-600 font-medium">
-                              <strong>Aviso Legal:</strong> Esta ferramenta é estritamente educativa e não substitui uma consulta formal (Nutricionista/Ginecologista) para prescrever o que comer na TPM. Ao enviar, aceito receber dicas e análises por e-mail.
+                              <strong>Aviso Legal:</strong> Esta ferramenta gera análises baseadas na fisiologia comum e não substitui uma consulta clínica formal. Ao enviar, aceito receber os resultados na tela e por e-mail.
                             </span>
                           </label>
                         </div>
@@ -578,7 +635,6 @@ export default function TpmeAlimentacao() {
 
           <ArtigosRecomendados currentPath={pathname} />
 
-          {/* AUTHOR BLOCK COM WITDH/HEIGHT EXPLÍCITOS */}
           <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 shadow-sm">
             <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
               <img src={`${githubImgBase}Eu_1.webp`} width="96" height="96" loading="lazy" alt="Marco Aurélio Jr. que ensina de forma científica o que comer na TPM" title="Autor Marco Aurélio Jr." className="w-full h-full object-cover" />
