@@ -351,7 +351,7 @@ export default function TpmeAlimentacao() {
                 <PlayCircle className="text-green-700"/> Fome Física x Fome Emocional na Prática
               </h2>
               <p>
-                Não basta apenas ler sobre <strong>o que comer na TPM</strong>; é fundamental observar as atitudes invisíveis que nos sabotam. Entenda de forma brilhante e visual a diferença entre o seu corpo pedir comida (fome física) e a sua mente pedir conforto (fome emocional) com as pontuações maravilhosas da Nutricionista Patricia Leite.
+                Não basta apenas ler sobre <strong>o que comer na TPM</strong>; é fundamental observar as atitudes invisíveis que nos sabotam. Entenda de forma brilhante e visual a diferença entre o seu corpo pedir comida (fome física) e a sua mente pedir conforto (fome emocional).
               </p>
               <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
                 <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
