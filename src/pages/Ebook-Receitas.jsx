@@ -14,6 +14,10 @@ import {
   Award
 } from 'lucide-react';
 
+const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+const artigoCapa = `${githubImgBase}/capa_receitas.webp`;
+
+
 export default function EbookReceitas() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -65,19 +69,17 @@ export default function EbookReceitas() {
           </p>
 
           {/* CAPA DO EBOOK - CARREGAMENTO DIRETO DO ARQUIVO LOCAL */}
-          <div className="w-full max-w-md mx-auto mb-10 relative group">
-            <div className="absolute inset-0 bg-green-100 rounded-3xl transform rotate-3 scale-105 opacity-50 transition-transform group-hover:rotate-6 duration-500" aria-hidden="true"></div>
-            <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white">
-              <img 
-                src="/Imagens/capa_receitas.webp" 
+          <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+              <ImagemOtimizada 
+                src={artigoCapa}
                 alt="Capa do Ebook Receitas Saudáveis e Nutritivas" 
-                className="w-full h-full object-cover"
-                loading="eager" 
-                fetchpriority="high"
-                decoding="async" 
+                title="Capa do Ebook Receitas Saudáveis e Nutritivas"
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+                priority="high"
               />
             </div>
-          </div>
+          </figure>
 
           <a 
             href={checkoutLink}
