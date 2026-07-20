@@ -7,13 +7,21 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 const postsData = [
   {
+    id: 27,
+    link: "/o-que-comer-na-tpm",
+    imgSrc: `${githubImgBase}Blog/TPM.webp`,
+    tag: "Saúde da Mulher",
+    title: "O Que Comer na TPM: O Guia Definitivo Para Controlar a Fome e Emagrecer",
+    desc: "Descubra exatamente o que comer na TPM para aliviar os sintomas, controlar a fome por doces e manter o emagrecimento, entendendo a fisiologia do seu ciclo.",
+    isNew: true
+  },
+  {
     id: 26,
     link: "/o-que-e-dieta-low-carb",
     imgSrc: `${githubImgBase}Blog/LowCarb_Capa.webp`,
     tag: "Dietas da Moda",
     title: "O Que é Dieta Low Carb? A Diferença para a Cetogênica e Como Começar",
     desc: "Entenda a estratégia de redução inteligente de carboidratos, aprenda a diferença entre low carb e cetogênica e descubra como começar sua jornada metabólica com nossa calculadora exclusiva.",
-    isNew: true
   },
   {
     id: 25,
@@ -22,7 +30,6 @@ const postsData = [
     tag: "Dietas da Moda",
     title: "O Que é Dieta Cetogênica? Guia Definitivo e Científico",
     desc: "Aprenda como a restrição inteligente de carboidratos força o seu corpo a entrar em cetose, transformando gordura estocada na sua principal fonte de energia.",
-    isNew: true
   },
   {
     id: 24,
@@ -30,8 +37,7 @@ const postsData = [
     imgSrc: `${githubImgBase}Blog/JejumIntermitente_Capa.webp`,
     tag: "Dietas da Moda",
     title: "O Que é Jejum Intermitente? Guia Definitivo e Científico",
-    desc: "Descubra o que é o jejum intermitente, como ele afeta o metabolismo, o limite do corpo humano sem comer e se ele realmente emagrece mais que a dieta tradicional.",
-    isNew: true
+    desc: "Descubra o que é o jejum intermitente, como ele afeta o metabolismo, o limite do corpo humano sem comer e se ele realmente emagrece mais que a dieta tradicional.",    
   },
   {
     id: 23,
@@ -40,7 +46,6 @@ const postsData = [
     tag: "Nutrição Clínica",
     title: "Melhor Horário Para Tomar Ferro: O Guia Definitivo Contra a Anemia",
     desc: "Descubra o melhor horário para tomar ferro, sintomas de falta no organismo, o que inibe a absorção e quanto tempo dura o tratamento para anemia ferropriva.",
-    isNew: true
   },
   {
     id: 22,

@@ -1,6 +1,16 @@
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 export const posts = [
+   {
+    id: 27,
+    link: "/o-que-comer-na-tpm",
+    img: `${githubImgBase}Blog/TPM.webp`,
+    tag: "Saúde da Mulher",
+    titulo: "O Que Comer na TPM: O Guia Definitivo Para Controlar a Fome e Emagrecer",
+    desc: "Descubra exatamente o que comer na TPM para aliviar os sintomas, controlar a fome por doces e manter o emagrecimento, entendendo a fisiologia do seu ciclo.",
+    data: "2026-07-20",
+    dataMod: "2026-07-20",
+    },
     {
     id: 26,
     link: "/o-que-e-dieta-low-carb",
