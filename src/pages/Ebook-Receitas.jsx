@@ -41,14 +41,17 @@ export default function EbookReceitas() {
             Manter uma alimentação saudável não precisa ser sinônimo de complicação! Descubra que comer bem pode (e deve) ser algo prazeroso, prático e que se encaixa perfeitamente na sua rotina, mesmo nos dias mais corridos.
           </p>
 
-          {/* CAPA DO EBOOK - IMAGEM OTIMIZADA */}
+        {/* CAPA DO EBOOK - USANDO IMG DIRETO PARA ARQUIVO LOCAL */}
           <div className="w-full max-w-md mx-auto mb-10 relative group">
             <div className="absolute inset-0 bg-green-100 rounded-3xl transform rotate-3 scale-105 opacity-50 transition-transform group-hover:rotate-6 duration-500" aria-hidden="true"></div>
-            <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100">
-              <ImagemOtimizada 
-                src="Imagens/capa_receitas.webp" 
+            <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white">
+              <img 
+                src="/Imagens/capa_receitas.webp" 
                 alt="Capa do Ebook Receitas Saudáveis e Nutritivas" 
-                priority="high" 
+                className="w-full h-full object-cover"
+                loading="eager" 
+                fetchpriority="high"
+                decoding="async" 
               />
             </div>
           </div>
@@ -216,7 +219,7 @@ export default function EbookReceitas() {
           </div>
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
-              Criado pelo Nutricionista Marco Aurelio Neves Junior & Píngus
+              Criado pelo Marco Aurelio Neves Junior & Píngus
             </h2>
             <p className="text-slate-700 leading-relaxed mb-4">
               Tudo neste material foi elaborado com ingredientes acessíveis e combinações inteligentes testadas na prática. Meu objetivo sempre foi democratizar o acesso à nutrição de qualidade, mostrando que o simples funciona quando aplicado com técnica.
