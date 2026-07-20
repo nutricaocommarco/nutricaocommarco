@@ -130,11 +130,18 @@ const postsBlog = [
 // 22 ok 
   { 
     id: 22, 
-    link: "/o-que-comer-na-tpm", 
+link: "/o-que-comer-na-tpm", 
     img: `${githubImgBase}Blog/TPM.webp`, 
-    titulo: "O Que Comer na TPM Para Controlar o Doce (Sem Culpa) | Nutrição com Marco", 
-    desc: "A vontade de doce na TPM não é falta de foco, é biologia pura! Entenda como hackear o metabolismo feminino e o que comer nesses dias difíceis.", 
-    data: "2026-04-20" 
+    titulo: "O Que Comer na TPM: O Guia Para Controlar a Fome e Emagrecer", 
+    desc: "Descubra exatamente o que comer na TPM para aliviar os sintomas, controlar a fome por doces e manter o emagrecimento, entendendo a fisiologia do seu ciclo.", 
+    data: "2026-04-02",
+    schemasExtra: [
+      getMedicalSchema(
+        "Nutrição no Ciclo Menstrual e Síndrome Pré-Menstrual", 
+        "https://www.nutricaocommarco.com.br/o-que-comer-na-tpm", 
+        ["Síndrome Pré-Menstrual", "Metabolismo Feminino", "Desejo por Alimentos", "Fase Lútea"]
+      )
+    ]
   },
 
 // 21 ok 
