@@ -665,6 +665,28 @@ export default function ComoGanharTempoCozinha() {
                         </div>
                     </div>
 
+            {/* BLOCO AFILIADO (PRODUTO PRÓPRIO: EBOOK DE RECEITAS) */}
+            <div id="afiliado" className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
+                {/* SELO NO CANTO SUPERIOR */}
+                <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
+                    <Zap size={14} className="fill-white" />
+                    <span>Acelerador de Resultados</span>
+                </div>
+
+                <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
+                    {/* IMAGEM DO PRODUTO (CORRIGIDA NA PROPORÇÃO DE LIVRO) */}
+                    <div className="w-full max-w-[180px] md:max-w-[220px] shrink-0 relative group">
+                        <div className="absolute inset-0 bg-green-700 rounded-2xl transform rotate-3 opacity-15 transition-transform group-hover:rotate-6 duration-500" aria-hidden="true"></div>
+                        <div className="relative bg-white p-2 rounded-2xl shadow-xl border border-slate-200 flex justify-center">
+                            <img 
+                                src={ebookCapa} 
+                                alt="Capa do Ebook de Receitas Funcionais e Inteligentes do Marco Aurélio" 
+                                className="w-full h-auto rounded-xl object-contain transition-transform duration-700 group-hover:scale-[1.02]" 
+                                loading="lazy"
+                            />
+                        </div>
+                    </div>
+
                     <div className="flex-1 text-center md:text-left flex flex-col justify-center">
                         <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
                             Livro Digital: <span className="text-green-700">25 Receitas Práticas & Estrutura de Mise en Place</span>
