@@ -630,11 +630,11 @@ export default function ComoGanharTempoCozinha() {
               </li>
             </ul>
 
-            <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+     <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <PlayCircle className="text-green-700"/> Aprofunde-se: O Segredo Definitivo de Como Ganhar Tempo Cozinhando
             </h2>
             <p>
-              Para ver com máxima clareza como aplicar todas essas estratégias logísticas na sua cozinha real e acabar para sempre com o estresse da semana agitada, deixo aqui um vídeo excelente detalhando, no passo a passo, a rotina de marmitas inteligentes.
+              Para ver com máxima clareza como estruturar o seu congelador com preparos inteligentes e acabar para sempre com o estresse de passar horas cozinhando todos os dias, deixo aqui um vídeo excelente detalhando os coringas da cozinha prática.
             </p>
 
             {/* VIDEO LAZY LOADING */}
@@ -643,20 +643,13 @@ export default function ComoGanharTempoCozinha() {
                 <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
                   <PlayCircle size={24} />
                 </div>
-                <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight m-0">Aprenda o Passo a Passo da Praça e Marmitas</h3>
+                <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight m-0">10 Coisas que Não Podem Faltar no Congelador</h3>
               </div>
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                <YouTubeLazy videoId="vT4n0o_iKus" title="Como Fazer Marmitas para a Semana e Ganhar Tempo" />
+                <YouTubeLazy videoId="wl7_er-Fj-w" title="10 Comidas Que Não Podem Faltar no Meu Congelador | Praticidade" />
               </div>
             </div>
 
-            {/* BLOCO AFILIADO (PRODUTO PRÓPRIO: EBOOK DE RECEITAS) */}
-            <div id="afiliado" className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
-                {/* SELO NO CANTO SUPERIOR */}
-                <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
-                    <Zap size={14} className="fill-white" />
-                    <span>Acelerador de Resultados</span>
-                </div>
 
                 <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
                     {/* IMAGEM DO PRODUTO (CORRIGIDA NA PROPORÇÃO DE LIVRO) */}
