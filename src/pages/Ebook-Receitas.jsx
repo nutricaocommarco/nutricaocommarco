@@ -12,21 +12,24 @@ import {
   TrendingUp,
   ShieldCheck,
   Award,
-  Download
+  Download,
+  Book,
+  Truck
 } from 'lucide-react';
 import ImagemOtimizada from '../components/ImagemOtimizada';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 const artigoCapa = `${githubImgBase}capa_receitas.webp`; 
 
-// Nova constante apontando para o PDF no seu GitHub
+// Link do PDF de amostra
 const pdfAmostra = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Receitas-Amostra-Gratis.pdf";
 
 export default function EbookReceitas() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const checkoutLink = "https://pay.hotmart.com/R106813023M";
+  const checkoutLinkDigital = "https://pay.hotmart.com/R106813023M";
+  const checkoutLinkFisico = "https://pay.hotmart.com/C106830467I";
   const afiliadoLink = "https://affiliate.hotmart.com/affiliate-recruiting/view/7371R106813044";
 
   // Depoimentos Estratégicos (Prova Social)
@@ -90,18 +93,16 @@ export default function EbookReceitas() {
           </div>
 
           <a 
-            href={checkoutLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Comprar o Ebook Receitas Saudáveis e Nutritivas agora por R$ 9,90"
+            href="#formatos"
+            aria-label="Ver opções de compra do Ebook"
             className="flex items-center justify-center gap-3 bg-green-700 hover:bg-green-800 text-white px-8 py-5 rounded-full text-xl md:text-2xl font-bold shadow-2xl shadow-green-700/40 transition-transform hover:-translate-y-1 w-full md:w-auto"
           >
             <ShoppingCart size={28} aria-hidden="true" />
-            Garantir Meu Ebook por R$ 9,90
+            Quero Garantir o Meu!
           </a>
           <div className="flex items-center justify-center gap-2 mt-4 text-sm text-slate-600">
             <ShieldCheck size={16} className="text-green-700" aria-hidden="true" />
-            <span>Pagamento 100% seguro via Hotmart. Acesso imediato.</span>
+            <span>Pagamento 100% seguro via Hotmart.</span>
           </div>
         </header>
 
@@ -110,7 +111,7 @@ export default function EbookReceitas() {
         {/* SECTION: A DOR E A SOLUÇÃO */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-slate-800 mb-6">
-            Por que o <strong className="text-green-700">Ebook Receitas Saudáveis e Nutritivas</strong> é diferente?
+            Por que o <strong className="text-green-700">Livro de Receitas Saudáveis e Nutritivas</strong> é diferente?
           </h2>
           <div className="space-y-5 text-slate-700 text-lg leading-relaxed">
             <p>
@@ -125,6 +126,101 @@ export default function EbookReceitas() {
                 <strong>O Segredo:</strong> O sucesso de uma dieta não está em fazer pratos complexos dignos de restaurante todos os dias, mas sim em aplicar inteligência no pré-preparo. É exatamente isso que você vai dominar com este material.
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* SECTION: FORMATOS DE VENDA (NOVO) */}
+        <section id="formatos" className="mb-16">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">
+              Escolha o <span className="text-green-700">formato ideal</span> para você
+            </h2>
+            <p className="text-lg text-slate-600">Disponível em versão digital para acesso imediato ou impresso para ter sempre na bancada da sua cozinha.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            {/* CARD DIGITAL */}
+            <div className="bg-white p-8 rounded-[3rem] shadow-xl border-2 border-slate-100 flex flex-col hover:border-green-200 transition-colors relative">
+              <div className="flex-grow">
+                <div className="w-16 h-16 bg-slate-50 text-slate-700 rounded-2xl flex items-center justify-center mb-6 border border-slate-100">
+                  <Zap size={32} />
+                </div>
+                <h3 className="text-2xl font-black text-slate-900 mb-2">E-book Digital (PDF)</h3>
+                <p className="text-slate-600 mb-6 min-h-[48px]">Acesso imediato no seu celular, tablet ou computador. Perfeito para ler em qualquer lugar.</p>
+                
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center gap-2 text-slate-700">
+                    <CheckCircle size={18} className="text-green-600 shrink-0" /> <span className="text-sm font-medium">Download imediato após pagamento</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-slate-700">
+                    <CheckCircle size={18} className="text-green-600 shrink-0" /> <span className="text-sm font-medium">Layout adaptado para telas</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-slate-700">
+                    <CheckCircle size={18} className="text-green-600 shrink-0" /> <span className="text-sm font-medium">Sem custo de frete</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pt-6 border-t border-slate-100">
+                <div className="mb-4">
+                  <span className="text-4xl font-black text-slate-900">R$ 9,90</span>
+                </div>
+                <a 
+                  href={checkoutLinkDigital}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-slate-900 hover:bg-slate-800 text-white py-4 rounded-full font-black uppercase text-sm tracking-widest transition-colors flex items-center justify-center gap-2"
+                >
+                  <ShoppingCart size={18} /> Comprar Digital
+                </a>
+              </div>
+            </div>
+
+            {/* CARD FÍSICO */}
+            <div className="bg-green-50 p-8 rounded-[3rem] shadow-2xl border-2 border-green-500 flex flex-col relative transform md:-translate-y-4">
+              <div className="absolute -top-4 right-8 bg-green-600 text-white px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest shadow-md">
+                Mais Vendido
+              </div>
+              
+              <div className="flex-grow">
+                <div className="w-16 h-16 bg-white text-green-700 rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-green-100">
+                  <Book size={32} />
+                </div>
+                <h3 className="text-2xl font-black text-slate-900 mb-2">Livro Físico Impresso</h3>
+                <p className="text-slate-700 mb-6 min-h-[48px]">Receba o livro em casa! Qualidade premium para você folhear enquanto cozinha.</p>
+                
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center gap-2 text-slate-800">
+                    <CheckCircle size={18} className="text-green-600 shrink-0" /> <span className="text-sm font-bold">Papel Couchê Premium (90g/m²)</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-slate-800">
+                    <CheckCircle size={18} className="text-green-600 shrink-0" /> <span className="text-sm font-bold">100% Colorido e Ilustrado (48 págs)</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-slate-800">
+                    <CheckCircle size={18} className="text-green-600 shrink-0" /> <span className="text-sm font-bold">Capa com Laminação Fosca (Tamanho 16x23cm)</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pt-6 border-t border-green-200">
+                <div className="mb-2 flex items-baseline gap-2">
+                  <span className="text-4xl font-black text-green-900">R$ 50,00</span>
+                </div>
+                <p className="text-xs text-green-800 mb-4 font-semibold flex items-center gap-1">
+                  <Truck size={14} /> *Frete calculado no momento do pagamento.
+                </p>
+                <a 
+                  href={checkoutLinkFisico}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-green-700 hover:bg-green-800 text-white py-4 rounded-full font-black uppercase text-sm tracking-widest shadow-lg shadow-green-700/30 transition-transform hover:-translate-y-1 flex items-center justify-center gap-2"
+                >
+                  <ShoppingCart size={18} /> Comprar Livro Físico
+                </a>
+              </div>
+            </div>
+
           </div>
         </section>
 
@@ -434,15 +530,27 @@ export default function EbookReceitas() {
             Por apenas <strong>R$ 9,90</strong>, você adquire o passo a passo definitivo para parar de sofrer na cozinha. É mais barato que um lanche na padaria!
           </p>
           
-          <a 
-            href={checkoutLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Comprar Ebook Receitas Saudáveis e Nutritivas por R$ 9,90"
-            className="inline-flex items-center justify-center gap-3 bg-green-700 hover:bg-green-800 text-white px-10 py-5 rounded-full text-2xl font-bold shadow-2xl shadow-green-700/40 transition-transform hover:-translate-y-2 w-full md:w-auto"
-          >
-            Quero Mais Praticidade na Cozinha <ArrowRight size={28} aria-hidden="true" />
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a 
+              href={checkoutLinkDigital}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-slate-900 hover:bg-slate-800 text-white px-8 py-5 rounded-full text-lg md:text-xl font-bold shadow-xl transition-transform hover:-translate-y-1 w-full md:w-auto"
+            >
+              <ShoppingCart size={24} aria-hidden="true" />
+              Comprar Digital
+            </a>
+
+            <a 
+              href={checkoutLinkFisico}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-green-700 hover:bg-green-800 text-white px-8 py-5 rounded-full text-lg md:text-xl font-bold shadow-2xl shadow-green-700/40 transition-transform hover:-translate-y-1 w-full md:w-auto"
+            >
+              <Book size={24} aria-hidden="true" />
+              Comprar Livro Físico
+            </a>
+          </div>
         </section>
 
         {/* AFFILIATE SECTION (PÚBLICO-ALVO VENDEDOR) */}
