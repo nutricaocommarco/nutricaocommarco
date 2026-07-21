@@ -630,11 +630,11 @@ export default function ComoGanharTempoCozinha() {
               </li>
             </ul>
 
-     <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+            <h2 id="video" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <PlayCircle className="text-green-700"/> Aprofunde-se: O Segredo Definitivo de Como Ganhar Tempo Cozinhando
             </h2>
             <p>
-              Para ver com máxima clareza como estruturar o seu congelador com preparos inteligentes e acabar para sempre com o estresse de passar horas cozinhando todos os dias, deixo aqui um vídeo excelente detalhando os coringas da cozinha prática.
+              Para ver com máxima clareza como aplicar todas essas estratégias logísticas na sua cozinha real e acabar para sempre com o estresse da semana agitada, deixo aqui um vídeo excelente detalhando, no passo a passo, a rotina de marmitas inteligentes.
             </p>
 
             {/* VIDEO LAZY LOADING */}
@@ -643,27 +643,12 @@ export default function ComoGanharTempoCozinha() {
                 <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
                   <PlayCircle size={24} />
                 </div>
-                <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight m-0">10 Coisas que Não Podem Faltar no Congelador</h3>
+                <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight m-0">Aprenda o Passo a Passo da Praça e Marmitas</h3>
               </div>
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                <YouTubeLazy videoId="wl7_er-Fj-w" title="10 Comidas Que Não Podem Faltar no Meu Congelador | Praticidade" />
+                <YouTubeLazy videoId="vT4n0o_iKus" title="Como Fazer Marmitas para a Semana e Ganhar Tempo" />
               </div>
             </div>
-
-
-                <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
-                    {/* IMAGEM DO PRODUTO (CORRIGIDA NA PROPORÇÃO DE LIVRO) */}
-                    <div className="w-full max-w-[180px] md:max-w-[220px] shrink-0 relative group">
-                        <div className="absolute inset-0 bg-green-700 rounded-2xl transform rotate-3 opacity-15 transition-transform group-hover:rotate-6 duration-500" aria-hidden="true"></div>
-                        <div className="relative bg-white p-2 rounded-2xl shadow-xl border border-slate-200 flex justify-center">
-                            <img 
-                                src={ebookCapa} 
-                                alt="Capa do Ebook de Receitas Funcionais e Inteligentes do Marco Aurélio" 
-                                className="w-full h-auto rounded-xl object-contain transition-transform duration-700 group-hover:scale-[1.02]" 
-                                loading="lazy"
-                            />
-                        </div>
-                    </div>
 
             {/* BLOCO AFILIADO (PRODUTO PRÓPRIO: EBOOK DE RECEITAS) */}
             <div id="afiliado" className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
