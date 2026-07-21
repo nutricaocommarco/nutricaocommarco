@@ -179,6 +179,7 @@ export default function ComoGanharTempoCozinha() {
         <button 
           onClick={() => state?.fromBlog ? navigate(-1) : navigate('/blog')}
           className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit bg-transparent border-none cursor-pointer p-0"
+          aria-label="Voltar para o blog"
         >
           <ChevronLeft size={20} /> Voltar para o Blog
         </button>
@@ -188,7 +189,7 @@ export default function ComoGanharTempoCozinha() {
           {/* TAGS E DATA */}
           <div className="mb-8 flex flex-col items-start gap-2">
             <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Nutrição Comportamental</span>
-            <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
+            <span className="text-[11px] text-slate-700 font-bold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
           </div>
 
           {/* TÍTULO PRINCIPAL H1 */}
@@ -227,29 +228,31 @@ export default function ComoGanharTempoCozinha() {
             <nav className="bg-slate-50">
               <button 
                 onClick={() => setIsTocOpen(!isTocOpen)}
-                className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
+                className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group cursor-pointer border-none bg-transparent"
+                aria-expanded={isTocOpen}
+                aria-label="Abrir Índice do Conteúdo"
               >
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-500 border border-slate-200 shadow-sm'}`}>
                     <Activity size={18} />
                   </div>
-                  <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">Índice do Conteúdo</h3>
+                  <span className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">Índice do Conteúdo</span>
                 </div>
-                <ChevronRight size={20} className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} />
+                <ChevronRight size={20} className={`text-slate-500 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} />
               </button>
 
               <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[1200px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                 <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
-                  <li><a href="#miseenplace" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><ChefHat size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O Segredo: Mise en Place</a></li>
-                  <li><a href="#matriz3x3" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Activity size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />A Matriz 3x3 de Cardápios</a></li>
-                  <li><a href="#bases" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Utensils size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Bases Prontas do Mise en Place</a></li>
-                  <li><a href="#congelamento" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Snowflake size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Congelamento Inteligente</a></li>
-                  <li><a href="#embalagens" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Guia de Embalagens</a></li>
-                  <li><a href="#calculadora" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Calculator size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Calculadora de Rendimento</a></li>
-                  <li><a href="#solucao-problemas" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><AlertTriangle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Solução de Problemas no Freezer</a></li>
-                  <li><a href="#video" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><PlayCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Vídeo Explicativo</a></li>
-                  <li><a href="#afiliado" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><ShoppingCart size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Recomendação do Nutri</a></li>
-                  <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes (FAQ)</a></li>
+                  <li><a href="#miseenplace" className="group flex items-center gap-3 text-slate-600 hover:text-green-700 transition-all font-bold text-base m-0"><ChefHat size={16} className="text-slate-400 group-hover:text-green-500 shrink-0" />O Segredo: Mise en Place</a></li>
+                  <li><a href="#matriz3x3" className="group flex items-center gap-3 text-slate-600 hover:text-green-700 transition-all font-bold text-base m-0"><Activity size={16} className="text-slate-400 group-hover:text-green-500 shrink-0" />A Matriz 3x3 de Cardápios</a></li>
+                  <li><a href="#bases" className="group flex items-center gap-3 text-slate-600 hover:text-green-700 transition-all font-bold text-base m-0"><Utensils size={16} className="text-slate-400 group-hover:text-green-500 shrink-0" />Bases Prontas do Mise en Place</a></li>
+                  <li><a href="#congelamento" className="group flex items-center gap-3 text-slate-600 hover:text-green-700 transition-all font-bold text-base m-0"><Snowflake size={16} className="text-slate-400 group-hover:text-green-500 shrink-0" />Congelamento Inteligente</a></li>
+                  <li><a href="#embalagens" className="group flex items-center gap-3 text-slate-600 hover:text-green-700 transition-all font-bold text-base m-0"><FileText size={16} className="text-slate-400 group-hover:text-green-500 shrink-0" />Guia de Embalagens</a></li>
+                  <li><a href="#calculadora" className="group flex items-center gap-3 text-slate-600 hover:text-green-700 transition-all font-bold text-base m-0"><Calculator size={16} className="text-slate-400 group-hover:text-green-500 shrink-0" />Calculadora de Rendimento</a></li>
+                  <li><a href="#solucao-problemas" className="group flex items-center gap-3 text-slate-600 hover:text-green-700 transition-all font-bold text-base m-0"><AlertTriangle size={16} className="text-slate-400 group-hover:text-green-500 shrink-0" />Solução de Problemas no Freezer</a></li>
+                  <li><a href="#video" className="group flex items-center gap-3 text-slate-600 hover:text-green-700 transition-all font-bold text-base m-0"><PlayCircle size={16} className="text-slate-400 group-hover:text-green-500 shrink-0" />Vídeo Explicativo</a></li>
+                  <li><a href="#afiliado" className="group flex items-center gap-3 text-slate-600 hover:text-green-700 transition-all font-bold text-base m-0"><ShoppingCart size={16} className="text-slate-400 group-hover:text-green-500 shrink-0" />Recomendação do Nutri</a></li>
+                  <li><a href="#faq" className="group flex items-center gap-3 text-slate-600 hover:text-green-700 transition-all font-bold text-base m-0"><HelpCircle size={16} className="text-slate-400 group-hover:text-green-500 shrink-0" />Perguntas Frequentes (FAQ)</a></li>
                 </ul>
               </div>
             </nav>
@@ -258,26 +261,23 @@ export default function ComoGanharTempoCozinha() {
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
             
             <p>
-              Quem nunca chegou cansado do trabalho, abriu a geladeira, encarou uma bandeja de frango congelado e uma alface murcha, e acabou pedindo um delivery? A frustração de tentar manter uma alimentação saudável, aliada à <Link to="/o-que-e-fome-emocional" className="text-green-700 font-bold hover:underline">fome emocional</Link>, destrói a disciplina de qualquer um. 
+              Quem nunca chegou cansado do trabalho, abriu a geladeira, encarou uma bandeja de frango congelado e uma alface murcha, e acabou pedindo um delivery? A frustração de tentar manter uma alimentação saudável, aliada à <Link to="/o-que-e-fome-emocional" className="text-green-700 font-bold hover:underline underline">fome emocional</Link>, destrói a disciplina de qualquer um. 
             </p>
             <p>
-              A verdade é que fazer dieta não é sobre ter força de vontade infinita, é sobre ter um <strong>ambiente preparado</strong>. Muitas pessoas me perguntam frequentemente <strong>como ganhar tempo na cozinha</strong> de verdade e proteger o <Link to="/quantas-calorias-gasto-por-dia" className="text-green-700 font-bold hover:underline">gasto calórico</Link>. O segredo não está em cozinhar todos os dias, mas sim em aplicar métodos de restaurantes na rotina da sua casa.
+              A verdade é que fazer dieta não é sobre ter força de vontade infinita, é sobre ter um <strong>ambiente preparado</strong>. Muitas pessoas me perguntam frequentemente <strong>como ganhar tempo na cozinha</strong> de verdade e proteger o <Link to="/quantas-calorias-gasto-por-dia" className="text-green-700 font-bold hover:underline underline">gasto calórico</Link>. O segredo não está em cozinhar todos os dias, mas sim em aplicar métodos de restaurantes na rotina da sua casa.
             </p>
 
-               {/* IMAGEM DE CAPA RESPONSIVA (COM PROPORÇÃO 16:9 TRAVADA) */}
+              {/* IMAGEM DE CAPA RESPONSIVA (COM PROPORÇÃO 16:9 TRAVADA) */}
             <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
               
-              {/* O contêiner que segura a proporção perfeita e evita pulos na tela (CLS) */}
-              <div className="relative w-full aspect-video overflow-hidden">
-                <img 
-                  src={artigoCapa} 
-                  alt="Pinguim Pingus chef com potes herméticos organizados, ensinando como ganhar tempo na cozinha." 
-                  title="Mise en Place e Organização Semanal"
-                  /* absolute e inset-0 grudam a imagem nas bordas do contêiner, object-cover impede distorções */
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-                  loading="lazy"
-                  onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=800"; }}
-                />
+              <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+                  <ImagemOtimizada 
+                    src={artigoCapa}
+                    alt="Pinguim Pingus chef com potes herméticos organizados, ensinando como ganhar tempo na cozinha."
+                    title="Mise en Place e Organização Semanal"
+                    className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+                    priority="high"
+                  />
               </div>
 
               <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
@@ -302,7 +302,7 @@ export default function ComoGanharTempoCozinha() {
               <Activity className="text-green-700"/> A Matriz 3x3: Variando o Cardápio com Facilidade
             </h2>
             <p>
-              Um erro comum que destrói a <Link to="/o-que-sao-simbioticos" className="text-green-700 font-bold hover:underline">saúde do seu intestino</Link> e a sua vontade de comer bem é a monotonia de comer frango com batata-doce todos os dias. Para evitar isso e aprender a economizar tempo cozinhando, usamos a técnica da <strong>Matriz 3x3</strong>. 
+              Um erro comum que destrói a <Link to="/o-que-sao-simbioticos" className="text-green-700 font-bold hover:underline underline">saúde do seu intestino</Link> e a sua vontade de comer bem é a monotonia de comer frango com batata-doce todos os dias. Para evitar isso e aprender a economizar tempo cozinhando, usamos a técnica da <strong>Matriz 3x3</strong>. 
             </p>
             <p>
               A estratégia consiste em preparar, em lote, 3 fontes de Proteína, 3 de Carboidratos e 3 tipos de Legumes. Com esses 9 itens pré-prontos (armazenados em potes herméticos), você consegue fazer até <strong>27 combinações diferentes</strong> na hora de finalizar o prato. Veja um exemplo prático:
@@ -404,7 +404,7 @@ export default function ComoGanharTempoCozinha() {
               <Snowflake className="text-green-700"/> Congelamento Inteligente: Pare de Estragar Comida
             </h2>
             <p>
-              Saber como ganhar tempo na cozinha passa diretamente por parar de jogar comida fora. Congelar não é apenas jogar a sobra da panela no fundo do freezer. Para não sofrer com a <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 font-bold hover:underline">inflamação e o efeito sanfona</Link>, a sua comida precisa estar incrivelmente apetitosa ao ser descongelada. Para isso, existem 4 regras âncoras fundamentais:
+              Saber como ganhar tempo na cozinha passa diretamente por parar de jogar comida fora. Congelar não é apenas jogar a sobra da panela no fundo do freezer. Para não sofrer com a <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 font-bold hover:underline underline">inflamação e o efeito sanfona</Link>, a sua comida precisa estar incrivelmente apetitosa ao ser descongelada. Para isso, existem 4 regras âncoras fundamentais:
             </p>
 
             <ol className="list-decimal pl-6 space-y-4 my-8 marker:font-black marker:text-green-700">
@@ -500,8 +500,10 @@ export default function ComoGanharTempoCozinha() {
               <div className="p-6 md:p-10 flex flex-col items-center gap-6">
                 <div className="w-full max-w-lg space-y-5">
                   <div>
-                    <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">1. Selecione o Corte e Preparo</label>
+                    <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2" htmlFor="select-carne">1. Selecione o Corte e Preparo</label>
                     <select 
+                      id="select-carne"
+                      aria-label="Selecione o Corte e Preparo"
                       value={carneSelecionada}
                       onChange={(e) => setCarneSelecionada(e.target.value)}
                       className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm font-bold rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 p-4 h-[55px] outline-none transition-all shadow-inner"
@@ -513,8 +515,10 @@ export default function ComoGanharTempoCozinha() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">2. Peso Cru Comprado (em gramas)</label>
+                    <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2" htmlFor="input-peso-cru">2. Peso Cru Comprado (em gramas)</label>
                     <input 
+                      id="input-peso-cru"
+                      aria-label="Peso Cru Comprado em gramas"
                       type="number" 
                       value={quantidadeCrua}
                       onChange={(e) => setQuantidadeCrua(Number(e.target.value))}
@@ -525,8 +529,10 @@ export default function ComoGanharTempoCozinha() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">3. Porção por pessoa (g)</label>
+                      <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2" htmlFor="input-porcao">3. Porção por pessoa (g)</label>
                       <input 
+                        id="input-porcao"
+                        aria-label="Tamanho da porção por pessoa em gramas"
                         type="number" 
                         value={tamanhoPorcao}
                         onChange={(e) => setTamanhoPorcao(Number(e.target.value))}
@@ -534,11 +540,13 @@ export default function ComoGanharTempoCozinha() {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">4. A porção é do peso:</label>
+                      <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2" htmlFor="select-referencia">4. A porção é do peso:</label>
                       <select 
+                        id="select-referencia"
+                        aria-label="Selecione se o peso da porção é do alimento pronto ou cru"
                         value={tipoReferencia}
                         onChange={(e) => setTipoReferencia(e.target.value)}
-                        className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm font-bold rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 p-4 h-[55px] outline-none transition-all shadow-inner text-center text-center-last"
+                        className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm font-bold rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 p-4 h-[55px] outline-none transition-all shadow-inner text-center"
                       >
                         <option value="pronto">Pronto</option>
                         <option value="cru">Cru</option>
@@ -547,8 +555,10 @@ export default function ComoGanharTempoCozinha() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">5. Para quantas pessoas?</label>
+                    <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2" htmlFor="input-pessoas">5. Para quantas pessoas?</label>
                     <input 
+                      id="input-pessoas"
+                      aria-label="Número de pessoas"
                       type="number" 
                       value={pessoas}
                       onChange={(e) => setPessoas(Number(e.target.value))}
@@ -558,7 +568,8 @@ export default function ComoGanharTempoCozinha() {
 
                   <button 
                     onClick={handleCalcularRendimento}
-                    className="w-full bg-green-700 text-white h-[60px] rounded-2xl font-black uppercase text-sm tracking-widest shadow-lg hover:bg-green-800 transition-all mt-4"
+                    aria-label="Calcular Rendimento e Planejamento"
+                    className="w-full bg-green-700 text-white h-[60px] rounded-2xl font-black uppercase text-sm tracking-widest shadow-lg hover:bg-green-800 transition-all mt-4 border-none cursor-pointer"
                   >
                     Calcular Planejamento
                   </button>
@@ -634,7 +645,7 @@ export default function ComoGanharTempoCozinha() {
               <PlayCircle className="text-green-700"/> Aprofunde-se: O Segredo Definitivo de Como Ganhar Tempo Cozinhando
             </h2>
             <p>
-              Para ver com máxima clareza como aplicar todas essas estratégias logísticas na sua cozinha real e acabar para sempre com o estresse da semana agitada, deixo aqui um vídeo excelente detalhando, no passo a passo, a rotina de marmitas inteligentes.
+              Para ver com máxima clareza como estruturar o seu congelador com preparos inteligentes e acabar para sempre com o estresse de passar horas cozinhando todos os dias, deixo aqui um vídeo excelente detalhando os coringas da cozinha prática.
             </p>
 
             {/* VIDEO LAZY LOADING */}
@@ -643,10 +654,10 @@ export default function ComoGanharTempoCozinha() {
                 <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
                   <PlayCircle size={24} />
                 </div>
-                <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight m-0">Aprenda o Passo a Passo da Praça e Marmitas</h3>
+                <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight m-0">10 Coisas que Não Podem Faltar no Congelador</h3>
               </div>
               <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-                <YouTubeLazy videoId="vT4n0o_iKus" title="Como Fazer Marmitas para a Semana e Ganhar Tempo" />
+                <YouTubeLazy videoId="wl7_er-Fj-w" title="10 Comidas Que Não Podem Faltar no Meu Congelador | Praticidade" />
               </div>
             </div>
 
@@ -659,23 +670,25 @@ export default function ComoGanharTempoCozinha() {
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
-                    {/* IMAGEM DO PRODUTO (CORRIGIDA NA PROPORÇÃO DE LIVRO) */}
-                    <div className="w-full max-w-[180px] md:max-w-[220px] shrink-0 relative group">
+                    {/* IMAGEM DO PRODUTO (CORRIGIDA NA PROPORÇÃO DE LIVRO E COM LARGURA/ALTURA EXPLICITAS) */}
+                    <div className="w-full max-w-[180px] md:max-w-[220px] shrink-0 relative group mx-auto md:mx-0">
                         <div className="absolute inset-0 bg-green-700 rounded-2xl transform rotate-3 opacity-15 transition-transform group-hover:rotate-6 duration-500" aria-hidden="true"></div>
-                        <div className="relative bg-white p-2 rounded-2xl shadow-xl border border-slate-200 flex justify-center">
+                        <div className="relative bg-white p-2 rounded-2xl shadow-xl border border-slate-200 flex justify-center aspect-[3/4]">
                             <img 
                                 src={ebookCapa} 
                                 alt="Capa do Ebook de Receitas Funcionais e Inteligentes do Marco Aurélio" 
-                                className="w-full h-auto rounded-xl object-contain transition-transform duration-700 group-hover:scale-[1.02]" 
+                                className="w-full h-full rounded-xl object-contain transition-transform duration-700 group-hover:scale-[1.02]" 
                                 loading="lazy"
+                                width="220"
+                                height="293"
                             />
                         </div>
                     </div>
 
                     <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-                        <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                        <h3 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic m-0">
                             Livro Digital: <span className="text-green-700">25 Receitas Práticas & Estrutura de Mise en Place</span>
-                        </h4>
+                        </h3>
 
                         <p className="text-slate-600 text-sm mb-6 leading-relaxed font-medium">
                             Se você quer não apenas ler sobre a teoria, mas aplicar a exata metodologia de <strong>como ganhar tempo na cozinha</strong>, baixe o meu E-book Completo. Você terá acesso a 25 receitas incríveis (divididas entre lanches rápidos, pratos principais suculentos e sobremesas sem culpa), além do guia prático para transformar ingredientes básicos em pratos perfeitos em menos de 15 minutos!
@@ -712,7 +725,7 @@ export default function ComoGanharTempoCozinha() {
               <CheckCircle2 className="text-green-700"/> Conclusão: A Organização é a Verdadeira Liberdade
             </h2>
             <p>
-              Descobrir, de fato, <strong>como ganhar tempo na cozinha</strong> não tem relação nenhuma com cozinhar apressadamente e correndo perigo, ou simplesmente pular etapas valiosas. Trata-se inteiramente de inteligência logística aplicada ao cotidiano. Ao implementar com seriedade as táticas de restaurantes de alto nível (como o branqueamento em choque térmico, as bases prontas e o rigoroso <em>Mise en Place</em>) na sua própria casa, você reduz drasticamente o trabalho diário com panelas, evita o enorme desperdício de dinheiro com alimentos estragados e domina com facilidade a sua <Link to="/o-que-e-jejum-intermitente" className="text-green-700 font-bold hover:underline">janela alimentar e seus macronutrientes</Link>. Lembre-se: uma geladeira inteligentemente estruturada é o maior e melhor investimento que você pode fazer diariamente pelo seu metabolismo e pela sua paz mental!
+              Descobrir, de fato, <strong>como ganhar tempo na cozinha</strong> não tem relação nenhuma com cozinhar apressadamente e correndo perigo, ou simplesmente pular etapas valiosas. Trata-se inteiramente de inteligência logística aplicada ao cotidiano. Ao implementar com seriedade as táticas de restaurantes de alto nível (como o branqueamento em choque térmico, as bases prontas e o rigoroso <em>Mise en Place</em>) na sua própria casa, você reduz drasticamente o trabalho diário com panelas, evita o enorme desperdício de dinheiro com alimentos estragados e domina com facilidade a sua <Link to="/o-que-e-jejum-intermitente" className="text-green-700 font-bold hover:underline underline">janela alimentar e seus macronutrientes</Link>. Lembre-se: uma geladeira inteligentemente estruturada é o maior e melhor investimento que você pode fazer diariamente pelo seu metabolismo e pela sua paz mental!
             </p>
 
             {/* FAQ DINÂMICO */}
@@ -725,14 +738,16 @@ export default function ComoGanharTempoCozinha() {
                   <div key={index} className="bg-slate-50 rounded-3xl border border-green-100 overflow-hidden transition-all duration-300">
                     <button
                       onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                      className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
+                      aria-expanded={openFaqIndex === index}
+                      aria-controls={`faq-answer-${index}`}
+                      className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group bg-transparent border-none cursor-pointer"
                     >
                       <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-700' : 'text-slate-800 group-hover:text-green-700'}`}>
                         {faq.pergunta}
                       </h3>
-                      <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
+                      <ChevronDown className={`text-slate-500 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
                     </button>
-                    <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
+                    <div id={`faq-answer-${index}`} className={`transition-all duration-500 ease-in-out overflow-hidden ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
                       <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">{faq.resposta}</p>
                     </div>
                   </div>
@@ -761,12 +776,12 @@ export default function ComoGanharTempoCozinha() {
           </div>
 
           <div className="flex-1 text-center md:text-left">
-            <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
+            <h3 className="text-2xl font-black text-slate-900 italic mb-1 m-0">Escrito por Marco Aurélio Jr.</h3>
             <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
               Acredito que a nutrição precisa ser imensamente prática e aplicável à vida real do paciente. Ao invés de focar excessivamente em restrições impossíveis de manter no longo prazo, dedico meus estudos a ensinar você a organizar profundamente o seu ambiente e entender a verdadeira resposta metabólica do seu corpo, unindo a ciência clínica a uma rotina leve e descomplicada!
             </p>
-            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-800 transition-all italic">
               Siga @Nutricao_com_Marco no Instagram
             </a>
           </div>
