@@ -15,7 +15,6 @@ export default function PlanilhaAntropometriaVendas() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  // 🔗 Links das suas imagens hospedadas no GitHub
   const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/PlanilhaImagem/";
   const capaImg = `${githubImgBase}Capa.JPG`;
   const partesPlanilha = [
@@ -26,10 +25,8 @@ export default function PlanilhaAntropometriaVendas() {
     { src: `${githubImgBase}5.png`, alt: "Planilha de Avaliação Antropométrica - Parte 5: Somatotipo e gráfico" }
   ];
 
-  // 🔗 Link oficial do seu checkout Hotmart (Atualizado com Cupom de Desconto)
   const linkCheckoutHotmart = "https://pay.hotmart.com/D106679715Y?off=4vrhshe3";
 
-  // 🗣️ Avaliações Orgânicas
   const reviews = [
     {
       nome: "Carolina Mendes",
@@ -124,7 +121,6 @@ export default function PlanilhaAntropometriaVendas() {
   return (
     <>
       <Helmet>
-        {/* PALAVRA CHAVE EXATA NO TITLE E DESCRIPTION */}
         <title>Planilha de Avaliação Antropométrica em Excel | Sistema PRO</title>
         <meta name="description" content="A melhor e mais completa Planilha de Avaliação Antropométrica em Excel. Cálculos de percentual de gordura, protocolo ISAK, Pollock, Somatotipo e muito mais." />
         <meta name="keywords" content={keywords} />
@@ -137,18 +133,17 @@ export default function PlanilhaAntropometriaVendas() {
         <meta property="product:price:amount" content="50.00" />
         <meta property="product:price:currency" content="BRL" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
+        <script src="https://cta-widget-user-form.hp.hotmart.com/widget/widget.iife.js" type="text/javascript"></script>
       </Helmet>
 
       <section className="py-16 md:py-24 bg-slate-50 px-4 sm:px-6 container mx-auto max-w-5xl text-left">
         <div className="bg-white p-6 sm:p-10 md:p-16 rounded-[2rem] md:rounded-[4rem] shadow-2xl border border-slate-100 flex flex-col gap-8 md:gap-12">
 
-          {/* INTRODUÇÃO / HERO */}
           <article className="prose prose-base md:prose-lg max-w-none text-left w-full">
             <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 md:mb-6">
               Cineantropometria • Automação Avançada • Padrão ISAK
             </span>
 
-            {/* PALAVRA CHAVE EXATA NO H1 */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 md:mb-10 uppercase italic leading-tight text-slate-900">
               A Mais Completa <span className="text-green-700">Planilha de Avaliação Antropométrica</span> do Mercado
             </h1>
@@ -169,7 +164,6 @@ export default function PlanilhaAntropometriaVendas() {
             </div>
           </article>
 
-          {/* SESSÃO DE PREÇO E OFERTA DE LANÇAMENTO */}
           <section className="bg-slate-900 text-white rounded-[2rem] p-6 sm:p-8 md:p-10 border border-slate-800 shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 bg-orange-500 text-white font-black text-xs px-6 py-2 uppercase tracking-widest rounded-bl-2xl shadow-md">
               Oferta de Lançamento
@@ -202,7 +196,6 @@ export default function PlanilhaAntropometriaVendas() {
             </div>
           </section>
 
-          {/* 📺 SEÇÃO VÍDEO EXPLICATIVO */}
           <div className="w-full bg-white rounded-3xl p-5 md:p-8 border border-slate-100 shadow-md flex flex-col gap-5 text-left">
             <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic flex items-center gap-2 border-b border-green-100 pb-4">
               <Video className="text-green-700 w-6 h-6 flex-shrink-0" /> Como funciona a Planilha de Avaliação Antropométrica?
@@ -219,7 +212,6 @@ export default function PlanilhaAntropometriaVendas() {
             </div>
           </div>
 
-          {/* DIFERENCIAIS DA PLANILHA */}
           <div className="bg-slate-50 rounded-[2rem] md:rounded-[3.5rem] p-5 sm:p-8 md:p-12 border border-slate-200 shadow-inner">
             <h2 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mb-8 md:mb-10 border-b border-green-200 pb-4 flex items-center gap-3">
               <Sparkles className="text-green-700 w-6 h-6 md:w-8 md:h-8 flex-shrink-0"/> Diferenciais Exclusivos
@@ -259,7 +251,6 @@ export default function PlanilhaAntropometriaVendas() {
               </div>
             </div>
 
-            {/* PRÓXIMOS PASSOS (ATUALIZAÇÕES) */}
             <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 flex items-center gap-2">
               <GitBranch className="text-orange-500 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> Atualizações Futuras Inclusas Grátis
             </h3>
@@ -301,7 +292,6 @@ export default function PlanilhaAntropometriaVendas() {
               </div>
             </div>
 
-            {/* CONTEÚDO DETALHADO DO RELATÓRIO */}
             <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic mb-6 flex items-center gap-2">
               <User className="text-green-700 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> Resultados do Laudo Antropométrico
             </h3>
@@ -344,7 +334,6 @@ export default function PlanilhaAntropometriaVendas() {
               </div>
             </div>
 
-            {/* 📸 SEÇÃO GALERIA - VISUALIZAÇÃO INTERNA */}
             <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic mb-6 flex items-center gap-2">
               <Activity className="text-green-700 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> Veja o Sistema Operando
             </h3>
@@ -366,7 +355,6 @@ export default function PlanilhaAntropometriaVendas() {
               ))}
             </div>
 
-            {/* ⭐ PROVA SOCIAL / AVALIAÇÕES */}
             <div className="bg-white rounded-3xl border border-slate-200 p-6 md:p-10 shadow-sm mt-12 mb-16">
               <h3 className="text-2xl font-black text-slate-800 uppercase italic text-center mb-8 flex items-center justify-center gap-2">
                 <Star className="text-yellow-400 fill-yellow-400 w-6 h-6" /> O que dizem os Profissionais
@@ -395,7 +383,6 @@ export default function PlanilhaAntropometriaVendas() {
               </div>
             </div>
 
-            {/* CALL TO ACTION FINAL */}
             <div className="text-center max-w-3xl mx-auto bg-slate-900 rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden">
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-green-500 rounded-full blur-3xl opacity-20"></div>
               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-orange-500 rounded-full blur-3xl opacity-20"></div>
@@ -424,6 +411,18 @@ export default function PlanilhaAntropometriaVendas() {
           </div>
         </div>
       </section>
+
+      <div id="hotmart-widget">
+        <wpp-button
+          phone="5531953475617"
+          href="https://pay.hotmart.com/D106679715Y?off=4vrhshe3"
+          producerName="MARCO AURELIO NEVES JUNIOR"
+          productName="Planilha Antropométrica Inteligente"
+          productId="ODA5ODc0MA=="
+          btnSize="40px"
+          extraInfo=""
+        />
+      </div>
     </>
   );
 }
