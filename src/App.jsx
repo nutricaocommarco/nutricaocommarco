@@ -58,7 +58,7 @@ const ComoGanharTempoCozinha = lazyRetry(() => import('./pages/ComoGanharTempoCo
 const EbookReceitas = lazyRetry(() => import('./pages/Ebook-Receitas'));
 const ComoCalcularMeuGet = lazyRetry(() => import('./pages/ComoCalcularMeuGet'));
 
-const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+const githubImgBase = "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/";
 
 const LoadingSpinner = () => (
   <div className="flex justify-center items-center h-screen text-green-700 font-black">

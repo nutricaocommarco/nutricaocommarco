@@ -12,7 +12,7 @@ import Newsletter from '../components/Newsletter';
 import YouTubeLazy from '../components/YouTubeLazy';
 import ImagemOtimizada from '../components/ImagemOtimizada';
 
-const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+const githubImgBase = "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/";
 
 const datePublishedISO = "2026-03-28";
 const dateModifiedISO = "2026-04-03";

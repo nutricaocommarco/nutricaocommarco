@@ -6,7 +6,7 @@ import ImagemOtimizada from '../components/ImagemOtimizada';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
 
-const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+const githubImgBase = "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/";
 
 export default function HormoniosFome() {
   const { pathname } = useLocation();

@@ -11,7 +11,7 @@ import {
   ShoppingCart, Flame, Apple, CheckCircle2 
 } from 'lucide-react';
 
-const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+const githubImgBase = "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/";
 const dateModifiedISO = "2026-07-22";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 

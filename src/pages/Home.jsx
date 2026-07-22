@@ -4,7 +4,7 @@ import { ChevronRight, Zap } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import ImagemOtimizada from '../components/ImagemOtimizada';
 
-const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+const githubImgBase = "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/";
 
 export default function Home() {
   return (

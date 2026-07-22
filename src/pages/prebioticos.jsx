@@ -100,7 +100,7 @@ const prebioticosDados = [
   }
 ];
 
-const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+const githubImgBase = "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/";
 
 // Variáveis de data centralizadas para SEO
 const datePublishedISO = "2026-03-27";
