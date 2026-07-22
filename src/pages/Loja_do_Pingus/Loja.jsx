@@ -14,7 +14,7 @@ function CarrosselVitrine({ imagens, nome, priority }) {
     if (isHovered && imagens.length > 1) {
       intervalo = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % imagens.length);
-      }, 1200);
+      }, 800);
     } else {
       setCurrentIndex(0);
     }
