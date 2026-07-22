@@ -51,7 +51,7 @@ const postsBlog = [
     img: `${githubImgBase}Blog/GanharTempo_Capa.webp`, 
     titulo: "Como Ganhar Tempo na Cozinha: O Guia do Congelamento e Mise en Place", 
     desc: "Aprenda como ganhar tempo na cozinha organizando suas marmitas. Descubra a técnica do Mise en Place, a Matriz 3x3 e os segredos do congelamento inteligente.", 
-    data: "2026-07-18",
+    data: "2026-07-21",
     schemasExtra: [
       getMedicalSchema(
         "Organização Alimentar e Congelamento Inteligente", 
