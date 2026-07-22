@@ -390,10 +390,10 @@ routes.forEach(route => {
   // 🤖 OTIMIZAÇÃO EXCLUSIVA PARA O WHATSAPP
   // O WhatsApp odeia arquivos grandes e formato .webp na tag og:image.
   // Usamos o wsrv.nl para gerar um .jpg de 800px super leve automaticamente!
-  const staticPath = route.image.replace('https://raw.githubusercontent.com/', '');
-  const imgWhatsApp = `https://cdn.statically.io/img/github.com/${staticPath}?w=1200&h=675&f=jpeg&q=85`;
-
+  const imgCleanUrl = route.image.replace('https://', '');
+  const imgWhatsApp = `https://wsrv.nl/${imgCleanUrl}?w=1200&output=jpg&q=85`;
   // Injetamos as tags FÍSICAS limpas!
+  // Adicionamos as tags de width, height e type para o WhatsApp carregar a imagem instantaneamente
   const tagsCorretas = `
     <title>${route.title}</title>
     <meta name="description" content="${route.desc}" />

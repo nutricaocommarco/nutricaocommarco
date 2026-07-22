@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function ImagemOtimizada({ src, alt, title, className = "", priority = "low" }) {
-  const imgCleanUrl = src ? src.replace(/^https?:\/\//i, '') : '';
+  const imgCleanUrl = src ? src.replace('https://', '') : '';
   const isHighPriority = priority === "high";
   
   return (
