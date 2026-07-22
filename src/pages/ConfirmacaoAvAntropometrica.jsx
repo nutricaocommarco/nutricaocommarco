@@ -7,7 +7,7 @@ import {
   Dumbbell, Droplet, User, ChevronLeft, ShieldCheck, FileText, MessageCircle, Clock
 } from 'lucide-react';
 
-const githubImgBase = "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/";
+const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 export default function ConfirmacaoInscricao() {
   const { pathname } = useLocation();

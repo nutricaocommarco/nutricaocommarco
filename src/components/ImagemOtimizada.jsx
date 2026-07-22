@@ -1,14 +1,13 @@
 import React from 'react';
 
 export default function ImagemOtimizada({ src, alt, title, className = "", priority = "low" }) {
-  let secureSrc = src ? src.replace('raw.githubusercontent.com/', 'cdn.jsdelivr.net/gh/') : '';
-  secureSrc = secureSrc.replace('/main/main/', '/main/');
-  const imgCleanUrl = secureSrc ? secureSrc.replace(/^https?:\/\//i, '') : '';
+  // Limpa o "https://" da URL original
+  const imgCleanUrl = src ? src.replace(/^https?:\/\//i, '') : '';
   const isHighPriority = priority === "high";
   
   return (
     <picture>
-      {/* Mudamos de /?url= para apenas / na frente do domínio */}
+      {/* Usamos a sintaxe direta com "/" para o Googlebot não ser bloqueado pelo robots.txt! */}
       <source media="(max-width: 480px)" srcSet={`https://wsrv.nl/${imgCleanUrl}?w=400&output=webp&q=70`} />
       <source media="(max-width: 768px)" srcSet={`https://wsrv.nl/${imgCleanUrl}?w=600&output=webp&q=75`} />
       <source media="(max-width: 1024px)" srcSet={`https://wsrv.nl/${imgCleanUrl}?w=800&output=webp&q=80`} />

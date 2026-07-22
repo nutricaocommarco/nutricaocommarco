@@ -6,7 +6,7 @@ import Newsletter from '../components/Newsletter';
 import ImagemOtimizada from '../components/ImagemOtimizada';
 import { Helmet } from 'react-helmet-async';
 
-const githubImgBase = "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/";
+const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 export default function Bioimpedancia() {
   const { pathname } = useLocation();

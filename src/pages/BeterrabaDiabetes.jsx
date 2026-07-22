@@ -23,7 +23,7 @@ import ArtigosRecomendados from '../components/ArtigosRecomendados';
 // 🧠 Importando o Cérebro Central!
 import { posts } from '../data/posts'; 
 
-const githubImgBase = "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/";
+const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 export default function DiabeticoPodeComerBeterraba() {
   const { pathname, state } = useLocation();

@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 import ImagemOtimizada from '../components/ImagemOtimizada';
 
-const githubImgBase = "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/";
+const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 const artigoCapa = `${githubImgBase}capa_receitas.webp`; 
 
 // Link do PDF de amostra

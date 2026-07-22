@@ -6,7 +6,7 @@ import Newsletter from '../components/Newsletter';
 import YouTubeLazy from '../components/YouTubeLazy';
 import ImagemOtimizada from '../components/ImagemOtimizada';
 
-const githubImgBase = "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/";
+const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 // Variáveis de data centralizadas para o Schema e para o visual
 const datePublishedISO = "2026-03-26";
