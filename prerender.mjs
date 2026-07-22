@@ -52,6 +52,8 @@ const postsBlog = [
   titulo: "Como Calcular Meu GET (Gasto Energético Total): Guia e Calculadora",
   desc: "Aprenda de verdade como calcular meu get com equações validadas (Mifflin e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.",
   data: "2026-07-22",
+  ogImageWidth: 1200, 
+  ogImageHeight: 675,
   schemasExtra: [
     getMedicalSchema("Fisiologia do Metabolismo e Gasto Calórico", "https://www.nutricaocommarco.com.br/como-calcular-meu-get", ["Taxa Metabólica Basal", "Gasto Energético Total", "Equação de Mifflin-St Jeor"])
   ]
@@ -63,6 +65,8 @@ const postsBlog = [
     titulo: "Como Ganhar Tempo na Cozinha: O Guia do Congelamento e Mise en Place", 
     desc: "Aprenda como ganhar tempo na cozinha organizando suas marmitas. Descubra a técnica do Mise en Place, a Matriz 3x3 e os segredos do congelamento inteligente.", 
     data: "2026-07-21",
+    ogImageWidth: 1200, 
+    ogImageHeight: 675,
     schemasExtra: [
       getMedicalSchema(
         "Organização Alimentar e Congelamento Inteligente", 
