@@ -451,8 +451,13 @@ routes.forEach(route => {
     ${schemasHTML}
   `;
 
-  const html = cleanHtml.replace('</head>', `${tagsCorretas}</head>`);
+const html = cleanHtml.replace('</head>', `${tagsCorretas}</head>`);
 
+  // 1️⃣ ADICIONE ESTA LINHA: Cria a pasta (ex: loja/) se ela não existir
+  fs.mkdirSync(path.dirname(targetFile), { recursive: true });
+  
+  // 2️⃣ MANTENHA A LINHA EXISTENTE
   fs.writeFileSync(targetFile, html);
+  
   console.log(`✅ [${safePath}] Blindado com WordPress CDN (Leve) e 100% Liberado no Googlebot!`);
 });
