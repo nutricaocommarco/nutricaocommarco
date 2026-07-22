@@ -391,7 +391,7 @@ routes.forEach(route => {
   // O WhatsApp odeia arquivos grandes e formato .webp na tag og:image.
   // Usamos o wsrv.nl para gerar um .jpg de 800px super leve automaticamente!
   const imgCleanUrl = route.image.replace('https://', '');
-  const imgWhatsApp = `https://wsrv.nl/?url=${imgCleanUrl}&w=1200&output=jpg&q=70`;
+  const imgWhatsApp = `https://wsrv.nl/${imgCleanUrl}?w=1200&output=jpg&q=70`;
 
   // Injetamos as tags FÍSICAS limpas!
   // Adicionamos as tags de width, height e type para o WhatsApp carregar a imagem instantaneamente
