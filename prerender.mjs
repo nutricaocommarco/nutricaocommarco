@@ -380,21 +380,20 @@ routes.forEach(route => {
   }
 
 // 🔴 A MÁGICA FINAL ACONTECE AQUI: REGEX SUPREMA 🔴
-  // Remove qualquer title, description, og ou canonical, INDEPENDENTE da ordem dos atributos
   let cleanHtml = fileContent
     .replace(/<title[^>]*>[\s\S]*?<\/title>/gi, '') 
     .replace(/<meta(?=[^>]*name=['"]description['"])[^>]*>/gi, '') 
     .replace(/<meta(?=[^>]*property=['"]og:[^'"]+['"])[^>]*>/gi, '') 
     .replace(/<link(?=[^>]*rel=['"]canonical['"])[^>]*>/gi, ''); 
 
-  // 🤖 OTIMIZAÇÃO EXCLUSIVA PARA O GOOGLE DISCOVER / WHATSAPP
-  // Convertendo a URL Raw para o CDN Statically (Fim do erro de robots.txt)
+  // 🤖 OTIMIZAÇÃO PURA PARA GOOGLE DISCOVER E WHATSAPP
+  // Usamos o jsDelivr direto. Sem conversores, sem bloqueios de robots.txt, 100% liberado!
   const imgWhatsApp = route.image.replace(
     'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/', 
-    'https://cdn.statically.io/img/gh/nutricaocommarco/nutricaocommarco@main/'
-  ) + '?w=1200&h=675&f=jpeg&q=85';
+    'https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/'
+  );
 
-  // Injetamos as tags FÍSICAS limpas!
+  // Injetamos as tags FÍSICAS limpas! (O type passa a ser image/webp nativo)
   const tagsCorretas = `
     <title>${route.title}</title>
     <meta name="description" content="${route.desc}" />
@@ -406,7 +405,7 @@ routes.forEach(route => {
     <meta property="og:image" content="${imgWhatsApp}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="675" />
-    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:type" content="image/webp" />
     <meta property="og:url" content="${urlAbsoluta}" />
     ${schemasHTML}
   `;
@@ -414,5 +413,5 @@ routes.forEach(route => {
   const html = cleanHtml.replace('</head>', `${tagsCorretas}</head>`);
 
   fs.writeFileSync(targetFile, html);
-  console.log(`✅ [${safePath}] Blindado com Statically e 100% Liberado no Googlebot!`);
+  console.log(`✅ [${safePath}] Blindado com jsDelivr e 100% Liberado no Googlebot!`);
 });
