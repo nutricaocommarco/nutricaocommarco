@@ -17,7 +17,7 @@ const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Imagens
 // Selecionei a imagem com os cálculos de GET (TDEE) e BMR flutuando, achei perfeita para o tema!
-const artigoCapa = `${githubImgBase}Blog/Penguin_in_lab_coat_calculator_202607220939 (1).jpeg`;
+const artigoCapa = `${githubImgBase}Blog/GET_Capa.webp`;
 const planilhaImg = `${githubImgBase}PlanilhaImagem/Planilha_Capa.webp`; // Imagem atualizada da Planilha
 const fotoAutor = `${githubImgBase}Eu_1.webp`;
 
