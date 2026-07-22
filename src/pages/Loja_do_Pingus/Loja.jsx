@@ -66,6 +66,14 @@ export default function Loja() {
   // Dados manuais para os produtos digitais já existentes no site
   const produtosDigitais = [
     {
+      id: "calculadora-gasto-calorico",
+      nome: "Calculadora de Gasto Calórico Inteligente",
+      link: "/calculadora-de-gasto-calorico",
+      imagem: "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/Calculadora-de-Gasto-Calorico.webp",
+      tipo: "Ferramenta Gratuita",
+      icone: <Calculator size={18} className="text-green-700" />
+    },
+    {
       id: "planilha",
       nome: "Planilha Antropométrica Inteligente PRO",
       link: "/planilha",

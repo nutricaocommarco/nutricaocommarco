@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Instagram, Menu, X, Mail, ChevronDown } from 'lucide-react';
+import { Instagram, Menu, X, Mail, ChevronDown, Store, Calculator, BookOpen, Flame } from 'lucide-react';
 import { HelmetProvider } from 'react-helmet-async';
 import Loja from './pages/Loja_do_Pingus/Loja';
 import ProdutoDetalhe from './pages/Loja_do_Pingus/ProdutoDetalhe';
@@ -60,9 +60,6 @@ const ComoGanharTempoCozinha = lazyRetry(() => import('./pages/ComoGanharTempoCo
 const EbookReceitas = lazyRetry(() => import('./pages/Ebook-Receitas'));
 const ComoCalcularMeuGet = lazyRetry(() => import('./pages/ComoCalcularMeuGet'));
 
-
-const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
-
 const LoadingSpinner = () => (
   <div className="flex justify-center items-center h-screen text-green-700 font-black">
     Carregando...
@@ -119,14 +116,24 @@ function Layout({ children }) {
             <Link to="/blog" className={`py-1 border-b-2 transition-all ${location.pathname.includes('/blog') ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent hover:text-green-700'}`}>Blog</Link>
             <Link to="/planos" className={`py-1 border-b-2 transition-all ${location.pathname === '/planos' ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent hover:text-green-700'}`}>Planos</Link>
 
+            {/* DROPDOWN LOJA E FERRAMENTAS */}
             <div className="relative group">
-              <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/calculadora-de-gasto-calorico', '/planilha', '/ebook-receitas'].includes(location.pathname) ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-700'}`}>
-                Produtos <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
+              <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/loja', '/calculadora-de-gasto-calorico', '/planilha', '/ebook-receitas'].some(path => location.pathname.startsWith(path)) ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-700'}`}>
+                Loja <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
               </span>
-              <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-white border border-green-100 shadow-xl rounded-xl py-3 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col z-50">
-                <Link to="/ebook-receitas" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/ebook-receitas' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>📕 E-book de Receitas</Link>
-                <Link to="/calculadora-de-gasto-calorico" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/calculadora-de-gasto-calorico' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>Gasto Calórico</Link>
-                <Link to="/planilha" className={`px-5 py-2 text-sm font-bold transition-all ${location.pathname === '/planilha' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>🔥 Planilha Antropométrica</Link>
+              <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-white border border-green-100 shadow-xl rounded-xl py-3 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col z-50">
+                <Link to="/loja" className={`px-5 py-2.5 text-sm font-black transition-all border-b border-slate-100 flex items-center gap-2 ${location.pathname === '/loja' ? 'text-green-700 bg-green-50' : 'text-slate-900 hover:text-green-700 hover:bg-slate-50'}`}>
+                  <Store size={16} className="text-green-700" /> Ver Toda a Loja
+                </Link>
+                <Link to="/calculadora-de-gasto-calorico" className={`px-5 py-2 text-sm font-bold transition-all flex items-center gap-2 ${location.pathname === '/calculadora-de-gasto-calorico' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>
+                  <Calculator size={16} className="text-green-700" /> Gasto Calórico (Grátis)
+                </Link>
+                <Link to="/ebook-receitas" className={`px-5 py-2 text-sm font-bold transition-all flex items-center gap-2 ${location.pathname === '/ebook-receitas' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>
+                  <BookOpen size={16} className="text-green-700" /> E-book de Receitas
+                </Link>
+                <Link to="/planilha" className={`px-5 py-2 text-sm font-bold transition-all flex items-center gap-2 ${location.pathname === '/planilha' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>
+                  <Flame size={16} className="text-green-700" /> Planilha Antropométrica
+                </Link>
               </div>
             </div>
 
@@ -158,11 +165,20 @@ function Layout({ children }) {
             <Link to="/planos" onClick={() => setIsMenuOpen(false)} className="text-lg font-black uppercase tracking-widest pb-2 border-b text-slate-800">Planos</Link>
 
             <div className="flex flex-col gap-3 pb-2 border-b border-green-50">
-              <span className="text-lg font-black uppercase tracking-widest text-slate-800">Produtos</span>
+              <span className="text-lg font-black uppercase tracking-widest text-slate-800">Loja & Ferramentas</span>
               <div className="flex flex-col gap-3 pl-4 border-l-2 border-green-200">
-                <Link to="/ebook-receitas" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-green-700 hover:text-green-700 flex items-center gap-1">📕 E-book de Receitas</Link>
-                <Link to="/calculadora-de-gasto-calorico" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-700">Gasto Calórico</Link>
-                <Link to="/planilha" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-green-700 hover:text-green-700 flex items-center gap-1">🔥 Planilha Antropométrica</Link>
+                <Link to="/loja" onClick={() => setIsMenuOpen(false)} className="text-base font-black uppercase tracking-widest text-green-700 flex items-center gap-2">
+                  <Store size={18} /> Ver Toda a Loja
+                </Link>
+                <Link to="/calculadora-de-gasto-calorico" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-700 flex items-center gap-2">
+                  <Calculator size={18} /> Gasto Calórico (Grátis)
+                </Link>
+                <Link to="/ebook-receitas" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-700 flex items-center gap-2">
+                  <BookOpen size={18} /> E-book de Receitas
+                </Link>
+                <Link to="/planilha" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-700 flex items-center gap-2">
+                  <Flame size={18} /> Planilha Antropométrica
+                </Link>
               </div>
             </div> 
 
