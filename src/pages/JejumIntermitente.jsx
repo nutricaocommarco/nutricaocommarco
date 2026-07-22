@@ -11,7 +11,7 @@ import {
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 
-const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco@main/Imagens/";
 
 const datePublishedISO = "2026-07-14";
 const dateModifiedISO = "2026-07-16";
@@ -76,27 +76,26 @@ export default function JejumIntermitente() {
     }
   ];
 
-  // Palavras-chave ricas para o Google entender bem do que se trata a página
-  const keywords = "o que é jejum intermitente, o que é o jejum intermitente, como fazer jejum intermitente, jejum 16h, benefícios do jejum intermitente, jejum emagrece mais que dieta, jejum intermitente e musculação, autofagia, corpos cetônicos, dieta cetogênica, calculadora de jejum intermitente, café quebra jejum, água quebra jejum, sintomas do jejum, metabolismo e jejum";
-
   return (
     <>
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
-{/* BOTÃO INTELIGENTE */}
+        {/* BOTÃO INTELIGENTE DE VOLTAR */}
         <button 
           onClick={() => {
             if (state?.fromBlog) {
-              navigate(-1); // Se veio do blog, volta para a página/filtro exato
+              navigate(-1);
             } else {
-              navigate('/blog'); // Se veio do Google, vai para a página 1 do blog
+              navigate('/blog');
             }
           }}
           className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit appearance-none bg-transparent border-none cursor-pointer p-0"
+          aria-label="Voltar para o blog de nutrição"
         >
           <ChevronLeft size={20} /> Voltar para o Blog
         </button>
+
         <article className="prose prose-lg max-w-none text-left">
 
           <div className="mb-8 flex flex-col items-start gap-2">
@@ -104,9 +103,15 @@ export default function JejumIntermitente() {
             <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
+          <h1 className="text-4xl md:text-5xl font-black mb-6 uppercase italic leading-tight text-slate-900">
             O Que é Jejum Intermitente? Guia Definitivo e Científico
           </h1>
+
+          {/* 🚀 AVISO YMYL E-E-A-T DE SAÚDE (Fora da locução do áudio) */}
+          <div className="mb-10 text-xs font-medium text-slate-500 italic bg-slate-50 p-4 rounded-xl border border-slate-100 flex items-center gap-3">
+             <AlertTriangle size={18} className="text-amber-500 shrink-0" />
+             <span><strong>Aviso Médico/Nutricional:</strong> Este conteúdo possui caráter estritamente educativo e informativo. Práticas de jejum prolongado devem ser adaptadas à individualidade biológica sob orientação de um profissional de saúde, especialmente em gestantes, lactantes, diabéticos tipo 1 e pessoas com histórico de transtornos alimentares.</span>
+          </div>
 
           {/* 1. RESPOSTA DIRETA NO TOPO */}
           <div className="mb-10 p-6 md:p-10 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-6 text-left">
@@ -128,23 +133,25 @@ export default function JejumIntermitente() {
                 <strong className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</strong>
               </div>
               <audio 
-                preload="none" // <-- ISSO AQUI VAI SALVAR SEU DESEMPENHO!
+                preload="none"
                 controls 
                 className="w-full h-10 outline-none" 
                 title="Áudio narrando o artigo sobre O Que é Jejum Intermitente"
-                 >
+                aria-label="Player de áudio com a locução oficial do artigo"
+              >
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/jejum-intermitente.mp3" type="audio/mpeg" />
                 O seu navegador não suporta o áudio.
               </audio>
             </div>
           </div>
 
-          {/* 4. ÍNDICE (TOC) COM TÍTULOS ORIGINAIS MAS ANCORAGEM OTIMIZADA */}
+          {/* 4. ÍNDICE (TOC) */}
           <div className="mb-12 border border-slate-200 rounded-[2rem] shadow-sm overflow-hidden bg-slate-50">
             <button 
               onClick={() => setIsTocOpen(!isTocOpen)}
-              className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
+              className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group cursor-pointer border-none bg-transparent"
               aria-label="Abrir Índice do Conteúdo sobre O Que é Jejum Intermitente"
+              aria-expanded={isTocOpen}
             >
               <div className="flex items-center gap-3">
                 <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
@@ -173,28 +180,26 @@ export default function JejumIntermitente() {
             </div>
           </div>
 
-                    <p className="text-xl text-slate-600 font-medium mb-10">
+          <p className="text-xl text-slate-600 font-medium mb-10">
             Se você quer entender o que é jejum intermitente sem complicações, veio ao lugar certo. Essa estratégia virou uma febre no mundo do emagrecimento, mas muita gente ainda se confunde com tanta informação misturada na internet. Em vez de focar apenas no tipo de alimento que você coloca no prato, o jejum intermitente foca em <strong>quando você come</strong>, sendo simplesmente uma forma de alinhar o seu dia respeitando o relógio biológico e o seu <Link to="/o-que-e-ciclo-circadiano" className="text-green-700 font-bold hover:underline">ciclo circadiano</Link>. 
           </p>
           
-<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+          <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
             <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
-    
-    <ImagemOtimizada 
-      src={artigoCapa}
-      alt="Guia completo sobre o que é jejum intermitente e seus benefícios metabólicos"
-      title="O que é Jejum Intermitente"
-      className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
-      priority="high"
-    />
-  </div>
-  <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
-    <p className="text-sm md:text-base text-slate-600 font-medium italic text-center m-0">
-      Compreender a fisiologia do jejum intermitente é a chave para otimizar o uso de gordura como fonte de energia com segurança e respaldo científico.
-    </p>
-  </figcaption>
-</figure>
-
+              <ImagemOtimizada 
+                src={artigoCapa}
+                alt="Guia completo sobre o que é jejum intermitente e seus benefícios metabólicos"
+                title="O que é Jejum Intermitente"
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+                priority="high"
+              />
+            </div>
+            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+              <p className="text-sm md:text-base text-slate-600 font-medium italic text-center m-0">
+                Compreender a fisiologia do jejum intermitente é a chave para otimizar o uso de gordura como fonte de energia com segurança e respaldo científico.
+              </p>
+            </figcaption>
+          </figure>
 
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
 
@@ -237,7 +242,6 @@ export default function JejumIntermitente() {
               Para ajudar a visualizar as fases que o seu metabolismo atravessa, veja abaixo o que acontece no organismo com o passar das horas sem o consumo de alimentos:
             </p>
 
-            {/* TABELA COM SEO APLICADO NO TÍTULO INVISÍVEL (caption) */}
             <div className="my-8 overflow-x-auto bg-white rounded-3xl border border-slate-200 shadow-sm">
               <table className="w-full text-left min-w-[600px] m-0">
                 <caption className="sr-only">Tabela explicativa mostrando o que é jejum intermitente hora a hora e suas fases metabólicas</caption>
@@ -268,7 +272,7 @@ export default function JejumIntermitente() {
               </table>
             </div>
 
-           {/* CALCULADORA DE JANELA DE JEJUM */}
+            {/* CALCULADORA DE JANELA DE JEJUM */}
             <h2 id="calculadora" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
               <Calculator className="text-green-700"/> Calcule a sua Janela de Jejum Intermitente
             </h2>
@@ -277,7 +281,6 @@ export default function JejumIntermitente() {
             </p>
             <div className="my-10 bg-white rounded-[3rem] border border-slate-200 shadow-xl overflow-hidden">
                 <div className="bg-slate-900 p-6 md:p-8 text-center">
-                    {/* Trocando h3 para manter hierarquia semântica correta */}
                     <strong className="text-2xl font-black text-white italic uppercase flex items-center justify-center gap-3 m-0 block">
                         <Calculator className="text-green-500" /> Calculadora de Jejum
                     </strong>
@@ -287,37 +290,37 @@ export default function JejumIntermitente() {
                 </div>
                 <div className="p-6 md:p-10">
                     <form onSubmit={calcularJanela} className="flex flex-col md:flex-row gap-6 items-center justify-center">
-<div className="w-full md:w-1/3">
-    <label htmlFor="ultimaRefeicao" className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 text-center">Última Refeição</label>
-    <input
-        id="ultimaRefeicao"
-        type="time"
-        value={ultimaRefeicao}
-        onChange={(e) => setUltimaRefeicao(e.target.value)}
-        className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-xl font-black rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 block p-4 text-center outline-none transition-all shadow-inner cursor-pointer"
-        required
-    />
-</div>
-<div className="w-full md:w-1/3">
-    <label htmlFor="protocolo" className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 text-center">Protocolo</label>
-    <select
-        id="protocolo"
-        value={protocolo}
-        onChange={(e) => setProtocolo(e.target.value)}
-        className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-xl font-black rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 block p-4 text-center outline-none transition-all shadow-inner cursor-pointer"
-    >
-        <option value="12">12 Horas</option>
-        <option value="14">14 Horas</option>
-        <option value="16">16 Horas (Clássico)</option>
-        <option value="18">18 Horas</option>
-        <option value="20">20 Horas</option>
-        <option value="24">24 Horas</option>
-    </select>
-</div>
+                        <div className="w-full md:w-1/3">
+                            <label htmlFor="ultimaRefeicao" className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 text-center">Última Refeição</label>
+                            <input
+                                id="ultimaRefeicao"
+                                type="time"
+                                value={ultimaRefeicao}
+                                onChange={(e) => setUltimaRefeicao(e.target.value)}
+                                className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-xl font-black rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 block p-4 text-center outline-none transition-all shadow-inner cursor-pointer"
+                                required
+                            />
+                        </div>
+                        <div className="w-full md:w-1/3">
+                            <label htmlFor="protocolo" className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 text-center">Protocolo</label>
+                            <select
+                                id="protocolo"
+                                value={protocolo}
+                                onChange={(e) => setProtocolo(e.target.value)}
+                                className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-xl font-black rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 block p-4 text-center outline-none transition-all shadow-inner cursor-pointer"
+                            >
+                                <option value="12">12 Horas</option>
+                                <option value="14">14 Horas</option>
+                                <option value="16">16 Horas (Clássico)</option>
+                                <option value="18">18 Horas</option>
+                                <option value="20">20 Horas</option>
+                                <option value="24">24 Horas</option>
+                            </select>
+                        </div>
                         <div className="w-full md:w-1/3 flex items-end">
                             <button 
                                 type="submit"
-                                className="w-full bg-green-700 text-white h-[60px] rounded-2xl font-black uppercase text-sm tracking-widest shadow-lg hover:bg-green-700 hover:-translate-y-1 transition-all duration-300"
+                                className="w-full bg-green-700 text-white h-[60px] rounded-2xl font-black uppercase text-sm tracking-widest shadow-lg hover:bg-green-700 hover:-translate-y-1 transition-all duration-300 border-none cursor-pointer"
                                 aria-label="Calcular a janela de jejum intermitente"
                             >
                                 Calcular Horário
@@ -355,9 +358,7 @@ export default function JejumIntermitente() {
 
             <div className="my-10 p-6 md:p-8 bg-slate-900 rounded-[2.5rem] shadow-2xl flex flex-col md:flex-row items-center gap-8 border border-slate-800">
                 <div className="w-full md:w-1/2 aspect-video rounded-2xl overflow-hidden shadow-xl shrink-0 bg-black border-4 border-slate-700 relative">
-
                   <YouTubeLazy videoId="Kq3dcD3Hnik" title="Documentário sobre 14 dias em Jejum Intermitente por MrBeast" />
-
                 </div>
 
                 <div className="flex-1 text-center md:text-left">
@@ -461,18 +462,18 @@ export default function JejumIntermitente() {
               </table>
             </div>
 
-            {/* AFILIADO PINGUS - GARRAFA TÉRMICA */}
+            {/* AFILIADO PÍNGUS - GARRAFA TÉRMICA */}
             <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
                 <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
-                    <span>O Pingus Aprova!</span>
+                    <span>O Píngus Aprova!</span>
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
                     <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
                         <img 
-                          src={`${githubImgBase}logoN_pingus.webp`} // Lembre-se de trocar para .webp se mudar a extensão!
-                          alt="Selo de Qualidade Pingus recomendando produtos para jejum intermitente" 
+                          src={`${githubImgBase}logoN_pingus.webp`} 
+                          alt="Selo de Qualidade Píngus recomendando produtos para jejum intermitente" 
                           title="O que é Jejum Intermitente e como se hidratar"
                           className="w-full h-full object-contain"
                           loading="lazy" 
@@ -488,12 +489,12 @@ export default function JejumIntermitente() {
 
                         <div className="w-full max-w-[180px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm bg-slate-200 aspect-[3/4]">
                             <img 
-    src={`${githubImgBase}Afiliado/Garrafa.webp`} 
-  alt="Garrafa Térmica com Filtro de Gelo ideal para beber água no Jejum Intermitente" 
-  className="w-full h-full object-cover"
-  loading="lazy"
-  width="180"
-  height="240"
+                              src={`${githubImgBase}Afiliado/Garrafa.webp`} 
+                              alt="Garrafa Térmica com Filtro de Gelo ideal para beber água no Jejum Intermitente" 
+                              className="w-full h-full object-cover"
+                              loading="lazy"
+                              width="180"
+                              height="240"
                               onError={(e) => {
                                 e.target.onerror = null; 
                                 e.target.src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&q=80&w=400";
@@ -551,6 +552,14 @@ export default function JejumIntermitente() {
               Para vencer os primeiros dias sem sofrimento, abuse da água, use o café preto puro a seu favor e foque em comer alimentos ricos em fibras nas suas refeições. Isso vai garantir que a sua jornada para descobrir na prática o que é jejum intermitente seja tranquila, saudável e baseada na ciência.
             </p>
 
+            {/* 🚀 BLOCO DE REFERÊNCIAS CIENTÍFICAS E DIRETRIZES (E-E-A-T Avançado - Fora do áudio) */}
+            <div className="my-12 p-6 bg-slate-100 rounded-2xl border border-slate-200">
+               <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest mb-3">Fontes Científicas e Referências Metabólicas</h3>
+               <p className="text-xs text-slate-500 leading-relaxed m-0">
+                 A explicação hormonal do jejum intermitente (relação insulina/glucagon e cetogênese) é respaldada por estudos revisados por pares na literatura de endocrinologia e nutrição clínica, como as publicações do <em>The New England Journal of Medicine (NEJM)</em> e periódicos de fisiologia metabólica.
+               </p>
+            </div>
+
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
                 <HelpCircle className="text-green-700" /> Perguntas Frequentes sobre o Jejum (FAQ)
@@ -560,7 +569,7 @@ export default function JejumIntermitente() {
                   <div key={index} className="bg-slate-50 rounded-3xl border border-green-100 overflow-hidden transition-all duration-300">
                     <button 
                       onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                      className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
+                      className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group border-none bg-transparent cursor-pointer"
                       aria-expanded={openFaqIndex === index}
                       aria-label={`Abrir resposta para: ${faq.pergunta}`}
                     >

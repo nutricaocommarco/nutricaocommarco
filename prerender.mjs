@@ -76,7 +76,7 @@ const rotasEstaticas = [
   { path: 'parceria-inatividade-zero', title: 'Avaliação Antropométrica de Precisão - Parceria Inatividade Zero | Nutrição com Marco', image: `${githubImgBase}PingusReserva.jpg`, desc: 'Agende sua avaliação antropométrica avançada na Academia Inatividade Zero em parceria com Nutrição com Marco e descubra sua composição corporal real.' }
 ];
 
-// 📝 2. ROTAS DA LOJA (Otimizadas para SEO, Google Shopping e Redes Sociais)
+// 📝 2. ROTAS DA LOJA
 const rotasLoja = [
   { path: 'loja', title: 'Loja do Píngus | Produtos e Ferramentas Exclusivas | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.webp`, desc: 'Conheça a Loja oficial do Píngus. Canecas exclusivas, aventais de alta qualidade, e-books e planilhas inteligentes para otimizar sua rotina e saúde.' },
   { path: 'loja/caneca-pingus-conselheiro-nutricional', title: 'Caneca Píngus Conselheiro Nutricional | Loja do Píngus', image: 'https://images.mont.ink/mockup/431585/branco_0_5823852.jpg', desc: 'Transforme seus momentos com a Caneca Píngus Conselheiro Nutricional. Feita sob demanda, combina resistência, acabamento impecável e muito estilo.', schemasExtra: [getProductSchema("Caneca Píngus Conselheiro Nutricional", "https://www.nutricaocommarco.com.br/loja/caneca-pingus-conselheiro-nutricional", "https://images.mont.ink/mockup/431585/branco_0_5823852.jpg", "Transforme seus momentos com essa caneca cheia de estilo e personalidade. Ideal para café ou chá.", "50.00")] },
@@ -86,7 +86,7 @@ const rotasLoja = [
 
 // 📝 3. TODOS OS POSTS DO BLOG
 const postsBlog = [
-  { id: 29, link: "/como-calcular-meu-get", img: `${githubImgBase}Blog/GET_Capa.webp`, titulo: "Como Calcular Meu GET (Gasto Energético Total): Guia e Calculadora", desc: "Aprenda de verdade como calcular meu get com equações validadas (Mifflin e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.", data: "2026-07-22", schemasExtra: [getMedicalSchema("Fisiologia do Metabolismo e Gasto Calórico", "https://www.nutricaocommarco.com.br/como-calcular-meu-get", ["Taxa Metabólica Basal", "Gasto Energético Total", "Equação de Mifflin-St Jeor"])] },
+  { id: 30, link: "/como-calcular-meu-get", img: `${githubImgBase}Blog/GET_Capa.webp`, titulo: "Como Calcular Meu GET (Gasto Energético Total): Guia e Calculadora", desc: "Aprenda de verdade como calcular meu get com equações validadas (Mifflin e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.", data: "2026-07-22", schemasExtra: [getMedicalSchema("Fisiologia do Metabolismo e Gasto Calórico", "https://www.nutricaocommarco.com.br/como-calcular-meu-get", ["Taxa Metabólica Basal", "Gasto Energético Total", "Equação de Mifflin-St Jeor"])] },
   { 
     id: 29, 
     link: "/como-ganhar-tempo-na-cozinha", 
@@ -96,7 +96,6 @@ const postsBlog = [
     data: "2026-07-21",
     schemasExtra: [
       getMedicalSchema("Organização Alimentar e Congelamento Inteligente", "https://www.nutricaocommarco.com.br/como-ganhar-tempo-na-cozinha", ["Nutrição Comportamental", "Preparo de Refeições", "Conservação de Alimentos", "Mise en Place"]),
-      // 🚀 SCHEMA FAQPage Inserido (Melhoria de Auditoria)
       getFaqSchema([
         { pergunta: "Posso congelar marmita de estrogonofe completa?", resposta: "Pode, mas o creme vai perder a cremosidade e talhar. O método inteligente é congelar a carne e a base do molho. O creme de leite entra apenas na panela, na hora de aquecer." },
         { pergunta: "Arroz congelado fica com textura de mingau?", resposta: "Só se você cozinhar demais antes de congelar. Para o arroz ficar soltinho, cozinhe 'al dente', esfrie espalhado em uma assadeira para não reter vapor, e guarde em embalagens rasas." },
@@ -109,7 +108,24 @@ const postsBlog = [
   { id: 28, link: "/o-que-e-dieta-mediterranea", img: `${githubImgBase}Blog/DietaMediterranea_Capa.webp`, titulo: "O Que É Dieta Mediterrânea? O Segredo para Saúde e Longevidade", desc: "Descubra o que é dieta mediterrânea na prática. Entenda como o consumo de azeite extra virgem, peixes e vegetais protege o coração e ajuda a emagrecer sem restrições extremas.", data: "2026-07-20", schemasExtra: [getMedicalSchema("O Que É Dieta Mediterrânea e Benefícios Cardiovasculares", "https://www.nutricaocommarco.com.br/o-que-e-dieta-mediterranea", ["Dieta Mediterrânea", "Saúde Cardiovascular", "Longevidade", "Nutrição Clínica"])] },
   { id: 27, link: "/o-que-e-dieta-low-carb", img: `${githubImgBase}Blog/LowCarb_Capa.webp`, titulo: "Dieta Low Carb: O Que É, Erros Fatais e Calculadora Completa", desc: "Aprenda o que é a dieta low carb de verdade. Descubra a diferença para a cetogênica, os mitos da gordura e monte seu prato com nossa Calculadora TACO.", data: "2026-07-15", schemasExtra: [getMedicalSchema("Dieta Low Carb e Impactos Metabólicos", "https://www.nutricaocommarco.com.br/o-que-e-dieta-low-carb", ["Dieta Low-Carb", "Metabolismo de Carboidratos", "Sensibilidade à Insulina"])] },
   { id: 26, link: "/o-que-e-dieta-cetogenica", img: `${githubImgBase}Blog/DietaCetogenica_Capa.webp`, titulo: "O que é Dieta Cetogênica? Como Entrar em Cetose e Emagrecer | Nutrição com Marco", desc: "O que é Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível, como entrar em Cetose e os perigos de fazer errado.", data: "2026-07-14", schemasExtra: [getMedicalSchema("Dieta Cetogênica e Emagrecimento", "https://www.nutricaocommarco.com.br/o-que-e-dieta-cetogenica", ["Dieta Cetogênica", "Cetose", "Metabolismo de Gorduras"])] },
-  { id: 25, link: "/o-que-e-jejum-intermitente", img: `${githubImgBase}Blog/JejumIntermitente_Capa.webp`, titulo: "O que é Jejum Intermitente? A Verdade e os Protocolos", desc: "Muito além de passar fome: descubra o que é o jejum intermitente, como ele destrava o metabolismo lento e se ele emagrece mais que a dieta tradicional.", data: "2026-07-12", schemasExtra: [getMedicalSchema("Efeitos do Jejum Intermitente", "https://www.nutricaocommarco.com.br/o-que-e-jejum-intermitente", ["Jejum Intermitente", "Metabolismo", "Perda de Peso"])] },
+  { 
+    id: 25, 
+    link: "/o-que-e-jejum-intermitente", 
+    img: `${githubImgBase}Blog/JejumIntermitente_Capa.webp`, 
+    titulo: "O que é Jejum Intermitente? A Verdade e os Protocolos", 
+    desc: "Muito além de passar fome: descubra o que é o jejum intermitente, como ele destrava o metabolismo lento e se ele emagrece mais que a dieta tradicional.", 
+    data: "2026-07-12", 
+    schemasExtra: [
+      getMedicalSchema("Efeitos do Jejum Intermitente", "https://www.nutricaocommarco.com.br/o-que-e-jejum-intermitente", ["Jejum Intermitente", "Metabolismo", "Perda de Peso"]),
+      // 🚀 SCHEMA FAQPage Inserido para Jejum Intermitente
+      getFaqSchema([
+        { pergunta: "O que exatamente está liberado para tomar durante a janela de jejum?", resposta: "Está liberado o consumo de água filtrada (com ou sem gás), café preto puro e chás de ervas naturais, desde que sejam consumidos totalmente puros, sem nenhuma gota de açúcar, mel ou adoçantes calóricos. Essas bebidas mantêm a sua insulina baixa e não interrompem a queima de gordura do protocolo." },
+        { pergunta: "O jejum intermitente pode fazer eu perder a minha massa muscular?", resposta: "Não, desde que você consuma a quantidade correta de proteínas e calorias estipulada para o seu peso corporal dentro da sua janela de alimentação. O catabolismo muscular ocorre quando há um déficit calórico exagerado e prolongado associado à baixa ingestão de proteínas." },
+        { pergunta: "O jejum realmente limpa as células ruins do corpo (Autofagia)?", resposta: "Sim, o jejum prolongado estimula um processo celular chamado autofagia, que funciona como uma espécie de reciclagem biológica, onde as células limpam e degradam proteínas velhas ou danificadas para otimizar o funcionamento do organismo." },
+        { pergunta: "Sinto muita dor de cabeça nos primeiros dias de jejum, isso é normal?", resposta: "Sim, nos primeiros dias é comum sentir uma leve dor de cabeça devido à rápida eliminação de água e eletrólitos (como sódio e potássio) provocada pela queda da insulina. Manter uma hidratação constante ao longo do dia costuma resolver o problema rapidamente." }
+      ])
+    ] 
+  },
   { id: 24, link: "/melhor-horario-para-tomar-ferro", img: `${githubImgBase}Blog/HorarioFerro.webp`, titulo: "Qual o Melhor Horario Para Tomar Ferro (E Curar a Anemia Rápido)", desc: "Você está tomando ferro do jeito errado? Descubra qual o melhor horário para tomar ferro e ter absorção máxima, os sintomas ocultos da anemia e o que bloqueia o nutriente.", data: "2026-04-26" },
   { id: 23, link: "/percentual-gordura-feminino-ideal", img: `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.webp`, titulo: "Qual o Percentual de Gordura Feminino Ideal e Saudável?", desc: "Pare de olhar apenas para a balança. Entenda as tabelas reais de referência e descubra qual o percentual de gordura feminino ideal para a sua idade e saúde.", data: "2026-04-24" },
   { id: 22, link: "/o-que-comer-na-tpm", img: `${githubImgBase}Blog/TPM.webp`, titulo: "O Que Comer na TPM: O Guia Para Controlar a Fome e Emagrecer", desc: "Descubra exatamente o que comer na TPM para aliviar os sintomas, controlar a fome por doces e manter o emagrecimento, entendendo a fisiologia do seu ciclo.", data: "2026-04-02", schemasExtra: [getMedicalSchema("Nutrição no Ciclo Menstrual e Síndrome Pré-Menstrual", "https://www.nutricaocommarco.com.br/o-que-comer-na-tpm", ["Síndrome Pré-Menstrual", "Metabolismo Feminino", "Desejo por Alimentos", "Fase Lútea"])] },
