@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingCart, MonitorPlay, BookOpen, ExternalLink } from 'lucide-react';
+import { ShoppingCart, MonitorPlay, BookOpen, ExternalLink, Calculator } from 'lucide-react';
 import ImagemOtimizada from '../../components/ImagemOtimizada';
 import { produtosData } from './produtosData';
 
@@ -14,7 +14,7 @@ function CarrosselVitrine({ imagens, nome, priority }) {
     if (isHovered && imagens.length > 1) {
       intervalo = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % imagens.length);
-      }, 800);
+      }, 800); // Aqui está o tempo que ajustamos (800ms)
     } else {
       setCurrentIndex(0);
     }
@@ -106,7 +106,7 @@ export default function Loja() {
           <div className="h-px bg-slate-200 flex-grow max-w-[100px]"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto text-left">
+        <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto text-left">
           {produtosDigitais.map((produto) => (
             <Link 
               key={produto.id} 
