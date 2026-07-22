@@ -4,7 +4,7 @@ import ImagemOtimizada from '../components/ImagemOtimizada';
 import { 
   ChevronLeft, HelpCircle, Activity, ChefHat, Clock, FileText, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
-  Snowflake, Utensils, AlertTriangle, CheckCircle2, Beef, Calculator, Leaf, Database, Droplet, Info
+  Snowflake, Utensils, AlertTriangle, CheckCircle2, Beef, Calculator, Leaf, Database, Droplet, Info, BookOpen
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
@@ -193,9 +193,15 @@ export default function ComoGanharTempoCozinha() {
           </div>
 
           {/* TÍTULO PRINCIPAL H1 */}
-          <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
+          <h1 className="text-4xl md:text-5xl font-black mb-6 uppercase italic leading-tight text-slate-900">
             Como Ganhar Tempo na Cozinha: O Guia Definitivo da Organização e "Mise en Place"
           </h1>
+
+          {/* 🚀 MELHORIA DE AUDITORIA: Aviso de Saúde YMYL E-E-A-T Sutil */}
+          <div className="mb-10 text-xs font-medium text-slate-500 italic bg-slate-50 p-4 rounded-xl border border-slate-100 flex items-center gap-3">
+             <AlertTriangle size={18} className="text-amber-500 shrink-0" />
+             <span><strong>Aviso Nutricional:</strong> Este guia visa a organização doméstica e não substitui a orientação médica de dietas para restrições alimentares específicas. Todas as regras de resfriamento seguem normas de manipulação segura de alimentos.</span>
+          </div>
 
           {/* RESPOSTA RÁPIDA (FEATURED SNIPPET) */}
           <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-4 text-left">
@@ -203,7 +209,7 @@ export default function ComoGanharTempoCozinha() {
               <Zap className="text-green-700" /> Resposta Rápida: Como ganhar tempo na cozinha?
             </h2>
             <p className="m-0 text-lg md:text-xl text-green-950 font-medium leading-relaxed">
-              Se você quer descobrir <strong>como ganhar tempo na cozinha</strong>, a melhor forma é adotar a técnica profissional de <strong>Mise en Place</strong>. Isso significa tirar um dia na semana para higienizar, branquear legumes, pré-assar tubérculos e porcionar proteínas cruas ou em molhos. Combinando esse método com o <strong>congelamento inteligente em potes herméticos</strong>, você economiza horas de trabalho e finaliza refeições variadas em apenas 15 a 30 minutos diários.
+              Se você quer descobrir <strong>como ganhar tempo na cozinha</strong>, a melhor forma é adotar a técnica profissional de <strong>Mise en Place</strong>. Isso significa tirar um dia na semana para higienizar, branquear legumes, pré-assar tubérculos e porcionar proteínas cruas ou em molhos. Combinando esse método com o <strong>congelamento inteligente em potes herméticos</strong>, você economiza horas de trabalho e finaliza refeições variadas em apenas <strong>15 a 30 minutos</strong> diários.
             </p>
           </div>
 
@@ -216,7 +222,7 @@ export default function ComoGanharTempoCozinha() {
                 <Headphones className="text-green-700 w-6 h-6" />
                 <h3 className="text-base font-black text-slate-800 italic uppercase tracking-widest m-0">Ouça este artigo</h3>
               </div>
-              <audio preload="none" controls className="w-full h-10 outline-none">
+              <audio preload="none" controls className="w-full h-10 outline-none" aria-label="Player de áudio do artigo">
                 <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/GanharTempoCozinha.mp3" type="audio/mpeg" />
                 Seu navegador não suporta o elemento de áudio.
               </audio>
@@ -264,7 +270,7 @@ export default function ComoGanharTempoCozinha() {
               Quem nunca chegou cansado do trabalho, abriu a geladeira, encarou uma bandeja de frango congelado e uma alface murcha, e acabou pedindo um delivery? A frustração de tentar manter uma alimentação saudável, aliada à <Link to="/o-que-e-fome-emocional" className="text-green-700 font-bold hover:underline underline">fome emocional</Link>, destrói a disciplina de qualquer um. 
             </p>
             <p>
-              A verdade é que fazer dieta não é sobre ter força de vontade infinita, é sobre ter um <strong>ambiente preparado</strong>. Muitas pessoas me perguntam frequentemente <strong>como ganhar tempo na cozinha</strong> de verdade e proteger o <Link to="/quantas-calorias-gasto-por-dia" className="text-green-700 font-bold hover:underline underline">gasto calórico</Link>. O segredo não está em cozinhar todos os dias, mas sim em aplicar métodos de restaurantes na rotina da sua casa.
+              A verdade é que fazer dieta não é sobre ter força de vontade infinita, é sobre ter um <strong>ambiente preparado</strong>. Muitas pessoas me perguntam frequentemente <strong>como ganhar tempo na cozinha</strong> de verdade e proteger o <Link to="/quantas-calorias-gasto-por-dia" className="text-green-700 font-bold hover:underline underline">gasto calórico diário</Link>. O segredo não está em cozinhar todos os dias, mas sim em aplicar métodos de restaurantes na rotina da sua casa.
             </p>
 
               {/* IMAGEM DE CAPA RESPONSIVA (COM PROPORÇÃO 16:9 TRAVADA) */}
@@ -292,7 +298,7 @@ export default function ComoGanharTempoCozinha() {
               <ChefHat className="text-green-700"/> O Segredo de Como Ganhar Tempo na Cozinha: O Mise en Place
             </h2>
             <p>
-              Você já reparou que, ao pedir um prato em um bom restaurante, ele chega na sua mesa em 15 a 30 minutos? Você realmente acha que eles começaram a picar a cebola e cozinhar a batata no exato momento em que o seu pedido chegou à cozinha? 
+              Você já reparou que, ao pedir um prato em um bom restaurante, ele chega na sua mesa em <strong>15 a 30 minutos</strong>? Você realmente acha que eles começaram a picar a cebola e cozinhar a batata no exato momento em que o seu pedido chegou à cozinha? 
             </p>
             <p>
               O grande truque da alta gastronomia chama-se <strong>Mise en Place</strong> (pronuncia-se "miz an plas"), que significa "colocar no lugar". Isso quer dizer ter todos os ingredientes já higienizados, cortados, branqueados e porcionados antes mesmo de a panela ir ao fogo. Ao invés de cozinhar refeições completas todos os dias, a principal resposta de como ganhar tempo na cozinha é tirar algumas horas do seu domingo para criar "módulos" de ingredientes que duram a semana toda.
@@ -305,7 +311,7 @@ export default function ComoGanharTempoCozinha() {
               Um erro comum que destrói a <Link to="/o-que-sao-simbioticos" className="text-green-700 font-bold hover:underline underline">saúde do seu intestino</Link> e a sua vontade de comer bem é a monotonia de comer frango com batata-doce todos os dias. Para evitar isso e aprender a economizar tempo cozinhando, usamos a técnica da <strong>Matriz 3x3</strong>. 
             </p>
             <p>
-              A estratégia consiste em preparar, em lote, 3 fontes de Proteína, 3 de Carboidratos e 3 tipos de Legumes. Com esses 9 itens pré-prontos (armazenados em potes herméticos), você consegue fazer até <strong>27 combinações diferentes</strong> na hora de finalizar o prato. Veja um exemplo prático:
+              A estratégia consiste em preparar, em lote, <strong>3 fontes de Proteína, 3 de Carboidratos e 3 tipos de Legumes</strong>. Com esses 9 itens pré-prontos (armazenados em potes herméticos), você consegue fazer até <strong>27 combinações diferentes</strong> na hora de finalizar o prato. Veja um exemplo prático:
             </p>
 
             <ul className="list-none space-y-4 my-8 p-0">
@@ -313,21 +319,21 @@ export default function ComoGanharTempoCozinha() {
                 <Beef className="w-8 h-8 text-rose-600 shrink-0 mt-1" />
                 <div>
                   <strong className="text-slate-800 block text-lg mb-1">Proteínas</strong>
-                  <span className="text-slate-600 text-base">Deixe preparado: Acém em cubos guisado na panela de pressão (dura 2 dias na geladeira ou 3 meses no freezer), bifes de contra-filé já cortados e porcionados crus, e sassami de frango temperado.</span>
+                  <span className="text-slate-600 text-base">Deixe preparado: Acém em cubos guisado na panela de pressão (dura 2 dias na geladeira ou <strong>3 meses no freezer</strong>), bifes de contra-filé já cortados e porcionados crus, e sassami de frango temperado.</span>
                 </div>
               </li>
               <li className="bg-slate-50 p-6 rounded-3xl border border-slate-100 flex items-start gap-4">
                 <Utensils className="w-8 h-8 text-amber-500 shrink-0 mt-1" />
                 <div>
                   <strong className="text-slate-800 block text-lg mb-1">Carboidratos</strong>
-                  <span className="text-slate-600 text-base">Cozinhe no mínimo 1 kg de arroz de uma vez, resfrie espalhado em uma assadeira e porcione. Deixe batatas cozidas <em>al dente</em> prontas na geladeira (duram 5 a 7 dias) e mandioca pré-cozida.</span>
+                  <span className="text-slate-600 text-base">Cozinhe no mínimo 1 kg de arroz de uma vez, resfrie espalhado em uma assadeira e porcione. Deixe batatas cozidas <em>al dente</em> prontas na geladeira (duram <strong>5 a 7 dias</strong>) e mandioca pré-cozida.</span>
                 </div>
               </li>
               <li className="bg-slate-50 p-6 rounded-3xl border border-slate-100 flex items-start gap-4">
                 <Leaf className="w-8 h-8 text-green-500 shrink-0 mt-1" />
                 <div>
                   <strong className="text-slate-800 block text-lg mb-1">Legumes e Vegetais</strong>
-                  <span className="text-slate-600 text-base">Folhas de espinafre já higienizadas; floretes de couve-flor branqueados por 1-2 minutos; cenouras raladas cruas e guardadas em potes.</span>
+                  <span className="text-slate-600 text-base">Folhas de espinafre já higienizadas; floretes de couve-flor branqueados por <strong>1-2 minutos</strong>; cenouras raladas cruas e guardadas em potes.</span>
                 </div>
               </li>
             </ul>
@@ -336,6 +342,14 @@ export default function ComoGanharTempoCozinha() {
               Com esse Mise en Place, o seu prato de terça-feira pode ser o Acém cozido, finalizado na panela com a mandioca pré-cozida e a cenoura ralada, ficando pronto em exatos 15 minutos!
             </p>
 
+            {/* 🚀 MELHORIA DE AUDITORIA: Micro-CTA Suave no meio do texto para reter leitura e conversão */}
+            <div className="my-10 text-center">
+               <Link to="/ebook-receitas" className="inline-flex items-center justify-center gap-2 bg-slate-100 text-slate-700 px-6 py-3 rounded-full font-bold uppercase text-xs hover:bg-green-100 hover:text-green-800 transition-colors border border-slate-200">
+                 <BookOpen size={16} className="text-green-700" />
+                 Quer ver 25 receitas práticas para fazer com esse método? Clique aqui.
+               </Link>
+            </div>
+
             <h2 id="bases" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Utensils className="text-green-700"/> Bases Prontas para o Mise en Place Perfeito
             </h2>
@@ -343,7 +357,7 @@ export default function ComoGanharTempoCozinha() {
               Você não precisa picar cebola e alho todo santo dia. Além de sujar a tábua e deixar as mãos com cheiro forte, essa é uma das tarefas que mais gera preguiça e rouba o seu tempo na hora de cozinhar. Para otimizar a sua rotina, o investimento em <strong>Bases Aromáticas Prontas</strong> é obrigatório.
             </p>
             <p>
-              Pense no alho e na cebola. O ideal é comprar alho já descascado e processá-lo com um fio de óleo, uma pitada de sal e algumas gotas de limão (o limão evita a oxidação e o escurecimento da pasta), garantindo durabilidade de até um mês na geladeira. Já a cebola não deve virar um purê: use a função "pulsar" do processador para manter pequenos cubinhos e congele-a espalhada de forma achatada em um saco ziplock, quebrando apenas os "tabletes" na hora de colocar na panela. 
+              Pense no alho e na cebola. O ideal é comprar alho já descascado e processá-lo com um fio de óleo, uma pitada de sal e algumas gotas de limão (o limão evita a oxidação e o escurecimento da pasta), garantindo durabilidade de até <strong>um mês na geladeira</strong>. Já a cebola não deve virar um purê: use a função "pulsar" do processador para manter pequenos cubinhos e congele-a espalhada de forma achatada em um saco ziplock, quebrando apenas os "tabletes" na hora de colocar na panela. 
             </p>
             <p>
               Mas o grande coringa dos restaurantes é o <strong>Caldo de Legumes Cru</strong>. Sabe aquele tempero em tablete ultraprocessado cheio de sódio? Nós criamos a versão perfeita e natural dele. Basta pegar cenoura, a parte grossa do alho-poró, salsão, sal, pimenta, e ervas como tomilho e alecrim, e bater tudo no processador. Como a mistura fica granulada e úmida, nós não a cozinhamos: colocamos a pasta crua direto em forminhas de silicone no freezer. Como os pedaços são minúsculos, ao jogar esse cubinho na panela quente junto com o arroz, o feijão ou a carne, ele derrete, cozinha instantaneamente e inunda o prato de sabor natural. O mesmo vale para o "zero desperdício": ferva os talos duros de espinafre e brócolis por 5 minutos, processe-os finamente e congele em cubos para adicionar fibras puras a qualquer refogado!
@@ -404,19 +418,19 @@ export default function ComoGanharTempoCozinha() {
               <Snowflake className="text-green-700"/> Congelamento Inteligente: Pare de Estragar Comida
             </h2>
             <p>
-              Saber como ganhar tempo na cozinha passa diretamente por parar de jogar comida fora. Congelar não é apenas jogar a sobra da panela no fundo do freezer. Para não sofrer com a <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 font-bold hover:underline underline">inflamação e o efeito sanfona</Link>, a sua comida precisa estar incrivelmente apetitosa ao ser descongelada. Para isso, existem 4 regras âncoras fundamentais:
+              Saber como ganhar tempo na cozinha passa diretamente por parar de jogar comida fora. Congelar não é apenas jogar a sobra da panela no fundo do freezer. Para não sofrer com a <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 font-bold hover:underline underline">inflamação celular constante</Link>, a sua comida precisa estar incrivelmente apetitosa ao ser descongelada. Para isso, existem 4 regras âncoras fundamentais:
             </p>
 
             <ol className="list-decimal pl-6 space-y-4 my-8 marker:font-black marker:text-green-700">
-              <li><strong className="text-slate-800">A Regra dos 90 Dias:</strong> A qualidade máxima do alimento no freezer se mantém por 90 dias. Depois disso, ele não estraga, mas perde muito do seu sabor e da sua textura natural.</li>
-              <li><strong className="text-slate-800">A Regra das 48h (Geladeira):</strong> Cozinhou no domingo? A Terça-feira é o seu limite: ou você come o que está na geladeira, ou congela imediatamente, ou joga no lixo.</li>
+              <li><strong className="text-slate-800">A Regra dos 90 Dias:</strong> A qualidade máxima do alimento no freezer se mantém por <strong>90 dias</strong>. Depois disso, ele não estraga, mas perde muito do seu sabor e da sua textura natural.</li>
+              <li><strong className="text-slate-800">A Regra das 48h (Geladeira):</strong> Cozinhou no domingo? A <strong>Terça-feira</strong> é o seu limite: ou você come o que está na geladeira, ou congela imediatamente, ou joga no lixo.</li>
               <li><strong className="text-slate-800">Embale SEM Ar:</strong> Quanto mais oxigênio você deixar dentro do pote ou do saco plástico, maior será a formação de cristais de gelo e "queimaduras de frio" na superfície da comida.</li>
               <li><strong className="text-slate-800">Resfriamento Rápido:</strong> Os alimentos devem ser cozidos apenas <em>al dente</em>, e o calor da panela deve ser dispersado rapidamente (espalhando os grãos em uma assadeira grande) antes de ir para o pote de vidro, para não virarem papa no momento do descongelamento.</li>
             </ol>
 
             <h3 className="text-xl font-bold text-slate-800 mt-8 mb-4">O Segredo do Branqueamento de Legumes</h3>
             <p>
-              Você já congelou uma vagem e, ao esquentar, ela ficou molenga e cinza? Faltou o <strong>Branqueamento</strong>. Essa técnica essencial consiste em ferver os legumes firmes (como brócolis, cenoura e couve-flor) por 1 a 3 minutos na água quente e, em seguida, mergulhá-los imediatamente em uma bacia com água e gelo para dar um violento choque térmico. Isso cessa o cozimento, fixa a clorofila e mantém a cor viva e a textura absolutamente crocante no freezer por até 90 dias.
+              Você já congelou uma vagem e, ao esquentar, ela ficou molenga e cinza? Faltou o <strong>Branqueamento</strong>. Essa técnica essencial consiste em ferver os legumes firmes (como brócolis, cenoura e couve-flor) por <strong>1 a 3 minutos</strong> na água quente e, em seguida, mergulhá-los imediatamente em uma bacia com água e gelo para dar um violento choque térmico. Isso cessa o cozimento, fixa a clorofila e mantém a cor viva e a textura absolutamente crocante no freezer por até 90 dias.
             </p>
 
             {/* SEÇÃO INTERATIVA: TABELA (DESKTOP) E CARDS (MOBILE) */}
@@ -727,6 +741,14 @@ export default function ComoGanharTempoCozinha() {
             <p>
               Descobrir, de fato, <strong>como ganhar tempo na cozinha</strong> não tem relação nenhuma com cozinhar apressadamente e correndo perigo, ou simplesmente pular etapas valiosas. Trata-se inteiramente de inteligência logística aplicada ao cotidiano. Ao implementar com seriedade as táticas de restaurantes de alto nível (como o branqueamento em choque térmico, as bases prontas e o rigoroso <em>Mise en Place</em>) na sua própria casa, você reduz drasticamente o trabalho diário com panelas, evita o enorme desperdício de dinheiro com alimentos estragados e domina com facilidade a sua <Link to="/o-que-e-jejum-intermitente" className="text-green-700 font-bold hover:underline underline">janela alimentar e seus macronutrientes</Link>. Lembre-se: uma geladeira inteligentemente estruturada é o maior e melhor investimento que você pode fazer diariamente pelo seu metabolismo e pela sua paz mental!
             </p>
+
+            {/* 🚀 MELHORIA DE AUDITORIA: Adição das Fontes Sanitárias (E-E-A-T Avançado) */}
+            <div className="my-12 p-6 bg-slate-100 rounded-2xl border border-slate-200">
+               <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest mb-3">Fontes e Diretrizes de Manipulação</h3>
+               <p className="text-xs text-slate-500 leading-relaxed m-0">
+                 As diretrizes de resfriamento, armazenamento em potes herméticos e o limite seguro de 90 dias no freezer citados neste artigo baseiam-se nos manuais técnicos de Boas Práticas de Manipulação de Alimentos. O controle rigoroso de temperatura e oxigênio (embalagens a vácuo ou potes adequados) é fundamental para evitar a proliferação bacteriana e a degradação de macronutrientes.
+               </p>
+            </div>
 
             {/* FAQ DINÂMICO */}
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
