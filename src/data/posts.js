@@ -1,6 +1,16 @@
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 export const posts = [
+  {
+    id: 28,
+    link: "/como-ganhar-tempo-na-cozinha",
+    img: `${githubImgBase}Blog/GanharTempo_Capa.webp`,
+    tag: "Nutrição Comportamental",
+    titulo: "Como Ganhar Tempo na Cozinha: O Guia Definitivo da Organização e Mise en Place",
+    desc: "Descubra como ganhar tempo na cozinha adotando a técnica profissional de Mise en Place. Aprenda a organizar cardápios e usar o congelamento inteligente a seu favor.",
+    data: "2026-07-21",
+    dataMod: "2026-07-21",
+  },
    {
     id: 27,
     link: "/o-que-comer-na-tpm",

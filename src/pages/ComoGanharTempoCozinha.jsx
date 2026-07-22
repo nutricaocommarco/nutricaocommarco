@@ -14,8 +14,8 @@ import YouTubeLazy from '../components/YouTubeLazy';
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 // Datas
-const datePublishedISO = "2026-07-18";
-const dateModifiedISO = "2026-07-18";
+const datePublishedISO = "2026-07-21";
+const dateModifiedISO = "2026-07-21";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Imagens
