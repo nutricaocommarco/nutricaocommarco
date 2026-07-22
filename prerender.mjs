@@ -48,7 +48,7 @@ const postsBlog = [
   {
   id: 29,
   link: "/como-calcular-meu-get",
-  img: `${githubImgBase}Blog/CalculoGET_Capa.webp`,
+  img: `${githubImgBase}Blog/GET_Capa.webp.webp`,
   titulo: "Como Calcular Meu GET (Gasto Energético Total): Guia e Calculadora",
   desc: "Aprenda de verdade como calcular meu get com equações validadas (Mifflin e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.",
   data: "2026-07-22",
