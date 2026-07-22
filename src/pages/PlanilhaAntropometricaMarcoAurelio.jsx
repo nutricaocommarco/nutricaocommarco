@@ -16,7 +16,7 @@ export default function PlanilhaAntropometriaVendas() {
   }, [pathname]);
 
   const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/PlanilhaImagem/";
-  const capaImg = `${githubImgBase}Capa.JPG`;
+  const capaImg = `${githubImgBase}Planilha_Capa.webp`;
   const partesPlanilha = [
     { src: `${githubImgBase}1.png`, alt: "Planilha de Avaliação Antropométrica - Parte 1: Evolução da composição corporal" },
     { src: `${githubImgBase}2.png`, alt: "Planilha de Avaliação Antropométrica - Parte 2: Gráficos e valores normativos" },

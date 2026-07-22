@@ -16,8 +16,9 @@ const dateModifiedISO = "2026-07-22";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 // Imagens
-const artigoCapa = `${githubImgBase}Blog/CalculoGET_Capa.webp`;
-const planilhaImg = `${githubImgBase}Afiliado/PlanilhaAntropometrica.webp`; // Imagem ilustrativa para o afiliado
+// Selecionei a imagem com os cálculos de GET (TDEE) e BMR flutuando, achei perfeita para o tema!
+const artigoCapa = `${githubImgBase}Blog/Penguin_in_lab_coat_calculator_202607220939 (1).jpeg`;
+const planilhaImg = `${githubImgBase}PlanilhaImagem/Planilha_Capa.webp`; // Imagem atualizada da Planilha
 const fotoAutor = `${githubImgBase}Eu_1.webp`;
 
 export default function ComoCalcularMeuGet() {
@@ -81,11 +82,11 @@ export default function ComoCalcularMeuGet() {
     },
     {
       pergunta: "O fator de atividade física (NAF) muda se eu treino 1 hora por dia?",
-      resposta: "Treinar 1 hora por dia (musculação ou aeróbico) geralmente enquadra você no nível 'Levemente Ativo' ou 'Moderadamente Ativo' (NAF 1.375 a 1.55), dependendo da intensidade do treino e do quão sedentário você é nas outras 23 horas do seu dia."
+      resposta: "Treinar 1 hora por dia (musculação ou aeróbico) geralmente enquadra você no nível 'Levemente Ativo' ou 'Moderadamente Ativo' (NAF 1.375 a 1.55), dependendo da intensidade do treino e do quão sedentário você é nas outras 23 horas do seu dia. O Professor Dudu Haluch destaca que os gastos fora do exercício (NEAT) frequentemente impactam mais no GET do que o próprio treino."
     },
     {
       pergunta: "A bioimpedância calcula meu GET com mais precisão?",
-      resposta: "As balanças de bioimpedância de boa qualidade calculam sua TMB com base na sua massa magra livre de gordura real, o que tende a ser mais preciso do que fórmulas genéricas, que levam em conta apenas o peso total. Porém, o cálculo do GET (multiplicador de atividade) ainda dependerá da sua estimativa manual do gasto diário."
+      resposta: "As balanças de bioimpedância de boa qualidade calculam sua TMB com base na sua massa magra livre de gordura real, o que tende a ser mais preciso do que fórmulas genéricas. Porém, o cálculo do GET (multiplicador de atividade) ainda dependerá da sua estimativa correta e realista do gasto diário."
     }
   ];
 
@@ -118,13 +119,13 @@ export default function ComoCalcularMeuGet() {
             Como Calcular Meu GET (Gasto Energético Total): Fórmulas e Calculadora Interativa
           </h1>
 
-          {/* Resposta Rápida (Featured Snippet) */}
+          {/* Resposta Rápida (Featured Snippet) focada em "Como calcular meu GET" */}
           <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-200 shadow-sm flex flex-col gap-4">
             <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 flex items-center gap-2 border-b border-green-200 pb-4">
-              <Zap className="text-green-700" size={28} /> Resposta Direta
+              <Zap className="text-green-700" size={28} /> Resposta Direta: Como Calcular Meu GET
             </h2>
             <p className="m-0 text-lg text-green-900 font-medium leading-relaxed">
-              Para descobrir <strong>como calcular meu GET (Gasto Energético Total)</strong>, você precisa primeiro calcular a sua <strong>TMB (Taxa Metabólica Basal)</strong> usando uma equação validada como a de Mifflin-St Jeor ou Harris-Benedict. Em seguida, basta multiplicar esse valor pelo seu <strong>NAF (Nível de Atividade Física)</strong>, que varia de 1.2 (sedentário) a 1.9 (muito ativo). Esse resultado representa o total exato de calorias que você queima em 24 horas para manter seu peso atual.
+              Para descobrir <strong>como calcular meu GET (Gasto Energético Total)</strong>, você precisa primeiro calcular a sua <strong>TMB (Taxa Metabólica Basal)</strong> usando uma equação científica, como a de Mifflin-St Jeor ou Harris-Benedict. Em seguida, basta multiplicar esse valor da TMB pelo seu <strong>NAF (Nível de Atividade Física)</strong>, que varia de 1.2 (sedentário) a 1.9 (muito ativo). Esse resultado numérico representa o total exato de calorias que você gasta em 24 horas para manter seu peso e metabolismo funcionando.
             </p>
           </div>
 
@@ -168,27 +169,31 @@ export default function ComoCalcularMeuGet() {
                   <li><a href="#fator-atividade" className="text-slate-700 hover:text-green-700 font-bold text-sm underline transition-colors">4. Fator de Atividade Física (NAF)</a></li>
                   <li><a href="#regra-de-bolso" className="text-slate-700 hover:text-green-700 font-bold text-sm underline transition-colors">5. A Regra de Bolso Prática</a></li>
                   <li><a href="#calculadora-get" className="text-slate-700 hover:text-green-700 font-bold text-sm underline transition-colors">6. Calculadora Automática de GET</a></li>
-                  <li><a href="#video-especialista" className="text-slate-700 hover:text-green-700 font-bold text-sm underline transition-colors">7. Vídeo: Especialista Explica</a></li>
-                  <li><a href="#faq" className="text-slate-700 hover:text-green-700 font-bold text-sm underline transition-colors">8. Perguntas Frequentes (FAQ)</a></li>
+                  <li><a href="#video-especialista" className="text-slate-700 hover:text-green-700 font-bold text-sm underline transition-colors">7. Vídeo: Dudu Haluch Explica o GET</a></li>
+                  <li><a href="#afiliado" className="text-slate-700 hover:text-green-700 font-bold text-sm underline transition-colors">8. Planilha Antropométrica Exclusiva</a></li>
+                  <li><a href="#conclusao" className="text-slate-700 hover:text-green-700 font-bold text-sm underline transition-colors">9. Conclusão da Análise</a></li>
+                  <li><a href="#faq" className="text-slate-700 hover:text-green-700 font-bold text-sm underline transition-colors">10. Perguntas Frequentes (FAQ)</a></li>
                 </ul>
               </div>
             </div>
           </div>
 
-          {/* Imagem de Capa Hero */}
+          {/* Imagem de Capa Hero com o Pinguim */}
           <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-xl border border-slate-100 relative bg-slate-200">
             <div className="relative w-full aspect-video overflow-hidden">
               <ImagemOtimizada 
                 src={artigoCapa}
-                alt="Pinguim Nutricionista Pingus utilizando uma calculadora e equações em um laboratório para descobrir como calcular o Gasto Energético Total (GET)."
+                alt="Pinguim Nutricionista Pingus utilizando uma calculadora e equações em um laboratório moderno para descobrir como calcular o Gasto Energético Total (GET)."
                 title="Calculando o GET na Prática"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 priority="high"
+                width="800"
+                height="450"
               />
             </div>
             <figcaption className="bg-white p-5 text-center border-t border-slate-100 relative z-10">
               <p className="text-xs md:text-sm text-slate-600 font-bold uppercase tracking-widest m-0">
-                Aprender a calcular suas necessidades energéticas é o primeiro passo para a liberdade alimentar.
+                Entender <strong>como calcular meu GET</strong> é o primeiro passo definitivo para a liberdade metabólica.
               </p>
             </figcaption>
           </figure>
@@ -198,27 +203,27 @@ export default function ComoCalcularMeuGet() {
             <BarChart className="text-green-700 shrink-0" size={32} /> O que é o Gasto Energético Total (GET)?
           </h2>
           <p className="text-slate-700 font-medium leading-relaxed">
-            Se você já se fez a pergunta "<strong>como calcular meu GET</strong>", você está a um passo de entender o principal pilar do emagrecimento ou do ganho de massa muscular. O Gasto Energético Total (GET) representa a somatória de todas as calorias que o seu organismo consome no período de 24 horas. Ele engloba não apenas a energia gasta no seu treino na academia, mas principalmente a energia usada para manter você vivo e as pequenas calorias gastas caminhando até o trabalho ou tomando banho.
+            Muitas vezes em consultório, os pacientes me perguntam aflitos: "Afinal, <strong>como calcular meu GET</strong>?". O Gasto Energético Total (GET) representa a somatória completa de todas as calorias que o seu organismo consome no período exato de 24 horas. Ele engloba não apenas a energia gasta no seu treino na academia, mas principalmente a energia usada para manter você vivo e as pequenas calorias gastas caminhando até o trabalho, lavando a louça ou tomando banho.
           </p>
           <p className="text-slate-700 font-medium leading-relaxed">
-            Dominar essa métrica é fundamental para saber exatamente <Link to="/quantas-calorias-gasto-por-dia" className="text-green-700 font-bold underline">quantas calorias você gasta por dia</Link> e evitar abordagens radicais que resultam no <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 font-bold underline">efeito sanfona e inflamação invisível</Link>.
+            Dominar essa métrica é fundamental para saber exatamente <Link to="/quantas-calorias-gasto-por-dia" className="text-green-700 font-bold underline">quantas calorias você gasta por dia</Link> e evitar abordagens radicais. Sem o cálculo do GET, você corre o risco constante de comer de menos, resultando no <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 font-bold underline">efeito sanfona e na inflamação invisível</Link>, ou de comer demais, acumulando gordura visceral.
           </p>
 
           <h2 id="taxa-metabolica-basal" className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mt-16 mb-6 flex items-center gap-3">
             <HeartPulse className="text-green-700 shrink-0" size={32} /> Taxa Metabólica Basal (TMB): A Base da Equação
           </h2>
           <p className="text-slate-700 font-medium leading-relaxed">
-            Antes de calcularmos o GET, é vital calcularmos a Taxa Metabólica Basal (TMB) ou Gasto Energético Basal (GEB). A TMB é a quantidade mínima de energia (em calorias) que o seu corpo precisa para sustentar suas funções vitais básicas se você passasse 24 horas dormindo ou deitado (respiração, batimentos cardíacos, atividade cerebral e regulação da temperatura).
+            A principal variável para resolver a charada de <strong>como calcular meu GET</strong> é, invariavelmente, descobrir primeiro a sua Taxa Metabólica Basal (TMB) ou Gasto Energético Basal (GEB). A TMB é a quantidade mínima de energia (em calorias) que o seu corpo precisa para sustentar suas funções vitais básicas se você passasse 24 horas dormindo ou absolutamente em repouso absoluto (respiração, batimentos cardíacos, atividade cerebral e regulação térmica).
           </p>
           <p className="text-slate-700 font-medium leading-relaxed">
-            Muitas pessoas cometem o erro de consumir calorias em valores inferiores à sua própria TMB em dietas drásticas. Esse erro desacelera fortemente o metabolismo e costuma ser o grande desencadeador de compulsões, nos fazendo entender na prática <Link to="/o-que-e-fome-emocional" className="text-green-700 font-bold underline">o que é fome emocional</Link> por pura privação calórica extrema.
+            Muitas pessoas cometem o erro drástico de consumir calorias em valores inferiores à sua própria TMB em dietas muito restritivas. Esse erro fisiológico desacelera fortemente o metabolismo e costuma ser o grande desencadeador de compulsões severas, nos fazendo entender na prática clínica <Link to="/o-que-e-fome-emocional" className="text-green-700 font-bold underline">o que é fome emocional</Link> por pura privação calórica irresponsável.
           </p>
 
           <h2 id="formulas-cientificas" className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mt-16 mb-6 flex items-center gap-3">
-            <Scale className="text-green-700 shrink-0" size={32} /> Fórmulas Científicas: Como Calcular na Mão
+            <Scale className="text-green-700 shrink-0" size={32} /> Fórmulas Científicas: Como Calcular na Mão o GET
           </h2>
           <p className="text-slate-700 font-medium leading-relaxed mb-8">
-            Na prática da nutrição clínica e esportiva, nós não chutamos valores. Utilizamos equações preditivas extremamente estudadas e validadas. Você precisará de três variáveis: Peso (em kg), Altura (em cm) e Idade (em anos). Veja como os cálculos são feitos:
+            Na prática profissional de <Link to="/o_que_e_antropometria" className="text-green-700 font-bold underline">antropometria e nutrição</Link>, nós não chutamos valores baseados no achismo. Utilizamos equações preditivas extremamente estudadas e validadas por décadas de ciência. Para aprender a calcular o GET na mão, você precisará de três variáveis do seu corpo: Peso (em kg), Altura (em cm) e Idade (em anos). Veja como os cálculos da TMB são estruturados antes da multiplicação:
           </p>
 
           {/* TABELAS DESKTOP (Hidden no Mobile) */}
@@ -227,17 +232,17 @@ export default function ComoCalcularMeuGet() {
               <thead>
                 <tr className="bg-slate-100 border-b border-slate-200">
                   <th className="p-4 font-black uppercase text-xs text-slate-800 tracking-widest w-1/3">Equação de Harris-Benedict (Revisão 1984)</th>
-                  <th className="p-4 font-black uppercase text-xs text-slate-800 tracking-widest">Fórmula Matemática</th>
+                  <th className="p-4 font-black uppercase text-xs text-slate-800 tracking-widest">Fórmula Matemática (TMB)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                   <td className="p-4 font-bold text-slate-700 text-sm">Masculino</td>
-                  <td className="p-4 text-slate-600 font-medium font-mono text-sm bg-slate-50/50">TMB = 66 + (13,8 × Peso) + (5 × Altura) - (6,8 × Idade)</td>
+                  <td className="p-4 text-slate-600 font-medium font-mono text-sm bg-slate-50/50">TMB = 66 + (13,8 × Peso em kg) + (5 × Altura em cm) - (6,8 × Idade em anos)</td>
                 </tr>
                 <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                   <td className="p-4 font-bold text-slate-700 text-sm">Feminino</td>
-                  <td className="p-4 text-slate-600 font-medium font-mono text-sm bg-slate-50/50">TMB = 655 + (9,6 × Peso) + (1,9 × Altura) - (4,7 × Idade)</td>
+                  <td className="p-4 text-slate-600 font-medium font-mono text-sm bg-slate-50/50">TMB = 655 + (9,6 × Peso em kg) + (1,9 × Altura em cm) - (4,7 × Idade em anos)</td>
                 </tr>
               </tbody>
             </table>
@@ -247,18 +252,18 @@ export default function ComoCalcularMeuGet() {
             <table className="w-full text-left border-collapse bg-white">
               <thead>
                 <tr className="bg-green-50 border-b border-green-100">
-                  <th className="p-4 font-black uppercase text-xs text-green-900 tracking-widest w-1/3">Equação de Mifflin-St Jeor (Atualizada)</th>
-                  <th className="p-4 font-black uppercase text-xs text-green-900 tracking-widest">Fórmula Matemática</th>
+                  <th className="p-4 font-black uppercase text-xs text-green-900 tracking-widest w-1/3">Equação de Mifflin-St Jeor (A Mais Atual)</th>
+                  <th className="p-4 font-black uppercase text-xs text-green-900 tracking-widest">Fórmula Matemática (TMB)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b border-slate-100 hover:bg-green-50/30 transition-colors">
                   <td className="p-4 font-bold text-slate-700 text-sm">Masculino</td>
-                  <td className="p-4 text-slate-600 font-medium font-mono text-sm">TMB = (10 × Peso) + (6,25 × Altura) - (5,0 × Idade) + 5</td>
+                  <td className="p-4 text-slate-600 font-medium font-mono text-sm">TMB = (10 × Peso em kg) + (6,25 × Altura em cm) - (5,0 × Idade em anos) + 5</td>
                 </tr>
                 <tr className="hover:bg-green-50/30 transition-colors">
                   <td className="p-4 font-bold text-slate-700 text-sm">Feminino</td>
-                  <td className="p-4 text-slate-600 font-medium font-mono text-sm">TMB = (10 × Peso) + (6,25 × Altura) - (5,0 × Idade) - 161</td>
+                  <td className="p-4 text-slate-600 font-medium font-mono text-sm">TMB = (10 × Peso em kg) + (6,25 × Altura em cm) - (5,0 × Idade em anos) - 161</td>
                 </tr>
               </tbody>
             </table>
@@ -296,10 +301,10 @@ export default function ComoCalcularMeuGet() {
           </div>
 
           <h2 id="fator-atividade" className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mt-16 mb-6 flex items-center gap-3">
-            <Flame className="text-green-700 shrink-0" size={32} /> Fator de Atividade Física (NAF): O Multiplicador
+            <Flame className="text-green-700 shrink-0" size={32} /> Fator de Atividade Física (NAF): O Multiplicador do GET
           </h2>
           <p className="text-slate-700 font-medium leading-relaxed mb-6">
-            Com o valor da sua TMB em mãos, o último passo de <strong>como calcular o GET</strong> é fazer a multiplicação pelo seu <strong>Nível de Atividade Física (NAF)</strong>. Seja brutalmente honesto consigo mesmo nesta etapa: uma hora de musculação leve não o torna um "Atleta Profissional". Multiplique a sua TMB pelos índices abaixo:
+            Com o valor da sua TMB calculado, o último passo crucial da sua busca de <strong>como calcular meu GET</strong> é fazer a multiplicação da Taxa Basal pelo seu <strong>Nível de Atividade Física (NAF)</strong>. Seja brutalmente honesto consigo mesmo nesta etapa: uma hora de musculação leve, seguida de 10 horas sentado em um escritório, não o torna uma pessoa "Muito Ativa". O conceito de NEAT (Termogênese das Atividades Não Ligadas ao Exercício) pesa muito aqui. Multiplique a sua TMB pelos índices clássicos definidos por pesquisadores:
           </p>
 
           {/* TABELA NAF DESKTOP */}
@@ -308,30 +313,30 @@ export default function ComoCalcularMeuGet() {
               <thead>
                 <tr className="bg-slate-100 border-b border-slate-200">
                   <th className="p-4 font-black uppercase text-xs text-slate-800 tracking-widest">Nível de Atividade</th>
-                  <th className="p-4 font-black uppercase text-xs text-slate-800 tracking-widest">Multiplicador (NAF)</th>
-                  <th className="p-4 font-black uppercase text-xs text-slate-800 tracking-widest">Descrição</th>
+                  <th className="p-4 font-black uppercase text-xs text-slate-800 tracking-widest">Fórmula do GET</th>
+                  <th className="p-4 font-black uppercase text-xs text-slate-800 tracking-widest">Descrição Realista</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                   <td className="p-4 font-bold text-slate-700 text-sm">Sedentário</td>
-                  <td className="p-4 font-black text-green-700 text-base">TMB × 1.20</td>
-                  <td className="p-4 text-slate-600 font-medium text-sm">Trabalho de escritório, sem atividades físicas.</td>
+                  <td className="p-4 font-black text-green-700 text-base">GET = TMB × 1.20</td>
+                  <td className="p-4 text-slate-600 font-medium text-sm">Trabalho de escritório, sem atividades físicas sistematizadas ou esforços.</td>
                 </tr>
                 <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
-                  <td className="p-4 font-bold text-slate-700 text-sm">Leve</td>
-                  <td className="p-4 font-black text-green-700 text-base">TMB × 1.375</td>
-                  <td className="p-4 text-slate-600 font-medium text-sm">Exercício leve de 1 a 3 dias por semana.</td>
+                  <td className="p-4 font-bold text-slate-700 text-sm">Levemente Ativo</td>
+                  <td className="p-4 font-black text-green-700 text-base">GET = TMB × 1.375</td>
+                  <td className="p-4 text-slate-600 font-medium text-sm">Exercício leve de 1 a 3 dias na semana. Movimentação diária razoável.</td>
                 </tr>
                 <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                   <td className="p-4 font-bold text-slate-700 text-sm">Moderado</td>
-                  <td className="p-4 font-black text-green-700 text-base">TMB × 1.55</td>
+                  <td className="p-4 font-black text-green-700 text-base">GET = TMB × 1.55</td>
                   <td className="p-4 text-slate-600 font-medium text-sm">Exercício moderado de 3 a 5 dias por semana.</td>
                 </tr>
                 <tr className="hover:bg-slate-50 transition-colors">
                   <td className="p-4 font-bold text-slate-700 text-sm">Intenso</td>
-                  <td className="p-4 font-black text-green-700 text-base">TMB × 1.725</td>
-                  <td className="p-4 text-slate-600 font-medium text-sm">Treinos intensos ou diários (6-7 dias por semana).</td>
+                  <td className="p-4 font-black text-green-700 text-base">GET = TMB × 1.725</td>
+                  <td className="p-4 text-slate-600 font-medium text-sm">Treinos exaustivos diários ou ofícios que exigem esforço físico contínuo.</td>
                 </tr>
               </tbody>
             </table>
@@ -340,14 +345,14 @@ export default function ComoCalcularMeuGet() {
           {/* CARDS NAF MOBILE */}
           <div className="md:hidden space-y-4 mb-12">
             {[
-              { titulo: "Sedentário", mult: "TMB × 1.20", desc: "Trabalho de escritório, sem atividades físicas." },
-              { titulo: "Levemente Ativo", mult: "TMB × 1.375", desc: "Exercício leve de 1 a 3 dias por semana." },
+              { titulo: "Sedentário", mult: "TMB × 1.20", desc: "Trabalho de escritório, sem atividades físicas sistematizadas ou esforços." },
+              { titulo: "Levemente Ativo", mult: "TMB × 1.375", desc: "Exercício leve de 1 a 3 dias na semana. Movimentação diária razoável." },
               { titulo: "Moderadamente Ativo", mult: "TMB × 1.55", desc: "Exercício moderado de 3 a 5 dias por semana." },
-              { titulo: "Muito Ativo / Intenso", mult: "TMB × 1.725", desc: "Treinos intensos ou diários (6-7 dias na semana)." }
+              { titulo: "Muito Ativo / Intenso", mult: "TMB × 1.725", desc: "Treinos exaustivos diários ou ofícios pesados." }
             ].map((item, index) => (
               <div key={index} className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm flex items-start gap-4">
-                <div className="bg-green-50 text-green-700 p-2 rounded-lg font-black shrink-0 border border-green-100">
-                  {item.mult.replace("TMB × ", "")}
+                <div className="bg-green-50 text-green-700 p-2 rounded-lg font-black shrink-0 border border-green-100 text-xs">
+                  {item.mult}
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-800 text-sm uppercase m-0 mb-1">{item.titulo}</h4>
@@ -358,27 +363,27 @@ export default function ComoCalcularMeuGet() {
           </div>
 
           <h2 id="regra-de-bolso" className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mt-16 mb-6 flex items-center gap-3">
-            <Apple className="text-green-700 shrink-0" size={32} /> A Regra de Bolso: Estimativa Rápida
+            <Apple className="text-green-700 shrink-0" size={32} /> A Regra de Bolso: Estimativa Rápida para Consultório
           </h2>
           <p className="text-slate-700 font-medium leading-relaxed mb-6">
-            Para feiras de saúde ou atendimentos de triagem rápida, onde o tempo é escasso, utilizamos na nutrição a chamada "Regra de Bolso" (proposta por diversos autores clássicos da nutrição clínica e esportiva). Basta pegar o seu peso em kg e multiplicar pelas calorias da faixa do seu objetivo:
+            Para feiras de saúde, triagens hospitalares rápidas ou avaliações de corredor, onde o tempo para equações complexas é escasso, nós nutricionistas utilizamos a famosa "Regra de Bolso". Para descobrir de forma estimada <strong>como calcular meu GET</strong> a partir do peso bruto, basta pegar o seu peso em kg e multiplicar pelas constantes energéticas (kcal) da faixa do seu objetivo. Exemplo: um homem de 80kg que busca hipertrofia: 80 * 35 = 2800 kcal/dia.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div className="bg-blue-50 border border-blue-200 rounded-3xl p-6 text-center shadow-sm">
-              <h4 className="text-blue-900 font-black uppercase text-sm tracking-widest mb-2 m-0">Emagrecimento</h4>
+              <h4 className="text-blue-900 font-black uppercase text-sm tracking-widest mb-2 m-0">Déficit (Perda)</h4>
               <span className="text-3xl font-black italic text-blue-700 block mb-2">20 a 25 kcal</span>
-              <p className="text-xs text-blue-800 font-medium m-0">Multiplicado por kg de peso.</p>
+              <p className="text-xs text-blue-800 font-medium m-0">Multiplicado pelo Peso (kg).</p>
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 text-center shadow-sm">
               <h4 className="text-slate-900 font-black uppercase text-sm tracking-widest mb-2 m-0">Manutenção</h4>
               <span className="text-3xl font-black italic text-slate-700 block mb-2">25 a 30 kcal</span>
-              <p className="text-xs text-slate-600 font-medium m-0">Multiplicado por kg de peso.</p>
+              <p className="text-xs text-slate-600 font-medium m-0">Multiplicado pelo Peso (kg).</p>
             </div>
             <div className="bg-green-50 border border-green-200 rounded-3xl p-6 text-center shadow-sm">
-              <h4 className="text-green-900 font-black uppercase text-sm tracking-widest mb-2 m-0">Hipertrofia</h4>
+              <h4 className="text-green-900 font-black uppercase text-sm tracking-widest mb-2 m-0">Hipertrofia (Ganho)</h4>
               <span className="text-3xl font-black italic text-green-700 block mb-2">30 a 35 kcal</span>
-              <p className="text-xs text-green-800 font-medium m-0">Multiplicado por kg de peso.</p>
+              <p className="text-xs text-green-800 font-medium m-0">Multiplicado pelo Peso (kg).</p>
             </div>
           </div>
 
@@ -391,28 +396,28 @@ export default function ComoCalcularMeuGet() {
                 Acesse a Calculadora Avançada Oficial
               </h3>
               <p className="text-slate-300 font-medium mb-8 max-w-xl mx-auto">
-                Quer ir além das estimativas rápidas? Acesse nossa ferramenta gratuita exclusiva. Ela leva em conta macros, objetivos específicos e distribui as proporções ideais para sua dieta.
+                Quer ir além das estimativas matemáticas manuais? Acesse nossa ferramenta gratuita e robusta. Ela automatiza toda a equação de Mifflin, leva em conta macros, e distribui as proporções ideais para a sua dieta estruturada.
               </p>
               <Link 
                 to="/calculadora-de-gasto-calorico"
-                className="inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-400 text-slate-900 px-8 py-4 rounded-full font-black uppercase text-sm tracking-widest transition-all duration-300 shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:shadow-[0_0_30px_rgba(34,197,94,0.5)]"
+                className="inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-400 text-slate-900 px-8 py-4 rounded-full font-black uppercase text-sm tracking-widest transition-all duration-300 shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] no-underline"
                 aria-label="Acessar calculadora de gasto calórico avançada"
               >
-                Acessar Calculadora Gratuita
+                Acessar Calculadora Exclusiva
               </Link>
             </div>
           </div>
 
           {/* Calculadora In-Page React */}
           <h2 id="calculadora-get" className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mt-16 mb-8 flex items-center gap-3">
-            <Calculator className="text-green-700 shrink-0" size={32} /> Simulador Básico do GET (Equação de Mifflin)
+            <Calculator className="text-green-700 shrink-0" size={32} /> Simulador Prático do GET (Mifflin-St Jeor)
           </h2>
 
           <div className="bg-white border-2 border-slate-100 rounded-[3rem] p-6 md:p-10 shadow-xl mb-16">
             <form onSubmit={calcularGET} className="grid grid-cols-1 md:grid-cols-2 gap-6">
               
               <div className="col-span-1">
-                <label className="block text-xs font-black uppercase text-slate-600 tracking-widest mb-2" htmlFor="calc-sexo">Sexo</label>
+                <label className="block text-xs font-black uppercase text-slate-600 tracking-widest mb-2" htmlFor="calc-sexo">Sexo Biológico</label>
                 <select 
                   id="calc-sexo"
                   value={sexo} 
@@ -439,7 +444,7 @@ export default function ComoCalcularMeuGet() {
               </div>
 
               <div className="col-span-1">
-                <label className="block text-xs font-black uppercase text-slate-600 tracking-widest mb-2" htmlFor="calc-peso">Peso (kg)</label>
+                <label className="block text-xs font-black uppercase text-slate-600 tracking-widest mb-2" htmlFor="calc-peso">Peso Total (kg)</label>
                 <input 
                   id="calc-peso"
                   type="number" 
@@ -453,7 +458,7 @@ export default function ComoCalcularMeuGet() {
               </div>
 
               <div className="col-span-1">
-                <label className="block text-xs font-black uppercase text-slate-600 tracking-widest mb-2" htmlFor="calc-altura">Altura (cm)</label>
+                <label className="block text-xs font-black uppercase text-slate-600 tracking-widest mb-2" htmlFor="calc-altura">Estatura (cm)</label>
                 <input 
                   id="calc-altura"
                   type="number" 
@@ -466,7 +471,7 @@ export default function ComoCalcularMeuGet() {
               </div>
 
               <div className="col-span-1 md:col-span-2">
-                <label className="block text-xs font-black uppercase text-slate-600 tracking-widest mb-2" htmlFor="calc-naf">Nível de Atividade (NAF)</label>
+                <label className="block text-xs font-black uppercase text-slate-600 tracking-widest mb-2" htmlFor="calc-naf">Fator de Multiplicação NAF</label>
                 <select 
                   id="calc-naf"
                   value={naf} 
@@ -487,7 +492,7 @@ export default function ComoCalcularMeuGet() {
                   className="w-full bg-green-700 hover:bg-green-800 text-white h-[60px] rounded-2xl font-black uppercase tracking-widest transition-colors shadow-lg border-none cursor-pointer"
                   aria-label="Calcular o Gasto Energético Total"
                 >
-                  Descobrir Meu GET
+                  Descobrir Meu GET Oficial
                 </button>
               </div>
             </form>
@@ -496,18 +501,18 @@ export default function ComoCalcularMeuGet() {
             {resultado && (
               <div className="mt-10 bg-green-50 border border-green-200 rounded-[2rem] p-8 text-center animate-fade-in shadow-inner">
                 <div className="flex flex-col items-center justify-center gap-2 mb-6 border-b border-green-200 pb-6">
-                  <span className="text-xs font-black uppercase tracking-widest text-green-800">Seu Gasto Energético Total (GET)</span>
+                  <span className="text-xs font-black uppercase tracking-widest text-green-800">Resultado: O Seu Gasto Energético Total (GET)</span>
                   <span className="text-5xl md:text-6xl font-black italic text-green-700 drop-shadow-sm">{resultado.get} <span className="text-2xl text-green-800">kcal</span></span>
-                  <p className="text-sm text-green-900 font-medium m-0 mt-2">Você gasta essa energia diariamente para manter o peso atual.</p>
+                  <p className="text-sm text-green-900 font-medium m-0 mt-2">Você gasta essa energia exata diariamente para manter o peso atual.</p>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="bg-white p-4 rounded-2xl border border-green-100 shadow-sm flex flex-col gap-1">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">Sua TMB (Basal)</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">A Sua TMB (Basal)</span>
                     <strong className="text-lg text-slate-800">{resultado.tmb} kcal/dia</strong>
                   </div>
                   <div className="bg-white p-4 rounded-2xl border border-green-100 shadow-sm flex flex-col gap-1">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">Para Emagrecer (Aprox.)</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">Para Emagrecimento (-500 kcal)</span>
                     <strong className="text-lg text-blue-700">{resultado.perda} kcal/dia</strong>
                   </div>
                 </div>
@@ -516,50 +521,52 @@ export default function ComoCalcularMeuGet() {
           </div>
 
           <h2 id="video-especialista" className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mt-16 mb-6 flex items-center gap-3">
-            <PlayCircle className="text-green-700 shrink-0" size={32} /> Visão de Especialista: O Gasto Calórico
+            <PlayCircle className="text-green-700 shrink-0" size={32} /> Visão Crítica: Dudu Haluch Explica o Gasto Calórico
           </h2>
           <p className="text-slate-700 font-medium leading-relaxed mb-8">
-            Para enriquecer ainda mais o seu conhecimento e não depender de <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-700 font-bold underline">balanças de bioimpedância de qualidade duvidosa</Link>, deixo a recomendação de um excelente vídeo do Dr. Danillo de Jesus Pereira, Médico do Esporte, detalhando em profundidade as vias do nosso gasto diário.
+            Para enriquecer sua base teórica e não depender de <Link to="/a_balanca_de_bioimpedancia_e_confiavel" className="text-green-700 font-bold underline">exames de bioimpedância que utilizam fórmulas de software obscuras</Link>, indico este vídeo espetacular do Dudu Haluch, grande referência na nutrição esportiva e professor da Pós-Graduação na Uniguaçú. Ele destrincha com rigor por que a termogênese das atividades não relacionadas ao exercício (o chamado NEAT) pode ter uma importância colossal, muitas vezes até superior à própria sessão de musculação na hora de contabilizar o GET. 
           </p>
 
           <div className="bg-green-50 rounded-[3rem] p-6 md:p-10 shadow-inner border border-green-100 mb-16">
             <div className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-              <YouTubeLazy videoId="Lsa2FkAlWUU" title="COMO CALCULAR GASTO CALÓRICO DIÁRIO? - Médico do Esporte" />
+              <YouTubeLazy videoId="hzC7GWcGaXo" title="Como calcular o gasto calórico - Dudu Haluch - UNIGUAÇU" />
             </div>
           </div>
 
           {/* Afiliado: Planilha Antropométrica */}
-          <div className="my-16 bg-white rounded-[3rem] border border-slate-200 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
+          <div id="afiliado" className="my-16 bg-white rounded-[3rem] border border-slate-200 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
             <div className="absolute top-0 right-0 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[10px] tracking-widest shadow-md z-10 flex items-center gap-2">
               <CheckCircle2 size={14} className="text-white" />
-              <span>Pingus Aprova</span>
+              <span>Pingus Indica e Aprova</span>
             </div>
 
             <div className="flex flex-col md:flex-row items-center gap-8 mt-4 relative z-10">
-              <div className="w-full max-w-[200px] shrink-0">
-                <div className="relative bg-slate-50 p-2 rounded-2xl shadow-lg border border-slate-100 aspect-[4/3] flex items-center justify-center overflow-hidden">
-                  <ImagemOtimizada 
+              <div className="w-full max-w-[220px] shrink-0">
+                <div className="relative bg-slate-50 p-2 rounded-2xl shadow-lg border border-slate-100 flex items-center justify-center overflow-hidden aspect-[4/3]">
+                  <img 
                     src={planilhaImg} 
-                    alt="Planilha Antropométrica Exclusiva do Marco Aurélio para cálculo de macros e avaliação física." 
+                    alt="Planilha Antropométrica Exclusiva de Nutrição desenvolvida pelo Marco Aurélio para o cálculo automatizado de macros, dobras cutâneas e avaliação física completa." 
                     className="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" 
-                    priority="low"
+                    loading="lazy"
+                    width="220"
+                    height="165"
                   />
                 </div>
               </div>
 
               <div className="flex-1 text-center md:text-left flex flex-col justify-center">
                 <h3 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic m-0">
-                  Planilha Antropométrica: <span className="text-green-700">Automação Completa</span>
+                  Planilha Antropométrica Oficial: <span className="text-green-700">Automação Completa para Nutricionistas e Pacientes</span>
                 </h3>
                 <p className="text-slate-600 text-sm mb-6 leading-relaxed font-medium">
-                  Se você é estudante de nutrição, personal trainer ou um entusiasta que detesta fazer cálculos manuais, eu criei a <strong>Planilha Definitiva</strong> baseada nos ensinamentos da ISAK. Com ela você calcula a <Link to="/o_que_e_antropometria" className="text-green-700 font-bold underline">antropometria completa</Link>, % de gordura e o Gasto Calórico Total em poucos cliques.
+                  Se você é estudante de nutrição em busca de precisão clínica, ou alguém que detesta perder horas fazendo os cálculos da dieta na mão, eu criei a <strong>Planilha Definitiva</strong> baseada nos estritos ensinamentos da certificação internacional ISAK. Com ela, você digita os dados e o sistema calcula instantaneamente sua <Link to="/o_que_e_antropometria" className="text-green-700 font-bold underline">antropometria completa</Link>, % de gordura por somatória de dobras e o Gasto Calórico Total exato em poucos cliques, sem planilhas de Excel travadas.
                 </p>
                 <div className="flex justify-center md:justify-start">
                   <a 
                     href="https://www.nutricaocommarco.com.br/planilha" 
                     rel="noopener noreferrer" 
                     target="_blank"
-                    aria-label="Adquirir a Planilha Antropométrica"
+                    aria-label="Adquirir a Planilha Antropométrica Oficial"
                     className="inline-flex items-center justify-center gap-2 bg-green-700 text-white px-8 py-4 rounded-full font-black uppercase text-xs tracking-widest shadow-xl hover:bg-green-800 transition-all duration-300 italic no-underline"
                   >
                     <ShoppingCart size={16} />
@@ -570,8 +577,15 @@ export default function ComoCalcularMeuGet() {
             </div> 
           </div>
 
+          <div id="conclusao" className="bg-blue-50 border border-blue-200 rounded-3xl p-8 mb-16 shadow-sm">
+            <h3 className="text-xl font-black text-blue-900 italic uppercase mb-4 m-0">Conclusão Final da Análise</h3>
+            <p className="text-blue-800 font-medium leading-relaxed m-0 text-sm md:text-base">
+              Aprender <strong>como calcular o GET</strong> não é apenas uma curiosidade matemática restrita aos consultórios; mas sim o passaporte definitivo para a sua libertação de dietas restritivas, ineficazes e sem respaldo científico. Quando você sabe com precisão o quanto o seu corpo demanda de combustível para existir (TMB) e para se movimentar (NAF/NEAT), é plenamente possível elaborar um déficit ou superávit calórico inteligente, mantendo a ingestão de macronutrientes alinhada. Use nossas fórmulas de Mifflin-St Jeor, aplique o fator de atividade física com sinceridade analítica e blinde o seu metabolismo contra o efeito sanfona, construindo resultados consistentes a longo prazo!
+            </p>
+          </div>
+
           <h2 id="faq" className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mt-16 mb-8 flex items-center gap-3 border-b border-slate-100 pb-4">
-            <Activity className="text-green-700 shrink-0" size={32} /> Dúvidas Frequentes (FAQ)
+            <Activity className="text-green-700 shrink-0" size={32} /> Dúvidas Frequentes sobre Cálculo Calórico
           </h2>
 
           <div className="space-y-4 mb-16">
@@ -597,13 +611,6 @@ export default function ComoCalcularMeuGet() {
             ))}
           </div>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-3xl p-8 mb-16 shadow-sm">
-            <h3 className="text-xl font-black text-blue-900 italic uppercase mb-4 m-0">Conclusão</h3>
-            <p className="text-blue-800 font-medium leading-relaxed m-0 text-sm md:text-base">
-              Aprender <strong>como calcular o GET</strong> não é apenas uma curiosidade matemática, mas sim o passaporte para a libertação de dietas restritivas e ineficazes. Quando você sabe exatamente o quanto seu corpo demanda de combustível para existir e se movimentar, é possível elaborar um déficit ou superávit calórico inteligente, mantendo a ingestão de nutrientes essenciais. Use nossa ferramenta, aplique os fatores de atividade física de maneira realista e construa o seu metabolismo de forma sustentável e saudável!
-            </p>
-          </div>
-
           <Newsletter />
         </article>
 
@@ -612,26 +619,28 @@ export default function ComoCalcularMeuGet() {
         {/* Cartão do Autor */}
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-slate-200 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
-            <ImagemOtimizada 
+            <img 
               src={fotoAutor} 
               alt="Marco Aurélio Jr. - Avaliador Antropométrico ISAK 1" 
               title="Marco Aurélio Jr. - Estudante de Nutrição ISAK 1"
               className="w-full h-full object-cover"
-              priority="low"
+              loading="lazy"
+              width="96"
+              height="96"
             />
           </div>
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl font-black text-slate-900 italic mb-1 m-0">Marco Aurélio Jr.</h3>
-            <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
+            <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição Clínica • Avaliador Antropométrico ISAK Nível 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-sm md:text-base">
-              Como avaliador antropométrico certificado internacionalmente, trabalho ensinando você a entender a própria composição corporal. Longe dos mitos do emagrecimento fácil, meu objetivo é trazer clareza matemática e fisiológica para que você tome o controle do seu metabolismo e alcance resultados reais e duradouros.
+              Como avaliador antropométrico certificado internacionalmente, trabalho ensinando você a entender a própria composição e os cálculos reais do seu metabolismo, combatendo as falácias da internet. Longe dos mitos do emagrecimento fácil e do terrorismo nutricional, meu objetivo diário é trazer extrema clareza matemática e respaldo da fisiologia para que você assuma o controle da sua dieta e alcance resultados saudáveis.
             </p>
             <a 
               href="https://instagram.com/nutricao_com_marco" 
               target="_blank" 
               rel="noreferrer" 
               className="inline-block bg-green-700 text-white px-8 py-3 rounded-full font-black uppercase text-xs tracking-widest shadow-md hover:bg-green-800 transition-all italic no-underline"
-              aria-label="Siga o autor no Instagram"
+              aria-label="Siga o autor e receba dicas diárias no Instagram"
             >
               Siga @nutricao_com_marco
             </a>
