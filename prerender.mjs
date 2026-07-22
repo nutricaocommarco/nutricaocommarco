@@ -60,29 +60,52 @@ const rotasEstaticas = [
   { path: 'parceria-inatividade-zero', title: 'Avaliação Antropométrica de Precisão - Parceria Inatividade Zero | Nutrição com Marco', image: `${githubImgBase}PingusReserva.jpg`, desc: 'Agende sua avaliação antropométrica avançada na Academia Inatividade Zero em parceria com Nutrição com Marco e descubra sua composição corporal real.' }
 ];
 
-// 📝 2. ROTAS DA LOJA
+// 📝 2. ROTAS DA LOJA (Otimizadas para SEO, Google Shopping e Redes Sociais)
 const rotasLoja = [
-  { path: 'loja', title: 'Loja do Píngus | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.webp`, desc: 'Conheça a Loja oficial do Píngus. Canecas exclusivas, aventais e produtos com muito estilo para a sua rotina.' },
+  { 
+    path: 'loja', 
+    title: 'Loja do Píngus | Produtos e Ferramentas Exclusivas | Nutrição com Marco', 
+    image: `${githubImgBase}logoN_pingus.webp`, 
+    desc: 'Conheça a Loja oficial do Píngus. Canecas exclusivas, aventais de alta qualidade, e-books e planilhas inteligentes para otimizar sua rotina e saúde.' 
+  },
   { 
     path: 'loja/caneca-pingus-conselheiro-nutricional', 
     title: 'Caneca Píngus Conselheiro Nutricional | Loja do Píngus', 
     image: 'https://images.mont.ink/mockup/431585/branco_0_5823852.jpg', 
-    desc: 'Transforme seus momentos com essa caneca cheia de estilo. Ideal para café ou chá, combina resistência e design versátil.', 
-    schemasExtra: [getProductSchema("Caneca Píngus Conselheiro Nutricional", "https://www.nutricaocommarco.com.br/loja/caneca-pingus-conselheiro-nutricional", "https://images.mont.ink/mockup/431585/branco_0_5823852.jpg", "Transforme seus momentos com essa caneca cheia de estilo e personalidade.", "50.00")] 
+    desc: 'Transforme seus momentos com a Caneca Píngus Conselheiro Nutricional. Feita sob demanda, combina resistência, acabamento impecável e muito estilo.', 
+    schemasExtra: [getProductSchema(
+      "Caneca Píngus Conselheiro Nutricional", 
+      "https://www.nutricaocommarco.com.br/loja/caneca-pingus-conselheiro-nutricional", 
+      "https://images.mont.ink/mockup/431585/branco_0_5823852.jpg", 
+      "Transforme seus momentos com essa caneca cheia de estilo e personalidade. Ideal para café ou chá.", 
+      "50.00"
+    )] 
   },
   { 
     path: 'loja/caneca-pingus-sua-melhor-versao', 
     title: 'Caneca Píngus Sua Melhor Versão | Loja do Píngus', 
     image: 'https://images.mont.ink/mockup/431585/branco_0_5824055.jpg', 
-    desc: 'Caneca exclusiva com design inspirador. Ideal para presentear alguém especial ou dar um charme na sua rotina diária.', 
-    schemasExtra: [getProductSchema("Caneca Píngus Sua Melhor Versão", "https://www.nutricaocommarco.com.br/loja/caneca-pingus-sua-melhor-versao", "https://images.mont.ink/mockup/431585/branco_0_5824055.jpg", "Caneca exclusiva com design inspirador.", "50.00")] 
+    desc: 'Garanta a Caneca Píngus Sua Melhor Versão. Um item exclusivo, resistente e criativo para acompanhar seu café diário ou presentear alguém especial.', 
+    schemasExtra: [getProductSchema(
+      "Caneca Píngus Sua Melhor Versão", 
+      "https://www.nutricaocommarco.com.br/loja/caneca-pingus-sua-melhor-versao", 
+      "https://images.mont.ink/mockup/431585/branco_0_5824055.jpg", 
+      "Caneca exclusiva com design inspirador para acompanhar sua rotina com muito charme.", 
+      "50.00"
+    )] 
   },
   { 
     path: 'loja/avental-pingus', 
-    title: 'Avental Píngus | Loja do Píngus', 
+    title: 'Avental Píngus Profissional e Cozinha | Loja do Píngus', 
     image: 'https://images.mont.ink/mockup/431585/branco_0_5820286.png', 
-    desc: 'Avental resistente e confortável, ideal para o dia a dia ou uso profissional. Com ajuste fácil e material durável.', 
-    schemasExtra: [getProductSchema("Avental Píngus", "https://www.nutricaocommarco.com.br/loja/avental-pingus", "https://images.mont.ink/mockup/431585/branco_0_5820286.png", "Avental resistente e confortável, ideal para o dia a dia ou uso profissional.", "75.00")] 
+    desc: 'Avental Píngus resistente, confortável e com ajuste fácil. Perfeito para o preparo de marmitas, uso diário na cozinha ou atuação profissional.', 
+    schemasExtra: [getProductSchema(
+      "Avental Píngus", 
+      "https://www.nutricaocommarco.com.br/loja/avental-pingus", 
+      "https://images.mont.ink/mockup/431585/branco_0_5820286.png", 
+      "Ideal para o dia a dia ou uso profissional, esse avental oferece resistência, conforto e praticidade.", 
+      "75.00"
+    )] 
   }
 ];
 
