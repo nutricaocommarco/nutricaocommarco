@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
-// 🔗 Link base das imagens no seu GitHub
-const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+// 🔗 Link base oficial das imagens no CDN jsDelivr
+const githubImgBase = "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/";
 
 // ==========================================
 // 🧠 FUNÇÕES GERADORAS DE SCHEMAS AVANÇADOS
@@ -46,16 +46,16 @@ const rotasEstaticas = [
 // 📝 2. TODOS OS POSTS DO BLOG
 const postsBlog = [
   {
-  id: 29,
-  link: "/como-calcular-meu-get",
-  img: `${githubImgBase}Blog/GET_Capa.webp`,
-  titulo: "Como Calcular Meu GET (Gasto Energético Total): Guia e Calculadora",
-  desc: "Aprenda de verdade como calcular meu get com equações validadas (Mifflin e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.",
-  data: "2026-07-22",
-  schemasExtra: [
-    getMedicalSchema("Fisiologia do Metabolismo e Gasto Calórico", "https://www.nutricaocommarco.com.br/como-calcular-meu-get", ["Taxa Metabólica Basal", "Gasto Energético Total", "Equação de Mifflin-St Jeor"])
-  ]
-},
+    id: 29,
+    link: "/como-calcular-meu-get",
+    img: `${githubImgBase}Blog/GET_Capa.webp`,
+    titulo: "Como Calcular Meu GET (Gasto Energético Total): Guia e Calculadora",
+    desc: "Aprenda de verdade como calcular meu get com equações validadas (Mifflin e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.",
+    data: "2026-07-22",
+    schemasExtra: [
+      getMedicalSchema("Fisiologia do Metabolismo e Gasto Calórico", "https://www.nutricaocommarco.com.br/como-calcular-meu-get", ["Taxa Metabólica Basal", "Gasto Energético Total", "Equação de Mifflin-St Jeor"])
+    ]
+  },
   { 
     id: 29, 
     link: "/como-ganhar-tempo-na-cozinha", 
@@ -379,7 +379,7 @@ routes.forEach(route => {
     });
   }
 
-  // 🔴 A MÁGICA FINAL ACONTECE AQUI: REGEX SUPREMA 🔴
+// 🔴 A MÁGICA FINAL ACONTECE AQUI: REGEX SUPREMA 🔴
   // Remove qualquer title, description, og ou canonical, INDEPENDENTE da ordem dos atributos
   let cleanHtml = fileContent
     .replace(/<title[^>]*>[\s\S]*?<\/title>/gi, '') 
@@ -387,14 +387,14 @@ routes.forEach(route => {
     .replace(/<meta(?=[^>]*property=['"]og:[^'"]+['"])[^>]*>/gi, '') 
     .replace(/<link(?=[^>]*rel=['"]canonical['"])[^>]*>/gi, ''); 
 
-  // 🤖 OTIMIZAÇÃO EXCLUSIVA PARA O WHATSAPP
-  // O WhatsApp odeia arquivos grandes e formato .webp na tag og:image.
-  // Usamos o wsrv.nl para gerar um .jpg de 800px super leve automaticamente!
-  const imgCleanUrl = route.image.replace('https://', '');
-  const imgWhatsApp = `https://wsrv.nl/?url=${imgCleanUrl}&w=1200&output=jpg&q=85`;
+  // 🤖 OTIMIZAÇÃO EXCLUSIVA PARA O GOOGLE DISCOVER / WHATSAPP
+  // Convertendo a URL Raw para o CDN Statically (Fim do erro de robots.txt)
+  const imgWhatsApp = route.image.replace(
+    'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/', 
+    'https://cdn.statically.io/img/gh/nutricaocommarco/nutricaocommarco@main/'
+  ) + '?w=1200&h=675&f=jpeg&q=85';
+
   // Injetamos as tags FÍSICAS limpas!
-  // Adicionamos as tags de width, height e type para o WhatsApp carregar a imagem instantaneamente
-// Injetamos as tags FÍSICAS limpas!
   const tagsCorretas = `
     <title>${route.title}</title>
     <meta name="description" content="${route.desc}" />
@@ -414,5 +414,5 @@ routes.forEach(route => {
   const html = cleanHtml.replace('</head>', `${tagsCorretas}</head>`);
 
   fs.writeFileSync(targetFile, html);
-  console.log(`✅ [${safePath}] Blindado com Regex e Otimizado para WhatsApp!`);
+  console.log(`✅ [${safePath}] Blindado com Statically e 100% Liberado no Googlebot!`);
 });
