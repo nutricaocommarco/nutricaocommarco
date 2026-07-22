@@ -61,7 +61,7 @@ const postsBlog = [
     ]
   },
   { 
-    id: 28, // Ajuste o ID conforme a sequência do seu blog
+    id: 28, 
     link: "/o-que-e-dieta-mediterranea", 
     img: `${githubImgBase}Blog/DietaMediterranea_Capa.webp`, 
     titulo: "O Que É Dieta Mediterrânea? O Segredo para Saúde e Longevidade", 
@@ -75,7 +75,6 @@ const postsBlog = [
       )
     ]
   },
-
   { 
     id: 27, 
     link: "/o-que-e-dieta-low-carb", 
@@ -85,8 +84,6 @@ const postsBlog = [
     data: "2026-07-15",
     schemasExtra: [getMedicalSchema("Dieta Low Carb e Impactos Metabólicos", "https://www.nutricaocommarco.com.br/o-que-e-dieta-low-carb", ["Dieta Low-Carb", "Metabolismo de Carboidratos", "Sensibilidade à Insulina"])]
   },
-
-  // 26 ok
   { 
     id: 26, 
     link: "/o-que-e-dieta-cetogenica", 
@@ -96,8 +93,6 @@ const postsBlog = [
     data: "2026-07-14",
     schemasExtra: [getMedicalSchema("Dieta Cetogênica e Emagrecimento", "https://www.nutricaocommarco.com.br/o-que-e-dieta-cetogenica", ["Dieta Cetogênica", "Cetose", "Metabolismo de Gorduras"])]
   },
-
-// 25 ok
   { 
     id: 25, 
     link: "/o-que-e-jejum-intermitente", 
@@ -107,8 +102,6 @@ const postsBlog = [
     data: "2026-07-12",
     schemasExtra: [getMedicalSchema("Efeitos do Jejum Intermitente", "https://www.nutricaocommarco.com.br/o-que-e-jejum-intermitente", ["Jejum Intermitente", "Metabolismo", "Perda de Peso"])]
   },
-
-// 24 ok
   { 
     id: 24, 
     link: "/melhor-horario-para-tomar-ferro", 
@@ -117,8 +110,6 @@ const postsBlog = [
     desc: "Você está tomando ferro do jeito errado? Descubra qual o melhor horário para tomar ferro e ter absorção máxima, os sintomas ocultos da anemia e o que bloqueia o nutriente.", 
     data: "2026-04-26" 
   },
-
-// 23 ok 
   { 
     id: 23, 
     link: "/percentual-gordura-feminino-ideal", 
@@ -127,11 +118,9 @@ const postsBlog = [
     desc: "Pare de olhar apenas para a balança. Entenda as tabelas reais de referência e descubra qual o percentual de gordura feminino ideal para a sua idade e saúde.", 
     data: "2026-04-24" 
   },
-
-// 22 ok 
   { 
     id: 22, 
-link: "/o-que-comer-na-tpm", 
+    link: "/o-que-comer-na-tpm", 
     img: `${githubImgBase}Blog/TPM.webp`, 
     titulo: "O Que Comer na TPM: O Guia Para Controlar a Fome e Emagrecer", 
     desc: "Descubra exatamente o que comer na TPM para aliviar os sintomas, controlar a fome por doces e manter o emagrecimento, entendendo a fisiologia do seu ciclo.", 
@@ -144,8 +133,6 @@ link: "/o-que-comer-na-tpm",
       )
     ]
   },
-
-// 21 ok 
   { 
     id: 21, 
     link: "/quantas-calorias-gasto-por-dia", 
@@ -202,8 +189,6 @@ link: "/o-que-comer-na-tpm",
     desc: "Você come por fome ou por estresse? Aprenda técnicas reais da nutrição comportamental e use a 'Escala de Fome' para vencer a compulsão alimentar.", 
     data: "2026-03-27" 
   },
-
-// 14 ok 
   { 
     id: 14, 
     link: "/tirzepatida-para-que-serve", 
@@ -229,8 +214,6 @@ link: "/o-que-comer-na-tpm",
     desc: "Conheça a Retatrutida, o novo medicamento em testes que atua em 3 hormônios simultâneos. Veja as promessas científicas para a obesidade.", 
     data: "2026-03-24" 
   },
-
-  // 11 ok 
   { 
     id: 11, 
     link: "/diabetico_pode_comer_beterraba", 
@@ -239,8 +222,6 @@ link: "/o-que-comer-na-tpm",
     desc: "Eles disseram que a beterraba era um veneno para diabéticos. Descubra se Diabético pode comer beterraba e por que você não precisa ter medo.", 
     data: "2026-03-24" 
   },
-
-  // 10 ok 
   { 
     id: 10, 
     link: "/qual_melhor_horario_para_se_pesar", 
@@ -265,8 +246,6 @@ link: "/o-que-comer-na-tpm",
     desc: "Por que você volta a engordar? Descubra como a Grelina e a Leptina comandam o seu cérebro e veja o que fazer para vencer a inflamação e a fome crônica.", 
     data: "2026-03-18" 
   },
-
-  // 7 ok 
   { 
     id: 7, 
     link: "/por_que_o_feijao_da_gases", 
@@ -291,8 +270,6 @@ link: "/o-que-comer-na-tpm",
     desc: "Engordar e emagrecer rapidamente destrói suas células. Descubra a verdade silenciosa por trás do efeito sanfona e como frear a inflamação celular.", 
     data: "2026-03-15" 
   },
-
-// 4 ok 
   { 
     id: 4, 
     link: "/quantas_frutas_posso_comer", 
@@ -353,15 +330,13 @@ routes.forEach(route => {
   let targetFile = '';
   let fileContent = '';
 
-if (fs.existsSync(fileAsHtml)) {
+  if (fs.existsSync(fileAsHtml)) {
     targetFile = fileAsHtml;
     fileContent = fs.readFileSync(fileAsHtml, 'utf-8');
   } else if (fs.existsSync(dirAsIndex)) {
     targetFile = dirAsIndex;
     fileContent = fs.readFileSync(dirAsIndex, 'utf-8');
   } else {
-    // 🔴 AQUI ESTÁ A CORREÇÃO MÁGICA 🔴
-    // Em vez de criar uma pasta, criamos diretamente o arquivo .html que a Vercel exige!
     targetFile = fileAsHtml; 
     fileContent = baseTemplate;
   }
@@ -401,7 +376,14 @@ if (fs.existsSync(fileAsHtml)) {
     .replace(/<meta(?=[^>]*property=['"]og:[^'"]+['"])[^>]*>/gi, '') 
     .replace(/<link(?=[^>]*rel=['"]canonical['"])[^>]*>/gi, ''); 
 
+  // 🤖 OTIMIZAÇÃO EXCLUSIVA PARA O WHATSAPP
+  // O WhatsApp odeia arquivos grandes e formato .webp na tag og:image.
+  // Usamos o wsrv.nl para gerar um .jpg de 800px super leve automaticamente!
+  const imgCleanUrl = route.image.replace('https://', '');
+  const imgWhatsApp = `https://wsrv.nl/?url=${imgCleanUrl}&w=800&output=jpg&q=70`;
+
   // Injetamos as tags FÍSICAS limpas!
+  // Adicionamos as tags de width, height e type para o WhatsApp carregar a imagem instantaneamente
   const tagsCorretas = `
     <title>${route.title}</title>
     <meta name="description" content="${route.desc}" />
@@ -410,7 +392,10 @@ if (fs.existsSync(fileAsHtml)) {
     <meta property="og:type" content="${isBlog ? 'article' : 'website'}" />
     <meta property="og:title" content="${route.title}" />
     <meta property="og:description" content="${route.desc}" />
-    <meta property="og:image" content="${route.image}" />
+    <meta property="og:image" content="${imgWhatsApp}" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="450" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:url" content="${urlAbsoluta}" />
     ${schemasHTML}
   `;
@@ -418,5 +403,5 @@ if (fs.existsSync(fileAsHtml)) {
   const html = cleanHtml.replace('</head>', `${tagsCorretas}</head>`);
 
   fs.writeFileSync(targetFile, html);
-  console.log(`✅ [${safePath}] Blindado com Regex Suprema!`);
+  console.log(`✅ [${safePath}] Blindado com Regex e Otimizado para WhatsApp!`);
 });
