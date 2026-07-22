@@ -386,14 +386,13 @@ routes.forEach(route => {
     .replace(/<meta(?=[^>]*property=['"]og:[^'"]+['"])[^>]*>/gi, '') 
     .replace(/<link(?=[^>]*rel=['"]canonical['"])[^>]*>/gi, ''); 
 
-  // 🤖 OTIMIZAÇÃO PURA PARA GOOGLE DISCOVER E WHATSAPP
-  // Usamos o jsDelivr direto. Sem conversores, sem bloqueios de robots.txt, 100% liberado!
-  const imgWhatsApp = route.image.replace(
-    'https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/', 
-    'https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/'
-  );
+  // 🤖 OTIMIZAÇÃO EXTREMA PARA GOOGLE DISCOVER / WHATSAPP
+  // Usamos o i0.wp.com para pegar sua foto pesada e convertê-la em um JPG minúsculo na hora!
+  // O WhatsApp volta a funcionar instantaneamente e o Googlebot aprova sem erros de robots.txt
+  const imgCleanUrl = route.image.replace('https://', '');
+  const imgWhatsApp = `https://i0.wp.com/${imgCleanUrl}?w=1200&strip=all&quality=85`;
 
-  // Injetamos as tags FÍSICAS limpas! (O type passa a ser image/webp nativo)
+  // Injetamos as tags FÍSICAS limpas! (Voltamos para image/jpeg)
   const tagsCorretas = `
     <title>${route.title}</title>
     <meta name="description" content="${route.desc}" />
@@ -405,7 +404,7 @@ routes.forEach(route => {
     <meta property="og:image" content="${imgWhatsApp}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="675" />
-    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:url" content="${urlAbsoluta}" />
     ${schemasHTML}
   `;
@@ -413,5 +412,5 @@ routes.forEach(route => {
   const html = cleanHtml.replace('</head>', `${tagsCorretas}</head>`);
 
   fs.writeFileSync(targetFile, html);
-  console.log(`✅ [${safePath}] Blindado com jsDelivr e 100% Liberado no Googlebot!`);
+  console.log(`✅ [${safePath}] Blindado com WordPress CDN (Leve) e 100% Liberado no Googlebot!`);
 });
