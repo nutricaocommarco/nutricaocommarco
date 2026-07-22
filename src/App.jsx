@@ -2,6 +2,8 @@ import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Instagram, Menu, X, Mail, ChevronDown } from 'lucide-react';
 import { HelmetProvider } from 'react-helmet-async';
+import Loja from './pages/Loja_do_Pingus/Loja';
+import ProdutoDetalhe from './pages/Loja_do_Pingus/ProdutoDetalhe';
 
 const lazyRetry = (importFn) => {
   return lazy(async () => {
@@ -57,6 +59,7 @@ const DietaMediterranea = lazyRetry(() => import('./pages/DietaMediterranea'));
 const ComoGanharTempoCozinha = lazyRetry(() => import('./pages/ComoGanharTempoCozinha'));
 const EbookReceitas = lazyRetry(() => import('./pages/Ebook-Receitas'));
 const ComoCalcularMeuGet = lazyRetry(() => import('./pages/ComoCalcularMeuGet'));
+
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -260,6 +263,8 @@ export default function App() {
               <Route path="/como-ganhar-tempo-na-cozinha" element={<ComoGanharTempoCozinha />} />
               <Route path="/ebook-receitas" element={<EbookReceitas />} />
               <Route path="/como-calcular-meu-get" element={<ComoCalcularMeuGet />} />
+              <Route path="/loja" element={<Loja />} />
+              <Route path="/loja/:id" element={<ProdutoDetalhe />} />
             </Routes>
           </Suspense>
         </Layout>

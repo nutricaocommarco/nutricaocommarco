@@ -30,6 +30,23 @@ function getBreadcrumbSchema(nomePagina, url) {
   };
 }
 
+function getProductSchema(titulo, url, imagem, descricao, preco) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": titulo,
+    "image": imagem,
+    "description": descricao,
+    "offers": {
+      "@type": "Offer",
+      "url": url,
+      "priceCurrency": "BRL",
+      "price": preco,
+      "availability": "https://schema.org/InStock"
+    }
+  };
+}
+
 // 📝 1. TODAS AS ROTAS ESTÁTICAS
 const rotasEstaticas = [
   { path: 'planilha-de-avaliacao-antropometrica-marco-aurelio', title: 'Planilha de Avaliação Antropométrica Inteligente PRO | Nutrição com Marco', image: `${githubImgBase}PlanilhaImagem/Planilha_Capa.webp`, desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.' },
@@ -43,7 +60,33 @@ const rotasEstaticas = [
   { path: 'parceria-inatividade-zero', title: 'Avaliação Antropométrica de Precisão - Parceria Inatividade Zero | Nutrição com Marco', image: `${githubImgBase}PingusReserva.jpg`, desc: 'Agende sua avaliação antropométrica avançada na Academia Inatividade Zero em parceria com Nutrição com Marco e descubra sua composição corporal real.' }
 ];
 
-// 📝 2. TODOS OS POSTS DO BLOG
+// 📝 2. ROTAS DA LOJA
+const rotasLoja = [
+  { path: 'loja', title: 'Loja do Píngus | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.webp`, desc: 'Conheça a Loja oficial do Píngus. Canecas exclusivas, aventais e produtos com muito estilo para a sua rotina.' },
+  { 
+    path: 'loja/caneca-pingus-conselheiro-nutricional', 
+    title: 'Caneca Píngus Conselheiro Nutricional | Loja do Píngus', 
+    image: 'https://images.mont.ink/mockup/431585/branco_0_5823852.jpg', 
+    desc: 'Transforme seus momentos com essa caneca cheia de estilo. Ideal para café ou chá, combina resistência e design versátil.', 
+    schemasExtra: [getProductSchema("Caneca Píngus Conselheiro Nutricional", "https://www.nutricaocommarco.com.br/loja/caneca-pingus-conselheiro-nutricional", "https://images.mont.ink/mockup/431585/branco_0_5823852.jpg", "Transforme seus momentos com essa caneca cheia de estilo e personalidade.", "50.00")] 
+  },
+  { 
+    path: 'loja/caneca-pingus-sua-melhor-versao', 
+    title: 'Caneca Píngus Sua Melhor Versão | Loja do Píngus', 
+    image: 'https://images.mont.ink/mockup/431585/branco_0_5824055.jpg', 
+    desc: 'Caneca exclusiva com design inspirador. Ideal para presentear alguém especial ou dar um charme na sua rotina diária.', 
+    schemasExtra: [getProductSchema("Caneca Píngus Sua Melhor Versão", "https://www.nutricaocommarco.com.br/loja/caneca-pingus-sua-melhor-versao", "https://images.mont.ink/mockup/431585/branco_0_5824055.jpg", "Caneca exclusiva com design inspirador.", "50.00")] 
+  },
+  { 
+    path: 'loja/avental-pingus', 
+    title: 'Avental Píngus | Loja do Píngus', 
+    image: 'https://images.mont.ink/mockup/431585/branco_0_5820286.png', 
+    desc: 'Avental resistente e confortável, ideal para o dia a dia ou uso profissional. Com ajuste fácil e material durável.', 
+    schemasExtra: [getProductSchema("Avental Píngus", "https://www.nutricaocommarco.com.br/loja/avental-pingus", "https://images.mont.ink/mockup/431585/branco_0_5820286.png", "Avental resistente e confortável, ideal para o dia a dia ou uso profissional.", "75.00")] 
+  }
+];
+
+// 📝 3. TODOS OS POSTS DO BLOG
 const postsBlog = [
   {
     id: 29,
@@ -326,7 +369,7 @@ const rotasDoBlog = postsBlog.map(post => ({
   schemasExtra: post.schemasExtra || [] 
 }));
 
-const routes = [...rotasEstaticas, ...rotasDoBlog];
+const routes = [...rotasEstaticas, ...rotasLoja, ...rotasDoBlog];
 const distPath = path.resolve('dist');
 const baseTemplate = fs.readFileSync(path.join(distPath, 'index.html'), 'utf-8');
 
@@ -353,7 +396,7 @@ routes.forEach(route => {
   }
 
   const urlAbsoluta = `https://www.nutricaocommarco.com.br/${safePath}`;
-  const isBlog = safePath !== 'sobre' && safePath !== 'certificacoes' && safePath !== 'planos' && !safePath.includes('planilha');
+  const isBlog = safePath !== 'sobre' && safePath !== 'certificacoes' && safePath !== 'planos' && !safePath.includes('planilha') && !safePath.includes('loja');
 
   // SCHEMA
   const baseSchema = {
@@ -379,7 +422,7 @@ routes.forEach(route => {
     });
   }
 
-// 🔴 A MÁGICA FINAL ACONTECE AQUI: REGEX SUPREMA 🔴
+  // 🔴 A MÁGICA FINAL ACONTECE AQUI: REGEX SUPREMA 🔴
   let cleanHtml = fileContent
     .replace(/<title[^>]*>[\s\S]*?<\/title>/gi, '') 
     .replace(/<meta(?=[^>]*name=['"]description['"])[^>]*>/gi, '') 
@@ -387,12 +430,11 @@ routes.forEach(route => {
     .replace(/<link(?=[^>]*rel=['"]canonical['"])[^>]*>/gi, ''); 
 
   // 🤖 OTIMIZAÇÃO EXTREMA PARA GOOGLE DISCOVER / WHATSAPP
-  // Usamos o i0.wp.com para pegar sua foto pesada e convertê-la em um JPG minúsculo na hora!
-  // O WhatsApp volta a funcionar instantaneamente e o Googlebot aprova sem erros de robots.txt
-  const imgCleanUrl = route.image.replace('https://', '');
+  // Se for imagem externa (como da loja), usamos i0.wp.com. Se for GitHub raw, também converte.
+  const imgCleanUrl = route.image.replace(/^https?:\/\//i, '');
   const imgWhatsApp = `https://i0.wp.com/${imgCleanUrl}?w=1200&strip=all&quality=85`;
 
-  // Injetamos as tags FÍSICAS limpas! (Voltamos para image/jpeg)
+  // Injetamos as tags FÍSICAS limpas!
   const tagsCorretas = `
     <title>${route.title}</title>
     <meta name="description" content="${route.desc}" />
