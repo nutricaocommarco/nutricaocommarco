@@ -45,6 +45,17 @@ const rotasEstaticas = [
 
 // 📝 2. TODOS OS POSTS DO BLOG
 const postsBlog = [
+  {
+  id: 29,
+  link: "/como-calcular-meu-get",
+  img: `${githubImgBase}Blog/CalculoGET_Capa.webp`,
+  titulo: "Como Calcular Meu GET (Gasto Energético Total): Guia e Calculadora",
+  desc: "Aprenda de verdade como calcular meu get com equações validadas (Mifflin e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.",
+  data: "2026-07-22",
+  schemasExtra: [
+    getMedicalSchema("Fisiologia do Metabolismo e Gasto Calórico", "https://www.nutricaocommarco.com.br/como-calcular-meu-get", ["Taxa Metabólica Basal", "Gasto Energético Total", "Equação de Mifflin-St Jeor"])
+  ]
+},
   { 
     id: 29, 
     link: "/como-ganhar-tempo-na-cozinha", 
