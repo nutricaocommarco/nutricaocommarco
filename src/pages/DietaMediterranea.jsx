@@ -4,7 +4,7 @@ import ImagemOtimizada from '../components/ImagemOtimizada';
 import { 
   ChevronLeft, HelpCircle, Activity, Leaf, Heart, FileText, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
-  Droplet, Fish, Wheat, Wine, CheckCircle2, XCircle, Globe, Scale, Brain, Dna, Target
+  Droplet, Fish, Wheat, Wine, CheckCircle2, XCircle, Globe, Scale, Brain, Dna, Target, Star
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
@@ -62,6 +62,7 @@ export default function OQueEDietaMediterranea() {
   const navigate = useNavigate();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const [hasRated, setHasRated] = useState(false);
   
   // Estados da Calculadora de Aderência PREDIMED
   const [respostasQuiz, setRespostasQuiz] = useState(Array(14).fill(null));
@@ -181,7 +182,7 @@ export default function OQueEDietaMediterranea() {
             <nav className="bg-slate-50">
               <button 
                 onClick={() => setIsTocOpen(!isTocOpen)}
-                className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
+                className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group cursor-pointer border-none bg-transparent"
               >
                 <div className="flex items-center gap-3">
                   <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
@@ -219,22 +220,22 @@ export default function OQueEDietaMediterranea() {
               Saber de fato <strong>o que é dieta mediterrânea</strong> é entender que a nutrição ideal foca muito mais na <em>qualidade</em> e na <em>sinergia</em> dos alimentos, do que em cortar macros de forma desesperada. Vamos mergulhar na ciência desse padrão que a medicina considera o verdadeiro "santo graal" da longevidade.
             </p>
                          
-<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
-            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
-              <ImagemOtimizada 
-                src={dietaCapa}
-                alt="Pinguim Pingus com chapéu de chef ao lado da pirâmide da Dieta Mediterrânea, rica em azeite, vegetais, frutas e peixes."
-                title="A Pirâmide da Dieta Mediterrânea e o Pingus"
-                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
-                priority="high"
-              />
-            </div>
-            <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
-              <p className="text-xs md:text-sm text-slate-600 font-bold uppercase tracking-widest text-center m-0">
-                O azeite de oliva, os vegetais frescos e os pescados formam o coração de um metabolismo saudável.
-              </p>
-            </figcaption>
-          </figure>
+            <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+              <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+                <ImagemOtimizada 
+                  src={dietaCapa}
+                  alt="Pinguim Pingus com chapéu de chef ao lado da pirâmide da Dieta Mediterrânea, rica em azeite, vegetais, frutas e peixes."
+                  title="A Pirâmide da Dieta Mediterrânea e o Pingus"
+                  className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+                  priority="high"
+                />
+              </div>
+              <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
+                <p className="text-xs md:text-sm text-slate-600 font-bold uppercase tracking-widest text-center m-0">
+                  O azeite de oliva, os vegetais frescos e os pescados formam o coração de um metabolismo saudável.
+                </p>
+              </figcaption>
+            </figure>
 
             <h2 id="historia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
               <Globe className="text-green-700"/> A História: O Estudo dos 7 Países e as Blue Zones
@@ -284,7 +285,7 @@ export default function OQueEDietaMediterranea() {
               <Heart className="text-green-700"/> A Ciência: Estudo PREDIMED e Proteção ao Coração
             </h2>
             <p>
-              O status de "melhor dieta do mundo" não foi ganho por votos na internet, mas por ensaios clínicos monumentais. Um dos mais poderosos foi o estudo espanhol <strong>PREDIMED</strong>, publicado no <em>The New England Journal of Medicine</em> em 2013. 
+              O status de "melhor dieta do mundo" não foi ganho por votos na internet, mas por ensaios clínicos monumentais. Um dos mais poderosos foi o estudo espanhol <strong>PREDIMED</strong>, publicado no <a href="https://www.nejm.org/doi/full/10.1056/nejmoa1200303" target="_blank" rel="noopener noreferrer nofollow" className="text-green-700 underline font-medium"><em>The New England Journal of Medicine</em></a> em 2013. 
             </p>
             <p>
               O estudo queria verificar se essa dieta realmente protegia o coração de pessoas em alto risco cardiovascular. Eles dividiram as pessoas em três grupos: um seguiu a Dieta Mediterrânea consumindo bastante Azeite Extra Virgem (4 colheres/dia); o segundo seguiu a dieta recebendo um mix diário de nozes; e o terceiro grupo (controle) recebeu ordens apenas para reduzir gorduras totais (Low Fat).
@@ -316,7 +317,7 @@ export default function OQueEDietaMediterranea() {
               Essa é a pergunta de ouro no consultório. Se a dieta tem tanto azeite, nozes e peixes (fontes de gordura e calorias), ela engorda? A resposta científica é: <strong>ela não só não engorda, como é excelente para o emagrecimento sustentável</strong>. No entanto, precisamos ser honestos.
             </p>
             <p>
-              O estudo CARDIVEG comparou diretamente a dieta mediterrânea de baixa caloria com uma dieta vegetariana de baixa caloria por 3 meses. A conclusão clínica foi que <strong>ambas as dietas foram igualmente eficazes na redução do peso corporal e na perda de massa gorda</strong>. Ou seja, para o ponteiro da balança descer de verdade, o que manda é a magnitude do seu déficit calórico. Se você comer baldes de azeite e montanhas de arroz integral, não vai emagrecer. 
+              O <a href="https://pubmed.ncbi.nlm. journalists/34959972" target="_blank" rel="noopener noreferrer nofollow" className="text-green-700 underline font-medium">estudo CARDIVEG</a> comparou diretamente a dieta mediterrânea de baixa caloria com uma dieta vegetariana de baixa caloria por 3 meses. A conclusão clínica foi que <strong>ambas as dietas foram igualmente eficazes na redução do peso corporal e na perda de massa gorda</strong>. Ou seja, para o ponteiro da balança descer de verdade, o que manda é a magnitude do seu déficit calórico. Se você comer baldes de azeite e montanhas de arroz integral, não vai emagrecer. 
             </p>
             <p>
               Contudo, a grande diferença está na saúde dos seus exames de sangue e na facilidade de adesão! O estudo também comprovou que a Dieta Mediterrânea levou a uma maior redução dos níveis de triglicerídeos no sangue do que a dieta vegetariana. Como esse padrão alimentar é muito farto, a sua digestão fica mais lenta e os níveis do <Link to="/hormonios_da_fome_emagrecimento" className="text-green-700 font-bold hover:underline">hormônio da saciedade disparam</Link>. Você emagrece sem passar o dia de mau humor, blindando-se contra a perigosa <Link to="/o-que-e-fome-emocional" className="text-green-700 font-bold hover:underline">fome emocional</Link>.
@@ -347,13 +348,13 @@ export default function OQueEDietaMediterranea() {
                     <div className="flex items-center gap-2 md:w-1/4 justify-start md:justify-end">
                       <button 
                         onClick={() => handleResposta(index, true)}
-                        className={`px-4 py-2 rounded-xl text-xs font-black uppercase transition-all ${respostasQuiz[index] === true ? 'bg-green-600 text-white' : 'bg-white border border-slate-200 text-slate-500 hover:border-green-500'}`}
+                        className={`px-4 py-2 rounded-xl text-xs font-black uppercase transition-all ${respostasQuiz[index] === true ? 'bg-green-600 text-white' : 'bg-white border border-slate-200 text-slate-500 hover:border-green-500 cursor-pointer'}`}
                       >
                         Sim
                       </button>
                       <button 
                         onClick={() => handleResposta(index, false)}
-                        className={`px-4 py-2 rounded-xl text-xs font-black uppercase transition-all ${respostasQuiz[index] === false ? 'bg-red-600 text-white' : 'bg-white border border-slate-200 text-slate-500 hover:border-red-500'}`}
+                        className={`px-4 py-2 rounded-xl text-xs font-black uppercase transition-all ${respostasQuiz[index] === false ? 'bg-red-600 text-white' : 'bg-white border border-slate-200 text-slate-500 hover:border-red-500 cursor-pointer'}`}
                       >
                         Não
                       </button>
@@ -365,7 +366,7 @@ export default function OQueEDietaMediterranea() {
                   <button 
                     onClick={calcularScore}
                     disabled={respostasQuiz.includes(null)}
-                    className="bg-slate-900 text-white px-10 py-4 rounded-full font-black uppercase tracking-widest text-sm hover:bg-green-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-xl"
+                    className="bg-slate-900 text-white px-10 py-4 rounded-full font-black uppercase tracking-widest text-sm hover:bg-green-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-xl border-none cursor-pointer"
                   >
                     Ver Meu Resultado Final
                   </button>
@@ -456,7 +457,7 @@ export default function OQueEDietaMediterranea() {
               Para ver com clareza como aplicar esse conhecimento poderoso na sua cozinha amanhã mesmo, deixo aqui uma excelente aula da nutricionista Patricia Leite sobre os pilares práticos e benefícios dessa que é considerada por especialistas uma das intervenções alimentares mais seguras e recomendadas da literatura médica.
             </p>
 
-            {/* VIDEO LAZY LOADING */}
+            {/* VIDEO LAZY LOADING COM SCHEMA EMBUTIDO NO PRERENDER */}
             <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
@@ -469,25 +470,19 @@ export default function OQueEDietaMediterranea() {
               </div>
             </div>
 
-{/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (FRIGIDEIRA SEM ÓLEO) */}
+            {/* AFILIADO MERCADO LIVRE - O PINGUS APROVA (FRIGIDEIRA SEM ÓLEO) */}
             <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
-                {/* SELO NO CANTO SUPERIOR */}
                 <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
                     <span>O Pingus Aprova!</span>
                 </div>
 
-                {/* CONTAINER FLEXÍVEL (IMAGEM + TEXTO) */}
                 <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
-                    {/* FOTO DO PINGUS (AUTORIDADE) */}
                     <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-                        <img 
+                        <ImagemOtimizada 
                             src={`${githubImgBase}logoN_pingus.webp`} 
                             alt="Selo de Qualidade Pingus" 
                             className="w-full h-full object-contain" 
-                            width="160"
-                            height="160"
-                            loading="lazy"
                         />
                     </div>
 
@@ -496,15 +491,15 @@ export default function OQueEDietaMediterranea() {
                             Frigideira Antiaderente <span className="text-green-700">Cerâmica Premium</span>
                         </h4>
 
-                        {/* IMAGEM DO PRODUTO ATUALIZADA */}
                         <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
-                            <img 
+                            <ImagemOtimizada 
                                 src={`${githubImgBase}Afiliado/Frigideira01.webp`} 
                                 alt="Frigideira Antiaderente de Cerâmica" 
                                 className="w-full h-auto object-contain" 
-                                width="200"
-                                height="200"
-                                loading="lazy"
+                                onError={(e) => {
+                                  e.target.onerror = null; 
+                                  e.target.src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&q=80&w=400";
+                                }}
                             />
                         </div>
 
@@ -512,26 +507,49 @@ export default function OQueEDietaMediterranea() {
                             Uma alimentação não precisa ser rica em manteiga ou óleo todo dia. Para garantir os benefícios de uma alimentação gostosa e saudável sem adicionar gorduras ruins à sua rotina, <strong>o ideal é uma frigideira de cerâmica de alta qualidade, onde o alimento não gruda, dispensando o uso de óleo</strong>. É praticidade e saúde na cozinha.
                         </p>
 
-                        {/* BOTÃO COM LINK AFILIADO */}
                         <a 
                             href="https://meli.la/1KmaEhC" 
                             rel="sponsored noopener noreferrer" 
                             target="_blank"
                             className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                            aria-label="Comprar Frigideira Antiaderente no Mercado Livre"
                         >
                             <ShoppingCart size={16} />
                             Comprar no Mercado Livre
                         </a>
                     </div>
-                </div> {/* FIM DO CONTAINER FLEXÍVEL */}
+                </div> 
 
-                {/* DISCLOSURE OBRIGATÓRIO (AGORA FORA DO CONTAINER FLEXÍVEL) */}
                 <div className="mt-12 pt-6 border-t border-green-50 text-center">
                     <p className="text-[9px] text-slate-400 uppercase tracking-widest leading-relaxed max-w-md mx-auto m-0">
                         Ao comprar pelo link, o blog recebe uma comissão que ajuda a manter os nossos artigos científicos gratuitos, sem gerar custo nenhum para você.
                     </p>
                 </div>
             </div>
+
+            {/* SEÇÃO DE AVALIAÇÃO DO USUÁRIO (RATING) P/ GERAR O SCHEMA NA SERP */}
+            {!hasRated && (
+              <div className="my-12 p-6 bg-slate-50 rounded-3xl border border-slate-200 flex flex-col items-center justify-center text-center">
+                <p className="text-sm font-black text-slate-700 uppercase tracking-widest mb-3">Esse conteúdo foi útil para você?</p>
+                <div className="flex gap-2">
+                  {[1,2,3,4,5].map((star) => (
+                    <button 
+                      key={star} 
+                      onClick={() => setHasRated(true)}
+                      className="text-slate-300 hover:text-yellow-400 transition-colors bg-transparent border-none cursor-pointer p-0"
+                      aria-label={`Avaliar com ${star} estrelas`}
+                    >
+                      <Star size={32} className="fill-current" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+            {hasRated && (
+               <div className="my-12 p-6 bg-green-50 rounded-3xl border border-green-200 flex items-center justify-center text-center text-green-700 font-bold gap-2">
+                 <CheckCircle2 size={20} /> Obrigado por avaliar nosso trabalho!
+               </div>
+            )}
 
             {/* SEÇÃO DE CONCLUSÃO */}
             <h2 id="conclusao" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
@@ -554,7 +572,9 @@ export default function OQueEDietaMediterranea() {
                   <div key={index} className="bg-slate-50 rounded-3xl border border-green-100 overflow-hidden transition-all duration-300">
                     <button
                       onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                      className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
+                      aria-expanded={openFaqIndex === index}
+                      aria-label={`Abrir resposta para: ${faq.pergunta}`}
+                      className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group bg-transparent border-none cursor-pointer"
                     >
                       <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-700' : 'text-slate-800 group-hover:text-green-700'}`}>
                         {faq.pergunta}
@@ -578,15 +598,11 @@ export default function OQueEDietaMediterranea() {
         {/* CARTÃO AUTOR */}
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
-            <img 
+            <ImagemOtimizada 
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr. - Autor e Nutricionista focado em Ciência" 
               title="Marco Aurélio Jr. - Estudante de Nutrição ISAK 1"
               className="w-full h-full object-cover"
-              width="96"
-              height="96"
-              loading="lazy"
-              onError={(e) => { e.target.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>👨‍⚕️</text></svg>"; }}
             />
           </div>
 

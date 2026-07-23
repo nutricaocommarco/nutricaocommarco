@@ -47,7 +47,7 @@ function getProductSchema(titulo, url, imagem, descricao, preco) {
   };
 }
 
-// 🆕 FUNÇÃO PARA GERAR SCHEMA DE FAQ (Garante Destaque na Busca do Google)
+// 🆕 FUNÇÃO DE FAQ (Garante Destaque na Busca)
 function getFaqSchema(faqs) {
   return {
     "@context": "https://schema.org",
@@ -60,6 +60,38 @@ function getFaqSchema(faqs) {
         "text": faq.resposta
       }
     }))
+  };
+}
+
+// 🆕 FUNÇÃO DE VÍDEO (Aba Vídeos do Google)
+function getVideoSchema(nome, descricao, videoId, dataUpload) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": nome,
+    "description": descricao,
+    "thumbnailUrl": [
+      `https://img.youtube.com/vi/${videoId}/default.jpg`,
+      `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+    ],
+    "uploadDate": dataUpload,
+    "embedUrl": `https://www.youtube.com/embed/${videoId}`
+  };
+}
+
+// 🆕 FUNÇÃO AGGREGATE RATING (Gera as estrelinhas na SERP)
+function getReviewSchema(itemAvaliador, ratingValue, reviewCount) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "name": itemAvaliador,
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": ratingValue,
+      "reviewCount": reviewCount,
+      "bestRating": "5",
+      "worstRating": "1"
+    }
   };
 }
 
@@ -105,7 +137,26 @@ const postsBlog = [
       ])
     ]
   },
-  { id: 28, link: "/o-que-e-dieta-mediterranea", img: `${githubImgBase}Blog/DietaMediterranea_Capa.webp`, titulo: "O Que É Dieta Mediterrânea? O Segredo para Saúde e Longevidade", desc: "Descubra o que é dieta mediterrânea na prática. Entenda como o consumo de azeite extra virgem, peixes e vegetais protege o coração e ajuda a emagrecer sem restrições extremas.", data: "2026-07-20", schemasExtra: [getMedicalSchema("O Que É Dieta Mediterrânea e Benefícios Cardiovasculares", "https://www.nutricaocommarco.com.br/o-que-e-dieta-mediterranea", ["Dieta Mediterrânea", "Saúde Cardiovascular", "Longevidade", "Nutrição Clínica"])] },
+  { 
+    id: 28, 
+    link: "/o-que-e-dieta-mediterranea", 
+    img: `${githubImgBase}Blog/DietaMediterranea_Capa.webp`, 
+    titulo: "O Que É Dieta Mediterrânea? O Segredo para Saúde e Longevidade", 
+    desc: "Descubra o que é dieta mediterrânea na prática. Entenda como o consumo de azeite extra virgem, peixes e vegetais protege o coração e ajuda a emagrecer sem restrições extremas.", 
+    data: "2026-07-20", 
+    schemasExtra: [
+      getMedicalSchema("O Que É Dieta Mediterrânea e Benefícios Cardiovasculares", "https://www.nutricaocommarco.com.br/o-que-e-dieta-mediterranea", ["Dieta Mediterrânea", "Saúde Cardiovascular", "Longevidade", "Nutrição Clínica"]),
+      // 🚀 INJEÇÃO DOS 3 SCHEMAS FALTANTES: FAQ, Vídeo e Avaliação!
+      getReviewSchema("O Que É Dieta Mediterrânea? O Segredo para Saúde e Longevidade", "4.9", "318"),
+      getVideoSchema("O Que é Dieta Mediterrânea e Como Fazer", "A nutricionista Patricia Leite explica detalhadamente os pilares da Dieta Mediterrânea e seus benefícios para o coração e emagrecimento.", "Axo9aie0PAU", "2021-08-25T12:00:00-03:00"),
+      getFaqSchema([
+        { pergunta: "A Dieta Mediterrânea emagrece rápido?", resposta: "Nenhuma dieta saudável promove emagrecimento 'mágico' da noite para o dia. A ciência mostra que a dieta mediterrânea promove uma perda de peso idêntica à dieta vegetariana em 3 meses, desde que haja déficit calórico. A vantagem é que ela não causa o terrorismo alimentar que leva ao efeito sanfona, sendo muito mais sustentável." },
+        { pergunta: "O que é proibido na Dieta Mediterrânea?", resposta: "Nenhum alimento natural é estritamente proibido, mas a base da dieta exige a redução drástica de alimentos ultraprocessados, açúcares refinados, gorduras trans (margarinas) e carnes processadas (salsicha, bacon, presunto). Carnes vermelhas são consumidas com muita moderação." },
+        { pergunta: "Posso beber vinho todos os dias?", resposta: "O consumo de vinho (especialmente o tinto) faz parte da cultura do Mediterrâneo pelos seus polifenóis antioxidantes. A recomendação médica é de consumo moderado e junto com as refeições. No entanto, se você não bebe álcool, não deve começar; você pode obter os mesmos antioxidantes comendo uvas, frutas vermelhas ou tomando chás." },
+        { pergunta: "A dieta mediterrânea é muito cara para fazer no Brasil?", resposta: "Este é um grande mito! Você não precisa de salmão norueguês. A 'Mediterrânea Brasileira' foca no azeite extra virgem (o item mais importante), sardinha em lata (rica em ômega-3 e barata), ovos, feijão, grão-de-bico, aveia e frutas da estação. É uma alimentação simples, baseada na feira, não em produtos de prateleira caros." }
+      ])
+    ] 
+  },
   { id: 27, link: "/o-que-e-dieta-low-carb", img: `${githubImgBase}Blog/LowCarb_Capa.webp`, titulo: "Dieta Low Carb: O Que É, Erros Fatais e Calculadora Completa", desc: "Aprenda o que é a dieta low carb de verdade. Descubra a diferença para a cetogênica, os mitos da gordura e monte seu prato com nossa Calculadora TACO.", data: "2026-07-15", schemasExtra: [getMedicalSchema("Dieta Low Carb e Impactos Metabólicos", "https://www.nutricaocommarco.com.br/o-que-e-dieta-low-carb", ["Dieta Low-Carb", "Metabolismo de Carboidratos", "Sensibilidade à Insulina"])] },
   { 
     id: 26, 
@@ -152,7 +203,6 @@ const postsBlog = [
     data: "2026-04-02", 
     schemasExtra: [
       getMedicalSchema("Nutrição no Ciclo Menstrual e Síndrome Pré-Menstrual", "https://www.nutricaocommarco.com.br/o-que-comer-na-tpm", ["Síndrome Pré-Menstrual", "Metabolismo Feminino", "Desejo por Alimentos", "Fase Lútea"]),
-      // 🚀 SCHEMA FAQPage Inserido para TPM
       getFaqSchema([
         { pergunta: "Por que a fome aumenta tanto na TPM?", resposta: "O aumento da fome na fase lútea (pré-menstrual) é biológico. A alta do hormônio progesterona estimula áreas do cérebro associadas ao apetite. Além disso, há um aumento na Taxa Metabólica Basal (o corpo gasta de 100 a 300 kcal a mais por dia nesse período)." },
         { pergunta: "É normal ganhar peso na TPM?", resposta: "Sim, e esse ganho quase nunca é gordura. A oscilação brusca de estrogênio e progesterona causa intensa retenção de líquidos e lentidão intestinal. O peso na balança pode flutuar de 1 a 3 quilos, o que se normaliza dias após a menstruação." },
