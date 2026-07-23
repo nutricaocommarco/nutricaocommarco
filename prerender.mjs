@@ -107,7 +107,24 @@ const postsBlog = [
   },
   { id: 28, link: "/o-que-e-dieta-mediterranea", img: `${githubImgBase}Blog/DietaMediterranea_Capa.webp`, titulo: "O Que É Dieta Mediterrânea? O Segredo para Saúde e Longevidade", desc: "Descubra o que é dieta mediterrânea na prática. Entenda como o consumo de azeite extra virgem, peixes e vegetais protege o coração e ajuda a emagrecer sem restrições extremas.", data: "2026-07-20", schemasExtra: [getMedicalSchema("O Que É Dieta Mediterrânea e Benefícios Cardiovasculares", "https://www.nutricaocommarco.com.br/o-que-e-dieta-mediterranea", ["Dieta Mediterrânea", "Saúde Cardiovascular", "Longevidade", "Nutrição Clínica"])] },
   { id: 27, link: "/o-que-e-dieta-low-carb", img: `${githubImgBase}Blog/LowCarb_Capa.webp`, titulo: "Dieta Low Carb: O Que É, Erros Fatais e Calculadora Completa", desc: "Aprenda o que é a dieta low carb de verdade. Descubra a diferença para a cetogênica, os mitos da gordura e monte seu prato com nossa Calculadora TACO.", data: "2026-07-15", schemasExtra: [getMedicalSchema("Dieta Low Carb e Impactos Metabólicos", "https://www.nutricaocommarco.com.br/o-que-e-dieta-low-carb", ["Dieta Low-Carb", "Metabolismo de Carboidratos", "Sensibilidade à Insulina"])] },
-  { id: 26, link: "/o-que-e-dieta-cetogenica", img: `${githubImgBase}Blog/DietaCetogenica_Capa.webp`, titulo: "O que é Dieta Cetogênica? Como Entrar em Cetose e Emagrecer | Nutrição com Marco", desc: "O que é Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível, como entrar em Cetose e os perigos de fazer errado.", data: "2026-07-14", schemasExtra: [getMedicalSchema("Dieta Cetogênica e Emagrecimento", "https://www.nutricaocommarco.com.br/o-que-e-dieta-cetogenica", ["Dieta Cetogênica", "Cetose", "Metabolismo de Gorduras"])] },
+  { 
+    id: 26, 
+    link: "/o-que-e-dieta-cetogenica", 
+    img: `${githubImgBase}Blog/DietaCetogenica_Capa.webp`, 
+    titulo: "O que é Dieta Cetogênica? Como Entrar em Cetose e Emagrecer", 
+    desc: "O que é Dieta Cetogênica? Entenda como o seu corpo usa a gordura como combustível, como entrar em Cetose e os perigos de fazer errado.", 
+    data: "2026-07-14", 
+    schemasExtra: [
+      getMedicalSchema("Dieta Cetogênica e Emagrecimento", "https://www.nutricaocommarco.com.br/o-que-e-dieta-cetogenica", ["Dieta Cetogênica", "Cetose", "Metabolismo de Gorduras"]),
+      // 🚀 SCHEMA FAQPage Inserido para Dieta Cetogênica
+      getFaqSchema([
+        { pergunta: "A dieta cetogênica pode causar cetoacidose?", resposta: "Não em pessoas saudáveis. A cetose nutricional induzida pela dieta keto eleva os corpos cetônicos para níveis seguros (entre 0,5 e 7/8 mM) sem alterar o pH do sangue. A cetoacidose é uma condição patológica de urgência médica típica de diabéticos tipo 1 não controlados, onde as cetonas ultrapassam os 25 mM devido à ausência total de insulina, o que acidifica o sangue." },
+        { pergunta: "A dieta keto é boa para hipertrofia (ganhar massa muscular)?", resposta: "Depende do protocolo e do balanço energético. Em um ensaio de 8 semanas com homens treinados realizando musculação associada a uma dieta cetogênica com superávit calórico, os participantes conseguiram reduzir significativamente a massa gorda e a gordura visceral, mas não apresentaram aumento estatisticamente significativo de massa muscular magra. Em contraste, o grupo que consumiu uma dieta tradicional obteve aumento de massa magra sob as mesmas condições de treino." },
+        { pergunta: "O que é a 'gripe cetogênica' e como evitar?", resposta: "A gripe cetogênica é um conjunto de sintomas transitórios (como dor de cabeça, fraqueza, tontura e irritabilidade) que ocorrem nos primeiros dias devido à rápida eliminação de água e minerais. Conforme os estoques de glicogênio são esvaziados e a insulina cai, o corpo elimina muito sódio. Para evitar, capriche na hidratação e reponha eletrólitos consumindo uma quantidade adequada de sal e água mineral." },
+        { pergunta: "Consumir TCM ajuda no emagrecimento ou apenas na energia?", resposta: "Além de acelerar a cetose, os triglicerídeos de cadeia média (TCM) demonstraram ter um efeito preservador sobre a massa livre de gordura durante dietas de baixíssima caloria, aumentando paralelamente a proporção de perda de massa gorda total durante as semanas iniciais da dieta e ajudando na supressão da fome." }
+      ])
+    ] 
+  },
   { 
     id: 25, 
     link: "/o-que-e-jejum-intermitente", 
@@ -117,7 +134,6 @@ const postsBlog = [
     data: "2026-07-12", 
     schemasExtra: [
       getMedicalSchema("Efeitos do Jejum Intermitente", "https://www.nutricaocommarco.com.br/o-que-e-jejum-intermitente", ["Jejum Intermitente", "Metabolismo", "Perda de Peso"]),
-      // 🚀 SCHEMA FAQPage Inserido para Jejum Intermitente
       getFaqSchema([
         { pergunta: "O que exatamente está liberado para tomar durante a janela de jejum?", resposta: "Está liberado o consumo de água filtrada (com ou sem gás), café preto puro e chás de ervas naturais, desde que sejam consumidos totalmente puros, sem nenhuma gota de açúcar, mel ou adoçantes calóricos. Essas bebidas mantêm a sua insulina baixa e não interrompem a queima de gordura do protocolo." },
         { pergunta: "O jejum intermitente pode fazer eu perder a minha massa muscular?", resposta: "Não, desde que você consuma a quantidade correta de proteínas e calorias estipulada para o seu peso corporal dentro da sua janela de alimentação. O catabolismo muscular ocorre quando há um déficit calórico exagerado e prolongado associado à baixa ingestão de proteínas." },

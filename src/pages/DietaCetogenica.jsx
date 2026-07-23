@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ImagemOtimizada from '../components/ImagemOtimizada';
 import YouTubeLazy from '../components/YouTubeLazy';
@@ -11,7 +11,8 @@ import {
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 
-const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+// 🟢 Utilizando o CDN super-rápido (jsDelivr) de forma consistente
+const githubImgBase = "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
 const datePublishedISO = "2026-07-15";
 const dateModifiedISO = "2026-07-15";
@@ -78,18 +79,24 @@ export default function DietaCetogenica() {
             <span className="text-[11px] text-slate-500 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
+          <h1 className="text-4xl md:text-5xl font-black mb-6 uppercase italic leading-tight text-slate-900">
             O Que é Dieta Cetogênica? Guia Definitivo e Científico
           </h1>
+
+          {/* 🚀 AVISO YMYL E-E-A-T DE SAÚDE */}
+          <div className="mb-10 text-xs font-medium text-slate-500 italic bg-slate-50 p-4 rounded-xl border border-slate-100 flex items-center gap-3">
+             <AlertTriangle size={18} className="text-amber-500 shrink-0" />
+             <span><strong>Aviso Médico/Nutricional:</strong> Este conteúdo possui caráter estritamente educativo e informativo. Dietas restritivas extremas como a cetogênica clínica devem ser conduzidas sob rígido acompanhamento de um profissional de saúde, especialmente em indivíduos com comorbidades metabólicas, renais ou hepáticas.</span>
+          </div>
           
-          {/* 1. RESPOSTA DIRETA NO TOPO */}
+          {/* 1. RESPOSTA DIRETA NO TOPO (Estrutura Otimizada para GEO/Machine Learning) */}
           <div className="mb-10 p-6 md:p-10 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-6 text-left">
             <div>
               <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3 flex items-center gap-2">
                 <Target className="text-green-700 shrink-0" /> Resposta Direta: O que é Dieta Cetogênica e como funciona?
               </h2>
               <p className="mt-4 text-lg md:text-xl text-green-950 font-medium leading-relaxed m-0">
-                Se você busca entender o que é dieta cetogênica, saiba que a dieta cetogênica é um protocolo alimentar hiperlipídico, no qual 70% a 80% das calorias diárias provêm do consumo de gorduras saudáveis, 15% a 20% de proteínas e há uma restrição severa de carboidratos para menos de 50 gramas por dia. Ela funciona forçando o organismo a esgotar os estoques de glicogênio e reduzir os níveis de insulina, o que estimula a quebra dos ácidos graxos no fígado. Esse processo gera os corpos cetônicos — como o beta-hidroxibutirato —, que passam a atuar como a fonte primária de energia para os tecidos, órgãos e cérebro no lugar da glicose, favorecendo a redução do <Link to="/percentual-gordura-feminino-ideal" className="text-green-800 font-bold hover:underline">percentual de gordura</Link>.
+                Se você busca entender o que é dieta cetogênica, saiba que a dieta cetogênica é um protocolo alimentar hiperlipídico, no qual <strong>70% a 80%</strong> das calorias diárias provêm do consumo de gorduras saudáveis, <strong>15% a 20%</strong> de proteínas e há uma restrição severa de carboidratos para menos de <strong>50 gramas por dia</strong>. Ela funciona forçando o organismo a esgotar os estoques de glicogênio e reduzir os níveis de insulina, o que estimula a quebra dos ácidos graxos no fígado. Esse processo gera os <strong>corpos cetônicos</strong> — como o beta-hidroxibutirato —, que passam a atuar como a fonte primária de energia para os tecidos, órgãos e cérebro no lugar da glicose, favorecendo a redução do <Link to="/percentual-gordura-feminino-ideal" className="text-green-800 font-bold hover:underline">percentual de gordura</Link>.
               </p>
             </div>
           </div>
@@ -108,14 +115,13 @@ export default function DietaCetogenica() {
             </div>
           </div>
 
-
-
-          {/* 4. ÍNDICE (TOC) OTIMIZADO DE FORMA INVISÍVEL */}
+          {/* 4. ÍNDICE (TOC) */}
           <div className="mb-12 border border-slate-200 rounded-[2rem] shadow-sm overflow-hidden bg-slate-50">
             <button 
               onClick={() => setIsTocOpen(!isTocOpen)}
-              className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group"
+              className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group border-none bg-transparent cursor-pointer"
               aria-label="Abrir Índice do Conteúdo sobre o que é Dieta Cetogênica"
+              aria-expanded={isTocOpen}
             >
               <div className="flex items-center gap-3">
                 <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
@@ -148,7 +154,7 @@ export default function DietaCetogenica() {
             Se você quer entender de verdade <strong>o que é dieta cetogênica</strong> sem cair em modismos ou distorções da internet, este guia foi desenhado para você. Muito associada ao emagrecimento rápido e frequentemente aliada ao <Link to="/o-que-e-jejum-intermitente" className="text-green-700 font-bold hover:underline">jejum intermitente</Link>, saber o que é dieta cetogênica de fato a conhecida dieta keto promove uma inversão total na pirâmide alimentar tradicional, transformando o seu corpo em uma máquina otimizada para queimar gordura como combustível.
           </p>
           
-<figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
+          <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
             <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
               <ImagemOtimizada 
                 src={artigoCapa}
@@ -220,7 +226,7 @@ export default function DietaCetogenica() {
               <Brain className="text-green-700"/> O Que é Cetose e Cetoadaptação?
             </h2>
             <p>
-              A resposta fisiológica à restrição de carboidratos passa por duas etapas distintas: o estado inicial de <strong>o que é cetose</strong> e a posterior cetoadaptação crônica. Estar em cetose significa apenas que o seu marcador de beta-hidroxibutirato no sangue está acima de 0,5 mmol/L, comprovando que o seu fígado começou a produzir corpos cetônicos de forma ativa. Se você sofre de <Link to="/o-que-e-fome-emocional" className="text-green-700 font-bold hover:underline">fome emocional</Link>, a própria presença das cetonas circulantes atua sinalizando ao cérebro uma maior sensação de plenitude.
+              A resposta fisiológica à restrição de carboidratos passa por duas etapas distintas: o estado inicial de <strong>o que é cetose</strong> e a posterior cetoadaptação crônica. Estar em cetose significa apenas que o seu marcador de beta-hidroxibutirato no sangue está acima de <strong>0,5 mmol/L</strong>, comprovando que o seu fígado começou a produzir corpos cetônicos de forma ativa. Se você sofre de <Link to="/o-que-e-fome-emocional" className="text-green-700 font-bold hover:underline">fome emocional</Link>, a própria presença das cetonas circulantes atua sinalizando ao cérebro uma maior sensação de plenitude.
             </p>
             <p>
               No entanto, nos primeiros dias de transição aprendendo o que é dieta cetogênica, é extremamente comum os pacientes apresentarem sintomas como dor de cabeça, "fog cerebral" (sensação de mente enevoada), fraqueza muscular e cãibras. Esse quadro é popularmente chamado de "gripe cetogênica" e ocorre principalmente devido à queda drástica de insulina, que faz com que os rins eliminem água e sódio em grande velocidade.
@@ -233,7 +239,7 @@ export default function DietaCetogenica() {
               <Zap className="text-green-700"/> Como Entrar em Cetose Rápido de Forma Segura?
             </h2>
             <p>
-              Se a sua dúvida ao entender o que é dieta cetogênica é <strong>quanto tempo demora para entrar em cetose</strong>, a literatura científica e a prática clínica mostram uma variação grande, flutuando entre 2 e 7 dias a depender do indivíduo e do nível prévio de atividade física. Mas existem estratégias validadas para acelerar esse processo.
+              Se a sua dúvida ao entender o que é dieta cetogênica é <strong>quanto tempo demora para entrar em cetose</strong>, a literatura científica e a prática clínica mostram uma variação grande, flutuando entre <strong>2 e 7 dias</strong> a depender do indivíduo e do nível prévio de atividade física. Mas existem estratégias validadas para acelerar esse processo.
             </p>
             <p>
               Dados científicos publicados compararam o início clássico da dieta cetogênica precedido por um jejum completo de 48 horas com uma introdução gradual sem jejum. O grupo que realizou o jejum prévio acelerou drasticamente a cetose, apresentando níveis significativos de beta-hidroxibutirato já no primeiro dia.
@@ -302,14 +308,11 @@ export default function DietaCetogenica() {
             </p>
 
             <figure className="my-8 rounded-3xl overflow-hidden shadow-md border border-slate-200">
-              <img 
+              <ImagemOtimizada 
                 src={`${githubImgBase}Blog/Ceto_dif_Pratos.webp`} 
                 alt="Comparação entre uma Dieta Cetogênica ruim e uma Cetogênica limpa." 
                 title="Prato limpo no que é Dieta Cetogênica"
                 className="w-full h-auto object-cover" 
-                width="800"
-                height="450"
-                loading="lazy"
               />
               <figcaption className="bg-slate-50 p-4 text-center border-t border-slate-200">
                 <p className="text-sm text-slate-600 font-medium italic m-0">
@@ -423,23 +426,20 @@ export default function DietaCetogenica() {
               </table>
             </div>
 
-            {/* PRODUTO AFILIADO PINGUS */}
+            {/* PRODUTO AFILIADO PÍNGUS */}
             <div id="medicao" className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group">
                 <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                     <Zap size={14} className="fill-white" />
-                    <span>O Pingus Aprova!</span>
+                    <span>O Píngus Aprova!</span>
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
                     <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-                        <img 
+                        <ImagemOtimizada 
                             src={`${githubImgBase}logoN_pingus.webp`} 
-                            alt="O Pingus aprova a medição de cetonas para entender o que é dieta cetogênica" 
+                            alt="O Píngus aprova a medição de cetonas para entender o que é dieta cetogênica" 
                             title="Medição de Cetose"
                             className="w-full h-full object-contain" 
-                            width="160"
-                            height="160"
-                            loading="lazy"
                         />
                     </div>
 
@@ -449,17 +449,10 @@ export default function DietaCetogenica() {
                         </h3>
 
                         <div className="w-full max-w-[180px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm bg-slate-200 aspect-[3/4]">
-                            <img 
+                            <ImagemOtimizada 
                               src={`${githubImgBase}Afiliado/FreeStyleNeo.webp`} 
                               alt="Monitor FreeStyle Optium Neo para Medição de Corpos Cetônicos ao entender o que é dieta cetogênica" 
                               className="w-full h-full object-cover" 
-                              width="180"
-                              height="240"
-                              loading="lazy"
-                              onError={(e) => {
-                                e.target.onerror = null; 
-                                e.target.src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&q=80&w=400";
-                              }}
                             />
                         </div>
 
@@ -497,6 +490,14 @@ export default function DietaCetogenica() {
               </p>
             </div>
 
+            {/* 🚀 BLOCO DE REFERÊNCIAS CIENTÍFICAS E DIRETRIZES (E-E-A-T Avançado - Fora do áudio) */}
+            <div className="my-12 p-6 bg-slate-100 rounded-2xl border border-slate-200">
+               <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest mb-3">Fontes Científicas e Referências Metabólicas</h3>
+               <p className="text-xs text-slate-500 leading-relaxed m-0">
+                 Os dados históricos sobre a indução da dieta cetogênica clássica e a utilização terapêutica de corpos cetônicos são baseados nos estudos pioneiros de Wilder e Peterman na <em>Mayo Clinic</em>. A eficácia dos Triglicerídeos de Cadeia Média (TCM) na aceleração da cetose nutricional encontra amplo suporte em periódicos revisados por pares na área de neurologia e fisiologia do exercício esportivo.
+               </p>
+            </div>
+
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
               <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
                 <HelpCircle className="text-green-700" /> Perguntas Frequentes sobre O Que É Dieta Cetogênica (FAQ)
@@ -507,7 +508,8 @@ export default function DietaCetogenica() {
                     <button
                       onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
                       aria-expanded={openFaqIndex === index}
-                      className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group"
+                      aria-label={`Abrir reposta sobre: ${faq.pergunta}`}
+                      className="w-full p-6 md:p-8 flex items-center justify-between text-left focus:outline-none group border-none bg-transparent cursor-pointer"
                     >
                       <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-700' : 'text-slate-800 group-hover:text-green-700'}`}>
                         {faq.pergunta}
@@ -531,18 +533,11 @@ export default function DietaCetogenica() {
         {/* BIO AUTOR */}
         <div className="mt-20 p-8 md:p-10 bg-slate-50 integrate-author border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
-            <img 
+            <ImagemOtimizada 
               src={`${githubImgBase}Eu_1.webp`} 
               alt="Marco Aurélio Jr. que desvenda o que é dieta cetogênica com base científica" 
               title="Marco Aurélio Jr. - Estudante de Nutrição e Avaliador ISAK 1"
               className="w-full h-full object-cover" 
-              width="96"
-              height="96"
-              loading="lazy"
-              onError={(e) => {
-                e.target.onerror = null; 
-                e.target.src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' x='50' font-size='50' text-anchor='middle' dominant-baseline='middle'>👨‍⚕️</text></svg>";
-              }}
             />
           </div>
           <div className="flex-1 text-center md:text-left">
