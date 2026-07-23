@@ -176,6 +176,7 @@ export default function TpmeAlimentacao() {
             onClick={() => state?.fromBlog ? navigate(-1) : navigate('/blog')}
             className="mb-12 flex items-center gap-2 font-black uppercase tracking-widest text-slate-600 hover:text-green-700 transition-colors w-fit appearance-none bg-transparent border-none cursor-pointer p-0"
             title="Voltar ao Blog"
+            aria-label="Voltar para a página do Blog"
           >
             <ChevronLeft size={20} /> Voltar para o Blog
           </button>
@@ -187,9 +188,15 @@ export default function TpmeAlimentacao() {
               <span className="text-[11px] text-slate-700 font-bold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-black mb-10 uppercase italic leading-tight text-slate-900">
+            <h1 className="text-4xl md:text-5xl font-black mb-6 uppercase italic leading-tight text-slate-900">
               O Que Comer na TPM: O Guia Definitivo Para Controlar a Fome e Emagrecer
             </h1>
+
+            {/* 🚀 AVISO YMYL E-E-A-T DE SAÚDE */}
+            <div className="mb-10 text-xs font-medium text-slate-500 italic bg-slate-50 p-4 rounded-xl border border-slate-100 flex items-center gap-3">
+               <AlertTriangle size={18} className="text-amber-500 shrink-0" />
+               <span><strong>Aviso Médico/Nutricional:</strong> Este conteúdo possui caráter estritamente educativo. Alterações severas de humor, dores incapacitantes ou compulsões crônicas associadas ao ciclo menstrual (como o Transtorno Disfórico Pré-Menstrual - TDPM) devem ser diagnosticadas e tratadas por médicos ginecologistas e psiquiatras.</span>
+            </div>
 
             <div className="my-10 p-6 md:p-8 bg-green-50 rounded-3xl border border-green-100 shadow-inner flex flex-col gap-4 text-left">
                 <h2 className="text-xl md:text-2xl font-black text-green-800 uppercase italic m-0 border-b border-green-200 pb-3">
@@ -206,7 +213,8 @@ export default function TpmeAlimentacao() {
                   <Headphones className="text-green-700 w-6 h-6" />
                   <h2 className="text-base font-black text-slate-800 italic m-0 uppercase tracking-widest">Ouça este artigo</h2>
                 </div>
-                <audio preload="none" controls className="w-full h-10 outline-none rounded-full" title="Áudio explicando o que comer na TPM">
+                {/* 🚀 OTIMIZAÇÃO DE CORE WEB VITALS (PRELOAD="NONE") */}
+                <audio preload="none" controls className="w-full h-10 outline-none rounded-full" title="Áudio explicando o que comer na TPM" aria-label="Player de áudio com a locução do artigo">
                   <source src="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Audio/TPM.mp3" type="audio/mpeg" />
                   O seu navegador não suporta o áudio.
                 </audio>
@@ -218,6 +226,7 @@ export default function TpmeAlimentacao() {
                   onClick={() => setIsTocOpen(!isTocOpen)}
                   className="w-full px-5 py-4 md:px-6 md:py-4 flex items-center justify-between hover:bg-slate-100 transition-colors group border-none bg-transparent cursor-pointer"
                   aria-label="Abrir Índice do Conteúdo sobre O que comer na TPM"
+                  aria-expanded={isTocOpen}
                 >
                   <div className="flex items-center gap-3">
                     <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
@@ -269,7 +278,7 @@ export default function TpmeAlimentacao() {
                 O metabolismo feminino é uma verdadeira orquestra cíclica. Na fase folicular (logo após a menstruação), o hormônio estrogênio domina. Ele age como um grande aliado: melhora a sensibilidade à insulina, segura o apetite e te dá uma disposição invejável. 
               </p>
               <p>
-                No entanto, logo após a ovulação, você entra na chamada <strong>Fase Lútea</strong>. O cenário inverte de forma drástica: a progesterona assume o controle. O aumento agudo da progesterona acende um alerta no cérebro (estimulando as vias NPY/AgRP), que grita por mais substrato energético. E a ciência comprova isso: durante essa fase pré-menstrual, a Taxa Metabólica Basal sofre um aumento real, fazendo seu corpo gastar entre 100 e 300 calorias a mais por dia em repouso. Por isso, ter fome na TPM é uma resposta <strong>absolutamente fisiológica</strong>. Entender <strong>o que comer na TPM</strong> para suprir esse gasto energético natural, sem exagerar, é a grande chave do sucesso.
+                No entanto, logo após a ovulação, você entra na chamada <strong>Fase Lútea</strong>. O cenário inverte de forma drástica: a progesterona assume o controle. O aumento agudo da progesterona acende um alerta no cérebro (estimulando as vias NPY/AgRP), que grita por mais substrato energético. E a ciência comprova isso: durante essa fase pré-menstrual, a Taxa Metabólica Basal sofre um aumento real, fazendo seu corpo gastar entre <strong>100 e 300 calorias a mais por dia</strong> em repouso. Por isso, ter fome na TPM é uma resposta <strong>absolutamente fisiológica</strong>. Entender <strong>o que comer na TPM</strong> para suprir esse gasto energético natural, sem exagerar, é a grande chave do sucesso.
               </p>
 
               <div className="my-10 bg-white rounded-[2rem] border border-green-200 shadow-xl overflow-hidden">
@@ -371,12 +380,12 @@ export default function TpmeAlimentacao() {
                   </div>
                   <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0 text-center md:text-left">
                       <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-                          <img src={`${githubImgBase}logoN_pingus.webp`} width="160" height="160" loading="lazy" alt="Selo de Qualidade Pingus recomendando monitorar a TPM" title="Monitor de Ciclo" className="w-full h-full object-contain" />
+                          <ImagemOtimizada src={`${githubImgBase}logoN_pingus.webp`} alt="Selo de Qualidade Pingus recomendando monitorar a TPM" title="Monitor de Ciclo" className="w-full h-full object-contain" />
                       </div>
                       <div className="flex-1 flex flex-col justify-center">
                           <h3 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic text-left m-0">Xiaomi Smart Band 9 Pro: <span className="text-green-700">Alta Precisão no seu Pulso</span></h3>
                           <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 mt-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm bg-white p-2">
-                              <img src={`${githubImgBase}Afiliado/Band9Pro.webp`} width="200" height="200" loading="lazy" alt="Smart Band para ajudar a saber o que comer na TPM e monitorar o ciclo" className="w-full h-auto object-contain opacity-90" />
+                              <ImagemOtimizada src={`${githubImgBase}Afiliado/Band9Pro.webp`} alt="Smart Band para ajudar a saber o que comer na TPM e monitorar o ciclo" className="w-full h-auto object-contain opacity-90" />
                           </div>
                           <p className="text-slate-600 text-[15px] mb-8 leading-relaxed font-medium text-left">
                               O primeiro passo para dominar a sua alimentação é entender quando a sua Fase Lútea começa. A <strong>Smart Band 9 Pro</strong> oferece monitoramento avançado e preciso do ciclo menstrual e da qualidade do sono. Como seu <Link to="/o_que_e_antropometria" className="text-green-700 font-bold underline hover:text-green-800">avaliador antropométrico</Link>, é essa a ferramenta que eu recomendo para obtermos dados reais.
@@ -435,7 +444,7 @@ export default function TpmeAlimentacao() {
 
                     <div className="bg-white p-6 rounded-2xl border border-green-100 shadow-sm text-center">
                       <p className="text-sm font-bold text-slate-600 mb-4 uppercase tracking-widest">Essa é apenas a ponta do iceberg.</p>
-                      <a href="https://wa.me/5521997704300" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-full font-black uppercase shadow-xl transition-all border-none cursor-pointer w-full md:w-auto">
+                      <a href="https://wa.me/5521997704300" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-full font-black uppercase shadow-xl transition-all border-none cursor-pointer w-full md:w-auto" aria-label="Falar com nutricionista no WhatsApp">
                         <CalendarCheck size={18} /> Quero Meu Resultado
                       </a>
                     </div>
@@ -609,6 +618,14 @@ export default function TpmeAlimentacao() {
                 No fim das contas, a dúvida sobre <strong>o que comer na TPM</strong> deixa de ser um pesadelo e se torna uma poderosa ferramenta clínica quando você compreende o funcionamento do seu metabolismo e a dança da progesterona com o estrogênio. Ao alinhar as calorias ao aumento natural do seu gasto energético, fornecer proteínas suficientes e priorizar as gorduras e fibras, o "monstro da compulsão" se silencia. Se apoie nas métricas exatas fornecidas por boas tecnologias esportivas e lembre-se: nutrir o seu corpo não é sobre passar fome, é sobre fornecer o combustível exato para a máquina perfeita que ele é!
               </p>
 
+              {/* 🚀 BLOCO DE REFERÊNCIAS CIENTÍFICAS E DIRETRIZES (E-E-A-T) */}
+              <div className="my-12 p-6 bg-slate-100 rounded-2xl border border-slate-200">
+                 <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest mb-3">Fontes Científicas e Referências Metabólicas</h3>
+                 <p className="text-xs text-slate-500 leading-relaxed m-0">
+                   As informações sobre o aumento da Taxa Metabólica Basal (TMB) na fase lútea e a ausência de impacto negativo no treinamento de hipertrofia estão amparadas em estudos de fisiologia esportiva feminina, como os publicados no <em>The Journal of Physiology</em> (Colenso-Semple et al., 2025). As diretrizes comportamentais referentes à vontade cultural de doces baseiam-se nos dados da revista <em>PLOS One</em> (Hormes et al., 2017).
+                 </p>
+              </div>
+
               {/* FAQ */}
               <div id="faq" className="mt-20 pt-10 border-t border-slate-100 text-left">
                 <h2 className="text-2xl font-black text-slate-800 mb-8 italic flex items-center gap-3">
@@ -617,7 +634,7 @@ export default function TpmeAlimentacao() {
                 <div className="space-y-4">
                   {faqs.map((faq, index) => (
                     <div key={index} className="bg-slate-50 rounded-3xl border border-green-100 overflow-hidden transition-all duration-300">
-                      <button onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)} aria-expanded={openFaqIndex === index} className="w-full p-6 md:p-8 flex items-center justify-between text-left group bg-transparent border-none cursor-pointer">
+                      <button onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)} aria-expanded={openFaqIndex === index} className="w-full p-6 md:p-8 flex items-center justify-between text-left group bg-transparent border-none cursor-pointer" aria-label={`Abrir resposta sobre: ${faq.pergunta}`}>
                         <h3 className={`text-lg font-black italic transition-colors m-0 ${openFaqIndex === index ? 'text-green-700' : 'text-slate-800 group-hover:text-green-700'}`}>{faq.pergunta}</h3>
                         <ChevronDown className={`text-slate-500 shrink-0 transition-transform ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
                       </button>
@@ -637,7 +654,7 @@ export default function TpmeAlimentacao() {
 
           <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 shadow-sm">
             <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
-              <img src={`${githubImgBase}Eu_1.webp`} width="96" height="96" loading="lazy" alt="Marco Aurélio Jr. que ensina de forma científica o que comer na TPM" title="Autor Marco Aurélio Jr." className="w-full h-full object-cover" />
+              <ImagemOtimizada src={`${githubImgBase}Eu_1.webp`} width="96" height="96" loading="lazy" alt="Marco Aurélio Jr. que ensina de forma científica o que comer na TPM" title="Autor Marco Aurélio Jr." className="w-full h-full object-cover" />
             </div>
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-2xl font-black text-slate-900 italic mb-1 mt-0">Escrito por Marco Aurélio Jr.</h3>

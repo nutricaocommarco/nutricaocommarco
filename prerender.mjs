@@ -116,7 +116,6 @@ const postsBlog = [
     data: "2026-07-14", 
     schemasExtra: [
       getMedicalSchema("Dieta Cetogênica e Emagrecimento", "https://www.nutricaocommarco.com.br/o-que-e-dieta-cetogenica", ["Dieta Cetogênica", "Cetose", "Metabolismo de Gorduras"]),
-      // 🚀 SCHEMA FAQPage Inserido para Dieta Cetogênica
       getFaqSchema([
         { pergunta: "A dieta cetogênica pode causar cetoacidose?", resposta: "Não em pessoas saudáveis. A cetose nutricional induzida pela dieta keto eleva os corpos cetônicos para níveis seguros (entre 0,5 e 7/8 mM) sem alterar o pH do sangue. A cetoacidose é uma condição patológica de urgência médica típica de diabéticos tipo 1 não controlados, onde as cetonas ultrapassam os 25 mM devido à ausência total de insulina, o que acidifica o sangue." },
         { pergunta: "A dieta keto é boa para hipertrofia (ganhar massa muscular)?", resposta: "Depende do protocolo e do balanço energético. Em um ensaio de 8 semanas com homens treinados realizando musculação associada a uma dieta cetogênica com superávit calórico, os participantes conseguiram reduzir significativamente a massa gorda e a gordura visceral, mas não apresentaram aumento estatisticamente significativo de massa muscular magra. Em contraste, o grupo que consumiu uma dieta tradicional obteve aumento de massa magra sob as mesmas condições de treino." },
@@ -144,7 +143,24 @@ const postsBlog = [
   },
   { id: 24, link: "/melhor-horario-para-tomar-ferro", img: `${githubImgBase}Blog/HorarioFerro.webp`, titulo: "Qual o Melhor Horario Para Tomar Ferro (E Curar a Anemia Rápido)", desc: "Você está tomando ferro do jeito errado? Descubra qual o melhor horário para tomar ferro e ter absorção máxima, os sintomas ocultos da anemia e o que bloqueia o nutriente.", data: "2026-04-26" },
   { id: 23, link: "/percentual-gordura-feminino-ideal", img: `${githubImgBase}Blog/PercentualGorduraFeminino_Capa.webp`, titulo: "Qual o Percentual de Gordura Feminino Ideal e Saudável?", desc: "Pare de olhar apenas para a balança. Entenda as tabelas reais de referência e descubra qual o percentual de gordura feminino ideal para a sua idade e saúde.", data: "2026-04-24" },
-  { id: 22, link: "/o-que-comer-na-tpm", img: `${githubImgBase}Blog/TPM.webp`, titulo: "O Que Comer na TPM: O Guia Para Controlar a Fome e Emagrecer", desc: "Descubra exatamente o que comer na TPM para aliviar os sintomas, controlar a fome por doces e manter o emagrecimento, entendendo a fisiologia do seu ciclo.", data: "2026-04-02", schemasExtra: [getMedicalSchema("Nutrição no Ciclo Menstrual e Síndrome Pré-Menstrual", "https://www.nutricaocommarco.com.br/o-que-comer-na-tpm", ["Síndrome Pré-Menstrual", "Metabolismo Feminino", "Desejo por Alimentos", "Fase Lútea"])] },
+  { 
+    id: 22, 
+    link: "/o-que-comer-na-tpm", 
+    img: `${githubImgBase}Blog/TPM.webp`, 
+    titulo: "O Que Comer na TPM: O Guia Para Controlar a Fome e Emagrecer", 
+    desc: "Descubra exatamente o que comer na TPM para aliviar os sintomas, controlar a fome por doces e manter o emagrecimento, entendendo a fisiologia do seu ciclo.", 
+    data: "2026-04-02", 
+    schemasExtra: [
+      getMedicalSchema("Nutrição no Ciclo Menstrual e Síndrome Pré-Menstrual", "https://www.nutricaocommarco.com.br/o-que-comer-na-tpm", ["Síndrome Pré-Menstrual", "Metabolismo Feminino", "Desejo por Alimentos", "Fase Lútea"]),
+      // 🚀 SCHEMA FAQPage Inserido para TPM
+      getFaqSchema([
+        { pergunta: "Por que a fome aumenta tanto na TPM?", resposta: "O aumento da fome na fase lútea (pré-menstrual) é biológico. A alta do hormônio progesterona estimula áreas do cérebro associadas ao apetite. Além disso, há um aumento na Taxa Metabólica Basal (o corpo gasta de 100 a 300 kcal a mais por dia nesse período)." },
+        { pergunta: "É normal ganhar peso na TPM?", resposta: "Sim, e esse ganho quase nunca é gordura. A oscilação brusca de estrogênio e progesterona causa intensa retenção de líquidos e lentidão intestinal. O peso na balança pode flutuar de 1 a 3 quilos, o que se normaliza dias após a menstruação." },
+        { pergunta: "O desejo por chocolate na TPM é biológico?", resposta: "A ciência mais recente mostra que o desejo por energia extra é biológico, mas o desejo específico por chocolate é cultural e aprendido (Hormes et al., 2017). O corpo pede calorias e conforto, e a mente traduz isso como vontade de doces." },
+        { pergunta: "Preciso mudar minha dieta em cada fase do ciclo?", resposta: "Não é obrigatório. Embora o corpo oxide mais gordura na fase lútea, manipular macronutrientes semana a semana não traz um benefício superior ao longo prazo. A constância no déficit calórico e a qualidade dos alimentos são o que garantem o emagrecimento." }
+      ])
+    ] 
+  },
   { id: 21, link: "/quantas-calorias-gasto-por-dia", img: `${githubImgBase}Blog/QuantasCaloriasGasto.webp`, titulo: "Quantas Calorias Gasto Por Dia? Calcule Sua TMB Exata Aqui", desc: "Pare de chutar a sua dieta. Use nossa calculadora inteligente para descobrir quantas calorias gasto por dia (TMB e Fator de Atividade).", data: "2026-04-05" },
   { id: 20, link: "/efeitos-colaterais-da-melatonina", img: `${githubImgBase}Blog/Melatonina.webp`, titulo: "Melatonina Vicia? A Verdade Sobre os Efeitos Colaterais", desc: "Você toma melatonina para dormir? Descubra a verdade científica sobre a dosagem correta, os riscos psicológicos e se ela realmente pode te viciar.", data: "2026-04-01" },
   { id: 19, link: "/o-que-e-ciclo-circadiano", img: `${githubImgBase}Blog/CicloCircadiano.webp`, titulo: "Ciclo Circadiano: Como Emagrecer Dormindo (O Segredo Hormonal)", desc: "Dormir mal trava o seu emagrecimento. Descubra o que é o Ciclo Circadiano, como ajustar seu relógio biológico e controlar a fome crônica.", data: "2026-03-29" },
