@@ -79,22 +79,6 @@ function getVideoSchema(nome, descricao, videoId, dataUpload) {
   };
 }
 
-// 🆕 FUNÇÃO AGGREGATE RATING (Gera as estrelinhas na SERP)
-function getReviewSchema(itemAvaliador, ratingValue, reviewCount) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "name": itemAvaliador,
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": ratingValue,
-      "reviewCount": reviewCount,
-      "bestRating": "5",
-      "worstRating": "1"
-    }
-  };
-}
-
 // 📝 1. TODAS AS ROTAS ESTÁTICAS
 const rotasEstaticas = [
   { path: 'planilha-de-avaliacao-antropometrica-marco-aurelio', title: 'Planilha de Avaliação Antropométrica Inteligente PRO | Nutrição com Marco', image: `${githubImgBase}PlanilhaImagem/Planilha_Capa.webp`, desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.' },
@@ -146,8 +130,6 @@ const postsBlog = [
     data: "2026-07-20", 
     schemasExtra: [
       getMedicalSchema("O Que É Dieta Mediterrânea e Benefícios Cardiovasculares", "https://www.nutricaocommarco.com.br/o-que-e-dieta-mediterranea", ["Dieta Mediterrânea", "Saúde Cardiovascular", "Longevidade", "Nutrição Clínica"]),
-      // 🚀 INJEÇÃO DOS 3 SCHEMAS FALTANTES: FAQ, Vídeo e Avaliação!
-      getReviewSchema("O Que É Dieta Mediterrânea? O Segredo para Saúde e Longevidade", "4.9", "318"),
       getVideoSchema("O Que é Dieta Mediterrânea e Como Fazer", "A nutricionista Patricia Leite explica detalhadamente os pilares da Dieta Mediterrânea e seus benefícios para o coração e emagrecimento.", "Axo9aie0PAU", "2021-08-25T12:00:00-03:00"),
       getFaqSchema([
         { pergunta: "A Dieta Mediterrânea emagrece rápido?", resposta: "Nenhuma dieta saudável promove emagrecimento 'mágico' da noite para o dia. A ciência mostra que a dieta mediterrânea promove uma perda de peso idêntica à dieta vegetariana em 3 meses, desde que haja déficit calórico. A vantagem é que ela não causa o terrorismo alimentar que leva ao efeito sanfona, sendo muito mais sustentável." },
