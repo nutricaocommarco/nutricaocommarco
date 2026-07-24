@@ -565,8 +565,8 @@ export default function AvaliacaoAntropometrica() {
                     </div>
 
                     <p className="text-slate-600 text-[15px] mb-8 leading-relaxed font-medium">
-                        Você já aprendeu a parte teórica da avaliação antropométrica. Agora, na hora da avaliação física, seu tempo é valioso demais para você ficar 20 minutos na frente do paciente apertando teclas da calculadora e digitando fórmulas logarítmicas de regressão manualmente. 
-                        A nossa <strong>Planilha de Avaliação Física desenvolvida em Excel com módulos de VBA</strong> é a central completa de automação da avaliação antropométrica clínica. Ela plota a sua Somatocarta automaticamente em um gráfico 2D da avaliação física, calcula os temidos Perímetros Corrigidos de músculo puro da avaliação antropométrica e executa o processamento pesado do apVAT. E o melhor: gera um Laudo visual incrível em 30 segundos de avaliação física com todos os índices complexos destrinchados, em um clique, pronto para você impressionar quem confia na sua avaliação antropométrica e garantir o retorno financeiro em consultas vindouras!
+                        Você já aprendeu a parte teórica da avaliação antropométrica. Agora, na hora, seu tempo é valioso demais para você ficar 20 minutos na frente do paciente apertando teclas da calculadora e digitando fórmulas logarítmicas de regressão manualmente. 
+                        A nossa <strong>Planilha de Avaliação Física desenvolvida em Excel com módulos de VBA</strong> é a central completa de automação da avaliação antropométrica clínica. Ela plota a sua Somatocarta automaticamente em um gráfico 2D da avaliação, calcula os temidos Perímetros Corrigidos de músculo puro da avaliação antropométrica e executa o processamento pesado do apVAT. E o melhor: gera um Laudo visual incrível em 30 segundos de avaliação física com todos os índices complexos destrinchados, em um clique, pronto para você impressionar quem confia na sua avaliação antropométrica e garantir o retorno financeiro em consultas vindouras!
                     </p>
 
                     <Link to="/planilha" className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic" aria-label="Comprar a Planilha de Avaliação Física PRO">
@@ -578,13 +578,13 @@ export default function AvaliacaoAntropometrica() {
           </div>
 
           <h2 id="conclusao" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-            <CheckCircle2 className="text-green-700"/> Conclusão: Dominando a Avaliação Física
+            <CheckCircle2 className="text-green-700"/> Conclusão: Dominando a Antropometria
           </h2>
           <p className="mb-4">
-            Na era da tecnologia de ponta e das bioimpedâncias que emitem recibos coloridos da avaliação física em poucos segundos, a arte mecânica da avaliação antropométrica clássica não morreu; ela se destaca como uma ferramenta "raiz" de veracidade biológica inegável na avaliação física.
+            Na era da tecnologia de ponta e das bioimpedâncias que emitem recibos coloridos da antropometria em poucos segundos, a arte mecânica da avaliação antropométrica clássica não morreu; ela se destaca como uma ferramenta "raiz" de veracidade biológica inegável na avaliação física.
           </p>
           <p className="mb-4">
-            Um bom avaliador físico e nutricionista que se apoia nos rígidos protocolos da ISAK da avaliação antropométrica detém a habilidade tátil de soltar as fáscias musculares da gordura na avaliação física, marca seus pontos criteriosamente da avaliação antropométrica e, finalmente, converte esses dados brutos em uma ferramenta de automação da avaliação física (como as modernas Planilhas Clínicas em VBA), jamais será substituído pelo "apertar de botão" de uma balança na avaliação antropométrica. O paciente percebe o cuidado palpável da avaliação física e, fisiologicamente, os dados da avaliação antropométrica estarão incólumes contra as flutuações hormonais e dietéticas que arruinariam outras modalidades de imagem. Domine as equações corretas da avaliação física, confie no peso exato do Somatório da avaliação antropométrica e eleve a excelência da entrega no seu consultório de avaliação física!
+            Um bom avaliador físico e nutricionista que se apoia nos rígidos protocolos da ISAK da avaliação antropométrica detém a habilidade tátil de soltar as fáscias musculares da gordura na avaliação, marca seus pontos criteriosamente da avaliação antropométrica e, finalmente, converte esses dados brutos em uma ferramenta de automação (como as modernas Planilhas Clínicas em VBA), jamais será substituído pelo "apertar de botão" de uma balança na avaliação antropométrica. O paciente percebe o cuidado palpável da avaliação física e, fisiologicamente, os dados da avaliação antropométrica estarão incólumes contra as flutuações hormonais e dietéticas que arruinariam outras modalidades de imagem. Domine as equações corretas da avaliação física, confie no peso exato do Somatório da avaliação antropométrica e eleve a excelência da entrega no seu consultório de avaliação física!
           </p>
 
           {/* FAQ DINÂMICO AIO */}
@@ -652,7 +652,7 @@ export default function AvaliacaoAntropometrica() {
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
             <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
-              Sou apaixonado por traduzir a barreira científica entre a academia da avaliação física e o consultório diário da avaliação antropométrica. Através do conhecimento aprofundado na Cineantropometria e com o treinamento formal dos padrões ISAK na avaliação física, procuro entregar a profissionais recém-formados e alunos metodologias práticas que automatizam a captação de dados da avaliação antropométrica sem comprometer a exatidão fisiológica da avaliação física.
+              Sou apaixonado por traduzir a barreira científica entre a academia da avaliação física e o consultório diário da avaliação antropométrica. Através do conhecimento aprofundado na Cineantropometria e com o treinamento formal dos padrões ISAK na avaliação física, procuro entregar a profissionais recém-formados e alunos metodologias práticas que automatizam a captação de dados da avaliação antropométrica sem comprometer a exatidão fisiológica da avaliação.
             </p>
             <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
               Siga @Nutricao_com_Marco
