@@ -7,6 +7,15 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 const postsData = [
   {
+    id: 29,
+    link: "/o-que-e-dieta-mediterranea",
+    imgSrc: `${githubImgBase}Blog/DietaMediterranea_Capa.webp`,
+    tag: "Dietas da Moda",
+    title: "O Que É Dieta Mediterrânea? O Segredo para Saúde e Longevidade",
+    desc: "Descubra o que é dieta mediterrânea na prática. Entenda como o consumo de azeite extra virgem, peixes e vegetais protege o coração e ajuda a emagrecer sem restrições extremas.",
+    isNew: true
+  },
+  {
     id: 28,
     link: "/como-ganhar-tempo-na-cozinha",
     imgSrc: `${githubImgBase}Blog/GanharTempo_Capa.webp`,
@@ -22,7 +31,6 @@ const postsData = [
     tag: "Saúde da Mulher",
     title: "O Que Comer na TPM: O Guia Definitivo Para Controlar a Fome e Emagrecer",
     desc: "Descubra exatamente o que comer na TPM para aliviar os sintomas, controlar a fome por doces e manter o emagrecimento, entendendo a fisiologia do seu ciclo.",
-    isNew: true
   },
   {
     id: 26,
