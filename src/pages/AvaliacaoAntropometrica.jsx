@@ -58,7 +58,7 @@ export default function AvaliacaoAntropometrica() {
     const x = ecto - endo;
     const y = (2 * meso) - (endo + ecto);
 
-// Classificação visual baseada nas dominâncias (Nomenclatura Oficial Heath-Carter)
+    // Classificação visual baseada nas dominâncias (Nomenclatura Oficial Heath-Carter)
     let classificacao = "Central (Equilibrado)";
     
     if (endo > meso && endo > ecto) {
@@ -88,14 +88,14 @@ export default function AvaliacaoAntropometrica() {
   const faqs = [
     {
       pergunta: "Qual a diferença entre Antropometria e Bioimpedância?",
-      resposta: "A antropometria mede o corpo fisicamente através de dobras, ossos e perímetros, sendo imune a oscilações diárias. A bioimpedância usa uma corrente elétrica para estimar a água corporal, sendo fortemente alterada se o paciente estiver desidratado, menstruado, ou de bexiga cheia."
+      resposta: "A avaliação antropométrica mede o corpo fisicamente através de dobras, ossos e perímetros, sendo imune a oscilações diárias. A bioimpedância usa uma corrente elétrica para estimar a água corporal, sendo fortemente alterada se o paciente estiver desidratado, menstruado, ou de bexiga cheia."
     },
     {
       pergunta: "O que é o Erro Técnico de Medição (ETM)?",
-      resposta: "O ETM é um cálculo estatístico (desvio-padrão entre medidas repetidas) que afere a precisão do avaliador (intra-avaliador) ou a exatidão entre vários avaliadores (inter-avaliador). A ISAK exige que o ETM para dobras cutâneas seja inferior a 5% (ou 7,5% para iniciantes)."
+      resposta: "O ETM é um cálculo estatístico (desvio-padrão entre medidas repetidas) que afere a precisão do avaliador na antropometria (intra-avaliador) ou a exatidão entre vários avaliadores (inter-avaliador). A ISAK exige que o ETM para dobras cutâneas seja inferior a 5% (ou 7,5% para iniciantes)."
     },
     {
-      pergunta: "Para que serve a Somatocarta?",
+      pergunta: "Para que serve a Somatocarta na Avaliação Antropométrica?",
       resposta: "A somatocarta é um gráfico bidimensional que classifica o paciente em Endomorfo (tendência a acumular gordura), Mesomorfo (robustez muscular) e Ectomorfo (linearidade e magreza), ajudando a alinhar expectativas de resultados genéticos baseados na estrutura óssea e muscular."
     },
     {
@@ -180,6 +180,7 @@ export default function AvaliacaoAntropometrica() {
                   <li><a href="#medidas" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><UserCheck size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O Arsenal de Medidas Básicas</a></li>
                   <li><a href="#isak" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Globe size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Protocolo ISAK e Níveis Internacionais</a></li>
                   <li><a href="#formulas" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Brain size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Fórmulas de Regressão e Autores</a></li>
+                  <li><a href="#polemica-7-dobras" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O Mito das 7 Dobras</a></li>
                   <li><a href="#resultados" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Target size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Interpretando Resultados e Índices</a></li>
                   <li><a href="#calculadora" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Calculadora e Gráfico de Somatotipo</a></li>
                 </ul>
@@ -207,23 +208,23 @@ export default function AvaliacaoAntropometrica() {
 
           {/* 📝 INTRODUÇÃO */}
           <p className="mb-4">
-            Seja você um estudante quebrando a cabeça nas aulas práticas de <Link to="/blog" className="text-green-700 font-bold hover:underline">Nutrição ou Educação Física</Link>, ou um profissional recém-formado buscando exatidão no consultório, a insegurança na hora de pegar o plicômetro (adipômetro) é real e justificável. 
+            Seja você um estudante quebrando a cabeça nas aulas práticas de <Link to="/blog" className="text-green-700 font-bold hover:underline">Nutrição ou Educação Física</Link>, ou um profissional recém-formado buscando exatidão no consultório, a insegurança na hora de pegar o plicômetro (adipômetro) para uma <strong>avaliação antropométrica</strong> é real e justificável. 
           </p>
           <p className="mb-4">
-            Entregar resultados aos pacientes exige muito mais do que pedir para eles subirem na balança. O corpo humano é um complexo ecossistema de fluidos, tecidos moles e estruturas ósseas. Neste guia definitivo, vamos desmembrar a ciência da <strong>cineantropometria</strong>, desde sua história até a aplicação exata das fórmulas de predição de gordura.
+            Entregar resultados aos pacientes exige muito mais do que pedir para eles <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-700 font-bold hover:underline">subirem na balança</Link>. O corpo humano é um complexo ecossistema de fluidos, tecidos moles e estruturas ósseas. Neste guia definitivo, vamos desmembrar a ciência da <Link to="/o_que_e_antropometria" className="text-green-700 font-bold hover:underline">cineantropometria</Link>, desde sua história até a aplicação exata das fórmulas de predição de gordura.
           </p>
 
           <h2 id="historia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
             <BookOpen className="text-green-700"/> A História Oculta da Antropometria: Arte e Ciência
           </h2>
           <p className="mb-4">
-            A história da Antropometria não começou em modernos laboratórios de fisiologia, mas sim com a colheita obstinada de elementos sobre as proporções do corpo humano realizada por artistas clássicos que aplicavam esses conhecimentos às suas obras imortais. Desde o Antigo Egito, já havia o conhecimento de regras de proporções relacionando dimensões anatômicas com a estatura humana total.
+            A história da <strong>Avaliação Antropométrica</strong> não começou em modernos laboratórios de fisiologia, mas sim com a colheita obstinada de elementos sobre as proporções do corpo humano realizada por artistas clássicos que aplicavam esses conhecimentos às suas obras imortais. Desde o Antigo Egito, já havia o conhecimento de regras de proporções relacionando dimensões anatômicas com a estatura humana total.
           </p>
           <p className="mb-4">
-            O grande gênio renascentista <strong>Albrecht Dürer</strong> (nascido em 1471), na Alemanha, foi um verdadeiro pioneiro. Fascinado pelos trabalhos de Vitrúvio e pelos corpos pintados por italianos, Dürer não acreditava que a arte fosse apenas "inspiração divina". Para ele, sem o conhecimento matemático e geométrico, a arte era apenas uma "mistura fortuita de imitação irrefletida".
+            O grande gênio renascentista <strong>Albrecht Dürer</strong> (nascido em 1471), na Alemanha, foi um verdadeiro pioneiro. Fascinado pelos trabalhos de Vitrúvio e pelos corpos pintados por italianos, Dürer não acreditava que a arte fosse apenas "inspiração divina". Para ele, sem o conhecimento matemático e geométrico para guiar a <strong>avaliação física</strong>, a arte era apenas uma "mistura fortuita de imitação irrefletida".
           </p>
           <p className="mb-4">
-            Durante anos, Dürer dedicou-se a remediar isso. Em sua obra seminal de 1528, <em>"Vier Bücher von Menschlicher Proportion"</em> (Quatro Livros sobre as Proporções Humanas), ele revolucionou a área. Ele abandonou as medidas ideais padronizadas e procurou a verdadeira beleza avaliando a variabilidade humana. Dürer realizou investigações físicas em cerca de 200 a 300 pessoas vivas. Ele mapeou corpos femininos e masculinos, descrevendo as dimensões da cabeça, pé e mãos. O que antes era apenas um guia para pintores tornou-se a semente da estereometria e do que viria a ser a antropometria comparada (e diferencial) que embasa o nosso trabalho clínico de hoje em dia.
+            Durante anos, Dürer dedicou-se a remediar isso. Em sua obra seminal de 1528, <em>"Vier Bücher von Menschlicher Proportion"</em> (Quatro Livros sobre as Proporções Humanas), ele revolucionou a área. Ele abandonou as medidas ideais padronizadas e procurou a verdadeira beleza avaliando a variabilidade humana. Dürer realizou investigações físicas em cerca de 200 a 300 pessoas vivas. Ele mapeou corpos femininos e masculinos, descrevendo as dimensões da cabeça, pé e mãos. O que antes era apenas um guia para pintores tornou-se a semente da estereometria e do que viria a ser a avaliação antropométrica comparada que embasa o nosso trabalho clínico de hoje em dia.
           </p>
 
           <h2 id="comparativo" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
@@ -244,7 +245,7 @@ export default function AvaliacaoAntropometrica() {
               </thead>
               <tbody className="text-sm font-medium">
                 <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
-                  <td className="p-5 border-r border-slate-100 font-black text-slate-800 italic">Antropometria (Dobras)</td>
+                  <td className="p-5 border-r border-slate-100 font-black text-slate-800 italic">Avaliação Antropométrica (Dobras)</td>
                   <td className="p-5 border-r border-slate-100 text-slate-700 leading-relaxed">Baixo custo de setup, portátil. Fraciona o corpo em massa óssea, muscular e adiposa. Imune à hidratação e alimentação aguda.</td>
                   <td className="p-5 text-slate-600 leading-relaxed">Exige rigoroso treinamento técnico do avaliador para diminuir o ETM. Inviável em casos de obesidade mórbida severa.</td>
                 </tr>
@@ -271,31 +272,31 @@ export default function AvaliacaoAntropometrica() {
             <Ruler className="text-green-700"/> A Regra de Ouro: "Só é bom quem marca"
           </h2>
           <p className="mb-4">
-            Um dos maiores erros ensinados por hábito em algumas faculdades, e perpetuado por maus profissionais na rotina do consultório, é a tentativa de encontrar os <strong>pontos anatômicos</strong> no "olhômetro" ou na "base da pressa". O tecido adiposo é altamente móvel e a pele não possui um limite visual de onde termina o meio do osso ou o meio do ventre muscular. 
+            Um dos maiores erros ensinados por hábito em algumas faculdades, e perpetuado por maus profissionais na rotina do consultório, é a tentativa de encontrar os <strong>pontos anatômicos</strong> no "olhômetro" ou na "base da pressa" durante a avaliação antropométrica. O tecido adiposo é altamente móvel e a pele não possui um limite visual de onde termina o meio do osso ou o meio do ventre muscular. 
           </p>
           <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 text-blue-900 italic mt-6 mb-6">
             <p className="m-0 mb-3">O avaliador de excelência deve, <strong>obrigatoriamente</strong>, estar munido de um <strong>lápis dermográfico</strong> ou delineador. A sequência correta exige palpar a estrutura óssea com firmeza (ex: o acrômio na escápula), usar uma fita metálica antropométrica inelástica para aferir a distância exata até a articulação inferior (ex: o rádio no cotovelo) e, só então, desenhar um "X" preciso na pele.</p>
-            <p className="m-0">Se você confia na sua visão e erra apenas 1 a 2 cm do ponto exato (por exemplo, no pliegue Tríceps ou Abdominal), a preensão pode capturar uma camada mais grossa de fáscia ou evitar o pico de tecido subcutâneo. Isso altera severamente os milímetros lidos no adipômetro, falsificando não apenas aquela dobra, mas todo o <strong>percentual de gordura</strong> e a estimativa de massa muscular do paciente nas reavaliações.</p>
+            <p className="m-0">Se você confia na sua visão e erra apenas 1 a 2 cm do ponto exato (por exemplo, no pliegue Tríceps ou Abdominal), a preensão pode capturar uma camada mais grossa de fáscia ou evitar o pico de tecido subcutâneo. Isso altera severamente os milímetros lidos no adipômetro, falsificando não apenas aquela dobra, mas todo o <Link to="/percentual-gordura-feminino-ideal" className="text-blue-700 font-bold hover:underline">percentual de gordura de pacientes femininas</Link> e masculinos nas reavaliações.</p>
           </div>
 
           <h2 id="estatistica" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
             <Activity className="text-green-700"/> Estatística Básica: Média ou Mediana?
           </h2>
           <p className="mb-4">
-            Mesmo sendo exímio na marcação, a variabilidade biológica do paciente e as oscilações do manuseio geram milhares de possibilidades de erro. Na antropometria clínica e acadêmica, o <strong>Erro Técnico de Medição (ETM)</strong> é a ferramenta matemática usada para comprovar se você é um avaliador <em>Preciso</em> (acerta perto sempre) e <em>Exato</em> (acerta no alvo). O cálculo do ETM é o desvio-padrão entre as suas medidas repetidas. O ETM pode ser avaliado intra-avaliador (você medindo o mesmo paciente) ou interavaliador (você comparado com a precisão de outro profissional experiente).
+            Mesmo sendo exímio na marcação, a variabilidade biológica do paciente e as oscilações do manuseio geram milhares de possibilidades de erro na <strong>avaliação física</strong>. Na antropometria clínica e acadêmica, o <strong>Erro Técnico de Medição (ETM)</strong> é a ferramenta matemática usada para comprovar se você é um avaliador <em>Preciso</em> (acerta perto sempre) e <em>Exato</em> (acerta no alvo). O cálculo do ETM é o desvio-padrão entre as suas medidas repetidas. O ETM pode ser avaliado intra-avaliador (você medindo o mesmo paciente) ou interavaliador (você comparado com a precisão de outro profissional experiente).
           </p>
           <p className="mb-4">
             Mas, na prática clínica diária, quantas vezes devemos aferir uma mesma dobra cutânea para fugir do erro sem ficar duas horas na consulta? A estatística fornece o roteiro:
           </p>
           <ul className="list-disc pl-5 text-slate-600 marker:text-green-700 mb-8 space-y-2">
-            <li><strong>O Padrão Típico (Duplicata):</strong> O protocolo comum exige medir o paciente inteiro de cima a baixo uma vez, e depois fazer o percurso novamente, gerando 2 medidas por ponto anatômico. Como são dois números, você aplica a <strong>Média Aritmética</strong> entre eles.</li>
+            <li><strong>O Padrão Típico (Duplicata):</strong> O protocolo comum exige medir o paciente inteiro de cima a baixo uma vez, e depois fazer o percurso novamente, gerando 2 medidas por ponto anatômico na avaliação antropométrica. Como são dois números, você aplica a <strong>Média Aritmética</strong> entre eles.</li>
             <li><strong>O Padrão Ideal (Triplicata):</strong> Usado em pesquisas rigorosas ou quando as duas primeiras medidas apresentam uma disparidade inaceitável. Você mede o mesmo ponto 3 vezes. Aqui, a estatística exige o uso da <strong>Mediana</strong> (o valor central da sequência). Por exemplo, se você encontrou [11mm, 12mm, 20mm], o 20mm foi um erro grave de preensão muscular. A média seria corrompida para 14,3mm, mas a <strong>Mediana</strong> joga fora os extremos e fica inteligentemente com <strong>12mm</strong>.</li>
           </ul>
 
           <h2 id="medidas" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
             <UserCheck className="text-green-700"/> O Arsenal de Medidas Corporais
           </h2>
-          <p className="mb-4">Para abastecer as fórmulas preditivas e modelar o somatotipo exato do paciente, nós precisamos organizar a nossa rotina de marcações em 4 "famílias" de medidas anatômicas. Conheça as principais utilizadas no mapeamento do perfil restrito e completo:</p>
+          <p className="mb-4">Para abastecer as fórmulas preditivas da avaliação antropométrica e modelar o somatotipo exato do paciente, nós precisamos organizar a nossa rotina de marcações em 4 "famílias" de medidas anatômicas. Conheça as principais utilizadas no mapeamento do perfil restrito e completo:</p>
           
           <div className="space-y-6 my-8">
             <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100 shadow-sm">
@@ -303,7 +304,7 @@ export default function AvaliacaoAntropometrica() {
                 <CheckCircle2 className="w-5 h-5 text-green-600" /> 1. Medidas Básicas (O Alicerce Estrutural)
               </h3>
               <p className="text-slate-600 m-0">
-                Formam o mapa primário da estrutura. A <strong>Estatura Total</strong> é aferida num estadiômetro de parede com o avaliado inspirando fundo e travando a cabeça no Plano de Frankfort. Englobam ainda o Peso Total na balança, a Estatura Sentado (medida com um banco de altura conhecida) e a Envergadura Máxima dos braços.
+                Formam o mapa primário da estrutura na avaliação física. A <strong>Estatura Total</strong> é aferida num estadiômetro de parede com o avaliado inspirando fundo e travando a cabeça no Plano de Frankfort. Englobam ainda o Peso Total na balança, a Estatura Sentado (medida com um banco de altura conhecida) e a Envergadura Máxima dos braços.
               </p>
             </div>
 
@@ -328,7 +329,7 @@ export default function AvaliacaoAntropometrica() {
                 <CheckCircle2 className="w-5 h-5 text-orange-500" /> 3. Perímetros Corporais (Os Volumes e Riscos)
               </h3>
               <p className="text-slate-600 m-0 mb-3">
-                Aferidos com fita metálica tencionada em técnica de mãos cruzadas para avaliar hipertrofia ou riscos centrais. As principais circunferências são:
+                Aferidos com fita metálica tencionada em técnica de mãos cruzadas para avaliar hipertrofia ou riscos centrais. As principais circunferências da avaliação antropométrica são:
               </p>
               <ul className="list-disc pl-5 text-slate-600 marker:text-orange-500 m-0 text-sm grid grid-cols-1 md:grid-cols-2 gap-x-4">
                 <li><strong>Braço Relaxado e Flexionado:</strong> Este último aferindo o pico de tensão do bíceps.</li>
@@ -344,7 +345,7 @@ export default function AvaliacaoAntropometrica() {
                 <CheckCircle2 className="w-5 h-5 text-purple-500" /> 4. Diâmetros Ósseos (O Chassi Biológico)
               </h3>
               <p className="text-slate-600 m-0">
-                Aferem a largura ou espessura entre proeminências ósseas usando um paquímetro de alumínio com hastes compressivas. Fundamentais no cálculo do modelo Tetracompartimental para isolar o esqueleto do músculo. Os mais utilizados clinicamente são os diâmetros <strong>Biepicondiliano do Úmero</strong> (cotovelo) e <strong>Biepicondiliano do Fêmur</strong> (joelho), além das grandes envergaduras de tronco como o Biacromial e Bi-iliocrestídeo.
+                Aferem a largura ou espessura entre proeminências ósseas usando um paquímetro de alumínio com hastes compressivas. Fundamentais no cálculo do modelo Tetracompartimental da avaliação antropométrica para isolar o esqueleto do músculo. Os mais utilizados clinicamente são os diâmetros <strong>Biepicondiliano do Úmero</strong> (cotovelo) e <strong>Biepicondiliano do Fêmur</strong> (joelho), além das grandes envergaduras de tronco como o Biacromial e Bi-iliocrestídeo.
               </p>
             </div>
           </div>
@@ -353,12 +354,12 @@ export default function AvaliacaoAntropometrica() {
             <Globe className="text-green-700"/> O Protocolo ISAK e Seus Níveis
           </h2>
           <p className="mb-4">
-            O protocolo da <em>International Society for the Advancement of Kinanthropometry</em> (ISAK) é a linguagem unificada mundial da cineantropometria. Uma medida tirada por um profissional Nível 1 no Rio de Janeiro usando essa padronização rígida de pontos será matematicamente idêntica à de um profissional na Austrália. O foco do curso ISAK não está apenas em gerar um percentual de gordura no final, mas na precisão cirúrgica contínua.
+            O protocolo da <em>International Society for the Advancement of Kinanthropometry</em> (ISAK) é a linguagem unificada mundial da cineantropometria. Uma avaliação antropométrica tirada por um profissional Nível 1 no Rio de Janeiro usando essa padronização rígida de pontos será matematicamente idêntica à de um profissional na Austrália. O foco do curso ISAK não está apenas em gerar um percentual de gordura no final, mas na precisão cirúrgica contínua.
           </p>
-          <p className="mb-4">A ISAK divide o domínio metodológico dessa ciência em hierarquias técnicas de excelência:</p>
+          <p className="mb-4">A ISAK divide o domínio metodológico da avaliação física em hierarquias técnicas de excelência:</p>
           <ul className="list-disc pl-5 text-slate-600 marker:text-green-700 mb-8 space-y-2">
-            <li><strong>Nível 1 (O Avaliador Técnico):</strong> É capacitado no "Perfil Restrito". O profissional domina com maestria as Medidas Básicas, 8 dobras cutâneas, 5 perímetros e 2 diâmetros ósseos. Possui um limite rigoroso de erro técnico de medida aceitável, não podendo o ETM passar de 7,5% para dobras cutâneas e 1,5% para as outras variáveis. O perfil ideal de atuação é em academias e clínicas de nutrição focadas em desporto.</li>
-            <li><strong>Nível 2 (O Antropometrista Especialista):</strong> Adiciona a todo o leque anterior um aprofundamento formidável. Realiza o Perfil Completo (um total de 43 medidas) e reduz seu teto de ETM para um limite muito apertado (máximo de 5% de tolerância de erro para as dobras cutâneas). Capacitado para pesquisa científica laboratorial rigorosa e controle de alto rendimento.</li>
+            <li><strong>Nível 1 (O Avaliador Técnico):</strong> É capacitado no "Perfil Restrito". O profissional domina com maestria as Medidas Básicas, 8 dobras cutâneas, 5 perímetros e 2 diâmetros ósseos na avaliação antropométrica. Possui um limite rigoroso de erro técnico de medida aceitável, não podendo o ETM passar de 7,5% para dobras cutâneas e 1,5% para as outras variáveis. O perfil ideal de atuação é em academias e clínicas de nutrição focadas em desporto.</li>
+            <li><strong>Nível 2 (O Antropometrista Especialista):</strong> Adiciona a todo o leque anterior um aprofundamento formidável. Realiza o Perfil Completo da avaliação física (um total de 43 medidas) e reduz seu teto de ETM para um limite muito apertado (máximo de 5% de tolerância de erro para as dobras cutâneas). Capacitado para pesquisa científica laboratorial rigorosa e controle de alto rendimento.</li>
             <li><strong>Níveis 3 e 4:</strong> São os Curadores e Instrutores. Profissionais como Instrutores ISAK Nível 4 que são responsáveis não apenas por medirem na perfeição, mas por auditarem, treinarem e testarem a acurácia de profissionais mais jovens globalmente.</li>
           </ul>
 
@@ -368,10 +369,10 @@ export default function AvaliacaoAntropometrica() {
               <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
                 <PlayCircle size={24} />
               </div>
-              <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight m-0">Aprenda: O Perfil Restrito ISAK na Prática</h3>
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight m-0">Aprenda: A Avaliação Antropométrica ISAK na Prática</h3>
             </div>
             <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-              <YouTubeLazy videoId="_Fmm4T4Ooto" title="Demonstração Prática do Perfil Restrito ISAK" />
+              <YouTubeLazy videoId="_Fmm4T4Ooto" title="Demonstração Prática do Perfil Restrito ISAK na Avaliação Física" />
             </div>
           </div>
 
@@ -379,21 +380,21 @@ export default function AvaliacaoAntropometrica() {
             <Brain className="text-green-700"/> As Fórmulas de Regressão: Escolhendo o Caminho
           </h2>
           <p className="mb-4">
-            As dobras em si não nos dizem o percentual. Para transformar as medidas em "Porcentagem de Gordura", nós alimentamos os números em uma Equação de Regressão. A maioria dessas equações famosas foi criada na década de 70, baseando-se em amostras comparadas com o método da pesagem hidrostática. É um erro letal avaliar um atleta de alto rendimento (seco) usando uma equação desenvolvida para mulheres obesas de 60 anos. Você deve escolher o protocolo que mais se aproxima do fenótipo do seu paciente no consultório.
+            As dobras na avaliação física em si não nos dizem o percentual. Para transformar as medidas em "Porcentagem de Gordura", nós alimentamos os números da avaliação antropométrica em uma Equação de Regressão. A maioria dessas equações famosas foi criada na década de 70, baseando-se em amostras comparadas com o método da pesagem hidrostática. É um erro letal avaliar um <Link to="/nutricao_para_ironman_703" className="text-green-700 font-bold hover:underline">atleta olímpico de Ironman</Link> usando uma equação desenvolvida para mulheres obesas de 60 anos. Você deve escolher o protocolo da avaliação antropométrica que mais se aproxima do fenótipo do seu paciente no consultório.
           </p>
           
           <div className="space-y-4 my-8">
             <div className="p-4 bg-slate-50 border-l-4 border-green-600 rounded-r-2xl shadow-sm">
               <h4 className="font-bold text-slate-800 m-0">1. Equação de Durnin & Womersley (1974)</h4>
-              <p className="text-sm text-slate-600 m-0 mt-2">Os pesquisadores escoceses testaram quase 500 indivíduos num amplo leque etário de 16 a 72 anos. Utiliza a força da equação logarítmica para uma densidade que se desvia ao decorrer do avanço natural da idade. Usa as 4 dobras clássicas da metade superior (Bíceps, Tríceps, Subescapular e Supra-ilíaca). É ideal e muito confortável para mulheres, pois evita a medição invasiva de coxa frontal e o constrangimento do abdômen.</p>
+              <p className="text-sm text-slate-600 m-0 mt-2">Os pesquisadores escoceses testaram quase 500 indivíduos num amplo leque etário de 16 a 72 anos. Utiliza a força da equação logarítmica para uma densidade que se desvia ao decorrer do avanço natural da idade. Usa as 4 dobras clássicas da metade superior na avaliação física (Bíceps, Tríceps, Subescapular e Supra-ilíaca). É ideal e muito confortável na avaliação antropométrica para mulheres, pois evita a medição invasiva de coxa frontal e o constrangimento do abdômen.</p>
             </div>
             <div className="p-4 bg-slate-50 border-l-4 border-orange-600 rounded-r-2xl shadow-sm">
               <h4 className="font-bold text-slate-800 m-0">2. Equação de Faulkner (1968)</h4>
-              <p className="text-sm text-slate-600 m-0 mt-2">Uma das equações mais famosas e antigas no Brasil. Criada no ambiente dos esportes aquáticos, utiliza as dobras (Tríceps, Subescapular, Supraespinal e Abdominal) acrescida da famosa constante "fisiológica" de Faulkner (5,783). Embora seja extremamente utilizada, a literatura moderna recomenda precaução: as validações indicam que ela tende a superestimar percentuais altos, sendo sua aplicação mais focada num espectro de jovens masculinos desportistas entre 18 a 25 anos, com as quais Faulkner modelou o estudo na Universidade de Michigan.</p>
+              <p className="text-sm text-slate-600 m-0 mt-2">Uma das equações mais famosas e antigas no Brasil. Criada no ambiente dos esportes aquáticos, utiliza as dobras (Tríceps, Subescapular, Supraespinal e Abdominal) acrescida da famosa constante "fisiológica" de Faulkner (5,783) na avaliação física. Embora seja extremamente utilizada, a literatura da avaliação antropométrica moderna recomenda precaução: as validações indicam que ela tende a superestimar percentuais altos, sendo sua aplicação mais focada num espectro de jovens masculinos desportistas entre 18 a 25 anos, com as quais Faulkner modelou o estudo na Universidade de Michigan.</p>
             </div>
             <div className="p-4 bg-slate-50 border-l-4 border-blue-600 rounded-r-2xl shadow-sm">
               <h4 className="font-bold text-slate-800 m-0">3. Equações Generalizadas de Jackson & Pollock (1978)</h4>
-              <p className="text-sm text-slate-600 m-0 mt-2">Foram o maior salto tecnológico em antropometria ao criarem fórmulas "generalizadas" em vez de "específicas" de nicho. Eles detectaram o problema de usar equações lineares para medir uma fisiologia que é "curvilínea" e que afeta a densidade óssea ao longo do tempo. Incorporaram as variáveis preditivas como o componente "quadrático" do somatório de dobras e a "Idade" cronológica do sujeito nas fórmulas. Criaram versões muito validadas usando somas densas de 7 Dobras e protocolos ágeis e excelentes de 3 Dobras (Peito, Abdômen e Coxa para homens; e Tríceps, Supra-ilíaca e Coxa para mulheres). São fantásticas para o público moderno das academias, com ETM super acurados.</p>
+              <p className="text-sm text-slate-600 m-0 mt-2">Foram o maior salto tecnológico em avaliação antropométrica ao criarem fórmulas "generalizadas" em vez de "específicas" de nicho. Eles detectaram o problema de usar equações lineares na avaliação física para medir uma fisiologia que é "curvilínea" e que afeta a densidade óssea ao longo do tempo. Incorporaram as variáveis preditivas como o componente "quadrático" do somatório de dobras e a "Idade" cronológica do sujeito nas fórmulas da avaliação antropométrica. Criaram versões muito validadas usando somas densas de 7 Dobras e protocolos ágeis e excelentes de 3 Dobras (Peito, Abdômen e Coxa para homens; e Tríceps, Supra-ilíaca e Coxa para mulheres). São fantásticas para a avaliação física do público moderno das academias, com ETM super acurados.</p>
             </div>
           </div>
 
@@ -401,56 +402,56 @@ export default function AvaliacaoAntropometrica() {
             <HelpCircle className="text-green-700"/> O Mito das 7 Dobras: Por que excluir Peitoral e Axilar?
           </h2>
           <p className="mb-4">
-            A grande dúvida de muitos avaliadores iniciantes é: <em>"Se a fórmula de 7 dobras de Jackson & Pollock existe e parece mais completa, por que a maioria dos softwares e pesquisadores foca na fórmula de 3 ou 4 dobras, excluindo o Peitoral e a Axilar Média?"</em>
+            A grande dúvida de muitos avaliadores iniciantes na avaliação física é: <em>"Se a fórmula de 7 dobras de Jackson & Pollock existe e parece mais completa, por que a maioria dos softwares de avaliação antropométrica foca na fórmula de 3 ou 4 dobras, excluindo o Peitoral e a Axilar Média?"</em>
           </p>
           <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 text-blue-900 italic mt-6 mb-6">
-            <p className="m-0 mb-3">A resposta está na <strong>redundância estatística</strong> e no constrangimento clínico. Estudos clássicos conduzidos por Pollock, Jackson e colaboradores demonstraram que as dobras cutâneas do nosso corpo são altamente correlacionadas entre si — ou seja, elas tendem a medir exatamente o mesmo "fator" de gordura subcutânea[cite: 20].</p>
-            <p className="m-0">Quando os pesquisadores aplicaram a análise de regressão múltipla, descobriram que adicionar a dobra Peitoral e a Axilar Média na equação (formando 7 dobras) aumentava muito pouco a precisão real da estimativa da densidade corporal em relação a usar apenas 3 ou 4 dobras bem distribuídas[cite: 20]. A própria equipe recomendou oficialmente o uso de equações simplificadas, afirmando que este modelo é estatisticamente robusto, possui índices de erro idênticos às equações mais complexas e é imensamente mais prático para avaliações em massa no consultório[cite: 20]. Na prática, excluir o Peitoral e a Axilar Média poupa tempo e evita o constrangimento das pacientes sem perder um grama de validade científica.</p>
+            <p className="m-0 mb-3">A resposta da avaliação antropométrica está na <strong>redundância estatística</strong> e no constrangimento clínico da avaliação física. Estudos clássicos conduzidos por Pollock, Jackson e colaboradores demonstraram que as dobras cutâneas do nosso corpo são altamente correlacionadas entre si — ou seja, elas tendem a medir exatamente o mesmo "fator" de gordura subcutânea[cite: 20].</p>
+            <p className="m-0">Quando os pesquisadores aplicaram a análise de regressão múltipla, descobriram que adicionar a dobra Peitoral e a Axilar Média na equação da avaliação antropométrica (formando 7 dobras) aumentava muito pouco a precisão real da estimativa da densidade corporal em relação a usar apenas 3 ou 4 dobras bem distribuídas[cite: 20]. A própria equipe recomendou oficialmente na avaliação física o uso de equações simplificadas, afirmando que este modelo é estatisticamente robusto, possui índices de erro idênticos às equações mais complexas e é imensamente mais prático para a avaliação antropométrica em massa no consultório[cite: 20]. Na prática, excluir o Peitoral e a Axilar Média poupa tempo e evita o constrangimento das pacientes na avaliação física sem perder um grama de validade científica.</p>
           </div>
 
           <h2 id="resultados" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-            <Target className="text-green-700"/> Entregando Resultados Clínicos e Desportivos (Os Relatórios)
+            <Target className="text-green-700"/> Entregando Resultados Clínicos e Desportivos na Avaliação Física
           </h2>
           <p className="mb-4">
-            Quando o paciente retorna para a reavaliação de 45 dias, você precisa chancelar sua competência revelando a matemática fina do que ocorreu debaixo da pele dele. O pior erro comercial do nutricionista é imprimir um papel genérico dizendo apenas: "Seu peso baixou de 80kg para 78kg e a gordura caiu 2%". O seu trabalho com o plicômetro fornece um arsenal inteiro de índices reveladores. Veja como entregar resultados de elite:
+            Quando o paciente retorna para a reavaliação física de 45 dias, você precisa chancelar sua competência na avaliação antropométrica revelando a matemática fina do que ocorreu debaixo da pele dele. O pior erro comercial do nutricionista é imprimir um papel genérico dizendo apenas: "Seu peso baixou de 80kg para 78kg e a gordura caiu 2%". O seu trabalho com o plicômetro fornece um arsenal inteiro de índices da avaliação antropométrica. Veja como entregar resultados de elite:
           </p>
           
           <div className="space-y-6 my-8">
             <div>
-              <h3 className="text-lg font-black text-slate-800 mb-2">A Matemática Fracionada da Composição Básica (Massa Magra vs Gorda)</h3>
+              <h3 className="text-lg font-black text-slate-800 mb-2">A Matemática Fracionada da Composição Básica da Avaliação Antropométrica</h3>
               <p className="text-slate-600 leading-relaxed text-sm m-0">
-                Esta é a fundação que combate a balança ordinária. Utilizando as equações que selecionamos e o valor do adipômetro, você deverá informar ao atleta não só o <strong>Percentual de Gordura (%G)</strong> e o <strong>IMC</strong> tradicional (que mascara os hipertróficos), mas fatiar os quilos absolutos. O paciente verá a coluna da <strong>Massa Gorda</strong> (peso isolado e inativo do tecido adiposo) caindo, enquanto a coluna da <strong>Massa Magra</strong> (estrutura muscular, esquelética, líquidos e órgãos) deve subir ou se preservar agressivamente durante o déficit dietético.
+                Esta é a fundação da avaliação física que combate a balança ordinária. Utilizando as equações que selecionamos na avaliação antropométrica e o valor do adipômetro, você deverá informar ao atleta não só o <strong>Percentual de Gordura (%G)</strong> e o <strong>IMC</strong> tradicional (que mascara os hipertróficos), mas fatiar os quilos absolutos. O paciente verá a coluna da <strong>Massa Gorda</strong> (peso isolado e inativo do tecido adiposo) caindo na avaliação física, enquanto a coluna da <strong>Massa Magra</strong> (estrutura muscular, esquelética, líquidos e órgãos) deve subir ou se preservar agressivamente perante a <Link to="/quantas-calorias-gasto-por-dia" className="text-green-700 font-bold hover:underline">taxa metabólica basal e o déficit dietético</Link>.
               </p>
             </div>
 
             <div>
-              <h3 className="text-lg font-black text-slate-800 mb-2">Avisos e Relações de Distribuição Central e Visceral</h3>
+              <h3 className="text-lg font-black text-slate-800 mb-2">Avisos e Relações de Distribuição Central na Avaliação Física</h3>
               <p className="text-slate-600 leading-relaxed text-sm m-0">
-                Para diagnosticar pacientes mais velhos e com risco inflamatório forte, cruze as circunferências em índices vitais. Informe a ele a métrica da <strong>Relação Cintura Quadril (RCQ)</strong> (riscos andrógenos cardíacos), a razão preventiva de <strong>Cintura/Estatura</strong> e não poupe de demonstrar o <strong>apVAT</strong>. O apVAT é a revolução da antropometria que, usando fórmulas matemáticas da cintura e da coxa cruzadas em inteligência acadêmica e chancelada via <em>CT scans</em>, quantifica numericamente o tecido adiposo visceral (a letal gordura perivisceral) que destrói o fígado e inibe os receptores de insulina do obeso sarcopênico. Isso traz o apelo cardiovascular de prevenção imediata para sua conduta clínica.
+                Para diagnosticar pacientes na avaliação antropométrica com risco inflamatório forte, cruze as circunferências em índices vitais da avaliação física. Informe a ele a métrica da <strong>Relação Cintura Quadril (RCQ)</strong> (riscos andrógenos cardíacos), a razão preventiva de <strong>Cintura/Estatura</strong> e não poupe de demonstrar o <strong>apVAT</strong>. O apVAT é a revolução da avaliação antropométrica que, usando fórmulas matemáticas da cintura e da coxa cruzadas em inteligência acadêmica e chancelada via <em>CT scans</em>, quantifica numericamente o tecido adiposo visceral (a letal gordura perivisceral) que destrói o fígado e inibe os receptores de insulina do obeso sarcopênico na avaliação física. Isso traz o apelo cardiovascular de prevenção imediata para sua conduta de avaliação antropométrica.
               </p>
             </div>
 
             <div>
-              <h3 className="text-lg font-black text-slate-800 mb-2">Os Marcadores Puros de Adiposidade Genética: O Somatório das Dobras</h3>
+              <h3 className="text-lg font-black text-slate-800 mb-2">Os Marcadores Puros da Avaliação Antropométrica: O Somatório das Dobras</h3>
               <p className="text-slate-600 leading-relaxed text-sm m-0">
-                Fórmulas de "%G" envelhecem. O peso esconde água retida de estresse inflamatório agudo. Para o atleta olímpico ou lutador fazendo corte extremo de peso, não falamos a linguagem incerta da percentagem, mas sim a métrica brutal absoluta do plicômetro. Embasados nos estudos de experts com campeões do <em>Ironman</em> ou nas normas ISAK, apresente ao seu paciente se a "capa" diminuiu, demonstrando a redução total nos eixos do <strong>Somatório de 6 Dobras Cutâneas</strong> (Tríceps, Subescapular, Supraespinal, Abdominal, Coxa e Panturrilha) e no exaustivo <strong>Somatório de 8 Dobras</strong> para detalhar o acúmulo genético exato da pele perante treinos de endurance. O pesquisador de alta-performance Francis Holway defende esse número absoluto como prova irrefutável. O tecido afina perante os adipômetros ou seu plano nutricional de choque é um fracasso no camp.
+                Fórmulas de "%G" da avaliação física envelhecem. O peso esconde água retida de estresse inflamatório agudo. Para o atleta de <em>treinos de endurance</em> ou lutador fazendo corte extremo de peso, não falamos a linguagem incerta da percentagem na avaliação antropométrica, mas sim a métrica brutal absoluta do plicômetro. Embasados nos estudos de experts com campeões ou nas normas ISAK, apresente ao seu paciente na avaliação física se a "capa" diminuiu, demonstrando a redução total nos eixos do <strong>Somatório de 6 Dobras Cutâneas</strong> da avaliação antropométrica (Tríceps, Subescapular, Supraespinal, Abdominal, Coxa e Panturrilha) e no exaustivo <strong>Somatório de 8 Dobras</strong> para detalhar o acúmulo genético exato da pele na avaliação física. O tecido afina perante os adipômetros ou seu <Link to="/o-que-e-dieta-mediterranea" className="text-green-700 font-bold hover:underline">plano nutricional e dieta</Link> de avaliação antropométrica é um fracasso no camp.
               </p>
             </div>
 
             <div>
-              <h3 className="text-lg font-black text-slate-800 mb-2">Perímetros Corrigidos de Pura Massa Músculo Esquelética</h3>
+              <h3 className="text-lg font-black text-slate-800 mb-2">Perímetros Corrigidos de Pura Massa Músculo Esquelética na Avaliação Física</h3>
               <p className="text-slate-600 leading-relaxed text-sm m-0">
-                A pergunta mortífera no consultório esportivo: "Doutor, minha fita de braço aumentou de 38 cm para 40 cm. Foi pura hipertrofia do meu bíceps?". O nutricionista moderno usa as leis do fracionamento! Apresente o laudo das <strong>Circunferências Corrigidas pela Adiposidade</strong>. Retirando algebricamente usando o "PI" matemático ($\pi \times$ espessura da dobra do tríceps) do perímetro sujo, extirpamos o pneu adiposo circunferencial revelando o cilindro puro real e proteico do músculo esquelético, desmascarando a ilusão de ganho na balança frente a hipertrofia de qualidade. O paciente visualiza em milímetros as reais seções transversais musculares ativas desenvolvidas. Adicionalmente, classifique e apresente se ele é um trator ou um lince usando o <strong>Somatotipo de Heath-Carter</strong>. O software calcula as cargas da endomorfia, mesomorfia (robusteza muscular) e ectomorfia (linearidade frágil) apontando visualmente na Somatocarta se a genética endócrina é ideal para seu alvo atlético. Para completar, o uso magistral de diâmetros ósseos alimentam o <strong>IMO (Índice Músculo Ósseo)</strong> informando se sua mecânica esquelética alcançou o pico de transporte de lastro muscular possível e se o <strong>IAM (Índice Adiposo Muscular)</strong> exibe uma melhora esteticamente agradável do volume metabólico magro em detrimento do lastro adiposo estático.
+                A pergunta mortífera da avaliação física no consultório esportivo: "Doutor, minha fita de braço aumentou de 38 cm para 40 cm na avaliação antropométrica. Foi pura hipertrofia do meu bíceps?". O nutricionista moderno usa as leis do fracionamento da avaliação física! Apresente o laudo das <strong>Circunferências Corrigidas pela Adiposidade</strong>. Retirando algebricamente usando o "PI" matemático ($\pi \times$ espessura da dobra do tríceps) do perímetro sujo na avaliação antropométrica, extirpamos o pneu adiposo circunferencial revelando o cilindro puro real e proteico do músculo esquelético, desmascarando a ilusão de ganho na balança frente a hipertrofia de qualidade. O paciente visualiza em milímetros as reais seções transversais musculares ativas desenvolvidas na avaliação física. Adicionalmente, classifique e apresente se ele é um trator ou um lince usando o <strong>Somatotipo de Heath-Carter</strong> na avaliação antropométrica. O software calcula as cargas da endomorfia, mesomorfia (robusteza muscular) e ectomorfia (linearidade frágil) da avaliação física apontando visualmente na Somatocarta se a genética endócrina é ideal para seu alvo atlético na avaliação antropométrica. Para completar, o uso magistral de diâmetros ósseos alimentam o <strong>IMO (Índice Músculo Ósseo)</strong> informando se sua mecânica esquelética alcançou o pico de transporte de lastro muscular possível e se o <strong>IAM (Índice Adiposo Muscular)</strong> exibe uma melhora esteticamente agradável do volume metabólico magro da avaliação física em detrimento do lastro adiposo estático da avaliação antropométrica.
               </p>
             </div>
           </div>
 
           {/* CALCULADORA DE SOMATOTIPO SIMPLIFICADA E GRÁFICO SVG */}
           <h2 id="calculadora" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
-            <Zap className="text-green-700"/> Simulador: Calculadora e Gráfico de Somatotipo
+            <Zap className="text-green-700"/> Simulador: Calculadora e Gráfico de Somatotipo da Avaliação Física
           </h2>
           <p className="mb-8">
-            Você já sabe o seu somatotipo ou o do seu paciente? Insira os três componentes abaixo para visualizar o biotipo exato ser gerado matematicamente no plano cartesiano da Somatocarta!
+            Você já sabe o seu somatotipo da avaliação antropométrica ou o do seu paciente? Insira os três componentes da avaliação física abaixo para visualizar o biotipo exato ser gerado matematicamente no plano cartesiano da Somatocarta!
           </p>
 
           <div className="my-10 bg-slate-900 border border-slate-800 shadow-2xl rounded-[3rem] overflow-hidden">
@@ -517,55 +518,55 @@ export default function AvaliacaoAntropometrica() {
                       <circle cx={somatotipo.x} cy={-somatotipo.y} r="0.2" fill="#fff" />
                    </svg>
                 </div>
-                <p className="text-slate-400 text-xs text-center mt-4 m-0">Gráfico de Dispersão bidimensional plotado no eixo: X = {somatotipo.x} / Y = {somatotipo.y}</p>
+                <p className="text-slate-400 text-xs text-center mt-4 m-0">Gráfico de Dispersão bidimensional plotado no eixo da Avaliação Antropométrica: X = {somatotipo.x} / Y = {somatotipo.y}</p>
               </div>
             )}
           </div>
 
           <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-            <Activity className="text-green-700"/> Entendendo a Somatocarta (Endo, Meso, Ectomorfo)
+            <Activity className="text-green-700"/> Entendendo a Somatocarta na Avaliação Física
           </h2>
           <p className="mb-4">
-            O método criado por Heath & Carter no final dos anos 60 revolucionou a educação física escolar e desportiva. Trata-se da avaliação do <strong>Somatotipo</strong>. Ele usa as dobras cutâneas, circunferências de braço e perna e a largura óssea de fêmur e úmero para "plotar" o paciente em um mapa (A Somatocarta).
+            O método criado por Heath & Carter no final dos anos 60 revolucionou a educação física escolar e a avaliação antropométrica desportiva. Trata-se da avaliação do <strong>Somatotipo</strong> na avaliação física. Ele usa as dobras cutâneas, circunferências de braço e perna e a largura óssea de fêmur e úmero para "plotar" o paciente da avaliação antropométrica em um mapa (A Somatocarta).
           </p>
           <p className="mb-4">
-            O somatotipo dita que existem três tendências embrionárias e genéticas predominantes no corpo humano:
+            O somatotipo da avaliação física dita que existem três tendências embrionárias e genéticas predominantes no corpo humano:
           </p>
           <ul className="list-disc pl-5 text-slate-600 marker:text-green-700 space-y-2 mb-8">
-            <li><strong>Endomorfia (Relativa Adiposidade):</strong> O perfil que engorda com extrema facilidade, ossos largos, rosto redondo, mas que perde peso devagar. Necessita de dieta com déficit restrito e treino cardio intenso.</li>
-            <li><strong>Mesomorfia (Relativa Robustez Muscular):</strong> O "agraciado genético". Tem facilidade de ganho de massa, ossos de alavancagem média, ombros largos e cintura fina.</li>
-            <li><strong>Ectomorfia (Relativa Magreza Ocular):</strong> Alta taxa metabólica basal, membros muito compridos, dificuldade absurda para ganhar peso (tanto gordo quanto magro). É o atleta nato para corridas de fundo e salto em altura.</li>
+            <li><strong>Endomorfia (Relativa Adiposidade):</strong> O perfil da avaliação antropométrica que engorda com extrema facilidade, ossos largos, rosto redondo, mas que perde peso devagar. Necessita de dieta com déficit restrito e treino cardio intenso na avaliação física.</li>
+            <li><strong>Mesomorfia (Relativa Robustez Muscular):</strong> O "agraciado genético" da avaliação antropométrica. Tem facilidade de ganho de massa, ossos de alavancagem média, ombros largos e cintura fina na avaliação física.</li>
+            <li><strong>Ectomorfia (Relativa Magreza Ocular):</strong> Alta taxa metabólica basal na avaliação antropométrica, membros muito compridos, dificuldade absurda para ganhar peso (tanto gordo quanto magro) na avaliação física. É o atleta nato para corridas de fundo e salto em altura.</li>
           </ul>
 
           {/* VENDAS DA PLANILHA - "O PINGUS APROVA" */}
           <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
             <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
                 <Zap size={14} className="fill-white" />
-                <span>Ferramenta Essencial!</span>
+                <span>Ferramenta de Avaliação Física!</span>
             </div>
 
             <div className="flex flex-col md:flex-row items-center gap-10 mt-6 relative z-0">
                 <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-slate-50 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-inner border-4 border-white">
-                    <ImagemOtimizada src={`${githubImgBase}logoN_pingus.webp`} alt="Selo de Qualidade Pingus" className="w-full h-full object-contain" width="160" height="160" loading="lazy" />
+                    <ImagemOtimizada src={`${githubImgBase}logoN_pingus.webp`} alt="Selo de Qualidade Pingus para Avaliação Antropométrica" className="w-full h-full object-contain" width="160" height="160" loading="lazy" />
                 </div>
 
                 <div className="flex-1 text-center md:text-left flex flex-col justify-center">
                     <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
-                        Planilha Antropométrica <span className="text-green-700">Inteligente PRO</span>
+                        Planilha de Avaliação Antropométrica <span className="text-green-700">Inteligente PRO</span>
                     </h4>
 
                     <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
-                        <ImagemOtimizada src={`${githubImgBase}PlanilhaImagem/Planilha_Capa.webp`} alt="Capa da Planilha Antropométrica Inteligente VBA Excel" className="w-full h-auto object-contain" width="200" height="200" loading="lazy" />
+                        <ImagemOtimizada src={`${githubImgBase}PlanilhaImagem/Planilha_Capa.webp`} alt="Capa da Planilha de Avaliação Antropométrica Inteligente VBA Excel" className="w-full h-auto object-contain" width="200" height="200" loading="lazy" />
                     </div>
 
                     <p className="text-slate-600 text-[15px] mb-8 leading-relaxed font-medium">
-                        Você já aprendeu a parte teórica. Agora, na hora da consulta, seu tempo é valioso demais para você ficar 20 minutos na frente do paciente apertando teclas da calculadora e digitando fórmulas logarítmicas de regressão manualmente. 
-                        A nossa <strong>Planilha desenvolvida em Excel com módulos de VBA</strong> é a central completa de automação clínica. Ela plota a sua Somatocarta automaticamente em um gráfico 2D, calcula os temidos Perímetros Corrigidos de músculo puro e executa o processamento pesado do apVAT. E o melhor: gera um Laudo visual incrível em 30 segundos com todos os índices complexos destrinchados, em um clique, pronto para você impressionar quem confia na sua avaliação e garantir o retorno financeiro em consultas vindouras!
+                        Você já aprendeu a parte teórica da avaliação antropométrica. Agora, na hora da avaliação física, seu tempo é valioso demais para você ficar 20 minutos na frente do paciente apertando teclas da calculadora e digitando fórmulas logarítmicas de regressão manualmente. 
+                        A nossa <strong>Planilha de Avaliação Física desenvolvida em Excel com módulos de VBA</strong> é a central completa de automação da avaliação antropométrica clínica. Ela plota a sua Somatocarta automaticamente em um gráfico 2D da avaliação física, calcula os temidos Perímetros Corrigidos de músculo puro da avaliação antropométrica e executa o processamento pesado do apVAT. E o melhor: gera um Laudo visual incrível em 30 segundos de avaliação física com todos os índices complexos destrinchados, em um clique, pronto para você impressionar quem confia na sua avaliação antropométrica e garantir o retorno financeiro em consultas vindouras!
                     </p>
 
-                    <Link to="/planilha" className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic" aria-label="Comprar a Planilha Antropométrica PRO">
+                    <Link to="/planilha" className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic" aria-label="Comprar a Planilha de Avaliação Física PRO">
                         <ShoppingCart size={16} />
-                        Automatize Seus Laudos Agora
+                        Automatize Seus Laudos de Avaliação Antropométrica Agora
                     </Link>
                 </div>
             </div> 
@@ -575,16 +576,16 @@ export default function AvaliacaoAntropometrica() {
             <CheckCircle2 className="text-green-700"/> Conclusão: Dominando a Avaliação Física
           </h2>
           <p className="mb-4">
-            Na era da tecnologia de ponta e das bioimpedâncias que emitem recibos coloridos em poucos segundos, a arte mecânica da antropometria clássica não morreu; ela se destaca como uma ferramenta "raiz" de veracidade biológica inegável.
+            Na era da tecnologia de ponta e das bioimpedâncias que emitem recibos coloridos da avaliação física em poucos segundos, a arte mecânica da avaliação antropométrica clássica não morreu; ela se destaca como uma ferramenta "raiz" de veracidade biológica inegável na avaliação física.
           </p>
           <p className="mb-4">
-            Um bom avaliador físico e nutricionista que se apoia nos rígidos protocolos da ISAK detém a habilidade tátil de soltar as fáscias musculares da gordura, marca seus pontos criteriosamente e, finalmente, converte esses dados brutos em uma ferramenta de automação (como as modernas Planilhas Clínicas em VBA), jamais será substituído pelo "apertar de botão" de uma balança. O paciente percebe o cuidado palpável e, fisiologicamente, os dados estarão incólumes contra as flutuações hormonais e dietéticas que arruinariam outras modalidades de imagem. Domine as equações corretas, confie no peso exato do Somatório e eleve a excelência da entrega no seu consultório!
+            Um bom avaliador físico e nutricionista que se apoia nos rígidos protocolos da ISAK da avaliação antropométrica detém a habilidade tátil de soltar as fáscias musculares da gordura na avaliação física, marca seus pontos criteriosamente da avaliação antropométrica e, finalmente, converte esses dados brutos em uma ferramenta de automação da avaliação física (como as modernas Planilhas Clínicas em VBA), jamais será substituído pelo "apertar de botão" de uma balança na avaliação antropométrica. O paciente percebe o cuidado palpável da avaliação física e, fisiologicamente, os dados da avaliação antropométrica estarão incólumes contra as flutuações hormonais e dietéticas que arruinariam outras modalidades de imagem. Domine as equações corretas da avaliação física, confie no peso exato do Somatório da avaliação antropométrica e eleve a excelência da entrega no seu consultório de avaliação física!
           </p>
 
           {/* FAQ DINÂMICO AIO */}
           <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
             <h2 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 italic">
-              <HelpCircle className="text-green-700" /> Perguntas Frequentes (FAQ)
+              <HelpCircle className="text-green-700" /> Perguntas Frequentes de Avaliação Física (FAQ)
             </h2>
             <div className="space-y-4">
               {faqs.map((faq, index) => (
@@ -610,16 +611,16 @@ export default function AvaliacaoAntropometrica() {
 
           {/* 🚀 E-E-A-T (FONTES CIENTÍFICAS E AVISO LEGAL) */}
           <div className="my-12 p-6 bg-slate-100 rounded-2xl border border-slate-200">
-             <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest mb-3">Referências Acadêmicas e Fontes</h3>
+             <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest mb-3">Referências Acadêmicas e Fontes da Avaliação Antropométrica</h3>
              <ul className="text-xs text-slate-500 leading-relaxed m-0 list-disc pl-4 space-y-1">
-               <li>ISAK - International Society for the Advancement of Kinanthropometry. (Padrões de Medição em Perfil Restrito).</li>
-               <li>DURNIN, J.V.G.A., & WOMERSLEY, J. (1974). <em>Body fat assessed from total body density and its estimation from skinfold thickness: measurements on 481 men and women aged from 16 to 72 years.</em> British Journal of Nutrition.</li>
-               <li>JACKSON, A.S., & POLLOCK, M.L. (1978). <em>Generalized equations for predicting body density of men.</em> British Journal of Nutrition.</li>
-               <li>CARTER, J.E.L. (1970). <em>The Somatotypes of Athletes - A Review.</em> Human Biology.</li>
+               <li>ISAK - International Society for the Advancement of Kinanthropometry. (Padrões de Medição em Perfil Restrito na avaliação física).</li>
+               <li>DURNIN, J.V.G.A., & WOMERSLEY, J. (1974). <em>Body fat assessed from total body density and its estimation from skinfold thickness: measurements on 481 men and women aged from 16 to 72 years na avaliação antropométrica.</em> British Journal of Nutrition.</li>
+               <li>JACKSON, A.S., & POLLOCK, M.L. (1978). <em>Generalized equations for predicting body density of men na avaliação física.</em> British Journal of Nutrition.</li>
+               <li>CARTER, J.E.L. (1970). <em>The Somatotypes of Athletes - A Review na avaliação antropométrica.</em> Human Biology.</li>
              </ul>
              <div className="mt-4 pt-4 border-t border-slate-200 flex items-start gap-2">
                <AlertTriangle size={14} className="text-amber-600 shrink-0 mt-0.5" />
-               <span className="text-[10px] uppercase font-bold text-slate-400">Aviso Nutricional: Este conteúdo técnico destina-se primariamente a estudantes e profissionais de Educação Física e Nutrição. Avaliações antropométricas devem ser feitas exclusivamente por profissionais habilitados. O artigo possui fim meramente educativo e não substitui diagnósticos médicos ou treinamentos de nivelamento formal da ISAK.</span>
+               <span className="text-[10px] uppercase font-bold text-slate-400">Aviso Nutricional da Avaliação Antropométrica: Este conteúdo técnico destina-se primariamente a estudantes e profissionais de Educação Física e Nutrição sobre avaliação física. Avaliações antropométricas devem ser feitas exclusivamente por profissionais habilitados. O artigo possui fim meramente educativo e não substitui diagnósticos médicos ou treinamentos de nivelamento formal da ISAK de avaliação física.</span>
              </div>
           </div>
 
@@ -633,8 +634,8 @@ export default function AvaliacaoAntropometrica() {
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
             <ImagemOtimizada 
               src={`${githubImgBase}Eu_1.webp`} 
-              alt="Marco Aurélio Jr. - Autor e Nutricionista focado em Ciência e Antropometria ISAK 1" 
-              title="Marco Aurélio Jr. - Estudante de Nutrição ISAK 1"
+              alt="Marco Aurélio Jr. - Autor e Nutricionista focado em Ciência e Antropometria ISAK 1 na Avaliação Física" 
+              title="Marco Aurélio Jr. - Estudante de Nutrição ISAK 1 de Avaliação Antropométrica"
               className="w-full h-full object-cover"
               width="96"
               height="96"
@@ -646,7 +647,7 @@ export default function AvaliacaoAntropometrica() {
             <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
             <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição • Avaliador Antropométrico ISAK Nível 1</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
-              Sou apaixonado por traduzir a barreira científica entre a academia e o consultório diário. Através do conhecimento aprofundado na Cineantropometria e com o treinamento formal dos padrões ISAK, procuro entregar a profissionais recém-formados e alunos metodologias práticas que automatizam a captação de dados sem comprometer a exatidão fisiológica.
+              Sou apaixonado por traduzir a barreira científica entre a academia da avaliação física e o consultório diário da avaliação antropométrica. Através do conhecimento aprofundado na Cineantropometria e com o treinamento formal dos padrões ISAK na avaliação física, procuro entregar a profissionais recém-formados e alunos metodologias práticas que automatizam a captação de dados da avaliação antropométrica sem comprometer a exatidão fisiológica da avaliação física.
             </p>
             <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
               Siga @Nutricao_com_Marco
