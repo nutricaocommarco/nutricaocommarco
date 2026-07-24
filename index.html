@@ -18,14 +18,14 @@
     <!-- Fonte Poppins Assíncrona -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,900;1,900&display=swap" media="print" onload="this.media='all'">
 
-    <!-- GOOGLE ANALYTICS E META PIXEL LAZY LOAD (À PROVA DE LIGHTHOUSE) -->
+    <!-- GOOGLE ANALYTICS, ADS E META PIXEL LAZY LOAD (À PROVA DE LIGHTHOUSE) -->
     <script type="text/javascript">
       function loadTrackingScripts() {
         // Evita que os scripts sejam chamados múltiplas vezes
         if (window.trackingLoaded) return;
         window.trackingLoaded = true;
         
-        // --- 1. Carregamento do Google Analytics ---
+        // --- 1. Carregamento do Google Analytics e Google Ads ---
         var gaScript = document.createElement('script');
         gaScript.async = true;
         gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-GJVE8KGD3X';
@@ -35,6 +35,10 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-GJVE8KGD3X');
+        
+        // --- Conversão do Google Ads ---
+        gtag('config', 'AW-872178533');
+        gtag('event', 'conversion', {'send_to': 'AW-872178533/o7MUCPiW3_gBEOXG8Z8D'});
 
         // --- 2. Carregamento do Meta Pixel (Facebook) ---
         !function(f,b,e,v,n,t,s)
