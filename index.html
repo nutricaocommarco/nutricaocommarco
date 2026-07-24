@@ -18,47 +18,44 @@
     <!-- Fonte Poppins Assíncrona -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,900;1,900&display=swap" media="print" onload="this.media='all'">
 
-    <!-- Meta Pixel Code -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1050530354583784');
-      fbq('track', 'PageView');
-    </script>
-    <!-- End Meta Pixel Code -->
-
-    <!-- GOOGLE ANALYTICS LAZY LOAD (À PROVA DE LIGHTHOUSE) -->
+    <!-- GOOGLE ANALYTICS E META PIXEL LAZY LOAD (À PROVA DE LIGHTHOUSE) -->
     <script type="text/javascript">
-      function loadGoogleAnalytics() {
-        // Evita que o script seja chamado múltiplas vezes
-        if (window.gaLoaded) return;
-        window.gaLoaded = true;
+      function loadTrackingScripts() {
+        // Evita que os scripts sejam chamados múltiplas vezes
+        if (window.trackingLoaded) return;
+        window.trackingLoaded = true;
         
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-GJVE8KGD3X';
-        document.head.appendChild(script);
+        // --- 1. Carregamento do Google Analytics ---
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-GJVE8KGD3X';
+        document.head.appendChild(gaScript);
 
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        
         gtag('config', 'G-GJVE8KGD3X');
+
+        // --- 2. Carregamento do Meta Pixel (Facebook) ---
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1050530354583784');
+        fbq('track', 'PageView');
       }
 
-      // Carrega o Analytics instantaneamente assim que o usuário interagir
+      // Carrega os rastreadores instantaneamente assim que o usuário interagir
       ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function(event) {
-        window.addEventListener(event, loadGoogleAnalytics, { once: true, passive: true });
+        window.addEventListener(event, loadTrackingScripts, { once: true, passive: true });
       });
 
       // Failsafe: Se o usuário abrir a página e não tocar em nada, carrega após 5 segundos
-      setTimeout(loadGoogleAnalytics, 5000);
+      setTimeout(loadTrackingScripts, 5000);
     </script> 
 
     <meta name="google-site-verification" content="OMIwIqKEmMuDTLGPhd6VQuhxXifxXVaknQTbLrD5e_c" />
