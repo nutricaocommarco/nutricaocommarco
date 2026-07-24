@@ -121,7 +121,7 @@ export default function AvaliacaoAntropometrica() {
           
           {/* Categoria e Data */}
           <div className="mb-8 flex flex-col items-start gap-2">
-            <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Avaliação e Medidas</span>
+            <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Composição Corporal</span>
             <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
           </div>
 
