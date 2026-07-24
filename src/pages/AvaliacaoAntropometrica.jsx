@@ -29,9 +29,69 @@ export default function AvaliacaoAntropometrica() {
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
+  // Estados da Calculadora de Somatotipo
+  const [somaDados, setSomaDados] = useState({
+    estatura: '', massa: '', triceps: '', subescapular: '', supraespinal: '',
+    panturrilhaDobra: '', umero: '', femur: '', bracoFlex: '', panturrilhaPer: ''
+  });
+  const [somatotipo, setSomatotipo] = useState(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  const handleSomaChange = (e) => {
+    const { name, value } = e.target;
+    if (value === '' || /^\d*[.,]?\d*$/.test(value)) {
+      setSomaDados({ ...somaDados, [name]: value.replace(',', '.') });
+    }
+  };
+
+  const calcularSomatotipo = (e) => {
+    e.preventDefault();
+    
+    // Convertendo dados para Float
+    const d = {
+      est: parseFloat(somaDados.estatura), mass: parseFloat(somaDados.massa),
+      tri: parseFloat(somaDados.triceps), sub: parseFloat(somaDados.subescapular),
+      sup: parseFloat(somaDados.supraespinal), panD: parseFloat(somaDados.panturrilhaDobra),
+      ume: parseFloat(somaDados.umero), fem: parseFloat(somaDados.femur),
+      bra: parseFloat(somaDados.bracoFlex), panP: parseFloat(somaDados.panturrilhaPer)
+    };
+
+    // Validação básica
+    if (Object.values(d).includes(NaN)) return;
+
+    // 1. Cálculo da Endomorfia
+    const somaDobras = (d.tri + d.sub + d.sup) * (170.18 / d.est);
+    let endo = -0.7182 + (0.1451 * somaDobras) - (0.00068 * Math.pow(somaDobras, 2)) + (0.0000014 * Math.pow(somaDobras, 3));
+    
+    // 2. Cálculo da Mesomorfia
+    const braCorrigido = d.bra - (d.tri / 10);
+    const panCorrigida = d.panP - (d.panD / 10);
+    let meso = (0.858 * d.ume) + (0.601 * d.fem) + (0.188 * braCorrigido) + (0.161 * panCorrigida) - (d.est * 0.131) + 4.5;
+
+    // 3. Cálculo da Ectomorfia
+    const hwr = d.est / Math.pow(d.mass, 0.3333);
+    let ecto = 0.1;
+    if (hwr >= 40.75) {
+      ecto = (0.732 * hwr) - 28.58;
+    } else if (hwr > 38.25 && hwr < 40.75) {
+      ecto = (0.463 * hwr) - 17.63;
+    }
+
+    // Coordenadas X e Y para o gráfico
+    const x = ecto - endo;
+    const y = 2 * meso - (endo + ecto);
+
+    setSomatotipo({
+      endo: Math.max(0.1, endo).toFixed(1),
+      meso: Math.max(0.1, meso).toFixed(1),
+      ecto: Math.max(0.1, ecto).toFixed(1),
+      x: x.toFixed(2),
+      y: y.toFixed(2)
+    });
+  };
 
   const faqs = [
     {
@@ -129,6 +189,7 @@ export default function AvaliacaoAntropometrica() {
                   <li><a href="#isak" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Globe size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Protocolo ISAK e Níveis Internacionais</a></li>
                   <li><a href="#formulas" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Brain size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Fórmulas de Regressão e Autores</a></li>
                   <li><a href="#resultados" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Target size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Interpretando Resultados e Índices</a></li>
+                  <li><a href="#calculadora" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Zap size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Calculadora e Gráfico de Somatotipo</a></li>
                 </ul>
               </div>
             </nav>
@@ -164,13 +225,13 @@ export default function AvaliacaoAntropometrica() {
             <BookOpen className="text-green-700"/> A História Oculta da Antropometria: Arte e Ciência
           </h2>
           <p>
-            A história da Antropometria não começou em modernos laboratórios de fisiologia, mas sim com a colheita obstinada de elementos sobre as proporções do corpo humano realizada por artistas clássicos que aplicavam esses conhecimentos às suas obras imortais. Desde o Antigo Egito, já havia o conhecimento de regras de proporções relacionando dimensões anatômicas com a estatura humana total[cite: 10].
+            A história da Antropometria não começou em modernos laboratórios de fisiologia, mas sim com a colheita obstinada de elementos sobre as proporções do corpo humano realizada por artistas clássicos que aplicavam esses conhecimentos às suas obras imortais. Desde o Antigo Egito, já havia o conhecimento de regras de proporções relacionando dimensões anatômicas com a estatura humana total.
           </p>
           <p>
-            O grande gênio renascentista <strong>Albrecht Dürer</strong> (nascido em 1471), na Alemanha, foi um verdadeiro pioneiro. Fascinado pelos trabalhos de Vitrúvio e pelos corpos pintados por italianos, Dürer não acreditava que a arte fosse apenas "inspiração divina". Para ele, sem o conhecimento matemático e geométrico, a arte era apenas uma "mistura fortuita de imitação irrefletida"[cite: 10].
+            O grande gênio renascentista <strong>Albrecht Dürer</strong> (nascido em 1471), na Alemanha, foi um verdadeiro pioneiro. Fascinado pelos trabalhos de Vitrúvio e pelos corpos pintados por italianos, Dürer não acreditava que a arte fosse apenas "inspiração divina". Para ele, sem o conhecimento matemático e geométrico, a arte era apenas uma "mistura fortuita de imitação irrefletida".
           </p>
           <p>
-            Durante anos, Dürer dedicou-se a remediar isso. Em sua obra seminal de 1528, <em>"Vier Bücher von Menschlicher Proportion"</em> (Quatro Livros sobre as Proporções Humanas), ele revolucionou a área[cite: 10]. Ele abandonou as medidas ideais padronizadas e procurou a verdadeira beleza avaliando a variabilidade humana. Dürer realizou investigações físicas em cerca de 200 a 300 pessoas vivas[cite: 10]. Ele mapeou corpos femininos e masculinos, descrevendo as dimensões da cabeça, pé e mãos[cite: 10]. O que antes era apenas um guia para pintores tornou-se a semente da estereometria e do que viria a ser a antropometria comparada (e diferencial) que embasa o nosso trabalho clínico de hoje em dia[cite: 10].
+            Durante anos, Dürer dedicou-se a remediar isso. Em sua obra seminal de 1528, <em>"Vier Bücher von Menschlicher Proportion"</em> (Quatro Livros sobre as Proporções Humanas), ele revolucionou a área. Ele abandonou as medidas ideais padronizadas e procurou a verdadeira beleza avaliando a variabilidade humana. Dürer realizou investigações físicas em cerca de 200 a 300 pessoas vivas. Ele mapeou corpos femininos e masculinos, descrevendo as dimensões da cabeça, pé e mãos. O que antes era apenas um guia para pintores tornou-se a semente da estereometria e do que viria a ser a antropometria comparada (e diferencial) que embasa o nosso trabalho clínico de hoje em dia.
           </p>
 
           <h2 id="comparativo" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
@@ -203,12 +264,12 @@ export default function AvaliacaoAntropometrica() {
                 <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                   <td className="p-5 border-r border-slate-100 font-black text-slate-800 italic">DEXA Scan</td>
                   <td className="p-5 border-r border-slate-100 text-slate-700 leading-relaxed">Padrão Ouro clínico (modelo multicompartimental). O único capaz de mapear a densidade mineral óssea real e separar a gordura visceral.</td>
-                  <td className="p-5 text-slate-600 leading-relaxed">Altíssimo custo financeiro (Equipamento de Raio-X). Emite radiação[cite: 3]. Impraticável em clubes e academias comerciais.</td>
+                  <td className="p-5 text-slate-600 leading-relaxed">Altíssimo custo financeiro (Equipamento de Raio-X). Emite radiação. Impraticável em clubes e academias comerciais.</td>
                 </tr>
                 <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                   <td className="p-5 border-r border-slate-100 font-black text-slate-800 italic">Pesagem Hidrostática</td>
                   <td className="p-5 border-r border-slate-100 text-slate-700 leading-relaxed">Excelente padrão acadêmico pioneiro. Calcula o volume corporal diretamente através da densidade da água (Princípio de Arquimedes).</td>
-                  <td className="p-5 text-slate-600 leading-relaxed">Requer tanques imensos. O paciente deve afundar e exalar todo o ar dos pulmões[cite: 3]. Risco de fobia e desconforto extremo.</td>
+                  <td className="p-5 text-slate-600 leading-relaxed">Requer tanques imensos. O paciente deve afundar e exalar todo o ar dos pulmões. Risco de fobia e desconforto extremo.</td>
                 </tr>
               </tbody>
             </table>
@@ -229,14 +290,14 @@ export default function AvaliacaoAntropometrica() {
             <Activity className="text-green-700"/> Estatística Básica: Média ou Mediana?
           </h2>
           <p>
-            Mesmo sendo exímio na marcação, a variabilidade biológica do paciente e as oscilações do manuseio geram milhares de possibilidades de erro. Na antropometria clínica e acadêmica, o <strong>Erro Técnico de Medição (ETM)</strong> é a ferramenta matemática usada para comprovar se você é um avaliador <em>Preciso</em> (acerta perto sempre) e <em>Exato</em> (acerta no alvo). O cálculo do ETM é o desvio-padrão entre as suas medidas repetidas[cite: 12]. O ETM pode ser avaliado intra-avaliador (você medindo o mesmo paciente) ou interavaliador (você comparado com a precisão de outro profissional experiente)[cite: 12].
+            Mesmo sendo exímio na marcação, a variabilidade biológica do paciente e as oscilações do manuseio geram milhares de possibilidades de erro. Na antropometria clínica e acadêmica, o <strong>Erro Técnico de Medição (ETM)</strong> é a ferramenta matemática usada para comprovar se você é um avaliador <em>Preciso</em> (acerta perto sempre) e <em>Exato</em> (acerta no alvo). O cálculo do ETM é o desvio-padrão entre as suas medidas repetidas. O ETM pode ser avaliado intra-avaliador (você medindo o mesmo paciente) ou interavaliador (você comparado com a precisão de outro profissional experiente).
           </p>
           <p>
-            Mas, na prática clínica diária, quantas vezes devemos aferir uma mesma dobra cutânea para fugir do erro sem ficar duas horas na consulta? A estatística fornece o roteiro[cite: 11]:
+            Mas, na prática clínica diária, quantas vezes devemos aferir uma mesma dobra cutânea para fugir do erro sem ficar duas horas na consulta? A estatística fornece o roteiro:
           </p>
           <ul className="list-disc pl-5 text-slate-600 marker:text-green-700 mb-8 space-y-2">
-            <li><strong>O Padrão Típico (Duplicata):</strong> O protocolo comum exige medir o paciente inteiro de cima a baixo uma vez, e depois fazer o percurso novamente, gerando 2 medidas por ponto anatômico[cite: 11]. Como são dois números, você aplica a <strong>Média Aritmética</strong> entre eles[cite: 11].</li>
-            <li><strong>O Padrão Ideal (Triplicata):</strong> Usado em pesquisas rigorosas ou quando as duas primeiras medidas apresentam uma disparidade inaceitável. Você mede o mesmo ponto 3 vezes[cite: 11]. Aqui, a estatística exige o uso da <strong>Mediana</strong> (o valor central da sequência)[cite: 11]. Por exemplo, se você encontrou [11mm, 12mm, 20mm], o 20mm foi um erro grave de preensão muscular. A média seria corrompida para 14,3mm, mas a <strong>Mediana</strong> joga fora os extremos e fica inteligentemente com <strong>12mm</strong>.</li>
+            <li><strong>O Padrão Típico (Duplicata):</strong> O protocolo comum exige medir o paciente inteiro de cima a baixo uma vez, e depois fazer o percurso novamente, gerando 2 medidas por ponto anatômico. Como são dois números, você aplica a <strong>Média Aritmética</strong> entre eles.</li>
+            <li><strong>O Padrão Ideal (Triplicata):</strong> Usado em pesquisas rigorosas ou quando as duas primeiras medidas apresentam uma disparidade inaceitável. Você mede o mesmo ponto 3 vezes. Aqui, a estatística exige o uso da <strong>Mediana</strong> (o valor central da sequência). Por exemplo, se você encontrou [11mm, 12mm, 20mm], o 20mm foi um erro grave de preensão muscular. A média seria corrompida para 14,3mm, mas a <strong>Mediana</strong> joga fora os extremos e fica inteligentemente com <strong>12mm</strong>.</li>
           </ul>
 
           <h2 id="medidas" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
@@ -302,11 +363,11 @@ export default function AvaliacaoAntropometrica() {
           <p>
             O protocolo da <em>International Society for the Advancement of Kinanthropometry</em> (ISAK) é a linguagem unificada mundial da cineantropometria. Uma medida tirada por um profissional Nível 1 no Rio de Janeiro usando essa padronização rígida de pontos será matematicamente idêntica à de um profissional na Austrália. O foco do curso ISAK não está apenas em gerar um percentual de gordura no final, mas na precisão cirúrgica contínua.
           </p>
-          <p>A ISAK divide o domínio metodológico dessa ciência em hierarquias técnicas de excelência[cite: 11]:</p>
+          <p>A ISAK divide o domínio metodológico dessa ciência em hierarquias técnicas de excelência:</p>
           <ul className="list-disc pl-5 text-slate-600 marker:text-green-700">
-            <li><strong>Nível 1 (O Avaliador Técnico):</strong> É capacitado no "Perfil Restrito"[cite: 11]. O profissional domina com maestria as Medidas Básicas, 8 dobras cutâneas, 5 perímetros e 2 diâmetros ósseos. Possui um limite rigoroso de erro técnico de medida aceitável, não podendo o ETM passar de 7,5% para dobras cutâneas e 1,5% para as outras variáveis[cite: 12]. O perfil ideal de atuação é em academias e clínicas de nutrição focadas em desporto.</li>
-            <li><strong>Nível 2 (O Antropometrista Especialista):</strong> Adiciona a todo o leque anterior um aprofundamento formidável. Realiza o Perfil Completo (um total de 43 medidas) e reduz seu teto de ETM para um limite muito apertado (máximo de 5% de tolerância de erro para as dobras cutâneas)[cite: 12]. Capacitado para pesquisa científica laboratorial rigorosa e controle de alto rendimento.</li>
-            <li><strong>Níveis 3 e 4:</strong> São os Curadores e Instrutores[cite: 11]. Profissionais como Instrutores ISAK Nível 4 que são responsáveis não apenas por medirem na perfeição, mas por auditarem, treinarem e testarem a acurácia de profissionais mais jovens globalmente[cite: 11].</li>
+            <li><strong>Nível 1 (O Avaliador Técnico):</strong> É capacitado no "Perfil Restrito". O profissional domina com maestria as Medidas Básicas, 8 dobras cutâneas, 5 perímetros e 2 diâmetros ósseos. Possui um limite rigoroso de erro técnico de medida aceitável, não podendo o ETM passar de 7,5% para dobras cutâneas e 1,5% para as outras variáveis. O perfil ideal de atuação é em academias e clínicas de nutrição focadas em desporto.</li>
+            <li><strong>Nível 2 (O Antropometrista Especialista):</strong> Adiciona a todo o leque anterior um aprofundamento formidável. Realiza o Perfil Completo (um total de 43 medidas) e reduz seu teto de ETM para um limite muito apertado (máximo de 5% de tolerância de erro para as dobras cutâneas). Capacitado para pesquisa científica laboratorial rigorosa e controle de alto rendimento.</li>
+            <li><strong>Níveis 3 e 4:</strong> São os Curadores e Instrutores. Profissionais como Instrutores ISAK Nível 4 que são responsáveis não apenas por medirem na perfeição, mas por auditarem, treinarem e testarem a acurácia de profissionais mais jovens globalmente.</li>
           </ul>
 
           {/* VÍDEO LAZY YOUTUBE OBRIGATÓRIO */}
@@ -326,21 +387,21 @@ export default function AvaliacaoAntropometrica() {
             <Brain className="text-green-700"/> As Fórmulas de Regressão: Escolhendo o Caminho
           </h2>
           <p>
-            As dobras em si não nos dizem o percentual. Para transformar as medidas em "Porcentagem de Gordura", nós alimentamos os números em uma Equação de Regressão. A maioria dessas equações famosas foi criada na década de 70, baseando-se em amostras comparadas com o método da pesagem hidrostática. É um erro letal avaliar um atleta de alto rendimento (seco) usando uma equação desenvolvida para mulheres obesas de 60 anos[cite: 6]. Você deve escolher o protocolo que mais se aproxima do fenótipo do seu paciente no consultório[cite: 6].
+            As dobras em si não nos dizem o percentual. Para transformar as medidas em "Porcentagem de Gordura", nós alimentamos os números em uma Equação de Regressão. A maioria dessas equações famosas foi criada na década de 70, baseando-se em amostras comparadas com o método da pesagem hidrostática. É um erro letal avaliar um atleta de alto rendimento (seco) usando uma equação desenvolvida para mulheres obesas de 60 anos. Você deve escolher o protocolo que mais se aproxima do fenótipo do seu paciente no consultório.
           </p>
           
           <div className="space-y-4 my-8">
             <div className="p-4 bg-slate-50 border-l-4 border-green-600 rounded-r-2xl shadow-sm">
               <h4 className="font-bold text-slate-800 m-0">1. Equação de Durnin & Womersley (1974)</h4>
-              <p className="text-sm text-slate-600 m-0 mt-2">Os pesquisadores escoceses testaram quase 500 indivíduos num amplo leque etário de 16 a 72 anos[cite: 4]. Utiliza a força da equação logarítmica para uma densidade que se desvia ao decorrer do avanço natural da idade[cite: 4]. Usa as 4 dobras clássicas da metade superior (Bíceps, Tríceps, Subescapular e Supra-ilíaca)[cite: 4]. É ideal e muito confortável para mulheres, pois evita a medição invasiva de coxa frontal e o constrangimento do abdômen.</p>
+              <p className="text-sm text-slate-600 m-0 mt-2">Os pesquisadores escoceses testaram quase 500 indivíduos num amplo leque etário de 16 a 72 anos. Utiliza a força da equação logarítmica para uma densidade que se desvia ao decorrer do avanço natural da idade. Usa as 4 dobras clássicas da metade superior (Bíceps, Tríceps, Subescapular e Supra-ilíaca). É ideal e muito confortável para mulheres, pois evita a medição invasiva de coxa frontal e o constrangimento do abdômen.</p>
             </div>
             <div className="p-4 bg-slate-50 border-l-4 border-orange-600 rounded-r-2xl shadow-sm">
               <h4 className="font-bold text-slate-800 m-0">2. Equação de Faulkner (1968)</h4>
-              <p className="text-sm text-slate-600 m-0 mt-2">Uma das equações mais famosas e antigas no Brasil[cite: 6]. Criada no ambiente dos esportes aquáticos, utiliza as dobras (Tríceps, Subescapular, Supraespinal e Abdominal) acrescida da famosa constante "fisiológica" de Faulkner (5,783)[cite: 6]. Embora seja extremamente utilizada, a literatura moderna recomenda precaução: as validações indicam que ela tende a superestimar percentuais altos, sendo sua aplicação mais focada num espectro de jovens masculinos desportistas entre 18 a 25 anos, com as quais Faulkner modelou o estudo na Universidade de Michigan[cite: 6].</p>
+              <p className="text-sm text-slate-600 m-0 mt-2">Uma das equações mais famosas e antigas no Brasil. Criada no ambiente dos esportes aquáticos, utiliza as dobras (Tríceps, Subescapular, Supraespinal e Abdominal) acrescida da famosa constante "fisiológica" de Faulkner (5,783). Embora seja extremamente utilizada, a literatura moderna recomenda precaução: as validações indicam que ela tende a superestimar percentuais altos, sendo sua aplicação mais focada num espectro de jovens masculinos desportistas entre 18 a 25 anos, com as quais Faulkner modelou o estudo na Universidade de Michigan.</p>
             </div>
             <div className="p-4 bg-slate-50 border-l-4 border-blue-600 rounded-r-2xl shadow-sm">
               <h4 className="font-bold text-slate-800 m-0">3. Equações Generalizadas de Jackson & Pollock (1978)</h4>
-              <p className="text-sm text-slate-600 m-0 mt-2">Foram o maior salto tecnológico em antropometria ao criarem fórmulas "generalizadas" em vez de "específicas" de nicho. Eles detectaram o problema de usar equações lineares para medir uma fisiologia que é "curvilínea" e que afeta a densidade óssea ao longo do tempo[cite: 5]. Incorporaram as variáveis preditivas como o componente "quadrático" do somatório de dobras e a "Idade" cronológica do sujeito nas fórmulas[cite: 5]. Criaram versões muito validadas usando somas densas de 7 Dobras e protocolos ágeis e excelentes de 3 Dobras (Peito, Abdômen e Coxa para homens; e Tríceps, Supra-ilíaca e Coxa para mulheres)[cite: 5]. São fantásticas para o público moderno das academias, com ETM super acurados[cite: 5].</p>
+              <p className="text-sm text-slate-600 m-0 mt-2">Foram o maior salto tecnológico em antropometria ao criarem fórmulas "generalizadas" em vez de "específicas" de nicho. Eles detectaram o problema de usar equações lineares para medir uma fisiologia que é "curvilínea" e que afeta a densidade óssea ao longo do tempo. Incorporaram as variáveis preditivas como o componente "quadrático" do somatório de dobras e a "Idade" cronológica do sujeito nas fórmulas. Criaram versões muito validadas usando somas densas de 7 Dobras e protocolos ágeis e excelentes de 3 Dobras (Peito, Abdômen e Coxa para homens; e Tríceps, Supra-ilíaca e Coxa para mulheres). São fantásticas para o público moderno das academias, com ETM super acurados.</p>
             </div>
           </div>
 
@@ -362,39 +423,150 @@ export default function AvaliacaoAntropometrica() {
             <div>
               <h3 className="text-lg font-black text-slate-800 mb-2">Avisos e Relações de Distribuição Central e Visceral</h3>
               <p className="text-slate-600 leading-relaxed text-sm">
-                Para diagnosticar pacientes mais velhos e com risco inflamatório forte, cruze as circunferências em índices vitais. Informe a ele a métrica da <strong>Relação Cintura Quadril (RCQ)</strong> (riscos andrógenos cardíacos), a razão preventiva de <strong>Cintura/Estatura</strong> e não poupe de demonstrar o <strong>apVAT</strong>. O apVAT é a revolução da antropometria que, usando fórmulas matemáticas da cintura e da coxa cruzadas em inteligência acadêmica e chancelada via <em>CT scans</em>, quantifica numericamente o tecido adiposo visceral (a letal gordura perivisceral) que destrói o fígado e inibe os receptores de insulina do obeso sarcopênico[cite: 8]. Isso traz o apelo cardiovascular de prevenção imediata para sua conduta clínica[cite: 8].
+                Para diagnosticar pacientes mais velhos e com risco inflamatório forte, cruze as circunferências em índices vitais. Informe a ele a métrica da <strong>Relação Cintura Quadril (RCQ)</strong> (riscos andrógenos cardíacos), a razão preventiva de <strong>Cintura/Estatura</strong> e não poupe de demonstrar o <strong>apVAT</strong>. O apVAT é a revolução da antropometria que, usando fórmulas matemáticas da cintura e da coxa cruzadas em inteligência acadêmica e chancelada via <em>CT scans</em>, quantifica numericamente o tecido adiposo visceral (a letal gordura perivisceral) que destrói o fígado e inibe os receptores de insulina do obeso sarcopênico. Isso traz o apelo cardiovascular de prevenção imediata para sua conduta clínica.
               </p>
             </div>
 
             <div>
               <h3 className="text-lg font-black text-slate-800 mb-2">Os Marcadores Puros de Adiposidade Genética: O Somatório das Dobras</h3>
               <p className="text-slate-600 leading-relaxed text-sm">
-                Fórmulas de "%G" envelhecem. O peso esconde água retida de estresse inflamatório agudo. Para o atleta olímpico ou lutador fazendo corte extremo de peso, não falamos a linguagem incerta da percentagem, mas sim a métrica brutal absoluta do plicômetro. Embasados nos estudos de experts com campeões do <em>Ironman</em> ou nas normas ISAK, apresente ao seu paciente se a "capa" diminuiu, demonstrando a redução total nos eixos do <strong>Somatório de 6 Dobras Cutâneas</strong> (Tríceps, Subescapular, Supraespinal, Abdominal, Coxa e Panturrilha) e no exaustivo <strong>Somatório de 8 Dobras</strong> para detalhar o acúmulo genético exato da pele perante treinos de endurance. O pesquisador de alta-performance Francis Holway defende esse número absoluto como prova irrefutável[cite: 2]. O tecido afina perante os adipômetros ou seu plano nutricional de choque é um fracasso no camp.
+                Fórmulas de "%G" envelhecem. O peso esconde água retida de estresse inflamatório agudo. Para o atleta olímpico ou lutador fazendo corte extremo de peso, não falamos a linguagem incerta da percentagem, mas sim a métrica brutal absoluta do plicômetro. Embasados nos estudos de experts com campeões do <em>Ironman</em> ou nas normas ISAK, apresente ao seu paciente se a "capa" diminuiu, demonstrando a redução total nos eixos do <strong>Somatório de 6 Dobras Cutâneas</strong> (Tríceps, Subescapular, Supraespinal, Abdominal, Coxa e Panturrilha) e no exaustivo <strong>Somatório de 8 Dobras</strong> para detalhar o acúmulo genético exato da pele perante treinos de endurance. O pesquisador de alta-performance Francis Holway defende esse número absoluto como prova irrefutável. O tecido afina perante os adipômetros ou seu plano nutricional de choque é um fracasso no camp.
               </p>
             </div>
 
             <div>
               <h3 className="text-lg font-black text-slate-800 mb-2">Perímetros Corrigidos de Pura Massa Músculo Esquelética</h3>
               <p className="text-slate-600 leading-relaxed text-sm">
-                A pergunta mortífera no consultório esportivo: "Doutor, minha fita de braço aumentou de 38 cm para 40 cm. Foi pura hipertrofia do meu bíceps?". O nutricionista moderno usa as leis do fracionamento! Apresente o laudo das <strong>Circunferências Corrigidas pela Adiposidade</strong>. Retirando algebricamente usando o "PI" matemático ($\pi \times$ espessura da dobra do tríceps) do perímetro sujo, extirpamos o pneu adiposo circunferencial revelando o cilindro puro real e proteico do músculo esquelético, desmascarando a ilusão de ganho na balança frente a hipertrofia de qualidade. O paciente visualiza em milímetros as reais seções transversais musculares ativas desenvolvidas. Adicionalmente, classifique e apresente se ele é um trator ou um lince usando o <strong>Somatotipo de Heath-Carter</strong>[cite: 7]. O software calcula as cargas da endomorfia, mesomorfia (robusteza muscular) e ectomorfia (linearidade frágil) apontando visualmente na Somatocarta se a genética endócrina é ideal para seu alvo atlético[cite: 7]. Para completar, o uso magistral de diâmetros ósseos alimentam o <strong>IMO (Índice Músculo Ósseo)</strong> informando se sua mecânica esquelética alcançou o pico de transporte de lastro muscular possível e se o <strong>IAM (Índice Adiposo Muscular)</strong> exibe uma melhora esteticamente agradável do volume metabólico magro em detrimento do lastro adiposo estático.
+                A pergunta mortífera no consultório esportivo: "Doutor, minha fita de braço aumentou de 38 cm para 40 cm. Foi pura hipertrofia do meu bíceps?". O nutricionista moderno usa as leis do fracionamento! Apresente o laudo das <strong>Circunferências Corrigidas pela Adiposidade</strong>. Retirando algebricamente usando o "PI" matemático ($\pi \times$ espessura da dobra do tríceps) do perímetro sujo, extirpamos o pneu adiposo circunferencial revelando o cilindro puro real e proteico do músculo esquelético, desmascarando a ilusão de ganho na balança frente a hipertrofia de qualidade. O paciente visualiza em milímetros as reais seções transversais musculares ativas desenvolvidas. Adicionalmente, classifique e apresente se ele é um trator ou um lince usando o <strong>Somatotipo de Heath-Carter</strong>. O software calcula as cargas da endomorfia, mesomorfia (robusteza muscular) e ectomorfia (linearidade frágil) apontando visualmente na Somatocarta se a genética endócrina é ideal para seu alvo atlético. Para completar, o uso magistral de diâmetros ósseos alimentam o <strong>IMO (Índice Músculo Ósseo)</strong> informando se sua mecânica esquelética alcançou o pico de transporte de lastro muscular possível e se o <strong>IAM (Índice Adiposo Muscular)</strong> exibe uma melhora esteticamente agradável do volume metabólico magro em detrimento do lastro adiposo estático.
               </p>
             </div>
           </div>
 
-          <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-            <Activity className="text-green-700"/> Entendendo a Somatocarta (Endo, Meso, Ectomorfo)
+          {/* CALCULADORA DE SOMATOTIPO HEATH-CARTER COMPLETA E GRÁFICO SVG */}
+          <h2 id="calculadora" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
+            <Zap className="text-green-700"/> Simulador: Calculadora de Somatotipo
           </h2>
-          <p>
-            O método criado por Heath & Carter no final dos anos 60 revolucionou a educação física escolar e desportiva. Trata-se da avaliação do <strong>Somatotipo</strong>. Ele usa as dobras cutâneas, circunferências de braço e perna e a largura óssea de fêmur e úmero para "plotar" o paciente em um mapa (A Somatocarta).
+          <p className="mb-8">
+            O método de Heath & Carter revolucionou a avaliação da estrutura física. Ele avalia as três tendências genéticas predominantes no corpo humano: <strong>Endomorfia</strong> (tendência a acumular gordura), <strong>Mesomorfia</strong> (robustez musculoesquelética) e <strong>Ectomorfia</strong> (linearidade e magreza). Preencha os 10 dados antropométricos na calculadora abaixo e veja o seu biotipo exato ser gerado matematicamente na Somatocarta!
           </p>
-          <p>
-            O somatotipo dita que existem três tendências embrionárias e genéticas predominantes no corpo humano:
-          </p>
-          <ul className="list-disc pl-5 text-slate-600 marker:text-green-700 space-y-2 mb-8">
-            <li><strong>Endomorfia (Relativa Adiposidade):</strong> O perfil que engorda com extrema facilidade, ossos largos, rosto redondo, mas que perde peso devagar. Necessita de dieta com déficit restrito e treino cardio intenso.</li>
-            <li><strong>Mesomorfia (Relativa Robustez Muscular):</strong> O "agraciado genético". Tem facilidade de ganho de massa, ossos de alavancagem média, ombros largos e cintura fina.</li>
-            <li><strong>Ectomorfia (Relativa Magreza Ocular):</strong> Alta taxa metabólica basal, membros muito compridos, dificuldade absurda para ganhar peso (tanto gordo quanto magro). É o atleta nato para corridas de fundo e salto em altura.</li>
-          </ul>
+
+          <div className="my-10 bg-slate-900 border border-slate-800 shadow-2xl rounded-[3rem] overflow-hidden">
+            <div className="p-6 md:p-8 text-center border-b border-slate-800">
+              <strong className="text-2xl font-black text-white italic uppercase flex items-center justify-center gap-3 m-0 block">
+                <Brain className="text-green-500" /> Calculadora Heath-Carter
+              </strong>
+            </div>
+
+            <form onSubmit={calcularSomatotipo} className="p-6 md:p-8 space-y-6 text-white">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                
+                {/* DADOS BÁSICOS */}
+                <div className="col-span-1 md:col-span-2 border-b border-slate-700 pb-2 mb-2">
+                  <span className="text-green-400 font-bold uppercase tracking-widest text-[11px]">Medidas Básicas</span>
+                </div>
+                <label className="block">
+                  <span className="text-xs font-bold text-slate-300 uppercase tracking-widest mb-1 block">Estatura (cm)</span>
+                  <input type="text" inputMode="decimal" name="estatura" value={somaDados.estatura} onChange={handleSomaChange} required placeholder="Ex: 175.5" className="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-green-500" />
+                </label>
+                <label className="block">
+                  <span className="text-xs font-bold text-slate-300 uppercase tracking-widest mb-1 block">Massa (kg)</span>
+                  <input type="text" inputMode="decimal" name="massa" value={somaDados.massa} onChange={handleSomaChange} required placeholder="Ex: 72.0" className="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-green-500" />
+                </label>
+
+                {/* DOBRAS CUTÂNEAS */}
+                <div className="col-span-1 md:col-span-2 border-b border-slate-700 pb-2 mt-4 mb-2">
+                  <span className="text-blue-400 font-bold uppercase tracking-widest text-[11px]">Dobras Cutâneas (mm)</span>
+                </div>
+                <label className="block">
+                  <span className="text-xs font-bold text-slate-300 uppercase tracking-widest mb-1 block">Tríceps</span>
+                  <input type="text" inputMode="decimal" name="triceps" value={somaDados.triceps} onChange={handleSomaChange} required placeholder="Ex: 12.0" className="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-green-500" />
+                </label>
+                <label className="block">
+                  <span className="text-xs font-bold text-slate-300 uppercase tracking-widest mb-1 block">Subescapular</span>
+                  <input type="text" inputMode="decimal" name="subescapular" value={somaDados.subescapular} onChange={handleSomaChange} required placeholder="Ex: 10.5" className="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-green-500" />
+                </label>
+                <label className="block">
+                  <span className="text-xs font-bold text-slate-300 uppercase tracking-widest mb-1 block">Supraespinal</span>
+                  <input type="text" inputMode="decimal" name="supraespinal" value={somaDados.supraespinal} onChange={handleSomaChange} required placeholder="Ex: 9.0" className="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-green-500" />
+                </label>
+                <label className="block">
+                  <span className="text-xs font-bold text-slate-300 uppercase tracking-widest mb-1 block">Panturrilha Medial</span>
+                  <input type="text" inputMode="decimal" name="panturrilhaDobra" value={somaDados.panturrilhaDobra} onChange={handleSomaChange} required placeholder="Ex: 8.5" className="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-green-500" />
+                </label>
+
+                {/* DIÂMETROS E PERÍMETROS */}
+                <div className="col-span-1 md:col-span-2 border-b border-slate-700 pb-2 mt-4 mb-2">
+                  <span className="text-purple-400 font-bold uppercase tracking-widest text-[11px]">Diâmetros Ósseos e Perímetros (cm)</span>
+                </div>
+                <label className="block">
+                  <span className="text-xs font-bold text-slate-300 uppercase tracking-widest mb-1 block">Bi-epicondiliano Úmero</span>
+                  <input type="text" inputMode="decimal" name="umero" value={somaDados.umero} onChange={handleSomaChange} required placeholder="Ex: 6.5" className="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-green-500" />
+                </label>
+                <label className="block">
+                  <span className="text-xs font-bold text-slate-300 uppercase tracking-widest mb-1 block">Bi-epicondiliano Fêmur</span>
+                  <input type="text" inputMode="decimal" name="femur" value={somaDados.femur} onChange={handleSomaChange} required placeholder="Ex: 9.2" className="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-green-500" />
+                </label>
+                <label className="block">
+                  <span className="text-xs font-bold text-slate-300 uppercase tracking-widest mb-1 block">Perímetro Braço Flexionado</span>
+                  <input type="text" inputMode="decimal" name="bracoFlex" value={somaDados.bracoFlex} onChange={handleSomaChange} required placeholder="Ex: 32.0" className="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-green-500" />
+            </label>
+                <label className="block">
+                  <span className="text-xs font-bold text-slate-300 uppercase tracking-widest mb-1 block">Perímetro Panturrilha</span>
+                  <input type="text" inputMode="decimal" name="panturrilhaPer" value={somaDados.panturrilhaPer} onChange={handleSomaChange} required placeholder="Ex: 36.5" className="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-green-500" />
+                </label>
+              </div>
+
+              <div className="pt-6">
+                <button type="submit" className="w-full bg-green-600 text-white px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-green-500 transition-all shadow-[0_0_20px_rgba(22,163,74,0.3)] border-none cursor-pointer">
+                  Gerar Somatocarta Matemática
+                </button>
+              </div>
+            </form>
+
+            {/* ÁREA DE RESULTADO E GRÁFICO (RENDERIZADO APÓS CÁLCULO) */}
+            {somatotipo && (
+              <div className="bg-slate-800 p-6 md:p-8 border-t border-slate-700 flex flex-col items-center">
+                <div className="flex justify-center gap-4 md:gap-8 mb-8 flex-wrap">
+                   <div className="text-center">
+                     <span className="block text-xs uppercase tracking-widest font-bold text-blue-400 mb-1">Endomorfia</span>
+                     <span className="text-3xl md:text-4xl font-black text-white">{somatotipo.endo}</span>
+                   </div>
+                   <div className="text-center">
+                     <span className="block text-xs uppercase tracking-widest font-bold text-orange-400 mb-1">Mesomorfia</span>
+                     <span className="text-3xl md:text-4xl font-black text-white">{somatotipo.meso}</span>
+                   </div>
+                   <div className="text-center">
+                     <span className="block text-xs uppercase tracking-widest font-bold text-purple-400 mb-1">Ectomorfia</span>
+                     <span className="text-3xl md:text-4xl font-black text-white">{somatotipo.ecto}</span>
+                   </div>
+                </div>
+
+                {/* PLOTAGEM DO GRÁFICO EM SVG */}
+                <div className="relative w-full max-w-sm aspect-square bg-slate-900 rounded-3xl overflow-hidden border border-slate-700 flex items-center justify-center p-4">
+                   {/* Eixos e Triângulo Base */}
+                   <svg viewBox="-10 -10 20 20" className="w-full h-full opacity-80" preserveAspectRatio="xMidYMid meet">
+                      {/* Eixos X e Y */}
+                      <line x1="-10" y1="0" x2="10" y2="0" stroke="#334155" strokeWidth="0.1" />
+                      <line x1="0" y1="-10" x2="0" y2="10" stroke="#334155" strokeWidth="0.1" />
+                      
+                      {/* Triângulo de Reuleaux (Simplificado) */}
+                      <path d="M 0 -8 L 8 6 L -8 6 Z" fill="none" stroke="#475569" strokeWidth="0.1" strokeDasharray="0.3" />
+                      <path d="M 0 0 L 0 -8 M 0 0 L 8 6 M 0 0 L -8 6" fill="none" stroke="#475569" strokeWidth="0.1" />
+
+                      {/* Legendas dos Vértices */}
+                      <text x="-9" y="8" fill="#60a5fa" fontSize="0.8" fontWeight="bold">ENDO</text>
+                      <text x="-1.5" y="-8.5" fill="#fb923c" fontSize="0.8" fontWeight="bold">MESO</text>
+                      <text x="7" y="8" fill="#c084fc" fontSize="0.8" fontWeight="bold">ECTO</text>
+
+                      {/* Ponto Plotado do Somatotipo (Y invertido para adequar o SVG onde o Y desce) */}
+                      <circle cx={somatotipo.x} cy={-somatotipo.y} r="0.6" fill="#22c55e" className="animate-pulse" />
+                      <circle cx={somatotipo.x} cy={-somatotipo.y} r="0.2" fill="#fff" />
+                   </svg>
+                </div>
+                <p className="text-slate-400 text-xs text-center mt-4 m-0">Gráfico de Dispersão 2D bidimensional plotado no eixo: X = {somatotipo.x} / Y = {somatotipo.y}</p>
+              </div>
+            )}
+          </div>
 
           {/* VENDAS DA PLANILHA - "O PINGUS APROVA" */}
           <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
