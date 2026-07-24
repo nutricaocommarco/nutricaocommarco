@@ -102,22 +102,23 @@ const rotasLoja = [
 
 // 📝 3. TODOS OS POSTS DO BLOG
 const postsBlog = [
-  { 
+{ 
     id: 31, 
     link: "/avaliacao-antropometrica", 
     img: `${githubImgBase}Blog/Avaliacao_Antropometrica_Capa.webp`, 
     titulo: "Como fazer uma Avaliação Antropométrica de Qualidade?", 
-    desc: "Aprenda como fazer uma avaliação antropométrica completa. Domine o protocolo ISAK, Pollock, dobras cutâneas e descubra como automatizar seus relatórios!", 
+    desc: "Aprenda como fazer uma avaliação antropométrica completa. Domine o protocolo ISAK, Pollock, dobras cutâneas, calcule seu somatotipo online e descubra como automatizar seus relatórios!", 
     data: "2026-07-24", 
     schemasExtra: [
-      getMedicalSchema("Avaliação Antropométrica e Cineantropometria", "https://www.nutricaocommarco.com.br/avaliacao-antropometrica", ["Antropometria", "Dobras Cutâneas", "Composição Corporal", "Índice de Massa Corporal"]),
-      getVideoSchema("Demonstração Prática do Perfil Restrito ISAK", "Aprenda a aplicar as técnicas de localização de pontos anatômicos e marcação física da pele com precisão usando o protocolo internacional da ISAK para perfil restrito.", "_Fmm4T4Ooto", "2021-08-25T12:00:00-03:00"),
+      getMedicalSchema("Avaliação Antropométrica e Cineantropometria", "https://www.nutricaocommarco.com.br/avaliacao-antropometrica", ["Antropometria", "Dobras Cutâneas", "Composição Corporal", "Somatotipo", "Somatocarta"]),
+      getVideoSchema("Demonstração Prática do Perfil Restrito ISAK na Avaliação Física", "Aprenda a aplicar as técnicas de localização de pontos anatômicos e marcação física da pele com precisão usando o protocolo internacional da ISAK para perfil restrito.", "_Fmm4T4Ooto", "2021-08-25T12:00:00-03:00"),
       getFaqSchema([
-        { pergunta: "Qual a diferença entre Antropometria e Bioimpedância?", resposta: "A antropometria mede o corpo fisicamente através de dobras, ossos e perímetros, sendo imune a oscilações diárias. A bioimpedância usa uma corrente elétrica para estimar a água corporal, sendo fortemente alterada se o paciente estiver desidratado, menstruada, ou de bexiga cheia." },
-        { pergunta: "O que é o erro técnico de medição (ETM)?", resposta: "O ETM é um cálculo estatístico que mede a precisão do avaliador. Se o seu ETM for alto, significa que você não consegue repetir a mesma medida no mesmo lugar. A ISAK exige um ETM de dobras cutâneas menor que 5% para Nível 1." },
-        { pergunta: "Para que serve a Somatocarta?", resposta: "A somatocarta é um gráfico bidimensional que classifica o paciente em Endomorfo (tendência a acumular gordura), Mesomorfo (robustez muscular) e Ectomorfo (linearidade e magreza), ajudando a alinhar expectativas de resultados genéticos." },
-        { pergunta: "Quando devo usar a Mediana ao invés da Média?", resposta: "A literatura antropométrica (ISAK) recomenda realizar 3 medidas no mesmo ponto e utilizar a Mediana (o valor do meio). Isso exclui automaticamente valores extremos causados por um erro de pinçamento." }
-      ])
+        { pergunta: "Qual a diferença entre Antropometria e Bioimpedância?", resposta: "A avaliação antropométrica mede o corpo fisicamente através de dobras, ossos e perímetros, sendo imune a oscilações diárias. A bioimpedância usa uma corrente elétrica para estimar a água corporal, sendo fortemente alterada se o paciente estiver desidratado, menstruado, ou de bexiga cheia." },
+        { pergunta: "O que é o Erro Técnico de Medição (ETM)?", resposta: "O ETM é um cálculo estatístico (desvio-padrão entre medidas repetidas) que afere a precisão do avaliador na antropometria (intra-avaliador) ou a exatidão entre vários avaliadores (inter-avaliador). A ISAK exige que o ETM para dobras cutâneas seja inferior a 5% (ou 7,5% para iniciantes)." },
+        { pergunta: "Para que serve a Somatocarta na Avaliação Antropométrica?", resposta: "A somatocarta é um gráfico bidimensional que classifica o paciente em Endomorfo (tendência a acumular gordura), Mesomorfo (robustez muscular) e Ectomorfo (linearidade e magreza), ajudando a alinhar expectativas de resultados genéticos baseados na estrutura óssea e muscular." },
+        { pergunta: "Devo usar a Média ou a Mediana nas dobras?", resposta: "A regra oficial estatística para diminuir o ETM diz que: se você realizar duas aferições no mesmo ponto anatômico, deve usar a Média Aritmética. Caso haja uma discrepância e você precise realizar uma terceira medida de controle, você deve usar a Mediana (o valor central)." }
+      ]),
+      JSON.parse(`{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Calculadora Heath-Carter Simplificada","operatingSystem":"Web Browser","applicationCategory":"HealthApplication","url":"https://www.nutricaocommarco.com.br/avaliacao-antropometrica#calculadora","description":"Ferramenta online e gratuita para calcular o somatotipo exato (Endomorfia, Mesomorfia e Ectomorfia) e gerar a plotagem gráfica matemática no plano cartesiano da Somatocarta de Heath-Carter.","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"}}`)
     ] 
   },
   { id: 30, link: "/como-calcular-meu-get", img: `${githubImgBase}Blog/GET_Capa.webp`, titulo: "Como Calcular Meu GET (Gasto Energético Total): Guia e Calculadora", desc: "Aprenda de verdade como calcular meu get com equações validadas (Mifflin e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.", data: "2026-07-22", schemasExtra: [getMedicalSchema("Fisiologia do Metabolismo e Gasto Calórico", "https://www.nutricaocommarco.com.br/como-calcular-meu-get", ["Taxa Metabólica Basal", "Gasto Energético Total", "Equação de Mifflin-St Jeor"])] },
