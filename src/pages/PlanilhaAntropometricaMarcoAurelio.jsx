@@ -5,7 +5,7 @@ import ImagemOtimizada from '../components/ImagemOtimizada';
 import { 
   Calculator, Activity, CheckCircle, User, HeartPulse, 
   Sparkles, Percent, CreditCard, Video, GitBranch, Target, 
-  Layers, RefreshCw, Star 
+  Layers, RefreshCw, Star, HelpCircle 
 } from 'lucide-react';
 
 export default function PlanilhaAntropometriaVendas() {
@@ -62,6 +62,33 @@ export default function PlanilhaAntropometriaVendas() {
       texto: "Comprei pra usar nas aulas da faculdade e tem quebrado um galhão. Tem todos os protocolos principais (Pollock, Petroski...) e os resultados da planilha de avaliação antropométrica bateram certinho com os do professor.",
       rating: 5,
       data: "02/06/2026"
+    }
+  ];
+
+  const faqs = [
+    {
+      pergunta: "Quais equipamentos eu preciso comprar para usar a planilha?",
+      resposta: "Adquirindo a planilha, você receberá um PDF explicativo detalhado indicando exatamente quais equipamentos comprar e os links diretos para cada um deles."
+    },
+    {
+      pergunta: "Tem vídeo ensinando como realizar as medições?",
+      resposta: "Sim! Junto com a planilha, você recebe um PDF contendo os vídeos padrão ISAK que demonstram o passo a passo de como realizar todas as medidas antropométricas solicitadas no sistema."
+    },
+    {
+      pergunta: "Preciso pagar mensalidade ou renovação anual?",
+      resposta: "Não. O acesso é totalmente vitalício. Você paga apenas uma vez e a planilha é sua para sempre, sem nenhum tipo de taxa oculta ou mensalidade."
+    },
+    {
+      pergunta: "Preciso ter o Excel instalado no computador?",
+      resposta: "Sim, a planilha foi otimizada para funcionar perfeitamente no Microsoft Excel para computador, garantindo que todas as fórmulas, automações e somatocarta funcionem com máxima velocidade e precisão."
+    },
+    {
+      pergunta: "Como recebo meu acesso após a compra?",
+      resposta: "O envio é imediato! Assim que o seu pagamento for confirmado pela plataforma, você receberá um e-mail com os arquivos da planilha e os PDFs de apoio para fazer o download na hora."
+    },
+    {
+      pergunta: "A planilha funciona para atendimentos em consultório e academia?",
+      resposta: "Perfeitamente. Ela foi desenvolvida com rigor técnico para gerar relatórios visuais e completos em menos de 2 minutos, ideal para quem precisa de agilidade no atendimento sem abrir mão da precisão."
     }
   ];
 
@@ -168,7 +195,7 @@ export default function PlanilhaAntropometriaVendas() {
             <div className="absolute top-0 right-0 bg-orange-500 text-white font-black text-xs px-6 py-2 uppercase tracking-widest rounded-bl-2xl shadow-md">
               Oferta de Lançamento
             </div>
-            
+
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="text-center md:text-left">
                 <p className="text-slate-400 font-bold text-sm uppercase tracking-wide line-through mb-1">De R$ 80,00</p>
@@ -337,7 +364,7 @@ export default function PlanilhaAntropometriaVendas() {
             <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic mb-6 flex items-center gap-2">
               <Activity className="text-green-700 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" /> Veja o Sistema Operando
             </h3>
-            
+
             <div className="space-y-6 mb-16">
               {partesPlanilha.map((img, idx) => (
                 <div key={idx} className="bg-white p-4 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
@@ -359,7 +386,7 @@ export default function PlanilhaAntropometriaVendas() {
               <h3 className="text-2xl font-black text-slate-800 uppercase italic text-center mb-8 flex items-center justify-center gap-2">
                 <Star className="text-yellow-400 fill-yellow-400 w-6 h-6" /> O que dizem os Profissionais
               </h3>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {reviews.map((rev, idx) => (
                   <div key={idx} className="bg-slate-50 border border-slate-100 p-5 rounded-2xl flex flex-col justify-between">
@@ -383,16 +410,34 @@ export default function PlanilhaAntropometriaVendas() {
               </div>
             </div>
 
+            <div className="mb-16">
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic mb-8 flex items-center gap-2 border-b border-green-200 pb-4">
+                <HelpCircle className="text-green-700 w-6 h-6 md:w-8 md:h-8 flex-shrink-0" /> Perguntas Frequentes (FAQ)
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                {faqs.map((faq, idx) => (
+                  <div key={idx} className="bg-white p-5 md:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-black text-slate-900 text-sm md:text-base uppercase italic mb-2">
+                      {faq.pergunta}
+                    </h4>
+                    <p className="text-xs md:text-sm text-slate-600 leading-relaxed font-medium">
+                      {faq.resposta}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             <div className="text-center max-w-3xl mx-auto bg-slate-900 rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden">
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-green-500 rounded-full blur-3xl opacity-20"></div>
               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-orange-500 rounded-full blur-3xl opacity-20"></div>
-              
+
               <div className="relative z-10">
                 <h2 className="text-2xl md:text-3xl font-black mb-4 text-white uppercase italic">Eleve o nível das suas consultas!</h2>
                 <p className="text-sm md:text-base text-slate-300 mb-8 leading-relaxed font-medium">
                   Aproveite as últimas horas com preço reduzido de <strong className="text-red-400 line-through">R$ 80,00</strong> por <strong>apenas R$ 50,00</strong>. Tenha uma Planilha de Avaliação Antropométrica impecável e gere relatórios que fidelizam.
                 </p>
-                
+
                 <a 
                   href={linkCheckoutHotmart} 
                   target="_blank" 
