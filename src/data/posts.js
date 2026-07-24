@@ -2,13 +2,23 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export const posts = [
   {
+    id: 30,
+    link: "/avaliacao-antropometrica",
+    img: `${githubImgBase}Blog/Avaliacao_Antropometrica_Capa.webp`,
+    tag: "Composição Corporal",
+    titulo: "Como fazer uma Avaliação Antropométrica de Qualidade?",
+    desc: "Aprenda como fazer uma avaliação antropométrica completa. Domine o protocolo ISAK, Pollock, dobras cutâneas, calcule seu somatotipo online e descubra como automatizar seus relatórios!",
+    data: "2026-07-24",
+    dataMod: "2026-07-24",
+  },
+  {
     id: 29,
     link: "/o-que-e-dieta-mediterranea",
     img: `${githubImgBase}Blog/DietaMediterranea_Capa.webp`,
     tag: "Dietas da Moda",
     titulo: "O Que É Dieta Mediterrânea? O Segredo para Saúde e Longevidade",
     desc: "Descubra o que é dieta mediterrânea na prática. Entenda como o consumo de azeite extra virgem, peixes e vegetais protege o coração e ajuda a emagrecer sem restrições extremas.",
-    data: "2026-07-20",
+    data: "2026-07-23",
     dataMod: "2026-07-23",
   },
   {

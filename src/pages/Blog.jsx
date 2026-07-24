@@ -7,6 +7,15 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 const postsData = [
   {
+    id: 30,
+    link: "/avaliacao-antropometrica",
+    imgSrc: `${githubImgBase}Blog/Avaliacao_Antropometrica_Capa.webp`,
+    tag: "Composição Corporal",
+    title: "Como fazer uma Avaliação Antropométrica de Qualidade?",
+    desc: "Aprenda como fazer uma avaliação antropométrica completa. Domine o protocolo ISAK, Pollock, dobras cutâneas, calcule seu somatotipo online e descubra como automatizar seus relatórios!",
+    isNew: true
+  },
+  {
     id: 29,
     link: "/o-que-e-dieta-mediterranea",
     imgSrc: `${githubImgBase}Blog/DietaMediterranea_Capa.webp`,
