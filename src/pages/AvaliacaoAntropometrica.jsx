@@ -58,20 +58,21 @@ export default function AvaliacaoAntropometrica() {
     const x = ecto - endo;
     const y = (2 * meso) - (endo + ecto);
 
-    // Classificação visual baseada nas dominâncias
+// Classificação visual baseada nas dominâncias (Nomenclatura Oficial Heath-Carter)
     let classificacao = "Central (Equilibrado)";
+    
     if (endo > meso && endo > ecto) {
-      classificacao = meso > ecto ? "Mesomorfo-Endomorfo" : ecto > meso ? "Ectomorfo-Endomorfo" : "Endomorfo Equilibrado";
+      classificacao = meso > ecto ? "Endomorfo-Mesomórfico" : ecto > meso ? "Endomorfo-Ectomórfico" : "Endomorfo Equilibrado";
     } else if (meso > endo && meso > ecto) {
-      classificacao = endo > ecto ? "Endomorfo-Mesomorfo" : ecto > endo ? "Ectomorfo-Mesomorfo" : "Mesomorfo Equilibrado";
+      classificacao = endo > ecto ? "Mesomorfo-Endomórfico" : ecto > endo ? "Mesomorfo-Ectomórfico" : "Mesomorfo Equilibrado";
     } else if (ecto > endo && ecto > meso) {
-      classificacao = endo > meso ? "Endomorfo-Ectomorfo" : meso > endo ? "Mesomorfo-Ectomorfo" : "Ectomorfo Equilibrado";
+      classificacao = endo > meso ? "Ectomorfo-Endomórfico" : meso > endo ? "Ectomorfo-Mesomórfico" : "Ectomorfo Equilibrado";
     } else if (endo === meso && endo > ecto) {
-      classificacao = "Endo-Mesomorfo";
+      classificacao = "Endomorfo-Mesomorfo";
     } else if (meso === ecto && meso > endo) {
-      classificacao = "Meso-Ectomorfo";
+      classificacao = "Mesomorfo-Ectomorfo";
     } else if (endo === ecto && endo > meso) {
-      classificacao = "Endo-Ectomorfo";
+      classificacao = "Endomorfo-Ectomorfo";
     }
 
     setSomatotipo({
@@ -394,6 +395,17 @@ export default function AvaliacaoAntropometrica() {
               <h4 className="font-bold text-slate-800 m-0">3. Equações Generalizadas de Jackson & Pollock (1978)</h4>
               <p className="text-sm text-slate-600 m-0 mt-2">Foram o maior salto tecnológico em antropometria ao criarem fórmulas "generalizadas" em vez de "específicas" de nicho. Eles detectaram o problema de usar equações lineares para medir uma fisiologia que é "curvilínea" e que afeta a densidade óssea ao longo do tempo. Incorporaram as variáveis preditivas como o componente "quadrático" do somatório de dobras e a "Idade" cronológica do sujeito nas fórmulas. Criaram versões muito validadas usando somas densas de 7 Dobras e protocolos ágeis e excelentes de 3 Dobras (Peito, Abdômen e Coxa para homens; e Tríceps, Supra-ilíaca e Coxa para mulheres). São fantásticas para o público moderno das academias, com ETM super acurados.</p>
             </div>
+          </div>
+
+          <h2 id="polemica-7-dobras" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+            <HelpCircle className="text-green-700"/> O Mito das 7 Dobras: Por que excluir Peitoral e Axilar?
+          </h2>
+          <p className="mb-4">
+            A grande dúvida de muitos avaliadores iniciantes é: <em>"Se a fórmula de 7 dobras de Jackson & Pollock existe e parece mais completa, por que a maioria dos softwares e pesquisadores foca na fórmula de 3 ou 4 dobras, excluindo o Peitoral e a Axilar Média?"</em>
+          </p>
+          <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 text-blue-900 italic mt-6 mb-6">
+            <p className="m-0 mb-3">A resposta está na <strong>redundância estatística</strong> e no constrangimento clínico. Estudos clássicos conduzidos por Pollock, Jackson e colaboradores demonstraram que as dobras cutâneas do nosso corpo são altamente correlacionadas entre si — ou seja, elas tendem a medir exatamente o mesmo "fator" de gordura subcutânea[cite: 20].</p>
+            <p className="m-0">Quando os pesquisadores aplicaram a análise de regressão múltipla, descobriram que adicionar a dobra Peitoral e a Axilar Média na equação (formando 7 dobras) aumentava muito pouco a precisão real da estimativa da densidade corporal em relação a usar apenas 3 ou 4 dobras bem distribuídas[cite: 20]. A própria equipe recomendou oficialmente o uso de equações simplificadas, afirmando que este modelo é estatisticamente robusto, possui índices de erro idênticos às equações mais complexas e é imensamente mais prático para avaliações em massa no consultório[cite: 20]. Na prática, excluir o Peitoral e a Axilar Média poupa tempo e evita o constrangimento das pacientes sem perder um grama de validade científica.</p>
           </div>
 
           <h2 id="resultados" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
