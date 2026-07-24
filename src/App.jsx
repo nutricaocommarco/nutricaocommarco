@@ -59,6 +59,7 @@ const DietaMediterranea = lazyRetry(() => import('./pages/DietaMediterranea'));
 const ComoGanharTempoCozinha = lazyRetry(() => import('./pages/ComoGanharTempoCozinha'));
 const EbookReceitas = lazyRetry(() => import('./pages/Ebook-Receitas'));
 const ComoCalcularMeuGet = lazyRetry(() => import('./pages/ComoCalcularMeuGet'));
+const AvaliacaoAntropometrica = lazyRetry(() => import('./pages/AvaliacaoAntropometrica'));
 
 const LoadingSpinner = () => (
   <div className="flex justify-center items-center h-screen text-green-700 font-black">
@@ -281,6 +282,7 @@ export default function App() {
               <Route path="/como-calcular-meu-get" element={<ComoCalcularMeuGet />} />
               <Route path="/loja" element={<Loja />} />
               <Route path="/loja/:id" element={<ProdutoDetalhe />} />
+              <Route path="/avaliacao-antropometrica" element={<AvaliacaoAntropometrica />} />
             </Routes>
           </Suspense>
         </Layout>

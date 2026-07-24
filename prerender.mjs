@@ -102,6 +102,24 @@ const rotasLoja = [
 
 // 📝 3. TODOS OS POSTS DO BLOG
 const postsBlog = [
+  { 
+    id: 31, 
+    link: "/avaliacao-antropometrica", 
+    img: `${githubImgBase}Blog/Avaliacao_Antropometrica_Capa.webp`, 
+    titulo: "Como fazer uma Avaliação Antropométrica de Qualidade?", 
+    desc: "Aprenda como fazer uma avaliação antropométrica completa. Domine o protocolo ISAK, Pollock, dobras cutâneas e descubra como automatizar seus relatórios!", 
+    data: "2026-07-24", 
+    schemasExtra: [
+      getMedicalSchema("Avaliação Antropométrica e Cineantropometria", "https://www.nutricaocommarco.com.br/avaliacao-antropometrica", ["Antropometria", "Dobras Cutâneas", "Composição Corporal", "Índice de Massa Corporal"]),
+      getVideoSchema("Demonstração Prática do Perfil Restrito ISAK", "Aprenda a aplicar as técnicas de localização de pontos anatômicos e marcação física da pele com precisão usando o protocolo internacional da ISAK para perfil restrito.", "_Fmm4T4Ooto", "2021-08-25T12:00:00-03:00"),
+      getFaqSchema([
+        { pergunta: "Qual a diferença entre Antropometria e Bioimpedância?", resposta: "A antropometria mede o corpo fisicamente através de dobras, ossos e perímetros, sendo imune a oscilações diárias. A bioimpedância usa uma corrente elétrica para estimar a água corporal, sendo fortemente alterada se o paciente estiver desidratado, menstruada, ou de bexiga cheia." },
+        { pergunta: "O que é o erro técnico de medição (ETM)?", resposta: "O ETM é um cálculo estatístico que mede a precisão do avaliador. Se o seu ETM for alto, significa que você não consegue repetir a mesma medida no mesmo lugar. A ISAK exige um ETM de dobras cutâneas menor que 5% para Nível 1." },
+        { pergunta: "Para que serve a Somatocarta?", resposta: "A somatocarta é um gráfico bidimensional que classifica o paciente em Endomorfo (tendência a acumular gordura), Mesomorfo (robustez muscular) e Ectomorfo (linearidade e magreza), ajudando a alinhar expectativas de resultados genéticos." },
+        { pergunta: "Quando devo usar a Mediana ao invés da Média?", resposta: "A literatura antropométrica (ISAK) recomenda realizar 3 medidas no mesmo ponto e utilizar a Mediana (o valor do meio). Isso exclui automaticamente valores extremos causados por um erro de pinçamento." }
+      ])
+    ] 
+  },
   { id: 30, link: "/como-calcular-meu-get", img: `${githubImgBase}Blog/GET_Capa.webp`, titulo: "Como Calcular Meu GET (Gasto Energético Total): Guia e Calculadora", desc: "Aprenda de verdade como calcular meu get com equações validadas (Mifflin e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.", data: "2026-07-22", schemasExtra: [getMedicalSchema("Fisiologia do Metabolismo e Gasto Calórico", "https://www.nutricaocommarco.com.br/como-calcular-meu-get", ["Taxa Metabólica Basal", "Gasto Energético Total", "Equação de Mifflin-St Jeor"])] },
   { 
     id: 29, 
