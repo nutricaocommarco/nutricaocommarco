@@ -4,7 +4,8 @@ import ImagemOtimizada from '../components/ImagemOtimizada';
 import { 
   ChevronLeft, HelpCircle, Activity, Heart, FileText, 
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart, 
-  CheckCircle2, Ruler, BookOpen, UserCheck, AlertTriangle
+  CheckCircle2, Ruler, BookOpen, UserCheck, AlertTriangle,
+  Globe, Brain, Target // <-- Ícones que faltavam adicionados aqui!
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
@@ -53,12 +54,13 @@ export default function AvaliacaoAntropometrica() {
     setSomatorio(soma.toFixed(1));
   };
 
+  // Ajuste fino para o Tailwind funcionar 100% com as bordas
   const classificacaoSomatorio = () => {
     if (!somatorio) return null;
-    if (somatorio < 50) return { texto: "Nível Atleta / Muito Baixa Adiposidade", cor: "text-blue-700", bg: "bg-blue-100" };
-    if (somatorio >= 50 && somatorio <= 90) return { texto: "Nível Saudável / Adiposidade Adequada", cor: "text-green-700", bg: "bg-green-100" };
-    if (somatorio > 90 && somatorio <= 130) return { texto: "Alerta / Adiposidade Moderada a Alta", cor: "text-orange-700", bg: "bg-orange-100" };
-    return { texto: "Risco Metabólico / Adiposidade Muito Alta", cor: "text-red-700", bg: "bg-red-100" };
+    if (somatorio < 50) return { texto: "Nível Atleta / Muito Baixa Adiposidade", cor: "text-blue-700", bg: "bg-blue-100", border: "border-blue-700" };
+    if (somatorio >= 50 && somatorio <= 90) return { texto: "Nível Saudável / Adiposidade Adequada", cor: "text-green-700", bg: "bg-green-100", border: "border-green-700" };
+    if (somatorio > 90 && somatorio <= 130) return { texto: "Alerta / Adiposidade Moderada a Alta", cor: "text-orange-700", bg: "bg-orange-100", border: "border-orange-700" };
+    return { texto: "Risco Metabólico / Adiposidade Muito Alta", cor: "text-red-700", bg: "bg-red-100", border: "border-red-700" };
   };
 
   const faqs = [
