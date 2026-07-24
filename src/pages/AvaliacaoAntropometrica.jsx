@@ -122,7 +122,7 @@ export default function AvaliacaoAntropometrica() {
           {/* Categoria e Data */}
           <div className="mb-8 flex flex-col items-start gap-2">
             <span className="inline-block bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Composição Corporal</span>
-            <span className="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
+            <span className="text-[11px] text-slate-500 font-semibold tracking-wider uppercase">Atualizado em: {formattedDate}</span>
           </div>
 
           {/* H1 Principal (SEO) */}
@@ -163,12 +163,12 @@ export default function AvaliacaoAntropometrica() {
                 aria-label="Abrir Índice do Conteúdo"
               >
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-400 border border-slate-200 shadow-sm'}`}>
+                  <div className={`p-2 rounded-lg transition-colors ${isTocOpen ? 'bg-green-700 text-white' : 'bg-white text-slate-500 border border-slate-200 shadow-sm'}`}>
                     <Activity size={18} />
                   </div>
                   <h3 className="text-sm font-black text-slate-700 uppercase tracking-widest italic m-0">Índice do Conteúdo</h3>
                 </div>
-                <ChevronRight size={20} className={`text-slate-400 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} />
+                <ChevronRight size={20} className={`text-slate-500 transition-transform duration-300 ${isTocOpen ? 'rotate-90 text-green-700' : ''}`} />
               </button>
 
               <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[1500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
@@ -191,13 +191,18 @@ export default function AvaliacaoAntropometrica() {
           {/* 🖼️ IMAGEM HERO OTIMIZADA */}
           <figure className="my-12 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group flex flex-col bg-slate-200">
             <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
-              <ImagemOtimizada 
-                src={antropometriaCapa}
-                alt="Pinguim Pingus vestindo jaleco de nutricionista em estilo Disney Pixar 3D, realizando a medição de uma dobra cutânea com um adipômetro científico, em um consultório claro."
-                title="Avaliação Antropométrica e o Píngus"
-                className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
-                priority="high"
-              />
+              <picture>
+                <source media="(max-width: 480px)" srcSet={`${antropometriaCapa}?w=400&strip=all&quality=70`} />
+                <source media="(max-width: 768px)" srcSet={`${antropometriaCapa}?w=600&strip=all&quality=70`} />
+                <source media="(max-width: 1024px)" srcSet={`${antropometriaCapa}?w=800&strip=all&quality=85`} />
+                <ImagemOtimizada 
+                  src={`${antropometriaCapa}?w=1280&strip=all&quality=85`}
+                  alt="Pinguim Pingus vestindo jaleco de nutricionista em estilo Disney Pixar 3D, realizando a medição de uma dobra cutânea com um adipômetro científico, em um consultório claro."
+                  title="Avaliação Antropométrica e o Píngus"
+                  className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+                  priority="high"
+                />
+              </picture>
             </div>
             <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
               <p className="text-xs md:text-sm text-slate-600 font-bold uppercase tracking-widest text-center m-0">
@@ -385,15 +390,15 @@ export default function AvaliacaoAntropometrica() {
           
           <div className="space-y-4 my-8">
             <div className="p-4 bg-slate-50 border-l-4 border-green-600 rounded-r-2xl shadow-sm">
-              <h4 className="font-bold text-slate-800 m-0">1. Equação de Durnin & Womersley (1974)</h4>
+              <h3 className="font-bold text-base text-slate-800 m-0">1. Equação de Durnin & Womersley (1974)</h3>
               <p className="text-sm text-slate-600 m-0 mt-2">Os pesquisadores escoceses testaram quase 500 indivíduos num amplo leque etário de 16 a 72 anos. Utiliza a força da equação logarítmica para uma densidade que se desvia ao decorrer do avanço natural da idade. Usa as 4 dobras clássicas da metade superior na avaliação física (Bíceps, Tríceps, Subescapular e Supra-ilíaca). É ideal e muito confortável na avaliação antropométrica para mulheres, pois evita a medição invasiva de coxa frontal e o constrangimento do abdômen.</p>
             </div>
             <div className="p-4 bg-slate-50 border-l-4 border-orange-600 rounded-r-2xl shadow-sm">
-              <h4 className="font-bold text-slate-800 m-0">2. Equação de Faulkner (1968)</h4>
+              <h3 className="font-bold text-base text-slate-800 m-0">2. Equação de Faulkner (1968)</h3>
               <p className="text-sm text-slate-600 m-0 mt-2">Uma das equações mais famosas e antigas no Brasil. Criada no ambiente dos esportes aquáticos, utiliza as dobras (Tríceps, Subescapular, Supraespinal e Abdominal) acrescida da famosa constante "fisiológica" de Faulkner (5,783) na avaliação física. Embora seja extremamente utilizada, a literatura da avaliação antropométrica moderna recomenda precaução: as validações indicam que ela tende a superestimar percentuais altos, sendo sua aplicação mais focada num espectro de jovens masculinos desportistas entre 18 a 25 anos, com as quais Faulkner modelou o estudo na Universidade de Michigan.</p>
             </div>
             <div className="p-4 bg-slate-50 border-l-4 border-blue-600 rounded-r-2xl shadow-sm">
-              <h4 className="font-bold text-slate-800 m-0">3. Equações Generalizadas de Jackson & Pollock (1978)</h4>
+              <h3 className="font-bold text-base text-slate-800 m-0">3. Equações Generalizadas de Jackson & Pollock (1978)</h3>
               <p className="text-sm text-slate-600 m-0 mt-2">Foram o maior salto tecnológico em avaliação antropométrica ao criarem fórmulas "generalizadas" em vez de "específicas" de nicho. Eles detectaram o problema de usar equações lineares na avaliação física para medir uma fisiologia que é "curvilínea" e que afeta a densidade óssea ao longo do tempo. Incorporaram as variáveis preditivas como o componente "quadrático" do somatório de dobras e a "Idade" cronológica do sujeito nas fórmulas da avaliação antropométrica. Criaram versões muito validadas usando somas densas de 7 Dobras e protocolos ágeis e excelentes de 3 Dobras (Peito, Abdômen e Coxa para homens; e Tríceps, Supra-ilíaca e Coxa para mulheres). São fantásticas para a avaliação física do público moderno das academias, com ETM super acurados.</p>
             </div>
           </div>
@@ -518,7 +523,7 @@ export default function AvaliacaoAntropometrica() {
                       <circle cx={somatotipo.x} cy={-somatotipo.y} r="0.2" fill="#fff" />
                    </svg>
                 </div>
-                <p className="text-slate-400 text-xs text-center mt-4 m-0">Gráfico de Dispersão bidimensional plotado no eixo da Avaliação Antropométrica: X = {somatotipo.x} / Y = {somatotipo.y}</p>
+                <p className="text-slate-500 text-xs text-center mt-4 m-0">Gráfico de Dispersão bidimensional plotado no eixo da Avaliação Antropométrica: X = {somatotipo.x} / Y = {somatotipo.y}</p>
               </div>
             )}
           </div>
@@ -599,7 +604,7 @@ export default function AvaliacaoAntropometrica() {
                     <h3 className={`text-lg font-black mb-0 italic transition-colors ${openFaqIndex === index ? 'text-green-700' : 'text-slate-800 group-hover:text-green-700'}`}>
                       {faq.pergunta}
                     </h3>
-                    <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
+                    <ChevronDown className={`text-slate-500 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
                   </button>
                   <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
                     <p className="text-slate-600 m-0 leading-relaxed border-t border-green-100/60 pt-4">{faq.resposta}</p>
@@ -620,7 +625,7 @@ export default function AvaliacaoAntropometrica() {
              </ul>
              <div className="mt-4 pt-4 border-t border-slate-200 flex items-start gap-2">
                <AlertTriangle size={14} className="text-amber-600 shrink-0 mt-0.5" />
-               <span className="text-[10px] uppercase font-bold text-slate-400">Aviso Nutricional da Avaliação Antropométrica: Este conteúdo técnico destina-se primariamente a estudantes e profissionais de Educação Física e Nutrição sobre avaliação física. Avaliações antropométricas devem ser feitas exclusivamente por profissionais habilitados. O artigo possui fim meramente educativo e não substitui diagnósticos médicos ou treinamentos de nivelamento formal da ISAK de avaliação física.</span>
+               <span className="text-[10px] uppercase font-bold text-slate-500">Aviso Nutricional da Avaliação Antropométrica: Este conteúdo técnico destina-se primariamente a estudantes e profissionais de Educação Física e Nutrição sobre avaliação física. Avaliações antropométricas devem ser feitas exclusivamente por profissionais habilitados. O artigo possui fim meramente educativo e não substitui diagnósticos médicos ou treinamentos de nivelamento formal da ISAK de avaliação física.</span>
              </div>
           </div>
 
