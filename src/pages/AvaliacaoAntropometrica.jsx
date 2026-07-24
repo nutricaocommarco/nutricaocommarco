@@ -381,6 +381,21 @@ export default function AvaliacaoAntropometrica() {
             </div>
           </div>
 
+          <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+            <Activity className="text-green-700"/> Entendendo a Somatocarta (Endo, Meso, Ectomorfo)
+          </h2>
+          <p>
+            O método criado por Heath & Carter no final dos anos 60 revolucionou a educação física escolar e desportiva. Trata-se da avaliação do <strong>Somatotipo</strong>. Ele usa as dobras cutâneas, circunferências de braço e perna e a largura óssea de fêmur e úmero para "plotar" o paciente em um mapa (A Somatocarta).
+          </p>
+          <p>
+            O somatotipo dita que existem três tendências embrionárias e genéticas predominantes no corpo humano:
+          </p>
+          <ul className="list-disc pl-5 text-slate-600 marker:text-green-700 space-y-2 mb-8">
+            <li><strong>Endomorfia (Relativa Adiposidade):</strong> O perfil que engorda com extrema facilidade, ossos largos, rosto redondo, mas que perde peso devagar. Necessita de dieta com déficit restrito e treino cardio intenso.</li>
+            <li><strong>Mesomorfia (Relativa Robustez Muscular):</strong> O "agraciado genético". Tem facilidade de ganho de massa, ossos de alavancagem média, ombros largos e cintura fina.</li>
+            <li><strong>Ectomorfia (Relativa Magreza Ocular):</strong> Alta taxa metabólica basal, membros muito compridos, dificuldade absurda para ganhar peso (tanto gordo quanto magro). É o atleta nato para corridas de fundo e salto em altura.</li>
+          </ul>
+
           {/* VENDAS DA PLANILHA - "O PINGUS APROVA" */}
           <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(22,163,74,0.1)]">
             <div className="absolute -top-1 -right-1 bg-green-700 text-white px-6 py-2 rounded-bl-3xl font-black uppercase text-[11px] tracking-widest shadow-md z-10 flex items-center gap-2 border-b border-l border-green-700">
