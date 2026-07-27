@@ -224,48 +224,21 @@ export default function PlanilhaAntropometriaVendas() {
             </div>
           </section>
 
-          {/* NOVIDADE: Atualização 1.10 (Vídeo e Laudo Mobile) */}
-          <div className="w-full bg-indigo-50/50 rounded-3xl p-6 md:p-10 border border-indigo-100 shadow-md flex flex-col gap-6 text-left relative overflow-hidden">
-             {/* Efeito decorativo sutil no fundo */}
-             <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-                <Smartphone className="w-40 h-40 text-indigo-500 transform rotate-12" />
-             </div>
-             
-             <h3 className="text-2xl md:text-3xl font-black text-indigo-900 uppercase italic flex flex-wrap items-center gap-3 border-b border-indigo-200 pb-4 relative z-10">
-               <Video className="text-indigo-600 w-8 h-8 flex-shrink-0" /> Novidade da Versão 1.10 <span className="bg-indigo-600 text-white text-xs px-3 py-1 rounded-full not-italic tracking-widest align-middle">LAUDO WEB</span>
-             </h3>
-             
-             <div className="text-slate-700 font-medium leading-relaxed relative z-10 space-y-4">
-                <p>
-                  Acabamos de lançar a maior atualização do sistema! Agora a Planilha PRO não só calcula tudo, como <strong className="text-indigo-800">Gera um Laudo Digital 100% focado no Celular (HTML)</strong> com um único clique. Chega de PDFs pesados e ilegíveis na tela do paciente. Dê o play no vídeo abaixo e veja a mágica acontecer!
-                </p>
-                <p>
-                  Além do laudo moderno, criamos o sistema de <strong>Copiar e Colar Inteligente</strong>. Transfira todo o histórico do seu paciente para as futuras versões da planilha em segundos, sem dor de cabeça!
-                </p>
-             </div>
-
-             <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg border-2 border-indigo-200/50 z-10">
-               <iframe
-                 className="absolute top-0 left-0 w-full h-full"
-                 src="https://www.youtube.com/embed/6joI4qF6_Oc?rel=0"
-                 title="Atualização 1.10 da Planilha de Avaliação Antropométrica"
-                 frameBorder="0"
-                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                 allowFullScreen
-               ></iframe>
-             </div>
-
-             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4 z-10">
-                <p className="text-sm font-bold text-indigo-800 italic">Quer ver como seu paciente vai receber o laudo?</p>
-                <a 
-                  href={modeloLaudoHTML} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="bg-indigo-600 hover:bg-indigo-500 text-white font-black py-3 px-6 rounded-xl shadow-md transition-all hover:-translate-y-1 inline-flex items-center gap-2 text-sm uppercase tracking-wide"
-                >
-                  <ExternalLink size={18} /> Ver Modelo de Relatório (Mobile)
-                </a>
-             </div>
+          {/* VÍDEO PRINCIPAL ORIGINAL RESTAURADO AQUI */}
+          <div className="w-full bg-white rounded-3xl p-5 md:p-8 border border-slate-100 shadow-md flex flex-col gap-5 text-left mb-6">
+            <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic flex items-center gap-2 border-b border-green-100 pb-4">
+              <Video className="text-green-700 w-6 h-6 flex-shrink-0" /> Como funciona a Planilha de Avaliação Antropométrica?
+            </h3>
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/8F-6dO7A2eY"
+                title="Apresentação da Planilha de Avaliação Antropométrica e Composição Corporal"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
 
           <div className="bg-slate-50 rounded-[2rem] md:rounded-[3.5rem] p-5 sm:p-8 md:p-12 border border-slate-200 shadow-inner">
@@ -388,6 +361,49 @@ export default function PlanilhaAntropometriaVendas() {
                   Classificação precisa de Heath-Carter para <strong>Endomorfia</strong>, <strong>Mesomorfia</strong> e <strong>Ectomorfia</strong> com o traçado e plotagem imediata direto no gráfico visual da Somatocarta.
                 </p>
               </div>
+            </div>
+
+            {/* NOVIDADE: Atualização 1.10 (Vídeo e Laudo Mobile) MOVIDA PARA CÁ */}
+            <div className="w-full bg-indigo-50/50 rounded-3xl p-6 md:p-10 border border-indigo-100 shadow-md flex flex-col gap-6 text-left relative overflow-hidden mb-12">
+               <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+                  <Smartphone className="w-40 h-40 text-indigo-500 transform rotate-12" />
+               </div>
+               
+               <h3 className="text-2xl md:text-3xl font-black text-indigo-900 uppercase italic flex flex-wrap items-center gap-3 border-b border-indigo-200 pb-4 relative z-10">
+                 <Video className="text-indigo-600 w-8 h-8 flex-shrink-0" /> Novidade da Versão 1.10 <span className="bg-indigo-600 text-white text-xs px-3 py-1 rounded-full not-italic tracking-widest align-middle">LAUDO WEB</span>
+               </h3>
+               
+               <div className="text-slate-700 font-medium leading-relaxed relative z-10 space-y-4">
+                  <p>
+                    Acabamos de lançar a maior atualização do sistema! Agora a Planilha PRO não só calcula tudo, como <strong className="text-indigo-800">Gera um Laudo Digital 100% focado no Celular (HTML)</strong> com um único clique. Chega de PDFs pesados e ilegíveis na tela do paciente. Dê o play no vídeo abaixo e veja a mágica acontecer!
+                  </p>
+                  <p>
+                    Além do laudo moderno, criamos o sistema de <strong>Copiar e Colar Inteligente</strong>. Transfira todo o histórico do seu paciente para as futuras versões da planilha em segundos, sem dor de cabeça!
+                  </p>
+               </div>
+
+               <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg border-2 border-indigo-200/50 z-10">
+                 <iframe
+                   className="absolute top-0 left-0 w-full h-full"
+                   src="https://www.youtube.com/embed/6joI4qF6_Oc?rel=0"
+                   title="Atualização 1.10 da Planilha de Avaliação Antropométrica"
+                   frameBorder="0"
+                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                   allowFullScreen
+                 ></iframe>
+               </div>
+
+               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4 z-10">
+                  <p className="text-sm font-bold text-indigo-800 italic">Quer ver como seu paciente vai receber o laudo?</p>
+                  <a 
+                    href={modeloLaudoHTML} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="bg-indigo-600 hover:bg-indigo-500 text-white font-black py-3 px-6 rounded-xl shadow-md transition-all hover:-translate-y-1 inline-flex items-center gap-2 text-sm uppercase tracking-wide"
+                  >
+                    <ExternalLink size={18} /> Ver Modelo de Relatório (Mobile)
+                  </a>
+               </div>
             </div>
 
             <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic mb-6 flex items-center gap-2">
