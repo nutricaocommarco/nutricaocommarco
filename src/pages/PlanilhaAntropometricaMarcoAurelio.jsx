@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import ImagemOtimizada from '../components/ImagemOtimizada';
 import { 
   Calculator, Activity, CheckCircle, User, HeartPulse, 
   Sparkles, Percent, CreditCard, Video, GitBranch, Target, 
-  Layers, RefreshCw, Star, HelpCircle 
+  Layers, RefreshCw, Star, HelpCircle, Smartphone, ExternalLink
 } from 'lucide-react';
 
 export default function PlanilhaAntropometriaVendas() {
@@ -26,6 +25,7 @@ export default function PlanilhaAntropometriaVendas() {
   ];
 
   const linkCheckoutHotmart = "https://pay.hotmart.com/D106679715Y?off=4vrhshe3";
+  const modeloLaudoHTML = "/Ebooks/Avaliacao_Mobile.html";
 
   const reviews = [
     {
@@ -99,7 +99,7 @@ export default function PlanilhaAntropometriaVendas() {
     "@type": "Product",
     "name": "Planilha de Avaliação Antropométrica Inteligente PRO",
     "url": "https://www.nutricaocommarco.com.br/planilha-antropometrica-marco-aurelio",
-    "description": "A mais completa Planilha de Avaliação Antropométrica em Excel (VBA). Avaliação completa da composição corporal, mais de 30 equações de predição, protocolo ISAK e perímetros corrigidos.",
+    "description": "A mais completa Planilha de Avaliação Antropométrica em Excel (VBA). Avaliação completa da composição corporal, mais de 30 equações de predição, protocolo ISAK, perímetros corrigidos e Laudo Web Automático.",
     "image": capaImg,
     "sku": "PLAN-ANTRO-PRO",
     "brand": {
@@ -149,12 +149,12 @@ export default function PlanilhaAntropometriaVendas() {
     <>
       <Helmet>
         <title>Planilha de Avaliação Antropométrica em Excel | Sistema PRO</title>
-        <meta name="description" content="A melhor e mais completa Planilha de Avaliação Antropométrica em Excel. Cálculos de percentual de gordura, protocolo ISAK, Pollock, Somatotipo e muito mais." />
+        <meta name="description" content="A melhor e mais completa Planilha de Avaliação Antropométrica em Excel. Cálculos de percentual de gordura, protocolo ISAK, Pollock, Somatotipo e Laudos Responsivos (Mobile)." />
         <meta name="keywords" content={keywords} />
         <link rel="canonical" href="https://www.nutricaocommarco.com.br/planilha-antropometrica-marco-aurelio" />
         <meta property="og:type" content="product" />
         <meta property="og:title" content="Planilha de Avaliação Antropométrica Inteligente PRO" />
-        <meta property="og:description" content="Transforme seu Excel em um software de avaliação física completo com esta Planilha de Avaliação Antropométrica. Protocolos ISAK, +30 equações e Acesso Vitalício." />
+        <meta property="og:description" content="Transforme seu Excel em um software de avaliação física completo com esta Planilha de Avaliação Antropométrica. Protocolos ISAK, +30 equações, Relatórios Responsivos (HTML) e Acesso Vitalício." />
         <meta property="og:image" content={capaImg} />
         <meta property="og:url" content="https://www.nutricaocommarco.com.br/planilha-antropometrica-marco-aurelio" />
         <meta property="product:price:amount" content="50.00" />
@@ -191,6 +191,7 @@ export default function PlanilhaAntropometriaVendas() {
             </div>
           </article>
 
+          {/* CTA de Lançamento */}
           <section className="bg-slate-900 text-white rounded-[2rem] p-6 sm:p-8 md:p-10 border border-slate-800 shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 bg-orange-500 text-white font-black text-xs px-6 py-2 uppercase tracking-widest rounded-bl-2xl shadow-md">
               Oferta de Lançamento
@@ -223,20 +224,48 @@ export default function PlanilhaAntropometriaVendas() {
             </div>
           </section>
 
-          <div className="w-full bg-white rounded-3xl p-5 md:p-8 border border-slate-100 shadow-md flex flex-col gap-5 text-left">
-            <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic flex items-center gap-2 border-b border-green-100 pb-4">
-              <Video className="text-green-700 w-6 h-6 flex-shrink-0" /> Como funciona a Planilha de Avaliação Antropométrica?
-            </h3>
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-sm border border-slate-200">
-              <iframe
-                className="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/8F-6dO7A2eY"
-                title="Apresentação da Planilha de Avaliação Antropométrica e Composição Corporal"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-            </div>
+          {/* NOVIDADE: Atualização 1.10 (Vídeo e Laudo Mobile) */}
+          <div className="w-full bg-indigo-50/50 rounded-3xl p-6 md:p-10 border border-indigo-100 shadow-md flex flex-col gap-6 text-left relative overflow-hidden">
+             {/* Efeito decorativo sutil no fundo */}
+             <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+                <Smartphone className="w-40 h-40 text-indigo-500 transform rotate-12" />
+             </div>
+             
+             <h3 className="text-2xl md:text-3xl font-black text-indigo-900 uppercase italic flex flex-wrap items-center gap-3 border-b border-indigo-200 pb-4 relative z-10">
+               <Video className="text-indigo-600 w-8 h-8 flex-shrink-0" /> Novidade da Versão 1.10 <span className="bg-indigo-600 text-white text-xs px-3 py-1 rounded-full not-italic tracking-widest align-middle">LAUDO WEB</span>
+             </h3>
+             
+             <div className="text-slate-700 font-medium leading-relaxed relative z-10 space-y-4">
+                <p>
+                  Acabamos de lançar a maior atualização do sistema! Agora a Planilha PRO não só calcula tudo, como <strong className="text-indigo-800">Gera um Laudo Digital 100% focado no Celular (HTML)</strong> com um único clique. Chega de PDFs pesados e ilegíveis na tela do paciente. Dê o play no vídeo abaixo e veja a mágica acontecer!
+                </p>
+                <p>
+                  Além do laudo moderno, criamos o sistema de <strong>Copiar e Colar Inteligente</strong>. Transfira todo o histórico do seu paciente para as futuras versões da planilha em segundos, sem dor de cabeça!
+                </p>
+             </div>
+
+             <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg border-2 border-indigo-200/50 z-10">
+               <iframe
+                 className="absolute top-0 left-0 w-full h-full"
+                 src="https://www.youtube.com/embed/6joI4qF6_Oc?rel=0"
+                 title="Atualização 1.10 da Planilha de Avaliação Antropométrica"
+                 frameBorder="0"
+                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                 allowFullScreen
+               ></iframe>
+             </div>
+
+             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4 z-10">
+                <p className="text-sm font-bold text-indigo-800 italic">Quer ver como seu paciente vai receber o laudo?</p>
+                <a 
+                  href={modeloLaudoHTML} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="bg-indigo-600 hover:bg-indigo-500 text-white font-black py-3 px-6 rounded-xl shadow-md transition-all hover:-translate-y-1 inline-flex items-center gap-2 text-sm uppercase tracking-wide"
+                >
+                  <ExternalLink size={18} /> Ver Modelo de Relatório (Mobile)
+                </a>
+             </div>
           </div>
 
           <div className="bg-slate-50 rounded-[2rem] md:rounded-[3.5rem] p-5 sm:p-8 md:p-12 border border-slate-200 shadow-inner">
