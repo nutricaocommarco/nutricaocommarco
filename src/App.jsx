@@ -283,7 +283,6 @@ export default function App() {
               <Route path="/loja" element={<Loja />} />
               <Route path="/loja/:id" element={<ProdutoDetalhe />} />
               <Route path="/avaliacao-antropometrica" element={<AvaliacaoAntropometrica />} />
-              <Route path="/Ebooks/Avaliacao_Mobile.html" element={<ComponenteDeRedirecionamento />} />
             </Routes>
           </Suspense>
         </Layout>
