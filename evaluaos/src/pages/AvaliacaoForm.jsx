@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { supabase } from '../supabaseClient'
+import { calcularResultadosAntropometricos } from '../utils/calculosAntropometricos'
 
 export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
   const [loading, setLoading] = useState(false)
@@ -68,7 +69,7 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
     e.preventDefault()
     setLoading(true)
 
-    // Estrutura os dados para salvar em public.avaliacoes
+    // 1. Monta o payload com todas as medidas coletadas
     const payload = {
       id_paciente: paciente.id,
       data_avaliacao: dataAvaliacao,
@@ -111,14 +112,41 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
       diametro_bimaleolar: parseFloat(diametros.bimaleolar) || null
     }
 
-    const { data, error } = await supabase.from('avaliacoes').insert([payload]).select().single()
+    // 2. Grava a avaliação bruta em public.avaliacoes
+    const { data: avaliacaoSalva, error } = await supabase
+      .from('avaliacoes')
+      .insert([payload])
+      .select()
+      .single()
 
     if (error) {
       alert('Erro ao salvar avaliação: ' + error.message)
     } else {
-      alert('Avaliação cadastrada com sucesso!')
-      if (onSucesso) onSucesso(data)
+      // 3. Executa os cálculos antropométricos e grava em public.dados_calculados
+      const resultadosCalculados = calcularResultadosAntropometricos(
+        payload,
+        paciente.sexo,
+        25
+      )
+
+      const payloadCalculado = {
+        id_paciente: paciente.id,
+        id_avaliacao: avaliacaoSalva.id,
+        ...resultadosCalculados
+      }
+
+      const { error: calcError } = await supabase
+        .from('dados_calculados')
+        .insert([payloadCalculado])
+
+      if (calcError) {
+        console.error('Erro ao salvar dados calculados:', calcError)
+      }
+
+      alert('Avaliação e cálculos salvos com sucesso!')
+      if (onSucesso) onSucesso(avaliacaoSalva)
     }
+
     setLoading(false)
   }
 
