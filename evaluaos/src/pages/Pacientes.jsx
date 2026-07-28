@@ -137,7 +137,6 @@ const handleDeleteAvaliacao = async (idAvaliacao) => {
       alert('Palavra incorreta. A exclusão foi cancelada.')
     }
   } 
-  
 
   const handleDeletePaciente = async (idPaciente) => {
     const digitado = window.prompt("⚠️ ATENÇÃO: Isso apagará o paciente e todo o seu histórico!\n\nDigite APAGAR para confirmar:")
@@ -234,7 +233,7 @@ const handleDeleteAvaliacao = async (idAvaliacao) => {
                           <span className="text-gray-400">Não</span>
                         )}
                       </td>
-                      <td className="p-4 text-right space-x-3">
+                      <td className="p-4 text-right space-x-3 flex items-center justify-end gap-2">
                         <button 
                           onClick={() => handleVerHistorico(p)}
                           className="text-gray-600 hover:text-gray-900 font-medium text-xs underline"
@@ -246,6 +245,16 @@ const handleDeleteAvaliacao = async (idAvaliacao) => {
                           className="text-emerald-600 hover:text-emerald-800 font-medium text-xs bg-emerald-50 px-3 py-1.5 rounded"
                         >
                           + Nova Avaliação
+                        </button>
+                        <button 
+                          onClick={() => handleDeletePaciente(p.id)}
+                          className="p-1.5 text-red-500 hover:bg-red-50 rounded transition-colors inline-flex items-center"
+                          title="Excluir Paciente"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                          </svg>
                         </button>
                       </td>
                     </tr>
