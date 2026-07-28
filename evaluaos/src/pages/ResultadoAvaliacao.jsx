@@ -60,7 +60,6 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
     async function processarERecarregarResultados() {
       setLoading(true)
       
-      // 1. Busca os dados brutos da Avaliação e do Paciente
       const { data: avalDados, error: avalError } = await supabase
         .from('avaliacoes')
         .select(`*, pacientes ( nome_completo, sexo, data_nascimento, etnia )`)
@@ -75,7 +74,6 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
 
       const pac = avalDados.pacientes || {}
 
-      // 2. Processa todas as variáveis calculadas
       const pesoFinal = avalDados.peso_paciente || 0
       const alturaCm = avalDados.altura_paciente || 0
       const alturaM = alturaCm / 100
@@ -85,13 +83,18 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
       const massaGordaCalc = pesoFinal > 0 ? (pcGorduraFinal * pesoFinal) / 100 : 0
       const massaMagraCalc = pesoFinal > 0 ? pesoFinal - massaGordaCalc : 0
 
-      // Massa Muscular (Lee)
+      // Variáveis Musculares e Dobras
       const pBraco = avalDados.perimetro_braco_relaxado || 0
       const pCoxa = avalDados.perimetro_coxa_media || 0
       const pPant = avalDados.perimetro_panturrilha || 0
       const dTri = avalDados.dobra_cutanea_triceps || 0
       const dCoxa = avalDados.dobra_cutanea_coxa_media || 0
       const dPant = avalDados.dobra_cutanea_panturrilha || 0
+
+      // Perímetros Corrigidos
+      const calcPerimCorrigidoBraco = pBraco > 0 ? pBraco - (dTri * 0.314) : 0;
+      const calcPerimCorrigidoCoxa = pCoxa > 0 ? pCoxa - (dCoxa * 0.314) : 0;
+      const calcPerimCorrigidoPanturrilha = pPant > 0 ? pPant - (dPant * 0.314) : 0;
 
       const termoBraco = Math.pow(pBraco - (dTri * 0.314), 2)
       const termoCoxa = Math.pow(pCoxa - (dCoxa * 0.314), 2)
@@ -114,7 +117,6 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
         calcMuscular = (alturaM * ((0.00744 * termoBraco) + (0.00088 * termoCoxa) + (0.00441 * termoPant))) + (2.4 * sexoNum) - (0.048 * idade) + racaNum + 7.8
       }
 
-      // Outras métricas
       const pCintura = avalDados.perimetro_cintura || 0
       const pQuadril = avalDados.perimetro_quadril || 0
       const calcRcq = pQuadril > 0 ? pCintura / pQuadril : 0
@@ -142,20 +144,18 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
         relacao_cintura_estatura: Number(calcRce.toFixed(2)),
         somatorio_6_dobras: Number(calcSoma6.toFixed(1)),
         somatorio_8_dobras: Number(calcSoma8.toFixed(1)),
+        perimetro_corrigido_braco: Number(calcPerimCorrigidoBraco.toFixed(2)),
+        perimetro_corrigido_coxa: Number(calcPerimCorrigidoCoxa.toFixed(2)),
+        perimetro_corrigido_panturrilha: Number(calcPerimCorrigidoPanturrilha.toFixed(2)),
         ...somatotipo
       }
 
-      // 3. ATUALIZAÇÃO EM BACKGROUND (Upsert no Supabase)
-      // Tenta atualizar se já existir a linha, ou insere se estiver vazia
       const { error: upsertError } = await supabase
         .from('dados_calculados')
         .upsert(payloadCalculado, { onConflict: 'id_avaliacao' })
 
-      if (upsertError) {
-        console.warn('Nota: Não foi possível sincronizar no banco, usando dados temporários.', upsertError)
-      }
+      if (upsertError) console.warn('Nota: Não foi possível sincronizar no banco.', upsertError)
 
-      // 4. Salva o resultado unificado no estado do componente
       setDados({
         ...payloadCalculado,
         avaliacoes: avalDados,
@@ -202,6 +202,14 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
   const rce = dados.relacao_cintura_estatura || 0;
   const soma6 = dados.somatorio_6_dobras || 0;
   const soma8 = dados.somatorio_8_dobras || 0;
+
+  // Lógica de Fallback de Tela para Perímetros
+  const pBraco = aval.perimetro_braco_relaxado || 0;
+  const pCoxa = aval.perimetro_coxa_media || 0;
+  const pPant = aval.perimetro_panturrilha || 0;
+  const perimCorrigidoBraco = dados.perimetro_corrigido_braco || (pBraco > 0 ? pBraco - ((aval.dobra_cutanea_triceps || 0) * 0.314) : 0);
+  const perimCorrigidoCoxa = dados.perimetro_corrigido_coxa || (pCoxa > 0 ? pCoxa - ((aval.dobra_cutanea_coxa_media || 0) * 0.314) : 0);
+  const perimCorrigidoPanturrilha = dados.perimetro_corrigido_panturrilha || (pPant > 0 ? pPant - ((aval.dobra_cutanea_panturrilha || 0) * 0.314) : 0);
 
   const renderMedidaItem = (label, valor, unidade) => (
     <div className="flex justify-between items-center p-2 border-b border-gray-50 last:border-0 hover:bg-gray-50 rounded transition-colors" key={label}>
@@ -273,6 +281,25 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
           <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex justify-between items-center">
             <span className="text-xs font-bold text-gray-600">Σ 8 Dobras</span>
             <span className="text-lg font-black text-amber-600">{soma8 > 0 ? soma8.toFixed(1) : '-'} <span className="text-xs font-normal">mm</span></span>
+          </div>
+        </div>
+      </div>
+
+      {/* PERÍMETROS CORRIGIDOS */}
+      <div>
+        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">💪 Perímetros Corrigidos (Massa Muscular Regional)</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex justify-between items-center">
+            <span className="text-xs font-bold text-gray-600">Braço</span>
+            <span className="text-lg font-black text-emerald-600">{perimCorrigidoBraco > 0 ? perimCorrigidoBraco.toFixed(1) : '-'} <span className="text-xs font-normal">cm</span></span>
+          </div>
+          <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex justify-between items-center">
+            <span className="text-xs font-bold text-gray-600">Coxa</span>
+            <span className="text-lg font-black text-emerald-600">{perimCorrigidoCoxa > 0 ? perimCorrigidoCoxa.toFixed(1) : '-'} <span className="text-xs font-normal">cm</span></span>
+          </div>
+          <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex justify-between items-center">
+            <span className="text-xs font-bold text-gray-600">Panturrilha</span>
+            <span className="text-lg font-black text-emerald-600">{perimCorrigidoPanturrilha > 0 ? perimCorrigidoPanturrilha.toFixed(1) : '-'} <span className="text-xs font-normal">cm</span></span>
           </div>
         </div>
       </div>
@@ -389,13 +416,12 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
         </div>
       </div>
 
-      {/* OUTROS INDICADORES */}
+      {/* OUTROS INDICADORES (O que faltou para o futuro) */}
       <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm space-y-4">
         <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider border-b pb-2">🚀 Outros Indicadores & Classificações</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {[
             'Índice de Massa Óssea (IMO)', 'Área de Previsão Visceral (APVAT)', 'Índice Adiposo Muscular', 
-            'Perímetro Corrigido - Braço', 'Perímetro Corrigido - Coxa', 'Perímetro Corrigido - Panturrilha', 
             'Circunferência da Cintura (Status)', 'Gordura (Escala Morrow)', 'Gordura (Escala Argoref)'
           ].map((item, index) => (
             <div key={index} className="flex justify-between items-center p-3 border border-gray-100 rounded-lg bg-gray-50">

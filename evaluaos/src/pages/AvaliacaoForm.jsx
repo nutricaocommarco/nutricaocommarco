@@ -231,13 +231,18 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
       const massaGordaCalc = pesoFinal > 0 ? (pcGorduraFinal * pesoFinal) / 100 : 0
       const massaMagraCalc = pesoFinal > 0 ? pesoFinal - massaGordaCalc : 0
 
-      // Muscular Lee Variables
+      // Variáveis Musculares e Dobras
       const pBraco = resolvedPerimetros.perimetro_braco_relaxado || 0
       const pCoxa = resolvedPerimetros.perimetro_coxa_media || 0
       const pPant = resolvedPerimetros.perimetro_panturrilha || 0
       const dTri = resolvedDobras.dobra_cutanea_triceps || 0
       const dCoxa = resolvedDobras.dobra_cutanea_coxa_media || 0
       const dPant = resolvedDobras.dobra_cutanea_panturrilha || 0
+
+      // Perímetros Corrigidos
+      const calcPerimCorrigidoBraco = pBraco > 0 ? pBraco - (dTri * 0.314) : 0;
+      const calcPerimCorrigidoCoxa = pCoxa > 0 ? pCoxa - (dCoxa * 0.314) : 0;
+      const calcPerimCorrigidoPanturrilha = pPant > 0 ? pPant - (dPant * 0.314) : 0;
 
       const termoBraco = Math.pow(pBraco - (dTri * 0.314), 2)
       const termoCoxa = Math.pow(pCoxa - (dCoxa * 0.314), 2)
@@ -262,7 +267,7 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
 
       const somatotipo = calcularSomatotipo(payloadBruto)
 
-      // === NOVAS VARIÁVEIS (Estratégia Híbrida - Salvando) ===
+      // Variáveis de Saúde
       const pCintura = resolvedPerimetros.perimetro_cintura || 0
       const pQuadril = resolvedPerimetros.perimetro_quadril || 0
       const calcRcq = pQuadril > 0 ? pCintura / pQuadril : 0
@@ -288,6 +293,9 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
         relacao_cintura_estatura: Number(calcRce.toFixed(2)),
         somatorio_6_dobras: Number(calcSoma6.toFixed(1)),
         somatorio_8_dobras: Number(calcSoma8.toFixed(1)),
+        perimetro_corrigido_braco: Number(calcPerimCorrigidoBraco.toFixed(2)),
+        perimetro_corrigido_coxa: Number(calcPerimCorrigidoCoxa.toFixed(2)),
+        perimetro_corrigido_panturrilha: Number(calcPerimCorrigidoPanturrilha.toFixed(2)),
         ...somatotipo
       }
 
