@@ -157,9 +157,11 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
   // Dados Gerais da Avaliação
   const [dataAvaliacao, setDataAvaliacao] = useState(new Date().toISOString().split('T')[0])
   const [horaAvaliacao, setHoraAvaliacao] = useState(new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }))
-  const [equacao, setEquacao] = useState('Petroski')
   const [fatorAtividade, setFatorAtividade] = useState(1.2)
-  const [percentualGorduraAlvo, setPercentualGorduraAlvo] = useState(12)
+  
+  // Novos Estados: Equação como texto livre e % Gordura Manual
+  const [equacao, setEquacao] = useState('')
+  const [percentualGordura, setPercentualGordura] = useState('')
 
   // Estados dos Grupos de Medidas (cada um armazena m1, m2 e m3)
   const [basicas, setBasicas] = useState(initMeasures(basicaKeys))
@@ -198,7 +200,6 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
       return (v1 + v2) / 2 // Média
     }
     
-    // Se não preencheu m1 e m2 e não for modo único
     if (isNaN(v1) && isNaN(v2)) return null;
     errorsArray.push(`Preencha a 2ª medida para: ${label}`)
     return null;
@@ -231,28 +232,27 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
       return acc
     }, {})
 
-    // Interrompe o envio se houver medidas obrigatórias faltando
     if (validationErrors.length > 0) {
       alert("⚠️ Erros de Validação:\n\n" + validationErrors.join('\n'))
       setLoading(false)
       return
     }
 
-    // 2. Monta o payload unificado
+    // 2. Monta o payload bruto
     const payload = {
       id_paciente: paciente.id,
       data_avaliacao: dataAvaliacao,
       hora_avaliacao: horaAvaliacao,
-      equacao_de_regressao_escolhida: equacao,
+      equacao_de_regressao_escolhida: equacao, // Agora é texto livre
       fator_atividade_fisica: parseFloat(fatorAtividade) || 1.2,
-      percentual_de_gordura_alvo: parseFloat(percentualGorduraAlvo) || null,
+      // percentual_de_gordura_alvo removido
       ...resolvedBasicas,
       ...resolvedDobras,
       ...resolvedPerimetros,
       ...resolvedDiametros
     }
 
-    // 3. Salva a Avaliação
+    // 3. Salva a Avaliação no banco
     const { data: avaliacaoSalva, error } = await supabase
       .from('avaliacoes')
       .insert([payload])
@@ -262,17 +262,26 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
     if (error) {
       alert('Erro ao salvar avaliação: ' + error.message)
     } else {
-      // 4. Executa cálculos antropométricos e salva resultados
+      // 4. Calcula o que falta e força a substituição pela Gordura Manual
       const resultadosCalculados = calcularResultadosAntropometricos(
         payload,
         paciente.sexo,
-        25 // Idealmente seria a idade real do paciente, caso você tenha no banco
+        25 
       )
+      
+      // Forçando o valor manual no banco de dados para bater com a planilha
+      const pcGorduraFinal = parseFloat(percentualGordura) || 0
+      const pesoFinal = resolvedBasicas.peso_paciente || 0
+      const massaGordaCalculada = pesoFinal > 0 ? (pcGorduraFinal * pesoFinal) / 100 : 0
+      const massaMagraCalculada = pesoFinal > 0 ? pesoFinal - massaGordaCalculada : 0
 
       const payloadCalculado = {
         id_paciente: paciente.id,
         id_avaliacao: avaliacaoSalva.id,
-        ...resultadosCalculados
+        ...resultadosCalculados,
+        percentual_gordura: pcGorduraFinal,
+        massa_gorda: massaGordaCalculada,
+        massa_magra: massaMagraCalculada,
       }
 
       const { error: calcError } = await supabase
@@ -281,21 +290,20 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
 
       if (calcError) console.error('Erro ao salvar dados calculados:', calcError)
 
-      alert('Avaliação e cálculos salvos com sucesso!')
+      alert('Avaliação salva com sucesso!')
       if (onSucesso) onSucesso(avaliacaoSalva)
     }
 
     setLoading(false)
   }
 
-  // Helper para renderizar Tabela de Bloco (Pode continuar aqui dentro pois não cria componente, só retorna JSX)
+  // Helper para renderizar Tabela de Bloco
   const renderMeasureBlock = (title, keys, type, state, setter) => (
     <div className="bg-white p-4 md:p-6 rounded-xl border border-gray-100 shadow-sm space-y-2 overflow-x-auto">
       <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-4 border-b pb-2">
         {title}
       </h3>
       <div className="min-w-[600px] md:min-w-full">
-        {/* Cabeçalho da Tabela */}
         <div className="grid grid-cols-12 gap-2 items-center pb-2 text-xs font-bold text-gray-400 uppercase tracking-wider border-b px-2">
           <div className="col-span-4">Local da Medida</div>
           <div className="col-span-6 grid grid-cols-3 gap-2 text-center">
@@ -306,7 +314,6 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
           <div className="col-span-2 text-center text-emerald-600">Calculado</div>
         </div>
         
-        {/* Linhas */}
         {keys.map((key) => (
           <MeasureRow
             key={key}
@@ -363,7 +370,7 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
             </p>
           )}
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
               <label className="block text-xs font-semibold text-gray-700">Data</label>
               <input type="date" required value={dataAvaliacao} onChange={(e) => setDataAvaliacao(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm" />
@@ -372,19 +379,28 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
               <label className="block text-xs font-semibold text-gray-700">Hora</label>
               <input type="time" required value={horaAvaliacao} onChange={(e) => setHoraAvaliacao(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm" />
             </div>
-            <div className="md:col-span-2">
+            <div>
               <label className="block text-xs font-semibold text-gray-700">Protocolo / Equação</label>
-              <select value={equacao} onChange={(e) => setEquacao(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm">
-                <option value="Petroski">Petroski (4 dobras)</option>
-                <option value="Jackson & Pollock 3">Jackson & Pollock (3 dobras)</option>
-                <option value="Jackson & Pollock 7">Jackson & Pollock (7 dobras)</option>
-                <option value="Guedes">Guedes (3 dobras)</option>
-                <option value="Faulkner">Faulkner (4 dobras)</option>
-              </select>
+              <input 
+                type="text" 
+                required 
+                value={equacao} 
+                onChange={(e) => setEquacao(e.target.value)} 
+                className="mt-1 w-full px-3 py-2 border rounded-md text-sm" 
+                placeholder="Ex: Petroski, Pollock..." 
+              />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-700">% Gordura Alvo</label>
-              <input type="number" step="0.1" value={percentualGorduraAlvo} onChange={(e) => setPercentualGorduraAlvo(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm" placeholder="Ex: 12" />
+              <label className="block text-xs font-semibold text-gray-700">% Gordura Corporal</label>
+              <input 
+                type="number" 
+                step="0.1" 
+                required
+                value={percentualGordura} 
+                onChange={(e) => setPercentualGordura(e.target.value)} 
+                className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500" 
+                placeholder="Ex: 15.5" 
+              />
             </div>
           </div>
         </div>
@@ -401,7 +417,7 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
             Cancelar
           </button>
           <button type="submit" disabled={loading} className="px-6 py-2.5 bg-emerald-600 text-white rounded-lg text-sm font-semibold hover:bg-emerald-700 shadow disabled:opacity-50">
-            {loading ? 'Processando Cálculos...' : 'Salvar Avaliação'}
+            {loading ? 'Salvando...' : 'Salvar Avaliação'}
           </button>
         </div>
       </form>
