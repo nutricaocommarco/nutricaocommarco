@@ -1,14 +1,66 @@
 import React, { useState, useEffect } from 'react'
 import { supabase } from '../supabaseClient'
 
+// --- HELPER: CÁLCULO DE SOMATOTIPO HEATH-CARTER ---
+const calcularSomatotipo = (medidas) => {
+  const triceps = medidas.dobra_cutanea_triceps || 0;
+  const subescapular = medidas.dobra_cutanea_subescapular || 0;
+  const supraespinhal = medidas.dobra_cutanea_supraespinhal || 0;
+  const panturrilha_dobra = medidas.dobra_cutanea_panturrilha || 0;
+  
+  const altura = medidas.altura_paciente || 0;
+  const diam_umero = medidas.diametro_umero || 0;
+  const diam_femur = medidas.diametro_femur || 0;
+  const perim_braco = medidas.perimetro_braco_contraido || 0;
+  const perim_panturrilha = medidas.perimetro_panturrilha || 0;
+  const peso = medidas.peso_paciente || 0;
+
+  const somaDobrasEndo = (triceps + subescapular + supraespinhal) * (170.18 / (altura || 1));
+  let endomorfia = 0;
+  if (altura > 0) {
+    endomorfia = -0.7182 + (0.1451 * somaDobrasEndo) - (0.00068 * Math.pow(somaDobrasEndo, 2)) + (0.0000014 * Math.pow(somaDobrasEndo, 3));
+  }
+
+  const braco_corrigido = perim_braco - (triceps / 10);
+  const panturrilha_corrigida = perim_panturrilha - (panturrilha_dobra / 10);
+  let mesomorfia = 0;
+  if (altura > 0) {
+    mesomorfia = (0.858 * diam_umero) + (0.601 * diam_femur) + (0.188 * braco_corrigido) + (0.161 * panturrilha_corrigida) - (0.131 * altura) + 4.5;
+  }
+
+  let ectomorfia = 0;
+  if (peso > 0 && altura > 0) {
+    const cap = altura / Math.pow(peso, 0.3333);
+    if (cap >= 40.75) {
+      ectomorfia = 0.732 * cap - 28.58;
+    } else if (cap > 38.25 && cap < 40.75) {
+      ectomorfia = 0.463 * cap - 17.63;
+    } else {
+      ectomorfia = 0.1;
+    }
+  }
+
+  const eixoX = ectomorfia - endomorfia;
+  const eixoY = (2 * mesomorfia) - (endomorfia + ectomorfia);
+
+  return {
+    somatotipo_endomorfia: Math.max(0.1, Number(endomorfia.toFixed(1))),
+    somatotipo_mesomorfia: Math.max(0.1, Number(mesomorfia.toFixed(1))),
+    somatotipo_ectomorfia: Math.max(0.1, Number(ectomorfia.toFixed(1))),
+    somatocarta_eixo_x: Number(eixoX.toFixed(1)),
+    somatocarta_eixo_y: Number(eixoY.toFixed(1))
+  }
+}
+
 export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
   const [loading, setLoading] = useState(true)
   const [dados, setDados] = useState(null)
 
   useEffect(() => {
-    async function carregarResultados() {
+    async function processarERecarregarResultados() {
       setLoading(true)
       
+      // 1. Busca os dados brutos da Avaliação e do Paciente
       const { data: avalDados, error: avalError } = await supabase
         .from('avaliacoes')
         .select(`*, pacientes ( nome_completo, sexo, data_nascimento, etnia )`)
@@ -21,35 +73,109 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
         return
       }
 
-      const { data: calcDados } = await supabase
-        .from('dados_calculados')
-        .select('*')
-        .eq('id_avaliacao', avaliacaoId)
-        .single()
+      const pac = avalDados.pacientes || {}
 
+      // 2. Processa todas as variáveis calculadas
+      const pesoFinal = avalDados.peso_paciente || 0
+      const alturaCm = avalDados.altura_paciente || 0
+      const alturaM = alturaCm / 100
+      const pcGorduraFinal = avalDados.percentual_de_gordura || 0
+
+      const calcImc = alturaM > 0 ? pesoFinal / (alturaM * alturaM) : 0
+      const massaGordaCalc = pesoFinal > 0 ? (pcGorduraFinal * pesoFinal) / 100 : 0
+      const massaMagraCalc = pesoFinal > 0 ? pesoFinal - massaGordaCalc : 0
+
+      // Massa Muscular (Lee)
+      const pBraco = avalDados.perimetro_braco_relaxado || 0
+      const pCoxa = avalDados.perimetro_coxa_media || 0
+      const pPant = avalDados.perimetro_panturrilha || 0
+      const dTri = avalDados.dobra_cutanea_triceps || 0
+      const dCoxa = avalDados.dobra_cutanea_coxa_media || 0
+      const dPant = avalDados.dobra_cutanea_panturrilha || 0
+
+      const termoBraco = Math.pow(pBraco - (dTri * 0.314), 2)
+      const termoCoxa = Math.pow(pCoxa - (dCoxa * 0.314), 2)
+      const termoPant = Math.pow(pPant - (dPant * 0.314), 2)
+
+      let calcMuscular = 0
+      if (alturaM > 0 && pBraco > 0 && pCoxa > 0 && pPant > 0) {
+        const sexoNum = pac.sexo === 'M' ? 1 : 0
+        let racaNum = 0
+        if (pac.etnia === 'Afrodescendente') racaNum = 1.1
+        if (pac.etnia === 'Asiatico') racaNum = -2
+        let idade = 25
+        if (pac.data_nascimento) {
+          const birthDate = new Date(pac.data_nascimento + 'T12:00:00')
+          const evalDate = new Date((avalDados.data_avaliacao || '') + 'T12:00:00')
+          idade = evalDate.getFullYear() - birthDate.getFullYear()
+          const m = evalDate.getMonth() - birthDate.getMonth()
+          if (m < 0 || (m === 0 && evalDate.getDate() < birthDate.getDate())) idade--
+        }
+        calcMuscular = (alturaM * ((0.00744 * termoBraco) + (0.00088 * termoCoxa) + (0.00441 * termoPant))) + (2.4 * sexoNum) - (0.048 * idade) + racaNum + 7.8
+      }
+
+      // Outras métricas
+      const pCintura = avalDados.perimetro_cintura || 0
+      const pQuadril = avalDados.perimetro_quadril || 0
+      const calcRcq = pQuadril > 0 ? pCintura / pQuadril : 0
+      const calcRce = alturaCm > 0 ? pCintura / alturaCm : 0
+
+      const dSub = avalDados.dobra_cutanea_subescapular || 0
+      const dSup = avalDados.dobra_cutanea_supraespinhal || 0
+      const dAbd = avalDados.dobra_cutanea_abdominal || 0
+      const dBic = avalDados.dobra_cutanea_biceps || 0
+      const dIli = avalDados.dobra_cutanea_crista_iliaca || 0
+      
+      const calcSoma6 = dTri + dSub + dSup + dAbd + dCoxa + dPant
+      const calcSoma8 = calcSoma6 + dBic + dIli
+
+      const somatotipo = calcularSomatotipo(avalDados)
+
+      const payloadCalculado = {
+        id_paciente: pac.id || avalDados.id_paciente,
+        id_avaliacao: avalDados.id,
+        imc: Number(calcImc.toFixed(2)),
+        massa_gorda: Number(massaGordaCalc.toFixed(2)),
+        massa_magra: Number(massaMagraCalc.toFixed(2)),
+        massa_muscular: Number(calcMuscular.toFixed(2)),
+        relacao_cintura_quadril: Number(calcRcq.toFixed(2)),
+        relacao_cintura_estatura: Number(calcRce.toFixed(2)),
+        somatorio_6_dobras: Number(calcSoma6.toFixed(1)),
+        somatorio_8_dobras: Number(calcSoma8.toFixed(1)),
+        ...somatotipo
+      }
+
+      // 3. ATUALIZAÇÃO EM BACKGROUND (Upsert no Supabase)
+      // Tenta atualizar se já existir a linha, ou insere se estiver vazia
+      const { error: upsertError } = await supabase
+        .from('dados_calculados')
+        .upsert(payloadCalculado, { onConflict: 'id_avaliacao' })
+
+      if (upsertError) {
+        console.warn('Nota: Não foi possível sincronizar no banco, usando dados temporários.', upsertError)
+      }
+
+      // 4. Salva o resultado unificado no estado do componente
       setDados({
-        ...calcDados, 
+        ...payloadCalculado,
         avaliacoes: avalDados,
-        pacientes: avalDados.pacientes
+        pacientes: pac
       })
       
       setLoading(false)
     }
 
-    if (avaliacaoId) carregarResultados()
+    if (avaliacaoId) processarERecarregarResultados()
   }, [avaliacaoId])
 
   if (loading) {
-    return <div className="p-8 text-center text-gray-500">Carregando relatório da avaliação...</div>
+    return <div className="p-8 text-center text-gray-500">Carregando e atualizando relatório...</div>
   }
 
   if (!dados) {
     return <div className="p-8 text-center text-red-500">Não foi possível carregar os resultados desta avaliação.</div>
   }
 
-  // ============================================================================
-  // LEITURA E ESTRATÉGIA HÍBRIDA (Fallback)
-  // ============================================================================
   const aval = dados.avaliacoes || {}
   const pac = dados.pacientes || {}
 
@@ -72,29 +198,10 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
   const coordX = 150 + ((dados.somatocarta_eixo_x || 0) * 15)
   const coordY = 150 - ((dados.somatocarta_eixo_y || 0) * 11)
 
-  // === LÓGICA DE FALLBACK (Para exibir em avaliações velhas que o banco estava vazio) ===
-  const pCintura = aval.perimetro_cintura || 0;
-  const pQuadril = aval.perimetro_quadril || 0;
-  const alturaCm = aval.altura_paciente || 0;
-
-  const dTri = aval.dobra_cutanea_triceps || 0;
-  const dSub = aval.dobra_cutanea_subescapular || 0;
-  const dBic = aval.dobra_cutanea_biceps || 0;
-  const dIli = aval.dobra_cutanea_crista_iliaca || 0;
-  const dSup = aval.dobra_cutanea_supraespinhal || 0;
-  const dAbd = aval.dobra_cutanea_abdominal || 0;
-  const dCoxa = aval.dobra_cutanea_coxa_media || 0;
-  const dPant = aval.dobra_cutanea_panturrilha || 0;
-
-  const fallbackSoma6 = dTri + dSub + dSup + dAbd + dCoxa + dPant;
-  const fallbackSoma8 = fallbackSoma6 + dBic + dIli;
-
-  // Busca do banco. Se vier Null/0, calcula na hora usando os brutos
-  const rcq = dados.relacao_cintura_quadril || (pQuadril > 0 ? pCintura / pQuadril : 0);
-  const rce = dados.relacao_cintura_estatura || (alturaCm > 0 ? pCintura / alturaCm : 0);
-  const soma6 = dados.somatorio_6_dobras || fallbackSoma6;
-  const soma8 = dados.somatorio_8_dobras || fallbackSoma8;
-
+  const rcq = dados.relacao_cintura_quadril || 0;
+  const rce = dados.relacao_cintura_estatura || 0;
+  const soma6 = dados.somatorio_6_dobras || 0;
+  const soma8 = dados.somatorio_8_dobras || 0;
 
   const renderMedidaItem = (label, valor, unidade) => (
     <div className="flex justify-between items-center p-2 border-b border-gray-50 last:border-0 hover:bg-gray-50 rounded transition-colors" key={label}>
@@ -113,7 +220,7 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
           <button onClick={onVoltar} className="text-xs text-emerald-600 font-semibold hover:underline mb-1 inline-block">← Voltar</button>
           <h2 className="text-xl font-bold text-gray-800">Relatório Antropométrico: {pac.nome_completo}</h2>
           <p className="text-xs text-gray-500 mt-1">
-            <span className="font-medium">Data da Avaliação:</span> {new Date(aval.data_avaliacao + 'T12:00:00').toLocaleDateString('pt-BR')} 
+            <span className="font-medium">Data da Avaliação:</span> {new Date((aval.data_avaliacao || '') + 'T12:00:00').toLocaleDateString('pt-BR')} 
             <span className="mx-2 text-gray-300">|</span> 
             <span className="font-medium">Idade calculada:</span> {idade > 0 ? `${idade} anos` : <span className="text-red-500">Falta Data de Nasc.</span>}
           </p>
@@ -147,7 +254,7 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
         </div>
       </div>
 
-      {/* MÉTRICAS DE SAÚDE (Adicionadas da Estratégia Híbrida) */}
+      {/* MÉTRICAS DE SAÚDE */}
       <div>
         <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">⚖️ Indicadores de Saúde</h3>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -282,7 +389,7 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
         </div>
       </div>
 
-      {/* OUTROS INDICADORES (O que faltou para o futuro) */}
+      {/* OUTROS INDICADORES */}
       <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm space-y-4">
         <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider border-b pb-2">🚀 Outros Indicadores & Classificações</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
