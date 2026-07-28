@@ -171,36 +171,41 @@ export default function Pacientes({ userId }) {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100 text-sm text-gray-700">
-                {pacientes.map((p) => (
-                  <tr key={p.id} className="hover:bg-gray-50 transition-colors">
-                    <td className="p-4 font-medium text-gray-900">{p.nome_completo}</td>
-                    <td className="p-4">{p.sexo === 'M' ? 'Masculino' : 'Feminino'}</td>
-                    <td className="p-4">{p.telefone || p.email || '-'}</td>
-                    <td className="p-4">
-                      {p.pratica_esporte ? (
-                        <span className="px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full text-xs font-semibold">
-                          {p.modalidade_esportiva || 'Sim'}
-                        </span>
-                      ) : (
-                        <span className="text-gray-400">Não</span>
-                      )}
-                    </td>
-                    <td className="p-4 text-right space-x-3">
-                      <button 
-                        onClick={() => handleVerHistorico(p)}
-                        className="text-gray-600 hover:text-gray-900 font-medium text-xs underline"
-                      >
-                        Histórico
-                      </button>
-                      <button 
-                        onClick={() => setPacienteSelecionado(p)}
-                        className="text-emerald-600 hover:text-emerald-800 font-medium text-xs bg-emerald-50 px-3 py-1.5 rounded"
-                      >
-                        + Nova Avaliação
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+                {pacientes.map((p) => {
+                  // Verificação estrita para garantir se é praticante de esporte
+                  const ePraticante = p.pratica_esporte === true || p.pratica_esporte === 'true'
+
+                  return (
+                    <tr key={p.id} className="hover:bg-gray-50 transition-colors">
+                      <td className="p-4 font-medium text-gray-900">{p.nome_completo}</td>
+                      <td className="p-4">{p.sexo === 'M' ? 'Masculino' : 'Feminino'}</td>
+                      <td className="p-4">{p.telefone || p.email || '-'}</td>
+                      <td className="p-4">
+                        {ePraticante ? (
+                          <span className="px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full text-xs font-semibold">
+                            {p.modalidade_esportiva || 'Sim'}
+                          </span>
+                        ) : (
+                          <span className="text-gray-400">Não</span>
+                        )}
+                      </td>
+                      <td className="p-4 text-right space-x-3">
+                        <button 
+                          onClick={() => handleVerHistorico(p)}
+                          className="text-gray-600 hover:text-gray-900 font-medium text-xs underline"
+                        >
+                          Histórico
+                        </button>
+                        <button 
+                          onClick={() => setPacienteSelecionado(p)}
+                          className="text-emerald-600 hover:text-emerald-800 font-medium text-xs bg-emerald-50 px-3 py-1.5 rounded"
+                        >
+                          + Nova Avaliação
+                        </button>
+                      </td>
+                    </tr>
+                  )
+                })}
               </tbody>
             </table>
           </div>
@@ -257,7 +262,7 @@ export default function Pacientes({ userId }) {
                 </div>
               </div>
 
-              {/* Campos Novos: Etnia e Nacionalidade */}
+              {/* Campos: Etnia e Nacionalidade */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 uppercase">Etnia / Cor</label>
