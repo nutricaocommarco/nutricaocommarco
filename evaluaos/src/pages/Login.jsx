@@ -62,7 +62,7 @@ export default function Login({ onLoginSuccess }) {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-lg border border-gray-100">
         <div className="flex flex-col items-center">
-          <img src="/Imagens/Logo_png.png" alt="EvaluaOS Logo" className="h-[75px] w-auto object-contain" />
+          <img src="/Imagens/Logo_png.png" alt="EvaluaOS Logo" className="h-[250px] w-auto object-contain" />
           <p className="mt-4 text-center text-sm text-gray-600">
             {isSignUp ? 'Crie sua conta de Avaliador' : 'Acesse sua conta profissional'}
           </p>

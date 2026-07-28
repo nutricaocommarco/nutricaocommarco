@@ -41,7 +41,7 @@ return (
     <div className="min-h-screen bg-gray-100">
       <nav className="bg-white shadow-sm border-b border-gray-200 px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <img src="/Imagens/Logo_png.png" alt="EvaluaOS Logo" className="h-[30px] w-auto object-contain" />
+          <img src="/Imagens/Logo_png.png" alt="EvaluaOS Logo" className="h-[100px] w-auto object-contain" />
           <div className="flex flex-col">
             <span className="text-sm font-bold text-gray-800 leading-tight">EvaluaOS</span>
             <span className="text-xs text-gray-500 font-medium">Sistema de Avaliação Antropométrica</span>
