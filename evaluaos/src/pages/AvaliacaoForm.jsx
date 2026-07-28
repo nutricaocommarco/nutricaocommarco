@@ -40,6 +40,17 @@ const labels = {
   diametro_maleolar: 'Bimaleolar (Tornozelo)'
 }
 
+// --- LISTA DE EQUAÇÕES SUGERIDAS (EQUACOES GORDURA) ---
+const equacoesDisponiveis = [
+  'Durnin & Womersley (1974)',
+  'Jackson & Pollock (1978)',
+  'Jackson, Pollock & Ward (1980)',
+  'Thorland et al. (1984)',
+  'Petroski (1995)',
+  'Guedes (1985)',
+  'Slaughter et al. (1988)',
+  'Tran & Weltman (1989)'
+
 // --- FUNÇÃO INTERNA PARA CÁLCULO DE SOMATOTIPO HEATH-CARTER ---
 const calcularSomatotipo = (medidas) => {
   const triceps = medidas.dobra_cutanea_triceps || 0;
@@ -353,7 +364,7 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
             </label>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
               <label className="block text-xs font-semibold text-gray-700">Data</label>
               <input type="date" required value={dataAvaliacao} onChange={(e) => setDataAvaliacao(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm" />
@@ -364,7 +375,20 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-700">Protocolo / Equação</label>
-              <input type="text" required value={equacao} onChange={(e) => setEquacao(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm" placeholder="Ex: Petroski, Pollock..." />
+              <input 
+                type="text" 
+                list="lista-equacoes"
+                required 
+                value={equacao} 
+                onChange={(e) => setEquacao(e.target.value)} 
+                className="mt-1 w-full px-3 py-2 border rounded-md text-sm" 
+                placeholder="Selecione ou digite..." 
+              />
+              <datalist id="lista-equacoes">
+                {equacoesDisponiveis.map((eq, index) => (
+                  <option key={index} value={eq} />
+                ))}
+              </datalist>
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-700">% Gordura Corporal</label>
