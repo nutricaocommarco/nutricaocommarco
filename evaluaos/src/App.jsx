@@ -41,7 +41,7 @@ export default function App() {
     <div className="min-h-screen bg-gray-100">
       <nav className="bg-white shadow-sm border-b border-gray-200 px-6 py-4 flex justify-between items-center">
         <div className="flex items-start justify-center">
-          <img src="/Imagens/Logo_png.png" alt="EvaluaOS Logo" className="h-8 w-auto object-contain mb-1" />
+          <img src="/Imagens/Logo_png.png" alt="EvaluaOS Logo" className="h-20 w-auto object-contain mb-1" />
           <p className="text-xs text-gray-500">Sistema de Avaliação Antropométrica</p>
         </div>
         
