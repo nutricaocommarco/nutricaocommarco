@@ -19,7 +19,6 @@ export default function Login({ onLoginSuccess }) {
 
     try {
       if (isSignUp) {
-        // 1. Criar conta no Auth do Supabase
         const { data: authData, error: authError } = await supabase.auth.signUp({
           email,
           password,
@@ -27,7 +26,6 @@ export default function Login({ onLoginSuccess }) {
 
         if (authError) throw authError
 
-        // 2. Se o cadastro no Auth funcionou, salva os dados na tabela 'avaliadores'
         if (authData?.user) {
           const { error: dbError } = await supabase.from('avaliadores').insert([
             {
@@ -42,7 +40,6 @@ export default function Login({ onLoginSuccess }) {
 
         setInfoMsg('Cadastro realizado com sucesso! Verifique seu e-mail para confirmar ou faça login.')
       } else {
-        // Fazer Login
         const { data, error } = await supabase.auth.signInWithPassword({
           email,
           password,
@@ -64,11 +61,9 @@ export default function Login({ onLoginSuccess }) {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-        <div>
-          <h2 className="mt-2 text-center text-3xl font-extrabold text-gray-900">
-            EvaluaOS
-          </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
+        <div className="flex flex-col items-center">
+          <img src="/Imagens/Logo_png.png" alt="EvaluaOS Logo" className="h-12 w-auto" />
+          <p className="mt-4 text-center text-sm text-gray-600">
             {isSignUp ? 'Crie sua conta de Avaliador' : 'Acesse sua conta profissional'}
           </p>
         </div>
