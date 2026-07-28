@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { supabase } from '../supabaseClient'
 import AvaliacaoForm from './AvaliacaoForm'
+import ResultadoAvaliacao from './ResultadoAvaliacao'
 
 export default function Pacientes({ userId }) {
+  // 1. TODOS OS ESTADOS (Hooks) DEVEM FICAR NO TOPO
   const [pacientes, setPacientes] = useState([])
   const [loading, setLoading] = useState(true)
   const [showModal, setShowModal] = useState(false)
   const [pacienteSelecionado, setPacienteSelecionado] = useState(null)
+  
+  // Estados para o Histórico e Relatório
+  const [avaliacaoSelecionadaId, setAvaliacaoSelecionadaId] = useState(null)
+  const [historicoPaciente, setHistoricoPaciente] = useState(null)
+  const [avaliacoesList, setAvaliacoesList] = useState([])
 
-  // Campos do Formulário
+  // Campos do Formulário de Novo Paciente
   const [nome, setNome] = useState('')
   const [dataNascimento, setDataNascimento] = useState('')
   const [sexo, setSexo] = useState('M')
@@ -21,7 +28,9 @@ export default function Pacientes({ userId }) {
   const [observacoes, setObservacoes] = useState('')
   const [saving, setSaving] = useState(false)
 
-  // 1. Carregar lista de pacientes do Supabase
+  // 2. TODAS AS FUNÇÕES DEVEM SER DECLARADAS ANTES DOS 'RETURNS'
+  
+  // Carregar lista de pacientes
   const fetchPacientes = async () => {
     setLoading(true)
     const { data, error } = await supabase
@@ -41,7 +50,7 @@ export default function Pacientes({ userId }) {
     fetchPacientes()
   }, [])
 
-  // 2. Cadastrar Novo Paciente
+  // Cadastrar Novo Paciente
   const handleSubmit = async (e) => {
     e.preventDefault()
     setSaving(true)
@@ -83,7 +92,31 @@ export default function Pacientes({ userId }) {
     setSaving(false)
   }
 
-  // 3. SE houver paciente selecionado, renderiza a tela de avaliação
+  // Buscar histórico de avaliações do paciente clicado
+  const handleVerHistorico = async (paciente) => {
+    setHistoricoPaciente(paciente)
+    const { data } = await supabase
+      .from('avaliacoes')
+      .select('id, data_avaliacao, equacao_de_regressao_escolhida, peso_paciente')
+      .eq('id_paciente', paciente.id)
+      .order('data_avaliacao', { ascending: false })
+
+    setAvaliacoesList(data || [])
+  }
+
+  // 3. RETORNOS CONDICIONAIS (Se abrir uma tela sobre a outra)
+
+  // Renderiza o Relatório se uma avaliação foi selecionada no histórico
+  if (avaliacaoSelecionadaId) {
+    return (
+      <ResultadoAvaliacao
+        avaliacaoId={avaliacaoSelecionadaId}
+        onVoltar={() => setAvaliacaoSelecionadaId(null)}
+      />
+    )
+  }
+
+  // Renderiza o formulário de Nova Avaliação
   if (pacienteSelecionado) {
     return (
       <AvaliacaoForm
@@ -94,7 +127,7 @@ export default function Pacientes({ userId }) {
     )
   }
 
-  // 4. Caso contrário, renderiza a lista/tabela normal de pacientes
+  // 4. RETORNO PRINCIPAL (Lista de Pacientes)
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
@@ -146,12 +179,18 @@ export default function Pacientes({ userId }) {
                         <span className="text-gray-400">Não</span>
                       )}
                     </td>
-                    <td className="p-4 text-right">
+                    <td className="p-4 text-right space-x-3">
+                      <button 
+                        onClick={() => handleVerHistorico(p)}
+                        className="text-gray-600 hover:text-gray-900 font-medium text-xs underline"
+                      >
+                        Histórico
+                      </button>
                       <button 
                         onClick={() => setPacienteSelecionado(p)}
-                        className="text-emerald-600 hover:text-emerald-800 font-medium text-xs"
+                        className="text-emerald-600 hover:text-emerald-800 font-medium text-xs bg-emerald-50 px-3 py-1.5 rounded"
                       >
-                        Iniciar Avaliação
+                        + Nova Avaliação
                       </button>
                     </td>
                   </tr>
@@ -162,7 +201,7 @@ export default function Pacientes({ userId }) {
         )}
       </div>
 
-      {/* Modal de Cadastro */}
+      {/* Modal de Cadastro de Paciente */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl max-w-lg w-full p-6 space-y-4 shadow-xl max-h-[90vh] overflow-y-auto">
@@ -316,6 +355,46 @@ export default function Pacientes({ userId }) {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* Modal de Histórico de Avaliações */}
+      {historicoPaciente && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-xl max-w-md w-full p-6 space-y-4 shadow-xl">
+            <div className="flex justify-between items-center border-b pb-3">
+              <h3 className="text-lg font-bold text-gray-800">
+                Histórico: {historicoPaciente.nome_completo}
+              </h3>
+              <button onClick={() => setHistoricoPaciente(null)} className="text-gray-400 hover:text-gray-600 text-lg font-bold">✕</button>
+            </div>
+
+            {avaliacoesList.length === 0 ? (
+              <p className="text-sm text-gray-500 text-center py-4">Nenhuma avaliação realizada ainda.</p>
+            ) : (
+              <div className="space-y-2 max-h-60 overflow-y-auto pr-2">
+                {avaliacoesList.map((a) => (
+                  <div key={a.id} className="flex justify-between items-center p-3 border rounded-lg hover:bg-gray-50">
+                    <div>
+                      <p className="text-sm font-semibold text-gray-800">
+                        {new Date(a.data_avaliacao).toLocaleDateString('pt-BR')}
+                      </p>
+                      <p className="text-xs text-gray-500">{a.equacao_de_regressao_escolhida} • {a.peso_paciente}kg</p>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setHistoricoPaciente(null)
+                        setAvaliacaoSelecionadaId(a.id)
+                      }}
+                      className="px-3 py-1 bg-emerald-600 text-white rounded text-xs font-medium hover:bg-emerald-700"
+                    >
+                      Ver Relatório
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       )}
