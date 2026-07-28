@@ -10,8 +10,9 @@ export default function Pacientes({ userId }) {
   const [showModal, setShowModal] = useState(false)
   const [pacienteSelecionado, setPacienteSelecionado] = useState(null)
   
-  // Estados para o Histórico e Relatório
+ // Estados para o Histórico, Relatório e Edição
   const [avaliacaoSelecionadaId, setAvaliacaoSelecionadaId] = useState(null)
+  const [avaliacaoIdParaEdicao, setAvaliacaoIdParaEdicao] = useState(null) // Estado para Editar via Lápis
   const [historicoPaciente, setHistoricoPaciente] = useState(null)
   const [avaliacoesList, setAvaliacoesList] = useState([])
 
@@ -166,13 +167,20 @@ const handleDeleteAvaliacao = async (idAvaliacao) => {
     )
   }
 
-  // Renderiza o formulário de Nova Avaliação
-  if (pacienteSelecionado) {
+// Renderiza o formulário de Nova Avaliação ou Edição
+  if (pacienteSelecionado || avaliacaoIdParaEdicao) {
     return (
       <AvaliacaoForm
-        paciente={pacienteSelecionado}
-        onVoltar={() => setPacienteSelecionado(null)}
-        onSucesso={() => setPacienteSelecionado(null)}
+        paciente={pacienteSelecionado || historicoPaciente}
+        avaliacaoIdParaEditar={avaliacaoIdParaEdicao}
+        onVoltar={() => {
+          setPacienteSelecionado(null)
+          setAvaliacaoIdParaEdicao(null)
+        }}
+        onSucesso={() => {
+          setPacienteSelecionado(null)
+          setAvaliacaoIdParaEdicao(null)
+        }}
       />
     )
   }
@@ -454,7 +462,7 @@ const handleDeleteAvaliacao = async (idAvaliacao) => {
         </div>
       )}
 
-      {/* Modal de Histórico de Avaliações */}
+{/* Modal de Histórico de Avaliações */}
       {historicoPaciente && (
         <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl max-w-md w-full p-6 space-y-4 shadow-xl">
@@ -478,14 +486,28 @@ const handleDeleteAvaliacao = async (idAvaliacao) => {
                       <p className="text-xs text-gray-500">{a.equacao_de_regressao_escolhida} • {a.peso_paciente}kg</p>
                     </div>
                     
-                    <div className="flex gap-2">
+                    <div className="flex gap-1.5 items-center">
+                      {/* Botão de Editar (Lápis) */}
+                      <button
+                        onClick={() => {
+                          setHistoricoPaciente(null)
+                          setAvaliacaoIdParaEdicao(a.id)
+                        }}
+                        className="p-1.5 text-blue-500 hover:bg-blue-50 rounded transition-colors"
+                        title="Editar Avaliação"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                        </svg>
+                      </button>
+
+                      {/* Botão de Excluir (Lixeira) */}
                       <button
                         onClick={() => handleDeleteAvaliacao(a.id)}
                         className="p-1.5 text-red-500 hover:bg-red-50 rounded transition-colors"
                         title="Excluir Avaliação"
                       >
-                        {/* Ícone de Lixeira SVG */}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinelinejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <polyline points="3 6 5 6 21 6"></polyline>
                           <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
                         </svg>
