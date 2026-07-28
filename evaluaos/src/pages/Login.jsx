@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { supabase } from '../supabaseClient'
+import logo from '../Imagens/Logo_png.png'
+import logo from './Imagens/Logo_png.png'
 
 export default function Login({ onLoginSuccess }) {
   const [isSignUp, setIsSignUp] = useState(false)
