@@ -60,9 +60,10 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
     async function processarERecarregarResultados() {
       setLoading(true)
       
+      // Select TUDO do paciente usando "pacientes ( * )"
       const { data: avalDados, error: avalError } = await supabase
         .from('avaliacoes')
-        .select(`*, pacientes ( nome_completo, sexo, data_nascimento, etnia )`)
+        .select(`*, pacientes ( * )`)
         .eq('id', avaliacaoId)
         .single()
 
@@ -83,7 +84,6 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
       const massaGordaCalc = pesoFinal > 0 ? (pcGorduraFinal * pesoFinal) / 100 : 0
       const massaMagraCalc = pesoFinal > 0 ? pesoFinal - massaGordaCalc : 0
 
-      // Variáveis Musculares e Dobras
       const pBraco = avalDados.perimetro_braco_relaxado || 0
       const pCoxa = avalDados.perimetro_coxa_media || 0
       const pPant = avalDados.perimetro_panturrilha || 0
@@ -168,13 +168,8 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
     if (avaliacaoId) processarERecarregarResultados()
   }, [avaliacaoId])
 
-  if (loading) {
-    return <div className="p-8 text-center text-gray-500">Carregando e atualizando relatório...</div>
-  }
-
-  if (!dados) {
-    return <div className="p-8 text-center text-red-500">Não foi possível carregar os resultados desta avaliação.</div>
-  }
+  if (loading) return <div className="p-8 text-center text-gray-500">Carregando e atualizando relatório...</div>
+  if (!dados) return <div className="p-8 text-center text-red-500">Não foi possível carregar os resultados desta avaliação.</div>
 
   const aval = dados.avaliacoes || {}
   const pac = dados.pacientes || {}
@@ -185,25 +180,27 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
     const evalDate = new Date(aval.data_avaliacao ? aval.data_avaliacao + 'T12:00:00' : Date.now())
     idade = evalDate.getFullYear() - birthDate.getFullYear()
     const m = evalDate.getMonth() - birthDate.getMonth()
-    if (m < 0 || (m === 0 && evalDate.getDate() < birthDate.getDate())) {
-      idade--
-    }
+    if (m < 0 || (m === 0 && evalDate.getDate() < birthDate.getDate())) idade--
   }
 
+  // Composição
   const imc = dados.imc || 0
   const percentualGordura = aval.percentual_de_gordura || 0 
   const massaGorda = dados.massa_gorda || 0
   const massaMagra = dados.massa_magra || 0
   const massaMuscular = dados.massa_muscular || 0
+  
+  // Somatotipo
   const coordX = 150 + ((dados.somatocarta_eixo_x || 0) * 15)
   const coordY = 150 - ((dados.somatocarta_eixo_y || 0) * 11)
 
+  // Saúde
   const rcq = dados.relacao_cintura_quadril || 0;
   const rce = dados.relacao_cintura_estatura || 0;
   const soma6 = dados.somatorio_6_dobras || 0;
   const soma8 = dados.somatorio_8_dobras || 0;
 
-  // Lógica de Fallback de Tela para Perímetros
+  // Perímetros Corrigidos
   const pBraco = aval.perimetro_braco_relaxado || 0;
   const pCoxa = aval.perimetro_coxa_media || 0;
   const pPant = aval.perimetro_panturrilha || 0;
@@ -211,8 +208,9 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
   const perimCorrigidoCoxa = dados.perimetro_corrigido_coxa || (pCoxa > 0 ? pCoxa - ((aval.dobra_cutanea_coxa_media || 0) * 0.314) : 0);
   const perimCorrigidoPanturrilha = dados.perimetro_corrigido_panturrilha || (pPant > 0 ? pPant - ((aval.dobra_cutanea_panturrilha || 0) * 0.314) : 0);
 
+  // Helper de renderização das medidas brutas (Grid Compacto)
   const renderMedidaItem = (label, valor, unidade) => (
-    <div className="flex justify-between items-center p-2 border-b border-gray-50 last:border-0 hover:bg-gray-50 rounded transition-colors" key={label}>
+    <div className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0" key={label}>
       <span className="text-xs font-medium text-gray-600">{label}</span>
       <span className="text-sm font-bold text-gray-800">
         {valor != null ? Number(valor).toFixed(1) : '-'} <span className="text-xs text-gray-400 font-normal">{unidade}</span>
@@ -222,22 +220,72 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
 
   return (
     <div className="space-y-6 pb-10">
-      {/* Cabeçalho */}
-      <div className="flex justify-between items-center bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
-        <div>
-          <button onClick={onVoltar} className="text-xs text-emerald-600 font-semibold hover:underline mb-1 inline-block">← Voltar</button>
-          <h2 className="text-xl font-bold text-gray-800">Relatório Antropométrico: {pac.nome_completo}</h2>
-          <p className="text-xs text-gray-500 mt-1">
-            <span className="font-medium">Data da Avaliação:</span> {new Date((aval.data_avaliacao || '') + 'T12:00:00').toLocaleDateString('pt-BR')} 
-            <span className="mx-2 text-gray-300">|</span> 
-            <span className="font-medium">Idade calculada:</span> {idade > 0 ? `${idade} anos` : <span className="text-red-500">Falta Data de Nasc.</span>}
-          </p>
+      
+      {/* ============================================================
+          CABEÇALHO DA AVALIAÇÃO E PACIENTE 
+      ============================================================= */}
+      <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm relative">
+        <button onClick={onVoltar} className="text-xs text-emerald-600 font-semibold hover:underline mb-2 inline-block">
+          ← Voltar para Histórico
+        </button>
+        <h2 className="text-2xl font-bold text-gray-800">Laudo Antropométrico: {pac.nome_completo}</h2>
+        
+        <div className="mt-4 flex flex-col md:flex-row gap-4">
+          {/* Dados da Avaliação */}
+          <div className="flex-1 bg-gray-50 p-4 rounded-lg border border-gray-100">
+            <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-2">Sobre a Avaliação</p>
+            <div className="space-y-1">
+              <p className="text-sm text-gray-700"><span className="font-semibold">Data:</span> {new Date((aval.data_avaliacao || '') + 'T12:00:00').toLocaleDateString('pt-BR')}</p>
+              <p className="text-sm text-gray-700"><span className="font-semibold">Idade Calculada:</span> {idade > 0 ? `${idade} anos` : <span className="text-red-500">N/A</span>}</p>
+              {aval.equacao_de_regressao_escolhida && (
+                <p className="text-sm text-gray-700"><span className="font-semibold">Protocolo:</span> {aval.equacao_de_regressao_escolhida}</p>
+              )}
+            </div>
+          </div>
+
+          {/* Dados do Paciente */}
+          <div className="flex-[2] bg-gray-50 p-4 rounded-lg border border-gray-100">
+            <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-2">Perfil do Paciente</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2">
+              {pac.sexo && <p className="text-sm text-gray-700"><span className="font-semibold">Sexo:</span> {pac.sexo === 'M' ? 'Masculino' : 'Feminino'}</p>}
+              {pac.etnia && <p className="text-sm text-gray-700"><span className="font-semibold">Etnia:</span> {pac.etnia}</p>}
+              {pac.nacionalidade && <p className="text-sm text-gray-700"><span className="font-semibold">Nac.:</span> {pac.nacionalidade}</p>}
+              {pac.ocupacao && <p className="text-sm text-gray-700"><span className="font-semibold">Ocupação:</span> {pac.ocupacao}</p>}
+              {(pac.pratica_esporte === 'true' || pac.pratica_esporte === true) && (
+                <p className="text-sm text-gray-700 sm:col-span-2">
+                  <span className="font-semibold">Esporte:</span> {pac.modalidade_esportiva || 'Sim'} {pac.nivel_pratica ? `(${pac.nivel_pratica})` : ''}
+                </p>
+              )}
+              {pac.observacoes && (
+                <div className="col-span-full pt-2 mt-1 border-t border-gray-200">
+                  <p className="text-sm text-gray-700"><span className="font-semibold">Obs:</span> {pac.observacoes}</p>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* RESULTADOS PRINCIPAIS */}
+      {/* ============================================================
+          1. MEDIDAS BÁSICAS
+      ============================================================= */}
       <div>
-        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1">📊 Composição Corporal</h3>
+        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">📐 1. Medidas Básicas</h3>
+        <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-2">
+            {renderMedidaItem('Peso', aval.peso_paciente, 'kg')}
+            {renderMedidaItem('Estatura', aval.altura_paciente, 'cm')}
+            {renderMedidaItem('Altura Sentado', aval.altura_sentado_paciente, 'cm')}
+            {renderMedidaItem('Envergadura', aval.envergadura_paciente, 'cm')}
+          </div>
+        </div>
+      </div>
+
+      {/* ============================================================
+          2. COMPOSIÇÃO CORPORAL
+      ============================================================= */}
+      <div>
+        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">📊 2. Composição Corporal</h3>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-center">
             <p className="text-xs font-semibold text-gray-500 uppercase">IMC</p>
@@ -245,26 +293,48 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
           </div>
           <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-center">
             <p className="text-xs font-semibold text-gray-500 uppercase">% Gordura</p>
-            <p className="text-2xl font-black text-amber-500 mt-1">{percentualGordura > 0 ? percentualGordura.toFixed(1) : '-'} <span className="text-xs font-normal text-gray-500">%</span></p>
+            <p className="text-2xl font-black text-amber-500 mt-1">{percentualGordura > 0 ? percentualGordura.toFixed(2) : '-'} <span className="text-xs font-normal text-gray-500">%</span></p>
           </div>
           <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-center">
             <p className="text-xs font-semibold text-gray-500 uppercase">Massa Gorda</p>
-            <p className="text-2xl font-black text-amber-600 mt-1">{massaGorda > 0 ? massaGorda.toFixed(1) : '-'} <span className="text-xs font-normal text-gray-500">kg</span></p>
+            <p className="text-2xl font-black text-amber-600 mt-1">{massaGorda > 0 ? massaGorda.toFixed(2) : '-'} <span className="text-xs font-normal text-gray-500">kg</span></p>
           </div>
           <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-center">
             <p className="text-xs font-semibold text-gray-500 uppercase">Massa Magra</p>
-            <p className="text-2xl font-black text-blue-600 mt-1">{massaMagra > 0 ? massaMagra.toFixed(1) : '-'} <span className="text-xs font-normal text-gray-500">kg</span></p>
+            <p className="text-2xl font-black text-blue-600 mt-1">{massaMagra > 0 ? massaMagra.toFixed(2) : '-'} <span className="text-xs font-normal text-gray-500">kg</span></p>
           </div>
-          <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-center border-l-4 border-l-emerald-500">
+          <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-center border-l-4 border-l-emerald-500 relative">
             <p className="text-xs font-semibold text-gray-500 uppercase">Massa Muscular</p>
-            <p className="text-2xl font-black text-emerald-700 mt-1">{massaMuscular > 0 ? massaMuscular.toFixed(1) : '-'} <span className="text-xs font-normal text-gray-500">kg</span></p>
+            <p className="text-2xl font-black text-emerald-700 mt-1">{massaMuscular > 0 ? massaMuscular.toFixed(2) : '-'} <span className="text-xs font-normal text-gray-500">kg</span></p>
+            <span className="absolute bottom-2 right-3 text-[9px] font-medium text-gray-400">Ref: Lee 2000</span>
           </div>
         </div>
       </div>
 
-      {/* MÉTRICAS DE SAÚDE */}
+      {/* ============================================================
+          3. DOBRAS CUTÂNEAS
+      ============================================================= */}
       <div>
-        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">⚖️ Indicadores de Saúde</h3>
+        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">🤏 3. Dobras Cutâneas</h3>
+        <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-2">
+            {renderMedidaItem('Tríceps', aval.dobra_cutanea_triceps, 'mm')}
+            {renderMedidaItem('Subescapular', aval.dobra_cutanea_subescapular, 'mm')}
+            {renderMedidaItem('Bíceps', aval.dobra_cutanea_biceps, 'mm')}
+            {renderMedidaItem('Crista Ilíaca', aval.dobra_cutanea_crista_iliaca, 'mm')}
+            {renderMedidaItem('Supraespinhal', aval.dobra_cutanea_supraespinhal, 'mm')}
+            {renderMedidaItem('Abdominal', aval.dobra_cutanea_abdominal, 'mm')}
+            {renderMedidaItem('Coxa Média', aval.dobra_cutanea_coxa_media, 'mm')}
+            {renderMedidaItem('Panturrilha', aval.dobra_cutanea_panturrilha, 'mm')}
+          </div>
+        </div>
+      </div>
+
+      {/* ============================================================
+          4. INDICADORES DE SAÚDE
+      ============================================================= */}
+      <div>
+        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">⚖️ 4. Indicadores de Saúde</h3>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex justify-between items-center">
             <span className="text-xs font-bold text-gray-600">Relação Cintura-Quadril</span>
@@ -276,91 +346,75 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
           </div>
           <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex justify-between items-center">
             <span className="text-xs font-bold text-gray-600">Σ 6 Dobras</span>
-            <span className="text-lg font-black text-amber-600">{soma6 > 0 ? soma6.toFixed(1) : '-'} <span className="text-xs font-normal">mm</span></span>
+            <span className="text-lg font-black text-amber-600">{soma6 > 0 ? soma6.toFixed(1) : '-'} <span className="text-xs font-normal text-gray-400">mm</span></span>
           </div>
           <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex justify-between items-center">
             <span className="text-xs font-bold text-gray-600">Σ 8 Dobras</span>
-            <span className="text-lg font-black text-amber-600">{soma8 > 0 ? soma8.toFixed(1) : '-'} <span className="text-xs font-normal">mm</span></span>
+            <span className="text-lg font-black text-amber-600">{soma8 > 0 ? soma8.toFixed(1) : '-'} <span className="text-xs font-normal text-gray-400">mm</span></span>
           </div>
         </div>
       </div>
 
-      {/* PERÍMETROS CORRIGIDOS */}
+      {/* ============================================================
+          5. PERÍMETROS
+      ============================================================= */}
       <div>
-        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">💪 Perímetros Corrigidos (Massa Muscular Regional)</h3>
+        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">🔄 5. Perímetros</h3>
+        <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-2">
+            {renderMedidaItem('Braço Relaxado', aval.perimetro_braco_relaxado, 'cm')}
+            {renderMedidaItem('Braço Contraído', aval.perimetro_braco_contraido, 'cm')}
+            {renderMedidaItem('Antebraço', aval.perimetro_antibraco, 'cm')}
+            {renderMedidaItem('Cintura', aval.perimetro_cintura, 'cm')}
+            {renderMedidaItem('Abdominal', aval.perimetro_abdominal, 'cm')}
+            {renderMedidaItem('Quadril', aval.perimetro_quadril, 'cm')}
+            {renderMedidaItem('Coxa Máxima', aval.perimetro_coxa_maxima, 'cm')}
+            {renderMedidaItem('Coxa Média', aval.perimetro_coxa_media, 'cm')}
+            {renderMedidaItem('Panturrilha', aval.perimetro_panturrilha, 'cm')}
+          </div>
+        </div>
+      </div>
+
+      {/* ============================================================
+          6. PERÍMETROS CORRIGIDOS
+      ============================================================= */}
+      <div>
+        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">💪 6. Perímetros Corrigidos (Massa Muscular Regional)</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex justify-between items-center">
             <span className="text-xs font-bold text-gray-600">Braço</span>
-            <span className="text-lg font-black text-emerald-600">{perimCorrigidoBraco > 0 ? perimCorrigidoBraco.toFixed(1) : '-'} <span className="text-xs font-normal">cm</span></span>
+            <span className="text-lg font-black text-emerald-600">{perimCorrigidoBraco > 0 ? perimCorrigidoBraco.toFixed(2) : '-'} <span className="text-xs font-normal text-gray-400">cm</span></span>
           </div>
           <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex justify-between items-center">
             <span className="text-xs font-bold text-gray-600">Coxa</span>
-            <span className="text-lg font-black text-emerald-600">{perimCorrigidoCoxa > 0 ? perimCorrigidoCoxa.toFixed(1) : '-'} <span className="text-xs font-normal">cm</span></span>
+            <span className="text-lg font-black text-emerald-600">{perimCorrigidoCoxa > 0 ? perimCorrigidoCoxa.toFixed(2) : '-'} <span className="text-xs font-normal text-gray-400">cm</span></span>
           </div>
           <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex justify-between items-center">
             <span className="text-xs font-bold text-gray-600">Panturrilha</span>
-            <span className="text-lg font-black text-emerald-600">{perimCorrigidoPanturrilha > 0 ? perimCorrigidoPanturrilha.toFixed(1) : '-'} <span className="text-xs font-normal">cm</span></span>
+            <span className="text-lg font-black text-emerald-600">{perimCorrigidoPanturrilha > 0 ? perimCorrigidoPanturrilha.toFixed(2) : '-'} <span className="text-xs font-normal text-gray-400">cm</span></span>
           </div>
         </div>
       </div>
 
-      {/* MEDIDAS COLETADAS */}
+      {/* ============================================================
+          7. DIÂMETROS ÓSSEOS
+      ============================================================= */}
       <div>
-        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">📋 Medidas Coletadas</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-            <h4 className="text-sm font-bold text-emerald-700 border-b border-emerald-100 pb-2 mb-3">📐 Medidas Básicas</h4>
-            <div className="space-y-1">
-              {renderMedidaItem('Peso', aval.peso_paciente, 'kg')}
-              {renderMedidaItem('Estatura', aval.altura_paciente, 'cm')}
-              {renderMedidaItem('Altura Sentado', aval.altura_sentado_paciente, 'cm')}
-              {renderMedidaItem('Envergadura', aval.envergadura_paciente, 'cm')}
-            </div>
-          </div>
-
-          <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-            <h4 className="text-sm font-bold text-amber-600 border-b border-amber-100 pb-2 mb-3">🤏 Dobras Cutâneas</h4>
-            <div className="space-y-1">
-              {renderMedidaItem('Tríceps', aval.dobra_cutanea_triceps, 'mm')}
-              {renderMedidaItem('Subescapular', aval.dobra_cutanea_subescapular, 'mm')}
-              {renderMedidaItem('Bíceps', aval.dobra_cutanea_biceps, 'mm')}
-              {renderMedidaItem('Crista Ilíaca', aval.dobra_cutanea_crista_iliaca, 'mm')}
-              {renderMedidaItem('Supraespinhal', aval.dobra_cutanea_supraespinhal, 'mm')}
-              {renderMedidaItem('Abdominal', aval.dobra_cutanea_abdominal, 'mm')}
-              {renderMedidaItem('Coxa Média', aval.dobra_cutanea_coxa_media, 'mm')}
-              {renderMedidaItem('Panturrilha', aval.dobra_cutanea_panturrilha, 'mm')}
-            </div>
-          </div>
-
-          <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-            <h4 className="text-sm font-bold text-blue-600 border-b border-blue-100 pb-2 mb-3">🔄 Perímetros</h4>
-            <div className="space-y-1">
-              {renderMedidaItem('Braço Relaxado', aval.perimetro_braco_relaxado, 'cm')}
-              {renderMedidaItem('Braço Contraído', aval.perimetro_braco_contraido, 'cm')}
-              {renderMedidaItem('Antebraço', aval.perimetro_antibraco, 'cm')}
-              {renderMedidaItem('Cintura', aval.perimetro_cintura, 'cm')}
-              {renderMedidaItem('Abdominal', aval.perimetro_abdominal, 'cm')}
-              {renderMedidaItem('Quadril', aval.perimetro_quadril, 'cm')}
-              {renderMedidaItem('Coxa Máxima', aval.perimetro_coxa_maxima, 'cm')}
-              {renderMedidaItem('Coxa Média', aval.perimetro_coxa_media, 'cm')}
-              {renderMedidaItem('Panturrilha', aval.perimetro_panturrilha, 'cm')}
-            </div>
-          </div>
-
-          <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-            <h4 className="text-sm font-bold text-slate-700 border-b border-slate-200 pb-2 mb-3">🦴 Diâmetros Ósseos</h4>
-            <div className="space-y-1">
-              {renderMedidaItem('Úmero', aval.diametro_umero, 'cm')}
-              {renderMedidaItem('Fêmur', aval.diametro_femur, 'cm')}
-              {renderMedidaItem('Punho', aval.diametro_punho, 'cm')}
-              {renderMedidaItem('Tornozelo', aval.diametro_maleolar, 'cm')}
-            </div>
+        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">🦴 7. Diâmetros Ósseos</h3>
+        <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-2">
+            {renderMedidaItem('Úmero', aval.diametro_umero, 'cm')}
+            {renderMedidaItem('Fêmur', aval.diametro_femur, 'cm')}
+            {renderMedidaItem('Punho', aval.diametro_punho, 'cm')}
+            {renderMedidaItem('Tornozelo', aval.diametro_maleolar, 'cm')}
           </div>
         </div>
       </div>
 
-      {/* SOMATOTIPO E SOMATOCARTA */}
-      <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">🧬 Somatotipo (Heath-Carter)</h3>
+      {/* ============================================================
+          8. SOMATOTIPO
+      ============================================================= */}
+      <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">🧬 8. Somatotipo (Heath-Carter)</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm space-y-4">
           <div className="space-y-5 mt-2">
@@ -416,9 +470,11 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
         </div>
       </div>
 
-      {/* OUTROS INDICADORES (O que faltou para o futuro) */}
-      <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm space-y-4">
-        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider border-b pb-2">🚀 Outros Indicadores & Classificações</h3>
+      {/* ============================================================
+          10. OUTROS INDICADORES
+      ============================================================= */}
+      <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm space-y-4 mt-6">
+        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider border-b pb-2">🚀 10. Outros Indicadores & Classificações</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {[
             'Índice de Massa Óssea (IMO)', 'Área de Previsão Visceral (APVAT)', 'Índice Adiposo Muscular', 
