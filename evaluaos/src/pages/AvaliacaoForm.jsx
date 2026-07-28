@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { supabase } from '../supabaseClient'
 import { calcularResultadosAntropometricos } from '../utils/calculosAntropometricos'
 
@@ -68,6 +68,84 @@ const labels = {
   diametro_femur: 'Bicondilar do Fêmur',
   diametro_punho: 'Biestilóide (Punho)',
   diametro_maleolar: 'Bimaleolar (Tornozelo)'
+}
+
+// --- COMPONENTE DE LINHA DE MEDIDA (MOVIDO PARA FORA PARA NÃO PERDER O FOCO) ---
+const MeasureRow = ({ label, field, categoryType, state, setter, isSingleMode, handleMeasureChange }) => {
+  const { m1, m2, m3 } = state[field]
+  const v1 = parseFloat(m1)
+  const v2 = parseFloat(m2)
+
+  let needsThird = false
+  let diffPercent = 0
+  let finalValue = '-'
+
+  if (!isSingleMode && !isNaN(v1) && !isNaN(v2) && v1 > 0 && v2 > 0) {
+    diffPercent = (Math.abs(v1 - v2) / ((v1 + v2) / 2)) * 100
+    const threshold = categoryType === 'dobras' ? 5 : 1
+    needsThird = diffPercent > threshold
+  }
+
+  if (isSingleMode) {
+    if (!isNaN(v1)) finalValue = v1.toFixed(1)
+  } else {
+    if (!needsThird && !isNaN(v1) && !isNaN(v2)) {
+      finalValue = ((v1 + v2) / 2).toFixed(1) // Média
+    } else if (needsThird && !isNaN(parseFloat(m3))) {
+      const sorted = [v1, v2, parseFloat(m3)].sort((a, b) => a - b)
+      finalValue = sorted[1].toFixed(1) // Mediana
+    }
+  }
+
+  return (
+    <div className="flex flex-col md:grid md:grid-cols-12 gap-2 md:items-center border-b border-gray-50 py-2 hover:bg-gray-50 px-2 rounded transition-colors">
+      <div className="col-span-4 text-xs font-medium text-gray-700">{label}</div>
+      
+      {/* Container das Medidas */}
+      <div className="col-span-6 grid grid-cols-3 gap-2">
+        <input
+          type="number"
+          step="0.1"
+          value={m1}
+          onChange={(e) => handleMeasureChange(setter, field, 'm1', e.target.value)}
+          className="w-full px-2 py-1.5 border rounded-md text-sm text-center focus:border-emerald-500 bg-white"
+          placeholder={isSingleMode ? "Valor" : "1ª"}
+        />
+        {!isSingleMode && (
+          <>
+            <input
+              type="number"
+              step="0.1"
+              value={m2}
+              onChange={(e) => handleMeasureChange(setter, field, 'm2', e.target.value)}
+              className="w-full px-2 py-1.5 border rounded-md text-sm text-center focus:border-emerald-500 bg-white"
+              placeholder="2ª"
+            />
+            <input
+              type="number"
+              step="0.1"
+              value={m3}
+              disabled={!needsThird}
+              onChange={(e) => handleMeasureChange(setter, field, 'm3', e.target.value)}
+              className={`w-full px-2 py-1.5 border rounded-md text-sm text-center transition-colors
+                ${needsThird ? 'ring-2 ring-red-400 bg-red-50 focus:ring-red-500' : 'opacity-40 bg-gray-100 cursor-not-allowed'}
+              `}
+              placeholder="3ª"
+              title={needsThird ? `Diferença de ${diffPercent.toFixed(1)}%. A 3ª medida é obrigatória.` : "Habilitado apenas se erro > limite"}
+            />
+          </>
+        )}
+      </div>
+
+      {/* Valor Final Calculado */}
+      <div className="col-span-2 text-right md:text-center mt-1 md:mt-0">
+        <span className="text-xs text-gray-500 md:hidden mr-2">Resultado:</span>
+        <span className="text-sm font-bold text-emerald-700 bg-emerald-50 px-2 py-1 rounded">
+          {finalValue}
+        </span>
+      </div>
+    </div>
+  )
 }
 
 export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
@@ -210,85 +288,7 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
     setLoading(false)
   }
 
-  // --- COMPONENTE DE LINHA DE MEDIDA (Renderiza M1, M2, M3 e Final) ---
-  const MeasureRow = ({ label, field, categoryType, state, setter }) => {
-    const { m1, m2, m3 } = state[field]
-    const v1 = parseFloat(m1)
-    const v2 = parseFloat(m2)
-
-    let needsThird = false
-    let diffPercent = 0
-    let finalValue = '-'
-
-    if (!isSingleMode && !isNaN(v1) && !isNaN(v2) && v1 > 0 && v2 > 0) {
-      diffPercent = (Math.abs(v1 - v2) / ((v1 + v2) / 2)) * 100
-      const threshold = categoryType === 'dobras' ? 5 : 1
-      needsThird = diffPercent > threshold
-    }
-
-    if (isSingleMode) {
-      if (!isNaN(v1)) finalValue = v1.toFixed(1)
-    } else {
-      if (!needsThird && !isNaN(v1) && !isNaN(v2)) {
-        finalValue = ((v1 + v2) / 2).toFixed(1) // Média
-      } else if (needsThird && !isNaN(parseFloat(m3))) {
-        const sorted = [v1, v2, parseFloat(m3)].sort((a, b) => a - b)
-        finalValue = sorted[1].toFixed(1) // Mediana
-      }
-    }
-
-    return (
-      <div className="flex flex-col md:grid md:grid-cols-12 gap-2 md:items-center border-b border-gray-50 py-2 hover:bg-gray-50 px-2 rounded transition-colors">
-        <div className="col-span-4 text-xs font-medium text-gray-700">{label}</div>
-        
-        {/* Container das Medidas */}
-        <div className="col-span-6 grid grid-cols-3 gap-2">
-          <input
-            type="number"
-            step="0.1"
-            value={m1}
-            onChange={(e) => handleMeasureChange(setter, field, 'm1', e.target.value)}
-            className="w-full px-2 py-1.5 border rounded-md text-sm text-center focus:border-emerald-500 bg-white"
-            placeholder={isSingleMode ? "Valor" : "1ª"}
-          />
-          {!isSingleMode && (
-            <>
-              <input
-                type="number"
-                step="0.1"
-                value={m2}
-                onChange={(e) => handleMeasureChange(setter, field, 'm2', e.target.value)}
-                className="w-full px-2 py-1.5 border rounded-md text-sm text-center focus:border-emerald-500 bg-white"
-                placeholder="2ª"
-              />
-              <input
-                type="number"
-                step="0.1"
-                value={m3}
-                disabled={!needsThird}
-                onChange={(e) => handleMeasureChange(setter, field, 'm3', e.target.value)}
-                className={`w-full px-2 py-1.5 border rounded-md text-sm text-center transition-colors
-                  ${needsThird ? 'ring-2 ring-red-400 bg-red-50 focus:ring-red-500' : 'opacity-40 bg-gray-100 cursor-not-allowed'}
-                `}
-                placeholder="3ª"
-                title={needsThird ? `Diferença de ${diffPercent.toFixed(1)}%. A 3ª medida é obrigatória.` : "Habilitado apenas se erro > limite"}
-              />
-            </>
-          )}
-        </div>
-
-        {/* Valor Final Calculado */}
-        <div className="col-span-2 text-right md:text-center mt-1 md:mt-0">
-          <span className="text-xs text-gray-500 md:hidden mr-2">Resultado:</span>
-          <span className="text-sm font-bold text-emerald-700 bg-emerald-50 px-2 py-1 rounded">
-            {finalValue}
-          </span>
-        </div>
-      </div>
-    )
-  }
-
-  // Helper para renderizar Tabela de Bloco
+  // Helper para renderizar Tabela de Bloco (Pode continuar aqui dentro pois não cria componente, só retorna JSX)
   const renderMeasureBlock = (title, keys, type, state, setter) => (
     <div className="bg-white p-4 md:p-6 rounded-xl border border-gray-100 shadow-sm space-y-2 overflow-x-auto">
       <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-4 border-b pb-2">
@@ -315,6 +315,8 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
             categoryType={type}
             state={state}
             setter={setter}
+            isSingleMode={isSingleMode}
+            handleMeasureChange={handleMeasureChange}
           />
         ))}
       </div>
