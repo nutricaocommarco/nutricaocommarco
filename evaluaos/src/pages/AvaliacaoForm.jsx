@@ -6,39 +6,10 @@ const initMeasures = (keys) =>
   keys.reduce((acc, key) => ({ ...acc, [key]: { m1: '', m2: '', m3: '' } }), {})
 
 // --- LISTAS DE CHAVES EXATAS DO SUPABASE ---
-const basicaKeys = [
-  'peso_paciente',
-  'altura_paciente',
-  'altura_sentado_paciente',
-  'envergadura_paciente'
-]
-const dobraKeys = [
-  'dobra_cutanea_triceps',
-  'dobra_cutanea_subescapular',
-  'dobra_cutanea_biceps',
-  'dobra_cutanea_crista_iliaca',
-  'dobra_cutanea_supraespinhal',
-  'dobra_cutanea_abdominal',
-  'dobra_cutanea_coxa_media',
-  'dobra_cutanea_panturrilha'
-]
-const perimetroKeys = [
-  'perimetro_braco_relaxado',
-  'perimetro_braco_contraido',
-  'perimetro_antibraco',
-  'perimetro_cintura',
-  'perimetro_abdominal',
-  'perimetro_quadril',
-  'perimetro_coxa_maxima',
-  'perimetro_coxa_media',
-  'perimetro_panturrilha'
-]
-const diametroKeys = [
-  'diametro_umero',
-  'diametro_femur',
-  'diametro_punho',
-  'diametro_maleolar'
-]
+const basicaKeys = ['peso_paciente', 'altura_paciente', 'altura_sentado_paciente', 'envergadura_paciente']
+const dobraKeys = ['dobra_cutanea_triceps', 'dobra_cutanea_subescapular', 'dobra_cutanea_biceps', 'dobra_cutanea_crista_iliaca', 'dobra_cutanea_supraespinhal', 'dobra_cutanea_abdominal', 'dobra_cutanea_coxa_media', 'dobra_cutanea_panturrilha']
+const perimetroKeys = ['perimetro_braco_relaxado', 'perimetro_braco_contraido', 'perimetro_antibraco', 'perimetro_cintura', 'perimetro_abdominal', 'perimetro_quadril', 'perimetro_coxa_maxima', 'perimetro_coxa_media', 'perimetro_panturrilha']
+const diametroKeys = ['diametro_umero', 'diametro_femur', 'diametro_punho', 'diametro_maleolar']
 
 // --- DICIONÁRIO DE RÓTULOS ---
 const labels = {
@@ -84,7 +55,7 @@ const calcularSomatotipo = (medidas) => {
   const peso = medidas.peso_paciente || 0;
 
   // 1. ENDOMORFIA
-  const somaDobrasEndo = (triceps + subescapular + supraespinhal) * (170.18 / altura);
+  const somaDobrasEndo = (triceps + subescapular + supraespinhal) * (170.18 / (altura || 1));
   let endomorfia = 0;
   if (altura > 0) {
     endomorfia = -0.7182 + (0.1451 * somaDobrasEndo) - (0.00068 * Math.pow(somaDobrasEndo, 2)) + (0.0000014 * Math.pow(somaDobrasEndo, 3));
@@ -107,11 +78,10 @@ const calcularSomatotipo = (medidas) => {
     } else if (cap > 38.25 && cap < 40.75) {
       ectomorfia = 0.463 * cap - 17.63;
     } else {
-      ectomorfia = 0.1; // mínimo padrão
+      ectomorfia = 0.1;
     }
   }
 
-  // COORDENADAS SOMATOCARTA
   const eixoX = ectomorfia - endomorfia;
   const eixoY = (2 * mesomorfia) - (endomorfia + ectomorfia);
 
@@ -144,10 +114,10 @@ const MeasureRow = ({ label, field, categoryType, state, setter, isSingleMode, h
     if (!isNaN(v1)) finalValue = v1.toFixed(1)
   } else {
     if (!needsThird && !isNaN(v1) && !isNaN(v2)) {
-      finalValue = ((v1 + v2) / 2).toFixed(1) // Média
+      finalValue = ((v1 + v2) / 2).toFixed(1)
     } else if (needsThird && !isNaN(parseFloat(m3))) {
       const sorted = [v1, v2, parseFloat(m3)].sort((a, b) => a - b)
-      finalValue = sorted[1].toFixed(1) // Mediana
+      finalValue = sorted[1].toFixed(1)
     }
   }
 
@@ -156,9 +126,7 @@ const MeasureRow = ({ label, field, categoryType, state, setter, isSingleMode, h
       <div className="col-span-4 text-xs font-medium text-gray-700">{label}</div>
       <div className="col-span-6 grid grid-cols-3 gap-2">
         <input
-          type="number"
-          step="0.1"
-          value={m1}
+          type="number" step="0.1" value={m1}
           onChange={(e) => handleMeasureChange(setter, field, 'm1', e.target.value)}
           className="w-full px-2 py-1.5 border rounded-md text-sm text-center focus:border-emerald-500 bg-white"
           placeholder={isSingleMode ? "Valor" : "1ª"}
@@ -166,22 +134,15 @@ const MeasureRow = ({ label, field, categoryType, state, setter, isSingleMode, h
         {!isSingleMode && (
           <>
             <input
-              type="number"
-              step="0.1"
-              value={m2}
+              type="number" step="0.1" value={m2}
               onChange={(e) => handleMeasureChange(setter, field, 'm2', e.target.value)}
               className="w-full px-2 py-1.5 border rounded-md text-sm text-center focus:border-emerald-500 bg-white"
               placeholder="2ª"
             />
             <input
-              type="number"
-              step="0.1"
-              value={m3}
-              disabled={!needsThird}
+              type="number" step="0.1" value={m3} disabled={!needsThird}
               onChange={(e) => handleMeasureChange(setter, field, 'm3', e.target.value)}
-              className={`w-full px-2 py-1.5 border rounded-md text-sm text-center transition-colors
-                ${needsThird ? 'ring-2 ring-red-400 bg-red-50 focus:ring-red-500' : 'opacity-40 bg-gray-100 cursor-not-allowed'}
-              `}
+              className={`w-full px-2 py-1.5 border rounded-md text-sm text-center transition-colors ${needsThird ? 'ring-2 ring-red-400 bg-red-50 focus:ring-red-500' : 'opacity-40 bg-gray-100 cursor-not-allowed'}`}
               placeholder="3ª"
             />
           </>
@@ -203,7 +164,6 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
 
   const [dataAvaliacao, setDataAvaliacao] = useState(new Date().toISOString().split('T')[0])
   const [horaAvaliacao, setHoraAvaliacao] = useState(new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }))
-  const [fatorAtividade, setFatorAtividade] = useState(1.2)
   const [equacao, setEquacao] = useState('')
   const [percentualGordura, setPercentualGordura] = useState('')
 
@@ -213,10 +173,7 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
   const [diametros, setDiametros] = useState(initMeasures(diametroKeys))
 
   const handleMeasureChange = (setter, field, index, value) => {
-    setter((prev) => ({
-      ...prev,
-      [field]: { ...prev[field], [index]: value }
-    }))
+    setter((prev) => ({ ...prev, [field]: { ...prev[field], [index]: value } }))
   }
 
   const resolveMeasure = (obj, type, label, errorsArray) => {
@@ -278,19 +235,19 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
       return
     }
 
+    // 1. Monta o payload bruto para a tabela "avaliacoes" (com a coluna CORRETA percentual_de_gordura)
     const payloadBruto = {
       id_paciente: paciente.id,
       data_avaliacao: dataAvaliacao,
       hora_avaliacao: horaAvaliacao,
       equacao_de_regressao_escolhida: equacao,
-      fator_atividade_fisica: parseFloat(fatorAtividade) || 1.2,
+      percentual_de_gordura: parseFloat(percentualGordura) || null, // NOME CORRETO DA COLUNA
       ...resolvedBasicas,
       ...resolvedDobras,
       ...resolvedPerimetros,
       ...resolvedDiametros
     }
 
-    // SALVA TABELA 1: avaliacoes
     const { data: avaliacaoSalva, error } = await supabase
       .from('avaliacoes')
       .insert([payloadBruto])
@@ -301,20 +258,59 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
       alert('Erro ao salvar avaliação: ' + error.message)
     } else {
       
-      // CALCULA DADOS PARA TABELA 2: dados_calculados
-      const somatotipo = calcularSomatotipo(payloadBruto)
-      
+      // 2. Calcula IMC, Massas e Somatotipo para a tabela "dados_calculados"
       const pcGorduraFinal = parseFloat(percentualGordura) || 0
       const pesoFinal = resolvedBasicas.peso_paciente || 0
-      const massaGordaCalculada = pesoFinal > 0 ? (pcGorduraFinal * pesoFinal) / 100 : 0
-      const massaMagraCalculada = pesoFinal > 0 ? pesoFinal - massaGordaCalculada : 0
+      const alturaCm = resolvedBasicas.altura_paciente || 0
+      const alturaM = alturaCm / 100
+
+      // Cálculos Básicos
+      const calcImc = alturaM > 0 ? pesoFinal / (alturaM * alturaM) : 0
+      const massaGordaCalc = pesoFinal > 0 ? (pcGorduraFinal * pesoFinal) / 100 : 0
+      const massaMagraCalc = pesoFinal > 0 ? pesoFinal - massaGordaCalc : 0
+
+      // Cálculo de Massa Muscular (Lee)
+      const sexoNum = paciente.sexo === 'M' ? 1 : 0
+      let racaNum = 0
+      if (paciente.etnia === 'Afrodescendente') racaNum = 1.1
+      if (paciente.etnia === 'Asiatico') racaNum = -2
+
+      let idade = 25 // fallback
+      if (paciente.data_nascimento) {
+        const birthDate = new Date(paciente.data_nascimento + 'T12:00:00')
+        const evalDate = new Date(dataAvaliacao + 'T12:00:00')
+        idade = evalDate.getFullYear() - birthDate.getFullYear()
+        const m = evalDate.getMonth() - birthDate.getMonth()
+        if (m < 0 || (m === 0 && evalDate.getDate() < birthDate.getDate())) {
+          idade--
+        }
+      }
+
+      const pBraco = resolvedPerimetros.perimetro_braco_relaxado || 0
+      const pCoxa = resolvedPerimetros.perimetro_coxa_media || 0
+      const pPant = resolvedPerimetros.perimetro_panturrilha || 0
+      const dTri = resolvedDobras.dobra_cutanea_triceps || 0
+      const dCoxa = resolvedDobras.dobra_cutanea_coxa_media || 0
+      const dPant = resolvedDobras.dobra_cutanea_panturrilha || 0
+
+      const termoBraco = Math.pow(pBraco - (dTri * 0.314), 2)
+      const termoCoxa = Math.pow(pCoxa - (dCoxa * 0.314), 2)
+      const termoPant = Math.pow(pPant - (dPant * 0.314), 2)
+
+      let calcMuscular = 0
+      if (alturaM > 0 && pBraco > 0 && pCoxa > 0 && pPant > 0) {
+        calcMuscular = (alturaM * ((0.00744 * termoBraco) + (0.00088 * termoCoxa) + (0.00441 * termoPant))) + (2.4 * sexoNum) - (0.048 * idade) + racaNum + 7.8
+      }
+
+      const somatotipo = calcularSomatotipo(payloadBruto)
 
       const payloadCalculado = {
         id_paciente: paciente.id,
         id_avaliacao: avaliacaoSalva.id,
-        percentual_gordura: pcGorduraFinal,
-        massa_gorda: Number(massaGordaCalculada.toFixed(2)),
-        massa_magra: Number(massaMagraCalculada.toFixed(2)),
+        imc: Number(calcImc.toFixed(2)),
+        massa_gorda: Number(massaGordaCalc.toFixed(2)),
+        massa_magra: Number(massaMagraCalc.toFixed(2)),
+        massa_muscular: Number(calcMuscular.toFixed(2)),
         ...somatotipo
       }
 
@@ -337,9 +333,7 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
 
   const renderMeasureBlock = (title, keys, type, state, setter) => (
     <div className="bg-white p-4 md:p-6 rounded-xl border border-gray-100 shadow-sm space-y-2 overflow-x-auto">
-      <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-4 border-b pb-2">
-        {title}
-      </h3>
+      <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-4 border-b pb-2">{title}</h3>
       <div className="min-w-[600px] md:min-w-full">
         <div className="grid grid-cols-12 gap-2 items-center pb-2 text-xs font-bold text-gray-400 uppercase tracking-wider border-b px-2">
           <div className="col-span-4">Local da Medida</div>
@@ -352,16 +346,7 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
         </div>
         
         {keys.map((key) => (
-          <MeasureRow
-            key={key}
-            label={labels[key]}
-            field={key}
-            categoryType={type}
-            state={state}
-            setter={setter}
-            isSingleMode={isSingleMode}
-            handleMeasureChange={handleMeasureChange}
-          />
+          <MeasureRow key={key} label={labels[key]} field={key} categoryType={type} state={state} setter={setter} isSingleMode={isSingleMode} handleMeasureChange={handleMeasureChange} />
         ))}
       </div>
     </div>
@@ -371,29 +356,18 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center bg-white p-4 rounded-xl border border-gray-100 shadow-sm gap-4">
         <div>
-          <button onClick={onVoltar} className="text-xs text-emerald-600 font-semibold hover:underline mb-1 inline-block">
-            ← Voltar para lista de pacientes
-          </button>
+          <button onClick={onVoltar} className="text-xs text-emerald-600 font-semibold hover:underline mb-1 inline-block">← Voltar para lista de pacientes</button>
           <h2 className="text-xl font-bold text-gray-800">Nova Avaliação: {paciente.nome_completo}</h2>
         </div>
-        <span className="text-xs font-semibold px-3 py-1.5 bg-emerald-50 text-emerald-700 rounded-full">
-          Sexo: {paciente.sexo === 'M' ? 'Masculino' : 'Feminino'}
-        </span>
+        <span className="text-xs font-semibold px-3 py-1.5 bg-emerald-50 text-emerald-700 rounded-full">Sexo: {paciente.sexo === 'M' ? 'Masculino' : 'Feminino'}</span>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm space-y-4">
           <div className="flex justify-between items-center border-b pb-2">
-            <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider">
-              1. Dados Gerais & Protocolo
-            </h3>
+            <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider">1. Dados Gerais & Protocolo</h3>
             <label className="flex items-center space-x-2 text-xs font-bold text-red-600 bg-red-50 px-3 py-1.5 rounded-lg cursor-pointer">
-              <input
-                type="checkbox"
-                checked={isSingleMode}
-                onChange={(e) => setIsSingleMode(e.target.checked)}
-                className="rounded text-red-600 focus:ring-red-500"
-              />
+              <input type="checkbox" checked={isSingleMode} onChange={(e) => setIsSingleMode(e.target.checked)} className="rounded text-red-600 focus:ring-red-500" />
               <span>Habilitar 1 Medida (Não recomendado)</span>
             </label>
           </div>
@@ -409,26 +383,11 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-700">Protocolo / Equação</label>
-              <input 
-                type="text" 
-                required 
-                value={equacao} 
-                onChange={(e) => setEquacao(e.target.value)} 
-                className="mt-1 w-full px-3 py-2 border rounded-md text-sm" 
-                placeholder="Ex: Petroski, Pollock..." 
-              />
+              <input type="text" required value={equacao} onChange={(e) => setEquacao(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm" placeholder="Ex: Petroski, Pollock..." />
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-700">% Gordura Corporal</label>
-              <input 
-                type="number" 
-                step="0.1" 
-                required
-                value={percentualGordura} 
-                onChange={(e) => setPercentualGordura(e.target.value)} 
-                className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500" 
-                placeholder="Ex: 15.5" 
-              />
+              <input type="number" step="0.1" required value={percentualGordura} onChange={(e) => setPercentualGordura(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500" placeholder="Ex: 15.5" />
             </div>
           </div>
         </div>
@@ -439,9 +398,7 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
         {renderMeasureBlock('5. Diâmetros Ósseos (cm) - Tolerância 1%', diametroKeys, 'diametros', diametros, setDiametros)}
 
         <div className="flex justify-end gap-3 pt-4 sticky bottom-4 bg-white/80 p-4 border-t backdrop-blur-md rounded-xl">
-          <button type="button" onClick={onVoltar} className="px-6 py-2.5 border border-gray-300 text-gray-700 rounded-lg text-sm font-semibold hover:bg-gray-50">
-            Cancelar
-          </button>
+          <button type="button" onClick={onVoltar} className="px-6 py-2.5 border border-gray-300 text-gray-700 rounded-lg text-sm font-semibold hover:bg-gray-50">Cancelar</button>
           <button type="submit" disabled={loading} className="px-6 py-2.5 bg-emerald-600 text-white rounded-lg text-sm font-semibold hover:bg-emerald-700 shadow disabled:opacity-50">
             {loading ? 'Salvando...' : 'Salvar Avaliação'}
           </button>
