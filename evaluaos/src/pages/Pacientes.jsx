@@ -110,6 +110,26 @@ export default function Pacientes({ userId }) {
     setAvaliacoesList(data || [])
   }
 
+  // Função para Excluir Avaliação
+  const handleDeleteAvaliacao = async (idAvaliacao) => {
+    const confirmacao = window.confirm("Tem certeza que deseja excluir esta avaliação? Esta ação não pode ser desfeita.")
+    
+    if (confirmacao) {
+      // O Supabase apaga em cascata (se configurado) ou apagamos a avaliação principal
+      const { error } = await supabase
+        .from('avaliacoes')
+        .delete()
+        .eq('id', idAvaliacao)
+
+      if (error) {
+        alert('Erro ao excluir avaliação: ' + error.message)
+      } else {
+        // Remove a avaliação da lista que está na tela no momento
+        setAvaliacoesList(avaliacoesList.filter(a => a.id !== idAvaliacao))
+      }
+    }
+  }
+
   // 3. RETORNOS CONDICIONAIS (Se abrir uma tela sobre a outra)
 
   // Renderiza o Relatório se uma avaliação foi selecionada no histórico
@@ -423,15 +443,30 @@ export default function Pacientes({ userId }) {
                       </p>
                       <p className="text-xs text-gray-500">{a.equacao_de_regressao_escolhida} • {a.peso_paciente}kg</p>
                     </div>
-                    <button
-                      onClick={() => {
-                        setHistoricoPaciente(null)
-                        setAvaliacaoSelecionadaId(a.id)
-                      }}
-                      className="px-3 py-1 bg-emerald-600 text-white rounded text-xs font-medium hover:bg-emerald-700"
-                    >
-                      Ver Relatório
-                    </button>
+                    
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => handleDeleteAvaliacao(a.id)}
+                        className="p-1.5 text-red-500 hover:bg-red-50 rounded transition-colors"
+                        title="Excluir Avaliação"
+                      >
+                        {/* Ícone de Lixeira SVG */}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinelinejoin="round">
+                          <polyline points="3 6 5 6 21 6"></polyline>
+                          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                      </button>
+                      
+                      <button
+                        onClick={() => {
+                          setHistoricoPaciente(null)
+                          setAvaliacaoSelecionadaId(a.id)
+                        }}
+                        className="px-3 py-1 bg-emerald-600 text-white rounded text-xs font-medium hover:bg-emerald-700"
+                      >
+                        Ver Relatório
+                      </button>
+                    </div>
                   </div>
                 ))}
               </div>
