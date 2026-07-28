@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { supabase } from '../supabaseClient'
+import AvaliacaoForm from './AvaliacaoForm'
 
 export default function Pacientes({ userId }) {
   const [pacientes, setPacientes] = useState([])
   const [loading, setLoading] = useState(true)
   const [showModal, setShowModal] = useState(false)
-  
+  const [pacienteSelecionado, setPacienteSelecionado] = useState(null)
+
   // Campos do Formulário
   const [nome, setNome] = useState('')
   const [dataNascimento, setDataNascimento] = useState('')
@@ -19,7 +21,7 @@ export default function Pacientes({ userId }) {
   const [observacoes, setObservacoes] = useState('')
   const [saving, setSaving] = useState(false)
 
-  // Carregar lista de pacientes do Supabase
+  // 1. Carregar lista de pacientes do Supabase
   const fetchPacientes = async () => {
     setLoading(true)
     const { data, error } = await supabase
@@ -39,7 +41,7 @@ export default function Pacientes({ userId }) {
     fetchPacientes()
   }, [])
 
-  // Cadastrar Novo Paciente
+  // 2. Cadastrar Novo Paciente
   const handleSubmit = async (e) => {
     e.preventDefault()
     setSaving(true)
@@ -81,6 +83,18 @@ export default function Pacientes({ userId }) {
     setSaving(false)
   }
 
+  // 3. SE houver paciente selecionado, renderiza a tela de avaliação
+  if (pacienteSelecionado) {
+    return (
+      <AvaliacaoForm
+        paciente={pacienteSelecionado}
+        onVoltar={() => setPacienteSelecionado(null)}
+        onSucesso={() => setPacienteSelecionado(null)}
+      />
+    )
+  }
+
+  // 4. Caso contrário, renderiza a lista/tabela normal de pacientes
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
@@ -133,7 +147,10 @@ export default function Pacientes({ userId }) {
                       )}
                     </td>
                     <td className="p-4 text-right">
-                      <button className="text-emerald-600 hover:text-emerald-800 font-medium text-xs">
+                      <button 
+                        onClick={() => setPacienteSelecionado(p)}
+                        className="text-emerald-600 hover:text-emerald-800 font-medium text-xs"
+                      >
                         Iniciar Avaliação
                       </button>
                     </td>
