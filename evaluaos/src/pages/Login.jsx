@@ -96,18 +96,29 @@ export default function Login({ onLoginSuccess }) {
                   value={nome}
                   onChange={(e) => setNome(e.target.value)}
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 text-sm"
-                  placeholder="Dr. Marco Aurélio"
+                  placeholder="Nome completo"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700">CRN / CREF / NUMEP</label>
+                <div className="flex justify-between items-center">
+                  <label className="block text-sm font-medium text-gray-700">
+                    CRN / CREF / NUMEP / Estudante
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => setCrnNumep('Estudante')}
+                    className="text-xs text-emerald-600 hover:underline font-medium"
+                  >
+                    Sou Estudante
+                  </button>
+                </div>
                 <input
                   type="text"
                   value={crnNumep}
                   onChange={(e) => setCrnNumep(e.target.value)}
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 text-sm"
-                  placeholder="Ex: CRN-12345"
+                  placeholder="Ex: CRN-12345 ou Estudante"
                 />
               </div>
             </>
