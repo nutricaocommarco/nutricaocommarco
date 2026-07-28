@@ -111,18 +111,16 @@ export default function Pacientes({ userId }) {
   }
 
 // Função para Excluir Avaliação (Ajustada para limpar os cálculos junto)
-  const handleDeleteAvaliacao = async (idAvaliacao) => {
-    const confirmacao = window.confirm("Tem certeza que deseja excluir esta avaliação? Esta ação não pode ser desfeita.")
+const handleDeleteAvaliacao = async (idAvaliacao) => {
+    const digitado = window.prompt("⚠️ Ação irreversível!\n\nPara confirmar a exclusão desta avaliação, digite exatamente a palavra APAGAR:")
     
-    if (confirmacao) {
+    if (digitado === "APAGAR") {
       try {
-        // 1. Apaga primeiro da tabela dependente (dados_calculados)
         await supabase
           .from('dados_calculados')
           .delete()
           .eq('id_avaliacao', idAvaliacao)
 
-        // 2. Apaga da tabela principal (avaliacoes)
         const { error } = await supabase
           .from('avaliacoes')
           .delete()
@@ -130,12 +128,29 @@ export default function Pacientes({ userId }) {
 
         if (error) throw error
 
-        // Remove da lista na tela
         setAvaliacoesList(avaliacoesList.filter(a => a.id !== idAvaliacao))
         alert('Avaliação excluída com sucesso!')
       } catch (err) {
         alert('Erro ao excluir avaliação: ' + err.message)
       }
+    } else if (digitado !== null) {
+      alert('Palavra incorreta. A exclusão foi cancelada.')
+    }
+  }
+
+  const handleDeletePaciente = async (idPaciente) => {
+    const digitado = window.prompt("⚠️ ATENÇÃO: Isso apagará o paciente e todo o seu histórico!\n\nDigite APAGAR para confirmar:")
+    
+    if (digitado === "APAGAR") {
+      const { error } = await supabase.from('pacientes').delete().eq('id', idPaciente)
+      if (error) {
+        alert('Erro ao excluir paciente: ' + error.message)
+      } else {
+        fetchPacientes()
+        alert('Paciente excluído com sucesso!')
+      }
+    } else if (digitado !== null) {
+      alert('Palavra incorreta. A exclusão foi cancelada.')
     }
   }
 
