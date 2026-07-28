@@ -5,24 +5,41 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
   const [loading, setLoading] = useState(true)
   const [dados, setDados] = useState(null)
 
-  useEffect(() => {
+useEffect(() => {
     async function carregarResultados() {
       setLoading(true)
-      const { data, error } = await supabase
-        .from('dados_calculados')
+      
+      // Busca primeiro na tabela pai, garantindo que a estrutura exista
+      const { data: avalDados, error: avalError } = await supabase
+        .from('avaliacoes')
         .select(`
           *,
-          pacientes ( nome_completo, sexo, data_nascimento, etnia ),
-          avaliacoes ( * )
+          pacientes ( nome_completo, sexo, data_nascimento, etnia )
         `)
+        .eq('id', avaliacaoId)
+        .single()
+
+      if (avalError) {
+        console.error('Avaliação não encontrada:', avalError)
+        setLoading(false)
+        return
+      }
+
+      // Tenta buscar os cálculos atrelados
+      const { data: calcDados } = await supabase
+        .from('dados_calculados')
+        .select('*')
         .eq('id_avaliacao', avaliacaoId)
         .single()
 
-      if (error) {
-        console.error('Erro ao carregar dados calculados:', error)
-      } else {
-        setDados(data)
-      }
+      // Mesmo se os cálculos (calcDados) estiverem ausentes, o sistema reconstrói o objeto 
+      // para exibir pelo menos as Medidas Brutas e recalcular a composição corporal na hora
+      setDados({
+        ...calcDados, // pode ser nulo, mas não vai quebrar
+        avaliacoes: avalDados,
+        pacientes: avalDados.pacientes
+      })
+      
       setLoading(false)
     }
 

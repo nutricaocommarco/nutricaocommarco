@@ -110,22 +110,31 @@ export default function Pacientes({ userId }) {
     setAvaliacoesList(data || [])
   }
 
-  // Função para Excluir Avaliação
+// Função para Excluir Avaliação (Ajustada para limpar os cálculos junto)
   const handleDeleteAvaliacao = async (idAvaliacao) => {
     const confirmacao = window.confirm("Tem certeza que deseja excluir esta avaliação? Esta ação não pode ser desfeita.")
     
     if (confirmacao) {
-      // O Supabase apaga em cascata (se configurado) ou apagamos a avaliação principal
-      const { error } = await supabase
-        .from('avaliacoes')
-        .delete()
-        .eq('id', idAvaliacao)
+      try {
+        // 1. Apaga primeiro da tabela dependente (dados_calculados)
+        await supabase
+          .from('dados_calculados')
+          .delete()
+          .eq('id_avaliacao', idAvaliacao)
 
-      if (error) {
-        alert('Erro ao excluir avaliação: ' + error.message)
-      } else {
-        // Remove a avaliação da lista que está na tela no momento
+        // 2. Apaga da tabela principal (avaliacoes)
+        const { error } = await supabase
+          .from('avaliacoes')
+          .delete()
+          .eq('id', idAvaliacao)
+
+        if (error) throw error
+
+        // Remove da lista na tela
         setAvaliacoesList(avaliacoesList.filter(a => a.id !== idAvaliacao))
+        alert('Avaliação excluída com sucesso!')
+      } catch (err) {
+        alert('Erro ao excluir avaliação: ' + err.message)
       }
     }
   }
