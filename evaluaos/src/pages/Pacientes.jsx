@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { supabase } from '../supabaseClient'
 import AvaliacaoForm from './AvaliacaoForm'
 import ResultadoAvaliacao from './ResultadoAvaliacao'
-import logo from '../Imagens/Logo_png.png'
+import logo from '../evaluaos/Imagens/Logo_png.png'
 
 export default function Pacientes({ userId }) {
   // 1. TODOS OS ESTADOS (Hooks) DEVEM FICAR NO TOPO

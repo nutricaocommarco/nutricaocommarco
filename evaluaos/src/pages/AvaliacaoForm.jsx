@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { supabase } from '../supabaseClient'
-import logo from '../Imagens/Logo_png.png'
+import logo from '../evaluaos/Imagens/Logo_png.png'
 
 // --- HELPER: Gera o estado inicial das medidas ---
 const initMeasures = (keys) =>
