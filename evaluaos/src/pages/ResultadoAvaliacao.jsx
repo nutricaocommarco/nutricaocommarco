@@ -68,7 +68,7 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
   const massaGordaCalculada = (percentualGordura * peso) / 100
   const massaMagraCalculada = peso - massaGordaCalculada
 
-  // 4. Massa Muscular (Fórmula de Lee)
+  // 4. Massa Muscular (Fórmula de Lee - CORRIGIDA)
   const sexoNum = pac.sexo === 'M' ? 1 : 0
   let racaNum = 0
   if (pac.etnia === 'Afrodescendente') racaNum = 1.1
@@ -91,7 +91,8 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
     massaMuscular =
       (alturaM * ((0.00744 * termoBraco) + (0.00088 * termoCoxa) + (0.00441 * termoPant))) +
       (2.4 * sexoNum) -
-      (0.048 * idade) * racaNum +
+      (0.048 * idade) + // <-- AQUI ESTAVA O ERRO DE MULTIPLICAÇÃO
+      racaNum +         // <-- AGORA SOMA A RAÇA CORRETAMENTE
       7.8
   }
 
