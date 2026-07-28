@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { supabase } from '../supabaseClient'
-import logo from '../evaluaos/Imagens/Logo_png.png'
 
 // --- HELPER: CÁLCULO DE SOMATOTIPO HEATH-CARTER ---
 const calcularSomatotipo = (medidas) => {
