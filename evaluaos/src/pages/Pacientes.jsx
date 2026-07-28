@@ -136,7 +136,8 @@ const handleDeleteAvaliacao = async (idAvaliacao) => {
     } else if (digitado !== null) {
       alert('Palavra incorreta. A exclusão foi cancelada.')
     }
-  }
+  } 
+  
 
   const handleDeletePaciente = async (idPaciente) => {
     const digitado = window.prompt("⚠️ ATENÇÃO: Isso apagará o paciente e todo o seu histórico!\n\nDigite APAGAR para confirmar:")
