@@ -19,6 +19,8 @@ export default function Pacientes({ userId }) {
   const [nome, setNome] = useState('')
   const [dataNascimento, setDataNascimento] = useState('')
   const [sexo, setSexo] = useState('M')
+  const [etnia, setEtnia] = useState('')
+  const [nacionalidade, setNacionalidade] = useState('Brasileira')
   const [email, setEmail] = useState('')
   const [telefone, setTelefone] = useState('')
   const [ocupacao, setOcupacao] = useState('')
@@ -60,6 +62,8 @@ export default function Pacientes({ userId }) {
       nome_completo: nome,
       data_nascimento: dataNascimento || null,
       sexo,
+      etnia,
+      nacionalidade,
       email,
       telefone,
       ocupacao,
@@ -79,6 +83,8 @@ export default function Pacientes({ userId }) {
       setNome('')
       setDataNascimento('')
       setSexo('M')
+      setEtnia('')
+      setNacionalidade('Brasileira')
       setEmail('')
       setTelefone('')
       setOcupacao('')
@@ -248,6 +254,36 @@ export default function Pacientes({ userId }) {
                     <option value="M">Masculino</option>
                     <option value="F">Feminino</option>
                   </select>
+                </div>
+              </div>
+
+              {/* Campos Novos: Etnia e Nacionalidade */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 uppercase">Etnia / Cor</label>
+                  <select
+                    value={etnia}
+                    onChange={(e) => setEtnia(e.target.value)}
+                    className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500"
+                  >
+                    <option value="">Selecione...</option>
+                    <option value="Caucasiano">Caucasiana / Branca</option>
+                    <option value="Afrodescendente">Afrodescendente / Negra</option>
+                    <option value="Pardo">Parda / Mestiça</option>
+                    <option value="Asiatico">Asiática / Amarela</option>
+                    <option value="Indigena">Indígena</option>
+                    <option value="Outro">Outra</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 uppercase">Nacionalidade</label>
+                  <input
+                    type="text"
+                    value={nacionalidade}
+                    onChange={(e) => setNacionalidade(e.target.value)}
+                    className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500"
+                    placeholder="Ex: Brasileira"
+                  />
                 </div>
               </div>
 
