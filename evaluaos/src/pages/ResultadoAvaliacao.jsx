@@ -48,7 +48,7 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
   }
 
   // ============================================================================
-  // LEITURA DOS DADOS PRONTOS (Sem refazer cálculos)
+  // LEITURA E ESTRATÉGIA HÍBRIDA (Fallback)
   // ============================================================================
   const aval = dados.avaliacoes || {}
   const pac = dados.pacientes || {}
@@ -64,15 +64,37 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
     }
   }
 
-  // Pega os dados direto do banco de dados (as colunas que agora populamos corretamente)
   const imc = dados.imc || 0
-  const percentualGordura = aval.percentual_de_gordura || 0 // Vem da tabela de avaliações
+  const percentualGordura = aval.percentual_de_gordura || 0 
   const massaGorda = dados.massa_gorda || 0
   const massaMagra = dados.massa_magra || 0
   const massaMuscular = dados.massa_muscular || 0
-
   const coordX = 150 + ((dados.somatocarta_eixo_x || 0) * 15)
   const coordY = 150 - ((dados.somatocarta_eixo_y || 0) * 11)
+
+  // === LÓGICA DE FALLBACK (Para exibir em avaliações velhas que o banco estava vazio) ===
+  const pCintura = aval.perimetro_cintura || 0;
+  const pQuadril = aval.perimetro_quadril || 0;
+  const alturaCm = aval.altura_paciente || 0;
+
+  const dTri = aval.dobra_cutanea_triceps || 0;
+  const dSub = aval.dobra_cutanea_subescapular || 0;
+  const dBic = aval.dobra_cutanea_biceps || 0;
+  const dIli = aval.dobra_cutanea_crista_iliaca || 0;
+  const dSup = aval.dobra_cutanea_supraespinhal || 0;
+  const dAbd = aval.dobra_cutanea_abdominal || 0;
+  const dCoxa = aval.dobra_cutanea_coxa_media || 0;
+  const dPant = aval.dobra_cutanea_panturrilha || 0;
+
+  const fallbackSoma6 = dTri + dSub + dSup + dAbd + dCoxa + dPant;
+  const fallbackSoma8 = fallbackSoma6 + dBic + dIli;
+
+  // Busca do banco. Se vier Null/0, calcula na hora usando os brutos
+  const rcq = dados.relacao_cintura_quadril || (pQuadril > 0 ? pCintura / pQuadril : 0);
+  const rce = dados.relacao_cintura_estatura || (alturaCm > 0 ? pCintura / alturaCm : 0);
+  const soma6 = dados.somatorio_6_dobras || fallbackSoma6;
+  const soma8 = dados.somatorio_8_dobras || fallbackSoma8;
+
 
   const renderMedidaItem = (label, valor, unidade) => (
     <div className="flex justify-between items-center p-2 border-b border-gray-50 last:border-0 hover:bg-gray-50 rounded transition-colors" key={label}>
@@ -121,6 +143,29 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
           <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-center border-l-4 border-l-emerald-500">
             <p className="text-xs font-semibold text-gray-500 uppercase">Massa Muscular</p>
             <p className="text-2xl font-black text-emerald-700 mt-1">{massaMuscular > 0 ? massaMuscular.toFixed(1) : '-'} <span className="text-xs font-normal text-gray-500">kg</span></p>
+          </div>
+        </div>
+      </div>
+
+      {/* MÉTRICAS DE SAÚDE (Adicionadas da Estratégia Híbrida) */}
+      <div>
+        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">⚖️ Indicadores de Saúde</h3>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex justify-between items-center">
+            <span className="text-xs font-bold text-gray-600">Relação Cintura-Quadril</span>
+            <span className="text-lg font-black text-indigo-600">{rcq > 0 ? rcq.toFixed(2) : '-'}</span>
+          </div>
+          <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex justify-between items-center">
+            <span className="text-xs font-bold text-gray-600">Relação Cintura-Estatura</span>
+            <span className="text-lg font-black text-indigo-600">{rce > 0 ? rce.toFixed(2) : '-'}</span>
+          </div>
+          <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex justify-between items-center">
+            <span className="text-xs font-bold text-gray-600">Σ 6 Dobras</span>
+            <span className="text-lg font-black text-amber-600">{soma6 > 0 ? soma6.toFixed(1) : '-'} <span className="text-xs font-normal">mm</span></span>
+          </div>
+          <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex justify-between items-center">
+            <span className="text-xs font-bold text-gray-600">Σ 8 Dobras</span>
+            <span className="text-lg font-black text-amber-600">{soma8 > 0 ? soma8.toFixed(1) : '-'} <span className="text-xs font-normal">mm</span></span>
           </div>
         </div>
       </div>
@@ -237,11 +282,15 @@ export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
         </div>
       </div>
 
-      {/* OUTROS INDICADORES */}
+      {/* OUTROS INDICADORES (O que faltou para o futuro) */}
       <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm space-y-4">
         <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider border-b pb-2">🚀 Outros Indicadores & Classificações</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-          {['Relação Cintura-Quadril (RCQ)', 'Relação Cintura-Estatura (RCE)', 'Índice de Massa Óssea (IMO)', 'Área de Previsão Visceral (APVAT)', 'Índice Adiposo Muscular', 'Somatório 6 Dobras', 'Somatório 8 Dobras', 'Perímetro Corrigido - Braço', 'Perímetro Corrigido - Coxa', 'Perímetro Corrigido - Panturrilha', 'Circunferência da Cintura (Status)', 'Gordura (Escala Morrow)', 'Gordura (Escala Argoref)'].map((item, index) => (
+          {[
+            'Índice de Massa Óssea (IMO)', 'Área de Previsão Visceral (APVAT)', 'Índice Adiposo Muscular', 
+            'Perímetro Corrigido - Braço', 'Perímetro Corrigido - Coxa', 'Perímetro Corrigido - Panturrilha', 
+            'Circunferência da Cintura (Status)', 'Gordura (Escala Morrow)', 'Gordura (Escala Argoref)'
+          ].map((item, index) => (
             <div key={index} className="flex justify-between items-center p-3 border border-gray-100 rounded-lg bg-gray-50">
               <span className="text-xs font-semibold text-gray-700">{item}</span>
               <span className="text-[10px] font-bold bg-gray-200 text-gray-500 px-2 py-1 rounded-md uppercase tracking-wide">Em breve</span>

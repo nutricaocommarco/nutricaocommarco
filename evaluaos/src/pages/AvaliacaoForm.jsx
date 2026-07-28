@@ -54,14 +54,12 @@ const calcularSomatotipo = (medidas) => {
   const perim_panturrilha = medidas.perimetro_panturrilha || 0;
   const peso = medidas.peso_paciente || 0;
 
-  // 1. ENDOMORFIA
   const somaDobrasEndo = (triceps + subescapular + supraespinhal) * (170.18 / (altura || 1));
   let endomorfia = 0;
   if (altura > 0) {
     endomorfia = -0.7182 + (0.1451 * somaDobrasEndo) - (0.00068 * Math.pow(somaDobrasEndo, 2)) + (0.0000014 * Math.pow(somaDobrasEndo, 3));
   }
 
-  // 2. MESOMORFIA
   const braco_corrigido = perim_braco - (triceps / 10);
   const panturrilha_corrigida = perim_panturrilha - (panturrilha_dobra / 10);
   let mesomorfia = 0;
@@ -69,7 +67,6 @@ const calcularSomatotipo = (medidas) => {
     mesomorfia = (0.858 * diam_umero) + (0.601 * diam_femur) + (0.188 * braco_corrigido) + (0.161 * panturrilha_corrigida) - (0.131 * altura) + 4.5;
   }
 
-  // 3. ECTOMORFIA
   let ectomorfia = 0;
   if (peso > 0 && altura > 0) {
     const cap = altura / Math.pow(peso, 0.3333);
@@ -125,34 +122,17 @@ const MeasureRow = ({ label, field, categoryType, state, setter, isSingleMode, h
     <div className="flex flex-col md:grid md:grid-cols-12 gap-2 md:items-center border-b border-gray-50 py-2 hover:bg-gray-50 px-2 rounded transition-colors">
       <div className="col-span-4 text-xs font-medium text-gray-700">{label}</div>
       <div className="col-span-6 grid grid-cols-3 gap-2">
-        <input
-          type="number" step="0.1" value={m1}
-          onChange={(e) => handleMeasureChange(setter, field, 'm1', e.target.value)}
-          className="w-full px-2 py-1.5 border rounded-md text-sm text-center focus:border-emerald-500 bg-white"
-          placeholder={isSingleMode ? "Valor" : "1ª"}
-        />
+        <input type="number" step="0.1" value={m1} onChange={(e) => handleMeasureChange(setter, field, 'm1', e.target.value)} className="w-full px-2 py-1.5 border rounded-md text-sm text-center focus:border-emerald-500 bg-white" placeholder={isSingleMode ? "Valor" : "1ª"} />
         {!isSingleMode && (
           <>
-            <input
-              type="number" step="0.1" value={m2}
-              onChange={(e) => handleMeasureChange(setter, field, 'm2', e.target.value)}
-              className="w-full px-2 py-1.5 border rounded-md text-sm text-center focus:border-emerald-500 bg-white"
-              placeholder="2ª"
-            />
-            <input
-              type="number" step="0.1" value={m3} disabled={!needsThird}
-              onChange={(e) => handleMeasureChange(setter, field, 'm3', e.target.value)}
-              className={`w-full px-2 py-1.5 border rounded-md text-sm text-center transition-colors ${needsThird ? 'ring-2 ring-red-400 bg-red-50 focus:ring-red-500' : 'opacity-40 bg-gray-100 cursor-not-allowed'}`}
-              placeholder="3ª"
-            />
+            <input type="number" step="0.1" value={m2} onChange={(e) => handleMeasureChange(setter, field, 'm2', e.target.value)} className="w-full px-2 py-1.5 border rounded-md text-sm text-center focus:border-emerald-500 bg-white" placeholder="2ª" />
+            <input type="number" step="0.1" value={m3} disabled={!needsThird} onChange={(e) => handleMeasureChange(setter, field, 'm3', e.target.value)} className={`w-full px-2 py-1.5 border rounded-md text-sm text-center transition-colors ${needsThird ? 'ring-2 ring-red-400 bg-red-50 focus:ring-red-500' : 'opacity-40 bg-gray-100 cursor-not-allowed'}`} placeholder="3ª" />
           </>
         )}
       </div>
       <div className="col-span-2 text-right md:text-center mt-1 md:mt-0">
         <span className="text-xs text-gray-500 md:hidden mr-2">Resultado:</span>
-        <span className="text-sm font-bold text-emerald-700 bg-emerald-50 px-2 py-1 rounded">
-          {finalValue}
-        </span>
+        <span className="text-sm font-bold text-emerald-700 bg-emerald-50 px-2 py-1 rounded">{finalValue}</span>
       </div>
     </div>
   )
@@ -193,9 +173,9 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
           return null
         }
         const sorted = [v1, v2, v3].sort((a, b) => a - b)
-        return sorted[1] // Mediana
+        return sorted[1]
       }
-      return (v1 + v2) / 2 // Média
+      return (v1 + v2) / 2
     }
     
     if (isNaN(v1) && isNaN(v2)) return null;
@@ -209,25 +189,10 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
 
     let validationErrors = []
 
-    const resolvedBasicas = basicaKeys.reduce((acc, key) => {
-      acc[key] = resolveMeasure(basicas[key], 'basicas', labels[key], validationErrors)
-      return acc
-    }, {})
-
-    const resolvedDobras = dobraKeys.reduce((acc, key) => {
-      acc[key] = resolveMeasure(dobras[key], 'dobras', labels[key], validationErrors)
-      return acc
-    }, {})
-
-    const resolvedPerimetros = perimetroKeys.reduce((acc, key) => {
-      acc[key] = resolveMeasure(perimetros[key], 'perimetros', labels[key], validationErrors)
-      return acc
-    }, {})
-
-    const resolvedDiametros = diametroKeys.reduce((acc, key) => {
-      acc[key] = resolveMeasure(diametros[key], 'diametros', labels[key], validationErrors)
-      return acc
-    }, {})
+    const resolvedBasicas = basicaKeys.reduce((acc, key) => { acc[key] = resolveMeasure(basicas[key], 'basicas', labels[key], validationErrors); return acc }, {})
+    const resolvedDobras = dobraKeys.reduce((acc, key) => { acc[key] = resolveMeasure(dobras[key], 'dobras', labels[key], validationErrors); return acc }, {})
+    const resolvedPerimetros = perimetroKeys.reduce((acc, key) => { acc[key] = resolveMeasure(perimetros[key], 'perimetros', labels[key], validationErrors); return acc }, {})
+    const resolvedDiametros = diametroKeys.reduce((acc, key) => { acc[key] = resolveMeasure(diametros[key], 'diametros', labels[key], validationErrors); return acc }, {})
 
     if (validationErrors.length > 0) {
       alert("⚠️ Erros de Validação:\n\n" + validationErrors.join('\n'))
@@ -235,13 +200,12 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
       return
     }
 
-    // 1. Monta o payload bruto para a tabela "avaliacoes" (com a coluna CORRETA percentual_de_gordura)
     const payloadBruto = {
       id_paciente: paciente.id,
       data_avaliacao: dataAvaliacao,
       hora_avaliacao: horaAvaliacao,
       equacao_de_regressao_escolhida: equacao,
-      percentual_de_gordura: parseFloat(percentualGordura) || null, // NOME CORRETO DA COLUNA
+      percentual_de_gordura: parseFloat(percentualGordura) || null,
       ...resolvedBasicas,
       ...resolvedDobras,
       ...resolvedPerimetros,
@@ -258,34 +222,16 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
       alert('Erro ao salvar avaliação: ' + error.message)
     } else {
       
-      // 2. Calcula IMC, Massas e Somatotipo para a tabela "dados_calculados"
       const pcGorduraFinal = parseFloat(percentualGordura) || 0
       const pesoFinal = resolvedBasicas.peso_paciente || 0
       const alturaCm = resolvedBasicas.altura_paciente || 0
       const alturaM = alturaCm / 100
 
-      // Cálculos Básicos
       const calcImc = alturaM > 0 ? pesoFinal / (alturaM * alturaM) : 0
       const massaGordaCalc = pesoFinal > 0 ? (pcGorduraFinal * pesoFinal) / 100 : 0
       const massaMagraCalc = pesoFinal > 0 ? pesoFinal - massaGordaCalc : 0
 
-      // Cálculo de Massa Muscular (Lee)
-      const sexoNum = paciente.sexo === 'M' ? 1 : 0
-      let racaNum = 0
-      if (paciente.etnia === 'Afrodescendente') racaNum = 1.1
-      if (paciente.etnia === 'Asiatico') racaNum = -2
-
-      let idade = 25 // fallback
-      if (paciente.data_nascimento) {
-        const birthDate = new Date(paciente.data_nascimento + 'T12:00:00')
-        const evalDate = new Date(dataAvaliacao + 'T12:00:00')
-        idade = evalDate.getFullYear() - birthDate.getFullYear()
-        const m = evalDate.getMonth() - birthDate.getMonth()
-        if (m < 0 || (m === 0 && evalDate.getDate() < birthDate.getDate())) {
-          idade--
-        }
-      }
-
+      // Muscular Lee Variables
       const pBraco = resolvedPerimetros.perimetro_braco_relaxado || 0
       const pCoxa = resolvedPerimetros.perimetro_coxa_media || 0
       const pPant = resolvedPerimetros.perimetro_panturrilha || 0
@@ -299,10 +245,37 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
 
       let calcMuscular = 0
       if (alturaM > 0 && pBraco > 0 && pCoxa > 0 && pPant > 0) {
+        const sexoNum = paciente.sexo === 'M' ? 1 : 0
+        let racaNum = 0
+        if (paciente.etnia === 'Afrodescendente') racaNum = 1.1
+        if (paciente.etnia === 'Asiatico') racaNum = -2
+        let idade = 25
+        if (paciente.data_nascimento) {
+          const birthDate = new Date(paciente.data_nascimento + 'T12:00:00')
+          const evalDate = new Date(dataAvaliacao + 'T12:00:00')
+          idade = evalDate.getFullYear() - birthDate.getFullYear()
+          const m = evalDate.getMonth() - birthDate.getMonth()
+          if (m < 0 || (m === 0 && evalDate.getDate() < birthDate.getDate())) idade--
+        }
         calcMuscular = (alturaM * ((0.00744 * termoBraco) + (0.00088 * termoCoxa) + (0.00441 * termoPant))) + (2.4 * sexoNum) - (0.048 * idade) + racaNum + 7.8
       }
 
       const somatotipo = calcularSomatotipo(payloadBruto)
+
+      // === NOVAS VARIÁVEIS (Estratégia Híbrida - Salvando) ===
+      const pCintura = resolvedPerimetros.perimetro_cintura || 0
+      const pQuadril = resolvedPerimetros.perimetro_quadril || 0
+      const calcRcq = pQuadril > 0 ? pCintura / pQuadril : 0
+      const calcRce = alturaCm > 0 ? pCintura / alturaCm : 0
+
+      const dSub = resolvedDobras.dobra_cutanea_subescapular || 0
+      const dSup = resolvedDobras.dobra_cutanea_supraespinhal || 0
+      const dAbd = resolvedDobras.dobra_cutanea_abdominal || 0
+      const dBic = resolvedDobras.dobra_cutanea_biceps || 0
+      const dIli = resolvedDobras.dobra_cutanea_crista_iliaca || 0
+      
+      const calcSoma6 = dTri + dSub + dSup + dAbd + dCoxa + dPant
+      const calcSoma8 = calcSoma6 + dBic + dIli
 
       const payloadCalculado = {
         id_paciente: paciente.id,
@@ -311,13 +284,14 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
         massa_gorda: Number(massaGordaCalc.toFixed(2)),
         massa_magra: Number(massaMagraCalc.toFixed(2)),
         massa_muscular: Number(calcMuscular.toFixed(2)),
+        relacao_cintura_quadril: Number(calcRcq.toFixed(2)),
+        relacao_cintura_estatura: Number(calcRce.toFixed(2)),
+        somatorio_6_dobras: Number(calcSoma6.toFixed(1)),
+        somatorio_8_dobras: Number(calcSoma8.toFixed(1)),
         ...somatotipo
       }
 
-      // SALVA TABELA 2: dados_calculados
-      const { error: calcError } = await supabase
-        .from('dados_calculados')
-        .insert([payloadCalculado])
+      const { error: calcError } = await supabase.from('dados_calculados').insert([payloadCalculado])
 
       if (calcError) {
         console.error('Erro ao salvar cálculos:', calcError)
@@ -344,7 +318,6 @@ export default function AvaliacaoForm({ paciente, onVoltar, onSucesso }) {
           </div>
           <div className="col-span-2 text-center text-emerald-600">Calculado</div>
         </div>
-        
         {keys.map((key) => (
           <MeasureRow key={key} label={labels[key]} field={key} categoryType={type} state={state} setter={setter} isSingleMode={isSingleMode} handleMeasureChange={handleMeasureChange} />
         ))}
