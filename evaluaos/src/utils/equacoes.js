@@ -65,6 +65,7 @@ const prepararDados = (medidas = {}, paciente = {}) => {
   const peso = medidas.peso_paciente || medidas.massa_kg || medidas.peso_kg || 0;
   const alturaCm = medidas.altura_paciente || medidas.estatura_cm || medidas.altura_cm || 0;
   const imc = (peso > 0 && alturaCm > 0) ? (peso / Math.pow(alturaCm / 100, 2)) : 0;
+  const estaturaSentado = Number(m.altura_sentado_paciente || m.estatura_sentado || 0);
 
   const tr = medidas.dobra_cutanea_triceps || 0;             
   const sub = medidas.dobra_cutanea_subescapular || 0;       
@@ -86,7 +87,7 @@ const prepararDados = (medidas = {}, paciente = {}) => {
   const somaWithers6 = somaWithers4 + ab + cx;
 
   return {
-    idade, peso, alturaCm, imc,
+    idade, peso, alturaCm, imc, estaturaSentado,
     tr, sub, bi, si, se, ab, cx, pa,
     perCintura, perAbdome, perQuadril, perBracoRelax,
     diamUmero, somaDurnin, somaWithers4, somaWithers6
@@ -602,130 +603,179 @@ export const calcularFemEvans2005_3skf_Negras = (m, p) => {
 
 // --- GRUPO DURNIN & WOMERSLEY (Variações de Idade) ---
 
-// 23. Durnin 4skf Variação A (AC65 / AC66) -> Geralmente Mulheres 40-49 anos
-export const calcularFemDurnin_VarA = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel: =1,1369-0,0598*LOG(F55+F56+F57+F59)
-  const dc = 1.1369 - (0.0598 * safeLog10(soma4Durnin));
-  return converterDCparaSiri(dc);
+// ============================================================
+// 23. Durnin et al. (1974) - 4skf (< 17 anos)
+// População: Generalizada (Escócia) | Idade: < 17 anos | Ref: PH
+// Ref Excel: AC65 (DC) e AC66 (%G Siri)
+// ============================================================
+export const calcularFemDurnin1974_Menor17 = (m, p) => {
+  const info = { autor: 'Durnin & Womersley', ano: 1974, protocolo: '4 Dobras Cutâneas (< 17 anos)', populacao: 'Generalizada (Escócia)', faixaEtaria: 'Menores de 17 anos', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const dc = 1.1369 - (0.0598 * safeLog10(somaDurnin));
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-// 24. Durnin 4skf Variação B (AC68 / AC69) -> Geralmente Mulheres 30-39 anos
-export const calcularFemDurnin_VarB = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel: =1,1549-0,0678*LOG(F55+F56+F57+F59)
-  const dc = 1.1549 - (0.0678 * safeLog10(soma4Durnin));
-  return converterDCparaSiri(dc);
+// ============================================================
+// 24. Durnin et al. (1974) - 4skf (16 a 19 anos)
+// População: Generalizada (Escócia) | Idade: 16 a 19 anos | Ref: PH
+// Ref Excel: AC68 (DC) e AC69 (%G Siri)
+// ============================================================
+export const calcularFemDurnin1974_16a19anos = (m, p) => {
+  const info = { autor: 'Durnin & Womersley', ano: 1974, protocolo: '4 Dobras Cutâneas (16 a 19 anos)', populacao: 'Generalizada (Escócia)', faixaEtaria: '16 a 19 anos', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const dc = 1.1549 - (0.0678 * safeLog10(somaDurnin));
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-// 25. Durnin 4skf Variação C (AC71 / AC72) -> Geralmente Mulheres 17-29 anos
-export const calcularFemDurnin_VarC = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel: =1,1599-0,0717*LOG(F55+F56+F57+F59)
-  const dc = 1.1599 - (0.0717 * safeLog10(soma4Durnin));
-  return converterDCparaSiri(dc);
+// ============================================================
+// 25. Durnin et al. (1974) - 4skf (20 a 29 anos)
+// População: Generalizada (Escócia) | Idade: 20 a 29 anos | Ref: PH
+// Ref Excel: AC71 (DC) e AC72 (%G Siri)
+// ============================================================
+export const calcularFemDurnin1974_20a29anos = (m, p) => {
+  const info = { autor: 'Durnin & Womersley', ano: 1974, protocolo: '4 Dobras Cutâneas (20 a 29 anos)', populacao: 'Generalizada (Escócia)', faixaEtaria: '20 a 29 anos', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const dc = 1.1599 - (0.0717 * safeLog10(somaDurnin));
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-// 26. Durnin 4skf Variação D (AC74 / AC75) -> Geralmente Mulheres 20-29 anos (outra tabela)
-export const calcularFemDurnin_VarD = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel: =1,1423-0,0632*LOG(F55+F56+F57+F59)
-  const dc = 1.1423 - (0.0632 * safeLog10(soma4Durnin));
-  return converterDCparaSiri(dc);
+// ============================================================
+// 26. Durnin et al. (1974) - 4skf (30 a 39 anos)
+// População: Generalizada (Escócia) | Idade: 30 a 39 anos | Ref: PH
+// Ref Excel: AC74 (DC) e AC75 (%G Siri)
+// ============================================================
+export const calcularFemDurnin1974_30a39anos = (m, p) => {
+  const info = { autor: 'Durnin & Womersley', ano: 1974, protocolo: '4 Dobras Cutâneas (30 a 39 anos)', populacao: 'Generalizada (Escócia)', faixaEtaria: '30 a 39 anos', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const dc = 1.1423 - (0.0632 * safeLog10(somaDurnin));
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-// 27. Durnin 4skf Variação E (AC77 / AC78) -> Geralmente Mulheres 50+ anos
-export const calcularFemDurnin_VarE = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel: =1,1333-0,0612*LOG(F55+F56+F57+F59)
-  const dc = 1.1333 - (0.0612 * safeLog10(soma4Durnin));
-  return converterDCparaSiri(dc);
+// ============================================================
+// 27. Durnin et al. (1974) - 4skf (40 a 49 anos)
+// População: Generalizada (Escócia) | Idade: 40 a 49 anos | Ref: PH
+// Ref Excel: AC77 (DC) e AC78 (%G Siri)
+// ============================================================
+export const calcularFemDurnin1974_40a49anos = (m, p) => {
+  const info = { autor: 'Durnin & Womersley', ano: 1974, protocolo: '4 Dobras Cutâneas (40 a 49 anos)', populacao: 'Generalizada (Escócia)', faixaEtaria: '40 a 49 anos', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const dc = 1.1333 - (0.0612 * safeLog10(somaDurnin));
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-// 28. Durnin 4skf Variação F (AC80 / AC81) -> Outra variação 50+
-export const calcularFemDurnin_VarF = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel: =1,1339-0,0645*LOG(F55+F56+F57+F59)
-  const dc = 1.1339 - (0.0645 * safeLog10(soma4Durnin));
-  return converterDCparaSiri(dc);
+// ============================================================
+// 28. Durnin et al. (1974) - 4skf (50 a 58 anos)
+// População: Generalizada (Escócia) | Idade: 50 a 58 anos | Ref: PH
+// Ref Excel: AC80 (DC) e AC81 (%G Siri)
+// ============================================================
+export const calcularFemDurnin1974_50a58anos = (m, p) => {
+  const info = { autor: 'Durnin & Womersley', ano: 1974, protocolo: '4 Dobras Cutâneas (50 a 58 anos)', populacao: 'Generalizada (Escócia)', faixaEtaria: '50 a 58 anos', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const dc = 1.1339 - (0.0645 * safeLog10(somaDurnin));
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-// --- FÓRMULAS DIRETAS (LOG E LINEARES) ---
-
-// 29. DC por Tríceps Logarítmica (AC83 / AC84)
-export const calcularFemDC_TricepsLog = (m, p) => {
+// ============================================================
+// 29. Durnin et al. (1974) - 1skf (Só Tríceps)
+// População: Generalizada (Escócia) | Idade: 16 a 68 anos | Ref: PH
+// Ref Excel: AC83 (DC) e AC84 (%G Siri)
+// ============================================================
+export const calcularFemDurnin1974_1skf = (m, p) => {
+  const info = { autor: 'Durnin & Womersley', ano: 1974, protocolo: '1 Dobra Cutânea (Tríceps)', populacao: 'Generalizada (Escócia)', faixaEtaria: '16 a 68 anos', referencia: 'PH' };
   const { tr } = prepararDados(m, p);
-  if (tr <= 0) return 0;
-  // Excel: =1,1278-0,0775*LOG(F55)
+  if (tr <= 0) return { valor: 0, info };
   const dc = 1.1278 - (0.0775 * safeLog10(tr));
-  return converterDCparaSiri(dc);
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-// 30. DC Tríceps e Subescapular Logarítmica (AC86 / AC87)
-export const calcularFemDC_TricSubLog = (m, p) => {
+// ============================================================
+// 30. Durnin et al. (1974) - 2skf (Tríceps e Subescapular)
+// População: Generalizada (Escócia) | Idade: 16 a 68 anos | Ref: PH
+// Ref Excel: AC86 (DC) e AC87 (%G Siri)
+// ============================================================
+export const calcularFemDurnin1974_2skf = (m, p) => {
+  const info = { autor: 'Durnin & Womersley', ano: 1974, protocolo: '2 Dobras Cutâneas (Tríceps, Subescapular)', populacao: 'Generalizada (Escócia)', faixaEtaria: '16 a 68 anos', referencia: 'PH' };
   const { tr, sub } = prepararDados(m, p);
   const soma2 = tr + sub;
-  if (soma2 <= 0) return 0;
-  // Excel: =1,1507-0,0785*LOG10(F55+F56)
+  if (soma2 <= 0) return { valor: 0, info };
   const dc = 1.1507 - (0.0785 * safeLog10(soma2));
-  return converterDCparaSiri(dc);
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-// 31. DC Tríceps e Subescapular Linear (AC89 / AC90)
-export const calcularFemDC_TricSubLinear = (m, p) => {
+// ============================================================
+// 31. Nagamine & Suzuki (1964) - 2skf Linear
+// População: Japonesas | Idade: 18 a 23 anos | Ref: PH
+// Ref Excel: AC89 (DC) e AC90 (%G Siri)
+// ============================================================
+export const calcularFemNagamineSuzuki1964_2skf = (m, p) => {
+  const info = { autor: 'Nagamine & Suzuki', ano: 1964, protocolo: '2 Dobras (Tríceps, Subescapular)', populacao: 'Asiáticas', faixaEtaria: '18 a 23 anos', referencia: 'PH' };
   const { tr, sub } = prepararDados(m, p);
-  // Excel: =1,0897-0,00133*(F55+F56)
-  if (tr <= 0) return 0;
+  if (tr <= 0 || sub <= 0) return { valor: 0, info };
   const dc = 1.0897 - (0.00133 * (tr + sub));
-  return converterDCparaSiri(dc);
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-// 32. %G Direto por Log de 4 Dobras Variação A (AC92)
-export const calcularFemPercGord_Log4Dobras_A = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel: =29,85*LOG10(F57+F55+F56+F59)-25,87
-  const pgc = 29.85 * safeLog10(soma4Durnin) - 25.87;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+// ============================================================
+// 32. Deurenberg et al. (1990) - 4skf (Pré-Púberes)
+// População: Meninas Adolescentes (Pré-Púberes) | Ref: PH
+// Ref Excel: AC92 (%G Direto)
+// ============================================================
+export const calcularFemDeurenberg1990_PrePuberes = (m, p) => {
+  const info = { autor: 'Deurenberg et al.', ano: 1990, protocolo: '4 Dobras Cutâneas', populacao: 'Meninas (Pré-Púberes)', faixaEtaria: 'Adolescentes', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const pgc = 29.85 * safeLog10(somaDurnin) - 25.87;
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
-// 33. %G Direto por Log de 4 Dobras Variação B (AC93)
-export const calcularFemPercGord_Log4Dobras_B = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel: =23,94*LOG10(F57+F55+F56+F59)-18,89
-  const pgc = 23.94 * safeLog10(soma4Durnin) - 18.89;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+// ============================================================
+// 33. Deurenberg et al. (1990) - 4skf (Púberes)
+// População: Meninas Adolescentes (Púberes) | Ref: PH
+// Ref Excel: AC93 (%G Direto)
+// ============================================================
+export const calcularFemDeurenberg1990_Puberes = (m, p) => {
+  const info = { autor: 'Deurenberg et al.', ano: 1990, protocolo: '4 Dobras Cutâneas', populacao: 'Meninas (Púberes)', faixaEtaria: 'Adolescentes', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const pgc = 23.94 * safeLog10(somaDurnin) - 18.89;
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
-// 34. %G Direto por Log de 4 Dobras Variação C (AC94)
-export const calcularFemPercGord_Log4Dobras_C = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel: =39,02*LOG10(F57+F55+F56+F59)-43,49
-  const pgc = 39.02 * safeLog10(soma4Durnin) - 43.49;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+// ============================================================
+// 34. Deurenberg et al. (1990) - 4skf (Pós-Púberes)
+// População: Meninas Adolescentes (Pós-Púberes) | Ref: PH
+// Ref Excel: AC94 (%G Direto)
+// ============================================================
+export const calcularFemDeurenberg1990_PosPuberes = (m, p) => {
+  const info = { autor: 'Deurenberg et al.', ano: 1990, protocolo: '4 Dobras Cutâneas', populacao: 'Meninas (Pós-Púberes)', faixaEtaria: 'Adolescentes', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const pgc = 39.02 * safeLog10(somaDurnin) - 43.49;
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
-// 35. %G Equação Complexa - Logaritmos Mistos (AC96)
-export const calcularFemComplexa_Mista = (m, p) => {
-  const { imc, perCintura, tr, sub, pa, diamUmero } = prepararDados(m, p);
-  if (tr <= 0) return 0;
-  // Como F17 não apareceu no dicionário, utilizaremos 0 temporariamente (pode ser peso ideal ou outra medida de cima da planilha)
-  const F17 = 0; 
-  // Excel: =-7,299-(21,436*LOG10(F17))+(17,739*LOG10(C61))+(20,143*LOG10(C75))+(7,813*LOG10(F55))+(6,379*LOG10(F56))+(6,051*LOG10((F63))-(16,364*LOG10(F69)))
-  const parte1 = -7.299 - (21.436 * safeLog10(F17));
+// ============================================================
+// 35. Ortiz-Hernández et al. (2016) - Equação Mista
+// População: Meninas Mexicanas | Idade: 5 a 19 anos | Ref: DXA
+// Ref Excel: AC96 (%G Direto)
+// ============================================================
+export const calcularFemOrtizHernandez2016 = (m, p) => {
+  const info = { autor: 'Ortiz-Hernández et al.', ano: 2016, protocolo: 'Estatura Sentado + IMC + Perímetro + Dobras + Diâmetro', populacao: 'Meninas Mexicanas', faixaEtaria: '5 a 19 anos', referencia: 'DXA' };
+  const { imc, perCintura, tr, sub, pa, diamUmero, estaturaSentado } = prepararDados(m, p);
+  // F17 agora é a estaturaSentado extraída do banco de dados!
+  if (estaturaSentado <= 0 || tr <= 0 || imc <= 0) return { valor: 0, info };
+  const parte1 = -7.299 - (21.436 * safeLog10(estaturaSentado));
   const parte2 = (17.739 * safeLog10(imc)) + (20.143 * safeLog10(perCintura));
   const parte3 = (7.813 * safeLog10(tr)) + (6.379 * safeLog10(sub)) + (6.051 * safeLog10(pa));
   const parte4 = - (16.364 * safeLog10(diamUmero));
   const pgc = parte1 + parte2 + parte3 + parte4;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
 // ============================================================
