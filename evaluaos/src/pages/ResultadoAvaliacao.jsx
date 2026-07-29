@@ -201,6 +201,46 @@ export default function ResultadoAvaliacao() {
     if (m < 0 || (m === 0 && evalDate.getDate() < birthDate.getDate())) idade--
   }
 
+  // --- CLASSIFICAÇÃO DA CINTURA (Status) ---
+  const cinturaVal = aval.perimetro_cintura || 0
+  let statusCintura = '-'
+  if (cinturaVal > 0) {
+    if (pac.sexo === 'M') {
+      if (cinturaVal < 94) statusCintura = 'Normal'
+      else if (cinturaVal < 102) statusCintura = 'Elevado'
+      else statusCintura = 'Muito Elevado'
+    } else {
+      if (cinturaVal < 80) statusCintura = 'Normal'
+      else if (cinturaVal < 88) statusCintura = 'Elevado'
+      else statusCintura = 'Muito Elevado'
+    }
+  }
+
+  // --- ÍNDICE ADIPOSO MUSCULAR (IAM) ---
+  // Massa de Gordura (Kg) / Massa Muscular (Kg)
+  const iamVal = (massaMuscular > 0 && massaGorda > 0) ? (massaGorda / massaMuscular) : 0
+
+  // --- ÍNDICE DE MÚSCULO ÓSSEO (IMO) ---
+  const estaturaMetros = (aval.altura_paciente || 0) / 100
+  const dUmero = aval.diametro_umero || 0
+  const dFemur = aval.diametro_femur || 0
+  // Nota: Caso tenha o diâmetro do punho/rádio guardado, use aqui. Usando diametro_punho como referência ao rádio:
+  const dRadio = aval.diametro_punho || 0 
+  const dMaleolar = aval.diametro_maleolar || 0
+
+  const parte1 = 0.6 * estaturaMetros * Math.pow(dUmero + dFemur + dRadio + dMaleolar, 2) * 0.0001
+  
+  const dCoxaMm = aval.dobra_cutanea_coxa_media || 0
+  const dPantMm = aval.dobra_cutanea_panturrilha || 0
+  const cAntebraco = aval.perimetro_antibraco || 0
+
+  const termoCoxaM = perimCorrigidoCoxa // já calculado anteriormente no código
+  const termoPantM = perimCorrigidoPanturrilha // já calculado anteriormente no código
+
+  const parte2 = (estaturaMetros * (0.0553 * Math.pow(termoCoxaM, 2) + 0.0987 * Math.pow(cAntebraco, 2) + 0.0331 * Math.pow(termoPantM, 2)) - 2445) * 0.001
+  
+  const imoVal = (parte1 > 0 && parte2 > 0) ? (parte1 / parte2) : 0
+
   const imc = dados.imc || 0
   const percentualGordura = aval.percentual_de_gordura || 0 
   const massaGorda = dados.massa_gorda || 0
@@ -356,6 +396,12 @@ export default function ResultadoAvaliacao() {
             <span className="text-xs font-bold text-gray-600">Relação Cintura-Estatura</span>
             <span className="text-lg font-black text-indigo-600">{rce > 0 ? rce.toFixed(2) : '-'}</span>
           </div>
+          <div className="flex justify-between items-center p-3 border border-gray-100 rounded-lg bg-gray-50">
+            <span className="text-xs font-semibold text-gray-700">Circunferência da Cintura (Status)</span>
+            <span className="text-xs font-bold bg-emerald-100 text-emerald-800 px-2 py-1 rounded-md uppercase tracking-wide">
+              {statusCintura}
+            </span>
+          </div>
           <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex justify-between items-center">
             <span className="text-xs font-bold text-gray-600">Σ 6 Dobras</span>
             <span className="text-lg font-black text-amber-600">{soma6 > 0 ? soma6.toFixed(1) : '-'} <span className="text-xs font-normal text-gray-400">mm</span></span>
@@ -483,14 +529,39 @@ export default function ResultadoAvaliacao() {
       </div>
 
       {/* ============================================================
-          10. OUTROS INDICADORES
+          10. OUTROS INDICADORES & CLASSIFICAÇÕES
       ============================================================= */}
       <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm space-y-4 mt-6">
         <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider border-b pb-2">🚀 10. Outros Indicadores & Classificações</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+
+          <div className="flex justify-between items-center p-3 border border-gray-100 rounded-lg bg-gray-50">
+            <span className="text-xs font-semibold text-gray-700">Índice Adiposo Muscular (IAM)</span>
+            <span className="text-xs font-bold text-gray-800">
+              {iamVal > 0 ? iamVal.toFixed(2) : '-'}
+            </span>
+          </div>
+
+          <div className="flex justify-between items-center p-3 border border-gray-100 rounded-lg bg-gray-50">
+            <span className="text-xs font-semibold text-gray-700">Índice de Músculo Ósseo (IMO)</span>
+            <span className="text-xs font-bold text-gray-800">
+              {imoVal > 0 ? imoVal.toFixed(2) : '-'}
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+      {/* ============================================================
+          11. Em Breve
+      ============================================================= */}
+
+
+      <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm space-y-4 mt-6">
+        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider border-b pb-2">🚀 11. Em Breve</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {[
-            'Índice de Massa Óssea (IMO)', 'Área de Previsão Visceral (APVAT)', 'Índice Adiposo Muscular', 
-            'Circunferência da Cintura (Status)', 'Gordura (Escala Morrow)', 'Gordura (Escala Argoref)'
+            'Área de Previsão Visceral (APVAT)', 'Gordura (Escala Morrow)', 'Gordura (Escala Argoref)'
           ].map((item, index) => (
             <div key={index} className="flex justify-between items-center p-3 border border-gray-100 rounded-lg bg-gray-50">
               <span className="text-xs font-semibold text-gray-700">{item}</span>
