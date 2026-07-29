@@ -110,9 +110,10 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
         setPacientesFiltrados([])
         return
       }
+// Busca na tabela 'pacientes'
       const { data, error } = await supabase
         .from('pacientes')
-        .select('id, nome_completo, sexo')
+        .select('id, nome_completo, sexo, data_nascimento') // <--- Traz a data aqui
         .ilike('nome_completo', `%${busca}%`)
         .limit(5)
 
@@ -142,10 +143,12 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
     setMetadados(null)
 
     const { data, error } = await supabase
-      .from('pacientes')
-      .select('id, nome_completo, sexo, data_nascimento')
-      .ilike('nome_completo', `%${busca}%`)
-      .limit(5)
+      .from('avaliacoes')
+      .select('*')
+      .eq('id_paciente', paciente.id)
+      .order('data_avaliacao', { ascending: false })
+      .limit(1)
+      .single()
 
     if (data) {
       setAvaliacaoAtual(data)
