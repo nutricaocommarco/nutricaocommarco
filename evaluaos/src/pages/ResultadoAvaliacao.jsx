@@ -255,6 +255,7 @@ export default function ResultadoAvaliacao() {
   
   const imoVal = (parte1 > 0 && parte2 > 0) ? (parte2 / parte1) : 0
   
+
   
   const coordX = 150 + ((dados.somatocarta_eixo_x || 0) * 15)
   const coordY = 150 - ((dados.somatocarta_eixo_y || 0) * 11)
