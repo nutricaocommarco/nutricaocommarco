@@ -90,7 +90,7 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
   
   const [equacaoSelecionada, setEquacaoSelecionada] = useState('')
   
-// Alteramos o estado do resultado para guardar valor e info
+  // ESTADOS PARA O VALOR E AS INFORMAÇÕES CIENTÍFICAS
   const [resultadoGordura, setResultadoGordura] = useState(0)
   const [metadados, setMetadados] = useState(null)
   
@@ -98,14 +98,12 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
 
   const dropdownRef = useRef(null)
 
-  // 1. Inicia com o paciente recebido via Props (Preparo para o futuro)
   useEffect(() => {
     if (pacienteInicial) {
       selecionarPaciente(pacienteInicial)
     }
   }, [pacienteInicial])
 
-  // 2. Sistema de Busca Inteligente (Dropdown)
   useEffect(() => {
     const buscarPacientes = async () => {
       if (busca.length < 1) {
@@ -125,7 +123,6 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
     return () => clearTimeout(delayDebounce)
   }, [busca])
 
-  // Fechar dropdown ao clicar fora
   useEffect(() => {
     const handleClickFora = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -136,15 +133,14 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
     return () => document.removeEventListener('mousedown', handleClickFora)
   }, [])
 
-  // 3. Ao selecionar um paciente, busca a última avaliação dele para ter os dados
   const selecionarPaciente = async (paciente) => {
     setPacienteSelecionado(paciente)
     setBusca(paciente.nome_completo)
     setShowDropdown(false)
     setEquacaoSelecionada('')
     setResultadoGordura(0)
+    setMetadados(null)
 
-    // Busca a avaliação mais recente para puxar as medidas
     const { data, error } = await supabase
       .from('avaliacoes')
       .select('*')
@@ -155,7 +151,7 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
 
     if (data) {
       setAvaliacaoAtual(data)
-      setMedidasBrutas(data) // Supondo que as dobras e perímetros estejam salvos nas colunas desta tabela
+      setMedidasBrutas(data)
     } else {
       setAvaliacaoAtual(null)
       setMedidasBrutas({})
@@ -163,7 +159,7 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
     }
   }
 
-  // 4. Cálculo Automático ao trocar a equação
+  // LÓGICA CORRIGIDA: DESEMPACOTANDO O VALOR E A INFO
   useEffect(() => {
     if (!pacienteSelecionado || !equacaoSelecionada || !medidasBrutas) return
 
@@ -173,15 +169,25 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
     if (equacao && typeof equacao.func === 'function') {
       try {
         const resultado = equacao.func(medidasBrutas, pacienteSelecionado)
-        setResultadoGordura(resultado)
+        
+        // Se a função retornar o objeto { valor, info }, separamos eles
+        if (typeof resultado === 'object' && resultado !== null) {
+          setResultadoGordura(resultado.valor || 0)
+          setMetadados(resultado.info || null)
+        } else {
+          // Se for uma função que ainda não auditamos e retorna apenas o número
+          setResultadoGordura(resultado || 0)
+          setMetadados(null)
+        }
+
       } catch (err) {
         console.error("Erro no cálculo da equação:", err)
         setResultadoGordura(0)
+        setMetadados(null)
       }
     }
   }, [equacaoSelecionada, medidasBrutas, pacienteSelecionado])
 
-  // 5. Salvar no Banco
   const handleSalvar = async () => {
     if (!avaliacaoAtual) return alert('Nenhuma avaliação encontrada para atualizar.')
     if (resultadoGordura <= 0) return alert('Calcule o percentual primeiro.')
@@ -214,7 +220,6 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
         <p className="text-sm text-gray-500">Página de teste isolada para simular resultados e salvar no banco.</p>
       </div>
 
-      {/* Busca de Paciente */}
       <div className="space-y-2 relative" ref={dropdownRef}>
         <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider">
           Pesquisar Paciente
@@ -231,7 +236,6 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
           className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
         />
         
-        {/* Dropdown de Resultados */}
         {showDropdown && pacientesFiltrados.length > 0 && (
           <ul className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto">
             {pacientesFiltrados.map(p => (
@@ -247,7 +251,6 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
         )}
       </div>
 
-      {/* Seleção de Equação e Resultado */}
       {pacienteSelecionado && avaliacaoAtual && (
         <div className="space-y-6 animate-fade-in-up">
           <div className="p-4 bg-gray-50 border border-gray-100 rounded-lg">
@@ -272,6 +275,20 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
               ))}
             </select>
           </div>
+
+          {/* CAIXA AZUL DE METADADOS CIENTÍFICOS */}
+          {metadados && (
+            <div className="bg-blue-50 border border-blue-100 rounded-lg p-4 transition-all">
+              <h4 className="text-xs font-bold text-blue-800 uppercase tracking-wider mb-3">Validação Científica</h4>
+              <ul className="text-sm text-blue-800 space-y-1.5">
+                <li><strong>Autor(es):</strong> {metadados.autor} ({metadados.ano})</li>
+                <li><strong>Protocolo:</strong> {metadados.protocolo}</li>
+                <li><strong>População Alvo:</strong> {metadados.populacao}</li>
+                <li><strong>Faixa Etária Padrão:</strong> {metadados.faixaEtaria}</li>
+                <li><strong>Padrão Ouro:</strong> {metadados.referencia}</li>
+              </ul>
+            </div>
+          )}
 
           <div className="flex flex-col sm:flex-row gap-6 items-center bg-emerald-50 border border-emerald-100 p-6 rounded-xl">
             <div className="flex-1 text-center sm:text-left">

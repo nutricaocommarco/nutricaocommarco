@@ -139,7 +139,7 @@ export const calcularFemPetroski1995_4skf = (m, p) => {
   const { tr, sub, si, pa, idade, peso, alturaCm } = prepararDados(m, p);
   const soma4 = sub + tr + si + pa;
   if (soma4 <= 0) return { valor: 0, info };
-  const dc = 1.02902361 - (0.00067159 * soma4) + (0.00000242 * Math.pow(soma4, 2)) - (0.00026073 * idade) - (0.00056009 * peso) + (0.00054649 * alturaCm);
+  const dc = 1.02902361 - 0.00067159 * (soma4) + 0.00000242 * (Math.pow(soma4, 2)) - 0.00026073 * (idade) - 0.00056009 * (peso) + 0.00054649 * (alturaCm);
 // Retorna o pacote completo aqui!
   return { valor: converterDCparaSiri(dc), info };
 };
