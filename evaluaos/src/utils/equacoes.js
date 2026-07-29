@@ -274,8 +274,8 @@ export const calcularFemYuhasz1974_6skf = (m, p) => {
     faixaEtaria: 'Jovens Adultos',
     referencia: 'PH (Pesagem Hidrostática)'
   };
-  const { tr, sub, si, ab, cx, pa } = prepararDados(m, p);
-  const soma6 = tr + sub + si + ab + cx + pa;
+  const { tr, sub, se, ab, cx, pa } = prepararDados(m, p);
+  const soma6 = tr + sub + se + ab + cx + pa;
   if (soma6 <= 0) return { valor: 0, info };
   const pgc = (0.1548 * soma6) + 3.58;
   return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
