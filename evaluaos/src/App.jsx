@@ -37,19 +37,25 @@ export default function App() {
     return <Login onLoginSuccess={(user) => console.log('Usuário logado:', user)} />
   }
 
-return (
+  return (
     <div className="min-h-screen bg-gray-100">
-      <nav className="bg-white shadow-sm border-b border-gray-200 px-6 py-4 flex justify-between items-center">
+      {/* CABEÇALHO ATUALIZADO COM RESPONSIVIDADE */}
+      <nav className="bg-white shadow-sm border-b border-gray-200 px-4 py-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+        
         <div className="flex items-center gap-3">
-          <img src="/Imagens/Logo_png.png" alt="EvaluaOS Logo" className="h-[85px] w-auto object-contain" />
-          <div className="flex flex-col">
+          <img 
+            src="/Imagens/Logo_png.png" 
+            alt="EvaluaOS Logo" 
+            className="h-[60px] sm:h-[85px] w-auto object-contain" 
+          />
+          <div className="flex flex-col text-center sm:text-left">
             <span className="text-sm font-bold text-gray-800 leading-tight">EvaluaOS</span>
             <span className="text-xs text-gray-500 font-medium">Sistema de Avaliação Antropométrica</span>
           </div>
         </div>
-        
-        <div className="flex items-center gap-4">
-          <span className="text-sm font-medium text-gray-700">
+
+        <div className="flex items-center gap-3">
+          <span className="text-xs sm:text-sm font-medium text-gray-700 truncate max-w-[200px] sm:max-w-none">
             {session.user.email}
           </span>
           <button
@@ -59,9 +65,10 @@ return (
             Sair
           </button>
         </div>
+
       </nav>
 
-      <main className="max-w-7xl mx-auto p-6">
+      <main className="max-w-7xl mx-auto p-4 sm:p-6">
         <Pacientes userId={session.user.id} />
       </main>
     </div>
