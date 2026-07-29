@@ -782,354 +782,481 @@ export const calcularFemOrtizHernandez2016 = (m, p) => {
 // --- AS EQUAÇÕES DE REGRESSÃO - NÃO APAGAR (HOMENS) ---
 // ============================================================
 
+// ============================================================
 // 1. Mitchell et al. (2020) - 7skd ISAK
-// Ref Excel: X56 (%G) através de Y56
+// População: Nadadores de Elite | Idade: 15 a 28 anos | Ref: DXA
+// Refs Excel: Y56 e X56 (%G Direto)
+// ============================================================
 export const calcularMascMitchell2020_7skd = (m, p) => {
+  const info = { autor: 'Mitchell et al.', ano: 2020, protocolo: '7 Dobras ISAK', populacao: 'Nadadores de Elite', faixaEtaria: '15 a 28 anos', referencia: 'DXA' };
   const { tr, sub, bi, se, ab, cx, pa, peso } = prepararDados(m, p);
   const soma7 = tr + sub + bi + se + ab + cx + pa;
-  if (soma7 <= 0 || peso <= 0) return 0;
-  // Excel Y56: =(0,16*C57)+(8,78*LN(F55+F56+F57+F60+F61+F62+F63)-(1,83*1)-32,77)
+  if (soma7 <= 0 || peso <= 0) return { valor: 0, info };
   const y56 = (0.16 * peso) + (8.78 * Math.log(soma7)) - 1.83 - 32.77;
-  // Excel X56: =(Y56/C57)*100
   const pgc = (y56 / peso) * 100;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
-// 2. Woolcott & Bergman (2018) - RFM (Relative Fat Mass)
+// ============================================================
+// 2. Woolcott & Bergman (2018) - RFM
+// População: Obesos | Idade: 20 a 69 anos | Ref: DXA
 // Ref Excel: AC56 (%G Direto)
+// ============================================================
 export const calcularMascWoolcottBergman2018 = (m, p) => {
+  const info = { autor: 'Woolcott & Bergman', ano: 2018, protocolo: 'RFM (Perímetro e Estatura)', populacao: 'Obesos', faixaEtaria: '20 a 69 anos', referencia: 'DXA' };
   const { alturaCm, perCintura } = prepararDados(m, p);
-  if (perCintura <= 0) return 0;
-  // Excel AC56: =64-(20*(C58/C75))
+  if (perCintura <= 0 || alturaCm <= 0) return { valor: 0, info };
   const pgc = 64 - (20 * (alturaCm / perCintura));
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
-// 3. Guedes (1985) - 3skd 
+// ============================================================
+// 3. Guedes (1985) - 3skd
+// População: Universitários do Brasil | Idade: 17 a 27 anos | Ref: PH
 // Refs Excel: X58 (DC) e X59 (%G Siri)
+// ============================================================
 export const calcularMascGuedes1985_3skd = (m, p) => {
+  const info = { autor: 'Guedes', ano: 1985, protocolo: '3 Dobras (Tríceps, Crista Ilíaca, Abdominal)', populacao: 'Universitários do Brasil', faixaEtaria: '17 a 27 anos', referencia: 'PH' };
   const { tr, si, ab } = prepararDados(m, p);
   const soma3 = tr + si + ab;
-  if (soma3 <= 0) return 0;
-  // Excel X58: =1,1714-0,0671*LOG10(F55+F59+F61)
+  if (soma3 <= 0) return { valor: 0, info };
   const dc = 1.1714 - (0.0671 * safeLog10(soma3));
-  return converterDCparaSiri(dc);
+  return { valor: converterDCparaSiri(dc), info };
 };
 
+// ============================================================
 // 4. Deurenberg et al. (1991) - Por IMC
+// População: Adultos e Idosos (inclui sobrepeso) | Ref: PH
 // Ref Excel: AC58 (%G Direto)
+// ============================================================
 export const calcularMascDeurenberg1991_IMC = (m, p) => {
+  const info = { autor: 'Deurenberg et al.', ano: 1991, protocolo: 'Cálculo por IMC e Idade', populacao: 'Adultos e Idosos (inclui sobrepeso)', faixaEtaria: 'Geral', referencia: 'PH' };
   const { imc, idade } = prepararDados(m, p);
-  if (imc <= 0) return 0;
-  // Excel AC58: =1,2*C61+(0,23*C56)-(10,8*1)-(5,4*1)
+  if (imc <= 0) return { valor: 0, info };
   const pgc = (1.2 * imc) + (0.23 * idade) - 10.8 - 5.4;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
+// ============================================================
 // 5. Weltman et al. (1987) - Por Perímetros
+// População: Obesos | Idade: 24 a 68 anos | Ref: PH
 // Ref Excel: AC60 (%G Direto)
+// ============================================================
 export const calcularMascWeltman1987 = (m, p) => {
+  const info = { autor: 'Weltman et al.', ano: 1987, protocolo: 'Perímetros (Cintura, Abdome) + Peso', populacao: 'Obesos', faixaEtaria: '24 a 68 anos', referencia: 'PH' };
   const { perCintura, perAbdome, peso } = prepararDados(m, p);
   const mediaAbdintura = (perCintura + perAbdome) / 2;
-  // Excel AC60: =0,31457*((C75+C76)/2)-0,10969*(C57)+10,8336
-  if (mediaAbdintura <= 0) return 0;
+  if (mediaAbdintura <= 0 || peso <= 0) return { valor: 0, info };
   const pgc = (0.31457 * mediaAbdintura) - (0.10969 * peso) + 10.8336;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
+// ============================================================
 // 6. Petroski (1995) - 4skd
+// População: Brasileiros Generalizada | Idade: 18 a 61 anos | Ref: PH
 // Refs Excel: X61 (DC) e X62 (%G Siri)
+// ============================================================
 export const calcularMascPetroski1995_4skd = (m, p) => {
+  const info = { autor: 'Petroski', ano: 1995, protocolo: '4 Dobras (Subescapular, Tríceps, Crista Ilíaca, Panturrilha)', populacao: 'Brasileiros Generalizada', faixaEtaria: '18 a 61 anos', referencia: 'PH' };
   const { sub, tr, si, pa, idade } = prepararDados(m, p);
   const soma4 = sub + tr + si + pa;
-  if (soma4 <= 0) return 0;
-  // Excel X61: =1,10756863-0,00081201*(F56+F55+F59+F63)+0,00000212*(F56+F55+F59+F63)^2-0,00041761*(C56)
+  if (soma4 <= 0) return { valor: 0, info };
   const dc = 1.10756863 - (0.00081201 * soma4) + (0.00000212 * Math.pow(soma4, 2)) - (0.00041761 * idade);
-  return converterDCparaSiri(dc);
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-// 7. Stewart & Hannan - 2skd (Usa peso, abdome e coxa)
-// Ref Excel: X64 (%G) através de Y64
+// ============================================================
+// 7. Stewart & Hannan (2000) - 2skd
+// População: Atletas diversos esportes | Ref: DXA
+// Refs Excel: Y64 e X64 (%G Direto)
+// ============================================================
 export const calcularMascStewartHannan_2skd = (m, p) => {
+  const info = { autor: 'Stewart & Hannan', ano: 2000, protocolo: '2 Dobras (Abdominal, Coxa) + Peso', populacao: 'Atletas diversos esportes', faixaEtaria: 'Adultos', referencia: 'DXA' };
   const { ab, cx, peso } = prepararDados(m, p);
-  if (peso <= 0) return 0;
-  // Excel Y64: =((331,5*F61)+(356,2*F62)+(111,9*C57)-9108)/1000
+  if (peso <= 0) return { valor: 0, info };
   const y64 = ((331.5 * ab) + (356.2 * cx) + (111.9 * peso) - 9108) / 1000;
-  // Excel X64: =(Y64/C57)*100
   const pgc = (y64 / peso) * 100;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
+// ============================================================
 // 8. Faulkner (1968) - 4skd
+// População: Universitários | Ref: PH
 // Ref Excel: X66 (%G Direto)
+// ============================================================
 export const calcularMascFaulkner1968_4skd = (m, p) => {
+  const info = { autor: 'Faulkner', ano: 1968, protocolo: '4 Dobras (Tríceps, Subescapular, Crista Ilíaca, Abdominal)', populacao: 'Universitários', faixaEtaria: 'Jovens Adultos', referencia: 'PH' };
   const { tr, sub, si, ab } = prepararDados(m, p);
   const soma4 = tr + sub + si + ab;
-  if (soma4 <= 0) return 0;
-  // Excel X66: =5,783+0,153*(F55+F56+F59+F61)
+  if (soma4 <= 0) return { valor: 0, info };
   const pgc = 5.783 + (0.153 * soma4);
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
+// ============================================================
 // 9. Reilly et al. (2009) - 4skd ISAK
+// População: Futebol / Soccer Inglês | Ref: DXA
 // Ref Excel: X68 (%G Direto)
+// ============================================================
 export const calcularMascReilly2009_4skd = (m, p) => {
+  const info = { autor: 'Reilly et al.', ano: 2009, protocolo: '4 Dobras ISAK', populacao: 'Futebol / Soccer Inglês', faixaEtaria: 'Adultos', referencia: 'DXA' };
   const { cx, ab, tr, pa } = prepararDados(m, p);
-  if (cx <= 0) return 0;
-  // Excel X68: =5,174+0,124*(F62)+0,147*(F61)+0,196*(F55)+0,13*(F63)
+  if (cx <= 0 && ab <= 0 && tr <= 0 && pa <= 0) return { valor: 0, info };
   const pgc = 5.174 + (0.124 * cx) + (0.147 * ab) + (0.196 * tr) + (0.13 * pa);
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
+// ============================================================
 // 10. Evans et al. (2005) - 3skd (Brancos)
+// População: Atletas Brancos | Idade: 18 a 26 anos | Ref: Multicomponente
 // Ref Excel: X70 (%G Direto)
+// ============================================================
 export const calcularMascEvans2005_3skd_White = (m, p) => {
+  const info = { autor: 'Evans et al.', ano: 2005, protocolo: '3 Dobras (Tríceps, Abdominal, Coxa)', populacao: 'Atletas Brancos', faixaEtaria: '18 a 26 anos', referencia: 'Multicomponente (4C, DXA, PH, 2H2O)' };
   const { tr, ab, cx } = prepararDados(m, p);
-  if (tr <= 0) return 0;
-  // Excel X70: =8,997+(0,24658*(F55+F61+F62))-(6,343*1)-(1,998*0)
+  if (tr <= 0 && ab <= 0 && cx <= 0) return { valor: 0, info };
   const pgc = 8.997 + (0.24658 * (tr + ab + cx)) - 6.343;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
+// ============================================================
 // 11. Evans et al. (2005) - 3skd (Negros)
+// População: Atletas Negros | Idade: 18 a 26 anos | Ref: Multicomponente
 // Ref Excel: X72 (%G Direto)
+// ============================================================
 export const calcularMascEvans2005_3skd_Black = (m, p) => {
+  const info = { autor: 'Evans et al.', ano: 2005, protocolo: '3 Dobras (Tríceps, Abdominal, Coxa)', populacao: 'Atletas Negros', faixaEtaria: '18 a 26 anos', referencia: 'Multicomponente (4C, DXA, PH, 2H2O)' };
   const { tr, ab, cx } = prepararDados(m, p);
-  if (tr <= 0) return 0;
-  // Excel X72: =8,997+(0,24658*(F55+F61+F62))-(6,343*1)-(1,998*1)
+  if (tr <= 0 && ab <= 0 && cx <= 0) return { valor: 0, info };
   const pgc = 8.997 + (0.24658 * (tr + ab + cx)) - 6.343 - 1.998;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
+// ============================================================
 // 12. Katch & McArdle (1973) - 3skd
+// População: Universitários (Ed. Física) | Idade: ~19 anos | Ref: PH
 // Refs Excel: X74 (DC) e X75 (%G Brozek)
+// ============================================================
 export const calcularMascKatchMcArdle1973_3skd = (m, p) => {
+  const info = { autor: 'Katch & McArdle', ano: 1973, protocolo: '3 Dobras (Tríceps, Subescapular, Abdominal)', populacao: 'Universitários (Ed. Física)', faixaEtaria: '~19 anos', referencia: 'PH' };
   const { tr, sub, ab } = prepararDados(m, p);
-  if (tr <= 0) return 0;
-  // Excel X74: =1,09665-(0,00103*F55)-(0,00056*F56)-(0,00054*F61)
+  if (tr <= 0 && sub <= 0 && ab <= 0) return { valor: 0, info };
   const dc = 1.09665 - (0.00103 * tr) - (0.00056 * sub) - (0.00054 * ab);
-  return converterDCparaBrozek(dc);
+  return { valor: converterDCparaBrozek(dc), info };
 };
 
+// ============================================================
 // 13. Withers et al. (1987) - 7skd
+// População: Atletas de Elite (Australianos) | Idade: 15 a 39 anos | Ref: PH
 // Refs Excel: X77 (DC) e X78 (%G Siri)
+// ============================================================
 export const calcularMascWithers1987_7skd = (m, p) => {
+  const info = { autor: 'Withers et al.', ano: 1987, protocolo: '7 Dobras', populacao: 'Atletas de Elite (Australianos)', faixaEtaria: '15 a 39 anos', referencia: 'PH' };
   const { tr, bi, sub, se, ab, cx, pa } = prepararDados(m, p);
   const soma7 = tr + bi + sub + se + ab + cx + pa;
-  if (soma7 <= 0) return 0;
-  // Excel X77: =1,0988-0,0004*(F55+F57+F56+F60+F61+F62+F63)
+  if (soma7 <= 0) return { valor: 0, info };
   const dc = 1.0988 - (0.0004 * soma7);
-  return converterDCparaSiri(dc);
+  return { valor: converterDCparaSiri(dc), info };
 };
 
+// ============================================================
 // 14. Slaughter et al. (1988) - 2skd
+// População: Meninos (Brancos e Negros) | Idade: 8 a 17 anos | Ref: PH
 // Ref Excel: X80 (%G Direto)
+// ============================================================
 export const calcularMascSlaughter1988_2skd = (m, p) => {
+  const info = { autor: 'Slaughter et al.', ano: 1988, protocolo: '2 Dobras (Tríceps, Panturrilha)', populacao: 'Meninos (Brancos e Negros)', faixaEtaria: '8 a 17 anos', referencia: 'PH' };
   const { tr, pa } = prepararDados(m, p);
   const soma2 = tr + pa;
-  if (soma2 <= 0) return 0;
-  // Excel X80: =0,735*(F55+F63)+1
+  if (soma2 <= 0) return { valor: 0, info };
   const pgc = (0.735 * soma2) + 1;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
+// ============================================================
 // 15. Yuhasz (1974) - 6skd
+// População: Jovens Estudantes | Ref: PH
 // Ref Excel: X82 (%G Direto)
+// ============================================================
 export const calcularMascYuhasz1974_6skd = (m, p) => {
+  const info = { autor: 'Yuhasz', ano: 1974, protocolo: '6 Dobras Clássico', populacao: 'Jovens Estudantes', faixaEtaria: 'Jovens Adultos', referencia: 'PH' };
   const { tr, sub, si, ab, cx, pa } = prepararDados(m, p);
-  const soma6 = tr + sub + si + ab + cx + pa; // F64 (Soma 6)
-  if (soma6 <= 0) return 0;
-  // Excel X82: =0,1051*(F64)+2,585
+  const soma6 = tr + sub + si + ab + cx + pa; 
+  if (soma6 <= 0) return { valor: 0, info };
   const pgc = (0.1051 * soma6) + 2.585;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
+// ============================================================
 // 16. Wilmore & Behnke (1969) - 2skd
+// População: Universitários (EUA) | Idade: 17 a 37 anos | Ref: PH
 // Refs Excel: X84 (DC) e X85 (%G Siri)
+// ============================================================
 export const calcularMascWilmoreBehnke1969_2skd = (m, p) => {
+  const info = { autor: 'Wilmore & Behnke', ano: 1969, protocolo: '2 Dobras (Abdominal, Coxa)', populacao: 'Universitários (EUA)', faixaEtaria: '17 a 37 anos', referencia: 'PH' };
   const { ab, cx } = prepararDados(m, p);
-  if (ab <= 0) return 0;
-  // Excel X84: =1,08543-0,000889*(F61)-0,0004*(F62)
+  if (ab <= 0 && cx <= 0) return { valor: 0, info };
   const dc = 1.08543 - (0.000889 * ab) - (0.0004 * cx);
-  return converterDCparaSiri(dc);
+  return { valor: converterDCparaSiri(dc), info };
 };
 
+// ============================================================
 // 17. Boileau et al. (1985) - 2skd
+// População: Meninos (Brancos e Negros) | Idade: 8 a 17 anos | Ref: PH
 // Ref Excel: X87 (%G Direto)
+// ============================================================
 export const calcularMascBoileau1985_2skd = (m, p) => {
+  const info = { autor: 'Boileau et al.', ano: 1985, protocolo: '2 Dobras (Tríceps, Subescapular)', populacao: 'Meninos (Brancos e Negros)', faixaEtaria: '8 a 17 anos', referencia: 'PH' };
   const { tr, sub } = prepararDados(m, p);
   const soma2 = tr + sub;
-  if (soma2 <= 0) return 0;
-  // Excel X87: =1,35*(F55+F56)-0,012*(F55+F56)^2-4,4
+  if (soma2 <= 0) return { valor: 0, info };
   const pgc = (1.35 * soma2) - (0.012 * Math.pow(soma2, 2)) - 4.4;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
-// 18. Deurenberg et al. (1990) - 4skd (3 Variações Logarítmicas)
-// Refs Excel: X89, X91, X93
-export const calcularMascDeurenberg1990_4skd_Var1 = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel X89: =26,56*LOG10(F55+F56+F57+F59)-22,23
-  const pgc = 26.56 * safeLog10(soma4Durnin) - 22.23;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+// ============================================================
+// 18. Deurenberg et al. (1990) - 4skd (Pré-Púberes)
+// População: Meninos (Pré-Púberes) | Ref: PH
+// Ref Excel: X89 (%G Direto)
+// ============================================================
+export const calcularMascDeurenberg1990_4skd_PrePuberes = (m, p) => {
+  const info = { autor: 'Deurenberg et al.', ano: 1990, protocolo: '4 Dobras (Tríceps, Subescapular, Bíceps, Crista Ilíaca)', populacao: 'Meninos (Pré-Púberes)', faixaEtaria: 'Crianças/Adolescentes', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const pgc = 26.56 * safeLog10(somaDurnin) - 22.23;
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
-export const calcularMascDeurenberg1990_4skd_Var2 = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel X91: =18,7*LOG10(F55+F56+F57+F59)-11,91
-  const pgc = 18.7 * safeLog10(soma4Durnin) - 11.91;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+// ============================================================
+// 19. Deurenberg et al. (1990) - 4skd (Púberes)
+// População: Meninos (Púberes) | Ref: PH
+// Ref Excel: X91 (%G Direto)
+// ============================================================
+export const calcularMascDeurenberg1990_4skd_Puberes = (m, p) => {
+  const info = { autor: 'Deurenberg et al.', ano: 1990, protocolo: '4 Dobras (Tríceps, Subescapular, Bíceps, Crista Ilíaca)', populacao: 'Meninos (Púberes)', faixaEtaria: 'Adolescentes', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const pgc = 18.7 * safeLog10(somaDurnin) - 11.91;
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
-export const calcularMascDeurenberg1990_4skd_Var3 = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel X93: =18,88*LOG10(F55+F56+F57+F59)-15,58
-  const pgc = 18.88 * safeLog10(soma4Durnin) - 15.58;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+// ============================================================
+// 20. Deurenberg et al. (1990) - 4skd (Pós-Púberes)
+// População: Meninos (Pós-Púberes) | Ref: PH
+// Ref Excel: X93 (%G Direto)
+// ============================================================
+export const calcularMascDeurenberg1990_4skd_PosPuberes = (m, p) => {
+  const info = { autor: 'Deurenberg et al.', ano: 1990, protocolo: '4 Dobras (Tríceps, Subescapular, Bíceps, Crista Ilíaca)', populacao: 'Meninos (Pós-Púberes)', faixaEtaria: 'Jovens Adultos', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const pgc = 18.88 * safeLog10(somaDurnin) - 15.58;
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
-// 19. Eston et al. (2005) - 2skd ISAK
+// ============================================================
+// 21. Eston et al. (2005) - 2skd ISAK
+// População: Ativos (Reino Unido) | Idade: 18 a 36 anos | Ref: DXA, PH, BIA
 // Ref Excel: X95 (%G Direto)
+// ============================================================
 export const calcularMascEston2005_2skd = (m, p) => {
+  const info = { autor: 'Eston et al.', ano: 2005, protocolo: '2 Dobras ISAK (Coxa, Panturrilha)', populacao: 'Ativos (Reino Unido)', faixaEtaria: '18 a 36 anos', referencia: 'DXA, PH, BIA' };
   const { cx, pa } = prepararDados(m, p);
-  if (cx <= 0) return 0;
-  // Excel X95: =4,05+0,52*(F62)+0,32*(F63)
+  if (cx <= 0 && pa <= 0) return { valor: 0, info };
   const pgc = 4.05 + (0.52 * cx) + (0.32 * pa);
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
-// 20. Eston et al. (2005) - 6skd ISAK
+// ============================================================
+// 22. Eston et al. (2005) - 6skd ISAK
+// População: Ativos (Reino Unido) | Idade: 18 a 36 anos | Ref: DXA, PH, BIA
 // Ref Excel: X96 (%G Direto)
+// ============================================================
 export const calcularMascEston2005_6skd = (m, p) => {
+  const info = { autor: 'Eston et al.', ano: 2005, protocolo: '6 Dobras ISAK (Tríc, Sub, Bi, Crista, Coxa, Pant)', populacao: 'Ativos (Reino Unido)', faixaEtaria: '18 a 36 anos', referencia: 'DXA, PH, BIA' };
   const { tr, sub, bi, si, cx, pa } = prepararDados(m, p);
-  if (tr <= 0) return 0;
-  // Excel X96: =1,61+0,12*(F55+F56+F57+F59)+0,36*(F62+F63)
+  if (tr <= 0 && sub <= 0) return { valor: 0, info };
   const pgc = 1.61 + (0.12 * (tr + sub + bi + si)) + (0.36 * (cx + pa));
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
-// --- EQUAÇÕES DA COLUNA DIREITA (AC) PARA HOMENS ---
+// ============================================================
+// --- GRUPO DURNIN MASCULINO ---
+// ============================================================
 
-// 21. Durnin & Womersley 1974 - Várias Idades
-export const calcularMascDurnin1974_Var1 = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel AC62: =1,1765-0,0744*LOG(F55+F56+F57+F59)
-  const dc = 1.1765 - (0.0744 * safeLog10(soma4Durnin));
-  return converterDCparaSiri(dc);
+// ============================================================
+// 23. Durnin & Womersley 1974 - 4skd (17 a 72 anos)
+// População: Escoceses (Obesos, Sedentários, Atletas) | Ref: PH
+// Ref Excel: AC62 (DC) e AC63 (%G Siri)
+// ============================================================
+export const calcularMascDurnin1974_17a72anos = (m, p) => {
+  const info = { autor: 'Durnin & Womersley', ano: 1974, protocolo: '4 Dobras (17 a 72 anos)', populacao: 'Escoceses (Obesos, Sedentários, Atletas)', faixaEtaria: '17 a 72 anos', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const dc = 1.1765 - (0.0744 * safeLog10(somaDurnin));
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-export const calcularMascDurnin1974_Var2 = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel AC68: =1,162-0,063*LOG(F55+F56+F57+F59)
-  const dc = 1.162 - (0.063 * safeLog10(soma4Durnin));
-  return converterDCparaSiri(dc);
+// ============================================================
+// 24. Durnin & Womersley 1974 - 4skd (17 a 19 anos)
+// População: Generalizada (inclui obesos) | Ref: PH
+// Ref Excel: AC68 (DC) e AC69 (%G Siri)
+// ============================================================
+export const calcularMascDurnin1974_17a19anos = (m, p) => {
+  const info = { autor: 'Durnin & Womersley', ano: 1974, protocolo: '4 Dobras (17 a 19 anos)', populacao: 'Generalizada (inclui obesos)', faixaEtaria: '17 a 19 anos', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const dc = 1.162 - (0.063 * safeLog10(somaDurnin));
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-export const calcularMascDurnin1974_Var3 = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel AC71: =1,1631-0,0632*LOG(F55+F56+F57+F59)
-  const dc = 1.1631 - (0.0632 * safeLog10(soma4Durnin));
-  return converterDCparaSiri(dc);
+// ============================================================
+// 25. Durnin & Womersley 1974 - 4skd (20 a 29 anos)
+// População: Generalizada (inclui obesos) | Ref: PH
+// Ref Excel: AC71 (DC) e AC72 (%G Siri)
+// ============================================================
+export const calcularMascDurnin1974_20a29anos = (m, p) => {
+  const info = { autor: 'Durnin & Womersley', ano: 1974, protocolo: '4 Dobras (20 a 29 anos)', populacao: 'Generalizada (inclui obesos)', faixaEtaria: '20 a 29 anos', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const dc = 1.1631 - (0.0632 * safeLog10(somaDurnin));
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-export const calcularMascDurnin1974_Var4 = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel AC74: =1,1422-0,0544*LOG(F55+F56+F57+F59)
-  const dc = 1.1422 - (0.0544 * safeLog10(soma4Durnin));
-  return converterDCparaSiri(dc);
+// ============================================================
+// 26. Durnin & Womersley 1974 - 4skd (30 a 39 anos)
+// População: Generalizada (inclui obesos) | Ref: PH
+// Ref Excel: AC74 (DC) e AC75 (%G Siri)
+// ============================================================
+export const calcularMascDurnin1974_30a39anos = (m, p) => {
+  const info = { autor: 'Durnin & Womersley', ano: 1974, protocolo: '4 Dobras (30 a 39 anos)', populacao: 'Generalizada (inclui obesos)', faixaEtaria: '30 a 39 anos', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const dc = 1.1422 - (0.0544 * safeLog10(somaDurnin));
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-export const calcularMascDurnin1974_Var5 = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel AC77: =1,162-0,07*LOG(F55+F56+F57+F59)
-  const dc = 1.162 - (0.07 * safeLog10(soma4Durnin));
-  return converterDCparaSiri(dc);
+// ============================================================
+// 27. Durnin & Womersley 1974 - 4skd (40 a 49 anos)
+// População: Generalizada (inclui obesos) | Ref: PH
+// Ref Excel: AC77 (DC) e AC78 (%G Siri)
+// ============================================================
+export const calcularMascDurnin1974_40a49anos = (m, p) => {
+  const info = { autor: 'Durnin & Womersley', ano: 1974, protocolo: '4 Dobras (40 a 49 anos)', populacao: 'Generalizada (inclui obesos)', faixaEtaria: '40 a 49 anos', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const dc = 1.162 - (0.07 * safeLog10(somaDurnin));
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-export const calcularMascDurnin1974_Var6 = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel AC80: =1,1715-0,0779*LOG(F55+F56+F57+F59)
-  const dc = 1.1715 - (0.0779 * safeLog10(soma4Durnin));
-  return converterDCparaSiri(dc);
+// ============================================================
+// 28. Durnin & Womersley 1974 - 4skd (50 a 72 anos)
+// População: Generalizada (inclui obesos) | Ref: PH
+// Ref Excel: AC80 (DC) e AC81 (%G Siri)
+// ============================================================
+export const calcularMascDurnin1974_50a72anos = (m, p) => {
+  const info = { autor: 'Durnin & Womersley', ano: 1974, protocolo: '4 Dobras (50 a 72 anos)', populacao: 'Generalizada (inclui obesos)', faixaEtaria: '50 a 72 anos', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const dc = 1.1715 - (0.0779 * safeLog10(somaDurnin));
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-// 22. Durnin & Womersley 1974 - 1skd (Só Tríceps)
+// ============================================================
+// 29. Durnin & Womersley 1974 - 1skd (Só Tríceps)
+// População: Escoceses (Obesos, Sedentários, Atletas) | Ref: PH
+// Ref Excel: AC94 (DC) e AC95 (%G Siri)
+// ============================================================
 export const calcularMascDurnin1974_1skd = (m, p) => {
+  const info = { autor: 'Durnin & Womersley', ano: 1974, protocolo: '1 Dobra (Tríceps)', populacao: 'Escoceses (Obesos, Sedentários, Atletas)', faixaEtaria: '17 a 72 anos', referencia: 'PH' };
   const { tr } = prepararDados(m, p);
-  if (tr <= 0) return 0;
-  // Excel AC94: =1,1143-0,0618*LOG10(F55)
+  if (tr <= 0) return { valor: 0, info };
   const dc = 1.1143 - (0.0618 * safeLog10(tr));
-  return converterDCparaSiri(dc);
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-// 23. Durnin & Rahaman 1967 - 4skd
+// ============================================================
+// 30. Durnin & Rahaman 1967 - 4skd (< 17 anos)
+// População: Generalizada | Ref: PH
+// Ref Excel: AC65 (DC) e AC66 (%G Siri)
+// ============================================================
 export const calcularMascDurninRahaman1967_4skd = (m, p) => {
-  const { soma4Durnin } = prepararDados(m, p);
-  if (soma4Durnin <= 0) return 0;
-  // Excel AC65: =1,1533-0,0643*LOG(F55+F56+F57+F59)
-  const dc = 1.1533 - (0.0643 * safeLog10(soma4Durnin));
-  return converterDCparaSiri(dc);
+  const info = { autor: 'Durnin & Rahaman', ano: 1967, protocolo: '4 Dobras', populacao: 'Generalizada', faixaEtaria: '< 17 anos (12 a 15 anos)', referencia: 'PH' };
+  const { somaDurnin } = prepararDados(m, p);
+  if (somaDurnin <= 0) return { valor: 0, info };
+  const dc = 1.1533 - (0.0643 * safeLog10(somaDurnin));
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-// 24. Forsyth & Sinning 1973 - 2skd (Usa Brozek)
+// ============================================================
+// --- FÓRMULAS FINAIS MASCULINAS ---
+// ============================================================
+
+// ============================================================
+// 31. Forsyth & Sinning 1973 - 2skd
+// População: Atletas Universitários (EUA) | Idade: 19 a 22 anos | Ref: PH
+// Ref Excel: AC85 (DC) e AC86 (%G Brozek)
+// ============================================================
 export const calcularMascForsythSinning1973_2skd = (m, p) => {
+  const info = { autor: 'Forsyth & Sinning', ano: 1973, protocolo: '2 Dobras (Subescapular, Abdominal)', populacao: 'Atletas Universitários (EUA)', faixaEtaria: '19 a 22 anos', referencia: 'PH' };
   const { sub, ab } = prepararDados(m, p);
-  if (sub <= 0) return 0;
-  // Excel AC85: =1,103-0,00168*(F56)-0,00127*(F61)
+  if (sub <= 0 && ab <= 0) return { valor: 0, info };
   const dc = 1.103 - (0.00168 * sub) - (0.00127 * ab);
-  return converterDCparaBrozek(dc);
+  return { valor: converterDCparaBrozek(dc), info };
 };
 
-// 25. Nagamine & Suzuki 1964 - 2skd
+// ============================================================
+// 32. Nagamine & Suzuki 1964 - 2skd
+// População: Japoneses Nativos | Idade: 18 a 27 anos | Ref: PH
+// Ref Excel: AC88 (DC) e AC89 (%G Siri)
+// ============================================================
 export const calcularMascNagamineSuzuki1964_2skd = (m, p) => {
+  const info = { autor: 'Nagamine & Suzuki', ano: 1964, protocolo: '2 Dobras (Tríceps, Subescapular)', populacao: 'Japoneses Nativos', faixaEtaria: '18 a 27 anos', referencia: 'PH' };
   const { tr, sub } = prepararDados(m, p);
-  if (tr <= 0) return 0;
-  // Excel AC88: =1,0913-0,00116*(F55+F56)
+  if (tr <= 0 && sub <= 0) return { valor: 0, info };
   const dc = 1.0913 - (0.00116 * (tr + sub));
-  return converterDCparaSiri(dc);
+  return { valor: converterDCparaSiri(dc), info };
 };
 
-// 26. Sloan 1967 - 2skd (Usa Brozek)
+// ============================================================
+// 33. Sloan 1967 - 2skd
+// População: Universitários (EUA) | Idade: 18 a 26 anos | Ref: PH
+// Ref Excel: AC91 (DC) e AC92 (%G Brozek)
+// ============================================================
 export const calcularMascSloan1967_2skd = (m, p) => {
+  const info = { autor: 'Sloan', ano: 1967, protocolo: '2 Dobras (Coxa, Subescapular)', populacao: 'Universitários (EUA)', faixaEtaria: '18 a 26 anos', referencia: 'PH' };
   const { cx, sub } = prepararDados(m, p);
-  if (cx <= 0) return 0;
-  // Excel AC91: =1,1043-0,001327*(F62)-0,00131*(F56)
+  if (cx <= 0 && sub <= 0) return { valor: 0, info };
   const dc = 1.1043 - (0.001327 * cx) - (0.00131 * sub);
-  return converterDCparaBrozek(dc);
+  return { valor: converterDCparaBrozek(dc), info };
 };
 
-// 27. Hortobagyi et al. 1992
-// Obs: Ref AC83 usa fórmula linear de massa para encontrar algo. No Excel não tinha o %G associado.
+// ============================================================
+// 34. Hortobagyi et al. 1992 (Massa e Estatura)
+// População: Atletas de Futebol Americano | Idade: 18 a 23 anos | Ref: PH
+// Ref Excel: AC83 (%G Direto)
+// ============================================================
 export const calcularMascHortobagyi1992 = (m, p) => {
+  const info = { autor: 'Hortobagyi et al.', ano: 1992, protocolo: 'Peso e Estatura (Equação Linear)', populacao: 'Atletas de Futebol Americano', faixaEtaria: '18 a 23 anos', referencia: 'PH' };
   const { peso, alturaCm } = prepararDados(m, p);
-  if (peso <= 0) return 0;
-  // Excel AC83: =55,2+0,481*(C57)-0,468*(C58)
+  if (peso <= 0 || alturaCm <= 0) return { valor: 0, info };
   const calc = 55.2 + (0.481 * peso) - (0.468 * alturaCm);
-  return Number(Math.max(0.1, calc).toFixed(2));
+  return { valor: Number(Math.max(0.1, calc).toFixed(2)), info };
 };
 
-// 28. Ortiz-Hernández et al. 2016 - %G Complexo
+// ============================================================
+// 35. Ortiz-Hernández et al. 2016
+// População: Meninos Mexicanos | Idade: 5 a 19 anos | Ref: DXA
+// Ref Excel: AC97 (%G Direto)
+// ============================================================
 export const calcularMascOrtizHernandez2016 = (m, p) => {
+  const info = { autor: 'Ortiz-Hernández et al.', ano: 2016, protocolo: 'Multicomponente Complexo', populacao: 'Meninos Mexicanos', faixaEtaria: '5 a 19 anos', referencia: 'DXA' };
   const { alturaCm, peso, imc, tr, sub, si, pa, perBracoRelax, perCintura } = prepararDados(m, p);
-  if (peso <= 0) return 0;
-  // C71 = Braço relaxado (Assumindo que seja o perímetro C71 no Excel, mas o dicionário diz C71=Braço relax e I71=Massa Sugerida)
-  // Excel AC97: =-8,739-(0,384*(C58))+(35,371*(LOG10(C57))-(0,892*(C61))-(0,299*(C71))+(0,258*(C75))+(17,732*LOG10(F55))+(6,698*LOG10(F56))+(3,545*LOG10(F59))+(4,019*LOG10((F63))))
+  if (peso <= 0) return { valor: 0, info };
+  
   const parte1 = -8.739 - (0.384 * alturaCm) + (35.371 * safeLog10(peso));
   const parte2 = - (0.892 * imc) - (0.299 * perBracoRelax) + (0.258 * perCintura);
   const parte3 = (17.732 * safeLog10(tr)) + (6.698 * safeLog10(sub)) + (3.545 * safeLog10(si)) + (4.019 * safeLog10(pa));
+  
   const pgc = parte1 + parte2 + parte3;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
-
-// Nota sobre a célula X97: (Musc., De Rose 1984)
-// Excel X97: =C57-(I57+AA100+AA101) 
-// Essa fórmula não calcula %G, mas sim Massa Muscular, subtraindo do peso total (C57) a Massa de Gordura (I57) e possivelmente Massa Óssea e Residual (AA100 e AA101, que não estão no dicionário).
