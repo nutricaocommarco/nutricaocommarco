@@ -254,9 +254,8 @@ export default function ResultadoAvaliacao() {
   const parte2 = (alturaCm * (0.0553 * Math.pow(coxaCorrigidaIMO, 2) + 0.0987 * Math.pow(cAntebraco, 2) + 0.0331 * Math.pow(pantCorrigidaIMO, 2)) - 2445) * 0.001
   
   const imoVal = (parte1 > 0 && parte2 > 0) ? (parte2 / parte1) : 0
-  
 
-  
+
   const coordX = 150 + ((dados.somatocarta_eixo_x || 0) * 15)
   const coordY = 150 - ((dados.somatocarta_eixo_y || 0) * 11)
 
