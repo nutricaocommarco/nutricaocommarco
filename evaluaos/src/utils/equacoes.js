@@ -5,47 +5,25 @@
 
 // --- FUNÇÕES AUXILIARES DE CONVERSÃO ---
 
-/**
- * Converte Densidade Corporal para %Gordura usando a fórmula de Siri (1961)
- * Utilizada na maioria dos protocolos extraídos.
- */
 const converterDCparaSiri = (dc) => {
   if (!dc || dc <= 0) return 0;
-  // Fórmula Excel: =((495/DC)-450)
   const pgc = (495 / dc) - 450;
-  // Garante que o valor não seja negativo e limita a 2 casas decimais
-  return { 
-  valor: Number(Math.max(0.1, pgc).toFixed(2)), 
-  info: info
+  return Number(Math.max(0.1, pgc).toFixed(2)); // Volta a retornar só o número
 };
-}
 
-/**
- * Converte Densidade Corporal para %Gordura usando a fórmula de Brozek et al. (1963)
- * Utilizada especificamente no protocolo Katch & McArdle (X84).
- */
 const converterDCparaBrozek = (dc) => {
   if (!dc || dc <= 0) return 0;
-  // Fórmula Excel: =((497,1/DC)-451,9)
   const pgc = (497.1 / dc) - 451.9;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return Number(Math.max(0.1, pgc).toFixed(2)); // Volta a retornar só o número
 };
 
-/**
- * Função auxiliar para garantir que valores zerados não quebrem o logaritmo.
- */
 const safeLog10 = (valor) => {
   if (valor <= 0) return 0;
   return Math.log10(valor);
 };
 
-// --- MAPEAMENTO DE ENTRADAS (Alinhado com a tabela public.avaliacoes) ---
-
-/**
- * Prepara os dados brutos recebidos do formulário e do banco para o formato exigido.
- */
+// --- MAPEAMENTO DE ENTRADAS ---
 const prepararDados = (medidas = {}, paciente = {}) => {
-  // 1. Cálculo da Idade (preciso, usando datas do banco)
   let idade = 0;
   if (paciente.data_nasc && medidas.data_avaliacao) {
     const nasc = new Date(paciente.data_nasc);
@@ -59,12 +37,10 @@ const prepararDados = (medidas = {}, paciente = {}) => {
     idade = medidas.idade_anos;
   }
 
-  // 2. Medidas Básicas
   const peso = medidas.peso_paciente || medidas.massa_kg || medidas.peso_kg || 0;
   const alturaCm = medidas.altura_paciente || medidas.estatura_cm || medidas.altura_cm || 0;
   const imc = (peso > 0 && alturaCm > 0) ? (peso / Math.pow(alturaCm / 100, 2)) : 0;
 
-  // 3. Dobras Cutâneas
   const tr = medidas.dobra_cutanea_triceps || 0;             
   const sub = medidas.dobra_cutanea_subescapular || 0;       
   const bi = medidas.dobra_cutanea_biceps || 0;               
@@ -74,14 +50,12 @@ const prepararDados = (medidas = {}, paciente = {}) => {
   const cx = medidas.dobra_cutanea_coxa_media || 0;         
   const pa = medidas.dobra_cutanea_panturrilha || 0;         
 
-  // 4. Perímetros e Diâmetros
   const perCintura = medidas.perimetro_cintura || 0;         
   const perAbdome = medidas.perimetro_abdominal || 0;         
   const perQuadril = medidas.perimetro_quadril || 0; 
   const perBracoRelax = medidas.perimetro_braco_relaxado || 0;        
   const diamUmero = medidas.diametro_umero || 0;
 
-  // 5. Agrupamentos e Somas usadas nas fórmulas
   const somaDurnin = tr + sub + bi + si;                      
   const somaWithers4 = tr + sub + se + pa;
   const somaWithers6 = somaWithers4 + ab + cx;
@@ -99,7 +73,7 @@ const prepararDados = (medidas = {}, paciente = {}) => {
 // ============================================================
 
 // ============================================================
-// Durnin et al. (1974) - 4skf Feminina
+// 1. Durnin et al. (1974) - 4skf Feminina
 // População: Generalizada (Escócia) | Idade: 16 a 68 anos | Ref: PH
 // Refs Excel: X53 (DC) e X54 (%G Siri)
 // Fórmula Excel: =1,1567-0,0717*LOG(F55+F56+F57+F59)
@@ -116,11 +90,11 @@ export const calcularFemDurnin1974 = (m, p) => {
   };
   const { somaDurnin } = prepararDados(m, p);
   // Trava de segurança
-  if (somaDurnin <= 0) return 0;
+  if (somaDurnin <= 0) return { valor: 0, info };
   // Cálculo da Densidade Corporal (DC)
   const dc = 1.1567 - (0.0717 * safeLog10(somaDurnin));
-  // Conversão para Percentual de Gordura (Siri)
-  return converterDCparaSiri(dc);
+// Retorna o pacote completo aqui!
+  return { valor: converterDCparaSiri(dc), info };
 };
 
 // ============================================================
@@ -140,10 +114,11 @@ export const calcularFemJacksonPollock1980_3skf = (m, p) => {
   };
   const { tr, si, cx, peso } = prepararDados(m, p);
   const soma3 = tr + si + cx;
-  if (soma3 <= 0 || peso <= 0) return 0;
+  if (soma3 <= 0 || peso <= 0) return { valor: 0, info };
   // C57 na planilha representa o Peso
   const dc = 1.0994921 - 0.0009929 * (soma3) + 0.0000023 * (Math.pow(soma3, 2)) - 0.0001392 * (peso);
-  return converterDCparaSiri(dc);
+// Retorna o pacote completo aqui!
+  return { valor: converterDCparaSiri(dc), info };
 };
 
 // ============================================================
@@ -163,9 +138,10 @@ export const calcularFemPetroski1995_4skf = (m, p) => {
   };
   const { tr, sub, si, pa, idade, peso, alturaCm } = prepararDados(m, p);
   const soma4 = sub + tr + si + pa;
-  if (soma4 <= 0) return 0;
+  if (soma4 <= 0) return { valor: 0, info };
   const dc = 1.02902361 - (0.00067159 * soma4) + (0.00000242 * Math.pow(soma4, 2)) - (0.00026073 * idade) - (0.00056009 * peso) + (0.00054649 * alturaCm);
-  return converterDCparaSiri(dc);
+// Retorna o pacote completo aqui!
+  return { valor: converterDCparaSiri(dc), info };
 };
 
 // ============================================================
@@ -185,7 +161,7 @@ export const calcularFemGuedes1985_3skf = (m, p) => {
   };
   const { cx, si, sub } = prepararDados(m, p);
   const soma3 = cx + si + sub;
-  if (soma3 <= 0) return 0;
+  if (soma3 <= 0) return { valor: 0, info };
   const dc = 1.1665 - (0.0706 * safeLog10(soma3));
   // Conversão específica do protocolo de Guedes: ((5.01 / DC) - 4.57) * 100
   const pgc = ((5.01 / dc) - 4.57) * 100;
@@ -208,9 +184,10 @@ export const calcularFemWithers1987_4skf = (m, p) => {
     referencia: 'PH (Pesagem Hidrostática)'
   };
   const { somaWithers4 } = prepararDados(m, p);
-  if (somaWithers4 <= 0) return 0;
+  if (somaWithers4 <= 0) return { valor: 0, info };
   const dc = 1.17484 - (0.07229 * safeLog10(somaWithers4));
-  return converterDCparaSiri(dc);
+// Retorna o pacote completo aqui!
+  return { valor: converterDCparaSiri(dc), info };
 };
 
 // ============================================================
@@ -229,9 +206,10 @@ export const calcularFemWithers1987_6skf = (m, p) => {
     referencia: 'PH (Pesagem Hidrostática)'
   };
   const { somaWithers6 } = prepararDados(m, p);
-  if (somaWithers6 <= 0) return 0;
+  if (somaWithers6 <= 0) return { valor: 0, info };
   const dc = 1.20953 - (0.08294 * safeLog10(somaWithers6));
-  return converterDCparaSiri(dc);
+// Retorna o pacote completo aqui!
+  return { valor: converterDCparaSiri(dc), info };
 };
 
 // ============================================================
@@ -251,7 +229,7 @@ export const calcularFemSlaughter1988_2skf = (m, p) => {
   };
   const { tr, pa } = prepararDados(m, p);
   const soma2 = tr + pa;
-  if (soma2 <= 0) return 0;
+  if (soma2 <= 0) return { valor: 0, info };
   const pgc = (0.61 * soma2) + 5.1;
   return Number(Math.max(0.1, pgc).toFixed(2));
 };
@@ -273,7 +251,7 @@ export const calcularFemYuhasz1974_6skf = (m, p) => {
   };
   const { tr, sub, si, ab, cx, pa } = prepararDados(m, p);
   const soma6 = tr + sub + si + ab + cx + pa;
-  if (soma6 <= 0) return 0;
+  if (soma6 <= 0) return { valor: 0, info };
   const pgc = (0.1548 * soma6) + 3.58;
   return Number(Math.max(0.1, pgc).toFixed(2));
 };
@@ -296,10 +274,10 @@ export const calcularFemKatchMcArdle1973_3skf = (m, p) => {
   const { sub, si, diamUmero } = prepararDados(m, p);
   // C79 na planilha é Perímetro/Dobra da Coxa Média
   const coxaMedia = m.perimetro_coxa_media || m.dobra_cutanea_coxa_media || 0;
-  if (sub <= 0) return 0;
+  if (sub <= 0) return { valor: 0, info };
   // F56=Subescapular, F59=Crista Ilíaca, F69=Diâmetro Úmero, C79=Coxa Média
   const dc = 1.09246 - (0.00049 * sub) - (0.00075 * si) + (0.0071 * diamUmero) - (0.00121 * coxaMedia);
-  return converterDCparaBrozek(dc);
+return { valor: converterDCparaBrozek(dc), info };
 };
 
 // ============================================================
@@ -319,9 +297,9 @@ export const calcularFemSloan1962_2skf = (m, p) => {
   };
   const { si, tr } = prepararDados(m, p);
   const soma2 = si + tr;
-  if (soma2 <= 0) return 0;
+  if (soma2 <= 0) return { valor: 0, info };
   const dc = 1.0764 - (0.00081 * si) - (0.00088 * tr);
-  return converterDCparaSiri(dc);
+return { valor: converterDCparaSiri(dc), info };
 };
 
 // ============================================================
@@ -341,9 +319,9 @@ export const calcularFemWilmoreBehnke1970_3skf = (m, p) => {
   };
   const { sub, tr, cx } = prepararDados(m, p);
   const soma3 = sub + tr + cx;
-  if (soma3 <= 0) return 0;
+  if (soma3 <= 0) return { valor: 0, info };
   const dc = 1.06234 - (0.00068 * sub) - (0.00039 * tr) - (0.00025 * cx);
-  return converterDCparaSiri(dc);
+return { valor: converterDCparaSiri(dc), info };
 };
 
 // ============================================================
@@ -363,9 +341,9 @@ export const calcularFemThorlandGeneralizada1984 = (m, p) => {
   };
   const { tr, sub, si } = prepararDados(m, p);
   const soma3 = tr + sub + si;
-  if (soma3 <= 0) return 0;
+  if (soma3 <= 0) return { valor: 0, info };
   const dc = 1.0987 - (0.00122 * soma3) + (0.00000263 * Math.pow(soma3, 2));
-  return converterDCparaSiri(dc);
+return { valor: converterDCparaSiri(dc), info };
 };
 
 // ============================================================
@@ -384,10 +362,10 @@ export const calcularFemLewis1978 = (m, p) => {
     referencia: 'PH (Pesagem Hidrostática)'
   };
   const { tr, alturaCm, sub, perBracoRelax } = prepararDados(m, p);
-  if (tr <= 0 || alturaCm <= 0) return 0;
+  if (tr <= 0 || alturaCm <= 0) return { valor: 0, info };
   // F55=Tríceps, C58=Estatura, F56=Subescapular, C71=Braço Relaxado
   const dc = 0.97845 - (0.0002 * tr) + (0.00088 * alturaCm) - (0.00122 * sub) - (0.00234 * perBracoRelax);
-  return converterDCparaSiri(dc);
+ return { valor: converterDCparaSiri(dc), info };
 };
 
 // ============================================================
@@ -407,10 +385,10 @@ export const calcularFemJacksonPollock1980_4skf = (m, p) => {
   };
   const { tr, si, ab, cx, idade } = prepararDados(m, p);
   const soma4 = tr + si + ab + cx;
-  if (soma4 <= 0) return 0;
+  if (soma4 <= 0) return { valor: 0, info };
   // E5 na planilha representa a Idade (C56)
   const dc = 1.096095 - (0.0006952 * soma4) + (0.0000011 * Math.pow(soma4, 2)) - (0.0000714 * idade);
-  return converterDCparaSiri(dc);
+  return { valor: converterDCparaSiri(dc), info };
 };
 
 // ============================================================
@@ -430,7 +408,7 @@ export const calcularFemTranWeltman1989_Perimetros = (m, p) => {
   };
   const { perCintura, perAbdome, perQuadril, alturaCm, idade } = prepararDados(m, p);
   const mediaAbdintura = (perCintura + perAbdome) / 2;
-  if (mediaAbdintura <= 0) return 0;
+  if (mediaAbdintura <= 0) return { valor: 0, info };
   // E5 representa a Idade na planilha
   const dc = 1.168297 - (0.002824 * mediaAbdintura) + (0.0000122098 * Math.pow(mediaAbdintura, 2)) - (0.000733128 * perQuadril) + (0.000510477 * alturaCm) - (0.000216161 * idade);
   // Conversão adaptada da célula X60: ((5.01 / DC) - 4.57) * 100
@@ -455,7 +433,7 @@ export const calcularFemWeltman1988_Perimetros = (m, p) => {
   };
   const { perCintura, perAbdome, alturaCm, peso } = prepararDados(m, p);
   const mediaAbdintura = (perCintura + perAbdome) / 2;
-  if (mediaAbdintura <= 0 || peso <= 0) return 0;
+  if (mediaAbdintura <= 0 || peso <= 0) return { valor: 0, info };
   const pgc = (0.11077 * mediaAbdintura) - (0.17666 * alturaCm) + (0.14354 * peso) + 51.03301;
   return Number(Math.max(0.1, pgc).toFixed(2));
 };
