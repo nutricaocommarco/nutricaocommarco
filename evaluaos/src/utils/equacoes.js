@@ -95,186 +95,364 @@ const prepararDados = (medidas = {}, paciente = {}) => {
 // --- AS EQUAÇÕES DE REGRESSÃO - NÃO APAGAR (MULHERES) ---
 // ============================================================
 
-// 1. Durnin et al. (1974) - 4skf
-// Refs Excel: X53 (DC) e X54 (%G)
+// ============================================================
+// Durnin et al. (1974) - 4skf Feminina
+// População: Generalizada (Escócia) | Idade: 16 a 68 anos | Ref: PH
+// Refs Excel: X53 (DC) e X54 (%G Siri)
+// Fórmula Excel: =1,1567-0,0717*LOG(F55+F56+F57+F59)
+// ============================================================
 export const calcularFemDurnin1974 = (m, p) => {
+  // Metadados da Equação
+  const info = {
+    autor: 'Durnin & Womersley',
+    ano: 1974,
+    protocolo: '4 Dobras Cutâneas',
+    populacao: 'Generalizada (Escócia)',
+    faixaEtaria: '16 a 68 anos',
+    referencia: 'PH (Pesagem Hidrostática)'
+  };
   const { somaDurnin } = prepararDados(m, p);
+  // Trava de segurança
   if (somaDurnin <= 0) return 0;
-  // Excel: =1,1567-0,0717*LOG(F55+F56+F57+F59)
+  // Cálculo da Densidade Corporal (DC)
   const dc = 1.1567 - (0.0717 * safeLog10(somaDurnin));
+  // Conversão para Percentual de Gordura (Siri)
   return converterDCparaSiri(dc);
 };
 
-// 2. Jackson et al. (1980) - 3skf
-// Refs Excel: X56 (DC) e X57 (%G)
+// ============================================================
+// 2. Jackson et al. (1980) - 3skf Feminina
+// População: Adultas (EUA) | Idade: 18 a 55 anos | Ref: PH
+// Refs Excel: X56 (DC) e X57 (%G Siri)
+// Fórmula Excel: =1,0994921-0,0009929*(F55+F59+F62)+0,0000023*(F55+F59+F62)^2-0,0001392*(C57)
+// ============================================================
 export const calcularFemJacksonPollock1980_3skf = (m, p) => {
-  const { tr, si, cx, idade } = prepararDados(m, p);
+  const info = {
+    autor: 'Jackson, Pollock & Ward',
+    ano: 1980,
+    protocolo: '3 Dobras (Tríceps, Supra-ilíaca, Coxa)',
+    populacao: 'Adultas, generalizada (EUA)',
+    faixaEtaria: '18 a 55 anos',
+    referencia: 'PH (Pesagem Hidrostática)'
+  };
+  const { tr, si, cx, peso } = prepararDados(m, p);
   const soma3 = tr + si + cx;
-  if (soma3 <= 0) return 0;
-  // Excel: =1,0994921-0,0009929*(F55+F59+F62)+0,0000023*(F55+F59+F62)^2-0,0001392*(C57)
-  // AJUSTE CIENTÍFICO: Trocado C57 (Peso) por C56 (Idade) no fator final.
-  const dc = 1.0994921 - (0.0009929 * soma3) + (0.0000023 * Math.pow(soma3, 2)) - (0.0001392 * idade);
+  if (soma3 <= 0 || peso <= 0) return 0;
+  // C57 na planilha representa o Peso
+  const dc = 1.0994921 - (0.0009929 * soma3) + (0.0000023 * Math.pow(soma3, 2)) - (0.0001392 * peso);
   return converterDCparaSiri(dc);
 };
 
+// ============================================================
 // 3. Petroski (1995) - 4skf (Modelo Brasileiro F9)
-// Refs Excel: X68 (DC) e X69 (%G)
+// População: Generalizada (Sul/Brasil) | Idade: 18 a 61 anos | Ref: PH
+// Refs Excel: X68 (DC) e X69 (%G Siri)
+// Fórmula Excel: =1,02902361-0,00067159*(F56+F55+F59+F63)+0,00000242*(F56+F55+F59+F63)^2-0,00026073*(C56)-0,00056009*(C57)+0,00054649*(C58)
+// ============================================================
 export const calcularFemPetroski1995_4skf = (m, p) => {
+  const info = {
+    autor: 'Petroski',
+    ano: 1995,
+    protocolo: '4 Dobras (Subescapular, Tríceps, Supra-ilíaca, Panturrilha)',
+    populacao: 'Generalizada (Sul/Brasil)',
+    faixaEtaria: '18 a 61 anos',
+    referencia: 'PH (Pesagem Hidrostática)'
+  };
   const { tr, sub, si, pa, idade, peso, alturaCm } = prepararDados(m, p);
-  const soma4 = tr + sub + si + pa;
+  const soma4 = sub + tr + si + pa;
   if (soma4 <= 0) return 0;
-  // Excel: =1,02902361-0,00067159*(F56+F55+F59+F63)+0,00000242*(F56+F55+F59+F63)^2-0,00026073*(C56)-0,00056009*(C57)+0,00054649*(C58)
   const dc = 1.02902361 - (0.00067159 * soma4) + (0.00000242 * Math.pow(soma4, 2)) - (0.00026073 * idade) - (0.00056009 * peso) + (0.00054649 * alturaCm);
   return converterDCparaSiri(dc);
 };
 
+// ============================================================
 // 4. Guedes (1985) - 3skf (Modelo Brasileiro Universitárias)
-// Refs Excel: X71 (DC) e X72 (%G)
+// População: Universitárias (Brasil) | Idade: 17 a 29 anos | Ref: PH
+// Refs Excel: X71 (DC) e X72 (%G Brozek Adaptado)
+// Fórmula Excel: =1,1665-0,0706*LOG10(F62+F59+F56) | %G: =((5,01/X71)-4,57)*100
+// ============================================================
 export const calcularFemGuedes1985_3skf = (m, p) => {
-  const { si, cx, sub } = prepararDados(m, p);
-  const soma3 = si + cx + sub;
+  const info = {
+    autor: 'Guedes',
+    ano: 1985,
+    protocolo: '3 Dobras (Coxa, Supra-ilíaca, Subescapular)',
+    populacao: 'Universitárias (Brasil)',
+    faixaEtaria: '17 a 29 anos',
+    referencia: 'PH (Pesagem Hidrostática)'
+  };
+  const { cx, si, sub } = prepararDados(m, p);
+  const soma3 = cx + si + sub;
   if (soma3 <= 0) return 0;
-  // Excel: =1,1665-0,0706*LOG10(F62+F59+F56)
   const dc = 1.1665 - (0.0706 * safeLog10(soma3));
-  return converterDCparaSiri(dc);
+  // Conversão específica do protocolo de Guedes: ((5.01 / DC) - 4.57) * 100
+  const pgc = ((5.01 / dc) - 4.57) * 100;
+  return Number(Math.max(0.1, pgc).toFixed(2));
 };
 
+// ============================================================
 // 5. Withers et al. (1987) - 4skf (Padrão ISAK)
-// Refs Excel: X92 (DC) e X93 (%G)
+// População: Atletas Australianas | Idade: 11 a 41 anos | Ref: PH
+// Refs Excel: X92 (DC) e X93 (%G Siri)
+// Fórmula Excel: =1,17484-0,07229*LOG10(F55+F56+F60+F63)
+// ============================================================
 export const calcularFemWithers1987_4skf = (m, p) => {
+  const info = {
+    autor: 'Withers et al.',
+    ano: 1987,
+    protocolo: '4 Dobras (Tríceps, Subescapular, Supraespinhal, Panturrilha)',
+    populacao: 'Atletas (Austrália)',
+    faixaEtaria: '11 a 41 anos',
+    referencia: 'PH (Pesagem Hidrostática)'
+  };
   const { somaWithers4 } = prepararDados(m, p);
   if (somaWithers4 <= 0) return 0;
-  // Excel: =1,17484-0,07229*LOG10(F55+F56+F60+F63)
   const dc = 1.17484 - (0.07229 * safeLog10(somaWithers4));
   return converterDCparaSiri(dc);
 };
 
+// ============================================================
 // 6. Withers et al. (1987) - 6skf (Padrão ISAK)
-// Refs Excel: X95 (DC) e X96 (%G)
+// População: Fit/Ativas Australianas | Idade: 17 a 35 anos | Ref: PH
+// Refs Excel: X95 (DC) e X96 (%G Siri)
+// Fórmula Excel: =1,20953-0,08294*LOG10(F55+F56+F60+F61+F62+F63)
+// ============================================================
 export const calcularFemWithers1987_6skf = (m, p) => {
+  const info = {
+    autor: 'Withers et al.',
+    ano: 1987,
+    protocolo: '6 Dobras (Tríceps, Subescapular, Supraespinhal, Abdominal, Coxa, Panturrilha)',
+    populacao: 'Fit / Ativas (Austrália)',
+    faixaEtaria: '17 a 35 anos',
+    referencia: 'PH (Pesagem Hidrostática)'
+  };
   const { somaWithers6 } = prepararDados(m, p);
   if (somaWithers6 <= 0) return 0;
-  // Excel: =1,20953-0,08294*LOG10(F55+F56+F60+F61+F62+F63)
   const dc = 1.20953 - (0.08294 * safeLog10(somaWithers6));
   return converterDCparaSiri(dc);
 };
 
+// ============================================================
 // 7. Slaughter et al. (1988) - 2skf (Crianças/Adolescentes)
-// Refs Excel: X79 (%G Direto)
+// População: Meninas | Idade: 8 a 17 anos | Ref: PH
+// Ref Excel: X79 (%G Direto)
+// Fórmula Excel: =0,61*(F55+F63)+5,1
+// ============================================================
 export const calcularFemSlaughter1988_2skf = (m, p) => {
+  const info = {
+    autor: 'Slaughter et al.',
+    ano: 1988,
+    protocolo: '2 Dobras (Tríceps e Panturrilha)',
+    populacao: 'Meninas / Adolescentes',
+    faixaEtaria: '8 a 17 anos',
+    referencia: 'PH (Pesagem Hidrostática)'
+  };
   const { tr, pa } = prepararDados(m, p);
   const soma2 = tr + pa;
   if (soma2 <= 0) return 0;
-  // Excel: =0,61*(F55+F63)+5,1 (Cálculo direto de %G, sem DC prévia)
   const pgc = (0.61 * soma2) + 5.1;
   return Number(Math.max(0.1, pgc).toFixed(2));
 };
 
+// ============================================================
 // 8. Yuhasz (1974) - 6skf (Modelo Clássico)
-// Refs Excel: X81 (%G Direto)
+// População: Jovens Estudantes (Canadá) | Ref: PH
+// Ref Excel: X81 (%G Direto)
+// Fórmula Excel: =0,1548*(F64)+3,58
+// ============================================================
 export const calcularFemYuhasz1974_6skf = (m, p) => {
+  const info = {
+    autor: 'Yuhasz',
+    ano: 1974,
+    protocolo: '6 Dobras Clássico',
+    populacao: 'Jovens estudantes (Canadá)',
+    faixaEtaria: 'Jovens Adultos',
+    referencia: 'PH (Pesagem Hidrostática)'
+  };
   const { tr, sub, si, ab, cx, pa } = prepararDados(m, p);
   const soma6 = tr + sub + si + ab + cx + pa;
   if (soma6 <= 0) return 0;
-  // Excel: =0,1548*(F64)+3,58 (Cálculo direto de %G)
-  // Nota: F64 no dicionário é Soma 6, mas refere-se à soma das dobras acima.
   const pgc = (0.1548 * soma6) + 3.58;
   return Number(Math.max(0.1, pgc).toFixed(2));
 };
 
-// 9. Katch & McArdle (1973) - 3skf (Usa Brozek)
+// ============================================================
+// 9. Katch & McArdle (1973) - 3skf
+// População: Universitárias (EUA) | Idade: ~20 anos | Ref: PH
 // Refs Excel: X83 (DC) e X84 (%G Brozek)
+// Fórmula Excel: =1,09246-0,00049*(F56)-0,00075*(F59)+0,0071*(F69)-0,00121*(C79)
+// ============================================================
 export const calcularFemKatchMcArdle1973_3skf = (m, p) => {
-  const { sub, si, cx } = prepararDados(m, p);
-  const soma3 = sub + si + cx;
-  if (soma3 <= 0) return 0;
-  // Excel: =1,09246-0,00049*(F56)-0,00075*(F59)+0,0071*(F69)-0,00121*(C79)
-  // TODO: F69 e C79 não constam no dicionário gerado pela macro, verifique o Excel.
-  // Deixando o cálculo comentado até confirmar as variáveis F69 (Úmero?) e C79 (Coxa?).
-  // const dc = 1.09246 - (0.00049 * sub) - (0.00075 * si) + (0.0071 * F69) - (0.00121 * C79);
-  // return converterDCparaBrozek(dc);
-  return 0; // Temporário
+  const info = {
+    autor: 'Katch & McArdle',
+    ano: 1973,
+    protocolo: '3 Dobras + Perímetro/Diâmetro',
+    populacao: 'Universitárias (EUA)',
+    faixaEtaria: '~20 anos',
+    referencia: 'PH (Pesagem Hidrostática)'
+  };
+  const { sub, si, diamUmero } = prepararDados(m, p);
+  // C79 na planilha é Perímetro/Dobra da Coxa Média
+  const coxaMedia = m.perimetro_coxa_media || m.dobra_cutanea_coxa_media || 0;
+  if (sub <= 0) return 0;
+  // F56=Subescapular, F59=Crista Ilíaca, F69=Diâmetro Úmero, C79=Coxa Média
+  const dc = 1.09246 - (0.00049 * sub) - (0.00075 * si) + (0.0071 * diamUmero) - (0.00121 * coxaMedia);
+  return converterDCparaBrozek(dc);
 };
 
+// ============================================================
 // 10. Sloan et al. (1962) - 2skf
-// Refs Excel: X86 (DC) e X87 (%G)
+// População: Universitárias (EUA) | Idade: 17 a 25 anos | Ref: PH
+// Refs Excel: X86 (DC) e X87 (%G Siri)
+// Fórmula Excel: =1,0764-0,00081*(F59)-0,00088*(F55)
+// ============================================================
 export const calcularFemSloan1962_2skf = (m, p) => {
+  const info = {
+    autor: 'Sloan, Burt & Blyth',
+    ano: 1962,
+    protocolo: '2 Dobras (Supra-ilíaca e Tríceps)',
+    populacao: 'Universitárias (EUA)',
+    faixaEtaria: '17 a 25 anos',
+    referencia: 'PH (Pesagem Hidrostática)'
+  };
   const { si, tr } = prepararDados(m, p);
   const soma2 = si + tr;
   if (soma2 <= 0) return 0;
-  // Excel: =1,0764-0,00081*(F59)-0,00088*(F55)
   const dc = 1.0764 - (0.00081 * si) - (0.00088 * tr);
   return converterDCparaSiri(dc);
 };
 
+// ============================================================
 // 11. Wilmore & Behnke (1970) - 3skf
-// Refs Excel: X89 (DC) e X90 (%G)
+// População: Universitárias (EUA) | Idade: 17 a 48 anos | Ref: PH
+// Refs Excel: X89 (DC) e X90 (%G Siri)
+// Fórmula Excel: =1,06234-0,00068*(F56)-0,00039*(F55)-0,00025*(F62)
+// ============================================================
 export const calcularFemWilmoreBehnke1970_3skf = (m, p) => {
+  const info = {
+    autor: 'Wilmore & Behnke',
+    ano: 1970,
+    protocolo: '3 Dobras (Subescapular, Tríceps, Coxa)',
+    populacao: 'Universitárias (EUA)',
+    faixaEtaria: '17 a 48 anos',
+    referencia: 'PH (Pesagem Hidrostática)'
+  };
   const { sub, tr, cx } = prepararDados(m, p);
   const soma3 = sub + tr + cx;
   if (soma3 <= 0) return 0;
-  // Excel: =1,06234-0,00068*(F56)-0,00039*(F55)-0,00025*(F62)
   const dc = 1.06234 - (0.00068 * sub) - (0.00039 * tr) - (0.00025 * cx);
   return converterDCparaSiri(dc);
 };
 
+// ============================================================
 // 12. Thorland et al. (1984) - Generalizada Feminina
-// Refs Excel: X65 (DC) e X66 (%G)
+// População: Jovens Atletas de Elite (EUA) | Idade: ~16 anos | Ref: PH
+// Refs Excel: X65 (DC) e X66 (%G Siri)
+// Fórmula Excel: =1,0987-0,00122*(F55+F56+F59)+0,00000263*(F55+F56+F59)^2
+// ============================================================
 export const calcularFemThorlandGeneralizada1984 = (m, p) => {
+  const info = {
+    autor: 'Thorland et al.',
+    ano: 1984,
+    protocolo: '3 Dobras (Tríceps, Subescapular, Supra-ilíaca)',
+    populacao: 'Jovens Atletas de Elite (EUA)',
+    faixaEtaria: '~16 anos',
+    referencia: 'PH (Pesagem Hidrostática)'
+  };
   const { tr, sub, si } = prepararDados(m, p);
   const soma3 = tr + sub + si;
   if (soma3 <= 0) return 0;
-  // Excel: =1,0987-0,00122*(F55+F56+F59)+0,00000263*(F55+F56+F59)^2
   const dc = 1.0987 - (0.00122 * soma3) + (0.00000263 * Math.pow(soma3, 2));
   return converterDCparaSiri(dc);
 };
 
+// ============================================================
 // 13. Lewis et al. (1978) - Modelo por Dobras e Perímetros
-// Refs Excel: X62 (DC) e X63 (%G)
+// População: Corredoras (EUA) | Idade: 30 a 59 anos | Ref: PH
+// Refs Excel: X62 (DC) e X63 (%G Siri)
+// Fórmula Excel: =0,97845-0,0002*(F55)+0,00088*(C58)-0,00122*(F56)-0,00234*(C71)
+// ============================================================
 export const calcularFemLewis1978 = (m, p) => {
+  const info = {
+    autor: 'Lewis et al.',
+    ano: 1978,
+    protocolo: 'Dobras + Perímetro Braço + Estatura',
+    populacao: 'Corredoras (EUA)',
+    faixaEtaria: '30 a 59 anos',
+    referencia: 'PH (Pesagem Hidrostática)'
+  };
   const { tr, alturaCm, sub, perBracoRelax } = prepararDados(m, p);
-  // TODO: F60 (Supra Espinhal) ou Perímetro Tórax (C74/F74?) em X62?
-  // Excel usa Lewis mas a fórmula parece customizada. C71 é Braço Relax.
-  // Fórmula Excel: =0,97845-0,0002*(F55)+0,00088*(C58)-0,00122*(F56)-0,00234*(C71)
-  if (tr <= 0) return 0;
+  if (tr <= 0 || alturaCm <= 0) return 0;
+  // F55=Tríceps, C58=Estatura, F56=Subescapular, C71=Braço Relaxado
   const dc = 0.97845 - (0.0002 * tr) + (0.00088 * alturaCm) - (0.00122 * sub) - (0.00234 * perBracoRelax);
   return converterDCparaSiri(dc);
 };
 
+// ============================================================
 // 14. Jackson et al. (1980) - 4skf
-// Refs Excel: X76 (DC) e X77 (%G)
+// População: Adultas Generalizada (EUA) | Idade: 18 a 55 anos | Ref: PH
+// Refs Excel: X76 (DC) e X77 (%G Siri)
+// Fórmula Excel: =1,096095-0,0006952*(F55+F59+F61+F62)+0,0000011*(F55+F59+F61+F62)^2-0,0000714*(E5)
+// ============================================================
 export const calcularFemJacksonPollock1980_4skf = (m, p) => {
+  const info = {
+    autor: 'Jackson, Pollock & Ward',
+    ano: 1980,
+    protocolo: '4 Dobras (Tríceps, Supra-ilíaca, Abdominal, Coxa)',
+    populacao: 'Adultas, generalizada (EUA)',
+    faixaEtaria: '18 a 55 anos',
+    referencia: 'PH (Pesagem Hidrostática)'
+  };
   const { tr, si, ab, cx, idade } = prepararDados(m, p);
   const soma4 = tr + si + ab + cx;
   if (soma4 <= 0) return 0;
-  // TODO: Descobrir o que é E5 (referenciado no fator final)
-  const E5 = 0; // Temporário, costuma ser fator de gênero.
-  // Excel: =1,096095-0,0006952*(F55+F59+F61+F62)+0,0000011*(F55+F59+F61+F62)^2-0,0000714*(E5)
-  const dc = 1.096095 - (0.0006952 * soma4) + (0.0000011 * Math.pow(soma4, 2)) - (0.0000714 * E5);
+  // E5 na planilha representa a Idade (C56)
+  const dc = 1.096095 - (0.0006952 * soma4) + (0.0000011 * Math.pow(soma4, 2)) - (0.0000714 * idade);
   return converterDCparaSiri(dc);
 };
 
+// ============================================================
 // 15. Tran & Weltman (1989) - Modelo por Perímetros
-// Refs Excel: X59 (DC) e X60 (%G)
+// População: Brancas / Usual para Idosas | Idade: 15 a 79 anos | Ref: PH
+// Refs Excel: X59 (DC) e X60 (%G Brozek Adaptado)
+// Fórmula Excel: =1,168297-0,002824*((C75+C76)/2)+0,0000122098*((C75+C76)/2)^2-0,000733128*(C77)+0,000510477*(C58)-0,000216161*(E5)
+// ============================================================
 export const calcularFemTranWeltman1989_Perimetros = (m, p) => {
-  const { perCintura, perAbdome, perQuadril, alturaCm } = prepararDados(m, p);
+  const info = {
+    autor: 'Tran & Weltman',
+    ano: 1989,
+    protocolo: 'Perímetros (Cintura, Abdome, Quadril) + Estatura',
+    populacao: 'Brancas / Usual para idosas',
+    faixaEtaria: '15 a 79 anos',
+    referencia: 'PH (Pesagem Hidrostática)'
+  };
+  const { perCintura, perAbdome, perQuadril, alturaCm, idade } = prepararDados(m, p);
   const mediaAbdintura = (perCintura + perAbdome) / 2;
-  // TODO: Descobrir o que é E5 (referenciado no fator final)
-  const E5 = 0; // Temporário
-  // Excel: =1,168297-0,002824*((C75+C76)/2)+0,0000122098*((C75+C76)/2)^2-0,000733128*(C77)+0,000510477*(C58)-0,000216161*(E5)
   if (mediaAbdintura <= 0) return 0;
-  const dc = 1.168297 - (0.002824 * mediaAbdintura) + (0.0000122098 * Math.pow(mediaAbdintura, 2)) - (0.000733128 * perQuadril) + (0.000510477 * alturaCm) - (0.000216161 * E5);
-  // Nota: Fórmula de Tran & Weltman costuma usar conversão direta diferente de Siri. Excel usa Siri (495/DC-450).
-  return converterDCparaSiri(dc);
+  // E5 representa a Idade na planilha
+  const dc = 1.168297 - (0.002824 * mediaAbdintura) + (0.0000122098 * Math.pow(mediaAbdintura, 2)) - (0.000733128 * perQuadril) + (0.000510477 * alturaCm) - (0.000216161 * idade);
+  // Conversão adaptada da célula X60: ((5.01 / DC) - 4.57) * 100
+  const pgc = ((5.01 / dc) - 4.57) * 100;
+  return Number(Math.max(0.1, pgc).toFixed(2));
 };
 
+// ============================================================
 // 16. Weltman et al. (1988) - Modelo Direto por Perímetros
-// Refs Excel: X74 (%G Direto)
+// População: Mulheres com Obesidade | Idade: 20 a 60 anos | Ref: PH
+// Ref Excel: X74 (%G Direto)
+// Fórmula Excel: =0,11077*((C75+C76)/2)-0,17666*(C58)+0,14354*(C57)+51,03301
+// ============================================================
 export const calcularFemWeltman1988_Perimetros = (m, p) => {
+  const info = {
+    autor: 'Weltman et al.',
+    ano: 1988,
+    protocolo: 'Perímetros (Cintura, Abdome) + Estatura + Peso',
+    populacao: 'Mulheres com Obesidade',
+    faixaEtaria: '20 a 60 anos',
+    referencia: 'PH (Pesagem Hidrostática)'
+  };
   const { perCintura, perAbdome, alturaCm, peso } = prepararDados(m, p);
   const mediaAbdintura = (perCintura + perAbdome) / 2;
-  // Excel: =0,11077*((C75+C76)/2)-0,17666*(C58)+0,14354*(C57)+51,03301
-  if (mediaAbdintura <= 0) return 0;
+  if (mediaAbdintura <= 0 || peso <= 0) return 0;
   const pgc = (0.11077 * mediaAbdintura) - (0.17666 * alturaCm) + (0.14354 * peso) + 51.03301;
   return Number(Math.max(0.1, pgc).toFixed(2));
 };
