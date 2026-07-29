@@ -216,36 +216,35 @@ export default function ResultadoAvaliacao() {
     }
   }
 
-  // --- ÍNDICE ADIPOSO MUSCULAR (IAM) ---
-  // Massa de Gordura (Kg) / Massa Muscular (Kg)
-  const iamVal = (massaMuscular > 0 && massaGorda > 0) ? (massaGorda / massaMuscular) : 0
-
-  // --- ÍNDICE DE MÚSCULO ÓSSEO (IMO) ---
-  const estaturaMetros = (aval.altura_paciente || 0) / 100
-  const dUmero = aval.diametro_umero || 0
-  const dFemur = aval.diametro_femur || 0
-  // Nota: Caso tenha o diâmetro do punho/rádio guardado, use aqui. Usando diametro_punho como referência ao rádio:
-  const dRadio = aval.diametro_punho || 0 
-  const dMaleolar = aval.diametro_maleolar || 0
-
-  const parte1 = 0.6 * estaturaMetros * Math.pow(dUmero + dFemur + dRadio + dMaleolar, 2) * 0.0001
-  
-  const dCoxaMm = aval.dobra_cutanea_coxa_media || 0
-  const dPantMm = aval.dobra_cutanea_panturrilha || 0
-  const cAntebraco = aval.perimetro_antibraco || 0
-
-  const termoCoxaM = perimCorrigidoCoxa // já calculado anteriormente no código
-  const termoPantM = perimCorrigidoPanturrilha // já calculado anteriormente no código
-
-  const parte2 = (estaturaMetros * (0.0553 * Math.pow(termoCoxaM, 2) + 0.0987 * Math.pow(cAntebraco, 2) + 0.0331 * Math.pow(termoPantM, 2)) - 2445) * 0.001
-  
-  const imoVal = (parte1 > 0 && parte2 > 0) ? (parte1 / parte2) : 0
-
   const imc = dados.imc || 0
   const percentualGordura = aval.percentual_de_gordura || 0 
   const massaGorda = dados.massa_gorda || 0
   const massaMagra = dados.massa_magra || 0
   const massaMuscular = dados.massa_muscular || 0
+
+  // --- ÍNDICE ADIPOSO MUSCULAR (IAM) ---
+  const iamVal = (massaMuscular > 0 && massaGorda > 0) ? (massaGorda / massaMuscular) : 0
+
+  // --- VARIÁVEIS PRÉ-CÁLCULO CORRIGIDAS ---
+  const pBraco = aval.perimetro_braco_relaxado || 0;
+  const pCoxa = aval.perimetro_coxa_media || 0;
+  const pPant = aval.perimetro_panturrilha || 0;
+  const perimCorrigidoBraco = dados.perimetro_corrigido_braco || (pBraco > 0 ? pBraco - ((aval.dobra_cutanea_triceps || 0) * 0.314) : 0);
+  const perimCorrigidoCoxa = dados.perimetro_corrigido_coxa || (pCoxa > 0 ? pCoxa - ((aval.dobra_cutanea_coxa_media || 0) * 0.314) : 0);
+  const perimCorrigidoPanturrilha = dados.perimetro_corrigido_panturrilha || (pPant > 0 ? pPant - ((aval.dobra_cutanea_panturrilha || 0) * 0.314) : 0);
+
+  // --- ÍNDICE DE MÚSCULO ÓSSEO (IMO) ---
+  const estaturaMetros = (aval.altura_paciente || 0) / 100
+  const dUmero = aval.diametro_umero || 0
+  const dFemur = aval.diametro_femur || 0
+  const dRadio = aval.diametro_punho || 0 
+  const dMaleolar = aval.diametro_maleolar || 0
+
+  const parte1 = 0.6 * estaturaMetros * Math.pow(dUmero + dFemur + dRadio + dMaleolar, 2) * 0.0001
+  const cAntebraco = aval.perimetro_antibraco || 0
+
+  const parte2 = (estaturaMetros * (0.0553 * Math.pow(perimCorrigidoCoxa, 2) + 0.0987 * Math.pow(cAntebraco, 2) + 0.0331 * Math.pow(perimCorrigidoPanturrilha, 2)) - 2445) * 0.001
+  const imoVal = (parte1 > 0 && parte2 > 0) ? (parte1 / parte2) : 0
   
   const coordX = 150 + ((dados.somatocarta_eixo_x || 0) * 15)
   const coordY = 150 - ((dados.somatocarta_eixo_y || 0) * 11)
@@ -254,13 +253,6 @@ export default function ResultadoAvaliacao() {
   const rce = dados.relacao_cintura_estatura || 0;
   const soma6 = dados.somatorio_6_dobras || 0;
   const soma8 = dados.somatorio_8_dobras || 0;
-
-  const pBraco = aval.perimetro_braco_relaxado || 0;
-  const pCoxa = aval.perimetro_coxa_media || 0;
-  const pPant = aval.perimetro_panturrilha || 0;
-  const perimCorrigidoBraco = dados.perimetro_corrigido_braco || (pBraco > 0 ? pBraco - ((aval.dobra_cutanea_triceps || 0) * 0.314) : 0);
-  const perimCorrigidoCoxa = dados.perimetro_corrigido_coxa || (pCoxa > 0 ? pCoxa - ((aval.dobra_cutanea_coxa_media || 0) * 0.314) : 0);
-  const perimCorrigidoPanturrilha = dados.perimetro_corrigido_panturrilha || (pPant > 0 ? pPant - ((aval.dobra_cutanea_panturrilha || 0) * 0.314) : 0);
 
   const renderMedidaItem = (label, valor, unidade) => (
     <div className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0" key={label}>
@@ -278,7 +270,6 @@ export default function ResultadoAvaliacao() {
           CABEÇALHO DA AVALIAÇÃO E PACIENTE 
       ============================================================= */}
       <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm relative">
-        {/* AQUI ESTÁ A CORREÇÃO: Usando navigate() no lugar de onVoltar */}
         <button onClick={() => navigate('/pacientes')} className="text-xs text-emerald-600 font-semibold hover:underline mb-2 inline-block">
           ← Voltar para Histórico
         </button>
@@ -458,7 +449,7 @@ export default function ResultadoAvaliacao() {
           7. DIÂMETROS ÓSSEOS
       ============================================================= */}
       <div>
-        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">🦴 7. Diâmetros Ósseos</h3>
+        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">🦴 7. Diâmetros ÓSSEos</h3>
         <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-2">
             {renderMedidaItem('Úmero', aval.diametro_umero, 'cm')}
@@ -549,27 +540,20 @@ export default function ResultadoAvaliacao() {
             </span>
           </div>
 
-        </div>
-      </div>
-
-      {/* ============================================================
-          11. Em Breve
-      ============================================================= */}
-
-
-      <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm space-y-4 mt-6">
-        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider border-b pb-2">🚀 11. Em Breve</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {[
-            'Área de Previsão Visceral (APVAT)', 'Gordura (Escala Morrow)', 'Gordura (Escala Argoref)'
+            'Área de Previsão Visceral (APVAT)', 
+            'Gordura (Escala Morrow)', 
+            'Gordura (Escala Argoref)'
           ].map((item, index) => (
             <div key={index} className="flex justify-between items-center p-3 border border-gray-100 rounded-lg bg-gray-50">
               <span className="text-xs font-semibold text-gray-700">{item}</span>
               <span className="text-[10px] font-bold bg-gray-200 text-gray-500 px-2 py-1 rounded-md uppercase tracking-wide">Em breve</span>
             </div>
           ))}
+
         </div>
       </div>
+
     </div>
   )
 }
