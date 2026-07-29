@@ -65,7 +65,7 @@ const prepararDados = (medidas = {}, paciente = {}) => {
   const peso = medidas.peso_paciente || medidas.massa_kg || medidas.peso_kg || 0;
   const alturaCm = medidas.altura_paciente || medidas.estatura_cm || medidas.altura_cm || 0;
   const imc = (peso > 0 && alturaCm > 0) ? (peso / Math.pow(alturaCm / 100, 2)) : 0;
-  const estaturaSentado = Number(m.altura_sentado_paciente || m.estatura_sentado || 0);
+  const estaturaSentado = Number(medidas.altura_sentado_paciente || medidas.estatura_sentado || 0);
 
   const tr = medidas.dobra_cutanea_triceps || 0;             
   const sub = medidas.dobra_cutanea_subescapular || 0;       
