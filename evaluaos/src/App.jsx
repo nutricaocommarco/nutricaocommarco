@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom'
 import { supabase } from './supabaseClient'
 
-// Importando suas telas
+// Importando suas telas 
 import Login from './pages/Login'
 import Pacientes from './pages/Pacientes'
 import EscolhaPercGordura from './pages/EscolhaPercGordura'

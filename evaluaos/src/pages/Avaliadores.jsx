@@ -7,7 +7,7 @@ export default function Avaliador({ userId }) {
   const [savingEquip, setSavingEquip] = useState(false)
   const [savingSenha, setSavingSenha] = useState(false)
 
-  // Estados do Perfil do Avaliador
+  // Estados do Perfil do Avaliador 
   const [perfilId, setPerfilId] = useState(null)
   const [nomeCompleto, setNomeCompleto] = useState('')
   const [email, setEmail] = useState('')
