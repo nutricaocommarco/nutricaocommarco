@@ -1,5 +1,5 @@
 // ============================================================
-// EVALUAOS - Módulo de Equações Antropométricas (Apenas Mulheres)
+// EVALUAOS - Módulo de Equações Antropométricas (Alinhado ao BD)
 // Baseado na extração de fórmulas do Excel (DIGITAÇÃO V52:AC96)
 // ============================================================
 
@@ -36,75 +36,58 @@ const safeLog10 = (valor) => {
   return Math.log10(valor);
 };
 
-// --- MAPEAMENTO DE ENTRADAS (Tradução das variáveis do Excel) ---
+// --- MAPEAMENTO DE ENTRADAS (Alinhado com a tabela public.avaliacoes) ---
 
 /**
- * Prepara os dados brutos recebidos do formulário para o formato exigido pelas fórmulas.
+ * Prepara os dados brutos recebidos do formulário e do banco para o formato exigido.
  */
-const prepararDadosEntrada = (medidas) => {
-  // Entradas Básicas (Coluna C)
-  const idade = medidas.idade_anos || 0;                     
-  const peso = medidas.massa_kg || medidas.peso_kg || 0;       
-  const alturaCm = medidas.estatura_cm || medidas.altura_cm || 0; 
+const prepararDados = (medidas = {}, paciente = {}) => {
+  // 1. Cálculo da Idade (preciso, usando datas do banco)
+  let idade = 0;
+  if (paciente.data_nasc && medidas.data_avaliacao) {
+    const nasc = new Date(paciente.data_nasc);
+    const aval = new Date(medidas.data_avaliacao);
+    idade = aval.getFullYear() - nasc.getFullYear();
+    const m = aval.getMonth() - nasc.getMonth();
+    if (m < 0 || (m === 0 && aval.getDate() < nasc.getDate())) {
+      idade--;
+    }
+  } else if (medidas.idade_anos) {
+    idade = medidas.idade_anos;
+  }
 
-  // Dobras Cutâneas (Coluna F)
+  // 2. Medidas Básicas
+  const peso = medidas.peso_paciente || medidas.massa_kg || medidas.peso_kg || 0;
+  const alturaCm = medidas.altura_paciente || medidas.estatura_cm || medidas.altura_cm || 0;
+  const imc = (peso > 0 && alturaCm > 0) ? (peso / Math.pow(alturaCm / 100, 2)) : 0;
+
+  // 3. Dobras Cutâneas
   const tr = medidas.dobra_cutanea_triceps || 0;             
   const sub = medidas.dobra_cutanea_subescapular || 0;       
   const bi = medidas.dobra_cutanea_biceps || 0;               
-  const si = medidas.dobra_cutanea_supra_iliaca || 0;         
-  const se = medidas.dobra_cutanea_supra_espinhal || 0;       
+  const si = medidas.dobra_cutanea_crista_iliaca || medidas.dobra_cutanea_supra_iliaca || 0; 
+  const se = medidas.dobra_cutanea_supraespinhal || medidas.dobra_cutanea_supra_espinhal || 0;       
   const ab = medidas.dobra_cutanea_abdominal || 0;           
   const cx = medidas.dobra_cutanea_coxa_media || 0;         
   const pa = medidas.dobra_cutanea_panturrilha || 0;         
 
-  // Perímetros (Coluna C - inferior)
+  // 4. Perímetros e Diâmetros
   const perCintura = medidas.perimetro_cintura || 0;         
   const perAbdome = medidas.perimetro_abdominal || 0;         
-  const perQuadril = medidas.perimetro_quadril || 0;         
+  const perQuadril = medidas.perimetro_quadril || 0; 
+  const perBracoRelax = medidas.perimetro_braco_relaxado || 0;        
+  const diamUmero = medidas.diametro_umero || 0;
 
-  // Soma de Dobras usadas nas fórmulas
+  // 5. Agrupamentos e Somas usadas nas fórmulas
   const somaDurnin = tr + sub + bi + si;                      
   const somaWithers4 = tr + sub + se + pa;
   const somaWithers6 = somaWithers4 + ab + cx;
 
-  // === AQUI ESTAVA O ERRO! Faltava retornar os dados e fechar a função ===
   return {
-    idade, peso, alturaCm,
+    idade, peso, alturaCm, imc,
     tr, sub, bi, si, se, ab, cx, pa,
-    perCintura, perAbdome, perQuadril,
-    somaDurnin, somaWithers4, somaWithers6
-  };
-};
-
-/**
- * Variáveis extras que descobrimos nas equações da coluna direita
- */
-const prepararDadosExtras = (medidas) => {
-  const idade = medidas.idade_anos || 0;
-  const peso = medidas.massa_kg || medidas.peso_kg || 0;
-  const alturaCm = medidas.estatura_cm || medidas.altura_cm || 0;
-  
-  // IMC (C61)
-  const imc = (peso > 0 && alturaCm > 0) ? (peso / Math.pow(alturaCm / 100, 2)) : 0;
-  const perCintura = medidas.perimetro_cintura || 0; 
-  const diamUmero = medidas.diametro_umero || 0;     
-  
-  // Dobras
-  const tr = medidas.dobra_cutanea_triceps || 0;       
-  const sub = medidas.dobra_cutanea_subescapular || 0; 
-  const bi = medidas.dobra_cutanea_biceps || 0;         
-  const si = medidas.dobra_cutanea_supra_iliaca || 0;   
-  const se = medidas.dobra_cutanea_supra_espinhal || 0; 
-  const ab = medidas.dobra_cutanea_abdominal || 0;     
-  const cx = medidas.dobra_cutanea_coxa_media || 0;    
-  const pa = medidas.dobra_cutanea_panturrilha || 0;   
-
-  // Soma de 4 dobras padrão de Durnin
-  const soma4Durnin = tr + sub + bi + si;
-
-  return {
-    idade, peso, alturaCm, imc, perCintura, diamUmero,
-    tr, sub, bi, si, se, ab, cx, pa, soma4Durnin
+    perCintura, perAbdome, perQuadril, perBracoRelax,
+    diamUmero, somaDurnin, somaWithers4, somaWithers6
   };
 };
 
@@ -114,8 +97,8 @@ const prepararDadosExtras = (medidas) => {
 
 // 1. Durnin et al. (1974) - 4skf
 // Refs Excel: X53 (DC) e X54 (%G)
-export const calcularFemDurnin1974 = (medidasBrutas) => {
-  const { somaDurnin } = prepararDadosEntrada(medidasBrutas);
+export const calcularFemDurnin1974 = (m, p) => {
+  const { somaDurnin } = prepararDados(m, p);
   if (somaDurnin <= 0) return 0;
   // Excel: =1,1567-0,0717*LOG(F55+F56+F57+F59)
   const dc = 1.1567 - (0.0717 * safeLog10(somaDurnin));
@@ -124,8 +107,8 @@ export const calcularFemDurnin1974 = (medidasBrutas) => {
 
 // 2. Jackson et al. (1980) - 3skf
 // Refs Excel: X56 (DC) e X57 (%G)
-export const calcularFemJacksonPollock1980_3skf = (medidasBrutas) => {
-  const { tr, si, cx, idade } = prepararDadosEntrada(medidasBrutas);
+export const calcularFemJacksonPollock1980_3skf = (m, p) => {
+  const { tr, si, cx, idade } = prepararDados(m, p);
   const soma3 = tr + si + cx;
   if (soma3 <= 0) return 0;
   // Excel: =1,0994921-0,0009929*(F55+F59+F62)+0,0000023*(F55+F59+F62)^2-0,0001392*(C57)
@@ -136,8 +119,8 @@ export const calcularFemJacksonPollock1980_3skf = (medidasBrutas) => {
 
 // 3. Petroski (1995) - 4skf (Modelo Brasileiro F9)
 // Refs Excel: X68 (DC) e X69 (%G)
-export const calcularFemPetroski1995_4skf = (medidasBrutas) => {
-  const { tr, sub, si, pa, idade, peso, alturaCm } = prepararDadosEntrada(medidasBrutas);
+export const calcularFemPetroski1995_4skf = (m, p) => {
+  const { tr, sub, si, pa, idade, peso, alturaCm } = prepararDados(m, p);
   const soma4 = tr + sub + si + pa;
   if (soma4 <= 0) return 0;
   // Excel: =1,02902361-0,00067159*(F56+F55+F59+F63)+0,00000242*(F56+F55+F59+F63)^2-0,00026073*(C56)-0,00056009*(C57)+0,00054649*(C58)
@@ -147,8 +130,8 @@ export const calcularFemPetroski1995_4skf = (medidasBrutas) => {
 
 // 4. Guedes (1985) - 3skf (Modelo Brasileiro Universitárias)
 // Refs Excel: X71 (DC) e X72 (%G)
-export const calcularFemGuedes1985_3skf = (medidasBrutas) => {
-  const { si, cx, sub } = prepararDadosEntrada(medidasBrutas);
+export const calcularFemGuedes1985_3skf = (m, p) => {
+  const { si, cx, sub } = prepararDados(m, p);
   const soma3 = si + cx + sub;
   if (soma3 <= 0) return 0;
   // Excel: =1,1665-0,0706*LOG10(F62+F59+F56)
@@ -158,8 +141,8 @@ export const calcularFemGuedes1985_3skf = (medidasBrutas) => {
 
 // 5. Withers et al. (1987) - 4skf (Padrão ISAK)
 // Refs Excel: X92 (DC) e X93 (%G)
-export const calcularFemWithers1987_4skf = (medidasBrutas) => {
-  const { somaWithers4 } = prepararDadosEntrada(medidasBrutas);
+export const calcularFemWithers1987_4skf = (m, p) => {
+  const { somaWithers4 } = prepararDados(m, p);
   if (somaWithers4 <= 0) return 0;
   // Excel: =1,17484-0,07229*LOG10(F55+F56+F60+F63)
   const dc = 1.17484 - (0.07229 * safeLog10(somaWithers4));
@@ -168,8 +151,8 @@ export const calcularFemWithers1987_4skf = (medidasBrutas) => {
 
 // 6. Withers et al. (1987) - 6skf (Padrão ISAK)
 // Refs Excel: X95 (DC) e X96 (%G)
-export const calcularFemWithers1987_6skf = (medidasBrutas) => {
-  const { somaWithers6 } = prepararDadosEntrada(medidasBrutas);
+export const calcularFemWithers1987_6skf = (m, p) => {
+  const { somaWithers6 } = prepararDados(m, p);
   if (somaWithers6 <= 0) return 0;
   // Excel: =1,20953-0,08294*LOG10(F55+F56+F60+F61+F62+F63)
   const dc = 1.20953 - (0.08294 * safeLog10(somaWithers6));
@@ -178,8 +161,8 @@ export const calcularFemWithers1987_6skf = (medidasBrutas) => {
 
 // 7. Slaughter et al. (1988) - 2skf (Crianças/Adolescentes)
 // Refs Excel: X79 (%G Direto)
-export const calcularFemSlaughter1988_2skf = (medidasBrutas) => {
-  const { tr, pa } = prepararDadosEntrada(medidasBrutas);
+export const calcularFemSlaughter1988_2skf = (m, p) => {
+  const { tr, pa } = prepararDados(m, p);
   const soma2 = tr + pa;
   if (soma2 <= 0) return 0;
   // Excel: =0,61*(F55+F63)+5,1 (Cálculo direto de %G, sem DC prévia)
@@ -189,8 +172,8 @@ export const calcularFemSlaughter1988_2skf = (medidasBrutas) => {
 
 // 8. Yuhasz (1974) - 6skf (Modelo Clássico)
 // Refs Excel: X81 (%G Direto)
-export const calcularFemYuhasz1974_6skf = (medidasBrutas) => {
-  const { tr, sub, si, ab, cx, pa } = prepararDadosEntrada(medidasBrutas);
+export const calcularFemYuhasz1974_6skf = (m, p) => {
+  const { tr, sub, si, ab, cx, pa } = prepararDados(m, p);
   const soma6 = tr + sub + si + ab + cx + pa;
   if (soma6 <= 0) return 0;
   // Excel: =0,1548*(F64)+3,58 (Cálculo direto de %G)
@@ -201,9 +184,9 @@ export const calcularFemYuhasz1974_6skf = (medidasBrutas) => {
 
 // 9. Katch & McArdle (1973) - 3skf (Usa Brozek)
 // Refs Excel: X83 (DC) e X84 (%G Brozek)
-export const calcularFemKatchMcArdle1973_3skf = (medidasBrutas) => {
-  const { sub, si, coxaMédia } = prepararDadosEntrada(medidasBrutas);
-  const soma3 = sub + si + coxaMédia;
+export const calcularFemKatchMcArdle1973_3skf = (m, p) => {
+  const { sub, si, cx } = prepararDados(m, p);
+  const soma3 = sub + si + cx;
   if (soma3 <= 0) return 0;
   // Excel: =1,09246-0,00049*(F56)-0,00075*(F59)+0,0071*(F69)-0,00121*(C79)
   // TODO: F69 e C79 não constam no dicionário gerado pela macro, verifique o Excel.
@@ -215,8 +198,8 @@ export const calcularFemKatchMcArdle1973_3skf = (medidasBrutas) => {
 
 // 10. Sloan et al. (1962) - 2skf
 // Refs Excel: X86 (DC) e X87 (%G)
-export const calcularFemSloan1962_2skf = (medidasBrutas) => {
-  const { si, tr } = prepararDadosEntrada(medidasBrutas);
+export const calcularFemSloan1962_2skf = (m, p) => {
+  const { si, tr } = prepararDados(m, p);
   const soma2 = si + tr;
   if (soma2 <= 0) return 0;
   // Excel: =1,0764-0,00081*(F59)-0,00088*(F55)
@@ -226,8 +209,8 @@ export const calcularFemSloan1962_2skf = (medidasBrutas) => {
 
 // 11. Wilmore & Behnke (1970) - 3skf
 // Refs Excel: X89 (DC) e X90 (%G)
-export const calcularFemWilmoreBehnke1970_3skf = (medidasBrutas) => {
-  const { sub, tr, cx } = prepararDadosEntrada(medidasBrutas);
+export const calcularFemWilmoreBehnke1970_3skf = (m, p) => {
+  const { sub, tr, cx } = prepararDados(m, p);
   const soma3 = sub + tr + cx;
   if (soma3 <= 0) return 0;
   // Excel: =1,06234-0,00068*(F56)-0,00039*(F55)-0,00025*(F62)
@@ -237,8 +220,8 @@ export const calcularFemWilmoreBehnke1970_3skf = (medidasBrutas) => {
 
 // 12. Thorland et al. (1984) - Generalizada Feminina
 // Refs Excel: X65 (DC) e X66 (%G)
-export const calcularFemThorlandGeneralizada1984 = (medidasBrutas) => {
-  const { tr, sub, si } = prepararDadosEntrada(medidasBrutas);
+export const calcularFemThorlandGeneralizada1984 = (m, p) => {
+  const { tr, sub, si } = prepararDados(m, p);
   const soma3 = tr + sub + si;
   if (soma3 <= 0) return 0;
   // Excel: =1,0987-0,00122*(F55+F56+F59)+0,00000263*(F55+F56+F59)^2
@@ -248,20 +231,20 @@ export const calcularFemThorlandGeneralizada1984 = (medidasBrutas) => {
 
 // 13. Lewis et al. (1978) - Modelo por Dobras e Perímetros
 // Refs Excel: X62 (DC) e X63 (%G)
-export const calcularFemLewis1978 = (medidasBrutas) => {
-  const { tr, alturaCm, sub, perToral } = prepararDadosEntrada(medidasBrutas);
+export const calcularFemLewis1978 = (m, p) => {
+  const { tr, alturaCm, sub, perBracoRelax } = prepararDados(m, p);
   // TODO: F60 (Supra Espinhal) ou Perímetro Tórax (C74/F74?) em X62?
   // Excel usa Lewis mas a fórmula parece customizada. C71 é Braço Relax.
   // Fórmula Excel: =0,97845-0,0002*(F55)+0,00088*(C58)-0,00122*(F56)-0,00234*(C71)
-  // dc = 0.97845 - (0.0002 * tr) + (0.00088 * alturaCm) - (0.00122 * sub) - (0.00234 * C71);
-  // return converterDCparaSiri(dc);
-  return 0; // Temporário
+  if (tr <= 0) return 0;
+  const dc = 0.97845 - (0.0002 * tr) + (0.00088 * alturaCm) - (0.00122 * sub) - (0.00234 * perBracoRelax);
+  return converterDCparaSiri(dc);
 };
 
 // 14. Jackson et al. (1980) - 4skf
 // Refs Excel: X76 (DC) e X77 (%G)
-export const calcularFemJacksonPollock1980_4skf = (medidasBrutas) => {
-  const { tr, si, ab, cx, idade } = prepararDadosEntrada(medidasBrutas);
+export const calcularFemJacksonPollock1980_4skf = (m, p) => {
+  const { tr, si, ab, cx, idade } = prepararDados(m, p);
   const soma4 = tr + si + ab + cx;
   if (soma4 <= 0) return 0;
   // TODO: Descobrir o que é E5 (referenciado no fator final)
@@ -273,12 +256,13 @@ export const calcularFemJacksonPollock1980_4skf = (medidasBrutas) => {
 
 // 15. Tran & Weltman (1989) - Modelo por Perímetros
 // Refs Excel: X59 (DC) e X60 (%G)
-export const calcularFemTranWeltman1989_Perimetros = (medidasBrutas) => {
-  const { perCintura, perAbdome, perQuadril, alturaCm } = prepararDadosEntrada(medidasBrutas);
+export const calcularFemTranWeltman1989_Perimetros = (m, p) => {
+  const { perCintura, perAbdome, perQuadril, alturaCm } = prepararDados(m, p);
   const mediaAbdintura = (perCintura + perAbdome) / 2;
   // TODO: Descobrir o que é E5 (referenciado no fator final)
   const E5 = 0; // Temporário
   // Excel: =1,168297-0,002824*((C75+C76)/2)+0,0000122098*((C75+C76)/2)^2-0,000733128*(C77)+0,000510477*(C58)-0,000216161*(E5)
+  if (mediaAbdintura <= 0) return 0;
   const dc = 1.168297 - (0.002824 * mediaAbdintura) + (0.0000122098 * Math.pow(mediaAbdintura, 2)) - (0.000733128 * perQuadril) + (0.000510477 * alturaCm) - (0.000216161 * E5);
   // Nota: Fórmula de Tran & Weltman costuma usar conversão direta diferente de Siri. Excel usa Siri (495/DC-450).
   return converterDCparaSiri(dc);
@@ -286,10 +270,11 @@ export const calcularFemTranWeltman1989_Perimetros = (medidasBrutas) => {
 
 // 16. Weltman et al. (1988) - Modelo Direto por Perímetros
 // Refs Excel: X74 (%G Direto)
-export const calcularFemWeltman1988_Perimetros = (medidasBrutas) => {
-  const { perCintura, perAbdome, alturaCm, peso } = prepararDadosEntrada(medidasBrutas);
+export const calcularFemWeltman1988_Perimetros = (m, p) => {
+  const { perCintura, perAbdome, alturaCm, peso } = prepararDados(m, p);
   const mediaAbdintura = (perCintura + perAbdome) / 2;
   // Excel: =0,11077*((C75+C76)/2)-0,17666*(C58)+0,14354*(C57)+51,03301
+  if (mediaAbdintura <= 0) return 0;
   const pgc = (0.11077 * mediaAbdintura) - (0.17666 * alturaCm) + (0.14354 * peso) + 51.03301;
   return Number(Math.max(0.1, pgc).toFixed(2));
 };
@@ -299,8 +284,8 @@ export const calcularFemWeltman1988_Perimetros = (medidasBrutas) => {
 // ============================================================
 
 // 17. Equação Baseada em Estatura e Cintura (AC53)
-export const calcularFemEstaturaCintura = (medidasBrutas) => {
-  const { alturaCm, perCintura } = prepararDadosExtras(medidasBrutas);
+export const calcularFemEstaturaCintura = (m, p) => {
+  const { alturaCm, perCintura } = prepararDados(m, p);
   if (perCintura <= 0) return 0;
   // Excel (AC53): =76-(20*(C58/C75))
   const pgc = 76 - (20 * (alturaCm / perCintura));
@@ -308,8 +293,8 @@ export const calcularFemEstaturaCintura = (medidasBrutas) => {
 };
 
 // 18. Deurenberg et al. (1991) por IMC (AC55)
-export const calcularFemDeurenberg1991_IMC = (medidasBrutas) => {
-  const { imc, idade } = prepararDadosExtras(medidasBrutas);
+export const calcularFemDeurenberg1991_IMC = (m, p) => {
+  const { imc, idade } = prepararDados(m, p);
   if (imc <= 0) return 0;
   // Excel (AC55): =1,2*C61+(0,23*C56)-(10,8*0)-(5,4) (0 é o sexo feminino)
   const pgc = (1.2 * imc) + (0.23 * idade) - 5.4;
@@ -317,8 +302,8 @@ export const calcularFemDeurenberg1991_IMC = (medidasBrutas) => {
 };
 
 // 19. Equação Log Natural de 7 Dobras (Y57 / AC57)
-export const calcularFem7Dobras_LogNatural = (medidasBrutas) => {
-  const { peso, tr, sub, bi, se, ab, cx, pa } = prepararDadosExtras(medidasBrutas);
+export const calcularFem7Dobras_LogNatural = (m, p) => {
+  const { peso, tr, sub, bi, se, ab, cx, pa } = prepararDados(m, p);
   const soma7 = tr + sub + bi + se + ab + cx + pa;
   if (soma7 <= 0 || peso <= 0) return 0;
   // Excel Y57: =(0,16*C57)+(8,78*LN(F55+F56+F57+F60+F61+F62+F63)-(1,83*0)-32,77)
@@ -330,25 +315,28 @@ export const calcularFem7Dobras_LogNatural = (medidasBrutas) => {
 };
 
 // 20. Equação Linear 3 Dobras (AC59)
-export const calcularFemLinear_CoxaPanturrilhaCrista = (medidasBrutas) => {
-  const { cx, pa, si } = prepararDadosExtras(medidasBrutas);
+export const calcularFemLinear_CoxaPanturrilhaCrista = (m, p) => {
+  const { cx, pa, si } = prepararDados(m, p);
   // Excel (AC59): =6,15+0,39*(F62)+0,42*(F63)+0,23*(F59)
+  if (cx <= 0) return 0;
   const pgc = 6.15 + (0.39 * cx) + (0.42 * pa) + (0.23 * si);
   return Number(Math.max(0.1, pgc).toFixed(2));
 };
 
 // 21. Equação Linear 3 Dobras A (AC61)
-export const calcularFemLinear_TricAbdCoxa_A = (medidasBrutas) => {
-  const { tr, ab, cx } = prepararDadosExtras(medidasBrutas);
+export const calcularFemLinear_TricAbdCoxa_A = (m, p) => {
+  const { tr, ab, cx } = prepararDados(m, p);
   // Excel (AC61): =8,997+(0,24658*(F55+F61+F62))
+  if (tr <= 0) return 0;
   const pgc = 8.997 + (0.24658 * (tr + ab + cx));
   return Number(Math.max(0.1, pgc).toFixed(2));
 };
 
 // 22. Equação Linear 3 Dobras B (AC63 - Variação com constante)
-export const calcularFemLinear_TricAbdCoxa_B = (medidasBrutas) => {
-  const { tr, ab, cx } = prepararDadosExtras(medidasBrutas);
+export const calcularFemLinear_TricAbdCoxa_B = (m, p) => {
+  const { tr, ab, cx } = prepararDados(m, p);
   // Excel (AC63): =8,997+(0,24658*(F55+F61+F62))-(1,998*1)
+  if (tr <= 0) return 0;
   const pgc = 8.997 + (0.24658 * (tr + ab + cx)) - 1.998;
   return Number(Math.max(0.1, pgc).toFixed(2));
 };
@@ -356,8 +344,8 @@ export const calcularFemLinear_TricAbdCoxa_B = (medidasBrutas) => {
 // --- GRUPO DURNIN & WOMERSLEY (Variações de Idade) ---
 
 // 23. Durnin 4skf Variação A (AC65 / AC66) -> Geralmente Mulheres 40-49 anos
-export const calcularFemDurnin_VarA = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularFemDurnin_VarA = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel: =1,1369-0,0598*LOG(F55+F56+F57+F59)
   const dc = 1.1369 - (0.0598 * safeLog10(soma4Durnin));
@@ -365,8 +353,8 @@ export const calcularFemDurnin_VarA = (medidasBrutas) => {
 };
 
 // 24. Durnin 4skf Variação B (AC68 / AC69) -> Geralmente Mulheres 30-39 anos
-export const calcularFemDurnin_VarB = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularFemDurnin_VarB = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel: =1,1549-0,0678*LOG(F55+F56+F57+F59)
   const dc = 1.1549 - (0.0678 * safeLog10(soma4Durnin));
@@ -374,8 +362,8 @@ export const calcularFemDurnin_VarB = (medidasBrutas) => {
 };
 
 // 25. Durnin 4skf Variação C (AC71 / AC72) -> Geralmente Mulheres 17-29 anos
-export const calcularFemDurnin_VarC = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularFemDurnin_VarC = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel: =1,1599-0,0717*LOG(F55+F56+F57+F59)
   const dc = 1.1599 - (0.0717 * safeLog10(soma4Durnin));
@@ -383,8 +371,8 @@ export const calcularFemDurnin_VarC = (medidasBrutas) => {
 };
 
 // 26. Durnin 4skf Variação D (AC74 / AC75) -> Geralmente Mulheres 20-29 anos (outra tabela)
-export const calcularFemDurnin_VarD = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularFemDurnin_VarD = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel: =1,1423-0,0632*LOG(F55+F56+F57+F59)
   const dc = 1.1423 - (0.0632 * safeLog10(soma4Durnin));
@@ -392,8 +380,8 @@ export const calcularFemDurnin_VarD = (medidasBrutas) => {
 };
 
 // 27. Durnin 4skf Variação E (AC77 / AC78) -> Geralmente Mulheres 50+ anos
-export const calcularFemDurnin_VarE = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularFemDurnin_VarE = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel: =1,1333-0,0612*LOG(F55+F56+F57+F59)
   const dc = 1.1333 - (0.0612 * safeLog10(soma4Durnin));
@@ -401,8 +389,8 @@ export const calcularFemDurnin_VarE = (medidasBrutas) => {
 };
 
 // 28. Durnin 4skf Variação F (AC80 / AC81) -> Outra variação 50+
-export const calcularFemDurnin_VarF = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularFemDurnin_VarF = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel: =1,1339-0,0645*LOG(F55+F56+F57+F59)
   const dc = 1.1339 - (0.0645 * safeLog10(soma4Durnin));
@@ -412,8 +400,8 @@ export const calcularFemDurnin_VarF = (medidasBrutas) => {
 // --- FÓRMULAS DIRETAS (LOG E LINEARES) ---
 
 // 29. DC por Tríceps Logarítmica (AC83 / AC84)
-export const calcularFemDC_TricepsLog = (medidasBrutas) => {
-  const { tr } = prepararDadosExtras(medidasBrutas);
+export const calcularFemDC_TricepsLog = (m, p) => {
+  const { tr } = prepararDados(m, p);
   if (tr <= 0) return 0;
   // Excel: =1,1278-0,0775*LOG(F55)
   const dc = 1.1278 - (0.0775 * safeLog10(tr));
@@ -421,8 +409,8 @@ export const calcularFemDC_TricepsLog = (medidasBrutas) => {
 };
 
 // 30. DC Tríceps e Subescapular Logarítmica (AC86 / AC87)
-export const calcularFemDC_TricSubLog = (medidasBrutas) => {
-  const { tr, sub } = prepararDadosExtras(medidasBrutas);
+export const calcularFemDC_TricSubLog = (m, p) => {
+  const { tr, sub } = prepararDados(m, p);
   const soma2 = tr + sub;
   if (soma2 <= 0) return 0;
   // Excel: =1,1507-0,0785*LOG10(F55+F56)
@@ -431,16 +419,17 @@ export const calcularFemDC_TricSubLog = (medidasBrutas) => {
 };
 
 // 31. DC Tríceps e Subescapular Linear (AC89 / AC90)
-export const calcularFemDC_TricSubLinear = (medidasBrutas) => {
-  const { tr, sub } = prepararDadosExtras(medidasBrutas);
+export const calcularFemDC_TricSubLinear = (m, p) => {
+  const { tr, sub } = prepararDados(m, p);
   // Excel: =1,0897-0,00133*(F55+F56)
+  if (tr <= 0) return 0;
   const dc = 1.0897 - (0.00133 * (tr + sub));
   return converterDCparaSiri(dc);
 };
 
 // 32. %G Direto por Log de 4 Dobras Variação A (AC92)
-export const calcularFemPercGord_Log4Dobras_A = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularFemPercGord_Log4Dobras_A = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel: =29,85*LOG10(F57+F55+F56+F59)-25,87
   const pgc = 29.85 * safeLog10(soma4Durnin) - 25.87;
@@ -448,8 +437,8 @@ export const calcularFemPercGord_Log4Dobras_A = (medidasBrutas) => {
 };
 
 // 33. %G Direto por Log de 4 Dobras Variação B (AC93)
-export const calcularFemPercGord_Log4Dobras_B = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularFemPercGord_Log4Dobras_B = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel: =23,94*LOG10(F57+F55+F56+F59)-18,89
   const pgc = 23.94 * safeLog10(soma4Durnin) - 18.89;
@@ -457,8 +446,8 @@ export const calcularFemPercGord_Log4Dobras_B = (medidasBrutas) => {
 };
 
 // 34. %G Direto por Log de 4 Dobras Variação C (AC94)
-export const calcularFemPercGord_Log4Dobras_C = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularFemPercGord_Log4Dobras_C = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel: =39,02*LOG10(F57+F55+F56+F59)-43,49
   const pgc = 39.02 * safeLog10(soma4Durnin) - 43.49;
@@ -466,18 +455,16 @@ export const calcularFemPercGord_Log4Dobras_C = (medidasBrutas) => {
 };
 
 // 35. %G Equação Complexa - Logaritmos Mistos (AC96)
-export const calcularFemComplexa_Mista = (medidasBrutas) => {
-  const { imc, perCintura, tr, sub, pa, diamUmero } = prepararDadosExtras(medidasBrutas);
-  
+export const calcularFemComplexa_Mista = (m, p) => {
+  const { imc, perCintura, tr, sub, pa, diamUmero } = prepararDados(m, p);
+  if (tr <= 0) return 0;
   // Como F17 não apareceu no dicionário, utilizaremos 0 temporariamente (pode ser peso ideal ou outra medida de cima da planilha)
   const F17 = 0; 
-  
   // Excel: =-7,299-(21,436*LOG10(F17))+(17,739*LOG10(C61))+(20,143*LOG10(C75))+(7,813*LOG10(F55))+(6,379*LOG10(F56))+(6,051*LOG10((F63))-(16,364*LOG10(F69)))
   const parte1 = -7.299 - (21.436 * safeLog10(F17));
   const parte2 = (17.739 * safeLog10(imc)) + (20.143 * safeLog10(perCintura));
   const parte3 = (7.813 * safeLog10(tr)) + (6.379 * safeLog10(sub)) + (6.051 * safeLog10(pa));
   const parte4 = - (16.364 * safeLog10(diamUmero));
-  
   const pgc = parte1 + parte2 + parte3 + parte4;
   return Number(Math.max(0.1, pgc).toFixed(2));
 };
@@ -488,8 +475,8 @@ export const calcularFemComplexa_Mista = (medidasBrutas) => {
 
 // 1. Mitchell et al. (2020) - 7skd ISAK
 // Ref Excel: X56 (%G) através de Y56
-export const calcularMascMitchell2020_7skd = (medidasBrutas) => {
-  const { tr, sub, bi, se, ab, cx, pa, peso } = prepararDadosExtras(medidasBrutas);
+export const calcularMascMitchell2020_7skd = (m, p) => {
+  const { tr, sub, bi, se, ab, cx, pa, peso } = prepararDados(m, p);
   const soma7 = tr + sub + bi + se + ab + cx + pa;
   if (soma7 <= 0 || peso <= 0) return 0;
   // Excel Y56: =(0,16*C57)+(8,78*LN(F55+F56+F57+F60+F61+F62+F63)-(1,83*1)-32,77)
@@ -501,8 +488,8 @@ export const calcularMascMitchell2020_7skd = (medidasBrutas) => {
 
 // 2. Woolcott & Bergman (2018) - RFM (Relative Fat Mass)
 // Ref Excel: AC56 (%G Direto)
-export const calcularMascWoolcottBergman2018 = (medidasBrutas) => {
-  const { alturaCm, perCintura } = prepararDadosExtras(medidasBrutas);
+export const calcularMascWoolcottBergman2018 = (m, p) => {
+  const { alturaCm, perCintura } = prepararDados(m, p);
   if (perCintura <= 0) return 0;
   // Excel AC56: =64-(20*(C58/C75))
   const pgc = 64 - (20 * (alturaCm / perCintura));
@@ -511,8 +498,8 @@ export const calcularMascWoolcottBergman2018 = (medidasBrutas) => {
 
 // 3. Guedes (1985) - 3skd 
 // Refs Excel: X58 (DC) e X59 (%G Siri)
-export const calcularMascGuedes1985_3skd = (medidasBrutas) => {
-  const { tr, si, ab } = prepararDadosExtras(medidasBrutas);
+export const calcularMascGuedes1985_3skd = (m, p) => {
+  const { tr, si, ab } = prepararDados(m, p);
   const soma3 = tr + si + ab;
   if (soma3 <= 0) return 0;
   // Excel X58: =1,1714-0,0671*LOG10(F55+F59+F61)
@@ -522,8 +509,8 @@ export const calcularMascGuedes1985_3skd = (medidasBrutas) => {
 
 // 4. Deurenberg et al. (1991) - Por IMC
 // Ref Excel: AC58 (%G Direto)
-export const calcularMascDeurenberg1991_IMC = (medidasBrutas) => {
-  const { imc, idade } = prepararDadosExtras(medidasBrutas);
+export const calcularMascDeurenberg1991_IMC = (m, p) => {
+  const { imc, idade } = prepararDados(m, p);
   if (imc <= 0) return 0;
   // Excel AC58: =1,2*C61+(0,23*C56)-(10,8*1)-(5,4*1)
   const pgc = (1.2 * imc) + (0.23 * idade) - 10.8 - 5.4;
@@ -532,18 +519,19 @@ export const calcularMascDeurenberg1991_IMC = (medidasBrutas) => {
 
 // 5. Weltman et al. (1987) - Por Perímetros
 // Ref Excel: AC60 (%G Direto)
-export const calcularMascWeltman1987 = (medidasBrutas) => {
-  const { perCintura, perAbdome, peso } = prepararDadosExtras(medidasBrutas);
+export const calcularMascWeltman1987 = (m, p) => {
+  const { perCintura, perAbdome, peso } = prepararDados(m, p);
   const mediaAbdintura = (perCintura + perAbdome) / 2;
   // Excel AC60: =0,31457*((C75+C76)/2)-0,10969*(C57)+10,8336
+  if (mediaAbdintura <= 0) return 0;
   const pgc = (0.31457 * mediaAbdintura) - (0.10969 * peso) + 10.8336;
   return Number(Math.max(0.1, pgc).toFixed(2));
 };
 
 // 6. Petroski (1995) - 4skd
 // Refs Excel: X61 (DC) e X62 (%G Siri)
-export const calcularMascPetroski1995_4skd = (medidasBrutas) => {
-  const { sub, tr, si, pa, idade } = prepararDadosExtras(medidasBrutas);
+export const calcularMascPetroski1995_4skd = (m, p) => {
+  const { sub, tr, si, pa, idade } = prepararDados(m, p);
   const soma4 = sub + tr + si + pa;
   if (soma4 <= 0) return 0;
   // Excel X61: =1,10756863-0,00081201*(F56+F55+F59+F63)+0,00000212*(F56+F55+F59+F63)^2-0,00041761*(C56)
@@ -553,8 +541,8 @@ export const calcularMascPetroski1995_4skd = (medidasBrutas) => {
 
 // 7. Stewart & Hannan - 2skd (Usa peso, abdome e coxa)
 // Ref Excel: X64 (%G) através de Y64
-export const calcularMascStewartHannan_2skd = (medidasBrutas) => {
-  const { ab, cx, peso } = prepararDadosExtras(medidasBrutas);
+export const calcularMascStewartHannan_2skd = (m, p) => {
+  const { ab, cx, peso } = prepararDados(m, p);
   if (peso <= 0) return 0;
   // Excel Y64: =((331,5*F61)+(356,2*F62)+(111,9*C57)-9108)/1000
   const y64 = ((331.5 * ab) + (356.2 * cx) + (111.9 * peso) - 9108) / 1000;
@@ -565,8 +553,8 @@ export const calcularMascStewartHannan_2skd = (medidasBrutas) => {
 
 // 8. Faulkner (1968) - 4skd
 // Ref Excel: X66 (%G Direto)
-export const calcularMascFaulkner1968_4skd = (medidasBrutas) => {
-  const { tr, sub, si, ab } = prepararDadosExtras(medidasBrutas);
+export const calcularMascFaulkner1968_4skd = (m, p) => {
+  const { tr, sub, si, ab } = prepararDados(m, p);
   const soma4 = tr + sub + si + ab;
   if (soma4 <= 0) return 0;
   // Excel X66: =5,783+0,153*(F55+F56+F59+F61)
@@ -576,8 +564,9 @@ export const calcularMascFaulkner1968_4skd = (medidasBrutas) => {
 
 // 9. Reilly et al. (2009) - 4skd ISAK
 // Ref Excel: X68 (%G Direto)
-export const calcularMascReilly2009_4skd = (medidasBrutas) => {
-  const { cx, ab, tr, pa } = prepararDadosExtras(medidasBrutas);
+export const calcularMascReilly2009_4skd = (m, p) => {
+  const { cx, ab, tr, pa } = prepararDados(m, p);
+  if (cx <= 0) return 0;
   // Excel X68: =5,174+0,124*(F62)+0,147*(F61)+0,196*(F55)+0,13*(F63)
   const pgc = 5.174 + (0.124 * cx) + (0.147 * ab) + (0.196 * tr) + (0.13 * pa);
   return Number(Math.max(0.1, pgc).toFixed(2));
@@ -585,8 +574,9 @@ export const calcularMascReilly2009_4skd = (medidasBrutas) => {
 
 // 10. Evans et al. (2005) - 3skd (Brancos)
 // Ref Excel: X70 (%G Direto)
-export const calcularMascEvans2005_3skd_White = (medidasBrutas) => {
-  const { tr, ab, cx } = prepararDadosExtras(medidasBrutas);
+export const calcularMascEvans2005_3skd_White = (m, p) => {
+  const { tr, ab, cx } = prepararDados(m, p);
+  if (tr <= 0) return 0;
   // Excel X70: =8,997+(0,24658*(F55+F61+F62))-(6,343*1)-(1,998*0)
   const pgc = 8.997 + (0.24658 * (tr + ab + cx)) - 6.343;
   return Number(Math.max(0.1, pgc).toFixed(2));
@@ -594,8 +584,9 @@ export const calcularMascEvans2005_3skd_White = (medidasBrutas) => {
 
 // 11. Evans et al. (2005) - 3skd (Negros)
 // Ref Excel: X72 (%G Direto)
-export const calcularMascEvans2005_3skd_Black = (medidasBrutas) => {
-  const { tr, ab, cx } = prepararDadosExtras(medidasBrutas);
+export const calcularMascEvans2005_3skd_Black = (m, p) => {
+  const { tr, ab, cx } = prepararDados(m, p);
+  if (tr <= 0) return 0;
   // Excel X72: =8,997+(0,24658*(F55+F61+F62))-(6,343*1)-(1,998*1)
   const pgc = 8.997 + (0.24658 * (tr + ab + cx)) - 6.343 - 1.998;
   return Number(Math.max(0.1, pgc).toFixed(2));
@@ -603,8 +594,9 @@ export const calcularMascEvans2005_3skd_Black = (medidasBrutas) => {
 
 // 12. Katch & McArdle (1973) - 3skd
 // Refs Excel: X74 (DC) e X75 (%G Brozek)
-export const calcularMascKatchMcArdle1973_3skd = (medidasBrutas) => {
-  const { tr, sub, ab } = prepararDadosExtras(medidasBrutas);
+export const calcularMascKatchMcArdle1973_3skd = (m, p) => {
+  const { tr, sub, ab } = prepararDados(m, p);
+  if (tr <= 0) return 0;
   // Excel X74: =1,09665-(0,00103*F55)-(0,00056*F56)-(0,00054*F61)
   const dc = 1.09665 - (0.00103 * tr) - (0.00056 * sub) - (0.00054 * ab);
   return converterDCparaBrozek(dc);
@@ -612,8 +604,8 @@ export const calcularMascKatchMcArdle1973_3skd = (medidasBrutas) => {
 
 // 13. Withers et al. (1987) - 7skd
 // Refs Excel: X77 (DC) e X78 (%G Siri)
-export const calcularMascWithers1987_7skd = (medidasBrutas) => {
-  const { tr, bi, sub, se, ab, cx, pa } = prepararDadosExtras(medidasBrutas);
+export const calcularMascWithers1987_7skd = (m, p) => {
+  const { tr, bi, sub, se, ab, cx, pa } = prepararDados(m, p);
   const soma7 = tr + bi + sub + se + ab + cx + pa;
   if (soma7 <= 0) return 0;
   // Excel X77: =1,0988-0,0004*(F55+F57+F56+F60+F61+F62+F63)
@@ -623,8 +615,8 @@ export const calcularMascWithers1987_7skd = (medidasBrutas) => {
 
 // 14. Slaughter et al. (1988) - 2skd
 // Ref Excel: X80 (%G Direto)
-export const calcularMascSlaughter1988_2skd = (medidasBrutas) => {
-  const { tr, pa } = prepararDadosExtras(medidasBrutas);
+export const calcularMascSlaughter1988_2skd = (m, p) => {
+  const { tr, pa } = prepararDados(m, p);
   const soma2 = tr + pa;
   if (soma2 <= 0) return 0;
   // Excel X80: =0,735*(F55+F63)+1
@@ -634,8 +626,8 @@ export const calcularMascSlaughter1988_2skd = (medidasBrutas) => {
 
 // 15. Yuhasz (1974) - 6skd
 // Ref Excel: X82 (%G Direto)
-export const calcularMascYuhasz1974_6skd = (medidasBrutas) => {
-  const { tr, sub, si, ab, cx, pa } = prepararDadosExtras(medidasBrutas);
+export const calcularMascYuhasz1974_6skd = (m, p) => {
+  const { tr, sub, si, ab, cx, pa } = prepararDados(m, p);
   const soma6 = tr + sub + si + ab + cx + pa; // F64 (Soma 6)
   if (soma6 <= 0) return 0;
   // Excel X82: =0,1051*(F64)+2,585
@@ -645,8 +637,9 @@ export const calcularMascYuhasz1974_6skd = (medidasBrutas) => {
 
 // 16. Wilmore & Behnke (1969) - 2skd
 // Refs Excel: X84 (DC) e X85 (%G Siri)
-export const calcularMascWilmoreBehnke1969_2skd = (medidasBrutas) => {
-  const { ab, cx } = prepararDadosExtras(medidasBrutas);
+export const calcularMascWilmoreBehnke1969_2skd = (m, p) => {
+  const { ab, cx } = prepararDados(m, p);
+  if (ab <= 0) return 0;
   // Excel X84: =1,08543-0,000889*(F61)-0,0004*(F62)
   const dc = 1.08543 - (0.000889 * ab) - (0.0004 * cx);
   return converterDCparaSiri(dc);
@@ -654,8 +647,8 @@ export const calcularMascWilmoreBehnke1969_2skd = (medidasBrutas) => {
 
 // 17. Boileau et al. (1985) - 2skd
 // Ref Excel: X87 (%G Direto)
-export const calcularMascBoileau1985_2skd = (medidasBrutas) => {
-  const { tr, sub } = prepararDadosExtras(medidasBrutas);
+export const calcularMascBoileau1985_2skd = (m, p) => {
+  const { tr, sub } = prepararDados(m, p);
   const soma2 = tr + sub;
   if (soma2 <= 0) return 0;
   // Excel X87: =1,35*(F55+F56)-0,012*(F55+F56)^2-4,4
@@ -665,24 +658,24 @@ export const calcularMascBoileau1985_2skd = (medidasBrutas) => {
 
 // 18. Deurenberg et al. (1990) - 4skd (3 Variações Logarítmicas)
 // Refs Excel: X89, X91, X93
-export const calcularMascDeurenberg1990_4skd_Var1 = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularMascDeurenberg1990_4skd_Var1 = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel X89: =26,56*LOG10(F55+F56+F57+F59)-22,23
   const pgc = 26.56 * safeLog10(soma4Durnin) - 22.23;
   return Number(Math.max(0.1, pgc).toFixed(2));
 };
 
-export const calcularMascDeurenberg1990_4skd_Var2 = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularMascDeurenberg1990_4skd_Var2 = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel X91: =18,7*LOG10(F55+F56+F57+F59)-11,91
   const pgc = 18.7 * safeLog10(soma4Durnin) - 11.91;
   return Number(Math.max(0.1, pgc).toFixed(2));
 };
 
-export const calcularMascDeurenberg1990_4skd_Var3 = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularMascDeurenberg1990_4skd_Var3 = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel X93: =18,88*LOG10(F55+F56+F57+F59)-15,58
   const pgc = 18.88 * safeLog10(soma4Durnin) - 15.58;
@@ -691,8 +684,9 @@ export const calcularMascDeurenberg1990_4skd_Var3 = (medidasBrutas) => {
 
 // 19. Eston et al. (2005) - 2skd ISAK
 // Ref Excel: X95 (%G Direto)
-export const calcularMascEston2005_2skd = (medidasBrutas) => {
-  const { cx, pa } = prepararDadosExtras(medidasBrutas);
+export const calcularMascEston2005_2skd = (m, p) => {
+  const { cx, pa } = prepararDados(m, p);
+  if (cx <= 0) return 0;
   // Excel X95: =4,05+0,52*(F62)+0,32*(F63)
   const pgc = 4.05 + (0.52 * cx) + (0.32 * pa);
   return Number(Math.max(0.1, pgc).toFixed(2));
@@ -700,8 +694,9 @@ export const calcularMascEston2005_2skd = (medidasBrutas) => {
 
 // 20. Eston et al. (2005) - 6skd ISAK
 // Ref Excel: X96 (%G Direto)
-export const calcularMascEston2005_6skd = (medidasBrutas) => {
-  const { tr, sub, bi, si, cx, pa } = prepararDadosExtras(medidasBrutas);
+export const calcularMascEston2005_6skd = (m, p) => {
+  const { tr, sub, bi, si, cx, pa } = prepararDados(m, p);
+  if (tr <= 0) return 0;
   // Excel X96: =1,61+0,12*(F55+F56+F57+F59)+0,36*(F62+F63)
   const pgc = 1.61 + (0.12 * (tr + sub + bi + si)) + (0.36 * (cx + pa));
   return Number(Math.max(0.1, pgc).toFixed(2));
@@ -710,48 +705,48 @@ export const calcularMascEston2005_6skd = (medidasBrutas) => {
 // --- EQUAÇÕES DA COLUNA DIREITA (AC) PARA HOMENS ---
 
 // 21. Durnin & Womersley 1974 - Várias Idades
-export const calcularMascDurnin1974_Var1 = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularMascDurnin1974_Var1 = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel AC62: =1,1765-0,0744*LOG(F55+F56+F57+F59)
   const dc = 1.1765 - (0.0744 * safeLog10(soma4Durnin));
   return converterDCparaSiri(dc);
 };
 
-export const calcularMascDurnin1974_Var2 = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularMascDurnin1974_Var2 = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel AC68: =1,162-0,063*LOG(F55+F56+F57+F59)
   const dc = 1.162 - (0.063 * safeLog10(soma4Durnin));
   return converterDCparaSiri(dc);
 };
 
-export const calcularMascDurnin1974_Var3 = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularMascDurnin1974_Var3 = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel AC71: =1,1631-0,0632*LOG(F55+F56+F57+F59)
   const dc = 1.1631 - (0.0632 * safeLog10(soma4Durnin));
   return converterDCparaSiri(dc);
 };
 
-export const calcularMascDurnin1974_Var4 = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularMascDurnin1974_Var4 = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel AC74: =1,1422-0,0544*LOG(F55+F56+F57+F59)
   const dc = 1.1422 - (0.0544 * safeLog10(soma4Durnin));
   return converterDCparaSiri(dc);
 };
 
-export const calcularMascDurnin1974_Var5 = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularMascDurnin1974_Var5 = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel AC77: =1,162-0,07*LOG(F55+F56+F57+F59)
   const dc = 1.162 - (0.07 * safeLog10(soma4Durnin));
   return converterDCparaSiri(dc);
 };
 
-export const calcularMascDurnin1974_Var6 = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularMascDurnin1974_Var6 = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel AC80: =1,1715-0,0779*LOG(F55+F56+F57+F59)
   const dc = 1.1715 - (0.0779 * safeLog10(soma4Durnin));
@@ -759,8 +754,8 @@ export const calcularMascDurnin1974_Var6 = (medidasBrutas) => {
 };
 
 // 22. Durnin & Womersley 1974 - 1skd (Só Tríceps)
-export const calcularMascDurnin1974_1skd = (medidasBrutas) => {
-  const { tr } = prepararDadosExtras(medidasBrutas);
+export const calcularMascDurnin1974_1skd = (m, p) => {
+  const { tr } = prepararDados(m, p);
   if (tr <= 0) return 0;
   // Excel AC94: =1,1143-0,0618*LOG10(F55)
   const dc = 1.1143 - (0.0618 * safeLog10(tr));
@@ -768,8 +763,8 @@ export const calcularMascDurnin1974_1skd = (medidasBrutas) => {
 };
 
 // 23. Durnin & Rahaman 1967 - 4skd
-export const calcularMascDurninRahaman1967_4skd = (medidasBrutas) => {
-  const { soma4Durnin } = prepararDadosExtras(medidasBrutas);
+export const calcularMascDurninRahaman1967_4skd = (m, p) => {
+  const { soma4Durnin } = prepararDados(m, p);
   if (soma4Durnin <= 0) return 0;
   // Excel AC65: =1,1533-0,0643*LOG(F55+F56+F57+F59)
   const dc = 1.1533 - (0.0643 * safeLog10(soma4Durnin));
@@ -777,24 +772,27 @@ export const calcularMascDurninRahaman1967_4skd = (medidasBrutas) => {
 };
 
 // 24. Forsyth & Sinning 1973 - 2skd (Usa Brozek)
-export const calcularMascForsythSinning1973_2skd = (medidasBrutas) => {
-  const { sub, ab } = prepararDadosExtras(medidasBrutas);
+export const calcularMascForsythSinning1973_2skd = (m, p) => {
+  const { sub, ab } = prepararDados(m, p);
+  if (sub <= 0) return 0;
   // Excel AC85: =1,103-0,00168*(F56)-0,00127*(F61)
   const dc = 1.103 - (0.00168 * sub) - (0.00127 * ab);
   return converterDCparaBrozek(dc);
 };
 
 // 25. Nagamine & Suzuki 1964 - 2skd
-export const calcularMascNagamineSuzuki1964_2skd = (medidasBrutas) => {
-  const { tr, sub } = prepararDadosExtras(medidasBrutas);
+export const calcularMascNagamineSuzuki1964_2skd = (m, p) => {
+  const { tr, sub } = prepararDados(m, p);
+  if (tr <= 0) return 0;
   // Excel AC88: =1,0913-0,00116*(F55+F56)
   const dc = 1.0913 - (0.00116 * (tr + sub));
   return converterDCparaSiri(dc);
 };
 
 // 26. Sloan 1967 - 2skd (Usa Brozek)
-export const calcularMascSloan1967_2skd = (medidasBrutas) => {
-  const { cx, sub } = prepararDadosExtras(medidasBrutas);
+export const calcularMascSloan1967_2skd = (m, p) => {
+  const { cx, sub } = prepararDados(m, p);
+  if (cx <= 0) return 0;
   // Excel AC91: =1,1043-0,001327*(F62)-0,00131*(F56)
   const dc = 1.1043 - (0.001327 * cx) - (0.00131 * sub);
   return converterDCparaBrozek(dc);
@@ -802,28 +800,23 @@ export const calcularMascSloan1967_2skd = (medidasBrutas) => {
 
 // 27. Hortobagyi et al. 1992
 // Obs: Ref AC83 usa fórmula linear de massa para encontrar algo. No Excel não tinha o %G associado.
-export const calcularMascHortobagyi1992 = (medidasBrutas) => {
-  const { peso, alturaCm } = prepararDadosExtras(medidasBrutas);
+export const calcularMascHortobagyi1992 = (m, p) => {
+  const { peso, alturaCm } = prepararDados(m, p);
+  if (peso <= 0) return 0;
   // Excel AC83: =55,2+0,481*(C57)-0,468*(C58)
   const calc = 55.2 + (0.481 * peso) - (0.468 * alturaCm);
   return Number(Math.max(0.1, calc).toFixed(2));
 };
 
 // 28. Ortiz-Hernández et al. 2016 - %G Complexo
-export const calcularMascOrtizHernandez2016 = (medidasBrutas) => {
-  const { alturaCm, peso, imc, tr, sub, si, pa } = prepararDadosExtras(medidasBrutas);
-  
-  // C71 = Braço relaxado (Assumindo que seja o perímetro C71 no Excel, mas o dicionário diz C71=Braço relax e I71=Massa Sugerida)
-  const perBracoRelax = medidasBrutas.perimetro_braco_relaxado || 0;
-  const perCintura = medidasBrutas.perimetro_cintura || 0;
-  
+export const calcularMascOrtizHernandez2016 = (m, p) => {
+  const { alturaCm, peso, imc, tr, sub, si, pa, perBracoRelax, perCintura } = prepararDados(m, p);
   if (peso <= 0) return 0;
-  
+  // C71 = Braço relaxado (Assumindo que seja o perímetro C71 no Excel, mas o dicionário diz C71=Braço relax e I71=Massa Sugerida)
   // Excel AC97: =-8,739-(0,384*(C58))+(35,371*(LOG10(C57))-(0,892*(C61))-(0,299*(C71))+(0,258*(C75))+(17,732*LOG10(F55))+(6,698*LOG10(F56))+(3,545*LOG10(F59))+(4,019*LOG10((F63))))
   const parte1 = -8.739 - (0.384 * alturaCm) + (35.371 * safeLog10(peso));
   const parte2 = - (0.892 * imc) - (0.299 * perBracoRelax) + (0.258 * perCintura);
   const parte3 = (17.732 * safeLog10(tr)) + (6.698 * safeLog10(sub)) + (3.545 * safeLog10(si)) + (4.019 * safeLog10(pa));
-  
   const pgc = parte1 + parte2 + parte3;
   return Number(Math.max(0.1, pgc).toFixed(2));
 };

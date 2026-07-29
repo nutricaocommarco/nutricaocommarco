@@ -117,7 +117,7 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
 
     if (equacao && typeof equacao.func === 'function') {
       try {
-        const resultado = equacao.func(medidasBrutas)
+        const resultado = equacao.func(medidasBrutas, pacienteSelecionado)
         setResultadoGordura(resultado)
       } catch (err) {
         console.error("Erro no cálculo da equação:", err)
