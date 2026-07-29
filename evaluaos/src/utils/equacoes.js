@@ -142,7 +142,7 @@ export const calcularFemJacksonPollock1980_3skf = (m, p) => {
   const soma3 = tr + si + cx;
   if (soma3 <= 0 || peso <= 0) return 0;
   // C57 na planilha representa o Peso
-  const dc = 1.0994921 - (0.0009929 * soma3) + (0.0000023 * Math.pow(soma3, 2)) - (0.0001392 * peso);
+  const dc = 1.0994921 - 0.0009929 * (soma3) + 0.0000023 * (Math.pow(soma3, 2)) - 0.0001392 * (peso);
   return converterDCparaSiri(dc);
 };
 
