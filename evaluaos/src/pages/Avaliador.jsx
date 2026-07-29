@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { supabase } from '../supabaseClient'
 
-export default function Avaliador({ userId }) {
+export default function Avaliador() {
   const [loading, setLoading] = useState(true)
   const [savingPerfil, setSavingPerfil] = useState(false)
   const [savingEquip, setSavingEquip] = useState(false)
@@ -9,6 +9,7 @@ export default function Avaliador({ userId }) {
 
   // Estados do Perfil do Avaliador 
   const [perfilId, setPerfilId] = useState(null)
+  const [authUserId, setAuthUserId] = useState(null)
   const [nomeCompleto, setNomeCompleto] = useState('')
   const [email, setEmail] = useState('')
   const [telefone, setTelefone] = useState('')
@@ -30,57 +31,65 @@ export default function Avaliador({ userId }) {
   const [novaSenha, setNovaSenha] = useState('')
   const [confirmaSenha, setConfirmaSenha] = useState('')
 
-  // Carregar Dados ao Abrir a Página
+  // Carregar Dados ao Abrir a Página via Sessão do Supabase
   useEffect(() => {
     async function carregarDadosAvaliador() {
       setLoading(true)
 
-      // 1. Buscar dados na tabela 'avaliadores'
+      // 1. Pega o usuário logado na sessão atual
+      const { data: { session } } = await supabase.auth.getSession()
+      if (!session) {
+        setLoading(false)
+        return
+      }
+
+      const userEmail = session.user.email
+      setAuthUserId(session.user.id)
+      setEmail(userEmail)
+
+      // 2. Busca o perfil na tabela 'avaliadores' usando o e-mail (seguro contra tipo bigint/uuid)
       const { data: perfilData, error: perfilError } = await supabase
         .from('avaliadores')
         .select('*')
-        .eq('id', userId)
-        .single()
+        .eq('email', userEmail)
+        .maybeSingle()
 
-      if (perfilError && perfilError.code !== 'PGRST116') {
+      if (perfilError) {
         console.error('Erro ao buscar perfil:', perfilError.message)
       } else if (perfilData) {
         setPerfilId(perfilData.id)
         setNomeCompleto(perfilData.nome_completo || '')
-        setEmail(perfilData.email || '')
         setTelefone(perfilData.telefone || '')
         setInstagram(perfilData.instagram || '')
         setEmpresa(perfilData.empresa || '')
         setPlanoStatus(perfilData.plano_status || 'Ativo')
-      }
 
-      // 2. Buscar dados na tabela 'equipamentos'
-      const { data: equipData, error: equipError } = await supabase
-        .from('equipamentos')
-        .select('*')
-        .eq('id_avaliador', userId)
-        .single()
+        // 3. Buscar dados na tabela 'equipamentos' usando o id numérico do avaliador
+        const { data: equipData, error: equipError } = await supabase
+          .from('equipamentos')
+          .select('*')
+          .eq('id_avaliador', perfilData.id)
+          .maybeSingle()
 
-      if (equipError && equipError.code !== 'PGRST116') {
-        console.error('Erro ao buscar equipamentos:', equipError.message)
-      } else if (equipData) {
-        setEquipId(equipData.id)
-        setPlicometro(equipData.plicometro_adipometro || '')
-        setPaquimetro(equipData.paquimetro || '')
-        setTrena(equipData.trena || '')
-        setBalanca(equipData.balanca || '')
-        setEstadiometro(equipData.estadiometro || '')
-        setBanco(equipData.banco || '')
-        setAlturaBanco(equipData.altura_banco ?? '')
+        if (equipError) {
+          console.error('Erro ao buscar equipamentos:', equipError.message)
+        } else if (equipData) {
+          setEquipId(equipData.id)
+          setPlicometro(equipData.plicometro_adipometro || '')
+          setPaquimetro(equipData.paquimetro || '')
+          setTrena(equipData.trena || '')
+          setBalanca(equipData.balanca || '')
+          setEstadiometro(equipData.estadiometro || '')
+          setBanco(equipData.banco || '')
+          setAlturaBanco(equipData.altura_banco ?? '')
+        }
       }
 
       setLoading(false)
     }
 
-    if (userId) {
-      carregarDadosAvaliador()
-    }
-  }, [userId])
+    carregarDadosAvaliador()
+  }, [])
 
   // Salvar Perfil
   const handleSalvarPerfil = async (e) => {
@@ -88,7 +97,6 @@ export default function Avaliador({ userId }) {
     setSavingPerfil(true)
 
     const payload = {
-      id: userId,
       nome_completo: nomeCompleto,
       email,
       telefone,
@@ -96,9 +104,14 @@ export default function Avaliador({ userId }) {
       empresa
     }
 
-    const { error } = await supabase
-      .from('avaliadores')
-      .upsert(payload, { onConflict: 'id' })
+    let query
+    if (perfilId) {
+      query = supabase.from('avaliadores').update(payload).eq('id', perfilId)
+    } else {
+      query = supabase.from('avaliadores').insert([payload])
+    }
+
+    const { error } = await query
 
     if (error) {
       alert('Erro ao salvar perfil: ' + error.message)
@@ -111,10 +124,13 @@ export default function Avaliador({ userId }) {
   // Salvar Equipamentos
   const handleSalvarEquipamentos = async (e) => {
     e.preventDefault()
+    if (!perfilId) {
+      return alert('Salve primeiro as Informações Profissionais para vincular os equipamentos.')
+    }
     setSavingEquip(true)
 
     const payload = {
-      id_avaliador: userId,
+      id_avaliador: perfilId,
       plicometro_adipometro: plicometro,
       paquimetro,
       trena,
@@ -189,7 +205,7 @@ export default function Avaliador({ userId }) {
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-700 uppercase">E-mail</label>
-              <input type="email" disabled value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm bg-gray-100 cursor-not-allowed" />
+              <input type="email" disabled value={email} className="mt-1 w-full px-3 py-2 border rounded-md text-sm bg-gray-100 cursor-not-allowed" />
             </div>
           </div>
 
