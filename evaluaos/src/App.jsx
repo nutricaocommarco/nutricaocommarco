@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { supabase } from './supabaseClient'
 import Login from './pages/Login'
 import Pacientes from './pages/Pacientes'
+import EscolhaPercGordura from './pages/EscolhaPercGordura' // <-- Importando a nova página
 
 export default function App() {
   const [session, setSession] = useState(null)
@@ -76,7 +77,7 @@ export default function App() {
   return (
     <div className="flex h-screen bg-gray-50 overflow-hidden">
       
-      {/* 1. OVERLAY MOBILE ESCURO (Aparece só no celular quando o menu tá aberto) */}
+      {/* 1. OVERLAY MOBILE ESCURO */}
       {isSidebarOpen && (
         <div 
           className="fixed inset-0 bg-black/40 z-40 md:hidden backdrop-blur-sm"
@@ -91,7 +92,6 @@ export default function App() {
           ${isSidebarOpen ? 'w-64 translate-x-0' : 'w-20 -translate-x-full md:translate-x-0'}
         `}
       >
-        {/* Cabeçalho da Sidebar (Botão de Expandir/Recolher no PC) */}
         <div className="h-[72px] flex items-center justify-center border-b border-gray-100">
           <button 
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -106,7 +106,6 @@ export default function App() {
           </button>
         </div>
 
-        {/* Lista de Itens do Menu */}
         <div className="flex-1 overflow-y-auto py-6 px-3 flex flex-col gap-2">
           {menuItems.map((item) => (
             <button
@@ -114,7 +113,7 @@ export default function App() {
               title={!isSidebarOpen ? item.name : ''}
               onClick={() => {
                 setActiveMenu(item.name)
-                if (window.innerWidth < 768) setIsSidebarOpen(false) // Fecha no celular após clicar
+                if (window.innerWidth < 768) setIsSidebarOpen(false) 
               }}
               className={`
                 flex items-center p-3 rounded-xl transition-all duration-200 overflow-hidden group
@@ -142,7 +141,6 @@ export default function App() {
         <header className="bg-white shadow-sm border-b border-gray-100 px-4 h-[72px] flex justify-between items-center shrink-0">
           
           <div className="flex items-center gap-3">
-            {/* Botão de Hamburger (Aparece só no celular) */}
             <button 
               className="md:hidden p-2 -ml-2 text-gray-500 hover:text-emerald-600 focus:outline-none"
               onClick={() => setIsSidebarOpen(true)}
@@ -154,7 +152,6 @@ export default function App() {
               </svg>
             </button>
 
-            {/* Logo */}
             <div className="flex items-center gap-2">
               <img src="/Imagens/Logo_png.png" alt="EvaluaOS" className="h-10 w-auto object-contain" />
               <div className="hidden sm:flex flex-col">
@@ -179,10 +176,15 @@ export default function App() {
 
         {/* 4. RENDERIZAÇÃO DA PÁGINA (CONTEÚDO DINÂMICO) */}
         <main className="flex-1 overflow-y-auto p-4 sm:p-8">
+          
+          {/* Mapeamento das Rotas Baseadas no activeMenu */}
           {activeMenu === 'Pacientes' && <Pacientes userId={session.user.id} />}
           
-          {/* Tela Temporária (Placeholder) para os Menus que ainda vamos criar */}
-          {activeMenu !== 'Pacientes' && (
+          {/* Aqui está a integração da sua nova página vinculada ao botão Equações */}
+          {activeMenu === 'Equações' && <EscolhaPercGordura />}
+          
+          {/* Tela Temporária (Placeholder) para os Menus que ainda NÃO existem */}
+          {activeMenu !== 'Pacientes' && activeMenu !== 'Equações' && (
             <div className="flex flex-col items-center justify-center h-full text-center p-6">
               <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center text-gray-300 mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
