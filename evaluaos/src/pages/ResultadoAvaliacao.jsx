@@ -246,9 +246,10 @@ export default function ResultadoAvaliacao() {
   const dCoxaMm = aval.dobra_cutanea_coxa_media || 0
   const dPantMm = aval.dobra_cutanea_panturrilha || 0
 
-  // Correção exata com 0.3141 conforme sua fórmula do Excel
-  const coxaCorrigidaIMO = pCoxa > 0 ? pCoxa - (dCoxaMm * 0.3141) : 0
-  const pantCorrigidaIMO = pPant > 0 ? pPant - (dPantMm * 0.3141) : 0
+  // Usando Math.PI / 10 para máxima precisão decimal na conversão da dobra
+  const fatorPi = Math.PI / 10 
+  const coxaCorrigidaIMO = pCoxa > 0 ? pCoxa - (dCoxaMm * fatorPi) : 0
+  const pantCorrigidaIMO = pPant > 0 ? pPant - (dPantMm * fatorPi) : 0
 
   const parte2 = (alturaCm * (0.0553 * Math.pow(coxaCorrigidaIMO, 2) + 0.0987 * Math.pow(cAntebraco, 2) + 0.0331 * Math.pow(pantCorrigidaIMO, 2)) - 2445) * 0.001
   
