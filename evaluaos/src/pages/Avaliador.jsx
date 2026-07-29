@@ -9,9 +9,8 @@ export default function Avaliador() {
 
   // Estados do Perfil do Avaliador 
   const [perfilId, setPerfilId] = useState(null)
-  const [authUserId, setAuthUserId] = useState(null)
-  const [nomeCompleto, setNomeCompleto] = useState('')
   const [email, setEmail] = useState('')
+  const [nomeCompleto, setNomeCompleto] = useState('')
   const [telefone, setTelefone] = useState('')
   const [instagram, setInstagram] = useState('')
   const [empresa, setEmpresa] = useState('')
@@ -32,7 +31,7 @@ export default function Avaliador() {
   const [novaSenha, setNovaSenha] = useState('')
   const [confirmaSenha, setConfirmaSenha] = useState('')
 
-  // Carregar Dados ao Abrir a Página via Sessão do Supabase
+  // Carregar Dados Existentes ao Abrir a Página
   useEffect(() => {
     async function carregarDadosAvaliador() {
       setLoading(true)
@@ -44,9 +43,9 @@ export default function Avaliador() {
       }
 
       const userEmail = session.user.email
-      setAuthUserId(session.user.id)
       setEmail(userEmail)
 
+      // 1. Busca perfil na tabela 'avaliadores' pelo e-mail
       const { data: perfilData, error: perfilError } = await supabase
         .from('avaliadores')
         .select('*')
@@ -63,6 +62,7 @@ export default function Avaliador() {
         setEmpresa(perfilData.empresa || '')
         setPlanoStatus(perfilData.plano_status || 'Ativo')
 
+        // 2. Busca equipamentos vinculados ao ID do avaliador
         const { data: equipData, error: equipError } = await supabase
           .from('equipamentos')
           .select('*')
@@ -89,7 +89,7 @@ export default function Avaliador() {
     carregarDadosAvaliador()
   }, [])
 
-  // Salvar Perfil (Agora captura o ID gerado automaticamente pelo banco)
+  // Salvar Perfil (Verifica se já existe pelo e-mail para atualizar em vez de duplicar)
   const handleSalvarPerfil = async (e) => {
     e.preventDefault()
     setSavingPerfil(true)
@@ -102,40 +102,47 @@ export default function Avaliador() {
       empresa
     }
 
-    let resultadoQuery
-    if (perfilId) {
-      resultadoQuery = await supabase
+    // Verifica se já existe registro com este e-mail no banco
+    const { data: existente } = await supabase
+      .from('avaliadores')
+      .select('id')
+      .eq('email', email)
+      .maybeSingle()
+
+    let res
+    if (existente) {
+      // Atualiza o registro existente
+      res = await supabase
         .from('avaliadores')
         .update(payload)
-        .eq('id', perfilId)
+        .eq('id', existente.id)
         .select()
         .single()
+      setPerfilId(existente.id)
     } else {
-      resultadoQuery = await supabase
+      // Cria novo apenas se realmente não existir
+      res = await supabase
         .from('avaliadores')
         .insert([payload])
         .select()
         .single()
+      if (res.data) setPerfilId(res.data.id)
     }
 
-    const { data, error } = resultadoQuery
-
-    if (error) {
-      alert('Erro ao salvar perfil: ' + error.message)
-    } else {
-      if (data && data.id) {
-        setPerfilId(data.id) // Captura e armazena o ID recém-criado
-      }
-      alert('Dados do Avaliador atualizados com sucesso!')
-    }
     setSavingPerfil(false)
+
+    if (res.error) {
+      alert('Erro ao salvar perfil: ' + res.error.message)
+    } else {
+      alert('Informações profissionais atualizadas com sucesso!')
+    }
   }
 
-  // Salvar Equipamentos
+  // Salvar Equipamentos (Verifica se já existe pelo id_avaliador para atualizar)
   const handleSalvarEquipamentos = async (e) => {
     e.preventDefault()
     if (!perfilId) {
-      return alert('Salve primeiro as Informações Profissionais para vincular os equipamentos.')
+      return alert('Salve primeiro as Informações Profissionais.')
     }
     setSavingEquip(true)
 
@@ -150,36 +157,41 @@ export default function Avaliador() {
       altura_banco: alturaBanco !== '' ? parseFloat(alturaBanco) : null
     }
 
-    let resultadoQuery
-    if (equipId) {
-      resultadoQuery = await supabase
+    // Verifica se já existem equipamentos para este avaliador
+    const { data: equipExistente } = await supabase
+      .from('equipamentos')
+      .select('id')
+      .eq('id_avaliador', perfilId)
+      .maybeSingle()
+
+    let resEquip
+    if (equipExistente) {
+      resEquip = await supabase
         .from('equipamentos')
         .update(payload)
-        .eq('id', equipId)
+        .eq('id', equipExistente.id)
         .select()
         .single()
+      setEquipId(equipExistente.id)
     } else {
-      resultadoQuery = await supabase
+      resEquip = await supabase
         .from('equipamentos')
         .insert([payload])
         .select()
         .single()
+      if (resEquip.data) setEquipId(resEquip.data.id)
     }
 
-    const { data, error } = resultadoQuery
-
-    if (error) {
-      alert('Erro ao salvar equipamentos: ' + error.message)
-    } else {
-      if (data && data.id) {
-        setEquipId(data.id)
-      }
-      alert('Informações dos equipamentos salvas com sucesso!')
-    }
     setSavingEquip(false)
+
+    if (resEquip.error) {
+      alert('Erro ao salvar equipamentos: ' + resEquip.error.message)
+    } else {
+      alert('Informações dos equipamentos atualizadas com sucesso!')
+    }
   }
 
-  // Atualizar Senha
+  // Atualizar Senha (Valida senha atual e sobrescreve a antiga na Auth)
   const handleAtualizarSenha = async (e) => {
     e.preventDefault()
 
@@ -189,6 +201,7 @@ export default function Avaliador() {
 
     setSavingSenha(true)
 
+    // Valida a senha atual fazendo login de teste
     const { error: loginError } = await supabase.auth.signInWithPassword({
       email: email,
       password: senhaAtual
@@ -199,6 +212,7 @@ export default function Avaliador() {
       return alert('A senha atual está incorreta.')
     }
 
+    // Sobrescreve a senha antiga pela nova
     const { error: updateError } = await supabase.auth.updateUser({ password: novaSenha })
 
     setSavingSenha(false)
