@@ -27,7 +27,7 @@ export default function Avaliador() {
   const [banco, setBanco] = useState('')
   const [alturaBanco, setAlturaBanco] = useState('')
 
-  // Estados de Senha (Incluindo a senha atual para segurança)
+  // Estados de Senha
   const [senhaAtual, setSenhaAtual] = useState('')
   const [novaSenha, setNovaSenha] = useState('')
   const [confirmaSenha, setConfirmaSenha] = useState('')
@@ -89,7 +89,7 @@ export default function Avaliador() {
     carregarDadosAvaliador()
   }, [])
 
-  // Salvar Perfil
+  // Salvar Perfil (Agora captura o ID gerado automaticamente pelo banco)
   const handleSalvarPerfil = async (e) => {
     e.preventDefault()
     setSavingPerfil(true)
@@ -102,18 +102,30 @@ export default function Avaliador() {
       empresa
     }
 
-    let query
+    let resultadoQuery
     if (perfilId) {
-      query = supabase.from('avaliadores').update(payload).eq('id', perfilId)
+      resultadoQuery = await supabase
+        .from('avaliadores')
+        .update(payload)
+        .eq('id', perfilId)
+        .select()
+        .single()
     } else {
-      query = supabase.from('avaliadores').insert([payload])
+      resultadoQuery = await supabase
+        .from('avaliadores')
+        .insert([payload])
+        .select()
+        .single()
     }
 
-    const { error } = await query
+    const { data, error } = resultadoQuery
 
     if (error) {
       alert('Erro ao salvar perfil: ' + error.message)
     } else {
+      if (data && data.id) {
+        setPerfilId(data.id) // Captura e armazena o ID recém-criado
+      }
       alert('Dados do Avaliador atualizados com sucesso!')
     }
     setSavingPerfil(false)
@@ -138,24 +150,36 @@ export default function Avaliador() {
       altura_banco: alturaBanco !== '' ? parseFloat(alturaBanco) : null
     }
 
-    let query
+    let resultadoQuery
     if (equipId) {
-      query = supabase.from('equipamentos').update(payload).eq('id', equipId)
+      resultadoQuery = await supabase
+        .from('equipamentos')
+        .update(payload)
+        .eq('id', equipId)
+        .select()
+        .single()
     } else {
-      query = supabase.from('equipamentos').insert([payload])
+      resultadoQuery = await supabase
+        .from('equipamentos')
+        .insert([payload])
+        .select()
+        .single()
     }
 
-    const { error } = await query
+    const { data, error } = resultadoQuery
 
     if (error) {
       alert('Erro ao salvar equipamentos: ' + error.message)
     } else {
+      if (data && data.id) {
+        setEquipId(data.id)
+      }
       alert('Informações dos equipamentos salvas com sucesso!')
     }
     setSavingEquip(false)
   }
 
-  // Atualizar Senha (Com validação da senha atual por segurança)
+  // Atualizar Senha
   const handleAtualizarSenha = async (e) => {
     e.preventDefault()
 
@@ -165,7 +189,6 @@ export default function Avaliador() {
 
     setSavingSenha(true)
 
-    // 1. Valida se a senha atual está correta fazendo um login de teste
     const { error: loginError } = await supabase.auth.signInWithPassword({
       email: email,
       password: senhaAtual
@@ -176,7 +199,6 @@ export default function Avaliador() {
       return alert('A senha atual está incorreta.')
     }
 
-    // 2. Se a senha atual estiver correta, atualiza para a nova senha
     const { error: updateError } = await supabase.auth.updateUser({ password: novaSenha })
 
     setSavingSenha(false)
