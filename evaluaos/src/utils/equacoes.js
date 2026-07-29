@@ -252,7 +252,7 @@ export const calcularFemLewis1978 = (medidasBrutas) => {
 
 // 14. Jackson et al. (1980) - 4skf
 // Refs Excel: X76 (DC) e X77 (%G)
-export const calcularFemJackson Pollock1980_4skf = (medidasBrutas) => {
+export const calcularFemJacksonPollock1980_4skf = (medidasBrutas) => {
   const { tr, si, ab, cx, idade } = prepararDadosEntrada(medidasBrutas);
   const soma4 = tr + si + ab + cx;
   if (soma4 <= 0) return 0;
