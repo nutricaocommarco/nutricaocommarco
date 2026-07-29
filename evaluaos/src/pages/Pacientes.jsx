@@ -273,29 +273,227 @@ export default function Pacientes({ userId }) {
         )}
       </div>
 
-      {/* MODAL NOVO PACIENTE (Inalterado) */}
+{/* MODAL NOVO PACIENTE */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-xl max-w-lg w-full p-6 space-y-4 shadow-xl max-h-[90vh] overflow-y-auto">
-            {/* ... Todo o seu form de Novo Paciente ... */}
-            <div className="flex justify-between items-center border-b pb-3">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 overflow-y-auto">
+          <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg max-h-[90vh] flex flex-col overflow-hidden animate-fade-in">
+            
+            {/* Cabeçalho */}
+            <div className="flex justify-between items-center px-6 py-4 border-b border-gray-100">
               <h3 className="text-lg font-bold text-gray-800">Cadastrar Paciente</h3>
-              <button onClick={() => setShowModal(false)} className="text-gray-400 hover:text-gray-600 text-lg font-bold">✕</button>
+              <button 
+                onClick={() => setShowModal(false)}
+                className="text-gray-400 hover:text-gray-600 transition-colors p-1 rounded-lg hover:bg-gray-100"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </button>
             </div>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div><label className="block text-xs font-semibold text-gray-700 uppercase">Nome Completo *</label><input type="text" required value={nome} onChange={(e) => setNome(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm" /></div>
-              <div className="grid grid-cols-2 gap-4">
-                <div><label className="block text-xs font-semibold text-gray-700 uppercase">Data Nasc.</label><input type="date" value={dataNascimento} onChange={(e) => setDataNascimento(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm" /></div>
-                <div><label className="block text-xs font-semibold text-gray-700 uppercase">Sexo *</label><select value={sexo} onChange={(e) => setSexo(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm"><option value="M">Masculino</option><option value="F">Feminino</option></select></div>
+
+            {/* Corpo do Formulário */}
+            <form onSubmit={handleSubmit} className="p-6 space-y-4 overflow-y-auto flex-1">
+              
+              {/* Nome Completo */}
+              <div>
+                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Nome Completo *
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={nome}
+                  onChange={(e) => setNome(e.target.value)}
+                  placeholder="Nome do paciente"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
+                />
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div><label className="block text-xs font-semibold text-gray-700 uppercase">Etnia</label><select value={etnia} onChange={(e) => setEtnia(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm"><option value="">Selecione...</option><option value="Caucasiano">Caucasiana</option><option value="Afrodescendente">Afrodescendente</option></select></div>
-                <div><label className="block text-xs font-semibold text-gray-700 uppercase">Nacionalidade</label><input type="text" value={nacionalidade} onChange={(e) => setNacionalidade(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm" /></div>
+
+              {/* Data Nascimento + Sexo */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                    Data de Nascimento
+                  </label>
+                  <input
+                    type="date"
+                    value={dataNascimento}
+                    onChange={(e) => setDataNascimento(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none bg-gray-50/50"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                    Sexo *
+                  </label>
+                  <select
+                    value={sexo}
+                    onChange={(e) => setSexo(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none bg-gray-50/50"
+                  >
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                  </select>
+                </div>
               </div>
-              <div className="flex justify-end space-x-3 pt-4 border-t">
-                <button type="button" onClick={() => setShowModal(false)} className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700">Cancelar</button>
-                <button type="submit" disabled={saving} className="px-4 py-2 bg-emerald-600 text-white rounded-md text-sm font-medium">{saving ? 'Salvando...' : 'Salvar Paciente'}</button>
+
+              {/* Etnia + Nacionalidade */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                    Etnia / Cor
+                  </label>
+                  <select
+                    value={etnia}
+                    onChange={(e) => setEtnia(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none bg-gray-50/50"
+                  >
+                    <option value="">Selecione...</option>
+                    <option value="Caucasiano">Caucasiano (Branco)</option>
+                    <option value="Afrodescendente">Afrodescendente (Negro)</option>
+                    <option value="Asiatico">Asiático</option>
+                    <option value="Pardo">Pardo</option>
+                    <option value="Indigena">Indígena</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                    Nacionalidade
+                  </label>
+                  <input
+                    type="text"
+                    value={nacionalidade}
+                    onChange={(e) => setNacionalidade(e.target.value)}
+                    placeholder="Brasileira"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
+                  />
+                </div>
               </div>
+
+              {/* E-mail + Telefone */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                    E-mail
+                  </label>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="email@exemplo.com"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                    Telefone
+                  </label>
+                  <input
+                    type="text"
+                    value={telefone}
+                    onChange={(e) => setTelefone(e.target.value)}
+                    placeholder="(21) 99999-9999"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
+                  />
+                </div>
+              </div>
+
+              {/* Ocupação / Profissão */}
+              <div>
+                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Ocupação / Profissão
+                </label>
+                <input
+                  type="text"
+                  value={ocupacao}
+                  onChange={(e) => setOcupacao(e.target.value)}
+                  placeholder="Ex: Atleta, Estudante, Engenheiro..."
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
+                />
+              </div>
+
+              {/* Atividade Física */}
+              <div className="pt-2">
+                <label className="flex items-center space-x-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={praticaEsporte}
+                    onChange={(e) => setPraticaEsporte(e.target.checked)}
+                    className="w-4 h-4 text-emerald-600 rounded border-gray-300 focus:ring-emerald-500"
+                  />
+                  <span className="text-sm font-medium text-gray-700">
+                    Pratica atividade física ou esporte regularmente?
+                  </span>
+                </label>
+              </div>
+
+              {/* Campos condicionais se praticar esporte */}
+              {praticaEsporte && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-emerald-50/50 p-3 rounded-lg border border-emerald-100">
+                  <div>
+                    <label className="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1">
+                      Modalidade
+                    </label>
+                    <input
+                      type="text"
+                      value={modalidadeEsportiva}
+                      onChange={(e) => setModalidadeEsportiva(e.target.value)}
+                      placeholder="Ex: Musculação, Corrida..."
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none bg-white"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1">
+                      Nível
+                    </label>
+                    <select
+                      value={nivelPratica}
+                      onChange={(e) => setNivelPratica(e.target.value)}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none bg-white"
+                    >
+                      <option value="">Selecione...</option>
+                      <option value="Recreacional">Recreacional</option>
+                      <option value="Amador">Amador</option>
+                      <option value="Profissional">Profissional / Elite</option>
+                    </select>
+                  </div>
+                </div>
+              )}
+
+              {/* Observações */}
+              <div>
+                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Observações
+                </label>
+                <textarea
+                  rows="3"
+                  value={observacoes}
+                  onChange={(e) => setObservacoes(e.target.value)}
+                  placeholder="Anotações adicionais..."
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none resize-none"
+                ></textarea>
+              </div>
+
+              {/* Botões do Rodapé */}
+              <div className="flex justify-end gap-3 pt-4 border-t border-gray-100">
+                <button
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                  className="px-5 py-2 border border-gray-300 text-gray-700 text-sm font-semibold rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="submit"
+                  disabled={saving}
+                  className="px-5 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 shadow disabled:opacity-50 transition-colors"
+                >
+                  {saving ? 'Salvando...' : 'Salvar Paciente'}
+                </button>
+              </div>
+
             </form>
           </div>
         </div>
