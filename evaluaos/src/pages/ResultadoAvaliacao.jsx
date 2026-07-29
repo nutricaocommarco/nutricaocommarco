@@ -234,16 +234,16 @@ export default function ResultadoAvaliacao() {
   const perimCorrigidoPanturrilha = dados.perimetro_corrigido_panturrilha || (pPant > 0 ? pPant - ((aval.dobra_cutanea_panturrilha || 0) * 0.314) : 0);
 
   // --- ÍNDICE DE MÚSCULO ÓSSEO (IMO) ---
-  const estaturaMetros = (aval.altura_paciente || 0) / 100
+  const alturaCm = aval.altura_paciente || 0
   const dUmero = aval.diametro_umero || 0
   const dFemur = aval.diametro_femur || 0
   const dRadio = aval.diametro_punho || 0 
   const dMaleolar = aval.diametro_maleolar || 0
 
-  const parte1 = 0.6 * estaturaMetros * Math.pow(dUmero + dFemur + dRadio + dMaleolar, 2) * 0.0001
+  const parte1 = 0.6 * alturaCm * Math.pow(dUmero + dFemur + dRadio + dMaleolar, 2) * 0.0001
   const cAntebraco = aval.perimetro_antibraco || 0
 
-  const parte2 = (estaturaMetros * (0.0553 * Math.pow(perimCorrigidoCoxa, 2) + 0.0987 * Math.pow(cAntebraco, 2) + 0.0331 * Math.pow(perimCorrigidoPanturrilha, 2)) - 2445) * 0.001
+  const parte2 = (alturaCm * (0.0553 * Math.pow(perimCorrigidoCoxa, 2) + 0.0987 * Math.pow(cAntebraco, 2) + 0.0331 * Math.pow(perimCorrigidoPanturrilha, 2)) - 2445) * 0.001
   const imoVal = (parte1 > 0 && parte2 > 0) ? (parte1 / parte2) : 0
   
   const coordX = 150 + ((dados.somatocarta_eixo_x || 0) * 15)
