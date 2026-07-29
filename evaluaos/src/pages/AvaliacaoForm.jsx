@@ -428,6 +428,13 @@ export default function AvaliacaoForm() {
             </label>
           </div>
 
+          {/* MENSAGEM DE AVISO EM VERMELHO */}
+              <span className="text-[11px] font-medium text-red-500 text-right max-w-xs">
+                ⚠️ Não é aconselhado habilitar o modo único. Utilize apenas para correções pontuais ou dados já consolidados.
+              </span>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-gray-700">Data</label>
