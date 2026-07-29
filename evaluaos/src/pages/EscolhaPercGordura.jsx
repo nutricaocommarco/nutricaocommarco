@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { supabase } from '../supabaseClient'
 import * as Eq from '../utils/equacoes'
 
-// Mapeamento de todas as equações importadas
+// Mapeamento de todas as equações importadas do seu arquivo utils/equacoes.js
 const listaFeminina = [
   { nome: 'Durnin et al. (1974) - 4skf', func: Eq.calcularFemDurnin1974 },
   { nome: 'Jackson et al. (1980) - 3skf', func: Eq.calcularFemJacksonPollock1980_3skf },
@@ -19,13 +19,64 @@ const listaFeminina = [
   { nome: 'Lewis et al. (1978) - Dobras e Perímetros', func: Eq.calcularFemLewis1978 },
   { nome: 'Jackson et al. (1980) - 4skf', func: Eq.calcularFemJacksonPollock1980_4skf },
   { nome: 'Tran & Weltman (1989) - Perímetros', func: Eq.calcularFemTranWeltman1989_Perimetros },
-  { nome: 'Weltman et al. (1988) - Perímetros', func: Eq.calcularFemWeltman1988_Perimetros }
+  { nome: 'Weltman et al. (1988) - Perímetros', func: Eq.calcularFemWeltman1988_Perimetros },
+  { nome: 'Estatura e Cintura (AC53)', func: Eq.calcularFemEstaturaCintura },
+  { nome: 'Deurenberg et al. (1991) - Por IMC', func: Eq.calcularFemDeurenberg1991_IMC },
+  { nome: '7 Dobras - Log Natural', func: Eq.calcularFem7Dobras_LogNatural },
+  { nome: 'Linear 3 Dobras (Coxa, Panturrilha, Crista)', func: Eq.calcularFemLinear_CoxaPanturrilhaCrista },
+  { nome: 'Linear 3 Dobras A (Tríc, Abd, Coxa)', func: Eq.calcularFemLinear_TricAbdCoxa_A },
+  { nome: 'Linear 3 Dobras B (Tríc, Abd, Coxa)', func: Eq.calcularFemLinear_TricAbdCoxa_B },
+  { nome: 'Durnin 4skf - Variação A (40-49 anos)', func: Eq.calcularFemDurnin_VarA },
+  { nome: 'Durnin 4skf - Variação B (30-39 anos)', func: Eq.calcularFemDurnin_VarB },
+  { nome: 'Durnin 4skf - Variação C (17-29 anos)', func: Eq.calcularFemDurnin_VarC },
+  { nome: 'Durnin 4skf - Variação D (20-29 anos)', func: Eq.calcularFemDurnin_VarD },
+  { nome: 'Durnin 4skf - Variação E (50+ anos)', func: Eq.calcularFemDurnin_VarE },
+  { nome: 'Durnin 4skf - Variação F (50+ anos Alt)', func: Eq.calcularFemDurnin_VarF },
+  { nome: 'DC por Tríceps Logarítmica', func: Eq.calcularFemDC_TricepsLog },
+  { nome: 'DC Tríceps e Subescapular Logarítmica', func: Eq.calcularFemDC_TricSubLog },
+  { nome: 'DC Tríceps e Subescapular Linear', func: Eq.calcularFemDC_TricSubLinear },
+  { nome: '%G Direto por Log 4 Dobras - Var A', func: Eq.calcularFemPercGord_Log4Dobras_A },
+  { nome: '%G Direto por Log 4 Dobras - Var B', func: Eq.calcularFemPercGord_Log4Dobras_B },
+  { nome: '%G Direto por Log 4 Dobras - Var C', func: Eq.calcularFemPercGord_Log4Dobras_C },
+  { nome: 'Equação Complexa - Logaritmos Mistos', func: Eq.calcularFemComplexa_Mista }
 ];
 
 const listaMasculina = [
   { nome: 'Mitchell et al. (2020) - 7skd ISAK', func: Eq.calcularMascMitchell2020_7skd },
-  { nome: 'Woolcott & Bergman (2018) - RFM', func: Eq.calcularMascWoolcottBergman2018 }
-  // (Mantenha as outras opções da sua listaMasculina original)
+  { nome: 'Woolcott & Bergman (2018) - RFM', func: Eq.calcularMascWoolcottBergman2018 },
+  { nome: 'Guedes (1985) - 3skd', func: Eq.calcularMascGuedes1985_3skd },
+  { nome: 'Deurenberg et al. (1991) - Por IMC', func: Eq.calcularMascDeurenberg1991_IMC },
+  { nome: 'Weltman et al. (1987) - Por Perímetros', func: Eq.calcularMascWeltman1987 },
+  { nome: 'Petroski (1995) - 4skd', func: Eq.calcularMascPetroski1995_4skd },
+  { nome: 'Stewart & Hannan - 2skd', func: Eq.calcularMascStewartHannan_2skd },
+  { nome: 'Faulkner (1968) - 4skd', func: Eq.calcularMascFaulkner1968_4skd },
+  { nome: 'Reilly et al. (2009) - 4skd ISAK', func: Eq.calcularMascReilly2009_4skd },
+  { nome: 'Evans et al. (2005) - 3skd (Brancos)', func: Eq.calcularMascEvans2005_3skd_White },
+  { nome: 'Evans et al. (2005) - 3skd (Negros)', func: Eq.calcularMascEvans2005_3skd_Black },
+  { nome: 'Katch & McArdle (1973) - 3skd', func: Eq.calcularMascKatchMcArdle1973_3skd },
+  { nome: 'Withers et al. (1987) - 7skd', func: Eq.calcularMascWithers1987_7skd },
+  { nome: 'Slaughter et al. (1988) - 2skd', func: Eq.calcularMascSlaughter1988_2skd },
+  { nome: 'Yuhasz (1974) - 6skd', func: Eq.calcularMascYuhasz1974_6skd },
+  { nome: 'Wilmore & Behnke (1969) - 2skd', func: Eq.calcularMascWilmoreBehnke1969_2skd },
+  { nome: 'Boileau et al. (1985) - 2skd', func: Eq.calcularMascBoileau1985_2skd },
+  { nome: 'Deurenberg et al. (1990) - 4skd Var 1', func: Eq.calcularMascDeurenberg1990_4skd_Var1 },
+  { nome: 'Deurenberg et al. (1990) - 4skd Var 2', func: Eq.calcularMascDeurenberg1990_4skd_Var2 },
+  { nome: 'Deurenberg et al. (1990) - 4skd Var 3', func: Eq.calcularMascDeurenberg1990_4skd_Var3 },
+  { nome: 'Eston et al. (2005) - 2skd ISAK', func: Eq.calcularMascEston2005_2skd },
+  { nome: 'Eston et al. (2005) - 6skd ISAK', func: Eq.calcularMascEston2005_6skd },
+  { nome: 'Durnin & Womersley 1974 - Var 1', func: Eq.calcularMascDurnin1974_Var1 },
+  { nome: 'Durnin & Womersley 1974 - Var 2', func: Eq.calcularMascDurnin1974_Var2 },
+  { nome: 'Durnin & Womersley 1974 - Var 3', func: Eq.calcularMascDurnin1974_Var3 },
+  { nome: 'Durnin & Womersley 1974 - Var 4', func: Eq.calcularMascDurnin1974_Var4 },
+  { nome: 'Durnin & Womersley 1974 - Var 5', func: Eq.calcularMascDurnin1974_Var5 },
+  { nome: 'Durnin & Womersley 1974 - Var 6', func: Eq.calcularMascDurnin1974_Var6 },
+  { nome: 'Durnin & Womersley 1974 - 1skd (Só Tríceps)', func: Eq.calcularMascDurnin1974_1skd },
+  { nome: 'Durnin & Rahaman 1967 - 4skd', func: Eq.calcularMascDurninRahaman1967_4skd },
+  { nome: 'Forsyth & Sinning 1973 - 2skd', func: Eq.calcularMascForsythSinning1973_2skd },
+  { nome: 'Nagamine & Suzuki 1964 - 2skd', func: Eq.calcularMascNagamineSuzuki1964_2skd },
+  { nome: 'Sloan 1967 - 2skd', func: Eq.calcularMascSloan1967_2skd },
+  { nome: 'Hortobagyi et al. 1992', func: Eq.calcularMascHortobagyi1992 },
+  { nome: 'Ortiz-Hernández et al. 2016', func: Eq.calcularMascOrtizHernandez2016 }
 ];
 
 export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial = null }) {
@@ -39,7 +90,7 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
   
   const [equacaoSelecionada, setEquacaoSelecionada] = useState('')
   
-  // Alteramos o estado do resultado para guardar valor e info
+// Alteramos o estado do resultado para guardar valor e info
   const [resultadoGordura, setResultadoGordura] = useState(0)
   const [metadados, setMetadados] = useState(null)
   
@@ -47,11 +98,14 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
 
   const dropdownRef = useRef(null)
 
-  // 1. Inicialização e Busca
+  // 1. Inicia com o paciente recebido via Props (Preparo para o futuro)
   useEffect(() => {
-    if (pacienteInicial) selecionarPaciente(pacienteInicial)
+    if (pacienteInicial) {
+      selecionarPaciente(pacienteInicial)
+    }
   }, [pacienteInicial])
 
+  // 2. Sistema de Busca Inteligente (Dropdown)
   useEffect(() => {
     const buscarPacientes = async () => {
       if (busca.length < 1) {
@@ -63,12 +117,15 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
         .select('id, nome_completo, sexo')
         .ilike('nome_completo', `%${busca}%`)
         .limit(5)
+
       if (!error && data) setPacientesFiltrados(data)
     }
+    
     const delayDebounce = setTimeout(() => buscarPacientes(), 300)
     return () => clearTimeout(delayDebounce)
   }, [busca])
 
+  // Fechar dropdown ao clicar fora
   useEffect(() => {
     const handleClickFora = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -79,15 +136,15 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
     return () => document.removeEventListener('mousedown', handleClickFora)
   }, [])
 
-  // 3. Selecionar Paciente
+  // 3. Ao selecionar um paciente, busca a última avaliação dele para ter os dados
   const selecionarPaciente = async (paciente) => {
     setPacienteSelecionado(paciente)
     setBusca(paciente.nome_completo)
     setShowDropdown(false)
     setEquacaoSelecionada('')
     setResultadoGordura(0)
-    setMetadados(null)
 
+    // Busca a avaliação mais recente para puxar as medidas
     const { data, error } = await supabase
       .from('avaliacoes')
       .select('*')
@@ -98,7 +155,7 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
 
     if (data) {
       setAvaliacaoAtual(data)
-      setMedidasBrutas(data)
+      setMedidasBrutas(data) // Supondo que as dobras e perímetros estejam salvos nas colunas desta tabela
     } else {
       setAvaliacaoAtual(null)
       setMedidasBrutas({})
@@ -106,7 +163,7 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
     }
   }
 
-  // 4. Cálculo Automático
+  // 4. Cálculo Automático ao trocar a equação
   useEffect(() => {
     if (!pacienteSelecionado || !equacaoSelecionada || !medidasBrutas) return
 
@@ -116,20 +173,10 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
     if (equacao && typeof equacao.func === 'function') {
       try {
         const resultado = equacao.func(medidasBrutas, pacienteSelecionado)
-        
-        // Verifica se a função retornou o objeto novo { valor, info } ou só o número antigo
-        if (typeof resultado === 'object' && resultado !== null) {
-          setResultadoGordura(resultado.valor || 0)
-          setMetadados(resultado.info || null)
-        } else {
-          setResultadoGordura(resultado || 0)
-          setMetadados(null)
-        }
-
+        setResultadoGordura(resultado)
       } catch (err) {
         console.error("Erro no cálculo da equação:", err)
         setResultadoGordura(0)
-        setMetadados(null)
       }
     }
   }, [equacaoSelecionada, medidasBrutas, pacienteSelecionado])
@@ -164,9 +211,10 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
       
       <div>
         <h2 className="text-2xl font-bold text-gray-800">Laboratório de Equações</h2>
-        <p className="text-sm text-gray-500">Selecione uma equação com base no perfil do seu paciente.</p>
+        <p className="text-sm text-gray-500">Página de teste isolada para simular resultados e salvar no banco.</p>
       </div>
 
+      {/* Busca de Paciente */}
       <div className="space-y-2 relative" ref={dropdownRef}>
         <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider">
           Pesquisar Paciente
@@ -180,27 +228,35 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
           }}
           onFocus={() => setShowDropdown(true)}
           placeholder="Digite o nome (Ex: Mar...)"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
         />
         
+        {/* Dropdown de Resultados */}
         {showDropdown && pacientesFiltrados.length > 0 && (
           <ul className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto">
             {pacientesFiltrados.map(p => (
               <li
                 key={p.id}
                 onClick={() => selecionarPaciente(p)}
-                className="px-4 py-3 cursor-pointer hover:bg-emerald-50 text-sm font-medium border-b border-gray-100"
+                className="px-4 py-3 cursor-pointer hover:bg-emerald-50 hover:text-emerald-700 text-sm font-medium border-b border-gray-100 last:border-0"
               >
-                {p.nome_completo} <span className="text-xs text-gray-400 ml-2">({p.sexo})</span>
+                {p.nome_completo} <span className="text-xs text-gray-400 font-normal ml-2">({p.sexo})</span>
               </li>
             ))}
           </ul>
         )}
       </div>
 
+      {/* Seleção de Equação e Resultado */}
       {pacienteSelecionado && avaliacaoAtual && (
         <div className="space-y-6 animate-fade-in-up">
-          
+          <div className="p-4 bg-gray-50 border border-gray-100 rounded-lg">
+            <p className="text-sm text-gray-700">
+              Avaliando: <strong>{pacienteSelecionado.nome_completo}</strong> 
+              <br/>ID da Avaliação ativa: {avaliacaoAtual.id}
+            </p>
+          </div>
+
           <div className="space-y-2">
             <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Escolha a Equação de Regressão
@@ -216,20 +272,6 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
               ))}
             </select>
           </div>
-
-          {/* EXIBIÇÃO DOS METADADOS (Só aparece se a equação tiver Info) */}
-          {metadados && (
-            <div className="bg-blue-50 border border-blue-100 rounded-lg p-4">
-              <h4 className="text-xs font-bold text-blue-800 uppercase tracking-wider mb-2">Validação Científica</h4>
-              <ul className="text-xs text-blue-700 space-y-1">
-                <li><strong>Autor:</strong> {metadados.autor} ({metadados.ano})</li>
-                <li><strong>Protocolo:</strong> {metadados.protocolo}</li>
-                <li><strong>População Alvo:</strong> {metadados.populacao}</li>
-                <li><strong>Faixa Etária Padrão:</strong> {metadados.faixaEtaria}</li>
-                <li><strong>Padrão Ouro:</strong> {metadados.referencia}</li>
-              </ul>
-            </div>
-          )}
 
           <div className="flex flex-col sm:flex-row gap-6 items-center bg-emerald-50 border border-emerald-100 p-6 rounded-xl">
             <div className="flex-1 text-center sm:text-left">
