@@ -979,9 +979,16 @@ export const calcularMascSlaughter1988_2skd = (m, p) => {
 // Ref Excel: X82 (%G Direto)
 // ============================================================
 export const calcularMascYuhasz1974_6skd = (m, p) => {
-  const info = { autor: 'Yuhasz', ano: 1974, protocolo: '6 Dobras Clássico', populacao: 'Jovens Estudantes', faixaEtaria: 'Jovens Adultos', referencia: 'PH' };
-  const { tr, sub, si, ab, cx, pa } = prepararDados(m, p);
-  const soma6 = tr + sub + si + ab + cx + pa; 
+  const info = { 
+    autor: 'Yuhasz', 
+    ano: 1974, 
+    protocolo: '6 Dobras (Tríc, Subesc, Supraespinhal, Abd, Coxa, Pant)', 
+    populacao: 'Jovens Estudantes', 
+    faixaEtaria: 'Jovens Adultos', 
+    referencia: 'PH' 
+  };
+  const { tr, sub, se, ab, cx, pa } = prepararDados(m, p);
+  const soma6 = tr + sub + se + ab + cx + pa; 
   if (soma6 <= 0) return { valor: 0, info };
   const pgc = (0.1051 * soma6) + 2.585;
   return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
