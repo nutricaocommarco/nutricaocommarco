@@ -60,7 +60,6 @@ export default function ResultadoAvaliacao() {
   // Resgata o ID que foi enviado invisível pelo botão de Histórico
   const avaliacaoId = location.state?.avaliacaoId || null
 
-  // Restante dos seus estados originais...
   const [loading, setLoading] = useState(true)
   const [dados, setDados] = useState(null)
 
@@ -79,7 +78,6 @@ export default function ResultadoAvaliacao() {
     async function processarERecarregarResultados() {
       setLoading(true)
       
-      // Select TUDO do paciente usando "pacientes ( * )"
       const { data: avalDados, error: avalError } = await supabase
         .from('avaliacoes')
         .select(`*, pacientes ( * )`)
@@ -115,9 +113,9 @@ export default function ResultadoAvaliacao() {
       const calcPerimCorrigidoCoxa = pCoxa > 0 ? pCoxa - (dCoxa * 0.314) : 0;
       const calcPerimCorrigidoPanturrilha = pPant > 0 ? pPant - (dPant * 0.314) : 0;
 
-      const termoBraco = Math.pow(pBraco - (dTri * 0.314), 2)
-      const termoCoxa = Math.pow(pCoxa - (dCoxa * 0.314), 2)
-      const termoPant = Math.pow(pPant - (dPant * 0.314), 2)
+      const termoBraco = Math.pow(calcPerimCorrigidoBraco, 2)
+      const termoCoxa = Math.pow(calcPerimCorrigidoCoxa, 2)
+      const termoPant = Math.pow(calcPerimCorrigidoPanturrilha, 2)
 
       let calcMuscular = 0
       if (alturaM > 0 && pBraco > 0 && pCoxa > 0 && pPant > 0) {
@@ -202,24 +200,20 @@ export default function ResultadoAvaliacao() {
     if (m < 0 || (m === 0 && evalDate.getDate() < birthDate.getDate())) idade--
   }
 
-  // Composição
   const imc = dados.imc || 0
   const percentualGordura = aval.percentual_de_gordura || 0 
   const massaGorda = dados.massa_gorda || 0
   const massaMagra = dados.massa_magra || 0
   const massaMuscular = dados.massa_muscular || 0
   
-  // Somatotipo
   const coordX = 150 + ((dados.somatocarta_eixo_x || 0) * 15)
   const coordY = 150 - ((dados.somatocarta_eixo_y || 0) * 11)
 
-  // Saúde
   const rcq = dados.relacao_cintura_quadril || 0;
   const rce = dados.relacao_cintura_estatura || 0;
   const soma6 = dados.somatorio_6_dobras || 0;
   const soma8 = dados.somatorio_8_dobras || 0;
 
-  // Perímetros Corrigidos
   const pBraco = aval.perimetro_braco_relaxado || 0;
   const pCoxa = aval.perimetro_coxa_media || 0;
   const pPant = aval.perimetro_panturrilha || 0;
@@ -227,7 +221,6 @@ export default function ResultadoAvaliacao() {
   const perimCorrigidoCoxa = dados.perimetro_corrigido_coxa || (pCoxa > 0 ? pCoxa - ((aval.dobra_cutanea_coxa_media || 0) * 0.314) : 0);
   const perimCorrigidoPanturrilha = dados.perimetro_corrigido_panturrilha || (pPant > 0 ? pPant - ((aval.dobra_cutanea_panturrilha || 0) * 0.314) : 0);
 
-  // Helper de renderização das medidas brutas (Grid Compacto)
   const renderMedidaItem = (label, valor, unidade) => (
     <div className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0" key={label}>
       <span className="text-xs font-medium text-gray-600">{label}</span>
@@ -244,13 +237,13 @@ export default function ResultadoAvaliacao() {
           CABEÇALHO DA AVALIAÇÃO E PACIENTE 
       ============================================================= */}
       <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm relative">
-        <button onClick={onVoltar} className="text-xs text-emerald-600 font-semibold hover:underline mb-2 inline-block">
+        {/* AQUI ESTÁ A CORREÇÃO: Usando navigate() no lugar de onVoltar */}
+        <button onClick={() => navigate('/pacientes')} className="text-xs text-emerald-600 font-semibold hover:underline mb-2 inline-block">
           ← Voltar para Histórico
         </button>
         <h2 className="text-2xl font-bold text-gray-800">Laudo Antropométrico: {pac.nome_completo}</h2>
         
         <div className="mt-4 flex flex-col md:flex-row gap-4">
-          {/* Dados da Avaliação */}
           <div className="flex-1 bg-gray-50 p-4 rounded-lg border border-gray-100">
             <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-2">Sobre a Avaliação</p>
             <div className="space-y-1">
@@ -262,7 +255,6 @@ export default function ResultadoAvaliacao() {
             </div>
           </div>
 
-          {/* Dados do Paciente */}
           <div className="flex-[2] bg-gray-50 p-4 rounded-lg border border-gray-100">
             <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-2">Perfil do Paciente</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2">
