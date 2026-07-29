@@ -435,7 +435,7 @@ export const calcularFemTranWeltman1989_Perimetros = (m, p) => {
   const mediaAbdintura = (perCintura + perAbdome) / 2;
   if (mediaAbdintura <= 0) return { valor: 0, info };
   // E5 representa a Idade na planilha
-  const dc = 1.168297 - (0.002824 * mediaAbdintura) + (0.0000122098 * Math.pow(mediaAbdintura, 2)) - (0.000733128 * perQuadril) + (0.000510477 * alturaCm) - (0.000216161 * idade);
+  const dc = 1.168297 - 0.002824 * (mediaAbdintura) + 0.0000122098 * Math.pow(mediaAbdintura, 2) - 0.000733128 * (perQuadril) + 0.000510477 * (alturaCm) - 0.000216161 * (idade);
   // Conversão adaptada da célula X60: ((5.01 / DC) - 4.57) * 100
   const pgc = ((5.01 / dc) - 4.57) * 100;
   return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
