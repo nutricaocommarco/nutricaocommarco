@@ -418,17 +418,17 @@ export default function AvaliacaoForm() {
         <span className="text-xs font-semibold px-3 py-1.5 bg-emerald-50 text-emerald-700 rounded-full">Sexo: {paciente.sexo === 'M' ? 'Masculino' : 'Feminino'}</span>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+<form onSubmit={handleSubmit} className="space-y-6">
         <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm space-y-4">
-          <div className="flex justify-between items-center border-b pb-2">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center border-b pb-4 gap-3">
             <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider">1. Dados Gerais</h3>
-            <label className="flex items-center space-x-2 text-xs font-bold text-red-600 bg-red-50 px-3 py-1.5 rounded-lg cursor-pointer">
-              <input type="checkbox" checked={isSingleMode} onChange={(e) => setIsSingleMode(e.target.checked)} className="rounded text-red-600 focus:ring-red-500" />
-              <span>Habilitar Modo Único / Edição</span>
-            </label>
-          </div>
-
-          {/* MENSAGEM DE AVISO EM VERMELHO */}
+            
+            <div className="flex flex-col items-end gap-1">
+              <label className="flex items-center space-x-2 text-xs font-bold text-red-600 bg-red-50 px-3 py-1.5 rounded-lg cursor-pointer">
+                <input type="checkbox" checked={isSingleMode} onChange={(e) => setIsSingleMode(e.target.checked)} className="rounded text-red-600 focus:ring-red-500" />
+                <span>Habilitar Modo Único / Edição</span>
+              </label>
+              
               <span className="text-[11px] font-medium text-red-500 text-right max-w-xs">
                 ⚠️ Não é aconselhado habilitar o modo único. Utilize apenas para correções pontuais ou dados já consolidados.
               </span>
@@ -453,7 +453,6 @@ export default function AvaliacaoForm() {
         {renderMeasureBlock('5. Diâmetros Ósseos (cm) - Tolerância 1%', diametroKeys, 'diametros', diametros, setDiametros)}
 
         <div className="flex justify-end gap-3 pt-4 sticky bottom-4 bg-white/80 p-4 border-t backdrop-blur-md rounded-xl">
-          {/* BOTÃO CANCELAR USA O NAVIGATE */}
           <button type="button" onClick={() => navigate('/pacientes')} className="px-6 py-2.5 border border-gray-300 text-gray-700 rounded-lg text-sm font-semibold hover:bg-gray-50">Cancelar</button>
           <button type="submit" disabled={loading} className="px-6 py-2.5 bg-emerald-600 text-white rounded-lg text-sm font-semibold hover:bg-emerald-700 shadow disabled:opacity-50">
             {loading ? 'Salvando...' : (avaliacaoIdParaEditar ? 'Atualizar Medidas' : 'Salvar e Escolher Equação')}
