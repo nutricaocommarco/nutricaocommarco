@@ -65,8 +65,9 @@ export default function ResultadoAvaliacao() {
 
   if (!avaliacaoId) {
     return (
-      <div className="flex flex-col items-center justify-center p-8 space-y-4">
-        <p className="text-gray-500">Nenhuma avaliação foi selecionada.</p>
+      <div className="flex flex-col items-center justify-center h-full space-y-4 p-8">
+        <h2 className="text-xl font-bold text-gray-800">Nenhuma avaliação foi selecionada.</h2>
+        <p className="text-gray-500">Selecione uma avaliação na lista para gerar o relatório.</p>
         <button onClick={() => navigate('/pacientes')} className="px-6 py-2 bg-emerald-600 text-white rounded-lg">
           Voltar para Pacientes
         </button>
