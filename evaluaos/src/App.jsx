@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { supabase } from './supabaseClient'
 import Login from './pages/Login'
 import Pacientes from './pages/Pacientes'
-import EscolhaPercGordura from './pages/EscolhaPercGordura' // <-- Importando a nova página
+import EscolhaPercGordura from './pages/EscolhaPercGordura'
 
 export default function App() {
   const [session, setSession] = useState(null)
@@ -11,6 +11,9 @@ export default function App() {
   // Estados de Controle do Menu
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [activeMenu, setActiveMenu] = useState('Pacientes')
+
+  // NOVO ESTADO: Guarda o paciente recém avaliado para jogar no laboratório
+  const [pacienteParaLaboratorio, setPacienteParaLaboratorio] = useState(null)
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -30,7 +33,6 @@ export default function App() {
     await supabase.auth.signOut()
   }
 
-  // Definição dos Itens do Menu com Ícones em SVG
   const menuItems = [
     { 
       name: 'Pacientes', 
@@ -77,7 +79,6 @@ export default function App() {
   return (
     <div className="flex h-screen bg-gray-50 overflow-hidden">
       
-      {/* 1. OVERLAY MOBILE ESCURO */}
       {isSidebarOpen && (
         <div 
           className="fixed inset-0 bg-black/40 z-40 md:hidden backdrop-blur-sm"
@@ -85,7 +86,6 @@ export default function App() {
         />
       )}
 
-      {/* 2. BARRA LATERAL (SIDEBAR) */}
       <aside 
         className={`
           fixed md:relative z-50 h-full bg-white shadow-xl border-r border-gray-100 flex flex-col transition-all duration-300 ease-in-out
@@ -113,6 +113,8 @@ export default function App() {
               title={!isSidebarOpen ? item.name : ''}
               onClick={() => {
                 setActiveMenu(item.name)
+                // Opcional: Se o usuário clicar manualmente em outro menu, podemos limpar o paciente
+                if (item.name !== 'Equações') setPacienteParaLaboratorio(null)
                 if (window.innerWidth < 768) setIsSidebarOpen(false) 
               }}
               className={`
@@ -134,10 +136,8 @@ export default function App() {
         </div>
       </aside>
 
-      {/* 3. ÁREA DE CONTEÚDO PRINCIPAL */}
       <div className="flex-1 flex flex-col h-screen overflow-hidden">
         
-        {/* CABEÇALHO SUPERIOR (NAVBAR) */}
         <header className="bg-white shadow-sm border-b border-gray-100 px-4 h-[72px] flex justify-between items-center shrink-0">
           
           <div className="flex items-center gap-3">
@@ -174,16 +174,24 @@ export default function App() {
           </div>
         </header>
 
-        {/* 4. RENDERIZAÇÃO DA PÁGINA (CONTEÚDO DINÂMICO) */}
         <main className="flex-1 overflow-y-auto p-4 sm:p-8">
           
-          {/* Mapeamento das Rotas Baseadas no activeMenu */}
-          {activeMenu === 'Pacientes' && <Pacientes userId={session.user.id} />}
+          {/* PACIENTES: Passamos a função onIrParaLaboratorio para ele usar ao final da Avaliação */}
+          {activeMenu === 'Pacientes' && (
+            <Pacientes 
+              userId={session.user.id} 
+              onIrParaLaboratorio={(paciente) => {
+                setPacienteParaLaboratorio(paciente)
+                setActiveMenu('Equações')
+              }}
+            />
+          )}
           
-          {/* Aqui está a integração da sua nova página vinculada ao botão Equações */}
-          {activeMenu === 'Equações' && <EscolhaPercGordura />}
+          {/* EQUAÇÕES: Recebe o paciente guardado no estado */}
+          {activeMenu === 'Equações' && (
+            <EscolhaPercGordura pacienteInicial={pacienteParaLaboratorio} />
+          )}
           
-          {/* Tela Temporária (Placeholder) para os Menus que ainda NÃO existem */}
           {activeMenu !== 'Pacientes' && activeMenu !== 'Equações' && (
             <div className="flex flex-col items-center justify-center h-full text-center p-6">
               <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center text-gray-300 mb-6">
@@ -197,7 +205,6 @@ export default function App() {
           )}
         </main>
       </div>
-
     </div>
   )
 }

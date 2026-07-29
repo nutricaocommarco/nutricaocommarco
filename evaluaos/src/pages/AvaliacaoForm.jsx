@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { supabase } from '../supabaseClient'
 
-// --- HELPER: Gera o estado inicial das medidas ---
 const initMeasures = (keys) =>
   keys.reduce((acc, key) => ({ ...acc, [key]: { m1: '', m2: '', m3: '' } }), {})
 
-// --- LISTAS DE CHAVES EXATAS DO SUPABASE ---
 const basicaKeys = ['peso_paciente', 'altura_paciente', 'altura_sentado_paciente', 'envergadura_paciente']
 const dobraKeys = ['dobra_cutanea_triceps', 'dobra_cutanea_subescapular', 'dobra_cutanea_biceps', 'dobra_cutanea_crista_iliaca', 'dobra_cutanea_supraespinhal', 'dobra_cutanea_abdominal', 'dobra_cutanea_coxa_media', 'dobra_cutanea_panturrilha']
 const perimetroKeys = ['perimetro_braco_relaxado', 'perimetro_braco_contraido', 'perimetro_antibraco', 'perimetro_cintura', 'perimetro_abdominal', 'perimetro_quadril', 'perimetro_coxa_maxima', 'perimetro_coxa_media', 'perimetro_panturrilha']
 const diametroKeys = ['diametro_umero', 'diametro_femur', 'diametro_punho', 'diametro_maleolar']
 
-// --- DICIONÁRIO DE RÓTULOS ---
 const labels = {
   peso_paciente: 'Peso (kg)',
   altura_paciente: 'Estatura / Altura (cm)',
@@ -40,19 +37,6 @@ const labels = {
   diametro_maleolar: 'Bimaleolar (Tornozelo)'
 }
 
-// --- LISTA DE EQUAÇÕES SUGERIDAS (EQUACOES GORDURA) ---
-const equacoesDisponiveis = [
-  'Durnin & Womersley (1974)',
-  'Jackson & Pollock (1978)',
-  'Jackson, Pollock & Ward (1980)',
-  'Thorland et al. (1984)',
-  'Petroski (1995)',
-  'Guedes (1985)',
-  'Slaughter et al. (1988)',
-  'Tran & Weltman (1989)'
-] // <-- Fechamento correto do array
-
-// --- FUNÇÃO INTERNA PARA CÁLCULO DE SOMATOTIPO HEATH-CARTER ---
 const calcularSomatotipo = (medidas) => {
   const triceps = medidas.dobra_cutanea_triceps || 0;
   const subescapular = medidas.dobra_cutanea_subescapular || 0;
@@ -103,7 +87,6 @@ const calcularSomatotipo = (medidas) => {
   }
 }
 
-// --- COMPONENTE DE LINHA DE MEDIDA ---
 const MeasureRow = ({ label, field, categoryType, state, setter, isSingleMode, handleMeasureChange }) => {
   const { m1, m2, m3 } = state[field] || { m1: '', m2: '', m3: '' }
   const v1 = parseFloat(m1)
@@ -156,15 +139,12 @@ export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVolta
 
   const [dataAvaliacao, setDataAvaliacao] = useState(new Date().toISOString().split('T')[0])
   const [horaAvaliacao, setHoraAvaliacao] = useState(new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }))
-  const [equacao, setEquacao] = useState('')
-  const [percentualGordura, setPercentualGordura] = useState('')
 
   const [basicas, setBasicas] = useState(initMeasures(basicaKeys))
   const [dobras, setDobras] = useState(initMeasures(dobraKeys))
   const [perimetros, setPerimetros] = useState(initMeasures(perimetroKeys))
   const [diametros, setDiametros] = useState(initMeasures(diametroKeys))
 
-  // Carregar dados caso seja edição
   useEffect(() => {
     async function carregarAvaliacaoParaEdicao() {
       if (!avaliacaoIdParaEditar) return
@@ -184,8 +164,6 @@ export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVolta
       if (data) {
         setDataAvaliacao(data.data_avaliacao || new Date().toISOString().split('T')[0])
         setHoraAvaliacao(data.hora_avaliacao || '')
-        setEquacao(data.equacao_de_regressao_escolhida || '')
-        setPercentualGordura(data.percentual_de_gordura ?? '')
 
         const preencherEstado = (keys) => {
           return keys.reduce((acc, key) => {
@@ -254,12 +232,11 @@ export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVolta
       return
     }
 
+    // Removido %Gordura e Equação (serão preenchidos na próxima tela)
     const payloadBruto = {
       id_paciente: paciente.id,
       data_avaliacao: dataAvaliacao,
       hora_avaliacao: horaAvaliacao,
-      equacao_de_regressao_escolhida: equacao,
-      percentual_de_gordura: parseFloat(percentualGordura) || null,
       ...resolvedBasicas,
       ...resolvedDobras,
       ...resolvedPerimetros,
@@ -294,14 +271,15 @@ export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVolta
       avaliacaoSalvaId = novaAval.id
     }
 
-    const pcGorduraFinal = parseFloat(percentualGordura) || 0
     const pesoFinal = resolvedBasicas.peso_paciente || 0
     const alturaCm = resolvedBasicas.altura_paciente || 0
     const alturaM = alturaCm / 100
 
     const calcImc = alturaM > 0 ? pesoFinal / (alturaM * alturaM) : 0
-    const massaGordaCalc = pesoFinal > 0 ? (pcGorduraFinal * pesoFinal) / 100 : 0
-    const massaMagraCalc = pesoFinal > 0 ? pesoFinal - massaGordaCalc : 0
+    
+    // Massas ficam zeradas provisoriamente. A tela EscolhaPercGordura irá atualizar esses dados.
+    const massaGordaCalc = 0
+    const massaMagraCalc = 0
 
     const pBraco = resolvedPerimetros.perimetro_braco_relaxado || 0
     const pCoxa = resolvedPerimetros.perimetro_coxa_media || 0
@@ -314,9 +292,9 @@ export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVolta
     const calcPerimCorrigidoCoxa = pCoxa > 0 ? pCoxa - (dCoxa * 0.314) : 0;
     const calcPerimCorrigidoPanturrilha = pPant > 0 ? pPant - (dPant * 0.314) : 0;
 
-    const termoBraco = Math.pow(pBraco - (dTri * 0.314), 2)
-    const termoCoxa = Math.pow(pCoxa - (dCoxa * 0.314), 2)
-    const termoPant = Math.pow(pPant - (dPant * 0.314), 2)
+    const termoBraco = Math.pow(calcPerimCorrigidoBraco, 2)
+    const termoCoxa = Math.pow(calcPerimCorrigidoCoxa, 2)
+    const termoPant = Math.pow(calcPerimCorrigidoPanturrilha, 2)
 
     let calcMuscular = 0
     if (alturaM > 0 && pBraco > 0 && pCoxa > 0 && pPant > 0) {
@@ -376,8 +354,15 @@ export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVolta
       console.error('Erro ao salvar cálculos:', calcError)
       alert('As medidas foram salvas, mas houve um erro ao gerar o relatório calculado.')
     } else {
-      alert(avaliacaoIdParaEditar ? 'Avaliação atualizada com sucesso!' : 'Avaliação salva com sucesso!')
-      if (onSucesso) onSucesso({ id: avaliacaoSalvaId })
+      // INSTRUÇÃO DE SUCESSO MODIFICADA: Envia o comando para ir para o Laboratório
+      alert('Medidas salvas! Indo para o cálculo de gordura...')
+      if (onSucesso) {
+        onSucesso({ 
+          id: avaliacaoSalvaId, 
+          paciente: paciente, 
+          irParaGordura: true 
+        })
+      }
     }
 
     setLoading(false)
@@ -409,7 +394,7 @@ export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVolta
         <div>
           <button onClick={onVoltar} className="text-xs text-emerald-600 font-semibold hover:underline mb-1 inline-block">← Voltar</button>
           <h2 className="text-xl font-bold text-gray-800">
-            {avaliacaoIdParaEditar ? `Editando Avaliação de ${paciente.nome_completo}` : `Nova Avaliação: ${paciente.nome_completo}`}
+            {avaliacaoIdParaEditar ? `Editando Medidas de ${paciente.nome_completo}` : `Novas Medidas: ${paciente.nome_completo}`}
           </h2>
         </div>
         <span className="text-xs font-semibold px-3 py-1.5 bg-emerald-50 text-emerald-700 rounded-full">Sexo: {paciente.sexo === 'M' ? 'Masculino' : 'Feminino'}</span>
@@ -418,14 +403,14 @@ export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVolta
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm space-y-4">
           <div className="flex justify-between items-center border-b pb-2">
-            <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider">1. Dados Gerais & Protocolo</h3>
+            <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider">1. Dados Gerais</h3>
             <label className="flex items-center space-x-2 text-xs font-bold text-red-600 bg-red-50 px-3 py-1.5 rounded-lg cursor-pointer">
               <input type="checkbox" checked={isSingleMode} onChange={(e) => setIsSingleMode(e.target.checked)} className="rounded text-red-600 focus:ring-red-500" />
               <span>Habilitar Modo Único / Edição</span>
             </label>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-gray-700">Data</label>
               <input type="date" required value={dataAvaliacao} onChange={(e) => setDataAvaliacao(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm" />
@@ -433,27 +418,6 @@ export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVolta
             <div>
               <label className="block text-xs font-semibold text-gray-700">Hora</label>
               <input type="time" required value={horaAvaliacao} onChange={(e) => setHoraAvaliacao(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm" />
-            </div>
-            <div>
-              <label className="block text-xs font-semibold text-gray-700">Protocolo / Equação</label>
-              <input 
-                type="text" 
-                list="lista-equacoes"
-                required 
-                value={equacao} 
-                onChange={(e) => setEquacao(e.target.value)} 
-                className="mt-1 w-full px-3 py-2 border rounded-md text-sm" 
-                placeholder="Selecione ou digite..." 
-              />
-              <datalist id="lista-equacoes">
-                {equacoesDisponiveis.map((eq, index) => (
-                  <option key={index} value={eq} />
-                ))}
-              </datalist>
-            </div>
-            <div>
-              <label className="block text-xs font-semibold text-gray-700">% Gordura Corporal</label>
-              <input type="number" step="0.1" required value={percentualGordura} onChange={(e) => setPercentualGordura(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500" placeholder="Ex: 15.5" />
             </div>
           </div>
         </div>
@@ -466,7 +430,7 @@ export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVolta
         <div className="flex justify-end gap-3 pt-4 sticky bottom-4 bg-white/80 p-4 border-t backdrop-blur-md rounded-xl">
           <button type="button" onClick={onVoltar} className="px-6 py-2.5 border border-gray-300 text-gray-700 rounded-lg text-sm font-semibold hover:bg-gray-50">Cancelar</button>
           <button type="submit" disabled={loading} className="px-6 py-2.5 bg-emerald-600 text-white rounded-lg text-sm font-semibold hover:bg-emerald-700 shadow disabled:opacity-50">
-            {loading ? 'Salvando...' : (avaliacaoIdParaEditar ? 'Atualizar Avaliação' : 'Salvar Avaliação')}
+            {loading ? 'Salvando...' : (avaliacaoIdParaEditar ? 'Atualizar Medidas' : 'Salvar e Escolher Equação')}
           </button>
         </div>
       </form>

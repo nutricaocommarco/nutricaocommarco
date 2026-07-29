@@ -189,12 +189,14 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
     }
   }, [equacaoSelecionada, medidasBrutas, pacienteSelecionado])
 
-  const handleSalvar = async () => {
+const handleSalvar = async () => {
     if (!avaliacaoAtual) return alert('Nenhuma avaliação encontrada para atualizar.')
     if (resultadoGordura <= 0) return alert('Calcule o percentual primeiro.')
 
     setSalvando(true)
-    const { error } = await supabase
+
+    // 1. Salva a Equação e o %G na tabela avaliacoes
+    const { error: avalError } = await supabase
       .from('avaliacoes')
       .update({
         equacao_de_regressao_escolhida: equacaoSelecionada,
@@ -202,12 +204,25 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
       })
       .eq('id', avaliacaoAtual.id)
 
+    // 2. Calcula as Massas baseadas no %Gordura salvo e atualiza dados_calculados
+    const peso = Number(medidasBrutas.peso_paciente || medidasBrutas.massa_kg || medidasBrutas.peso_kg || 0)
+    const massaGorda = peso > 0 ? (resultadoGordura * peso) / 100 : 0
+    const massaMagra = peso > 0 ? peso - massaGorda : 0
+
+    const { error: calcError } = await supabase
+      .from('dados_calculados')
+      .update({
+        massa_gorda: Number(massaGorda.toFixed(2)),
+        massa_magra: Number(massaMagra.toFixed(2))
+      })
+      .eq('id_avaliacao', avaliacaoAtual.id)
+
     setSalvando(false)
 
-    if (error) {
-      alert('Erro ao salvar: ' + error.message)
+    if (avalError || calcError) {
+      alert('Erro ao salvar: ' + (avalError?.message || calcError?.message))
     } else {
-      alert('Equação e Percentual salvos com sucesso na avaliação!')
+      alert('Equação, % Gordura e Massas (kg) salvos com sucesso!')
     }
   }
 

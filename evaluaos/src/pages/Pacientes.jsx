@@ -3,7 +3,8 @@ import { supabase } from '../supabaseClient'
 import AvaliacaoForm from './AvaliacaoForm'
 import ResultadoAvaliacao from './ResultadoAvaliacao'
 
-export default function Pacientes({ userId }) {
+// NOTA IMPORTANTE: Adicionamos a prop 'onIrParaLaboratorio' recebida do App.jsx
+export default function Pacientes({ userId, onIrParaLaboratorio }) {
   const [pacientes, setPacientes] = useState([])
   const [loading, setLoading] = useState(true)
   const [showModal, setShowModal] = useState(false)
@@ -154,9 +155,14 @@ export default function Pacientes({ userId }) {
           setPacienteSelecionado(null)
           setAvaliacaoIdParaEdicao(null)
         }}
-        onSucesso={() => {
-          setPacienteSelecionado(null)
-          setAvaliacaoIdParaEdicao(null)
+        onSucesso={(resultado) => {
+          // LÓGICA NOVA: Verifica se o formulário mandou ir pro Laboratório
+          if (resultado && resultado.irParaGordura && onIrParaLaboratorio) {
+            onIrParaLaboratorio(resultado.paciente)
+          } else {
+            setPacienteSelecionado(null)
+            setAvaliacaoIdParaEdicao(null)
+          }
         }}
       />
     )
