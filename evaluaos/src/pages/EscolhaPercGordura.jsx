@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useLocation } from 'react-router-dom' // <-- 1. IMPORTAR O useLocation
+import { useLocation, useNavigate } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 import * as Eq from '../utils/equacoes'
 
-// Mapeamento de todas as equações importadas do seu arquivo utils/equacoes.js
 const listaFeminina = [
   { nome: 'Durnin et al. (1974) - 4skf', func: Eq.calcularFemDurnin1974 },
   { nome: 'Jackson et al. (1980) - 3skf', func: Eq.calcularFemJacksonPollock1980_3skf },
@@ -115,10 +114,9 @@ export default function EscolhaPercGordura() {
         setPacientesFiltrados([])
         return
       }
-// Busca na tabela 'pacientes'
       const { data, error } = await supabase
         .from('pacientes')
-        .select('id, nome_completo, sexo, data_nascimento') // <--- Traz a data aqui
+        .select('id, nome_completo, sexo, data_nascimento')
         .ilike('nome_completo', `%${busca}%`)
         .limit(5)
 
@@ -165,7 +163,6 @@ export default function EscolhaPercGordura() {
     }
   }
 
-  // LÓGICA CORRIGIDA: DESEMPACOTANDO O VALOR E A INFO
   useEffect(() => {
     if (!pacienteSelecionado || !equacaoSelecionada || !medidasBrutas) return
 
@@ -176,12 +173,10 @@ export default function EscolhaPercGordura() {
       try {
         const resultado = equacao.func(medidasBrutas, pacienteSelecionado)
         
-        // Se a função retornar o objeto { valor, info }, separamos eles
         if (typeof resultado === 'object' && resultado !== null) {
           setResultadoGordura(resultado.valor || 0)
           setMetadados(resultado.info || null)
         } else {
-          // Se for uma função que ainda não auditamos e retorna apenas o número
           setResultadoGordura(resultado || 0)
           setMetadados(null)
         }
@@ -194,13 +189,13 @@ export default function EscolhaPercGordura() {
     }
   }, [equacaoSelecionada, medidasBrutas, pacienteSelecionado])
 
-const handleSalvar = async () => {
+  const handleSalvar = async () => {
     if (!avaliacaoAtual) return alert('Nenhuma avaliação encontrada para atualizar.')
     if (resultadoGordura <= 0) return alert('Calcule o percentual primeiro.')
 
     setSalvando(true)
 
-    // 1. Salva a Equação e o %G na tabela avaliacoes
+    // 1. Atualiza a tabela 'avaliacoes'
     const { error: avalError } = await supabase
       .from('avaliacoes')
       .update({
@@ -209,8 +204,8 @@ const handleSalvar = async () => {
       })
       .eq('id', avaliacaoAtual.id)
 
-    // 2. Calcula as Massas baseadas no %Gordura salvo e atualiza dados_calculados
-    const peso = Number(medidasBrutas.peso_paciente || medidasBrutas.massa_kg || medidasBrutas.peso_kg || 0)
+    // 2. Calcula e atualiza as massas em 'dados_calculados'
+    const peso = Number(medidasBrutas.peso_paciente || 0)
     const massaGorda = peso > 0 ? (resultadoGordura * peso) / 100 : 0
     const massaMagra = peso > 0 ? peso - massaGorda : 0
 
@@ -227,7 +222,7 @@ const handleSalvar = async () => {
     if (avalError || calcError) {
       alert('Erro ao salvar: ' + (avalError?.message || calcError?.message))
     } else {
-      alert('Equação, % Gordura e Massas (kg) salvos com sucesso!')
+      alert('Equação, % Gordura e Massas salvos com sucesso!')
     }
   }
 
@@ -238,7 +233,7 @@ const handleSalvar = async () => {
       
       <div>
         <h2 className="text-2xl font-bold text-gray-800">Laboratório de Equações</h2>
-        <p className="text-sm text-gray-500">Página de teste isolada para simular resultados e salvar no banco.</p>
+        <p className="text-sm text-gray-500">Escolha a equação ideal para o paciente e valide os resultados.</p>
       </div>
 
       <div className="space-y-2 relative" ref={dropdownRef}>
@@ -297,7 +292,6 @@ const handleSalvar = async () => {
             </select>
           </div>
 
-          {/* CAIXA AZUL DE METADADOS CIENTÍFICOS */}
           {metadados && (
             <div className="bg-blue-50 border border-blue-100 rounded-lg p-4 transition-all">
               <h4 className="text-xs font-bold text-blue-800 uppercase tracking-wider mb-3">Validação Científica</h4>
