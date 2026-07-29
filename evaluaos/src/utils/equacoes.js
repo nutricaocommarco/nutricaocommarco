@@ -25,16 +25,26 @@ const safeLog10 = (valor) => {
 // --- MAPEAMENTO DE ENTRADAS ---
 const prepararDados = (medidas = {}, paciente = {}) => {
   let idade = 0;
-  if (paciente.data_nasc && medidas.data_avaliacao) {
+
+  // 1. Tenta pegar a idade enviada nas medidas
+  if (medidas.idade_anos && Number(medidas.idade_anos) > 0) {
+    idade = Number(medidas.idade_anos);
+  } 
+  // 2. Se não tiver, calcula pelas datas de nascimento e avaliação
+  else if (paciente.data_nasc) {
     const nasc = new Date(paciente.data_nasc);
-    const aval = new Date(medidas.data_avaliacao);
-    idade = aval.getFullYear() - nasc.getFullYear();
-    const m = aval.getMonth() - nasc.getMonth();
-    if (m < 0 || (m === 0 && aval.getDate() < nasc.getDate())) {
+    const dataRef = medidas.data_avaliacao ? new Date(medidas.data_avaliacao) : new Date();
+    
+    idade = dataRef.getFullYear() - nasc.getFullYear();
+    const m = dataRef.getMonth() - nasc.getMonth();
+    if (m < 0 || (m === 0 && dataRef.getDate() < nasc.getDate())) {
       idade--;
     }
-  } else if (medidas.idade_anos) {
-    idade = medidas.idade_anos;
+  }
+
+  // Trava para evitar idade zerada em adultos
+  if (idade <= 0) {
+    console.warn("ATENÇÃO: A idade do paciente veio zerada do banco!");
   }
 
   const peso = medidas.peso_paciente || medidas.massa_kg || medidas.peso_kg || 0;
@@ -139,12 +149,7 @@ export const calcularFemPetroski1995_4skf = (m, p) => {
   const { tr, sub, si, pa, idade, peso, alturaCm } = prepararDados(m, p);
   const soma4 = sub + tr + si + pa;
   if (soma4 <= 0 || peso <= 0 || alturaCm <= 0) return { valor: 0, info };
-  const dc = 1.02902361 
-    - (0.00067159 * soma4) 
-    + (0.00000242 * Math.pow(soma4, 2)) 
-    - (0.00026073 * idade) 
-    - (0.00056009 * peso) 
-    + (0.00054649 * alturaCm);
+  const dc = 1.02902361 - 0.00067159 * (soma4) + 0.00000242 * (Math.pow(soma4, 2)) - 0.00026073 * (idade) - 0.00056009 * (peso) + 0.00054649 * (alturaCm);
 // Retorna o pacote completo aqui!
   return { valor: converterDCparaSiri(dc), info };
 };
