@@ -467,62 +467,137 @@ export const calcularFemWeltman1988_Perimetros = (m, p) => {
 // PARTE 2: AS 19 EQUAÇÕES DA COLUNA DIREITA (AC) DO EXCEL
 // ============================================================
 
-// 17. Equação Baseada em Estatura e Cintura (AC53)
-export const calcularFemEstaturaCintura = (m, p) => {
+// ============================================================
+// 17. Woolcott & Bergman (2018) - RFM (Relative Fat Mass)
+// População: Obesas | Idade: 20 a 69 anos | Ref: DXA
+// Ref Excel: AC53 (%G Direto)
+// Fórmula Excel: =76-(20*(C58/C75))
+// ============================================================
+export const calcularFemWoolcottBergman2018 = (m, p) => {
+  const info = {
+    autor: 'Woolcott & Bergman',
+    ano: 2018,
+    protocolo: 'RFM (Relative Fat Mass)',
+    populacao: 'Obesas',
+    faixaEtaria: '20 a 69 anos',
+    referencia: 'DXA'
+  };
   const { alturaCm, perCintura } = prepararDados(m, p);
-  if (perCintura <= 0) return 0;
-  // Excel (AC53): =76-(20*(C58/C75))
+  if (perCintura <= 0 || alturaCm <= 0) return { valor: 0, info };
   const pgc = 76 - (20 * (alturaCm / perCintura));
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
-// 18. Deurenberg et al. (1991) por IMC (AC55)
+// ============================================================
+// 18. Deurenberg et al. (1991) - Por IMC
+// População: Adultas e Idosas | Ref: PH
+// Ref Excel: AC55 (%G Direto)
+// Fórmula Excel: =1,2*C61+(0,23*C56)-(10,8*0)-(5,4)
+// ============================================================
 export const calcularFemDeurenberg1991_IMC = (m, p) => {
+  const info = {
+    autor: 'Deurenberg et al.',
+    ano: 1991,
+    protocolo: 'Por IMC e Idade',
+    populacao: 'Adultas e Idosas',
+    faixaEtaria: 'Generalizada',
+    referencia: 'PH (Pesagem Hidrostática)'
+  };
   const { imc, idade } = prepararDados(m, p);
-  if (imc <= 0) return 0;
-  // Excel (AC55): =1,2*C61+(0,23*C56)-(10,8*0)-(5,4) (0 é o sexo feminino)
+  if (imc <= 0 || idade <= 0) return { valor: 0, info };
   const pgc = (1.2 * imc) + (0.23 * idade) - 5.4;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
-// 19. Equação Log Natural de 7 Dobras (Y57 / AC57)
-export const calcularFem7Dobras_LogNatural = (m, p) => {
+// ============================================================
+// 19. Mitchell et al. (2020) - 7skf ISAK
+// População: Nadadoras de Elite | Idade: 15 a 28 anos | Ref: DXA
+// Refs Excel: Y57 (Massa G) e AC57 (%G Direto)
+// Fórmula Y57: =(0,16*C57)+(8,78*LN(F55+F56+F57+F60+F61+F62+F63)-(1,83*0)-32,77)
+// ============================================================
+export const calcularFemMitchell2020_7skf = (m, p) => {
+  const info = {
+    autor: 'Mitchell et al.',
+    ano: 2020,
+    protocolo: '7 Dobras ISAK',
+    populacao: 'Nadadoras de Elite',
+    faixaEtaria: '15 a 28 anos',
+    referencia: 'DXA'
+  };
   const { peso, tr, sub, bi, se, ab, cx, pa } = prepararDados(m, p);
+  // F55, F56, F57, F60(Supraespinhal), F61, F62, F63
   const soma7 = tr + sub + bi + se + ab + cx + pa;
-  if (soma7 <= 0 || peso <= 0) return 0;
-  // Excel Y57: =(0,16*C57)+(8,78*LN(F55+F56+F57+F60+F61+F62+F63)-(1,83*0)-32,77)
-  // LN no JS é Math.log()
+  if (soma7 <= 0 || peso <= 0) return { valor: 0, info };
+  // LN no JS é Math.log() (Logaritmo natural de base e)
   const y57 = (0.16 * peso) + (8.78 * Math.log(soma7)) - 32.77;
-  // Excel AC57: =(Y57/C57)*100
   const pgc = (y57 / peso) * 100;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
-// 20. Equação Linear 3 Dobras (AC59)
-export const calcularFemLinear_CoxaPanturrilhaCrista = (m, p) => {
+// ============================================================
+// 20. Eston et al. (2005) - 3skf ISAK
+// População: Jovens Ativas do Reino Unido | Ref: 4C, DXA, PH, BIA
+// Ref Excel: AC59 (%G Direto)
+// Fórmula Excel: =6,15+0,39*(F62)+0,42*(F63)+0,23*(F59)
+// ============================================================
+export const calcularFemEston2005_3skf = (m, p) => {
+  const info = {
+    autor: 'Eston et al.',
+    ano: 2005,
+    protocolo: '3 Dobras ISAK (Coxa, Panturrilha, Crista Ilíaca)',
+    populacao: 'Jovens Ativas (Reino Unido)',
+    faixaEtaria: 'Jovens Adultas',
+    referencia: 'Multicomponente (4C, DXA, PH, BIA)'
+  };
   const { cx, pa, si } = prepararDados(m, p);
-  // Excel (AC59): =6,15+0,39*(F62)+0,42*(F63)+0,23*(F59)
-  if (cx <= 0) return 0;
+  if (cx <= 0 && pa <= 0 && si <= 0) return { valor: 0, info };
+  // F62(Coxa) + F63(Panturrilha) + F59(Crista Ilíaca)
   const pgc = 6.15 + (0.39 * cx) + (0.42 * pa) + (0.23 * si);
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
-// 21. Equação Linear 3 Dobras A (AC61)
-export const calcularFemLinear_TricAbdCoxa_A = (m, p) => {
+// ============================================================
+// 21. Evans et al. (2005) - 3skf Brancas
+// População: Atletas Brancas | Idade: 18 a 34 anos | Ref: 4C, DXA, PH, 2H2O
+// Ref Excel: AC61 (%G Direto)
+// Fórmula Excel: =8,997+(0,24658*(F55+F61+F62))-(6,343*0)-(1,998*0)
+// ============================================================
+export const calcularFemEvans2005_3skf_Brancas = (m, p) => {
+  const info = {
+    autor: 'Evans et al.',
+    ano: 2005,
+    protocolo: '3 Dobras (Tríceps, Abdominal, Coxa)',
+    populacao: 'Atletas Brancas',
+    faixaEtaria: '18 a 34 anos',
+    referencia: 'Multicomponente (4C, DXA, PH, 2H2O)'
+  };
   const { tr, ab, cx } = prepararDados(m, p);
-  // Excel (AC61): =8,997+(0,24658*(F55+F61+F62))
-  if (tr <= 0) return 0;
+  if (tr <= 0 && ab <= 0 && cx <= 0) return { valor: 0, info };
+  // Multiplicadores baseados no Excel (Constantes zeradas subtraídas)
   const pgc = 8.997 + (0.24658 * (tr + ab + cx));
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
-// 22. Equação Linear 3 Dobras B (AC63 - Variação com constante)
-export const calcularFemLinear_TricAbdCoxa_B = (m, p) => {
+// ============================================================
+// 22. Evans et al. (2005) - 3skf Negras
+// População: Atletas Negras | Idade: 18 a 26 anos | Ref: 4C, DXA, PH, 2H2O
+// Ref Excel: AC63 (%G Direto)
+// Fórmula Excel: =8,997+(0,24658*(F55+F61+F62))-(6,343*0)-(1,998*1)
+// ============================================================
+export const calcularFemEvans2005_3skf_Negras = (m, p) => {
+  const info = {
+    autor: 'Evans et al.',
+    ano: 2005,
+    protocolo: '3 Dobras (Tríceps, Abdominal, Coxa)',
+    populacao: 'Atletas Negras',
+    faixaEtaria: '18 a 26 anos',
+    referencia: 'Multicomponente (4C, DXA, PH, 2H2O)'
+  };
   const { tr, ab, cx } = prepararDados(m, p);
-  // Excel (AC63): =8,997+(0,24658*(F55+F61+F62))-(1,998*1)
-  if (tr <= 0) return 0;
+  if (tr <= 0 && ab <= 0 && cx <= 0) return { valor: 0, info }; 
+  // Diferença: constante étnica = -1.998
   const pgc = 8.997 + (0.24658 * (tr + ab + cx)) - 1.998;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
 // --- GRUPO DURNIN & WOMERSLEY (Variações de Idade) ---
