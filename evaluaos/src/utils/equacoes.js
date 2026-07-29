@@ -165,7 +165,7 @@ export const calcularFemGuedes1985_3skf = (m, p) => {
   const dc = 1.1665 - (0.0706 * safeLog10(soma3));
   // Conversão específica do protocolo de Guedes: ((5.01 / DC) - 4.57) * 100
   const pgc = ((5.01 / dc) - 4.57) * 100;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
 // ============================================================
@@ -231,7 +231,7 @@ export const calcularFemSlaughter1988_2skf = (m, p) => {
   const soma2 = tr + pa;
   if (soma2 <= 0) return { valor: 0, info };
   const pgc = (0.61 * soma2) + 5.1;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
 // ============================================================
@@ -253,7 +253,7 @@ export const calcularFemYuhasz1974_6skf = (m, p) => {
   const soma6 = tr + sub + si + ab + cx + pa;
   if (soma6 <= 0) return { valor: 0, info };
   const pgc = (0.1548 * soma6) + 3.58;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
 // ============================================================
@@ -413,7 +413,7 @@ export const calcularFemTranWeltman1989_Perimetros = (m, p) => {
   const dc = 1.168297 - (0.002824 * mediaAbdintura) + (0.0000122098 * Math.pow(mediaAbdintura, 2)) - (0.000733128 * perQuadril) + (0.000510477 * alturaCm) - (0.000216161 * idade);
   // Conversão adaptada da célula X60: ((5.01 / DC) - 4.57) * 100
   const pgc = ((5.01 / dc) - 4.57) * 100;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
 // ============================================================
@@ -435,7 +435,7 @@ export const calcularFemWeltman1988_Perimetros = (m, p) => {
   const mediaAbdintura = (perCintura + perAbdome) / 2;
   if (mediaAbdintura <= 0 || peso <= 0) return { valor: 0, info };
   const pgc = (0.11077 * mediaAbdintura) - (0.17666 * alturaCm) + (0.14354 * peso) + 51.03301;
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { valor: Number(Math.max(0.1, pgc).toFixed(2)), info };
 };
 
 // ============================================================
