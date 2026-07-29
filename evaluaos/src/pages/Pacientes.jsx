@@ -4,19 +4,16 @@ import AvaliacaoForm from './AvaliacaoForm'
 import ResultadoAvaliacao from './ResultadoAvaliacao'
 
 export default function Pacientes({ userId }) {
-  // 1. TODOS OS ESTADOS (Hooks) DEVEM FICAR NO TOPO
   const [pacientes, setPacientes] = useState([])
   const [loading, setLoading] = useState(true)
   const [showModal, setShowModal] = useState(false)
   const [pacienteSelecionado, setPacienteSelecionado] = useState(null)
   
- // Estados para o Histórico, Relatório e Edição
   const [avaliacaoSelecionadaId, setAvaliacaoSelecionadaId] = useState(null)
-  const [avaliacaoIdParaEdicao, setAvaliacaoIdParaEdicao] = useState(null) // Estado para Editar via Lápis
+  const [avaliacaoIdParaEdicao, setAvaliacaoIdParaEdicao] = useState(null)
   const [historicoPaciente, setHistoricoPaciente] = useState(null)
   const [avaliacoesList, setAvaliacoesList] = useState([])
 
-  // Campos do Formulário de Novo Paciente
   const [nome, setNome] = useState('')
   const [dataNascimento, setDataNascimento] = useState('')
   const [sexo, setSexo] = useState('M')
@@ -31,9 +28,6 @@ export default function Pacientes({ userId }) {
   const [observacoes, setObservacoes] = useState('')
   const [saving, setSaving] = useState(false)
 
-  // 2. TODAS AS FUNÇÕES DEVEM SER DECLARADAS ANTES DOS 'RETURNS'
-  
-  // Carregar lista de pacientes
   const fetchPacientes = async () => {
     setLoading(true)
     const { data, error } = await supabase
@@ -53,7 +47,6 @@ export default function Pacientes({ userId }) {
     fetchPacientes()
   }, [])
 
-  // Cadastrar Novo Paciente
   const handleSubmit = async (e) => {
     e.preventDefault()
     setSaving(true)
@@ -80,7 +73,6 @@ export default function Pacientes({ userId }) {
       alert('Erro ao cadastrar paciente: ' + error.message)
     } else {
       setShowModal(false)
-      // Resetar formulário
       setNome('')
       setDataNascimento('')
       setSexo('M')
@@ -93,13 +85,11 @@ export default function Pacientes({ userId }) {
       setModalidadeEsportiva('')
       setNivelPratica('')
       setObservacoes('')
-      // Recarregar lista
       fetchPacientes()
     }
     setSaving(false)
   }
 
-  // Buscar histórico de avaliações do paciente clicado
   const handleVerHistorico = async (paciente) => {
     setHistoricoPaciente(paciente)
     const { data } = await supabase
@@ -111,22 +101,13 @@ export default function Pacientes({ userId }) {
     setAvaliacoesList(data || [])
   }
 
-// Função para Excluir Avaliação (Ajustada para limpar os cálculos junto)
-const handleDeleteAvaliacao = async (idAvaliacao) => {
+  const handleDeleteAvaliacao = async (idAvaliacao) => {
     const digitado = window.prompt("⚠️ Ação irreversível!\n\nPara confirmar a exclusão desta avaliação, digite exatamente a palavra APAGAR:")
     
     if (digitado === "APAGAR") {
       try {
-        await supabase
-          .from('dados_calculados')
-          .delete()
-          .eq('id_avaliacao', idAvaliacao)
-
-        const { error } = await supabase
-          .from('avaliacoes')
-          .delete()
-          .eq('id', idAvaliacao)
-
+        await supabase.from('dados_calculados').delete().eq('id_avaliacao', idAvaliacao)
+        const { error } = await supabase.from('avaliacoes').delete().eq('id', idAvaliacao)
         if (error) throw error
 
         setAvaliacoesList(avaliacoesList.filter(a => a.id !== idAvaliacao))
@@ -155,9 +136,6 @@ const handleDeleteAvaliacao = async (idAvaliacao) => {
     }
   }
 
-  // 3. RETORNOS CONDICIONAIS (Se abrir uma tela sobre a outra)
-
-  // Renderiza o Relatório se uma avaliação foi selecionada no histórico
   if (avaliacaoSelecionadaId) {
     return (
       <ResultadoAvaliacao
@@ -167,7 +145,6 @@ const handleDeleteAvaliacao = async (idAvaliacao) => {
     )
   }
 
-// Renderiza o formulário de Nova Avaliação ou Edição
   if (pacienteSelecionado || avaliacaoIdParaEdicao) {
     return (
       <AvaliacaoForm
@@ -185,24 +162,21 @@ const handleDeleteAvaliacao = async (idAvaliacao) => {
     )
   }
 
-  // 4. RETORNO PRINCIPAL (Lista de Pacientes)
   return (
     <div className="space-y-6">
-      {/* Cabeçalho */}
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h2 className="text-2xl font-bold text-gray-800">Meus Pacientes</h2>
           <p className="text-sm text-gray-500">Gerencie a lista de alunos e pacientes avaliados</p>
         </div>
         <button
           onClick={() => setShowModal(true)}
-          className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 font-medium text-sm transition-colors"
+          className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 font-medium text-sm transition-colors w-full sm:w-auto"
         >
           + Novo Paciente
         </button>
       </div>
 
-      {/* Tabela / Lista */}
       <div className="bg-white rounded-xl shadow border border-gray-100 overflow-hidden">
         {loading ? (
           <div className="p-8 text-center text-gray-500">Carregando pacientes...</div>
@@ -211,66 +185,110 @@ const handleDeleteAvaliacao = async (idAvaliacao) => {
             Nenhum paciente cadastrado ainda. Clique no botão acima para adicionar.
           </div>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-gray-50 text-gray-600 text-xs uppercase font-semibold border-b">
-                  <th className="p-4">Nome</th>
-                  <th className="p-4">Sexo</th>
-                  <th className="p-4">Contato</th>
-                  <th className="p-4">Esporte</th>
-                  <th className="p-4 text-right">Ações</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100 text-sm text-gray-700">
-                {pacientes.map((p) => {
-                  // Verificação estrita para garantir se é praticante de esporte
-                  const ePraticante = p.pratica_esporte === true || p.pratica_esporte === 'true'
+          <>
+            {/* --- VISÃO MOBILE (Cards empilhados) --- */}
+            <div className="block md:hidden">
+              {pacientes.map((p) => {
+                const ePraticante = p.pratica_esporte === true || p.pratica_esporte === 'true'
+                return (
+                  <div key={p.id} className="p-4 border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <h3 className="font-bold text-gray-900 text-sm uppercase">{p.nome_completo}</h3>
+                        <p className="text-xs text-gray-500 mt-1">
+                          {p.sexo === 'M' ? 'Masculino' : 'Feminino'} • {p.telefone || p.email || '-'}
+                        </p>
+                      </div>
+                      {ePraticante ? (
+                        <span className="px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full text-[10px] font-semibold">
+                          {p.modalidade_esportiva || 'Esporte'}
+                        </span>
+                      ) : (
+                        <span className="px-2 py-1 bg-gray-50 text-gray-400 rounded-full text-[10px] font-semibold">
+                          Sedentário
+                        </span>
+                      )}
+                    </div>
+                    
+                    <div className="flex gap-2 mt-4">
+                      <button 
+                        onClick={() => handleVerHistorico(p)}
+                        className="flex-1 text-center py-2 border border-gray-200 text-gray-600 hover:bg-gray-50 font-semibold text-xs rounded"
+                      >
+                        Histórico
+                      </button>
+                      <button 
+                        onClick={() => setPacienteSelecionado(p)}
+                        className="flex-1 text-center py-2 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-semibold text-xs rounded"
+                      >
+                        + Avaliação
+                      </button>
+                      <button 
+                        onClick={() => handleDeletePaciente(p.id)}
+                        className="px-3 py-2 text-red-500 border border-red-100 hover:bg-red-50 rounded transition-colors flex items-center justify-center"
+                        title="Excluir Paciente"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="3 6 5 6 21 6"></polyline>
+                          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
 
-                  return (
-                    <tr key={p.id} className="hover:bg-gray-50 transition-colors">
-                      <td className="p-4 font-medium text-gray-900">{p.nome_completo}</td>
-                      <td className="p-4">{p.sexo === 'M' ? 'Masculino' : 'Feminino'}</td>
-                      <td className="p-4">{p.telefone || p.email || '-'}</td>
-                      <td className="p-4">
-                        {ePraticante ? (
-                          <span className="px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full text-xs font-semibold">
-                            {p.modalidade_esportiva || 'Sim'}
-                          </span>
-                        ) : (
-                          <span className="text-gray-400">Não</span>
-                        )}
-                      </td>
-                      <td className="p-4 text-right space-x-3 flex items-center justify-end gap-2">
-                        <button 
-                          onClick={() => handleVerHistorico(p)}
-                          className="text-gray-600 hover:text-gray-900 font-medium text-xs underline"
-                        >
-                          Histórico
-                        </button>
-                        <button 
-                          onClick={() => setPacienteSelecionado(p)}
-                          className="text-emerald-600 hover:text-emerald-800 font-medium text-xs bg-emerald-50 px-3 py-1.5 rounded"
-                        >
-                          + Nova Avaliação
-                        </button>
-                        <button 
-                          onClick={() => handleDeletePaciente(p.id)}
-                          className="p-1.5 text-red-500 hover:bg-red-50 rounded transition-colors inline-flex items-center"
-                          title="Excluir Paciente"
-                        >
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <polyline points="3 6 5 6 21 6"></polyline>
-                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                          </svg>
-                        </button>
-                      </td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
-          </div>
+            {/* --- VISÃO DESKTOP (Tabela) --- */}
+            <div className="hidden md:block overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-gray-50 text-gray-600 text-xs uppercase font-semibold border-b">
+                    <th className="p-4">Nome</th>
+                    <th className="p-4">Sexo</th>
+                    <th className="p-4">Contato</th>
+                    <th className="p-4">Esporte</th>
+                    <th className="p-4 text-right">Ações</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100 text-sm text-gray-700">
+                  {pacientes.map((p) => {
+                    const ePraticante = p.pratica_esporte === true || p.pratica_esporte === 'true'
+                    return (
+                      <tr key={p.id} className="hover:bg-gray-50 transition-colors">
+                        <td className="p-4 font-medium text-gray-900 uppercase">{p.nome_completo}</td>
+                        <td className="p-4">{p.sexo === 'M' ? 'Masculino' : 'Feminino'}</td>
+                        <td className="p-4">{p.telefone || p.email || '-'}</td>
+                        <td className="p-4">
+                          {ePraticante ? (
+                            <span className="px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full text-xs font-semibold">
+                              {p.modalidade_esportiva || 'Sim'}
+                            </span>
+                          ) : (
+                            <span className="text-gray-400">Não</span>
+                          )}
+                        </td>
+                        <td className="p-4 text-right space-x-3 flex items-center justify-end gap-2">
+                          <button onClick={() => handleVerHistorico(p)} className="text-gray-600 hover:text-gray-900 font-medium text-xs underline">
+                            Histórico
+                          </button>
+                          <button onClick={() => setPacienteSelecionado(p)} className="text-emerald-600 hover:text-emerald-800 font-medium text-xs bg-emerald-50 px-3 py-1.5 rounded">
+                            + Nova Avaliação
+                          </button>
+                          <button onClick={() => handleDeletePaciente(p.id)} className="p-1.5 text-red-500 hover:bg-red-50 rounded transition-colors inline-flex items-center" title="Excluir Paciente">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <polyline points="3 6 5 6 21 6"></polyline>
+                              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                            </svg>
+                          </button>
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </>
         )}
       </div>
 
@@ -280,59 +298,33 @@ const handleDeleteAvaliacao = async (idAvaliacao) => {
           <div className="bg-white rounded-xl max-w-lg w-full p-6 space-y-4 shadow-xl max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center border-b pb-3">
               <h3 className="text-lg font-bold text-gray-800">Cadastrar Paciente</h3>
-              <button
-                onClick={() => setShowModal(false)}
-                className="text-gray-400 hover:text-gray-600 text-lg font-bold"
-              >
-                ✕
-              </button>
+              <button onClick={() => setShowModal(false)} className="text-gray-400 hover:text-gray-600 text-lg font-bold">✕</button>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-xs font-semibold text-gray-700 uppercase">Nome Completo *</label>
-                <input
-                  type="text"
-                  required
-                  value={nome}
-                  onChange={(e) => setNome(e.target.value)}
-                  className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500"
-                  placeholder="Nome do paciente"
-                />
+                <input type="text" required value={nome} onChange={(e) => setNome(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500" placeholder="Nome do paciente" />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 uppercase">Data de Nascimento</label>
-                  <input
-                    type="date"
-                    value={dataNascimento}
-                    onChange={(e) => setDataNascimento(e.target.value)}
-                    className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500"
-                  />
+                  <input type="date" value={dataNascimento} onChange={(e) => setDataNascimento(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500" />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 uppercase">Sexo *</label>
-                  <select
-                    value={sexo}
-                    onChange={(e) => setSexo(e.target.value)}
-                    className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500"
-                  >
+                  <select value={sexo} onChange={(e) => setSexo(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500">
                     <option value="M">Masculino</option>
                     <option value="F">Feminino</option>
                   </select>
                 </div>
               </div>
 
-              {/* Campos: Etnia e Nacionalidade */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 uppercase">Etnia / Cor</label>
-                  <select
-                    value={etnia}
-                    onChange={(e) => setEtnia(e.target.value)}
-                    className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500"
-                  >
+                  <select value={etnia} onChange={(e) => setEtnia(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500">
                     <option value="">Selecione...</option>
                     <option value="Caucasiano">Caucasiana / Branca</option>
                     <option value="Afrodescendente">Afrodescendente / Negra</option>
@@ -344,82 +336,40 @@ const handleDeleteAvaliacao = async (idAvaliacao) => {
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 uppercase">Nacionalidade</label>
-                  <input
-                    type="text"
-                    value={nacionalidade}
-                    onChange={(e) => setNacionalidade(e.target.value)}
-                    className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500"
-                    placeholder="Ex: Brasileira"
-                  />
+                  <input type="text" value={nacionalidade} onChange={(e) => setNacionalidade(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500" placeholder="Ex: Brasileira" />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 uppercase">E-mail</label>
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500"
-                    placeholder="email@exemplo.com"
-                  />
+                  <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500" placeholder="email@exemplo.com" />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 uppercase">Telefone</label>
-                  <input
-                    type="text"
-                    value={telefone}
-                    onChange={(e) => setTelefone(e.target.value)}
-                    className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500"
-                    placeholder="(21) 99999-9999"
-                  />
+                  <input type="text" value={telefone} onChange={(e) => setTelefone(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500" placeholder="(21) 99999-9999" />
                 </div>
               </div>
 
               <div>
                 <label className="block text-xs font-semibold text-gray-700 uppercase">Ocupação / Profissão</label>
-                <input
-                  type="text"
-                  value={ocupacao}
-                  onChange={(e) => setOcupacao(e.target.value)}
-                  className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500"
-                  placeholder="Ex: Atleta, Estudante, Engenheiro..."
-                />
+                <input type="text" value={ocupacao} onChange={(e) => setOcupacao(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500" placeholder="Ex: Atleta, Estudante, Engenheiro..." />
               </div>
 
               <div className="flex items-center space-x-2 pt-2">
-                <input
-                  type="checkbox"
-                  id="esporte"
-                  checked={praticaEsporte}
-                  onChange={(e) => setPraticaEsporte(e.target.checked)}
-                  className="rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4"
-                />
-                <label htmlFor="esporte" className="text-sm font-medium text-gray-700">
-                  Pratica atividade física ou esporte regularmente?
-                </label>
+                <input type="checkbox" id="esporte" checked={praticaEsporte} onChange={(e) => setPraticaEsporte(e.target.checked)} className="rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4" />
+                <label htmlFor="esporte" className="text-sm font-medium text-gray-700">Pratica atividade física ou esporte regularmente?</label>
               </div>
 
               {praticaEsporte && (
                 <div className="grid grid-cols-2 gap-4 pt-2">
                   <div>
                     <label className="block text-xs font-semibold text-gray-700 uppercase">Modalidade</label>
-                    <input
-                      type="text"
-                      value={modalidadeEsportiva}
-                      onChange={(e) => setModalidadeEsportiva(e.target.value)}
-                      className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500"
-                      placeholder="Ex: Musculação, Corrida..."
-                    />
+                    <input type="text" value={modalidadeEsportiva} onChange={(e) => setModalidadeEsportiva(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500" placeholder="Ex: Musculação, Corrida..." />
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-gray-700 uppercase">Nível de Prática</label>
-                    <select
-                      value={nivelPratica}
-                      onChange={(e) => setNivelPratica(e.target.value)}
-                      className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500"
-                    >
+                    <select value={nivelPratica} onChange={(e) => setNivelPratica(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500">
                       <option value="">Selecione...</option>
                       <option value="Iniciante">Iniciante</option>
                       <option value="Intermediario">Intermediário</option>
@@ -432,28 +382,12 @@ const handleDeleteAvaliacao = async (idAvaliacao) => {
 
               <div>
                 <label className="block text-xs font-semibold text-gray-700 uppercase">Observações</label>
-                <textarea
-                  rows="2"
-                  value={observacoes}
-                  onChange={(e) => setObservacoes(e.target.value)}
-                  className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500"
-                  placeholder="Anotações adicionais..."
-                ></textarea>
+                <textarea rows="2" value={observacoes} onChange={(e) => setObservacoes(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500" placeholder="Anotações adicionais..."></textarea>
               </div>
 
               <div className="flex justify-end space-x-3 pt-4 border-t">
-                <button
-                  type="button"
-                  onClick={() => setShowModal(false)}
-                  className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50"
-                >
-                  Cancelar
-                </button>
-                <button
-                  type="submit"
-                  disabled={saving}
-                  className="px-4 py-2 bg-emerald-600 text-white rounded-md text-sm font-medium hover:bg-emerald-700 disabled:opacity-50"
-                >
+                <button type="button" onClick={() => setShowModal(false)} className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">Cancelar</button>
+                <button type="submit" disabled={saving} className="px-4 py-2 bg-emerald-600 text-white rounded-md text-sm font-medium hover:bg-emerald-700 disabled:opacity-50">
                   {saving ? 'Salvando...' : 'Salvar Paciente'}
                 </button>
               </div>
@@ -462,7 +396,7 @@ const handleDeleteAvaliacao = async (idAvaliacao) => {
         </div>
       )}
 
-{/* Modal de Histórico de Avaliações */}
+      {/* Modal de Histórico de Avaliações */}
       {historicoPaciente && (
         <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl max-w-md w-full p-6 space-y-4 shadow-xl">
@@ -485,25 +419,22 @@ const handleDeleteAvaliacao = async (idAvaliacao) => {
                       </p>
                       <p className="text-xs text-gray-500">{a.equacao_de_regressao_escolhida} • {a.peso_paciente}kg</p>
                     </div>
-                    
-                    <div className="flex gap-1.5 items-center">
-                    {/* Botão de Editar (Lápis) */}
-                    <button
-                      onClick={() => {
-                        const pacienteAtual = historicoPaciente;
-                        setHistoricoPaciente(null);
-                        setPacienteSelecionado(pacienteAtual); // Mantém o paciente ativo para o formulário
-                        setAvaliacaoIdParaEdicao(a.id);       // Define a avaliação que será editada
-                        }}
-                     className="p-1.5 text-blue-500 hover:bg-blue-50 rounded transition-colors"
-                    title="Editar Avaliação"
-                    >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
-                    </svg>
-                    </button>
 
-                      {/* Botão de Excluir (Lixeira) */}
+                    <div className="flex gap-1.5 items-center">
+                      <button
+                        onClick={() => {
+                          const pacienteAtual = historicoPaciente;
+                          setHistoricoPaciente(null);
+                          setPacienteSelecionado(pacienteAtual);
+                          setAvaliacaoIdParaEdicao(a.id);
+                        }}
+                        className="p-1.5 text-blue-500 hover:bg-blue-50 rounded transition-colors"
+                        title="Editar Avaliação"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                        </svg>
+                      </button>
                       <button
                         onClick={() => handleDeleteAvaliacao(a.id)}
                         className="p-1.5 text-red-500 hover:bg-red-50 rounded transition-colors"
@@ -514,7 +445,6 @@ const handleDeleteAvaliacao = async (idAvaliacao) => {
                           <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
                         </svg>
                       </button>
-                      
                       <button
                         onClick={() => {
                           setHistoricoPaciente(null)
