@@ -40,35 +40,43 @@ const safeLog10 = (valor) => {
 
 /**
  * Prepara os dados brutos recebidos do formulário para o formato exigido pelas fórmulas.
- * Mapeia as células do dicionário (C52:I81) para as propriedades do objeto 'medidas'.
  */
 const prepararDadosEntrada = (medidas) => {
   // Entradas Básicas (Coluna C)
-  const idade = medidas.idade_anos || 0;                     // C56
-  const peso = medidas.massa_kg || medidas.peso_kg || 0;       // C57
-  const alturaCm = medidas.estatura_cm || medidas.altura_cm || 0; // C58
+  const idade = medidas.idade_anos || 0;                     
+  const peso = medidas.massa_kg || medidas.peso_kg || 0;       
+  const alturaCm = medidas.estatura_cm || medidas.altura_cm || 0; 
 
   // Dobras Cutâneas (Coluna F)
-  const tr = medidas.dobra_cutanea_triceps || 0;             // F55
-  const sub = medidas.dobra_cutanea_subescapular || 0;       // F56
-  const bi = medidas.dobra_cutanea_biceps || 0;               // F57
-  const si = medidas.dobra_cutanea_supra_iliaca || 0;         // F59 (Crista Ilíaca na planilha)
-  const se = medidas.dobra_cutanea_supra_espinhal || 0;       // F60
-  const ab = medidas.dobra_cutanea_abdominal || 0;           // F61
-  const cx = medidas.dobra_cutanea_coxa_media || 0;         // F62
-  const pa = medidas.dobra_cutanea_panturrilha || 0;         // F63
+  const tr = medidas.dobra_cutanea_triceps || 0;             
+  const sub = medidas.dobra_cutanea_subescapular || 0;       
+  const bi = medidas.dobra_cutanea_biceps || 0;               
+  const si = medidas.dobra_cutanea_supra_iliaca || 0;         
+  const se = medidas.dobra_cutanea_supra_espinhal || 0;       
+  const ab = medidas.dobra_cutanea_abdominal || 0;           
+  const cx = medidas.dobra_cutanea_coxa_media || 0;         
+  const pa = medidas.dobra_cutanea_panturrilha || 0;         
 
   // Perímetros (Coluna C - inferior)
-  const perCintura = medidas.perimetro_cintura || 0;         // C68 e C75
-  const perAbdome = medidas.perimetro_abdominal || 0;         // C76
-  const perQuadril = medidas.perimetro_quadril || 0;         // C77
+  const perCintura = medidas.perimetro_cintura || 0;         
+  const perAbdome = medidas.perimetro_abdominal || 0;         
+  const perQuadril = medidas.perimetro_quadril || 0;         
 
   // Soma de Dobras usadas nas fórmulas
-  const somaDurnin = tr + sub + bi + si;                      // Refs das fórmulas V52:AC96
+  const somaDurnin = tr + sub + bi + si;                      
   const somaWithers4 = tr + sub + se + pa;
   const somaWithers6 = somaWithers4 + ab + cx;
 
-  /**
+  // === AQUI ESTAVA O ERRO! Faltava retornar os dados e fechar a função ===
+  return {
+    idade, peso, alturaCm,
+    tr, sub, bi, si, se, ab, cx, pa,
+    perCintura, perAbdome, perQuadril,
+    somaDurnin, somaWithers4, somaWithers6
+  };
+};
+
+/**
  * Variáveis extras que descobrimos nas equações da coluna direita
  */
 const prepararDadosExtras = (medidas) => {
@@ -78,18 +86,18 @@ const prepararDadosExtras = (medidas) => {
   
   // IMC (C61)
   const imc = (peso > 0 && alturaCm > 0) ? (peso / Math.pow(alturaCm / 100, 2)) : 0;
-  const perCintura = medidas.perimetro_cintura || 0; // C75
-  const diamUmero = medidas.diametro_umero || 0;     // F69
+  const perCintura = medidas.perimetro_cintura || 0; 
+  const diamUmero = medidas.diametro_umero || 0;     
   
   // Dobras
-  const tr = medidas.dobra_cutanea_triceps || 0;       // F55
-  const sub = medidas.dobra_cutanea_subescapular || 0; // F56
-  const bi = medidas.dobra_cutanea_biceps || 0;         // F57
-  const si = medidas.dobra_cutanea_supra_iliaca || 0;   // F59
-  const se = medidas.dobra_cutanea_supra_espinhal || 0; // F60
-  const ab = medidas.dobra_cutanea_abdominal || 0;     // F61
-  const cx = medidas.dobra_cutanea_coxa_media || 0;    // F62
-  const pa = medidas.dobra_cutanea_panturrilha || 0;   // F63
+  const tr = medidas.dobra_cutanea_triceps || 0;       
+  const sub = medidas.dobra_cutanea_subescapular || 0; 
+  const bi = medidas.dobra_cutanea_biceps || 0;         
+  const si = medidas.dobra_cutanea_supra_iliaca || 0;   
+  const se = medidas.dobra_cutanea_supra_espinhal || 0; 
+  const ab = medidas.dobra_cutanea_abdominal || 0;     
+  const cx = medidas.dobra_cutanea_coxa_media || 0;    
+  const pa = medidas.dobra_cutanea_panturrilha || 0;   
 
   // Soma de 4 dobras padrão de Durnin
   const soma4Durnin = tr + sub + bi + si;
