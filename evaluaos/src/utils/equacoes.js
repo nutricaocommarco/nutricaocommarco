@@ -14,8 +14,11 @@ const converterDCparaSiri = (dc) => {
   // Fórmula Excel: =((495/DC)-450)
   const pgc = (495 / dc) - 450;
   // Garante que o valor não seja negativo e limita a 2 casas decimais
-  return Number(Math.max(0.1, pgc).toFixed(2));
+  return { 
+  valor: Number(Math.max(0.1, pgc).toFixed(2)), 
+  info: info
 };
+}
 
 /**
  * Converte Densidade Corporal para %Gordura usando a fórmula de Brozek et al. (1963)
