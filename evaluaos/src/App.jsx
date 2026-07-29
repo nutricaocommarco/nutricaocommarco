@@ -8,6 +8,7 @@ import Pacientes from './pages/Pacientes'
 import EscolhaPercGordura from './pages/EscolhaPercGordura'
 import AvaliacaoForm from './pages/AvaliacaoForm'
 import ResultadoAvaliacao from './pages/ResultadoAvaliacao'
+import Avaliador from './pages/Avaliador'
 
 function MainApp() {
   const [session, setSession] = useState(null)
@@ -189,6 +190,7 @@ function MainApp() {
             <Route path="/nova-avaliacao" element={<AvaliacaoForm />} />
             <Route path="/equacoes-de-regressao" element={<EscolhaPercGordura />} />
             <Route path="/laudo-antropometrico" element={<ResultadoAvaliacao />} />
+            <Route path="/avaliador" element={<Avaliador userId={session.user.id} />} />
 
             <Route path="*" element={
               <div className="flex flex-col items-center justify-center h-full text-center p-6">
