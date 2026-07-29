@@ -233,7 +233,7 @@ export default function ResultadoAvaliacao() {
   const perimCorrigidoCoxa = dados.perimetro_corrigido_coxa || (pCoxa > 0 ? pCoxa - ((aval.dobra_cutanea_coxa_media || 0) * 0.314) : 0);
   const perimCorrigidoPanturrilha = dados.perimetro_corrigido_panturrilha || (pPant > 0 ? pPant - ((aval.dobra_cutanea_panturrilha || 0) * 0.314) : 0);
 
-  // --- ÍNDICE DE MÚSCULO ÓSSEO (IMO) ---
+// --- ÍNDICE DE MÚSCULO ÓSSEO (IMO) ---
   const alturaCm = aval.altura_paciente || 0
   const dUmero = aval.diametro_umero || 0
   const dFemur = aval.diametro_femur || 0
@@ -244,7 +244,9 @@ export default function ResultadoAvaliacao() {
   const cAntebraco = aval.perimetro_antibraco || 0
 
   const parte2 = (alturaCm * (0.0553 * Math.pow(perimCorrigidoCoxa, 2) + 0.0987 * Math.pow(cAntebraco, 2) + 0.0331 * Math.pow(perimCorrigidoPanturrilha, 2)) - 2445) * 0.001
-  const imoVal = (parte1 > 0 && parte2 > 0) ? (parte1 / parte2) : 0
+  
+  // Invertido para parte2 / parte1 e ajustado para 3 casas decimais
+  const imoVal = (parte1 > 0 && parte2 > 0) ? (parte2 / parte1) : 0
   
   const coordX = 150 + ((dados.somatocarta_eixo_x || 0) * 15)
   const coordY = 150 - ((dados.somatocarta_eixo_y || 0) * 11)
@@ -536,7 +538,7 @@ export default function ResultadoAvaliacao() {
           <div className="flex justify-between items-center p-3 border border-gray-100 rounded-lg bg-gray-50">
             <span className="text-xs font-semibold text-gray-700">Índice de Músculo Ósseo (IMO)</span>
             <span className="text-xs font-bold text-gray-800">
-              {imoVal > 0 ? imoVal.toFixed(2) : '-'}
+              {imoVal > 0 ? imoVal.toFixed(3) : '-'}
             </span>
           </div>
 
