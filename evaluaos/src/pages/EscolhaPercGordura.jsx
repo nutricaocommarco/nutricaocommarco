@@ -20,7 +20,7 @@ const listaFeminina = [
   { nome: 'Jackson et al. (1980) - 4skf', func: Eq.calcularFemJacksonPollock1980_4skf },
   { nome: 'Tran & Weltman (1989) - Perímetros', func: Eq.calcularFemTranWeltman1989_Perimetros },
   { nome: 'Weltman et al. (1988) - Perímetros', func: Eq.calcularFemWeltman1988_Perimetros },
-  { nome: 'Woolcott & Bergman 2018', calcularFemWoolcottBergman2018 },
+  { nome: 'Woolcott & Bergman 2018', func: Eq.calcularFemWoolcottBergman2018 },
   { nome: 'Deurenberg et al. (1991) - Por IMC', func: Eq.calcularFemDeurenberg1991_IMC },
   { nome: 'Mitchell et al. 2020 7skd ISAK', func: Eq.calcularFemMitchell2020_7skf },
   { nome: 'Eston et al. 2005 3skf ISAK', func: Eq.calcularFemEston2005_3skf },
