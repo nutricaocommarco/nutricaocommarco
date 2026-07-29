@@ -241,12 +241,19 @@ export default function ResultadoAvaliacao() {
   const dMaleolar = aval.diametro_maleolar || 0
 
   const parte1 = 0.6 * alturaCm * Math.pow(dUmero + dFemur + dRadio + dMaleolar, 2) * 0.0001
-  const cAntebraco = aval.perimetro_antibraco || 0
-
-  const parte2 = (alturaCm * (0.0553 * Math.pow(perimCorrigidoCoxa, 2) + 0.0987 * Math.pow(cAntebraco, 2) + 0.0331 * Math.pow(perimCorrigidoPanturrilha, 2)) - 2445) * 0.001
   
-  // Invertido para parte2 / parte1 e ajustado para 3 casas decimais
+  const cAntebraco = aval.perimetro_antibraco || 0
+  const dCoxaMm = aval.dobra_cutanea_coxa_media || 0
+  const dPantMm = aval.dobra_cutanea_panturrilha || 0
+
+  // Correção exata com 0.3141 conforme sua fórmula do Excel
+  const coxaCorrigidaIMO = pCoxa > 0 ? pCoxa - (dCoxaMm * 0.3141) : 0
+  const pantCorrigidaIMO = pPant > 0 ? pPant - (dPantMm * 0.3141) : 0
+
+  const parte2 = (alturaCm * (0.0553 * Math.pow(coxaCorrigidaIMO, 2) + 0.0987 * Math.pow(cAntebraco, 2) + 0.0331 * Math.pow(pantCorrigidaIMO, 2)) - 2445) * 0.001
+  
   const imoVal = (parte1 > 0 && parte2 > 0) ? (parte2 / parte1) : 0
+  
   
   const coordX = 150 + ((dados.somatocarta_eixo_x || 0) * 15)
   const coordY = 150 - ((dados.somatocarta_eixo_y || 0) * 11)
