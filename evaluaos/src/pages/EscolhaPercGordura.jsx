@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { useLocation } from 'react-router-dom' // <-- 1. IMPORTAR O useLocation
 import { supabase } from '../supabaseClient'
 import * as Eq from '../utils/equacoes'
 
@@ -79,18 +80,22 @@ const listaMasculina = [
   { nome: 'Ortiz-Hernández et al. (2016) - Mista', func: Eq.calcularMascOrtizHernandez2016 }
 ];
 
-export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial = null }) {
+export default function EscolhaPercGordura() {
+  const location = useLocation()
+  const navigate = useNavigate() // Adicionado caso precise navegar após salvar
+  
+  const pacienteInicial = location.state?.pacienteInicial || null
+
   const [busca, setBusca] = useState('')
   const [pacientesFiltrados, setPacientesFiltrados] = useState([])
   const [showDropdown, setShowDropdown] = useState(false)
   
   const [pacienteSelecionado, setPacienteSelecionado] = useState(pacienteInicial)
-  const [avaliacaoAtual, setAvaliacaoAtual] = useState(avaliacaoInicial)
+  const [avaliacaoAtual, setAvaliacaoAtual] = useState(null)
   const [medidasBrutas, setMedidasBrutas] = useState({})
   
   const [equacaoSelecionada, setEquacaoSelecionada] = useState('')
   
-  // ESTADOS PARA O VALOR E AS INFORMAÇÕES CIENTÍFICAS
   const [resultadoGordura, setResultadoGordura] = useState(0)
   const [metadados, setMetadados] = useState(null)
   
