@@ -26,25 +26,40 @@ const safeLog10 = (valor) => {
 const prepararDados = (medidas = {}, paciente = {}) => {
   let idade = 0;
 
-  // 1. Tenta pegar a idade enviada nas medidas
+  // 1. Tenta pegar a idade enviada nas medidas (ex: idade_anos)
   if (medidas.idade_anos && Number(medidas.idade_anos) > 0) {
     idade = Number(medidas.idade_anos);
   } 
-  // 2. Se não tiver, calcula pelas datas de nascimento e avaliação
-  else if (paciente.data_nasc) {
-    const nasc = new Date(paciente.data_nasc);
-    const dataRef = medidas.data_avaliacao ? new Date(medidas.data_avaliacao) : new Date();
+  // 2. Se não tiver, calcula pela data de nascimento (data_nascimento) e data da avaliação
+  else {
+    const dataNascStr = paciente.data_nascimento || paciente.data_nasc;
     
-    idade = dataRef.getFullYear() - nasc.getFullYear();
-    const m = dataRef.getMonth() - nasc.getMonth();
-    if (m < 0 || (m === 0 && dataRef.getDate() < nasc.getDate())) {
-      idade--;
+    if (dataNascStr) {
+      // Converte data tratando fuso horário sem recuar 1 dia
+      const parseData = (dStr) => {
+        if (!dStr) return new Date();
+        const str = String(dStr).split('T')[0];
+        const parts = str.split('-');
+        if (parts.length === 3) {
+          return new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+        }
+        return new Date(dStr);
+      };
+
+      const nasc = parseData(dataNascStr);
+      const dataRef = parseData(medidas.data_avaliacao);
+
+      idade = dataRef.getFullYear() - nasc.getFullYear();
+      const m = dataRef.getMonth() - nasc.getMonth();
+      if (m < 0 || (m === 0 && dataRef.getDate() < nasc.getDate())) {
+        idade--;
+      }
     }
   }
 
-  // Trava para evitar idade zerada em adultos
+  // Trava/Aviso no console se continuar zerada
   if (idade <= 0) {
-    console.warn("ATENÇÃO: A idade do paciente veio zerada do banco!");
+    console.warn("ATENÇÃO: A idade do paciente não pôde ser calculada (verifique se data_nascimento existe)!");
   }
 
   const peso = medidas.peso_paciente || medidas.massa_kg || medidas.peso_kg || 0;

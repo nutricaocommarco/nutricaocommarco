@@ -142,12 +142,10 @@ export default function EquacoesTeste({ pacienteInicial = null, avaliacaoInicial
     setMetadados(null)
 
     const { data, error } = await supabase
-      .from('avaliacoes')
-      .select('*')
-      .eq('id_paciente', paciente.id)
-      .order('data_avaliacao', { ascending: false })
-      .limit(1)
-      .single()
+      .from('pacientes')
+      .select('id, nome_completo, sexo, data_nascimento')
+      .ilike('nome_completo', `%${busca}%`)
+      .limit(5)
 
     if (data) {
       setAvaliacaoAtual(data)
