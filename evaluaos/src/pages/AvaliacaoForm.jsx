@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom' // <-- Adicionado o useNavigate
 import { supabase } from '../supabaseClient'
 
 const initMeasures = (keys) =>
@@ -133,7 +134,15 @@ const MeasureRow = ({ label, field, categoryType, state, setter, isSingleMode, h
   )
 }
 
-export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVoltar, onSucesso }) {
+// NOTE QUE RETIREI AS PROPS AQUI, POIS AGORA ELA PEGA TUDO PELA ROTA
+export default function AvaliacaoForm() {
+  const navigate = useNavigate()
+  const location = useLocation()
+  
+  // Capturando dados que vieram pela rota
+  const paciente = location.state?.paciente || null
+  const avaliacaoIdParaEditar = location.state?.avaliacaoIdParaEditar || null
+
   const [loading, setLoading] = useState(false)
   const [isSingleMode, setIsSingleMode] = useState(false)
 
@@ -144,7 +153,7 @@ export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVolta
   const [dobras, setDobras] = useState(initMeasures(dobraKeys))
   const [perimetros, setPerimetros] = useState(initMeasures(perimetroKeys))
   const [diametros, setDiametros] = useState(initMeasures(diametroKeys))
-
+  
   useEffect(() => {
     async function carregarAvaliacaoParaEdicao() {
       if (!avaliacaoIdParaEditar) return
@@ -184,6 +193,19 @@ export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVolta
     carregarAvaliacaoParaEdicao()
   }, [avaliacaoIdParaEditar])
 
+  // TRAVA DE SEGURANÇA: Se o usuário acessar a URL direto sem selecionar paciente, volta pra lista
+  if (!paciente) {
+    return (
+      <div className="flex flex-col items-center justify-center h-full space-y-4 p-8">
+        <h2 className="text-xl font-bold text-gray-800">Nenhum paciente selecionado</h2>
+        <p className="text-gray-500">Selecione um paciente na lista para iniciar a avaliação.</p>
+        <button onClick={() => navigate('/pacientes')} className="px-6 py-2 bg-emerald-600 text-white rounded-lg">
+          Ir para Meus Pacientes
+        </button>
+      </div>
+    )
+  }
+
   const handleMeasureChange = (setter, field, index, value) => {
     setter((prev) => ({ ...prev, [field]: { ...prev[field], [index]: value } }))
   }
@@ -215,6 +237,7 @@ export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVolta
     return null;
   }
 
+  // AGORA SIM, O SUBMIT COMPLETO
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
@@ -232,7 +255,6 @@ export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVolta
       return
     }
 
-    // Removido %Gordura e Equação (serão preenchidos na próxima tela)
     const payloadBruto = {
       id_paciente: paciente.id,
       data_avaliacao: dataAvaliacao,
@@ -354,15 +376,10 @@ export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVolta
       console.error('Erro ao salvar cálculos:', calcError)
       alert('As medidas foram salvas, mas houve um erro ao gerar o relatório calculado.')
     } else {
-      // INSTRUÇÃO DE SUCESSO MODIFICADA: Envia o comando para ir para o Laboratório
       alert('Medidas salvas! Indo para o cálculo de gordura...')
-      if (onSucesso) {
-        onSucesso({ 
-          id: avaliacaoSalvaId, 
-          paciente: paciente, 
-          irParaGordura: true 
-        })
-      }
+      
+      // O NAVEGATE ACONTECE AQUI, APÓS TUDO SALVAR NO BANCO!
+      navigate('/equacoes-de-regressao', { state: { pacienteInicial: paciente } })
     }
 
     setLoading(false)
@@ -392,7 +409,8 @@ export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVolta
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center bg-white p-4 rounded-xl border border-gray-100 shadow-sm gap-4">
         <div>
-          <button onClick={onVoltar} className="text-xs text-emerald-600 font-semibold hover:underline mb-1 inline-block">← Voltar</button>
+          {/* BOTÃO VOLTAR AGORA USA O NAVIGATE */}
+          <button onClick={() => navigate('/pacientes')} className="text-xs text-emerald-600 font-semibold hover:underline mb-1 inline-block">← Voltar</button>
           <h2 className="text-xl font-bold text-gray-800">
             {avaliacaoIdParaEditar ? `Editando Medidas de ${paciente.nome_completo}` : `Novas Medidas: ${paciente.nome_completo}`}
           </h2>
@@ -428,7 +446,8 @@ export default function AvaliacaoForm({ paciente, avaliacaoIdParaEditar, onVolta
         {renderMeasureBlock('5. Diâmetros Ósseos (cm) - Tolerância 1%', diametroKeys, 'diametros', diametros, setDiametros)}
 
         <div className="flex justify-end gap-3 pt-4 sticky bottom-4 bg-white/80 p-4 border-t backdrop-blur-md rounded-xl">
-          <button type="button" onClick={onVoltar} className="px-6 py-2.5 border border-gray-300 text-gray-700 rounded-lg text-sm font-semibold hover:bg-gray-50">Cancelar</button>
+          {/* BOTÃO CANCELAR USA O NAVIGATE */}
+          <button type="button" onClick={() => navigate('/pacientes')} className="px-6 py-2.5 border border-gray-300 text-gray-700 rounded-lg text-sm font-semibold hover:bg-gray-50">Cancelar</button>
           <button type="submit" disabled={loading} className="px-6 py-2.5 bg-emerald-600 text-white rounded-lg text-sm font-semibold hover:bg-emerald-700 shadow disabled:opacity-50">
             {loading ? 'Salvando...' : (avaliacaoIdParaEditar ? 'Atualizar Medidas' : 'Salvar e Escolher Equação')}
           </button>
