@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 
 // --- HELPER: CÁLCULO DE SOMATOTIPO HEATH-CARTER ---
@@ -52,10 +53,28 @@ const calcularSomatotipo = (medidas) => {
   }
 }
 
-export default function ResultadoAvaliacao({ avaliacaoId, onVoltar }) {
+export default function ResultadoAvaliacao() {
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  // Resgata o ID que foi enviado invisível pelo botão de Histórico
+  const avaliacaoId = location.state?.avaliacaoId || null
+
+  // Restante dos seus estados originais...
   const [loading, setLoading] = useState(true)
   const [dados, setDados] = useState(null)
 
+  if (!avaliacaoId) {
+    return (
+      <div className="flex flex-col items-center justify-center p-8 space-y-4">
+        <p className="text-gray-500">Nenhuma avaliação foi selecionada.</p>
+        <button onClick={() => navigate('/pacientes')} className="px-6 py-2 bg-emerald-600 text-white rounded-lg">
+          Voltar para Pacientes
+        </button>
+      </div>
+    )
+  }
+  
   useEffect(() => {
     async function processarERecarregarResultados() {
       setLoading(true)
