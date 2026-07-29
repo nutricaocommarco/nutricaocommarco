@@ -27,7 +27,8 @@ export default function Avaliador() {
   const [banco, setBanco] = useState('')
   const [alturaBanco, setAlturaBanco] = useState('')
 
-  // Estados de Senha
+  // Estados de Senha (Incluindo a senha atual para segurança)
+  const [senhaAtual, setSenhaAtual] = useState('')
   const [novaSenha, setNovaSenha] = useState('')
   const [confirmaSenha, setConfirmaSenha] = useState('')
 
@@ -36,7 +37,6 @@ export default function Avaliador() {
     async function carregarDadosAvaliador() {
       setLoading(true)
 
-      // 1. Pega o usuário logado na sessão atual
       const { data: { session } } = await supabase.auth.getSession()
       if (!session) {
         setLoading(false)
@@ -47,7 +47,6 @@ export default function Avaliador() {
       setAuthUserId(session.user.id)
       setEmail(userEmail)
 
-      // 2. Busca o perfil na tabela 'avaliadores' usando o e-mail (seguro contra tipo bigint/uuid)
       const { data: perfilData, error: perfilError } = await supabase
         .from('avaliadores')
         .select('*')
@@ -64,7 +63,6 @@ export default function Avaliador() {
         setEmpresa(perfilData.empresa || '')
         setPlanoStatus(perfilData.plano_status || 'Ativo')
 
-        // 3. Buscar dados na tabela 'equipamentos' usando o id numérico do avaliador
         const { data: equipData, error: equipError } = await supabase
           .from('equipamentos')
           .select('*')
@@ -157,27 +155,40 @@ export default function Avaliador() {
     setSavingEquip(false)
   }
 
-  // Atualizar Senha
+  // Atualizar Senha (Com validação da senha atual por segurança)
   const handleAtualizarSenha = async (e) => {
     e.preventDefault()
-    if (!novaSenha || novaSenha.length < 6) {
-      return alert('A nova senha deve ter pelo menos 6 caracteres.')
-    }
-    if (novaSenha !== confirmaSenha) {
-      return alert('As senhas não coincidem.')
-    }
+
+    if (!senhaAtual) return alert('Digite sua senha atual.')
+    if (!novaSenha || novaSenha.length < 6) return alert('A nova senha deve ter pelo menos 6 caracteres.')
+    if (novaSenha !== confirmaSenha) return alert('As senhas não coincidem.')
 
     setSavingSenha(true)
-    const { error } = await supabase.auth.updateUser({ password: novaSenha })
 
-    if (error) {
-      alert('Erro ao atualizar senha: ' + error.message)
+    // 1. Valida se a senha atual está correta fazendo um login de teste
+    const { error: loginError } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: senhaAtual
+    })
+
+    if (loginError) {
+      setSavingSenha(false)
+      return alert('A senha atual está incorreta.')
+    }
+
+    // 2. Se a senha atual estiver correta, atualiza para a nova senha
+    const { error: updateError } = await supabase.auth.updateUser({ password: novaSenha })
+
+    setSavingSenha(false)
+
+    if (updateError) {
+      alert('Erro ao atualizar senha: ' + updateError.message)
     } else {
       alert('Senha atualizada com sucesso!')
+      setSenhaAtual('')
       setNovaSenha('')
       setConfirmaSenha('')
     }
-    setSavingSenha(false)
   }
 
   if (loading) {
@@ -292,12 +303,16 @@ export default function Avaliador() {
 
         <form onSubmit={handleAtualizarSenha} className="space-y-4 max-w-xl">
           <div>
+            <label className="block text-xs font-semibold text-gray-700 uppercase">Senha Atual</label>
+            <input type="password" value={senhaAtual} onChange={(e) => setSenhaAtual(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500" placeholder="Digite sua senha atual" />
+          </div>
+          <div>
             <label className="block text-xs font-semibold text-gray-700 uppercase">Nova Senha</label>
             <input type="password" value={novaSenha} onChange={(e) => setNovaSenha(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500" placeholder="Mínimo de 6 caracteres" />
           </div>
           <div>
             <label className="block text-xs font-semibold text-gray-700 uppercase">Confirme a Nova Senha</label>
-            <input type="password" value={confirmaSenha} onChange={(e) => setConfirmaSenha(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500" placeholder="Digite a senha novamente" />
+            <input type="password" value={confirmaSenha} onChange={(e) => setConfirmaSenha(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm focus:ring-emerald-500 focus:border-emerald-500" placeholder="Digite a nova senha novamente" />
           </div>
 
           <div className="flex justify-end pt-2">
