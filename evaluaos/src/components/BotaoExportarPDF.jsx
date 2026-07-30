@@ -1,127 +1,293 @@
 import React from 'react';
-import { Document, Page, Text, View, StyleSheet, PDFDownloadLink } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet, PDFDownloadLink, Svg, Line, Polygon, Circle } from '@react-pdf/renderer';
 
-// --- ESTILOS DO PDF ---
+// --- ESTILOS DO PDF (Traduzidos do Tailwind) ---
 const styles = StyleSheet.create({
-  page: { padding: 35, backgroundColor: '#FFFFFF', fontFamily: 'Helvetica' },
-  header: { marginBottom: 15, borderBottomWidth: 1, borderBottomColor: '#E5E7EB', paddingBottom: 10 },
-  title: { fontSize: 22, fontWeight: 'bold', color: '#047857' },
-  subtitle: { fontSize: 10, color: '#6B7280', marginTop: 4 },
-  section: { marginBottom: 12 },
-  sectionTitle: { fontSize: 11, fontWeight: 'bold', color: '#374151', backgroundColor: '#F3F4F6', padding: 6, marginBottom: 6, borderRadius: 3 },
-  grid: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' },
-  item: { width: '48%', flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: '#F9FAFB', paddingVertical: 4 },
-  itemFull: { width: '100%', flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: '#F9FAFB', paddingVertical: 4 },
-  label: { fontSize: 9, color: '#4B5563' },
-  value: { fontSize: 9, fontWeight: 'bold', color: '#111827' },
-  footer: { position: 'absolute', bottom: 25, left: 35, right: 35, fontSize: 8, color: '#9CA3AF', textAlign: 'center', borderTopWidth: 1, borderTopColor: '#E5E7EB', paddingTop: 10 }
+  page: { padding: 30, backgroundColor: '#FAFAFA', fontFamily: 'Helvetica' },
+  sectionWrap: { marginBottom: 15 }, // Para evitar quebras de página no meio de um bloco
+  
+  // Tipografia
+  title: { fontSize: 20, fontWeight: 'bold', color: '#1F2937', marginBottom: 4 },
+  subtitle: { fontSize: 9, color: '#6B7280', textTransform: 'uppercase', marginBottom: 15 },
+  sectionTitle: { fontSize: 11, fontWeight: 'bold', color: '#1F2937', textTransform: 'uppercase', marginBottom: 8, borderBottomWidth: 1, borderBottomColor: '#E5E7EB', paddingBottom: 4 },
+  
+  // Caixas e Cards
+  cardGroup: { flexDirection: 'row', gap: 10, marginBottom: 15 },
+  cardGray: { backgroundColor: '#F9FAFB', padding: 12, borderRadius: 6, borderWidth: 1, borderColor: '#F3F4F6' },
+  cardWhite: { backgroundColor: '#FFFFFF', padding: 12, borderRadius: 8, borderWidth: 1, borderColor: '#E5E7EB', flex: 1 },
+  
+  // Textos dos Cards Superiores
+  cardGrayTitle: { fontSize: 8, fontWeight: 'bold', color: '#6B7280', textTransform: 'uppercase', marginBottom: 6 },
+  cardGrayText: { fontSize: 10, color: '#374151', marginBottom: 3 },
+  cardGrayLabel: { fontWeight: 'bold' },
+
+  // Grids
+  gridContainer: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, backgroundColor: '#FFFFFF', padding: 12, borderRadius: 8, borderWidth: 1, borderColor: '#E5E7EB' },
+  gridItem2Col: { width: '48%', flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 4, borderBottomWidth: 1, borderBottomColor: '#F9FAFB' },
+  gridItem3Col: { width: '31%', flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 4, borderBottomWidth: 1, borderBottomColor: '#F9FAFB' },
+  gridItem4Col: { width: '23%', flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 4, borderBottomWidth: 1, borderBottomColor: '#F9FAFB' },
+  
+  gridLabel: { fontSize: 9, color: '#4B5563' },
+  gridValue: { fontSize: 9, fontWeight: 'bold', color: '#111827' },
+  gridUnit: { fontSize: 7, color: '#9CA3AF', fontWeight: 'normal' },
+
+  // Cards de Destaque (Composição e Saúde)
+  highlightCard: { flex: 1, backgroundColor: '#FFFFFF', padding: 12, borderRadius: 8, borderWidth: 1, borderColor: '#E5E7EB', justifyContent: 'center' },
+  highlightCardLeftBorder: { borderLeftWidth: 4, borderLeftColor: '#10B981' },
+  highlightLabel: { fontSize: 8, fontWeight: 'bold', color: '#6B7280', textTransform: 'uppercase', marginBottom: 4 },
+  highlightValue: { fontSize: 16, fontWeight: 'bold', color: '#1F2937' },
+  highlightRef: { fontSize: 7, color: '#9CA3AF', marginTop: 4 },
+  
+  // Cores Específicas
+  textAmber: { color: '#F59E0B' },
+  textAmberDark: { color: '#D97706' },
+  textBlue: { color: '#2563EB' },
+  textEmerald: { color: '#047857' },
+  textIndigo: { color: '#4F46E5' },
+
+  // Badges
+  badgeGreen: { backgroundColor: '#D1FAE5', color: '#065F46', paddingHorizontal: 6, paddingVertical: 2, borderRadius: 4, fontSize: 8, fontWeight: 'bold', textTransform: 'uppercase' },
+  badgeGray: { backgroundColor: '#E5E7EB', color: '#6B7280', paddingHorizontal: 6, paddingVertical: 2, borderRadius: 4, fontSize: 8, fontWeight: 'bold', textTransform: 'uppercase' },
+
+  // Barras de Progresso (Somatotipo)
+  barContainer: { backgroundColor: '#F3F4F6', height: 8, borderRadius: 4, width: '100%', marginTop: 2 },
+  barAmber: { backgroundColor: '#F59E0B', height: 8, borderRadius: 4 },
+  barBlue: { backgroundColor: '#3B82F6', height: 8, borderRadius: 4 },
+  barEmerald: { backgroundColor: '#10B981', height: 8, borderRadius: 4 },
+
+  footer: { marginTop: 20, paddingTop: 10, borderTopWidth: 1, borderTopColor: '#E5E7EB', textAlign: 'center', fontSize: 8, color: '#9CA3AF' }
 });
 
-// --- COMPONENTE DE LINHA ---
-const Item = ({ label, value, unit, fullWidth }) => {
-  const displayValue = value !== undefined && value !== null && value !== '' && !Number.isNaN(value) ? value : '-';
+// --- COMPONENTES AUXILIARES ---
+const MeasureItem = ({ label, value, unit, styleClass }) => {
+  const displayVal = value !== undefined && value !== null && value !== '' ? Number(value).toFixed(unit === 'mm' || unit === '%' ? 1 : 2).replace('.00', '').replace('.0', '') : '-';
   return (
-    <View style={fullWidth ? styles.itemFull : styles.item}>
-      <Text style={styles.label}>{label}</Text>
-      <Text style={styles.value}>
-        {typeof displayValue === 'number' && displayValue % 1 !== 0 ? displayValue.toFixed(2) : displayValue} {unit && displayValue !== '-' ? unit : ''}
+    <View style={styleClass}>
+      <Text style={styles.gridLabel}>{label}</Text>
+      <Text style={styles.gridValue}>
+        {displayVal} <Text style={styles.gridUnit}>{displayVal !== '-' ? unit : ''}</Text>
       </Text>
     </View>
   );
 };
 
-// --- ESTRUTURA DO DOCUMENTO ---
+const HighlightCard = ({ label, value, unit, valColor, showBorder, refText }) => (
+  <View style={[styles.highlightCard, showBorder ? styles.highlightCardLeftBorder : {}]}>
+    <Text style={styles.highlightLabel}>{label}</Text>
+    <Text style={[styles.highlightValue, valColor]}>
+      {value > 0 ? (value % 1 !== 0 ? value.toFixed(2) : value) : '-'} <Text style={styles.gridUnit}>{unit}</Text>
+    </Text>
+    {refText && <Text style={styles.highlightRef}>{refText}</Text>}
+  </View>
+);
+
+const ProgressBar = ({ label, value, valColor, barStyle }) => (
+  <View style={{ marginBottom: 10 }}>
+    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 2 }}>
+      <Text style={{ fontSize: 9, fontWeight: 'bold', color: valColor }}>{label}</Text>
+      <Text style={{ fontSize: 9, fontWeight: 'bold', color: '#111827' }}>{value || '-'}</Text>
+    </View>
+    <View style={styles.barContainer}>
+      <View style={[barStyle, { width: `${Math.min(100, (value || 0) * 10)}%` }]} />
+    </View>
+  </View>
+);
+
+// --- CORPO DO PDF ---
 const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
   const aval = dados?.avaliacoes || {};
   const pac = dados?.pacientes || {};
+  const dataFormatada = aval.data_avaliacao ? new Date(aval.data_avaliacao + 'T12:00:00').toLocaleDateString('pt-BR') : '-';
 
-  const formatDate = (dateString) => {
-    if (!dateString) return '-';
-    const date = new Date(dateString + 'T12:00:00');
-    return date.toLocaleDateString('pt-BR');
-  };
+  const coordX = 140 + ((dados?.somatocarta_eixo_x || 0) * 15);
+  const coordY = 140 - ((dados?.somatocarta_eixo_y || 0) * 11);
 
   return (
     <Document>
       <Page size="A4" style={styles.page}>
         
-        <View style={styles.header}>
-          <Text style={styles.title}>Laudo Antropométrico</Text>
-          <Text style={styles.subtitle}>Nutrição com Marco | Avaliação em Consultório</Text>
-        </View>
+        {/* CABEÇALHO */}
+        <Text style={styles.title}>Laudo Antropométrico: {pac.nome_completo}</Text>
+        <Text style={styles.subtitle}>Nutrição com Marco | Avaliação em Consultório</Text>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Perfil do Paciente</Text>
-          <View style={styles.grid}>
-            <Item label="Nome:" value={pac.nome_completo} fullWidth />
-            <Item label="Data da Avaliação:" value={formatDate(aval.data_avaliacao)} />
-            <Item label="Idade Calculada:" value={idade} unit="anos" />
-            <Item label="Sexo:" value={pac.sexo === 'M' ? 'Masculino' : pac.sexo === 'F' ? 'Feminino' : '-'} />
-            <Item label="Etnia:" value={pac.etnia} />
+        <View style={styles.cardGroup}>
+          <View style={[styles.cardGray, { flex: 1 }]}>
+            <Text style={styles.cardGrayTitle}>Sobre a Avaliação</Text>
+            <Text style={styles.cardGrayText}><Text style={styles.cardGrayLabel}>Data: </Text>{dataFormatada}</Text>
+            <Text style={styles.cardGrayText}><Text style={styles.cardGrayLabel}>Idade Calculada: </Text>{idade > 0 ? `${idade} anos` : '-'}</Text>
+            {aval.equacao_de_regressao_escolhida && <Text style={styles.cardGrayText}><Text style={styles.cardGrayLabel}>Protocolo: </Text>{aval.equacao_de_regressao_escolhida}</Text>}
+          </View>
+          <View style={[styles.cardGray, { flex: 2 }]}>
+            <Text style={styles.cardGrayTitle}>Perfil do Paciente</Text>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+              <View style={{ width: '50%' }}>
+                <Text style={styles.cardGrayText}><Text style={styles.cardGrayLabel}>Sexo: </Text>{pac.sexo === 'M' ? 'Masculino' : 'Feminino'}</Text>
+                <Text style={styles.cardGrayText}><Text style={styles.cardGrayLabel}>Etnia: </Text>{pac.etnia || '-'}</Text>
+                <Text style={styles.cardGrayText}><Text style={styles.cardGrayLabel}>Nac.: </Text>{pac.nacionalidade || '-'}</Text>
+              </View>
+              <View style={{ width: '50%' }}>
+                <Text style={styles.cardGrayText}><Text style={styles.cardGrayLabel}>Ocupação: </Text>{pac.ocupacao || '-'}</Text>
+                {(pac.pratica_esporte === 'true' || pac.pratica_esporte === true) && (
+                  <Text style={styles.cardGrayText}><Text style={styles.cardGrayLabel}>Esporte: </Text>{pac.modalidade_esportiva || 'Sim'} {pac.nivel_pratica ? `(${pac.nivel_pratica})` : ''}</Text>
+                )}
+              </View>
+            </View>
+            {pac.observacoes && <Text style={[styles.cardGrayText, { marginTop: 4, paddingTop: 4, borderTopWidth: 1, borderTopColor: '#E5E7EB' }]}><Text style={styles.cardGrayLabel}>Obs: </Text>{pac.observacoes}</Text>}
           </View>
         </View>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>1. Medidas Básicas & Composição Corporal</Text>
-          <View style={styles.grid}>
-            <Item label="Peso:" value={aval.peso_paciente} unit="kg" />
-            <Item label="Estatura:" value={aval.altura_paciente} unit="cm" />
-            <Item label="IMC:" value={dados.imc} unit="kg/m²" />
-            <Item label="% Gordura:" value={aval.percentual_de_gordura} unit="%" />
-            <Item label="Massa Gorda:" value={dados.massa_gorda} unit="kg" />
-            <Item label="Massa Magra:" value={dados.massa_magra} unit="kg" />
-            <Item label="Massa Muscular:" value={dados.massa_muscular} unit="kg" />
+        {/* 1. MEDIDAS BÁSICAS */}
+        <View style={styles.sectionWrap} wrap={false}>
+          <Text style={styles.sectionTitle}>📐 1. Medidas Básicas</Text>
+          <View style={styles.gridContainer}>
+            <MeasureItem styleClass={styles.gridItem4Col} label="Peso" value={aval.peso_paciente} unit="kg" />
+            <MeasureItem styleClass={styles.gridItem4Col} label="Estatura" value={aval.altura_paciente} unit="cm" />
+            <MeasureItem styleClass={styles.gridItem4Col} label="Altura Sentado" value={aval.altura_sentado_paciente} unit="cm" />
+            <MeasureItem styleClass={styles.gridItem4Col} label="Envergadura" value={aval.envergadura_paciente} unit="cm" />
           </View>
         </View>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>2. Dobras Cutâneas</Text>
-          <View style={styles.grid}>
-            <Item label="Tríceps:" value={aval.dobra_cutanea_triceps} unit="mm" />
-            <Item label="Subescapular:" value={aval.dobra_cutanea_subescapular} unit="mm" />
-            <Item label="Bíceps:" value={aval.dobra_cutanea_biceps} unit="mm" />
-            <Item label="Crista Ilíaca:" value={aval.dobra_cutanea_crista_iliaca} unit="mm" />
-            <Item label="Supraespinhal:" value={aval.dobra_cutanea_supraespinhal} unit="mm" />
-            <Item label="Abdominal:" value={aval.dobra_cutanea_abdominal} unit="mm" />
-            <Item label="Coxa Média:" value={aval.dobra_cutanea_coxa_media} unit="mm" />
-            <Item label="Panturrilha:" value={aval.dobra_cutanea_panturrilha} unit="mm" />
+        {/* 2. COMPOSIÇÃO CORPORAL */}
+        <View style={styles.sectionWrap} wrap={false}>
+          <Text style={styles.sectionTitle}>📊 2. Composição Corporal</Text>
+          <View style={{ flexDirection: 'row', gap: 6 }}>
+            <HighlightCard label="IMC" value={dados?.imc} unit="kg/m²" valColor={{ color: '#1F2937' }} />
+            <HighlightCard label="% Gordura" value={aval.percentual_de_gordura} unit="%" valColor={styles.textAmber} />
+            <HighlightCard label="Massa Gorda" value={dados?.massa_gorda} unit="kg" valColor={styles.textAmberDark} />
+            <HighlightCard label="Massa Magra" value={dados?.massa_magra} unit="kg" valColor={styles.textBlue} />
+            <HighlightCard label="M. Muscular" value={dados?.massa_muscular} unit="kg" valColor={styles.textEmerald} showBorder={true} refText="Ref: Lee 2000" />
           </View>
         </View>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>3. Perímetros & Diâmetros</Text>
-          <View style={styles.grid}>
-            <Item label="Braço Relaxado:" value={aval.perimetro_braco_relaxado} unit="cm" />
-            <Item label="Braço Contraído:" value={aval.perimetro_braco_contraido} unit="cm" />
-            <Item label="Cintura:" value={aval.perimetro_cintura} unit="cm" />
-            <Item label="Abdominal:" value={aval.perimetro_abdominal} unit="cm" />
-            <Item label="Quadril:" value={aval.perimetro_quadril} unit="cm" />
-            <Item label="Coxa Média:" value={aval.perimetro_coxa_media} unit="cm" />
-            <Item label="Panturrilha:" value={aval.perimetro_panturrilha} unit="cm" />
-            <Item label="Diâmetro Fêmur:" value={aval.diametro_femur} unit="cm" />
-            <Item label="Diâmetro Úmero:" value={aval.diametro_umero} unit="cm" />
-            <Item label="Diâmetro Punho:" value={aval.diametro_punho} unit="cm" />
+        {/* 3. DOBRAS */}
+        <View style={styles.sectionWrap} wrap={false}>
+          <Text style={styles.sectionTitle}>🤏 3. Dobras Cutâneas</Text>
+          <View style={styles.gridContainer}>
+            <MeasureItem styleClass={styles.gridItem4Col} label="Tríceps" value={aval.dobra_cutanea_triceps} unit="mm" />
+            <MeasureItem styleClass={styles.gridItem4Col} label="Subescapular" value={aval.dobra_cutanea_subescapular} unit="mm" />
+            <MeasureItem styleClass={styles.gridItem4Col} label="Bíceps" value={aval.dobra_cutanea_biceps} unit="mm" />
+            <MeasureItem styleClass={styles.gridItem4Col} label="Crista Ilíaca" value={aval.dobra_cutanea_crista_iliaca} unit="mm" />
+            <MeasureItem styleClass={styles.gridItem4Col} label="Supraespinhal" value={aval.dobra_cutanea_supraespinhal} unit="mm" />
+            <MeasureItem styleClass={styles.gridItem4Col} label="Abdominal" value={aval.dobra_cutanea_abdominal} unit="mm" />
+            <MeasureItem styleClass={styles.gridItem4Col} label="Coxa Média" value={aval.dobra_cutanea_coxa_media} unit="mm" />
+            <MeasureItem styleClass={styles.gridItem4Col} label="Panturrilha" value={aval.dobra_cutanea_panturrilha} unit="mm" />
           </View>
         </View>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>4. Saúde, Somatotipo & Índices Especiais</Text>
-          <View style={styles.grid}>
-            <Item label="Relação Cintura-Quadril:" value={dados.relacao_cintura_quadril} />
-            <Item label="Relação Cintura-Estatura:" value={dados.relacao_cintura_estatura} />
-            <Item label="Status da Cintura:" value={statusCintura} />
-            <Item label="Soma 6 Dobras:" value={dados.somatorio_6_dobras} unit="mm" />
-            <Item label="Soma 8 Dobras:" value={dados.somatorio_8_dobras} unit="mm" />
-            <Item label="Índice Adiposo Muscular (IAM):" value={iamVal > 0 ? Number(iamVal.toFixed(2)) : '-'} />
-            <Item label="Índice de Músculo Ósseo (IMO):" value={imoVal > 0 ? Number(imoVal.toFixed(3)) : '-'} />
-            <Item label="Endomorfia:" value={dados.somatotipo_endomorfia} />
-            <Item label="Mesomorfia:" value={dados.somatotipo_mesomorfia} />
-            <Item label="Ectomorfia:" value={dados.somatotipo_ectomorfia} />
+        {/* 4. INDICADORES */}
+        <View style={styles.sectionWrap} wrap={false}>
+          <Text style={styles.sectionTitle}>⚖️ 4. Indicadores de Saúde</Text>
+          <View style={{ flexDirection: 'row', gap: 6 }}>
+            <HighlightCard label="RCQ" value={dados?.relacao_cintura_quadril} unit="" valColor={styles.textIndigo} />
+            <HighlightCard label="RCE" value={dados?.relacao_cintura_estatura} unit="" valColor={styles.textIndigo} />
+            <View style={[styles.highlightCard, { alignItems: 'center' }]}>
+              <Text style={styles.highlightLabel}>Cintura (Status)</Text>
+              <Text style={styles.badgeGreen}>{statusCintura || '-'}</Text>
+            </View>
+            <HighlightCard label="Σ 6 Dobras" value={dados?.somatorio_6_dobras} unit="mm" valColor={styles.textAmberDark} />
+            <HighlightCard label="Σ 8 Dobras" value={dados?.somatorio_8_dobras} unit="mm" valColor={styles.textAmberDark} />
           </View>
         </View>
 
-        <View style={styles.footer}>
-          <Text>Documento gerado pelo sistema EvaluaOS - Nutrição com Marco | {formatDate(aval.data_avaliacao)}</Text>
+        {/* 5 E 6. PERÍMETROS */}
+        <View style={styles.sectionWrap} wrap={false}>
+          <Text style={styles.sectionTitle}>🔄 5. Perímetros & 💪 6. Corrigidos (Muscular Regional)</Text>
+          <View style={styles.gridContainer}>
+            <MeasureItem styleClass={styles.gridItem3Col} label="Braço Relaxado" value={aval.perimetro_braco_relaxado} unit="cm" />
+            <MeasureItem styleClass={styles.gridItem3Col} label="Cintura" value={aval.perimetro_cintura} unit="cm" />
+            <MeasureItem styleClass={styles.gridItem3Col} label="Coxa Média" value={aval.perimetro_coxa_media} unit="cm" />
+            
+            <MeasureItem styleClass={styles.gridItem3Col} label="Braço Contraído" value={aval.perimetro_braco_contraido} unit="cm" />
+            <MeasureItem styleClass={styles.gridItem3Col} label="Abdominal" value={aval.perimetro_abdominal} unit="cm" />
+            <MeasureItem styleClass={styles.gridItem3Col} label="Panturrilha" value={aval.perimetro_panturrilha} unit="cm" />
+            
+            <MeasureItem styleClass={styles.gridItem3Col} label="Antebraço" value={aval.perimetro_antibraco} unit="cm" />
+            <MeasureItem styleClass={styles.gridItem3Col} label="Quadril" value={aval.perimetro_quadril} unit="cm" />
+            <MeasureItem styleClass={styles.gridItem3Col} label="Coxa Máxima" value={aval.perimetro_coxa_maxima} unit="cm" />
+            
+            {/* Linha dos Corrigidos em destaque */}
+            <View style={{ width: '100%', height: 1, backgroundColor: '#E5E7EB', marginVertical: 4 }} />
+            
+            <View style={styles.gridItem3Col}>
+              <Text style={styles.gridLabel}>Braço Corrigido</Text>
+              <Text style={[styles.gridValue, styles.textEmerald]}>{dados?.perimetro_corrigido_braco ? dados.perimetro_corrigido_braco.toFixed(2) : '-'} <Text style={styles.gridUnit}>cm</Text></Text>
+            </View>
+            <View style={styles.gridItem3Col}>
+              <Text style={styles.gridLabel}>Coxa Corrigida</Text>
+              <Text style={[styles.gridValue, styles.textEmerald]}>{dados?.perimetro_corrigido_coxa ? dados.perimetro_corrigido_coxa.toFixed(2) : '-'} <Text style={styles.gridUnit}>cm</Text></Text>
+            </View>
+            <View style={styles.gridItem3Col}>
+              <Text style={styles.gridLabel}>Panturrilha Corrigida</Text>
+              <Text style={[styles.gridValue, styles.textEmerald]}>{dados?.perimetro_corrigido_panturrilha ? dados.perimetro_corrigido_panturrilha.toFixed(2) : '-'} <Text style={styles.gridUnit}>cm</Text></Text>
+            </View>
+          </View>
+        </View>
+
+        {/* 7. DIÂMETROS */}
+        <View style={styles.sectionWrap} wrap={false}>
+          <Text style={styles.sectionTitle}>🦴 7. Diâmetros Ósseos</Text>
+          <View style={styles.gridContainer}>
+            <MeasureItem styleClass={styles.gridItem4Col} label="Úmero" value={aval.diametro_umero} unit="cm" />
+            <MeasureItem styleClass={styles.gridItem4Col} label="Fêmur" value={aval.diametro_femur} unit="cm" />
+            <MeasureItem styleClass={styles.gridItem4Col} label="Punho" value={aval.diametro_punho} unit="cm" />
+            <MeasureItem styleClass={styles.gridItem4Col} label="Tornozelo" value={aval.diametro_maleolar} unit="cm" />
+          </View>
+        </View>
+
+        {/* 8. SOMATOTIPO (Com Somatocarta) */}
+        <View style={styles.sectionWrap} wrap={false}>
+          <Text style={styles.sectionTitle}>🧬 8. Somatotipo (Heath-Carter)</Text>
+          <View style={{ flexDirection: 'row', gap: 10 }}>
+            <View style={styles.cardWhite}>
+              <ProgressBar label="Endomorfia (Adiposidade)" value={dados?.somatotipo_endomorfia} valColor="#B45309" barStyle={styles.barAmber} />
+              <ProgressBar label="Mesomorfia (Musculosidade)" value={dados?.somatotipo_mesomorfia} valColor="#1D4ED8" barStyle={styles.barBlue} />
+              <ProgressBar label="Ectomorfia (Linearidade)" value={dados?.somatotipo_ectomorfia} valColor="#047857" barStyle={styles.barEmerald} />
+            </View>
+            
+            <View style={[styles.cardWhite, { alignItems: 'center', justifyContent: 'center' }]}>
+              {/* O desenho vetorial da Somatocarta espelhado do seu site */}
+              <View style={{ width: 180, height: 180, position: 'relative' }}>
+                <Svg width="180" height="180" viewBox="0 0 280 280">
+                  <Line x1="140" y1="20" x2="140" y2="260" stroke="#CBD5E1" strokeWidth="1.5" strokeDasharray="4" />
+                  <Line x1="20" y1="140" x2="260" y2="140" stroke="#CBD5E1" strokeWidth="1.5" strokeDasharray="4" />
+                  <Polygon points="140,30 40,230 240,230" fill="none" stroke="#94A3B8" strokeWidth="1.5" />
+                  {dados?.somatocarta_eixo_x != null && dados?.somatocarta_eixo_y != null && (
+                    <Circle cx={coordX} cy={coordY} r="7" fill="#10B981" stroke="#FFFFFF" strokeWidth="2" />
+                  )}
+                </Svg>
+                <Text style={{ position: 'absolute', top: 5, left: 0, width: 180, textAlign: 'center', fontSize: 7, fontWeight: 'bold', color: '#2563EB' }}>MESOMORFIA</Text>
+                <Text style={{ position: 'absolute', bottom: 15, left: -25, width: 100, textAlign: 'center', fontSize: 7, fontWeight: 'bold', color: '#D97706' }}>ENDOMORFIA</Text>
+                <Text style={{ position: 'absolute', bottom: 15, right: -25, width: 100, textAlign: 'center', fontSize: 7, fontWeight: 'bold', color: '#047857' }}>ECTOMORFIA</Text>
+              </View>
+              <Text style={{ fontSize: 7, color: '#6B7280', marginTop: 4 }}>
+                Coordenadas: X ({dados?.somatocarta_eixo_x || '0'}) | Y ({dados?.somatocarta_eixo_y || '0'})
+              </Text>
+            </View>
+          </View>
+        </View>
+
+        {/* 10. OUTROS INDICADORES */}
+        <View style={styles.sectionWrap} wrap={false}>
+          <Text style={styles.sectionTitle}>🚀 10. Outros Indicadores & Classificações</Text>
+          <View style={styles.gridContainer}>
+            <View style={styles.gridItem3Col}>
+              <Text style={styles.gridLabel}>IAM</Text>
+              <Text style={styles.gridValue}>{iamVal > 0 ? iamVal.toFixed(2) : '-'}</Text>
+            </View>
+            <View style={styles.gridItem3Col}>
+              <Text style={styles.gridLabel}>Índice Músculo Ósseo</Text>
+              <Text style={[styles.gridValue, styles.textEmerald]}>{imoVal > 0 ? imoVal.toFixed(3) : '-'}</Text>
+            </View>
+            <View style={styles.gridItem3Col}>
+              <Text style={styles.gridLabel}>APVAT</Text>
+              <Text style={styles.badgeGray}>Em breve</Text>
+            </View>
+          </View>
+        </View>
+
+        {/* RODAPÉ */}
+        <View style={styles.footer} fixed>
+          <Text>Documento gerado pelo sistema EvaluaOS - Nutrição com Marco | {dataFormatada}</Text>
         </View>
 
       </Page>
@@ -129,7 +295,7 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
   );
 };
 
-// --- BOTÃO ---
+// --- BOTÃO DE EXPORTAÇÃO ---
 const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
   const pac = dados?.pacientes || {};
   const nomeArquivo = pac.nome_completo ? pac.nome_completo.replace(/\s+/g, '_') : 'Paciente';
@@ -140,7 +306,7 @@ const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
       fileName={`Laudo_${nomeArquivo}.pdf`}
       className="flex items-center justify-center w-full px-4 py-3 mt-4 bg-emerald-600 text-white text-sm font-semibold rounded-lg shadow hover:bg-emerald-700 transition-colors"
     >
-      {({ loading }) => (loading ? 'Preparando documento completo...' : 'Baixar Laudo Completo em PDF')}
+      {({ loading }) => (loading ? 'Desenhando laudo profissional...' : 'Baixar Laudo Completo em PDF')}
     </PDFDownloadLink>
   );
 };
