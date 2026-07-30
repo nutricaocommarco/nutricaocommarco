@@ -342,7 +342,7 @@ export default function EscolhaPercGordura() {
                 >
                   {historicoAvaliacoes.map(hist => (
                     <option key={hist.id} value={hist.id}>
-                      {new Date(hist.data_avaliacao).toLocaleDateString('pt-BR')} (Ref: {hist.id.slice(0,4)})
+                      {new Date(hist.data_avaliacao).toLocaleDateString('pt-BR')} (Ref: {String(hist.id).slice(0, 4)})
                     </option>
                   ))}
                 </select>
