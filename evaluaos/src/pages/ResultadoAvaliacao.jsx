@@ -233,26 +233,29 @@ export default function ResultadoAvaliacao() {
   const perimCorrigidoCoxa = dados.perimetro_corrigido_coxa || (pCoxa > 0 ? pCoxa - ((aval.dobra_cutanea_coxa_media || 0) * 0.314) : 0);
   const perimCorrigidoPanturrilha = dados.perimetro_corrigido_panturrilha || (pPant > 0 ? pPant - ((aval.dobra_cutanea_panturrilha || 0) * 0.314) : 0);
 
-// --- ÍNDICE DE MÚSCULO ÓSSEO (IMO) ---
-  const alturaCm = aval.altura_paciente || 0
+// --- ÍNDICE DE MÚSCULO ÓSSEO (IMO) - EXATO CONFORME EXCEL ---
+  const estatura = aval.altura_paciente || 0
   const dUmero = aval.diametro_umero || 0
   const dFemur = aval.diametro_femur || 0
   const dRadio = aval.diametro_punho || 0 
   const dMaleolar = aval.diametro_maleolar || 0
 
-  const parte1 = 0.6 * alturaCm * Math.pow(dUmero + dFemur + dRadio + dMaleolar, 2) * 0.0001
-  
+  // Parte 1
+  const parte1 = 0.6 * estatura * Math.pow(dUmero + dFemur + dRadio + dMaleolar, 2) * 0.0001
+
+  const cCoxa = aval.perimetro_coxa_media || 0
+  const dCoxa = aval.dobra_cutanea_coxa_media || 0
   const cAntebraco = aval.perimetro_antibraco || 0
-  const dCoxaMm = aval.dobra_cutanea_coxa_media || 0
-  const dPantMm = aval.dobra_cutanea_panturrilha || 0
+  const cPant = aval.perimetro_panturrilha || 0
+  const dPant = aval.dobra_cutanea_panturrilha || 0
 
-  // Usando Math.PI / 10 para máxima precisão decimal na conversão da dobra 
-  const fatorPi = Math.PI / 10 
-  const coxaCorrigidaIMO = pCoxa > 0 ? pCoxa - (dCoxaMm * fatorPi) : 0
-  const pantCorrigidaIMO = pPant > 0 ? pPant - (dPantMm * fatorPi) : 0
+  const termoCoxa = cCoxa - (dCoxa * 0.3141)
+  const termoPant = cPant - (dPant * 0.3141)
 
-  const parte2 = (alturaCm * (0.0553 * Math.pow(coxaCorrigidaIMO, 2) + 0.0987 * Math.pow(cAntebraco, 2) + 0.0331 * Math.pow(pantCorrigidaIMO, 2)) - 2445) * 0.001
-  
+  // Parte 2
+  const parte2 = (estatura * (0.0553 * Math.pow(termoCoxa, 2) + 0.0987 * Math.pow(cAntebraco, 2) + 0.0331 * Math.pow(termoPant, 2)) - 2445) * 0.001
+
+  // Parte 3 (Parte 2 / Parte 1)
   const imoVal = (parte1 > 0 && parte2 > 0) ? (parte2 / parte1) : 0
 
 
@@ -543,11 +546,17 @@ export default function ResultadoAvaliacao() {
             </span>
           </div>
 
-          <div className="flex justify-between items-center p-3 border border-gray-100 rounded-lg bg-gray-50">
-            <span className="text-xs font-semibold text-gray-700">Índice de Músculo Ósseo (IMO)</span>
-            <span className="text-xs font-bold text-gray-800">
-              {imoVal > 0 ? imoVal.toFixed(3) : '-'}
-            </span>
+          <div className="flex flex-col p-3 border border-gray-100 rounded-lg bg-gray-50 space-y-1">
+            <div className="flex justify-between items-center">
+              <span className="text-xs font-semibold text-gray-700">Índice de Músculo Ósseo (IMO)</span>
+              <span className="text-sm font-bold text-emerald-700">
+                {imoVal > 0 ? imoVal.toFixed(3) : '-'}
+              </span>
+            </div>
+            <div className="flex justify-between text-[10px] text-gray-400 pt-1 border-t border-gray-200">
+              <span>P1: {parte1 ? parte1.toFixed(2) : '-'}</span>
+              <span>P2: {parte2 ? parte2.toFixed(2) : '-'}</span>
+            </div>
           </div>
 
           {[
