@@ -105,12 +105,12 @@ export default function ResultadoAvaliacao() {
       setTokenPublico(avalDados.token_publico || '')
 
       const pac = avalDados.pacientes || {}
-      const idBuscaAvaliador = pac.id_avaliador || 3;
 
+      // BUSCA DIRETA E SEGURA DO AVALIADOR NO ID 3 (Garante o carregamento da logo e dados)
       const { data: avaliadorData } = await supabase
         .from('avaliadores')
         .select('empresa, nome_completo, logomarca_url')
-        .eq('id', idBuscaAvaliador)
+        .eq('id', 3)
         .maybeSingle();
         
       if (avaliadorData) {
@@ -298,7 +298,7 @@ export default function ResultadoAvaliacao() {
       
       <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm relative">
         
-        {/* NOVA SESSÃO DO AVALIADOR E BRANDING NO TOPO */}
+        {/* TOPO: LOGO, DADOS DO AVALIADOR E BRANDING EVALUAOS */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 border-b border-gray-100 pb-4">
           <div className="flex items-center gap-4">
             {logomarcaUrl ? (
