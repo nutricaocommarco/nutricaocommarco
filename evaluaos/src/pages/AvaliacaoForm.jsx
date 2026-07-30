@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom' // <-- Adicionado o useNavigate
+import { useLocation, useNavigate } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 
 const initMeasures = (keys) =>
@@ -9,6 +9,7 @@ const basicaKeys = ['peso_paciente', 'altura_paciente', 'altura_sentado_paciente
 const dobraKeys = ['dobra_cutanea_triceps', 'dobra_cutanea_subescapular', 'dobra_cutanea_biceps', 'dobra_cutanea_crista_iliaca', 'dobra_cutanea_supraespinhal', 'dobra_cutanea_abdominal', 'dobra_cutanea_coxa_media', 'dobra_cutanea_panturrilha']
 const perimetroKeys = ['perimetro_braco_relaxado', 'perimetro_braco_contraido', 'perimetro_antibraco', 'perimetro_cintura', 'perimetro_abdominal', 'perimetro_quadril', 'perimetro_coxa_maxima', 'perimetro_coxa_media', 'perimetro_panturrilha']
 const diametroKeys = ['diametro_umero', 'diametro_femur', 'diametro_punho', 'diametro_maleolar']
+const allKeys = [...basicaKeys, ...dobraKeys, ...perimetroKeys, ...diametroKeys] // Array para gerenciar o Tab
 
 const labels = {
   peso_paciente: 'Peso (kg)',
@@ -114,15 +115,21 @@ const MeasureRow = ({ label, field, categoryType, state, setter, isSingleMode, h
     }
   }
 
+  // Gera um índice global para a navegação por tab descer a coluna
+  const globalIndex = allKeys.indexOf(field)
+  const tabIndexM1 = 100 + globalIndex
+  const tabIndexM2 = 200 + globalIndex
+  const tabIndexM3 = 300 + globalIndex
+
   return (
-    <div className="flex flex-col md:grid md:grid-cols-12 gap-2 md:items-center border-b border-gray-50 py-2 hover:bg-gray-50 px-2 rounded transition-colors">
-      <div className="col-span-4 text-xs font-medium text-gray-700">{label}</div>
+    <div className="flex flex-col md:grid md:grid-cols-12 gap-2 md:items-center border-b border-gray-100 py-3 md:py-2 hover:bg-gray-50 px-2 rounded transition-colors">
+      <div className="col-span-4 text-sm md:text-xs font-medium text-gray-700">{label}</div>
       <div className="col-span-6 grid grid-cols-3 gap-2">
-        <input type="number" step="0.1" value={m1} onChange={(e) => handleMeasureChange(setter, field, 'm1', e.target.value)} className="w-full px-2 py-1.5 border rounded-md text-sm text-center focus:border-emerald-500 bg-white" placeholder={isSingleMode ? "Valor" : "1ª"} />
+        <input type="number" step="0.1" tabIndex={tabIndexM1} value={m1} onChange={(e) => handleMeasureChange(setter, field, 'm1', e.target.value)} className="w-full px-2 py-1.5 border rounded-md text-sm text-center focus:border-emerald-500 bg-white" placeholder={isSingleMode ? "Valor" : "1ª"} />
         {!isSingleMode && (
           <>
-            <input type="number" step="0.1" value={m2} onChange={(e) => handleMeasureChange(setter, field, 'm2', e.target.value)} className="w-full px-2 py-1.5 border rounded-md text-sm text-center focus:border-emerald-500 bg-white" placeholder="2ª" />
-            <input type="number" step="0.1" value={m3} disabled={!needsThird} onChange={(e) => handleMeasureChange(setter, field, 'm3', e.target.value)} className={`w-full px-2 py-1.5 border rounded-md text-sm text-center transition-colors ${needsThird ? 'ring-2 ring-red-400 bg-red-50 focus:ring-red-500' : 'opacity-40 bg-gray-100 cursor-not-allowed'}`} placeholder="3ª" />
+            <input type="number" step="0.1" tabIndex={tabIndexM2} value={m2} onChange={(e) => handleMeasureChange(setter, field, 'm2', e.target.value)} className="w-full px-2 py-1.5 border rounded-md text-sm text-center focus:border-emerald-500 bg-white" placeholder="2ª" />
+            <input type="number" step="0.1" tabIndex={tabIndexM3} disabled={!needsThird} value={m3} onChange={(e) => handleMeasureChange(setter, field, 'm3', e.target.value)} className={`w-full px-2 py-1.5 border rounded-md text-sm text-center transition-colors ${needsThird ? 'ring-2 ring-red-400 bg-red-50 focus:ring-red-500' : 'opacity-40 bg-gray-100 cursor-not-allowed'}`} placeholder="3ª" />
           </>
         )}
       </div>
@@ -134,12 +141,10 @@ const MeasureRow = ({ label, field, categoryType, state, setter, isSingleMode, h
   )
 }
 
-// NOTE QUE RETIREI AS PROPS AQUI, POIS AGORA ELA PEGA TUDO PELA ROTA
 export default function AvaliacaoForm() {
   const navigate = useNavigate()
   const location = useLocation()
   
-  // Capturando dados que vieram pela rota
   const paciente = location.state?.paciente || null
   const avaliacaoIdParaEditar = location.state?.avaliacaoIdParaEditar || null
 
@@ -193,7 +198,6 @@ export default function AvaliacaoForm() {
     carregarAvaliacaoParaEdicao()
   }, [avaliacaoIdParaEditar])
 
-  // TRAVA DE SEGURANÇA: Se o usuário acessar a URL direto sem selecionar paciente, volta pra lista
   if (!paciente) {
     return (
       <div className="flex flex-col items-center justify-center h-full space-y-4 p-8">
@@ -237,7 +241,6 @@ export default function AvaliacaoForm() {
     return null;
   }
 
-  // AGORA SIM, O SUBMIT COMPLETO
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
@@ -298,8 +301,6 @@ export default function AvaliacaoForm() {
     const alturaM = alturaCm / 100
 
     const calcImc = alturaM > 0 ? pesoFinal / (alturaM * alturaM) : 0
-    
-    // Massas ficam zeradas provisoriamente. A tela EscolhaPercGordura irá atualizar esses dados.
     const massaGordaCalc = 0
     const massaMagraCalc = 0
 
@@ -377,8 +378,6 @@ export default function AvaliacaoForm() {
       alert('As medidas foram salvas, mas houve um erro ao gerar o relatório calculado.')
     } else {
       alert('Medidas salvas! Indo para o cálculo de gordura...')
-      
-      // O NAVEGATE ACONTECE AQUI, APÓS TUDO SALVAR NO BANCO!
       navigate('/equacoes-de-regressao', { state: { pacienteInicial: paciente } })
     }
 
@@ -386,10 +385,10 @@ export default function AvaliacaoForm() {
   }
 
   const renderMeasureBlock = (title, keys, type, state, setter) => (
-    <div className="bg-white p-4 md:p-6 rounded-xl border border-gray-100 shadow-sm space-y-2 overflow-x-auto">
+    <div className="bg-white p-4 md:p-6 rounded-xl border border-gray-100 shadow-sm space-y-2">
       <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-4 border-b pb-2">{title}</h3>
-      <div className="min-w-[600px] md:min-w-full">
-        <div className="grid grid-cols-12 gap-2 items-center pb-2 text-xs font-bold text-gray-400 uppercase tracking-wider border-b px-2">
+      <div className="w-full">
+        <div className="hidden md:grid grid-cols-12 gap-2 items-center pb-2 text-xs font-bold text-gray-400 uppercase tracking-wider border-b px-2">
           <div className="col-span-4">Local da Medida</div>
           <div className="col-span-6 grid grid-cols-3 gap-2 text-center">
             <div>{isSingleMode ? 'Valor (Edição/Único)' : '1ª Medida'}</div>
@@ -409,7 +408,6 @@ export default function AvaliacaoForm() {
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center bg-white p-4 rounded-xl border border-gray-100 shadow-sm gap-4">
         <div>
-          {/* BOTÃO VOLTAR AGORA USA O NAVIGATE */}
           <button onClick={() => navigate('/pacientes')} className="text-xs text-emerald-600 font-semibold hover:underline mb-1 inline-block">← Voltar</button>
           <h2 className="text-xl font-bold text-gray-800">
             {avaliacaoIdParaEditar ? `Editando Medidas de ${paciente.nome_completo}` : `Novas Medidas: ${paciente.nome_completo}`}
@@ -418,7 +416,7 @@ export default function AvaliacaoForm() {
         <span className="text-xs font-semibold px-3 py-1.5 bg-emerald-50 text-emerald-700 rounded-full">Sexo: {paciente.sexo === 'M' ? 'Masculino' : 'Feminino'}</span>
       </div>
 
-<form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm space-y-4">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center border-b pb-4 gap-3">
             <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider">1. Dados Gerais</h3>
@@ -438,11 +436,11 @@ export default function AvaliacaoForm() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-gray-700">Data</label>
-              <input type="date" required value={dataAvaliacao} onChange={(e) => setDataAvaliacao(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm" />
+              <input type="date" required tabIndex={10} value={dataAvaliacao} onChange={(e) => setDataAvaliacao(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm" />
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-700">Hora</label>
-              <input type="time" required value={horaAvaliacao} onChange={(e) => setHoraAvaliacao(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm" />
+              <input type="time" required tabIndex={11} value={horaAvaliacao} onChange={(e) => setHoraAvaliacao(e.target.value)} className="mt-1 w-full px-3 py-2 border rounded-md text-sm" />
             </div>
           </div>
         </div>
@@ -453,8 +451,8 @@ export default function AvaliacaoForm() {
         {renderMeasureBlock('5. Diâmetros Ósseos (cm) - Tolerância 1%', diametroKeys, 'diametros', diametros, setDiametros)}
 
         <div className="flex justify-end gap-3 pt-4 sticky bottom-4 bg-white/80 p-4 border-t backdrop-blur-md rounded-xl">
-          <button type="button" onClick={() => navigate('/pacientes')} className="px-6 py-2.5 border border-gray-300 text-gray-700 rounded-lg text-sm font-semibold hover:bg-gray-50">Cancelar</button>
-          <button type="submit" disabled={loading} className="px-6 py-2.5 bg-emerald-600 text-white rounded-lg text-sm font-semibold hover:bg-emerald-700 shadow disabled:opacity-50">
+          <button type="button" tabIndex={400} onClick={() => navigate('/pacientes')} className="px-6 py-2.5 border border-gray-300 text-gray-700 rounded-lg text-sm font-semibold hover:bg-gray-50">Cancelar</button>
+          <button type="submit" tabIndex={401} disabled={loading} className="px-6 py-2.5 bg-emerald-600 text-white rounded-lg text-sm font-semibold hover:bg-emerald-700 shadow disabled:opacity-50">
             {loading ? 'Salvando...' : (avaliacaoIdParaEditar ? 'Atualizar Medidas' : 'Salvar e Escolher Equação')}
           </button>
         </div>
