@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 
-// --- HELPER: CÁLCULO DE SOMATOTIPO HEATH-CARTER ---
+// --- HELPER CÁLCULO DE SOMATOTIPO HEATH-CARTER ---
 const calcularSomatotipo = (medidas) => {
   const triceps = medidas.dobra_cutanea_triceps || 0;
   const subescapular = medidas.dobra_cutanea_subescapular || 0;
