@@ -9,7 +9,7 @@ const basicaKeys = ['peso_paciente', 'altura_paciente', 'altura_sentado_paciente
 const dobraKeys = ['dobra_cutanea_triceps', 'dobra_cutanea_subescapular', 'dobra_cutanea_biceps', 'dobra_cutanea_crista_iliaca', 'dobra_cutanea_supraespinhal', 'dobra_cutanea_abdominal', 'dobra_cutanea_coxa_media', 'dobra_cutanea_panturrilha']
 const perimetroKeys = ['perimetro_braco_relaxado', 'perimetro_braco_contraido', 'perimetro_antibraco', 'perimetro_cintura', 'perimetro_abdominal', 'perimetro_quadril', 'perimetro_coxa_maxima', 'perimetro_coxa_media', 'perimetro_panturrilha']
 const diametroKeys = ['diametro_umero', 'diametro_femur', 'diametro_punho', 'diametro_maleolar']
-const allKeys = [...basicaKeys, ...dobraKeys, ...perimetroKeys, ...diametroKeys] // Array para gerenciar o Tab
+const allKeys = [...basicaKeys, ...dobraKeys, ...perimetroKeys, ...diametroKeys]
 
 const labels = {
   peso_paciente: 'Peso (kg)',
@@ -115,7 +115,6 @@ const MeasureRow = ({ label, field, categoryType, state, setter, isSingleMode, h
     }
   }
 
-  // Gera um índice global para a navegação por tab descer a coluna
   const globalIndex = allKeys.indexOf(field)
   const tabIndexM1 = 100 + globalIndex
   const tabIndexM2 = 200 + globalIndex
@@ -378,7 +377,12 @@ export default function AvaliacaoForm() {
       alert('As medidas foram salvas, mas houve um erro ao gerar o relatório calculado.')
     } else {
       alert('Medidas salvas! Indo para o cálculo de gordura...')
-      navigate('/equacoes-de-regressao', { state: { pacienteInicial: paciente } })
+      navigate('/equacoes-de-regressao', { 
+        state: { 
+          pacienteInicial: paciente,
+          avaliacaoIdInicial: avaliacaoSalvaId 
+        } 
+      })
     }
 
     setLoading(false)
@@ -450,7 +454,7 @@ export default function AvaliacaoForm() {
         {renderMeasureBlock('4. Perímetros / Circunferências (cm) - Tolerância 1%', perimetroKeys, 'perimetros', perimetros, setPerimetros)}
         {renderMeasureBlock('5. Diâmetros Ósseos (cm) - Tolerância 1%', diametroKeys, 'diametros', diametros, setDiametros)}
 
-        <div className="flex justify-end gap-3 pt-4 sticky bottom-4 bg-white/80 p-4 border-t backdrop-blur-md rounded-xl">
+        <div className="flex justify-end gap-3 pt-4 sticky bottom-4 bg-white/80 p-4 border-t backdrop-blur-md rounded-xl z-10">
           <button type="button" tabIndex={400} onClick={() => navigate('/pacientes')} className="px-6 py-2.5 border border-gray-300 text-gray-700 rounded-lg text-sm font-semibold hover:bg-gray-50">Cancelar</button>
           <button type="submit" tabIndex={401} disabled={loading} className="px-6 py-2.5 bg-emerald-600 text-white rounded-lg text-sm font-semibold hover:bg-emerald-700 shadow disabled:opacity-50">
             {loading ? 'Salvando...' : (avaliacaoIdParaEditar ? 'Atualizar Medidas' : 'Salvar e Escolher Equação')}

@@ -12,6 +12,11 @@ export default function Pacientes({ userId }) {
   const [historicoPaciente, setHistoricoPaciente] = useState(null)
   const [avaliacoesList, setAvaliacoesList] = useState([])
 
+  // --- ESTADOS DE BUSCA E FILTROS ---
+  const [searchTerm, setSearchTerm] = useState('')
+  const [filterSexo, setFilterSexo] = useState('Todos')
+  const [filterEsporte, setFilterEsporte] = useState('Todos')
+
   // Estado para controlar se estamos editando ou criando
   const [editingPacienteId, setEditingPacienteId] = useState(null)
 
@@ -177,8 +182,30 @@ export default function Pacientes({ userId }) {
     }
   }
 
+  // --- LÓGICA DE FILTRAGEM ---
+  const pacientesFiltrados = pacientes.filter(p => {
+    const termo = searchTerm.toLowerCase();
+    
+    // Busca por NOME OU E-MAIL (ignora maiúsculas/minúsculas)
+    const matchBusca = 
+      p.nome_completo?.toLowerCase().includes(termo) || 
+      p.email?.toLowerCase().includes(termo);
+    
+    // Filtro por Sexo
+    const matchSexo = filterSexo === 'Todos' || p.sexo === filterSexo;
+    
+    // Filtro por Esporte
+    const isPraticante = p.pratica_esporte === true || p.pratica_esporte === 'true';
+    const matchEsporte = filterEsporte === 'Todos' ||
+                         (filterEsporte === 'Pratica' && isPraticante) ||
+                         (filterEsporte === 'NaoPratica' && !isPraticante);
+                         
+    return matchBusca && matchSexo && matchEsporte;
+  });
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 pb-10">
+      {/* --- CABEÇALHO --- */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h2 className="text-2xl font-bold text-gray-800">Meus Pacientes</h2>
@@ -186,24 +213,68 @@ export default function Pacientes({ userId }) {
         </div>
         <button
           onClick={handleOpenNovoPaciente}
-          className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 font-medium text-sm transition-colors w-full sm:w-auto"
+          className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 font-medium text-sm transition-colors w-full sm:w-auto shadow-sm"
         >
           + Novo Paciente
         </button>
       </div>
 
+      {/* --- BARRA DE BUSCA E FILTROS --- */}
+      <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-3">
+        {/* Campo de Busca */}
+        <div className="relative flex-1">
+          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          <input 
+            type="text" 
+            placeholder="Buscar paciente por nome ou e-mail..." 
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full pl-9 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-colors"
+          />
+        </div>
+        
+        {/* Filtros Dropdown */}
+        <div className="flex flex-row gap-3">
+          <select 
+            value={filterSexo} 
+            onChange={(e) => setFilterSexo(e.target.value)}
+            className="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-700 focus:bg-white focus:ring-2 focus:ring-emerald-500 outline-none"
+          >
+            <option value="Todos">Sexo: Todos</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+          </select>
+
+          <select 
+            value={filterEsporte} 
+            onChange={(e) => setFilterEsporte(e.target.value)}
+            className="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-700 focus:bg-white focus:ring-2 focus:ring-emerald-500 outline-none"
+          >
+            <option value="Todos">Esporte: Todos</option>
+            <option value="Pratica">Praticantes</option>
+            <option value="NaoPratica">Sedentários</option>
+          </select>
+        </div>
+      </div>
+
+      {/* --- LISTA DE PACIENTES --- */}
       <div className="bg-white rounded-xl shadow border border-gray-100 overflow-hidden">
         {loading ? (
           <div className="p-8 text-center text-gray-500">Carregando pacientes...</div>
         ) : pacientes.length === 0 ? (
+          <div className="p-8 text-center text-gray-500 flex flex-col items-center justify-center">
+            <svg className="w-12 h-12 text-gray-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            <p>Nenhum paciente cadastrado ainda.</p>
+          </div>
+        ) : pacientesFiltrados.length === 0 ? (
           <div className="p-8 text-center text-gray-500">
-            Nenhum paciente cadastrado ainda. Clique no botão acima para adicionar.
+            Nenhum paciente encontrado com esses filtros.
           </div>
         ) : (
           <>
             {/* --- VISÃO MOBILE --- */}
             <div className="block md:hidden">
-              {pacientes.map((p) => {
+              {pacientesFiltrados.map((p) => {
                 const ePraticante = p.pratica_esporte === true || p.pratica_esporte === 'true'
                 return (
                   <div key={p.id} className="p-4 border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
@@ -215,11 +286,11 @@ export default function Pacientes({ userId }) {
                         </p>
                       </div>
                       {ePraticante ? (
-                        <span className="px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full text-[10px] font-semibold">
+                        <span className="px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full text-[10px] font-semibold text-center leading-tight">
                           {p.modalidade_esportiva || 'Esporte'}
                         </span>
                       ) : (
-                        <span className="px-2 py-1 bg-gray-50 text-gray-400 rounded-full text-[10px] font-semibold">
+                        <span className="px-2 py-1 bg-gray-50 text-gray-500 rounded-full text-[10px] font-semibold text-center leading-tight">
                           Sedentário
                         </span>
                       )}
@@ -279,7 +350,7 @@ export default function Pacientes({ userId }) {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100 text-sm text-gray-700">
-                  {pacientes.map((p) => {
+                  {pacientesFiltrados.map((p) => {
                     const ePraticante = p.pratica_esporte === true || p.pratica_esporte === 'true'
                     return (
                       <tr key={p.id} className="hover:bg-gray-50 transition-colors">
@@ -288,11 +359,13 @@ export default function Pacientes({ userId }) {
                         <td className="p-4">{p.telefone || p.email || '-'}</td>
                         <td className="p-4">
                           {ePraticante ? (
-                            <span className="px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full text-xs font-semibold">
+                            <span className="px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full text-[10px] font-bold uppercase tracking-wider">
                               {p.modalidade_esportiva || 'Sim'}
                             </span>
                           ) : (
-                            <span className="text-gray-400">Não</span>
+                            <span className="px-2 py-1 bg-gray-50 text-gray-500 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                              Não
+                            </span>
                           )}
                         </td>
                         <td className="p-4 text-right space-x-3 flex items-center justify-end gap-2">
@@ -302,9 +375,9 @@ export default function Pacientes({ userId }) {
                           
                           <button 
                             onClick={() => navigate('/nova-avaliacao', { state: { paciente: p } })} 
-                            className="text-emerald-600 hover:text-emerald-800 font-medium text-xs bg-emerald-50 px-3 py-1.5 rounded"
+                            className="text-emerald-600 hover:text-emerald-800 font-medium text-xs bg-emerald-50 px-3 py-1.5 rounded transition-colors"
                           >
-                            + Nova Avaliação
+                            + Avaliação
                           </button>
 
                           <button onClick={() => handleEditPaciente(p)} className="p-1.5 text-blue-500 hover:bg-blue-50 rounded transition-colors inline-flex items-center" title="Editar Paciente">
@@ -330,12 +403,11 @@ export default function Pacientes({ userId }) {
         )}
       </div>
 
-      {/* MODAL PACIENTE (CRIAÇÃO OU EDIÇÃO) */}
+      {/* --- MODAL PACIENTE (CRIAÇÃO OU EDIÇÃO) --- */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 overflow-y-auto">
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg max-h-[90vh] flex flex-col overflow-hidden animate-fade-in">
             
-            {/* Cabeçalho dinâmico */}
             <div className="flex justify-between items-center px-6 py-4 border-b border-gray-100">
               <h3 className="text-lg font-bold text-gray-800">
                 {editingPacienteId ? 'Atualizar Paciente' : 'Cadastrar Paciente'}
@@ -348,10 +420,7 @@ export default function Pacientes({ userId }) {
               </button>
             </div>
 
-            {/* Corpo do Formulário */}
             <form onSubmit={handleSubmit} className="p-6 space-y-4 overflow-y-auto flex-1">
-              
-              {/* Nome Completo */}
               <div>
                 <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
                   Nome Completo *
@@ -366,7 +435,6 @@ export default function Pacientes({ userId }) {
                 />
               </div>
 
-              {/* Data Nascimento + Sexo */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
@@ -395,7 +463,6 @@ export default function Pacientes({ userId }) {
                 </div>
               </div>
 
-              {/* Etnia + Nacionalidade */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
@@ -429,7 +496,6 @@ export default function Pacientes({ userId }) {
                 </div>
               </div>
 
-              {/* E-mail + Telefone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
@@ -458,7 +524,6 @@ export default function Pacientes({ userId }) {
                 </div>
               </div>
 
-              {/* Ocupação / Profissão */}
               <div>
                 <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
                   Ocupação / Profissão
@@ -472,7 +537,6 @@ export default function Pacientes({ userId }) {
                 />
               </div>
 
-              {/* Atividade Física */}
               <div className="pt-2">
                 <label className="flex items-center space-x-3 cursor-pointer">
                   <input
@@ -487,9 +551,8 @@ export default function Pacientes({ userId }) {
                 </label>
               </div>
 
-              {/* Campos condicionais se praticar esporte */}
               {praticaEsporte && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-emerald-50/50 p-3 rounded-lg border border-emerald-100">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-emerald-50/50 p-3 rounded-lg border border-emerald-100 animate-fade-in">
                   <div>
                     <label className="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1">
                       Modalidade
@@ -521,7 +584,6 @@ export default function Pacientes({ userId }) {
                 </div>
               )}
 
-              {/* Observações */}
               <div>
                 <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
                   Observações
@@ -535,7 +597,6 @@ export default function Pacientes({ userId }) {
                 ></textarea>
               </div>
 
-              {/* Botões do Rodapé (Texto dinâmico dependendo da ação) */}
               <div className="flex justify-end gap-3 pt-4 border-t border-gray-100">
                 <button
                   type="button"
@@ -558,44 +619,56 @@ export default function Pacientes({ userId }) {
         </div>
       )}
 
-      {/* MODAL DO HISTÓRICO DE AVALIAÇÕES */}
+      {/* --- MODAL DO HISTÓRICO DE AVALIAÇÕES --- */}
       {historicoPaciente && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-xl max-w-md w-full p-6 space-y-4 shadow-xl">
-            <div className="flex justify-between items-center border-b pb-3">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-2xl max-w-md w-full p-6 space-y-4 shadow-xl animate-fade-in">
+            <div className="flex justify-between items-center border-b border-gray-100 pb-3">
               <h3 className="text-lg font-bold text-gray-800">Histórico: {historicoPaciente.nome_completo}</h3>
-              <button onClick={() => setHistoricoPaciente(null)} className="text-gray-400 hover:text-gray-600 text-lg font-bold">✕</button>
+              <button 
+                onClick={() => setHistoricoPaciente(null)} 
+                className="text-gray-400 hover:text-gray-600 p-1 rounded hover:bg-gray-100 transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </button>
             </div>
 
             {avaliacoesList.length === 0 ? (
-              <p className="text-sm text-gray-500 text-center py-4">Nenhuma avaliação realizada ainda.</p>
+              <div className="py-8 flex flex-col items-center justify-center text-gray-500">
+                <svg className="w-10 h-10 mb-2 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                <p className="text-sm">Nenhuma avaliação realizada ainda.</p>
+              </div>
             ) : (
-              <div className="space-y-2 max-h-60 overflow-y-auto pr-2">
+              <div className="space-y-2 max-h-64 overflow-y-auto pr-2 custom-scrollbar">
                 {avaliacoesList.map((a) => (
-                  <div key={a.id} className="flex justify-between items-center p-3 border rounded-lg hover:bg-gray-50">
+                  <div key={a.id} className="flex justify-between items-center p-3 border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors">
                     <div>
-                      <p className="text-sm font-semibold text-gray-800">{new Date(a.data_avaliacao).toLocaleDateString('pt-BR')}</p>
-                      <p className="text-xs text-gray-500">{a.equacao_de_regressao_escolhida || 'Sem Equação'} • {a.peso_paciente}kg</p>
+                      <p className="text-sm font-bold text-gray-800">{new Date(a.data_avaliacao).toLocaleDateString('pt-BR')}</p>
+                      <p className="text-xs font-medium text-gray-500 mt-0.5">{a.equacao_de_regressao_escolhida || 'Sem Equação'} • {a.peso_paciente}kg</p>
                     </div>
 
-                    <div className="flex gap-1.5 items-center">
+                    <div className="flex gap-2 items-center">
                       <button
                         onClick={() => navigate('/nova-avaliacao', { state: { paciente: historicoPaciente, avaliacaoIdParaEditar: a.id } })}
-                        className="p-1.5 text-blue-500 hover:bg-blue-50 rounded"
+                        className="p-1.5 text-blue-500 hover:bg-blue-100 rounded transition-colors"
                         title="Editar Avaliação"
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                       </button>
                       
-                      <button onClick={() => handleDeleteAvaliacao(a.id)} className="p-1.5 text-red-500 hover:bg-red-50 rounded" title="Excluir Avaliação">
+                      <button 
+                        onClick={() => handleDeleteAvaliacao(a.id)} 
+                        className="p-1.5 text-red-500 hover:bg-red-100 rounded transition-colors" 
+                        title="Excluir Avaliação"
+                      >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                       </button>
                       
                       <button
                         onClick={() => navigate('/laudo-antropometrico', { state: { avaliacaoId: a.id } })}
-                        className="px-3 py-1 bg-emerald-600 text-white rounded text-xs font-medium hover:bg-emerald-700"
+                        className="px-3 py-1.5 bg-emerald-600 text-white rounded-md text-xs font-semibold hover:bg-emerald-700 shadow-sm transition-colors ml-1"
                       >
-                        Ver Relatório
+                        Laudo
                       </button>
                     </div>
                   </div>
