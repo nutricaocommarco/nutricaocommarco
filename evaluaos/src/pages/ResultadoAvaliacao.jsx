@@ -583,7 +583,7 @@ export default function ResultadoAvaliacao() {
             nomeAvaliador={nomeAvaliador}
             logomarcaUrl={logomarcaUrl}
             tokenPublico={tokenPublico}
-            isPublicView={isPublicView} /* <--- ADICIONE ESTA LINHA AQUI */
+            isPublicView={isPublicView}
           />
         )}
       </div>
