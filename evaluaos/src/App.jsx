@@ -191,6 +191,7 @@ function MainApp() {
             <Route path="/equacoes-de-regressao" element={<EscolhaPercGordura />} />
             <Route path="/laudo-antropometrico" element={<ResultadoAvaliacao />} />
             <Route path="/avaliador" element={<Avaliador userId={session.user.id} />} />
+            <Route path="/laudo/:tokenUrl" element={<ResultadoAvaliacao />} />
 
             <Route path="*" element={
               <div className="flex flex-col items-center justify-center h-full text-center p-6">
