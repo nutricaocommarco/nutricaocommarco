@@ -278,12 +278,12 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa
 };
 
 // --- BOTÃO DE EXPORTAÇÃO E WHATSAPP ---
-const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa, nomeAvaliador, logomarcaUrl }) => {
-  const pac = dados?.pacientes || {};
+const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa, nomeAvaliador, logomarcaUrl, tokenPublico }) => {  const pac = dados?.pacientes || {};
   const nomeArquivo = pac.nome_completo ? pac.nome_completo.replace(/\s+/g, '_') : 'Paciente';
   const primeiroNome = pac.nome_completo ? pac.nome_completo.split(' ')[0] : 'Paciente';
   const telefoneLimpo = pac.telefone ? pac.telefone.replace(/\D/g, '') : '';
-  
+  const linkDoLaudo = `${window.location.origin}/laudo/${tokenPublico}`;
+
   let saudacao = 'do seu Avaliador';
   
   if (nomeAvaliador && nomeEmpresa) {
@@ -294,7 +294,7 @@ const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmp
     saudacao = `do consultório ${nomeEmpresa}`;
   }
 
-  const mensagemWhatsApp = `Olá *${primeiroNome}*, tudo bem? \n\nAqui é ${saudacao}! Seu laudo antropométrico já está pronto. \n\nEstou enviando o arquivo em PDF logo abaixo para você acompanhar sua evolução. Qualquer dúvida, estou à disposição!`;
+const mensagemWhatsApp = `Olá *${primeiroNome}*, tudo bem? \n\nAqui é ${saudacao}! Seu laudo antropométrico já está pronto.\n\nAcesse o link abaixo para visualizar seus resultados interativos e baixar o arquivo em PDF para acompanhar sua evolução:\n\n${linkDoLaudo}\n\nQualquer dúvida, estou à disposição!`;
 
   const linkWhatsApp = telefoneLimpo 
     ? `https://wa.me/${telefoneLimpo.startsWith('55') ? telefoneLimpo : '55' + telefoneLimpo}?text=${encodeURIComponent(mensagemWhatsApp)}`
