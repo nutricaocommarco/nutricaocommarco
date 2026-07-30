@@ -31,6 +31,10 @@ export default function Avaliador() {
   const [novaSenha, setNovaSenha] = useState('')
   const [confirmaSenha, setConfirmaSenha] = useState('')
 
+  // Estados da Logomarca
+  const [logoUrl, setLogoUrl] = useState('')
+  const [uploadingLogo, setUploadingLogo] = useState(false)
+
   // Carregar Dados Existentes ao Abrir a Página
   useEffect(() => {
     async function carregarDadosAvaliador() {
@@ -61,6 +65,7 @@ export default function Avaliador() {
         setInstagram(perfilData.instagram || '')
         setEmpresa(perfilData.empresa || '')
         setPlanoStatus(perfilData.plano_status || 'Ativo')
+        setLogoUrl(perfilData.logomarca_url || '')
 
         // 2. Busca equipamentos vinculados ao ID do avaliador
         const { data: equipData, error: equipError } = await supabase
@@ -89,7 +94,7 @@ export default function Avaliador() {
     carregarDadosAvaliador()
   }, [])
 
-  // Salvar Perfil (Verifica se já existe pelo e-mail para atualizar em vez de duplicar)
+  // Salvar Perfil
   const handleSalvarPerfil = async (e) => {
     e.preventDefault()
     setSavingPerfil(true)
@@ -102,7 +107,6 @@ export default function Avaliador() {
       empresa
     }
 
-    // Verifica se já existe registro com este e-mail no banco
     const { data: existente } = await supabase
       .from('avaliadores')
       .select('id')
@@ -111,7 +115,6 @@ export default function Avaliador() {
 
     let res
     if (existente) {
-      // Atualiza o registro existente
       res = await supabase
         .from('avaliadores')
         .update(payload)
@@ -120,7 +123,6 @@ export default function Avaliador() {
         .single()
       setPerfilId(existente.id)
     } else {
-      // Cria novo apenas se realmente não existir
       res = await supabase
         .from('avaliadores')
         .insert([payload])
@@ -138,7 +140,7 @@ export default function Avaliador() {
     }
   }
 
-  // Salvar Equipamentos (Verifica se já existe pelo id_avaliador para atualizar)
+  // Salvar Equipamentos
   const handleSalvarEquipamentos = async (e) => {
     e.preventDefault()
     if (!perfilId) {
@@ -157,7 +159,6 @@ export default function Avaliador() {
       altura_banco: alturaBanco !== '' ? parseFloat(alturaBanco) : null
     }
 
-    // Verifica se já existem equipamentos para este avaliador
     const { data: equipExistente } = await supabase
       .from('equipamentos')
       .select('id')
@@ -191,7 +192,7 @@ export default function Avaliador() {
     }
   }
 
-  // Atualizar Senha (Valida senha atual e sobrescreve a antiga na Auth)
+  // Atualizar Senha
   const handleAtualizarSenha = async (e) => {
     e.preventDefault()
 
@@ -201,7 +202,6 @@ export default function Avaliador() {
 
     setSavingSenha(true)
 
-    // Valida a senha atual fazendo login de teste
     const { error: loginError } = await supabase.auth.signInWithPassword({
       email: email,
       password: senhaAtual
@@ -212,7 +212,6 @@ export default function Avaliador() {
       return alert('A senha atual está incorreta.')
     }
 
-    // Sobrescreve a senha antiga pela nova
     const { error: updateError } = await supabase.auth.updateUser({ password: novaSenha })
 
     setSavingSenha(false)
@@ -224,6 +223,61 @@ export default function Avaliador() {
       setSenhaAtual('')
       setNovaSenha('')
       setConfirmaSenha('')
+    }
+  }
+
+  // Upload de Logomarca
+  const handleUploadLogo = async (event) => {
+    try {
+      if (!perfilId) {
+        return alert('Por favor, salve suas Informações Profissionais primeiro para poder enviar a logomarca.')
+      }
+
+      setUploadingLogo(true)
+      
+      const file = event.target.files[0]
+      if (!file) return
+
+      // Trava de segurança: 2MB
+      if (file.size > 2 * 1024 * 1024) {
+        alert('A imagem deve ter no máximo 2MB.')
+        return
+      }
+
+      // Nome único para evitar substituições indesejadas
+      const fileExt = file.name.split('.').pop()
+      const fileName = `${perfilId}_logo_${Date.now()}.${fileExt}`
+      const filePath = `logomarcas/${fileName}`
+
+      // Upload para o Bucket
+      const { error: uploadError } = await supabase.storage
+        .from('avaliador_assets')
+        .upload(filePath, file)
+
+      if (uploadError) throw uploadError
+
+      // Captura o link público
+      const { data: publicUrlData } = supabase.storage
+        .from('avaliador_assets')
+        .getPublicUrl(filePath)
+
+      const urlFinal = publicUrlData.publicUrl
+
+      // Atualiza o banco de dados
+      const { error: updateError } = await supabase
+        .from('avaliadores')
+        .update({ logomarca_url: urlFinal })
+        .eq('id', perfilId)
+
+      if (updateError) throw updateError
+
+      setLogoUrl(urlFinal)
+      alert('Logomarca atualizada com sucesso!')
+
+    } catch (error) {
+      alert('Erro ao subir imagem: ' + error.message)
+    } finally {
+      setUploadingLogo(false)
     }
   }
 
@@ -357,6 +411,31 @@ export default function Avaliador() {
             </button>
           </div>
         </form>
+      </div>
+
+      {/* SEÇÃO 4: PERSONALIZAÇÃO */}
+      <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm space-y-6">
+        <div className="border-b pb-3">
+          <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider">4. Personalização do Relatório</h3>
+        </div>
+        
+        <div>
+          <label className="block text-xs font-semibold text-gray-700 uppercase mb-2">Logomarca do Consultório</label>
+          
+          {logoUrl && (
+            <img src={logoUrl} alt="Logo" className="h-20 w-auto mb-4 rounded border border-gray-200 p-1" />
+          )}
+
+          <input 
+            type="file" 
+            accept="image/png, image/jpeg" 
+            onChange={handleUploadLogo}
+            disabled={uploadingLogo}
+            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100"
+          />
+          {uploadingLogo && <p className="text-xs text-blue-500 mt-2 font-medium">Fazendo upload da imagem, aguarde...</p>}
+          <p className="text-xs text-gray-400 mt-2">Formato JPG ou PNG. O arquivo deve ter no máximo 2MB.</p>
+        </div>
       </div>
 
     </div>
