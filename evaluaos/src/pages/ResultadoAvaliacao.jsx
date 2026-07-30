@@ -104,13 +104,10 @@ export default function ResultadoAvaliacao() {
 
       setTokenPublico(avalDados.token_publico || '')
 
-      const pac = avalDados.pacientes || {}
-      const idBuscaAvaliador = pac.id_avaliador || 3;
-
-      const { data: avaliadorData } = await supabase
+    const { data: avaliadorData } = await supabase
         .from('avaliadores')
         .select('empresa, nome_completo, logomarca_url')
-        .eq('id', idBuscaAvaliador)
+        .eq('id', 3)
         .maybeSingle();
         
       if (avaliadorData) {
