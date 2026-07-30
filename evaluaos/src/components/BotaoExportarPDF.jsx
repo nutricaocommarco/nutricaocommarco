@@ -1,12 +1,21 @@
 import React from 'react';
-import { Document, Page, Text, View, StyleSheet, PDFDownloadLink, Svg, Line, Polygon, Circle } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet, PDFDownloadLink, Svg, Line, Polygon, Circle, Image } from '@react-pdf/renderer';
 
 // --- ESTILOS DO PDF ---
 const styles = StyleSheet.create({
   page: { paddingTop: 35, paddingBottom: 50, paddingLeft: 55, paddingRight: 35, backgroundColor: '#FAFAFA', fontFamily: 'Helvetica' },
   sectionWrap: { marginBottom: 15 }, 
-  title: { fontSize: 20, fontWeight: 'bold', color: '#1F2937', marginBottom: 4 },
-  subtitle: { fontSize: 9, color: '#6B7280', textTransform: 'uppercase', marginBottom: 15 },
+  
+  // Layout do Cabeçalho
+  headerContainer: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 15 },
+  headerLeft: { flex: 1 },
+  headerRight: { alignItems: 'flex-end', justifyContent: 'center' },
+  logoImage: { height: 65, width: 'auto', marginBottom: 8, objectFit: 'contain' },
+  watermark: { fontSize: 8, color: '#9CA3AF', fontWeight: 'medium' },
+  watermarkBold: { color: '#059669', fontWeight: 'bold' },
+
+  title: { fontSize: 20, fontWeight: 'bold', color: '#1F2937', marginBottom: 2 },
+  subtitle: { fontSize: 9, color: '#6B7280', textTransform: 'uppercase' },
   sectionTitle: { fontSize: 11, fontWeight: 'bold', color: '#1F2937', textTransform: 'uppercase', marginBottom: 8, borderBottomWidth: 1, borderBottomColor: '#E5E7EB', paddingBottom: 4 },
   cardGroup: { flexDirection: 'row', gap: 10, marginBottom: 15 },
   cardGray: { backgroundColor: '#F9FAFB', padding: 12, borderRadius: 6, borderWidth: 1, borderColor: '#F3F4F6' },
@@ -66,7 +75,7 @@ const ProgressBar = ({ label, value, valColor, barStyle }) => (
 );  
 
 // --- CORPO DO PDF ---
-const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa, nomeAvaliador }) => {
+const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa, logomarcaUrl }) => {
   const aval = dados?.avaliacoes || {};
   const pac = dados?.pacientes || {};
   const dataFormatada = aval.data_avaliacao ? new Date(aval.data_avaliacao + 'T12:00:00').toLocaleDateString('pt-BR') : '-';
@@ -79,8 +88,20 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa
     <Document>
       <Page size="A4" style={styles.page}>
         
-        <Text style={styles.title}>Laudo Antropométrico: {pac.nome_completo}</Text>
-        <Text style={styles.subtitle}>{consultorio} | Avaliação em Consultório</Text>
+        {/* CABEÇALHO DO PDF COM LOGO E AVISO EVALUAOS */}
+        <View style={styles.headerContainer}>
+          <View style={styles.headerLeft}>
+            <Text style={styles.title}>Laudo Antropométrico</Text>
+            <Text style={[styles.title, { fontSize: 16, color: '#4B5563', marginBottom: 4 }]}>{pac.nome_completo}</Text>
+            <Text style={styles.subtitle}>{consultorio} | Avaliação em Consultório</Text>
+          </View>
+          <View style={styles.headerRight}>
+            {logomarcaUrl ? (
+              <Image src={logomarcaUrl} style={styles.logoImage} />
+            ) : null}
+            <Text style={styles.watermark}>Gerado via <Text style={styles.watermarkBold}>EvaluaOS</Text></Text>
+          </View>
+        </View>
 
         <View style={styles.cardGroup}>
           <View style={[styles.cardGray, { flex: 1 }]}>
@@ -257,13 +278,12 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa
 };
 
 // --- BOTÃO DE EXPORTAÇÃO E WHATSAPP ---
-const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa, nomeAvaliador }) => {
+const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa, nomeAvaliador, logomarcaUrl }) => {
   const pac = dados?.pacientes || {};
   const nomeArquivo = pac.nome_completo ? pac.nome_completo.replace(/\s+/g, '_') : 'Paciente';
   const primeiroNome = pac.nome_completo ? pac.nome_completo.split(' ')[0] : 'Paciente';
   const telefoneLimpo = pac.telefone ? pac.telefone.replace(/\D/g, '') : '';
   
-  // Monta a saudação baseada nas informações disponíveis no banco
   let saudacao = 'do seu Avaliador';
   
   if (nomeAvaliador && nomeEmpresa) {
@@ -274,7 +294,7 @@ const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmp
     saudacao = `do consultório ${nomeEmpresa}`;
   }
 
-    const mensagemWhatsApp = `Olá *${primeiroNome}*, tudo bem? \n\nAqui é ${saudacao}! Seu laudo antropométrico já está pronto. \n\nEstou enviando o arquivo em PDF logo abaixo para você acompanhar sua evolução. Qualquer dúvida, estou à disposição!`;
+  const mensagemWhatsApp = `Olá *${primeiroNome}*, tudo bem? \n\nAqui é ${saudacao}! Seu laudo antropométrico já está pronto. \n\nEstou enviando o arquivo em PDF logo abaixo para você acompanhar sua evolução. Qualquer dúvida, estou à disposição!`;
 
   const linkWhatsApp = telefoneLimpo 
     ? `https://wa.me/${telefoneLimpo.startsWith('55') ? telefoneLimpo : '55' + telefoneLimpo}?text=${encodeURIComponent(mensagemWhatsApp)}`
@@ -297,7 +317,7 @@ const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmp
       ) : null}
 
       <PDFDownloadLink
-        document={<RelatorioPDF dados={dados} idade={idade} statusCintura={statusCintura} iamVal={iamVal} imoVal={imoVal} nomeEmpresa={nomeEmpresa} nomeAvaliador={nomeAvaliador} />}
+        document={<RelatorioPDF dados={dados} idade={idade} statusCintura={statusCintura} iamVal={iamVal} imoVal={imoVal} nomeEmpresa={nomeEmpresa} logomarcaUrl={logomarcaUrl} />}
         fileName={`Laudo_${nomeArquivo}.pdf`}
         className="flex items-center justify-center px-6 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-lg shadow hover:bg-emerald-700 transition-colors"
       >

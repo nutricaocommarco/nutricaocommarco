@@ -58,15 +58,14 @@ export default function ResultadoAvaliacao() {
   const location = useLocation()
   const navigate = useNavigate()
 
-  // Resgata o ID que foi enviado invisível pelo botão de Histórico
   const avaliacaoId = location.state?.avaliacaoId || null
 
   const [loading, setLoading] = useState(true)
   const [dados, setDados] = useState(null)
   
-  // 1. ADICIONADO: Estados para guardar os dados do avaliador
   const [nomeEmpresa, setNomeEmpresa] = useState('')
   const [nomeAvaliador, setNomeAvaliador] = useState('')
+  const [logomarcaUrl, setLogomarcaUrl] = useState('') // ESTADO NOVO PARA LOGOMARCA
 
   if (!avaliacaoId) {
     return (
@@ -98,16 +97,17 @@ export default function ResultadoAvaliacao() {
 
       const pac = avalDados.pacientes || {}
 
-      // 2. ADICIONADO: Busca os dados do Avaliador e da Empresa direto do seu ID (3)
+      // Busca a logomarca_url também
       const { data: avaliadorData } = await supabase
         .from('avaliadores')
-        .select('empresa, nome_completo')
+        .select('empresa, nome_completo, logomarca_url')
         .eq('id', 3)
         .maybeSingle();
         
       if (avaliadorData) {
         if (avaliadorData.empresa) setNomeEmpresa(avaliadorData.empresa);
         if (avaliadorData.nome_completo) setNomeAvaliador(avaliadorData.nome_completo);
+        if (avaliadorData.logomarca_url) setLogomarcaUrl(avaliadorData.logomarca_url);
       }
 
       const pesoFinal = avalDados.peso_paciente || 0
@@ -126,7 +126,6 @@ export default function ResultadoAvaliacao() {
       const dCoxa = avalDados.dobra_cutanea_coxa_media || 0
       const dPant = avalDados.dobra_cutanea_panturrilha || 0
 
-      // Perímetros Corrigidos
       const calcPerimCorrigidoBraco = pBraco > 0 ? pBraco - (dTri * 0.314) : 0;
       const calcPerimCorrigidoCoxa = pCoxa > 0 ? pCoxa - (dCoxa * 0.314) : 0;
       const calcPerimCorrigidoPanturrilha = pPant > 0 ? pPant - (dPant * 0.314) : 0;
@@ -218,7 +217,6 @@ export default function ResultadoAvaliacao() {
     if (m < 0 || (m === 0 && evalDate.getDate() < birthDate.getDate())) idade--
   }
 
-  // --- CLASSIFICAÇÃO DA CINTURA (Status) ---
   const cinturaVal = aval.perimetro_cintura || 0
   let statusCintura = '-'
   if (cinturaVal > 0) {
@@ -239,10 +237,8 @@ export default function ResultadoAvaliacao() {
   const massaMagra = dados.massa_magra || 0
   const massaMuscular = dados.massa_muscular || 0
 
-  // --- ÍNDICE ADIPOSO MUSCULAR (IAM) ---
   const iamVal = (massaMuscular > 0 && massaGorda > 0) ? (massaGorda / massaMuscular) : 0
 
-  // --- VARIÁVEIS PRÉ-CÁLCULO CORRIGIDAS ---
   const pBraco = aval.perimetro_braco_relaxado || 0;
   const pCoxa = aval.perimetro_coxa_media || 0;
   const pPant = aval.perimetro_panturrilha || 0;
@@ -250,15 +246,12 @@ export default function ResultadoAvaliacao() {
   const perimCorrigidoCoxa = dados.perimetro_corrigido_coxa || (pCoxa > 0 ? pCoxa - ((aval.dobra_cutanea_coxa_media || 0) * 0.314) : 0);
   const perimCorrigidoPanturrilha = dados.perimetro_corrigido_panturrilha || (pPant > 0 ? pPant - ((aval.dobra_cutanea_panturrilha || 0) * 0.314) : 0);
 
-// --- ÍNDICE DE MÚSCULO ÓSSEO (IMO) - EXATO ---
   const estatura = Number(aval.altura_paciente) || 0;
-  
   const dUmero = Number(aval.diametro_umero) || 0;
   const dFemur = Number(aval.diametro_femur) || 0;
   const dRadio = Number(aval.diametro_punho) || 0; 
   const dMaleolar = Number(aval.diametro_maleolar) || 0;
 
-  // Parte 1
   const parte1 = 0.6 * estatura * Math.pow(dUmero + dFemur + dRadio + dMaleolar, 2) * 0.0001;
 
   const cCoxa = Number(aval.perimetro_coxa_media) || 0;
@@ -267,16 +260,10 @@ export default function ResultadoAvaliacao() {
   const cPant = Number(aval.perimetro_panturrilha) || 0;
   const dPant = Number(aval.dobra_cutanea_panturrilha) || 0;
 
-  // Garantindo o uso exato de 0.3141 e conversão segura para Number para evitar concatenação de Strings
   const termoCoxa = cCoxa - (dCoxa * 0.3141);
   const termoPant = cPant - (dPant * 0.3141);
-
-  // Parte 2 exata conforme a fórmula
   const parte2 = (estatura * (0.0553 * Math.pow(termoCoxa, 2) + 0.0987 * Math.pow(cAntebraco, 2) + 0.0331 * Math.pow(termoPant, 2)) - 2445) * 0.001;
-
-  // Parte 3 (Parte 2 / Parte 1)
   const imoVal = (parte1 > 0 && parte2 > 0) ? (parte2 / parte1) : 0;
-
 
   const coordX = 150 + ((dados.somatocarta_eixo_x || 0) * 15)
   const coordY = 150 - ((dados.somatocarta_eixo_y || 0) * 11)
@@ -298,14 +285,26 @@ export default function ResultadoAvaliacao() {
   return (
     <div className="space-y-6 pb-10">
       
-      {/* ============================================================
-          CABEÇALHO DA AVALIAÇÃO E PACIENTE 
-      ============================================================= */}
       <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm relative">
-        <button onClick={() => navigate('/pacientes')} className="text-xs text-emerald-600 font-semibold hover:underline mb-2 inline-block">
-          ← Voltar para Histórico
-        </button>
-        <h2 className="text-2xl font-bold text-gray-800">Laudo Antropométrico: {pac.nome_completo}</h2>
+        {/* CABEÇALHO DA TELA COM LOGO E AVISO EVALUAOS */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
+          <div>
+            <button onClick={() => navigate('/pacientes')} className="text-xs text-emerald-600 font-semibold hover:underline mb-2 inline-block">
+              ← Voltar para Histórico
+            </button>
+            <h2 className="text-2xl font-bold text-gray-800">Laudo Antropométrico</h2>
+            <p className="text-lg font-medium text-gray-500">{pac.nome_completo}</p>
+          </div>
+          
+          <div className="flex flex-col items-end mt-4 sm:mt-0">
+            {logomarcaUrl && (
+              <img src={logomarcaUrl} alt="Logo" className="h-24 w-auto object-contain mb-2" />
+            )}
+            <span className="text-[10px] text-gray-400 font-medium tracking-wide">
+              Gerado via <span className="font-bold text-emerald-600">EvaluaOS</span>
+            </span>
+          </div>
+        </div>
         
         <div className="mt-4 flex flex-col md:flex-row gap-4">
           <div className="flex-1 bg-gray-50 p-4 rounded-lg border border-gray-100">
@@ -341,9 +340,6 @@ export default function ResultadoAvaliacao() {
         </div>
       </div>
 
-      {/* ============================================================
-          1. MEDIDAS BÁSICAS
-      ============================================================= */}
       <div>
         <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">📐 1. Medidas Básicas</h3>
         <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
@@ -356,9 +352,6 @@ export default function ResultadoAvaliacao() {
         </div>
       </div>
 
-      {/* ============================================================
-          2. COMPOSIÇÃO CORPORAL
-      ============================================================= */}
       <div>
         <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">📊 2. Composição Corporal</h3>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -386,9 +379,6 @@ export default function ResultadoAvaliacao() {
         </div>
       </div>
 
-      {/* ============================================================
-          3. DOBRAS CUTÂNEAS
-      ============================================================= */}
       <div>
         <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">🤏 3. Dobras Cutâneas</h3>
         <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
@@ -405,9 +395,6 @@ export default function ResultadoAvaliacao() {
         </div>
       </div>
 
-      {/* ============================================================
-          4. INDICADORES DE SAÚDE
-      ============================================================= */}
       <div>
         <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">⚖️ 4. Indicadores de Saúde</h3>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -436,9 +423,6 @@ export default function ResultadoAvaliacao() {
         </div>
       </div>
 
-      {/* ============================================================
-          5. PERÍMETROS
-      ============================================================= */}
       <div>
         <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">🔄 5. Perímetros</h3>
         <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
@@ -456,9 +440,6 @@ export default function ResultadoAvaliacao() {
         </div>
       </div>
 
-      {/* ============================================================
-          6. PERÍMETROS CORRIGIDOS
-      ============================================================= */}
       <div>
         <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">💪 6. Perímetros Corrigidos (Massa Muscular Regional)</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -477,9 +458,6 @@ export default function ResultadoAvaliacao() {
         </div>
       </div>
 
-      {/* ============================================================
-          7. DIÂMETROS ÓSSEOS
-      ============================================================= */}
       <div>
         <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">🦴 7. Diâmetros ÓSSEos</h3>
         <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
@@ -492,9 +470,6 @@ export default function ResultadoAvaliacao() {
         </div>
       </div>
 
-      {/* ============================================================
-          8. SOMATOTIPO
-      ============================================================= */}
       <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">🧬 8. Somatotipo (Heath-Carter)</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm space-y-4">
@@ -551,9 +526,6 @@ export default function ResultadoAvaliacao() {
         </div>
       </div>
 
-      {/* ============================================================
-          10. OUTROS INDICADORES & CLASSIFICAÇÕES
-      ============================================================= */}
       <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm space-y-4 mt-6">
         <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider border-b pb-2">🚀 10. Outros Indicadores & Classificações</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -574,7 +546,6 @@ export default function ResultadoAvaliacao() {
             </div>
           </div>
           
-
           {[
             'Área de Previsão Visceral (APVAT)', 
             'Gordura (Escala Morrow)', 
@@ -588,7 +559,6 @@ export default function ResultadoAvaliacao() {
 
         </div>
         
-        {/* 3. ADICIONADO: Propriedades de nomeEmpresa e nomeAvaliador inseridas no botão */}
         <BotaoExportarPDF 
           dados={dados} 
           idade={idade} 
@@ -597,6 +567,7 @@ export default function ResultadoAvaliacao() {
           imoVal={imoVal} 
           nomeEmpresa={nomeEmpresa}
           nomeAvaliador={nomeAvaliador}
+          logomarcaUrl={logomarcaUrl}
         />
       </div>
 
