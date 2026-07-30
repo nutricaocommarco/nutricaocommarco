@@ -295,7 +295,7 @@ export default function ResultadoAvaliacao() {
       
       <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm relative">
         
-        {/* NOVA SESSÃO DO AVALIADOR E BRANDING NO TOPO */}
+        {/* NOVA SESSÃO DO AVALIADOR E BRANDING NO TOPO  */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 border-b border-gray-100 pb-4">
           <div className="flex items-center gap-4">
             {logomarcaUrl ? (
