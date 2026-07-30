@@ -105,8 +105,6 @@ export default function ResultadoAvaliacao() {
       setTokenPublico(avalDados.token_publico || '')
 
       const pac = avalDados.pacientes || {}
-      
-      // Garante a busca pelas informações do avaliador
       const idBuscaAvaliador = pac.id_avaliador || 3;
 
       const { data: avaliadorData } = await supabase
@@ -195,7 +193,7 @@ export default function ResultadoAvaliacao() {
         ...somatotipo
       }
 
-// TRAVA DE SEGURANÇA: Somente o avaliador (logado) tenta salvar dados. O paciente apenas visualiza.
+      // TRAVA DE SEGURANÇA: Se for acesso público (paciente), NÃO salva no banco, apenas mostra na tela.
       if (!isPublicView) {
         const { error: upsertError } = await supabase
           .from('dados_calculados')
@@ -214,7 +212,7 @@ export default function ResultadoAvaliacao() {
     }
 
     processarERecarregarResultados()
-  }, [avaliacaoId, tokenUrl])
+  }, [avaliacaoId, tokenUrl, isPublicView])
 
   if (loading) return <div className="p-8 text-center text-gray-500">Carregando e atualizando relatório...</div>
   if (!dados) return <div className="p-8 text-center text-red-500">Não foi possível carregar os resultados desta avaliação.</div>
