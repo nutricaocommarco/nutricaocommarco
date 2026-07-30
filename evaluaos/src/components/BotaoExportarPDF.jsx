@@ -1,10 +1,17 @@
 import React from 'react';
 import { Document, Page, Text, View, StyleSheet, PDFDownloadLink, Svg, Line, Polygon, Circle } from '@react-pdf/renderer';
 
-// --- ESTILOS DO PDF (Traduzidos do Tailwind) ---
+// --- ESTILOS DO PDF (Otimizados para Impressão e Encadernação) ---
 const styles = StyleSheet.create({
-  page: { padding: 30, backgroundColor: '#FAFAFA', fontFamily: 'Helvetica' },
-  sectionWrap: { marginBottom: 15 }, // Para evitar quebras de página no meio de um bloco
+  page: { 
+    paddingTop: 35,
+    paddingBottom: 50, // Respiro maior embaixo
+    paddingLeft: 55,   // Margem de 2cm para grampear/furar
+    paddingRight: 35,
+    backgroundColor: '#FAFAFA', 
+    fontFamily: 'Helvetica' 
+  },
+  sectionWrap: { marginBottom: 15 }, 
   
   // Tipografia
   title: { fontSize: 20, fontWeight: 'bold', color: '#1F2937', marginBottom: 4 },
@@ -55,7 +62,8 @@ const styles = StyleSheet.create({
   barBlue: { backgroundColor: '#3B82F6', height: 8, borderRadius: 4 },
   barEmerald: { backgroundColor: '#10B981', height: 8, borderRadius: 4 },
 
-  footer: { marginTop: 20, paddingTop: 10, borderTopWidth: 1, borderTopColor: '#E5E7EB', textAlign: 'center', fontSize: 8, color: '#9CA3AF' }
+  // Rodapé ajustado para acompanhar as novas margens laterais
+  footer: { position: 'absolute', bottom: 20, left: 55, right: 35, borderTopWidth: 1, borderTopColor: '#E5E7EB', paddingTop: 10, textAlign: 'center', fontSize: 8, color: '#9CA3AF' }
 });
 
 // --- COMPONENTES AUXILIARES ---
