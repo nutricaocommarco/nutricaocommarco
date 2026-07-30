@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   headerContainer: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 15 },
   headerLeft: { flex: 1 },
   headerRight: { alignItems: 'flex-end', justifyContent: 'center' },
-  logoImage: { height: 40, width: 'auto', marginBottom: 5, objectFit: 'contain' },
+  logoImage: { height: 65, width: 'auto', marginBottom: 8, objectFit: 'contain' },
   watermark: { fontSize: 8, color: '#9CA3AF', fontWeight: 'medium' },
   watermarkBold: { color: '#059669', fontWeight: 'bold' },
 

@@ -298,7 +298,7 @@ export default function ResultadoAvaliacao() {
           
           <div className="flex flex-col items-end mt-4 sm:mt-0">
             {logomarcaUrl && (
-              <img src={logomarcaUrl} alt="Logo" className="h-12 w-auto object-contain mb-1" />
+              <img src={logomarcaUrl} alt="Logo" className="h-24 w-auto object-contain mb-2" />
             )}
             <span className="text-[10px] text-gray-400 font-medium tracking-wide">
               Gerado via <span className="font-bold text-emerald-600">EvaluaOS</span>
