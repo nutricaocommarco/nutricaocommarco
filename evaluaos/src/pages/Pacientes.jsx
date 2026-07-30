@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom' // <-- Import da Navegação
+import { useNavigate } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 
 export default function Pacientes({ userId }) {
-  const navigate = useNavigate() // Inicia a função de mudar de tela
+  const navigate = useNavigate()
 
   const [pacientes, setPacientes] = useState([])
   const [loading, setLoading] = useState(true)
@@ -11,6 +11,9 @@ export default function Pacientes({ userId }) {
   
   const [historicoPaciente, setHistoricoPaciente] = useState(null)
   const [avaliacoesList, setAvaliacoesList] = useState([])
+
+  // Estado para controlar se estamos editando ou criando
+  const [editingPacienteId, setEditingPacienteId] = useState(null)
 
   const [nome, setNome] = useState('')
   const [dataNascimento, setDataNascimento] = useState('')
@@ -45,6 +48,42 @@ export default function Pacientes({ userId }) {
     fetchPacientes()
   }, [])
 
+  // Abre o modal limpo para um NOVO paciente
+  const handleOpenNovoPaciente = () => {
+    setEditingPacienteId(null)
+    setNome('')
+    setDataNascimento('')
+    setSexo('M')
+    setEtnia('')
+    setNacionalidade('Brasileira')
+    setEmail('')
+    setTelefone('')
+    setOcupacao('')
+    setPraticaEsporte(false)
+    setModalidadeEsportiva('')
+    setNivelPratica('')
+    setObservacoes('')
+    setShowModal(true)
+  }
+
+  // Abre o modal preenchido para EDITAR um paciente
+  const handleEditPaciente = (p) => {
+    setEditingPacienteId(p.id)
+    setNome(p.nome_completo || '')
+    setDataNascimento(p.data_nascimento || '')
+    setSexo(p.sexo || 'M')
+    setEtnia(p.etnia || '')
+    setNacionalidade(p.nacionalidade || 'Brasileira')
+    setEmail(p.email || '')
+    setTelefone(p.telefone || '')
+    setOcupacao(p.ocupacao || '')
+    setPraticaEsporte(p.pratica_esporte === true || p.pratica_esporte === 'true')
+    setModalidadeEsportiva(p.modalidade_esportiva || '')
+    setNivelPratica(p.nivel_pratica || '')
+    setObservacoes(p.observacoes || '')
+    setShowModal(true)
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     setSaving(true)
@@ -65,25 +104,29 @@ export default function Pacientes({ userId }) {
       observacoes
     }
 
-    const { error } = await supabase.from('pacientes').insert([payload])
+    if (editingPacienteId) {
+      // MODO ATUALIZAÇÃO
+      const { error } = await supabase
+        .from('pacientes')
+        .update(payload)
+        .eq('id', editingPacienteId)
 
-    if (error) {
-      alert('Erro ao cadastrar paciente: ' + error.message)
+      if (error) {
+        alert('Erro ao atualizar paciente: ' + error.message)
+      } else {
+        setShowModal(false)
+        fetchPacientes()
+      }
     } else {
-      setShowModal(false)
-      setNome('')
-      setDataNascimento('')
-      setSexo('M')
-      setEtnia('')
-      setNacionalidade('Brasileira')
-      setEmail('')
-      setTelefone('')
-      setOcupacao('')
-      setPraticaEsporte(false)
-      setModalidadeEsportiva('')
-      setNivelPratica('')
-      setObservacoes('')
-      fetchPacientes()
+      // MODO CRIAÇÃO (NOVO)
+      const { error } = await supabase.from('pacientes').insert([payload])
+
+      if (error) {
+        alert('Erro ao cadastrar paciente: ' + error.message)
+      } else {
+        setShowModal(false)
+        fetchPacientes()
+      }
     }
     setSaving(false)
   }
@@ -142,7 +185,7 @@ export default function Pacientes({ userId }) {
           <p className="text-sm text-gray-500">Gerencie a lista de alunos e pacientes avaliados</p>
         </div>
         <button
-          onClick={() => setShowModal(true)}
+          onClick={handleOpenNovoPaciente}
           className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 font-medium text-sm transition-colors w-full sm:w-auto"
         >
           + Novo Paciente
@@ -190,12 +233,21 @@ export default function Pacientes({ userId }) {
                         Histórico
                       </button>
 
-                      {/* NAVEGAÇÃO: Envia para a Rota Nova Avaliação com os dados do Paciente */}
                       <button 
                         onClick={() => navigate('/nova-avaliacao', { state: { paciente: p } })}
                         className="flex-1 text-center py-2 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-semibold text-xs rounded"
                       >
                         + Avaliação
+                      </button>
+
+                      <button 
+                        onClick={() => handleEditPaciente(p)}
+                        className="px-3 py-2 text-blue-500 border border-blue-100 hover:bg-blue-50 rounded transition-colors flex items-center justify-center"
+                        title="Editar Paciente"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                        </svg>
                       </button>
 
                       <button 
@@ -248,12 +300,17 @@ export default function Pacientes({ userId }) {
                             Histórico
                           </button>
                           
-                          {/* NAVEGAÇÃO: Envia para a Rota Nova Avaliação com os dados do Paciente */}
                           <button 
                             onClick={() => navigate('/nova-avaliacao', { state: { paciente: p } })} 
                             className="text-emerald-600 hover:text-emerald-800 font-medium text-xs bg-emerald-50 px-3 py-1.5 rounded"
                           >
                             + Nova Avaliação
+                          </button>
+
+                          <button onClick={() => handleEditPaciente(p)} className="p-1.5 text-blue-500 hover:bg-blue-50 rounded transition-colors inline-flex items-center" title="Editar Paciente">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                            </svg>
                           </button>
 
                           <button onClick={() => handleDeletePaciente(p.id)} className="p-1.5 text-red-500 hover:bg-red-50 rounded transition-colors inline-flex items-center" title="Excluir Paciente">
@@ -273,14 +330,16 @@ export default function Pacientes({ userId }) {
         )}
       </div>
 
-{/* MODAL NOVO PACIENTE */}
+      {/* MODAL PACIENTE (CRIAÇÃO OU EDIÇÃO) */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 overflow-y-auto">
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg max-h-[90vh] flex flex-col overflow-hidden animate-fade-in">
             
-            {/* Cabeçalho */}
+            {/* Cabeçalho dinâmico */}
             <div className="flex justify-between items-center px-6 py-4 border-b border-gray-100">
-              <h3 className="text-lg font-bold text-gray-800">Cadastrar Paciente</h3>
+              <h3 className="text-lg font-bold text-gray-800">
+                {editingPacienteId ? 'Atualizar Paciente' : 'Cadastrar Paciente'}
+              </h3>
               <button 
                 onClick={() => setShowModal(false)}
                 className="text-gray-400 hover:text-gray-600 transition-colors p-1 rounded-lg hover:bg-gray-100"
@@ -476,7 +535,7 @@ export default function Pacientes({ userId }) {
                 ></textarea>
               </div>
 
-              {/* Botões do Rodapé */}
+              {/* Botões do Rodapé (Texto dinâmico dependendo da ação) */}
               <div className="flex justify-end gap-3 pt-4 border-t border-gray-100">
                 <button
                   type="button"
@@ -490,7 +549,7 @@ export default function Pacientes({ userId }) {
                   disabled={saving}
                   className="px-5 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 shadow disabled:opacity-50 transition-colors"
                 >
-                  {saving ? 'Salvando...' : 'Salvar Paciente'}
+                  {saving ? 'Salvando...' : editingPacienteId ? 'Atualizar Paciente' : 'Salvar Paciente'}
                 </button>
               </div>
 
@@ -520,7 +579,6 @@ export default function Pacientes({ userId }) {
                     </div>
 
                     <div className="flex gap-1.5 items-center">
-                      {/* NAVEGAÇÃO: Editar Manda pro Form com o ID da avaliação */}
                       <button
                         onClick={() => navigate('/nova-avaliacao', { state: { paciente: historicoPaciente, avaliacaoIdParaEditar: a.id } })}
                         className="p-1.5 text-blue-500 hover:bg-blue-50 rounded"
@@ -533,7 +591,6 @@ export default function Pacientes({ userId }) {
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                       </button>
                       
-                      {/* NAVEGAÇÃO: Manda pra Rota do Laudo com o ID da avaliação */}
                       <button
                         onClick={() => navigate('/laudo-antropometrico', { state: { avaliacaoId: a.id } })}
                         className="px-3 py-1 bg-emerald-600 text-white rounded text-xs font-medium hover:bg-emerald-700"

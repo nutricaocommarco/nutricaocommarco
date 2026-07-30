@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
+import BotaoExportarPDF from '../components/BotaoExportarPDF';
 
-// --- HELPER: CÁLCULO DE SOMATOTIPO HEATH-CARTER ---
+// --- HELPER CÁLCULO DE SOMATOTIPO HEATH-CARTER ---
 const calcularSomatotipo = (medidas) => {
   const triceps = medidas.dobra_cutanea_triceps || 0;
   const subescapular = medidas.dobra_cutanea_subescapular || 0;
@@ -62,11 +63,16 @@ export default function ResultadoAvaliacao() {
 
   const [loading, setLoading] = useState(true)
   const [dados, setDados] = useState(null)
+  
+  // 1. ADICIONADO: Estados para guardar os dados do avaliador
+  const [nomeEmpresa, setNomeEmpresa] = useState('')
+  const [nomeAvaliador, setNomeAvaliador] = useState('')
 
   if (!avaliacaoId) {
     return (
-      <div className="flex flex-col items-center justify-center p-8 space-y-4">
-        <p className="text-gray-500">Nenhuma avaliação foi selecionada.</p>
+      <div className="flex flex-col items-center justify-center h-full space-y-4 p-8">
+        <h2 className="text-xl font-bold text-gray-800">Nenhuma avaliação foi selecionada.</h2>
+        <p className="text-gray-500">Selecione uma avaliação na lista para gerar o relatório.</p>
         <button onClick={() => navigate('/pacientes')} className="px-6 py-2 bg-emerald-600 text-white rounded-lg">
           Voltar para Pacientes
         </button>
@@ -91,6 +97,18 @@ export default function ResultadoAvaliacao() {
       }
 
       const pac = avalDados.pacientes || {}
+
+      // 2. ADICIONADO: Busca os dados do Avaliador e da Empresa direto do seu ID (3)
+      const { data: avaliadorData } = await supabase
+        .from('avaliadores')
+        .select('empresa, nome_completo')
+        .eq('id', 3)
+        .maybeSingle();
+        
+      if (avaliadorData) {
+        if (avaliadorData.empresa) setNomeEmpresa(avaliadorData.empresa);
+        if (avaliadorData.nome_completo) setNomeAvaliador(avaliadorData.nome_completo);
+      }
 
       const pesoFinal = avalDados.peso_paciente || 0
       const alturaCm = avalDados.altura_paciente || 0
@@ -200,12 +218,66 @@ export default function ResultadoAvaliacao() {
     if (m < 0 || (m === 0 && evalDate.getDate() < birthDate.getDate())) idade--
   }
 
+  // --- CLASSIFICAÇÃO DA CINTURA (Status) ---
+  const cinturaVal = aval.perimetro_cintura || 0
+  let statusCintura = '-'
+  if (cinturaVal > 0) {
+    if (pac.sexo === 'M') {
+      if (cinturaVal < 94) statusCintura = 'Normal'
+      else if (cinturaVal < 102) statusCintura = 'Elevado'
+      else statusCintura = 'Muito Elevado'
+    } else {
+      if (cinturaVal < 80) statusCintura = 'Normal'
+      else if (cinturaVal < 88) statusCintura = 'Elevado'
+      else statusCintura = 'Muito Elevado'
+    }
+  }
+
   const imc = dados.imc || 0
   const percentualGordura = aval.percentual_de_gordura || 0 
   const massaGorda = dados.massa_gorda || 0
   const massaMagra = dados.massa_magra || 0
   const massaMuscular = dados.massa_muscular || 0
+
+  // --- ÍNDICE ADIPOSO MUSCULAR (IAM) ---
+  const iamVal = (massaMuscular > 0 && massaGorda > 0) ? (massaGorda / massaMuscular) : 0
+
+  // --- VARIÁVEIS PRÉ-CÁLCULO CORRIGIDAS ---
+  const pBraco = aval.perimetro_braco_relaxado || 0;
+  const pCoxa = aval.perimetro_coxa_media || 0;
+  const pPant = aval.perimetro_panturrilha || 0;
+  const perimCorrigidoBraco = dados.perimetro_corrigido_braco || (pBraco > 0 ? pBraco - ((aval.dobra_cutanea_triceps || 0) * 0.314) : 0);
+  const perimCorrigidoCoxa = dados.perimetro_corrigido_coxa || (pCoxa > 0 ? pCoxa - ((aval.dobra_cutanea_coxa_media || 0) * 0.314) : 0);
+  const perimCorrigidoPanturrilha = dados.perimetro_corrigido_panturrilha || (pPant > 0 ? pPant - ((aval.dobra_cutanea_panturrilha || 0) * 0.314) : 0);
+
+// --- ÍNDICE DE MÚSCULO ÓSSEO (IMO) - EXATO ---
+  const estatura = Number(aval.altura_paciente) || 0;
   
+  const dUmero = Number(aval.diametro_umero) || 0;
+  const dFemur = Number(aval.diametro_femur) || 0;
+  const dRadio = Number(aval.diametro_punho) || 0; 
+  const dMaleolar = Number(aval.diametro_maleolar) || 0;
+
+  // Parte 1
+  const parte1 = 0.6 * estatura * Math.pow(dUmero + dFemur + dRadio + dMaleolar, 2) * 0.0001;
+
+  const cCoxa = Number(aval.perimetro_coxa_media) || 0;
+  const dCoxa = Number(aval.dobra_cutanea_coxa_media) || 0;
+  const cAntebraco = Number(aval.perimetro_antibraco) || 0;
+  const cPant = Number(aval.perimetro_panturrilha) || 0;
+  const dPant = Number(aval.dobra_cutanea_panturrilha) || 0;
+
+  // Garantindo o uso exato de 0.3141 e conversão segura para Number para evitar concatenação de Strings
+  const termoCoxa = cCoxa - (dCoxa * 0.3141);
+  const termoPant = cPant - (dPant * 0.3141);
+
+  // Parte 2 exata conforme a fórmula
+  const parte2 = (estatura * (0.0553 * Math.pow(termoCoxa, 2) + 0.0987 * Math.pow(cAntebraco, 2) + 0.0331 * Math.pow(termoPant, 2)) - 2445) * 0.001;
+
+  // Parte 3 (Parte 2 / Parte 1)
+  const imoVal = (parte1 > 0 && parte2 > 0) ? (parte2 / parte1) : 0;
+
+
   const coordX = 150 + ((dados.somatocarta_eixo_x || 0) * 15)
   const coordY = 150 - ((dados.somatocarta_eixo_y || 0) * 11)
 
@@ -213,13 +285,6 @@ export default function ResultadoAvaliacao() {
   const rce = dados.relacao_cintura_estatura || 0;
   const soma6 = dados.somatorio_6_dobras || 0;
   const soma8 = dados.somatorio_8_dobras || 0;
-
-  const pBraco = aval.perimetro_braco_relaxado || 0;
-  const pCoxa = aval.perimetro_coxa_media || 0;
-  const pPant = aval.perimetro_panturrilha || 0;
-  const perimCorrigidoBraco = dados.perimetro_corrigido_braco || (pBraco > 0 ? pBraco - ((aval.dobra_cutanea_triceps || 0) * 0.314) : 0);
-  const perimCorrigidoCoxa = dados.perimetro_corrigido_coxa || (pCoxa > 0 ? pCoxa - ((aval.dobra_cutanea_coxa_media || 0) * 0.314) : 0);
-  const perimCorrigidoPanturrilha = dados.perimetro_corrigido_panturrilha || (pPant > 0 ? pPant - ((aval.dobra_cutanea_panturrilha || 0) * 0.314) : 0);
 
   const renderMedidaItem = (label, valor, unidade) => (
     <div className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0" key={label}>
@@ -237,7 +302,6 @@ export default function ResultadoAvaliacao() {
           CABEÇALHO DA AVALIAÇÃO E PACIENTE 
       ============================================================= */}
       <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm relative">
-        {/* AQUI ESTÁ A CORREÇÃO: Usando navigate() no lugar de onVoltar */}
         <button onClick={() => navigate('/pacientes')} className="text-xs text-emerald-600 font-semibold hover:underline mb-2 inline-block">
           ← Voltar para Histórico
         </button>
@@ -355,6 +419,12 @@ export default function ResultadoAvaliacao() {
             <span className="text-xs font-bold text-gray-600">Relação Cintura-Estatura</span>
             <span className="text-lg font-black text-indigo-600">{rce > 0 ? rce.toFixed(2) : '-'}</span>
           </div>
+          <div className="flex justify-between items-center p-3 border border-gray-100 rounded-lg bg-gray-50">
+            <span className="text-xs font-semibold text-gray-700">Circunferência da Cintura (Status)</span>
+            <span className="text-xs font-bold bg-emerald-100 text-emerald-800 px-2 py-1 rounded-md uppercase tracking-wide">
+              {statusCintura}
+            </span>
+          </div>
           <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex justify-between items-center">
             <span className="text-xs font-bold text-gray-600">Σ 6 Dobras</span>
             <span className="text-lg font-black text-amber-600">{soma6 > 0 ? soma6.toFixed(1) : '-'} <span className="text-xs font-normal text-gray-400">mm</span></span>
@@ -411,7 +481,7 @@ export default function ResultadoAvaliacao() {
           7. DIÂMETROS ÓSSEOS
       ============================================================= */}
       <div>
-        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">🦴 7. Diâmetros Ósseos</h3>
+        <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3 px-1 mt-6">🦴 7. Diâmetros ÓSSEos</h3>
         <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-2">
             {renderMedidaItem('Úmero', aval.diametro_umero, 'cm')}
@@ -482,22 +552,54 @@ export default function ResultadoAvaliacao() {
       </div>
 
       {/* ============================================================
-          10. OUTROS INDICADORES
+          10. OUTROS INDICADORES & CLASSIFICAÇÕES
       ============================================================= */}
       <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm space-y-4 mt-6">
         <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider border-b pb-2">🚀 10. Outros Indicadores & Classificações</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+
+          <div className="flex justify-between items-center p-3 border border-gray-100 rounded-lg bg-gray-50">
+            <span className="text-xs font-semibold text-gray-700">Índice Adiposo Muscular (IAM)</span>
+            <span className="text-xs font-bold text-gray-800">
+              {iamVal > 0 ? iamVal.toFixed(2) : '-'}
+            </span>
+          </div>
+
+          <div className="flex flex-col p-3 border border-gray-100 rounded-lg bg-gray-50 space-y-1">
+            <div className="flex justify-between items-center">
+              <span className="text-xs font-semibold text-gray-700">Índice de Músculo Ósseo (IMO)</span>
+              <span className="text-sm font-bold text-emerald-700">
+                {imoVal > 0 ? imoVal.toFixed(3) : '-'}
+              </span>
+            </div>
+          </div>
+          
+
           {[
-            'Índice de Massa Óssea (IMO)', 'Área de Previsão Visceral (APVAT)', 'Índice Adiposo Muscular', 
-            'Circunferência da Cintura (Status)', 'Gordura (Escala Morrow)', 'Gordura (Escala Argoref)'
+            'Área de Previsão Visceral (APVAT)', 
+            'Gordura (Escala Morrow)', 
+            'Gordura (Escala Argoref)'
           ].map((item, index) => (
             <div key={index} className="flex justify-between items-center p-3 border border-gray-100 rounded-lg bg-gray-50">
               <span className="text-xs font-semibold text-gray-700">{item}</span>
               <span className="text-[10px] font-bold bg-gray-200 text-gray-500 px-2 py-1 rounded-md uppercase tracking-wide">Em breve</span>
             </div>
           ))}
+
         </div>
+        
+        {/* 3. ADICIONADO: Propriedades de nomeEmpresa e nomeAvaliador inseridas no botão */}
+        <BotaoExportarPDF 
+          dados={dados} 
+          idade={idade} 
+          statusCintura={statusCintura} 
+          iamVal={iamVal} 
+          imoVal={imoVal} 
+          nomeEmpresa={nomeEmpresa}
+          nomeAvaliador={nomeAvaliador}
+        />
       </div>
+
     </div>
   )
 }
