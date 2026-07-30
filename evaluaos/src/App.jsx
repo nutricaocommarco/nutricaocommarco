@@ -76,10 +76,14 @@ function MainApp() {
     )
   }
 
-  if (!session) {
+if (!session) {
     return (
       <Routes>
         <Route path="/login" element={<Login />} />
+        
+        {/* ROTA PÚBLICA: Liberada para o paciente acessar sem senha */}
+        <Route path="/laudo/:tokenUrl" element={<ResultadoAvaliacao />} />
+        
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     )

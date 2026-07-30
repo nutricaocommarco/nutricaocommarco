@@ -57,9 +57,9 @@ const calcularSomatotipo = (medidas) => {
 export default function ResultadoAvaliacao() {
   const location = useLocation()
   const navigate = useNavigate()
-  const { tokenUrl } = useParams() // Pega o token da URL, se existir
+  const { tokenUrl } = useParams()
 
-  const isPublicView = !!tokenUrl; // Flag se acesso via link público do paciente
+  const isPublicView = !!tokenUrl;
   const avaliacaoId = location.state?.avaliacaoId || null
 
   const [loading, setLoading] = useState(true)
@@ -88,7 +88,6 @@ export default function ResultadoAvaliacao() {
       
       let query = supabase.from('avaliacoes').select(`*, pacientes ( * )`);
 
-      // Se acessado pela rota pública, busca pelo Token Seguro
       if (tokenUrl) {
         query = query.eq('token_publico', tokenUrl);
       } else {
@@ -106,6 +105,8 @@ export default function ResultadoAvaliacao() {
       setTokenPublico(avalDados.token_publico || '')
 
       const pac = avalDados.pacientes || {}
+      
+      // Garante a busca pelas informações do avaliador
       const idBuscaAvaliador = pac.id_avaliador || 3;
 
       const { data: avaliadorData } = await supabase
@@ -115,9 +116,9 @@ export default function ResultadoAvaliacao() {
         .maybeSingle();
         
       if (avaliadorData) {
-        if (avaliadorData.empresa) setNomeEmpresa(avaliadorData.empresa);
-        if (avaliadorData.nome_completo) setNomeAvaliador(avaliadorData.nome_completo);
-        if (avaliadorData.logomarca_url) setLogomarcaUrl(avaliadorData.logomarca_url);
+        setNomeEmpresa(avaliadorData.empresa || '');
+        setNomeAvaliador(avaliadorData.nome_completo || '');
+        setLogomarcaUrl(avaliadorData.logomarca_url || '');
       }
 
       const pesoFinal = avalDados.peso_paciente || 0
@@ -194,11 +195,14 @@ export default function ResultadoAvaliacao() {
         ...somatotipo
       }
 
-      const { error: upsertError } = await supabase
-        .from('dados_calculados')
-        .upsert(payloadCalculado, { onConflict: 'id_avaliacao' })
+// TRAVA DE SEGURANÇA: Somente o avaliador (logado) tenta salvar dados. O paciente apenas visualiza.
+      if (!isPublicView) {
+        const { error: upsertError } = await supabase
+          .from('dados_calculados')
+          .upsert(payloadCalculado, { onConflict: 'id_avaliacao' })
 
-      if (upsertError) console.warn('Nota: Não foi possível sincronizar no banco.', upsertError)
+        if (upsertError) console.warn('Nota: Não foi possível sincronizar no banco.', upsertError)
+      }
 
       setDados({
         ...payloadCalculado,
