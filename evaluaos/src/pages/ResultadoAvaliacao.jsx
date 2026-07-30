@@ -572,8 +572,10 @@ export default function ResultadoAvaliacao() {
 
         </div>
         <BotaoExportarPDF 
-          avaliacao={aval} 
-          paciente={pac} 
+          dados={dados} 
+          idade={idade} 
+          statusCintura={statusCintura} 
+          iamVal={iamVal} 
           imoVal={imoVal} 
         />
       </div>
