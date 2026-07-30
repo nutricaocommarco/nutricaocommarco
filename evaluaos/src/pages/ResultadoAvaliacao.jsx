@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 import BotaoExportarPDF from '../components/BotaoExportarPDF';
 
@@ -57,7 +57,9 @@ const calcularSomatotipo = (medidas) => {
 export default function ResultadoAvaliacao() {
   const location = useLocation()
   const navigate = useNavigate()
+  const { tokenUrl } = useParams() // Pega o token da URL, se existir
 
+  const isPublicView = !!tokenUrl; // Flag se acesso via link público do paciente
   const avaliacaoId = location.state?.avaliacaoId || null
 
   const [loading, setLoading] = useState(true)
@@ -66,8 +68,9 @@ export default function ResultadoAvaliacao() {
   const [nomeEmpresa, setNomeEmpresa] = useState('')
   const [nomeAvaliador, setNomeAvaliador] = useState('')
   const [logomarcaUrl, setLogomarcaUrl] = useState('')
+  const [tokenPublico, setTokenPublico] = useState('')
 
-  if (!avaliacaoId) {
+  if (!tokenUrl && !avaliacaoId) {
     return (
       <div className="flex flex-col items-center justify-center h-full space-y-4 p-8">
         <h2 className="text-xl font-bold text-gray-800">Nenhuma avaliação foi selecionada.</h2>
@@ -83,11 +86,16 @@ export default function ResultadoAvaliacao() {
     async function processarERecarregarResultados() {
       setLoading(true)
       
-      const { data: avalDados, error: avalError } = await supabase
-        .from('avaliacoes')
-        .select(`*, pacientes ( * )`)
-        .eq('id', avaliacaoId)
-        .single()
+      let query = supabase.from('avaliacoes').select(`*, pacientes ( * )`);
+
+      // Se acessado pela rota pública, busca pelo Token Seguro
+      if (tokenUrl) {
+        query = query.eq('token_publico', tokenUrl);
+      } else {
+        query = query.eq('id', avaliacaoId);
+      }
+
+      const { data: avalDados, error: avalError } = await query.single();
 
       if (avalError) {
         console.error('Avaliação não encontrada:', avalError)
@@ -95,12 +103,15 @@ export default function ResultadoAvaliacao() {
         return
       }
 
+      setTokenPublico(avalDados.token_publico || '')
+
       const pac = avalDados.pacientes || {}
+      const idBuscaAvaliador = pac.id_avaliador || 3;
 
       const { data: avaliadorData } = await supabase
         .from('avaliadores')
         .select('empresa, nome_completo, logomarca_url')
-        .eq('id', 3)
+        .eq('id', idBuscaAvaliador)
         .maybeSingle();
         
       if (avaliadorData) {
@@ -198,8 +209,8 @@ export default function ResultadoAvaliacao() {
       setLoading(false)
     }
 
-    if (avaliacaoId) processarERecarregarResultados()
-  }, [avaliacaoId])
+    processarERecarregarResultados()
+  }, [avaliacaoId, tokenUrl])
 
   if (loading) return <div className="p-8 text-center text-gray-500">Carregando e atualizando relatório...</div>
   if (!dados) return <div className="p-8 text-center text-red-500">Não foi possível carregar os resultados desta avaliação.</div>
@@ -282,14 +293,16 @@ export default function ResultadoAvaliacao() {
   )
 
   return (
-    <div className="space-y-6 pb-10">
+    <div className={`space-y-6 pb-10 ${isPublicView ? 'max-w-4xl mx-auto p-4 sm:p-6' : ''}`}>
       
       <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm relative">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
           <div>
-            <button onClick={() => navigate('/pacientes')} className="text-xs text-emerald-600 font-semibold hover:underline mb-2 inline-block">
-              ← Voltar para Histórico
-            </button>
+            {!isPublicView && (
+              <button onClick={() => navigate('/pacientes')} className="text-xs text-emerald-600 font-semibold hover:underline mb-2 inline-block">
+                ← Voltar para Histórico
+              </button>
+            )}
             <h2 className="text-2xl font-bold text-gray-800">Laudo Antropométrico</h2>
             <p className="text-lg font-medium text-gray-500">{pac.nome_completo}</p>
           </div>
@@ -557,16 +570,19 @@ export default function ResultadoAvaliacao() {
 
         </div>
         
-        <BotaoExportarPDF 
-          dados={dados} 
-          idade={idade} 
-          statusCintura={statusCintura} 
-          iamVal={iamVal} 
-          imoVal={imoVal} 
-          nomeEmpresa={nomeEmpresa}
-          nomeAvaliador={nomeAvaliador}
-          logomarcaUrl={logomarcaUrl}
-        />
+        {dados && (
+          <BotaoExportarPDF 
+            dados={dados} 
+            idade={idade} 
+            statusCintura={statusCintura} 
+            iamVal={iamVal} 
+            imoVal={imoVal} 
+            nomeEmpresa={nomeEmpresa}
+            nomeAvaliador={nomeAvaliador}
+            logomarcaUrl={logomarcaUrl}
+            tokenPublico={tokenPublico}
+          />
+        )}
       </div>
 
     </div>
