@@ -42,54 +42,59 @@ const listaFeminina = [
 ];
 
 const listaMasculina = [
-  { nome: 'Mitchell et al. (2020) - 7skd ISAK', func: Eq.calcularMascMitchell2020_7skd },
+  { nome: 'Mitchell et al. (2020) - 7skf ISAK', func: Eq.calcularMascMitchell2020_7skd },
   { nome: 'Woolcott & Bergman (2018) - RFM', func: Eq.calcularMascWoolcottBergman2018 },
-  { nome: 'Guedes (1985) - 3skd', func: Eq.calcularMascGuedes1985_3skd },
+  { nome: 'Guedes (1985) - 3skf', func: Eq.calcularMascGuedes1985_3skd },
   { nome: 'Deurenberg et al. (1991) - Por IMC', func: Eq.calcularMascDeurenberg1991_IMC },
   { nome: 'Weltman et al. (1987) - Por Perímetros', func: Eq.calcularMascWeltman1987 },
-  { nome: 'Petroski (1995) - 4skd', func: Eq.calcularMascPetroski1995_4skd },
-  { nome: 'Stewart & Hannan (2000) - 2skd', func: Eq.calcularMascStewartHannan_2skd },
-  { nome: 'Faulkner (1968) - 4skd', func: Eq.calcularMascFaulkner1968_4skd },
-  { nome: 'Reilly et al. (2009) - 4skd ISAK', func: Eq.calcularMascReilly2009_4skd },
-  { nome: 'Evans et al. (2005) - 3skd (Brancos)', func: Eq.calcularMascEvans2005_3skd_White },
-  { nome: 'Evans et al. (2005) - 3skd (Negros)', func: Eq.calcularMascEvans2005_3skd_Black },
-  { nome: 'Katch & McArdle (1973) - 3skd', func: Eq.calcularMascKatchMcArdle1973_3skd },
-  { nome: 'Withers et al. (1987) - 7skd', func: Eq.calcularMascWithers1987_7skd },
-  { nome: 'Slaughter et al. (1988) - 2skd', func: Eq.calcularMascSlaughter1988_2skd },
-  { nome: 'Yuhasz (1974) - 6skd', func: Eq.calcularMascYuhasz1974_6skd },
-  { nome: 'Wilmore & Behnke (1969) - 2skd', func: Eq.calcularMascWilmoreBehnke1969_2skd },
-  { nome: 'Boileau et al. (1985) - 2skd', func: Eq.calcularMascBoileau1985_2skd },
+  { nome: 'Petroski (1995) - 4skf', func: Eq.calcularMascPetroski1995_4skd },
+  { nome: 'Stewart & Hannan (2000) - 2skf', func: Eq.calcularMascStewartHannan_2skd },
+  { nome: 'Faulkner (1968) - 4skf', func: Eq.calcularMascFaulkner1968_4skd },
+  { nome: 'Reilly et al. (2009) - 4skf ISAK', func: Eq.calcularMascReilly2009_4skd },
+  { nome: 'Evans et al. (2005) - 3skf (Brancos)', func: Eq.calcularMascEvans2005_3skd_White },
+  { nome: 'Evans et al. (2005) - 3skf (Negros)', func: Eq.calcularMascEvans2005_3skd_Black },
+  { nome: 'Katch & McArdle (1973) - 3skf', func: Eq.calcularMascKatchMcArdle1973_3skd },
+  { nome: 'Withers et al. (1987) - 7skf', func: Eq.calcularMascWithers1987_7skd },
+  { nome: 'Slaughter et al. (1988) - 2skf', func: Eq.calcularMascSlaughter1988_2skd },
+  { nome: 'Yuhasz (1974) - 6skf', func: Eq.calcularMascYuhasz1974_6skd },
+  { nome: 'Wilmore & Behnke (1969) - 2skf', func: Eq.calcularMascWilmoreBehnke1969_2skd },
+  { nome: 'Boileau et al. (1985) - 2skf', func: Eq.calcularMascBoileau1985_2skd },
   { nome: 'Deurenberg et al. (1990) - Pré-Púberes', func: Eq.calcularMascDeurenberg1990_4skd_PrePuberes },
   { nome: 'Deurenberg et al. (1990) - Púberes', func: Eq.calcularMascDeurenberg1990_4skd_Puberes },
   { nome: 'Deurenberg et al. (1990) - Pós-Púberes', func: Eq.calcularMascDeurenberg1990_4skd_PosPuberes },
-  { nome: 'Eston et al. (2005) - 2skd ISAK', func: Eq.calcularMascEston2005_2skd },
-  { nome: 'Eston et al. (2005) - 6skd ISAK', func: Eq.calcularMascEston2005_6skd },
-  { nome: 'Durnin et al. (1974) - 4skd (17 a 72 anos)', func: Eq.calcularMascDurnin1974_17a72anos },
-  { nome: 'Durnin et al. (1974) - 4skd (17 a 19 anos)', func: Eq.calcularMascDurnin1974_17a19anos },
-  { nome: 'Durnin et al. (1974) - 4skd (20 a 29 anos)', func: Eq.calcularMascDurnin1974_20a29anos },
-  { nome: 'Durnin et al. (1974) - 4skd (30 a 39 anos)', func: Eq.calcularMascDurnin1974_30a39anos },
-  { nome: 'Durnin et al. (1974) - 4skd (40 a 49 anos)', func: Eq.calcularMascDurnin1974_40a49anos },
-  { nome: 'Durnin et al. (1974) - 4skd (50 a 72 anos)', func: Eq.calcularMascDurnin1974_50a72anos },
-  { nome: 'Durnin et al. (1974) - 1skd (Só Tríceps)', func: Eq.calcularMascDurnin1974_1skd },
-  { nome: 'Durnin & Rahaman (1967) - 4skd (< 17 anos)', func: Eq.calcularMascDurninRahaman1967_4skd },
-  { nome: 'Forsyth & Sinning (1973) - 2skd', func: Eq.calcularMascForsythSinning1973_2skd },
-  { nome: 'Nagamine & Suzuki (1964) - 2skd', func: Eq.calcularMascNagamineSuzuki1964_2skd },
-  { nome: 'Sloan (1967) - 2skd', func: Eq.calcularMascSloan1967_2skd },
+  { nome: 'Eston et al. (2005) - 2skf ISAK', func: Eq.calcularMascEston2005_2skd },
+  { nome: 'Eston et al. (2005) - 6skf ISAK', func: Eq.calcularMascEston2005_6skd },
+  { nome: 'Durnin et al. (1974) - 4skf (17 a 72 anos)', func: Eq.calcularMascDurnin1974_17a72anos },
+  { nome: 'Durnin et al. (1974) - 4skf (17 a 19 anos)', func: Eq.calcularMascDurnin1974_17a19anos },
+  { nome: 'Durnin et al. (1974) - 4skf (20 a 29 anos)', func: Eq.calcularMascDurnin1974_20a29anos },
+  { nome: 'Durnin et al. (1974) - 4skf (30 a 39 anos)', func: Eq.calcularMascDurnin1974_30a39anos },
+  { nome: 'Durnin et al. (1974) - 4skf (40 a 49 anos)', func: Eq.calcularMascDurnin1974_40a49anos },
+  { nome: 'Durnin et al. (1974) - 4skf (50 a 72 anos)', func: Eq.calcularMascDurnin1974_50a72anos },
+  { nome: 'Durnin et al. (1974) - 1skf (Só Tríceps)', func: Eq.calcularMascDurnin1974_1skd },
+  { nome: 'Durnin & Rahaman (1967) - 4skf (< 17 anos)', func: Eq.calcularMascDurninRahaman1967_4skd },
+  { nome: 'Forsyth & Sinning (1973) - 2skf', func: Eq.calcularMascForsythSinning1973_2skd },
+  { nome: 'Nagamine & Suzuki (1964) - 2skf', func: Eq.calcularMascNagamineSuzuki1964_2skd },
+  { nome: 'Sloan (1967) - 2skf', func: Eq.calcularMascSloan1967_2skd },
   { nome: 'Hortobagyi et al. (1992) - Massa/Estatura', func: Eq.calcularMascHortobagyi1992 },
   { nome: 'Ortiz-Hernández et al. (2016) - Mista', func: Eq.calcularMascOrtizHernandez2016 }
 ];
 
 export default function EscolhaPercGordura() {
   const location = useLocation()
-  const navigate = useNavigate() // Adicionado caso precise navegar após salvar
+  const navigate = useNavigate()
   
   const pacienteInicial = location.state?.pacienteInicial || null
+  const avaliacaoIdInicial = location.state?.avaliacaoIdInicial || null
 
   const [busca, setBusca] = useState('')
   const [pacientesFiltrados, setPacientesFiltrados] = useState([])
   const [showDropdown, setShowDropdown] = useState(false)
   
   const [pacienteSelecionado, setPacienteSelecionado] = useState(pacienteInicial)
+  
+  // Histórico de avaliações do paciente selecionado
+  const [historicoAvaliacoes, setHistoricoAvaliacoes] = useState([])
+  
   const [avaliacaoAtual, setAvaliacaoAtual] = useState(null)
   const [medidasBrutas, setMedidasBrutas] = useState({})
   
@@ -102,12 +107,14 @@ export default function EscolhaPercGordura() {
 
   const dropdownRef = useRef(null)
 
+  // 1. CARREGAMENTO INICIAL VINDO DO AVALIACAO_FORM
   useEffect(() => {
     if (pacienteInicial) {
-      selecionarPaciente(pacienteInicial)
+      selecionarPacienteViaForm(pacienteInicial, avaliacaoIdInicial)
     }
-  }, [pacienteInicial])
+  }, [pacienteInicial, avaliacaoIdInicial])
 
+  // 2. BUSCA DINÂMICA DE PACIENTES
   useEffect(() => {
     const buscarPacientes = async () => {
       if (busca.length < 1) {
@@ -137,7 +144,41 @@ export default function EscolhaPercGordura() {
     return () => document.removeEventListener('mousedown', handleClickFora)
   }, [])
 
-  const selecionarPaciente = async (paciente) => {
+  // SELEÇÃO DIRETA DO FORMULÁRIO (Garante que vai pegar a avaliação recém-editada)
+  const selecionarPacienteViaForm = async (paciente, avaliacaoIdReq) => {
+    setPacienteSelecionado(paciente)
+    setBusca(paciente.nome_completo)
+    setShowDropdown(false)
+
+    // Busca o histórico do paciente
+    const { data: historico } = await supabase
+      .from('avaliacoes')
+      .select('id, data_avaliacao')
+      .eq('id_paciente', paciente.id)
+      .order('data_avaliacao', { ascending: false })
+      
+    if (historico) setHistoricoAvaliacoes(historico)
+
+    // Busca OS DADOS da avaliação requerida
+    if (avaliacaoIdReq) {
+      const { data: aval } = await supabase
+        .from('avaliacoes')
+        .select('*')
+        .eq('id', avaliacaoIdReq)
+        .single()
+
+      if (aval) {
+        setAvaliacaoAtual(aval)
+        setMedidasBrutas(aval)
+        if (aval.equacao_de_regressao_escolhida) {
+          setEquacaoSelecionada(aval.equacao_de_regressao_escolhida)
+        }
+      }
+    }
+  }
+
+  // SELEÇÃO PELA BARRA DE BUSCA (Pega o histórico e seleciona a última)
+  const selecionarPacienteBusca = async (paciente) => {
     setPacienteSelecionado(paciente)
     setBusca(paciente.nome_completo)
     setShowDropdown(false)
@@ -145,24 +186,39 @@ export default function EscolhaPercGordura() {
     setResultadoGordura(0)
     setMetadados(null)
 
-    const { data, error } = await supabase
+    const { data: historico } = await supabase
       .from('avaliacoes')
-      .select('*')
+      .select('id, data_avaliacao')
       .eq('id_paciente', paciente.id)
       .order('data_avaliacao', { ascending: false })
-      .limit(1)
-      .single()
 
-    if (data) {
-      setAvaliacaoAtual(data)
-      setMedidasBrutas(data)
+    if (historico && historico.length > 0) {
+      setHistoricoAvaliacoes(historico)
+      selecionarAvaliacaoDoHistorico(historico[0].id) // Carrega a mais recente
     } else {
+      setHistoricoAvaliacoes([])
       setAvaliacaoAtual(null)
       setMedidasBrutas({})
-      alert('Este paciente ainda não possui avaliações (medidas) cadastradas.')
+      alert('Este paciente ainda não possui avaliações cadastradas.')
     }
   }
 
+  // TROCAR AVALIAÇÃO PELO DROPDOWN DE HISTÓRICO
+  const selecionarAvaliacaoDoHistorico = async (idAvaliacao) => {
+    const { data: aval } = await supabase
+      .from('avaliacoes')
+      .select('*')
+      .eq('id', idAvaliacao)
+      .single()
+
+    if (aval) {
+      setAvaliacaoAtual(aval)
+      setMedidasBrutas(aval)
+      setEquacaoSelecionada(aval.equacao_de_regressao_escolhida || '')
+    }
+  }
+
+  // MÁQUINA DE CÁLCULO
   useEffect(() => {
     if (!pacienteSelecionado || !equacaoSelecionada || !medidasBrutas) return
 
@@ -180,9 +236,8 @@ export default function EscolhaPercGordura() {
           setResultadoGordura(resultado || 0)
           setMetadados(null)
         }
-
       } catch (err) {
-        console.error("Erro no cálculo da equação:", err)
+        console.error("Erro no cálculo:", err)
         setResultadoGordura(0)
         setMetadados(null)
       }
@@ -195,7 +250,6 @@ export default function EscolhaPercGordura() {
 
     setSalvando(true)
 
-    // 1. Atualiza a tabela 'avaliacoes'
     const { error: avalError } = await supabase
       .from('avaliacoes')
       .update({
@@ -204,7 +258,6 @@ export default function EscolhaPercGordura() {
       })
       .eq('id', avaliacaoAtual.id)
 
-    // 2. Calcula e atualiza as massas em 'dados_calculados'
     const peso = Number(medidasBrutas.peso_paciente || 0)
     const massaGorda = peso > 0 ? (resultadoGordura * peso) / 100 : 0
     const massaMagra = peso > 0 ? peso - massaGorda : 0
@@ -229,7 +282,7 @@ export default function EscolhaPercGordura() {
   const listaParaExibir = pacienteSelecionado?.sexo === 'F' ? listaFeminina : listaMasculina
 
   return (
-    <div className="max-w-3xl mx-auto space-y-8 bg-white p-6 sm:p-8 rounded-xl shadow border border-gray-100">
+    <div className="max-w-3xl mx-auto space-y-8 bg-white p-6 sm:p-8 rounded-xl shadow border border-gray-100 pb-12">
       
       <div>
         <h2 className="text-2xl font-bold text-gray-800">Laboratório de Equações</h2>
@@ -257,7 +310,7 @@ export default function EscolhaPercGordura() {
             {pacientesFiltrados.map(p => (
               <li
                 key={p.id}
-                onClick={() => selecionarPaciente(p)}
+                onClick={() => selecionarPacienteBusca(p)}
                 className="px-4 py-3 cursor-pointer hover:bg-emerald-50 hover:text-emerald-700 text-sm font-medium border-b border-gray-100 last:border-0"
               >
                 {p.nome_completo} <span className="text-xs text-gray-400 font-normal ml-2">({p.sexo})</span>
@@ -269,21 +322,42 @@ export default function EscolhaPercGordura() {
 
       {pacienteSelecionado && avaliacaoAtual && (
         <div className="space-y-6 animate-fade-in-up">
-          <div className="p-4 bg-gray-50 border border-gray-100 rounded-lg">
-            <p className="text-sm text-gray-700">
-              Avaliando: <strong>{pacienteSelecionado.nome_completo}</strong> 
-              <br/>ID da Avaliação ativa: {avaliacaoAtual.id}
-            </p>
+          
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-gray-50 border border-gray-100 rounded-lg p-4 gap-4">
+            <div>
+              <p className="text-sm text-gray-700">Avaliando: <strong>{pacienteSelecionado.nome_completo}</strong></p>
+              <p className="text-xs text-gray-500 mt-1">Peso Coletado: {medidasBrutas.peso_paciente || 0} kg</p>
+            </div>
+
+            {/* SELETOR DE HISTÓRICO DE AVALIAÇÕES */}
+            {historicoAvaliacoes.length > 0 && (
+              <div className="w-full sm:w-auto">
+                <label className="block text-[10px] font-bold text-gray-500 uppercase mb-1">
+                  Avaliação Selecionada
+                </label>
+                <select
+                  value={avaliacaoAtual.id}
+                  onChange={(e) => selecionarAvaliacaoDoHistorico(e.target.value)}
+                  className="w-full sm:w-48 px-3 py-2 border border-gray-300 rounded-md text-sm outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
+                >
+                  {historicoAvaliacoes.map(hist => (
+                    <option key={hist.id} value={hist.id}>
+                      {new Date(hist.data_avaliacao).toLocaleDateString('pt-BR')} (Ref: {hist.id.slice(0,4)})
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-2 border-t border-gray-100 pt-6">
             <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Escolha a Equação de Regressão
             </label>
             <select
               value={equacaoSelecionada}
               onChange={(e) => setEquacaoSelecionada(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 bg-white"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 bg-white shadow-sm"
             >
               <option value="">Selecione uma equação...</option>
               {listaParaExibir.map((eq, i) => (
@@ -320,7 +394,7 @@ export default function EscolhaPercGordura() {
             <button
               onClick={handleSalvar}
               disabled={!equacaoSelecionada || resultadoGordura <= 0 || salvando}
-              className="px-6 py-3 bg-emerald-600 text-white font-semibold rounded-lg shadow-md hover:bg-emerald-700 disabled:opacity-50 transition-all"
+              className="px-6 py-3 bg-emerald-600 text-white font-semibold rounded-lg shadow-md hover:bg-emerald-700 disabled:opacity-50 transition-all w-full sm:w-auto"
             >
               {salvando ? 'Salvando...' : 'Salvar Resultado na Avaliação'}
             </button>

@@ -373,12 +373,18 @@ export default function AvaliacaoForm() {
       .from('dados_calculados')
       .upsert([payloadCalculado], { onConflict: 'id_avaliacao' })
 
-    if (calcError) {
+if (calcError) {
       console.error('Erro ao salvar cálculos:', calcError)
       alert('As medidas foram salvas, mas houve um erro ao gerar o relatório calculado.')
     } else {
       alert('Medidas salvas! Indo para o cálculo de gordura...')
-      navigate('/equacoes-de-regressao', { state: { pacienteInicial: paciente } })
+      // PASSANDO A AVALIACAO_ID AQUI:
+      navigate('/equacoes-de-regressao', { 
+        state: { 
+          pacienteInicial: paciente,
+          avaliacaoIdInicial: avaliacaoSalvaId 
+        } 
+      })
     }
 
     setLoading(false)
