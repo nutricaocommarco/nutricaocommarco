@@ -233,7 +233,7 @@ export default function ResultadoAvaliacao() {
   const perimCorrigidoCoxa = dados.perimetro_corrigido_coxa || (pCoxa > 0 ? pCoxa - ((aval.dobra_cutanea_coxa_media || 0) * 0.314) : 0);
   const perimCorrigidoPanturrilha = dados.perimetro_corrigido_panturrilha || (pPant > 0 ? pPant - ((aval.dobra_cutanea_panturrilha || 0) * 0.314) : 0);
 
-// --- ÍNDICE DE MÚSCULO ÓSSEO (IMO) EXATO ---
+// --- ÍNDICE DE MÚSCULO ÓSSEO (IMO) - EXATO ---
   const estatura = Number(aval.altura_paciente) || 0;
   
   const dUmero = Number(aval.diametro_umero) || 0;
