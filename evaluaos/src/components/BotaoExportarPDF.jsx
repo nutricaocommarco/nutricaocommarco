@@ -1,68 +1,36 @@
 import React from 'react';
 import { Document, Page, Text, View, StyleSheet, PDFDownloadLink, Svg, Line, Polygon, Circle } from '@react-pdf/renderer';
 
-// --- ESTILOS DO PDF (Otimizados para Impressão e Encadernação) ---
+// --- ESTILOS DO PDF ---
 const styles = StyleSheet.create({
-  page: { 
-    paddingTop: 35,
-    paddingBottom: 50, // Respiro maior embaixo
-    paddingLeft: 55,   // Margem de 2cm para grampear/furar
-    paddingRight: 35,
-    backgroundColor: '#FAFAFA', 
-    fontFamily: 'Helvetica' 
-  },
+  page: { paddingTop: 35, paddingBottom: 50, paddingLeft: 55, paddingRight: 35, backgroundColor: '#FAFAFA', fontFamily: 'Helvetica' },
   sectionWrap: { marginBottom: 15 }, 
-  
-  // Tipografia
   title: { fontSize: 20, fontWeight: 'bold', color: '#1F2937', marginBottom: 4 },
   subtitle: { fontSize: 9, color: '#6B7280', textTransform: 'uppercase', marginBottom: 15 },
   sectionTitle: { fontSize: 11, fontWeight: 'bold', color: '#1F2937', textTransform: 'uppercase', marginBottom: 8, borderBottomWidth: 1, borderBottomColor: '#E5E7EB', paddingBottom: 4 },
-  
-  // Caixas e Cards
   cardGroup: { flexDirection: 'row', gap: 10, marginBottom: 15 },
   cardGray: { backgroundColor: '#F9FAFB', padding: 12, borderRadius: 6, borderWidth: 1, borderColor: '#F3F4F6' },
   cardWhite: { backgroundColor: '#FFFFFF', padding: 12, borderRadius: 8, borderWidth: 1, borderColor: '#E5E7EB', flex: 1 },
-  
-  // Textos dos Cards Superiores
   cardGrayTitle: { fontSize: 8, fontWeight: 'bold', color: '#6B7280', textTransform: 'uppercase', marginBottom: 6 },
   cardGrayText: { fontSize: 10, color: '#374151', marginBottom: 3 },
   cardGrayLabel: { fontWeight: 'bold' },
-
-  // Grids
   gridContainer: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, backgroundColor: '#FFFFFF', padding: 12, borderRadius: 8, borderWidth: 1, borderColor: '#E5E7EB' },
   gridItem2Col: { width: '48%', flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 4, borderBottomWidth: 1, borderBottomColor: '#F9FAFB' },
   gridItem3Col: { width: '31%', flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 4, borderBottomWidth: 1, borderBottomColor: '#F9FAFB' },
   gridItem4Col: { width: '23%', flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 4, borderBottomWidth: 1, borderBottomColor: '#F9FAFB' },
-  
   gridLabel: { fontSize: 9, color: '#4B5563' },
   gridValue: { fontSize: 9, fontWeight: 'bold', color: '#111827' },
   gridUnit: { fontSize: 7, color: '#9CA3AF', fontWeight: 'normal' },
-
-  // Cards de Destaque (Composição e Saúde)
   highlightCard: { flex: 1, backgroundColor: '#FFFFFF', padding: 12, borderRadius: 8, borderWidth: 1, borderColor: '#E5E7EB', justifyContent: 'center' },
   highlightCardLeftBorder: { borderLeftWidth: 4, borderLeftColor: '#10B981' },
   highlightLabel: { fontSize: 8, fontWeight: 'bold', color: '#6B7280', textTransform: 'uppercase', marginBottom: 4 },
   highlightValue: { fontSize: 16, fontWeight: 'bold', color: '#1F2937' },
   highlightRef: { fontSize: 7, color: '#9CA3AF', marginTop: 4 },
-  
-  // Cores Específicas
-  textAmber: { color: '#F59E0B' },
-  textAmberDark: { color: '#D97706' },
-  textBlue: { color: '#2563EB' },
-  textEmerald: { color: '#047857' },
-  textIndigo: { color: '#4F46E5' },
-
-  // Badges
+  textAmber: { color: '#F59E0B' }, textAmberDark: { color: '#D97706' }, textBlue: { color: '#2563EB' }, textEmerald: { color: '#047857' }, textIndigo: { color: '#4F46E5' },
   badgeGreen: { backgroundColor: '#D1FAE5', color: '#065F46', paddingHorizontal: 6, paddingVertical: 2, borderRadius: 4, fontSize: 8, fontWeight: 'bold', textTransform: 'uppercase' },
   badgeGray: { backgroundColor: '#E5E7EB', color: '#6B7280', paddingHorizontal: 6, paddingVertical: 2, borderRadius: 4, fontSize: 8, fontWeight: 'bold', textTransform: 'uppercase' },
-
-  // Barras de Progresso (Somatotipo)
   barContainer: { backgroundColor: '#F3F4F6', height: 8, borderRadius: 4, width: '100%', marginTop: 2 },
-  barAmber: { backgroundColor: '#F59E0B', height: 8, borderRadius: 4 },
-  barBlue: { backgroundColor: '#3B82F6', height: 8, borderRadius: 4 },
-  barEmerald: { backgroundColor: '#10B981', height: 8, borderRadius: 4 },
-
-  // Rodapé ajustado para acompanhar as novas margens laterais
+  barAmber: { backgroundColor: '#F59E0B', height: 8, borderRadius: 4 }, barBlue: { backgroundColor: '#3B82F6', height: 8, borderRadius: 4 }, barEmerald: { backgroundColor: '#10B981', height: 8, borderRadius: 4 },
   footer: { position: 'absolute', bottom: 20, left: 55, right: 35, borderTopWidth: 1, borderTopColor: '#E5E7EB', paddingTop: 10, textAlign: 'center', fontSize: 8, color: '#9CA3AF' }
 });
 
@@ -72,9 +40,7 @@ const MeasureItem = ({ label, value, unit, styleClass }) => {
   return (
     <View style={styleClass}>
       <Text style={styles.gridLabel}>{label}</Text>
-      <Text style={styles.gridValue}>
-        {displayVal} <Text style={styles.gridUnit}>{displayVal !== '-' ? unit : ''}</Text>
-      </Text>
+      <Text style={styles.gridValue}>{displayVal} <Text style={styles.gridUnit}>{displayVal !== '-' ? unit : ''}</Text></Text>
     </View>
   );
 };
@@ -82,9 +48,7 @@ const MeasureItem = ({ label, value, unit, styleClass }) => {
 const HighlightCard = ({ label, value, unit, valColor, showBorder, refText }) => (
   <View style={[styles.highlightCard, showBorder ? styles.highlightCardLeftBorder : {}]}>
     <Text style={styles.highlightLabel}>{label}</Text>
-    <Text style={[styles.highlightValue, valColor]}>
-      {value > 0 ? (value % 1 !== 0 ? value.toFixed(2) : value) : '-'} <Text style={styles.gridUnit}>{unit}</Text>
-    </Text>
+    <Text style={[styles.highlightValue, valColor]}>{value > 0 ? (value % 1 !== 0 ? value.toFixed(2) : value) : '-'} <Text style={styles.gridUnit}>{unit}</Text></Text>
     {refText && <Text style={styles.highlightRef}>{refText}</Text>}
   </View>
 );
@@ -102,10 +66,11 @@ const ProgressBar = ({ label, value, valColor, barStyle }) => (
 );
 
 // --- CORPO DO PDF ---
-const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
+const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa }) => {
   const aval = dados?.avaliacoes || {};
   const pac = dados?.pacientes || {};
   const dataFormatada = aval.data_avaliacao ? new Date(aval.data_avaliacao + 'T12:00:00').toLocaleDateString('pt-BR') : '-';
+  const consultorio = nomeEmpresa || 'Consultório';
 
   const coordX = 140 + ((dados?.somatocarta_eixo_x || 0) * 15);
   const coordY = 140 - ((dados?.somatocarta_eixo_y || 0) * 11);
@@ -114,9 +79,8 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
     <Document>
       <Page size="A4" style={styles.page}>
         
-        {/* CABEÇALHO */}
         <Text style={styles.title}>Laudo Antropométrico: {pac.nome_completo}</Text>
-        <Text style={styles.subtitle}>Nutrição com Marco | Avaliação em Consultório</Text>
+        <Text style={styles.subtitle}>{consultorio} | Avaliação em Consultório</Text>
 
         <View style={styles.cardGroup}>
           <View style={[styles.cardGray, { flex: 1 }]}>
@@ -144,7 +108,6 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
           </View>
         </View>
 
-        {/* 1. MEDIDAS BÁSICAS */}
         <View style={styles.sectionWrap} wrap={false}>
           <Text style={styles.sectionTitle}>📐 1. Medidas Básicas</Text>
           <View style={styles.gridContainer}>
@@ -155,7 +118,6 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
           </View>
         </View>
 
-        {/* 2. COMPOSIÇÃO CORPORAL */}
         <View style={styles.sectionWrap} wrap={false}>
           <Text style={styles.sectionTitle}>📊 2. Composição Corporal</Text>
           <View style={{ flexDirection: 'row', gap: 6 }}>
@@ -167,7 +129,6 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
           </View>
         </View>
 
-        {/* 3. DOBRAS */}
         <View style={styles.sectionWrap} wrap={false}>
           <Text style={styles.sectionTitle}>🤏 3. Dobras Cutâneas</Text>
           <View style={styles.gridContainer}>
@@ -182,7 +143,6 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
           </View>
         </View>
 
-        {/* 4. INDICADORES */}
         <View style={styles.sectionWrap} wrap={false}>
           <Text style={styles.sectionTitle}>⚖️ 4. Indicadores de Saúde</Text>
           <View style={{ flexDirection: 'row', gap: 6 }}>
@@ -197,7 +157,6 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
           </View>
         </View>
 
-        {/* 5 E 6. PERÍMETROS */}
         <View style={styles.sectionWrap} wrap={false}>
           <Text style={styles.sectionTitle}>🔄 5. Perímetros & 💪 6. Corrigidos (Muscular Regional)</Text>
           <View style={styles.gridContainer}>
@@ -213,7 +172,6 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
             <MeasureItem styleClass={styles.gridItem3Col} label="Quadril" value={aval.perimetro_quadril} unit="cm" />
             <MeasureItem styleClass={styles.gridItem3Col} label="Coxa Máxima" value={aval.perimetro_coxa_maxima} unit="cm" />
             
-            {/* Linha dos Corrigidos em destaque */}
             <View style={{ width: '100%', height: 1, backgroundColor: '#E5E7EB', marginVertical: 4 }} />
             
             <View style={styles.gridItem3Col}>
@@ -231,7 +189,6 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
           </View>
         </View>
 
-        {/* 7. DIÂMETROS */}
         <View style={styles.sectionWrap} wrap={false}>
           <Text style={styles.sectionTitle}>🦴 7. Diâmetros Ósseos</Text>
           <View style={styles.gridContainer}>
@@ -242,7 +199,6 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
           </View>
         </View>
 
-        {/* 8. SOMATOTIPO (Com Somatocarta) */}
         <View style={styles.sectionWrap} wrap={false}>
           <Text style={styles.sectionTitle}>🧬 8. Somatotipo (Heath-Carter)</Text>
           <View style={{ flexDirection: 'row', gap: 10 }}>
@@ -253,7 +209,6 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
             </View>
             
             <View style={[styles.cardWhite, { alignItems: 'center', justifyContent: 'center' }]}>
-              {/* O desenho vetorial da Somatocarta espelhado do seu site */}
               <View style={{ width: 180, height: 180, position: 'relative' }}>
                 <Svg width="180" height="180" viewBox="0 0 280 280">
                   <Line x1="140" y1="20" x2="140" y2="260" stroke="#CBD5E1" strokeWidth="1.5" strokeDasharray="4" />
@@ -274,7 +229,6 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
           </View>
         </View>
 
-        {/* 10. OUTROS INDICADORES */}
         <View style={styles.sectionWrap} wrap={false}>
           <Text style={styles.sectionTitle}>🚀 10. Outros Indicadores & Classificações</Text>
           <View style={styles.gridContainer}>
@@ -293,9 +247,8 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
           </View>
         </View>
 
-        {/* RODAPÉ */}
         <View style={styles.footer} fixed>
-          <Text>Documento gerado pelo sistema EvaluaOS - Nutrição com Marco | {dataFormatada}</Text>
+          <Text>Documento gerado pelo sistema EvaluaOS - {consultorio} | {dataFormatada}</Text>
         </View>
 
       </Page>
@@ -303,26 +256,23 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
   );
 };
 
-// --- BOTÕES DE EXPORTAÇÃO E WHATSAPP ---
-const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
+// --- BOTÃO DE EXPORTAÇÃO E WHATSAPP ---
+const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa }) => {
   const pac = dados?.pacientes || {};
   const nomeArquivo = pac.nome_completo ? pac.nome_completo.replace(/\s+/g, '_') : 'Paciente';
   const primeiroNome = pac.nome_completo ? pac.nome_completo.split(' ')[0] : 'Paciente';
-  
-  // Limpa o telefone para deixar apenas números (caso venha como (21) 9999-9999)
   const telefoneLimpo = pac.telefone ? pac.telefone.replace(/\D/g, '') : '';
   
-  // Monta a mensagem automática
-  const mensagemWhatsApp = `Olá *${primeiroNome}*, tudo bem? \n\nAqui é do consultório Nutrição com Marco! Seu laudo antropométrico já está pronto. \n\nEstou enviando o arquivo em PDF logo abaixo para você acompanhar sua evolução. Qualquer dúvida, estou à disposição! 📊💪`;
+  // Utiliza a variável dinâmica para montar a mensagem
+  const saudacaoEmpresa = nomeEmpresa ? `do consultório ${nomeEmpresa}` : 'do seu Avaliador';
+  const mensagemWhatsApp = `Olá *${primeiroNome}*, tudo bem? \n\nAqui é ${saudacaoEmpresa}! Seu laudo antropométrico já está pronto. \n\nEstou enviando o arquivo em PDF logo abaixo para você acompanhar sua evolução. Qualquer dúvida, estou à disposição! 📊💪`;
   
-  // Cria o link do WhatsApp (Adiciona o 55 do Brasil se não tiver)
   const linkWhatsApp = telefoneLimpo 
     ? `https://wa.me/${telefoneLimpo.startsWith('55') ? telefoneLimpo : '55' + telefoneLimpo}?text=${encodeURIComponent(mensagemWhatsApp)}`
     : '#';
 
   return (
     <div className="flex justify-end gap-3 w-full mt-2">
-      {/* Botão de WhatsApp (Só aparece se o paciente tiver telefone cadastrado) */}
       {telefoneLimpo ? (
         <a 
           href={linkWhatsApp} 
@@ -337,9 +287,8 @@ const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
         </a>
       ) : null}
 
-      {/* Botão de PDF */}
       <PDFDownloadLink
-        document={<RelatorioPDF dados={dados} idade={idade} statusCintura={statusCintura} iamVal={iamVal} imoVal={imoVal} />}
+        document={<RelatorioPDF dados={dados} idade={idade} statusCintura={statusCintura} iamVal={iamVal} imoVal={imoVal} nomeEmpresa={nomeEmpresa} />}
         fileName={`Laudo_${nomeArquivo}.pdf`}
         className="flex items-center justify-center px-6 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-lg shadow hover:bg-emerald-700 transition-colors"
       >
