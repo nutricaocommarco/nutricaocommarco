@@ -348,3 +348,5 @@ const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
     </div>
   );
 };
+
+export default BotaoExportarPDF;
