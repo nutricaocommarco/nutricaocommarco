@@ -557,6 +557,7 @@ export default function ResultadoAvaliacao() {
             </div>
           </div>
           
+
           {[
             'Área de Previsão Visceral (APVAT)', 
             'Gordura (Escala Morrow)', 
