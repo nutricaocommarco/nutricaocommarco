@@ -309,13 +309,15 @@ const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal }) => {
   const nomeArquivo = pac.nome_completo ? pac.nome_completo.replace(/\s+/g, '_') : 'Paciente';
   
   return (
-    <PDFDownloadLink
-      document={<RelatorioPDF dados={dados} idade={idade} statusCintura={statusCintura} iamVal={iamVal} imoVal={imoVal} />}
-      fileName={`Laudo_${nomeArquivo}.pdf`}
-      className="flex items-center justify-center w-full px-4 py-3 mt-4 bg-emerald-600 text-white text-sm font-semibold rounded-lg shadow hover:bg-emerald-700 transition-colors"
-    >
-      {({ loading }) => (loading ? 'Desenhando laudo profissional...' : 'Baixar Laudo Completo em PDF')}
-    </PDFDownloadLink>
+    <div className="flex justify-end w-full mt-2">
+      <PDFDownloadLink
+        document={<RelatorioPDF dados={dados} idade={idade} statusCintura={statusCintura} iamVal={iamVal} imoVal={imoVal} />}
+        fileName={`Laudo_${nomeArquivo}.pdf`}
+        className="flex items-center justify-center px-6 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-lg shadow hover:bg-emerald-700 transition-colors"
+      >
+        {({ loading }) => (loading ? 'Desenhando laudo...' : 'Baixar Laudo em PDF')}
+      </PDFDownloadLink>
+    </div>
   );
 };
 
