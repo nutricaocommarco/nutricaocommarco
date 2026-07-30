@@ -65,7 +65,7 @@ export default function ResultadoAvaliacao() {
   
   const [nomeEmpresa, setNomeEmpresa] = useState('')
   const [nomeAvaliador, setNomeAvaliador] = useState('')
-  const [logomarcaUrl, setLogomarcaUrl] = useState('') // ESTADO NOVO PARA LOGOMARCA
+  const [logomarcaUrl, setLogomarcaUrl] = useState('')
 
   if (!avaliacaoId) {
     return (
@@ -97,7 +97,6 @@ export default function ResultadoAvaliacao() {
 
       const pac = avalDados.pacientes || {}
 
-      // Busca a logomarca_url também
       const { data: avaliadorData } = await supabase
         .from('avaliadores')
         .select('empresa, nome_completo, logomarca_url')
@@ -286,7 +285,6 @@ export default function ResultadoAvaliacao() {
     <div className="space-y-6 pb-10">
       
       <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm relative">
-        {/* CABEÇALHO DA TELA COM LOGO E AVISO EVALUAOS */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
           <div>
             <button onClick={() => navigate('/pacientes')} className="text-xs text-emerald-600 font-semibold hover:underline mb-2 inline-block">
@@ -513,8 +511,8 @@ export default function ResultadoAvaliacao() {
               <line x1="20" y1="140" x2="260" y2="140" stroke="#cbd5e1" strokeWidth="1.5" strokeDasharray="4" />
               <polygon points="140,30 40,230 240,230" fill="none" stroke="#94a3b8" strokeWidth="1.5" />
               <text x="140" y="20" textAnchor="middle" className="text-[10px] font-bold fill-blue-600">MESOMORFIA</text>
-              <text x="30" y="245" textAnchor="middle" className="text-[10px] font-bold fill-amber-600">ENDOMORFIA</text>
-              <text x="250" y="245" textAnchor="middle" className="text-[10px] font-bold fill-emerald-600">ECTOMORFIA</text>
+              <text x="50" y="245" textAnchor="middle" className="text-[10px] font-bold fill-amber-600">ENDOMORFIA</text>
+              <text x="230" y="245" textAnchor="middle" className="text-[10px] font-bold fill-emerald-600">ECTOMORFIA</text>
               {dados.somatocarta_eixo_x != null && dados.somatocarta_eixo_y != null && (
                 <circle cx={coordX} cy={coordY} r="7" fill="#10b981" stroke="#ffffff" strokeWidth="2" className="shadow-lg" />
               )}
