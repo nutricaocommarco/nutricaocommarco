@@ -6,11 +6,10 @@ const styles = StyleSheet.create({
   page: { paddingTop: 35, paddingBottom: 50, paddingLeft: 55, paddingRight: 35, backgroundColor: '#FAFAFA', fontFamily: 'Helvetica' },
   sectionWrap: { marginBottom: 15 }, 
   
-  // Layout do Cabeçalho
   headerContainer: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 15 },
   headerLeft: { flex: 1 },
   headerRight: { alignItems: 'flex-end', justifyContent: 'center' },
-  logoImage: { height: 65, width: 'auto', marginBottom: 8, objectFit: 'contain' },
+  logoImage: { height: 40, width: 'auto', marginBottom: 5, objectFit: 'contain' },
   watermark: { fontSize: 8, color: '#9CA3AF', fontWeight: 'medium' },
   watermarkBold: { color: '#059669', fontWeight: 'bold' },
 
@@ -88,7 +87,6 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa
     <Document>
       <Page size="A4" style={styles.page}>
         
-        {/* CABEÇALHO DO PDF COM LOGO E AVISO EVALUAOS */}
         <View style={styles.headerContainer}>
           <View style={styles.headerLeft}>
             <Text style={styles.title}>Laudo Antropométrico</Text>
@@ -278,12 +276,13 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa
 };
 
 // --- BOTÃO DE EXPORTAÇÃO E WHATSAPP ---
-const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa, nomeAvaliador, logomarcaUrl, tokenPublico }) => {  const pac = dados?.pacientes || {};
+// Recebendo a nova propriedade isPublicView
+const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa, nomeAvaliador, logomarcaUrl, tokenPublico, isPublicView }) => {
+  const pac = dados?.pacientes || {};
   const nomeArquivo = pac.nome_completo ? pac.nome_completo.replace(/\s+/g, '_') : 'Paciente';
   const primeiroNome = pac.nome_completo ? pac.nome_completo.split(' ')[0] : 'Paciente';
   const telefoneLimpo = pac.telefone ? pac.telefone.replace(/\D/g, '') : '';
-  const linkDoLaudo = `${window.location.origin}/laudo/${tokenPublico}`;
-
+  
   let saudacao = 'do seu Avaliador';
   
   if (nomeAvaliador && nomeEmpresa) {
@@ -294,15 +293,19 @@ const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmp
     saudacao = `do consultório ${nomeEmpresa}`;
   }
 
-const mensagemWhatsApp = `Olá *${primeiroNome}*, tudo bem? \n\nAqui é ${saudacao}! Seu laudo antropométrico já está pronto.\n\nAcesse o link abaixo para visualizar seus resultados interativos e baixar o arquivo em PDF para acompanhar sua evolução:\n\n${linkDoLaudo}\n\nQualquer dúvida, estou à disposição!`;
+  const linkDoLaudo = `${window.location.origin}/laudo/${tokenPublico}`;
 
-  const linkWhatsApp = telefoneLimpo 
+  const mensagemWhatsApp = `Olá *${primeiroNome}*, tudo bem? \n\nAqui é ${saudacao}! Seu laudo antropométrico já está pronto.\n\nAcesse o link abaixo para visualizar seus resultados interativos e acompanhar sua evolução:\n\n${linkDoLaudo}\n\nQualquer dúvida, estou à disposição!`;
+
+  const linkWhatsApp = telefoneLimpo && tokenPublico
     ? `https://wa.me/${telefoneLimpo.startsWith('55') ? telefoneLimpo : '55' + telefoneLimpo}?text=${encodeURIComponent(mensagemWhatsApp)}`
     : '#';
 
   return (
     <div className="flex justify-end gap-3 w-full mt-2">
-      {telefoneLimpo ? (
+      
+      {/* SÓ MOSTRA O BOTÃO DO WHATSAPP SE NÃO FOR O PACIENTE (isPublicView = false) */}
+      {!isPublicView && telefoneLimpo && tokenPublico ? (
         <a 
           href={linkWhatsApp} 
           target="_blank" 
