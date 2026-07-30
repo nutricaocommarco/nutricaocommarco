@@ -193,7 +193,6 @@ export default function ResultadoAvaliacao() {
         ...somatotipo
       }
 
-      // TRAVA DE SEGURANÇA: Se for acesso público (paciente), NÃO salva no banco, apenas mostra na tela.
       if (!isPublicView) {
         const { error: upsertError } = await supabase
           .from('dados_calculados')
@@ -298,25 +297,39 @@ export default function ResultadoAvaliacao() {
     <div className={`space-y-6 pb-10 ${isPublicView ? 'max-w-4xl mx-auto p-4 sm:p-6' : ''}`}>
       
       <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm relative">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
-          <div>
-            {!isPublicView && (
-              <button onClick={() => navigate('/pacientes')} className="text-xs text-emerald-600 font-semibold hover:underline mb-2 inline-block">
-                ← Voltar para Histórico
-              </button>
+        
+        {/* NOVA SESSÃO DO AVALIADOR E BRANDING NO TOPO */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 border-b border-gray-100 pb-4">
+          <div className="flex items-center gap-4">
+            {logomarcaUrl ? (
+              <img src={logomarcaUrl} alt="Logo" className="h-16 w-auto object-contain" />
+            ) : (
+              <div className="h-12 w-12 bg-emerald-50 rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+              </div>
             )}
-            <h2 className="text-2xl font-bold text-gray-800">Laudo Antropométrico</h2>
-            <p className="text-lg font-medium text-gray-500">{pac.nome_completo}</p>
+            <div>
+              <h1 className="text-sm font-bold text-gray-800 uppercase tracking-wide">{nomeEmpresa || 'Consultório'}</h1>
+              <p className="text-xs text-gray-500">Avaliador(a): <span className="font-semibold text-gray-700">{nomeAvaliador || '-'}</span></p>
+            </div>
           </div>
           
           <div className="flex flex-col items-end mt-4 sm:mt-0">
-            {logomarcaUrl && (
-              <img src={logomarcaUrl} alt="Logo" className="h-24 w-auto object-contain mb-2" />
-            )}
             <span className="text-[10px] text-gray-400 font-medium tracking-wide">
               Gerado via <span className="font-bold text-emerald-600">EvaluaOS</span>
             </span>
+            {!isPublicView && (
+              <button onClick={() => navigate('/pacientes')} className="text-xs text-emerald-600 font-semibold hover:underline mt-2 inline-block">
+                ← Voltar para Histórico
+              </button>
+            )}
           </div>
+        </div>
+
+        {/* NOME DO PACIENTE E LAUDO */}
+        <div className="mb-6">
+          <h2 className="text-2xl font-black text-gray-800">Laudo Antropométrico</h2>
+          <p className="text-lg font-medium text-gray-500 mt-1">{pac.nome_completo}</p>
         </div>
         
         <div className="mt-4 flex flex-col md:flex-row gap-4">
