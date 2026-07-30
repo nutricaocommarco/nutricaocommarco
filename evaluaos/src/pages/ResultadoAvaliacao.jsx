@@ -234,31 +234,31 @@ export default function ResultadoAvaliacao() {
   const perimCorrigidoPanturrilha = dados.perimetro_corrigido_panturrilha || (pPant > 0 ? pPant - ((aval.dobra_cutanea_panturrilha || 0) * 0.314) : 0);
 
 // --- ÍNDICE DE MÚSCULO ÓSSEO (IMO) - EXATO ---
-  const estatura = aval.altura_paciente || 0
-  const dUmero = aval.diametro_umero || 0
-  const dFemur = aval.diametro_femur || 0
-  const dRadio = aval.diametro_punho || 0 
-  const dMaleolar = aval.diametro_maleolar || 0
+  const estatura = Number(aval.altura_paciente) || 0;
+  
+  const dUmero = Number(aval.diametro_umero) || 0;
+  const dFemur = Number(aval.diametro_femur) || 0;
+  const dRadio = Number(aval.diametro_punho) || 0; 
+  const dMaleolar = Number(aval.diametro_maleolar) || 0;
 
   // Parte 1
-  const parte1 = 0.6 * estatura * Math.pow(dUmero + dFemur + dRadio + dMaleolar, 2) * 0.0001
+  const parte1 = 0.6 * estatura * Math.pow(dUmero + dFemur + dRadio + dMaleolar, 2) * 0.0001;
 
-  const cCoxa = aval.perimetro_coxa_media || 0
-  const dCoxa = aval.dobra_cutanea_coxa_media || 0
-  const cAntebraco = aval.perimetro_antibraco || 0
-  const cPant = aval.perimetro_panturrilha || 0
-  const dPant = aval.dobra_cutanea_panturrilha || 0
+  const cCoxa = Number(aval.perimetro_coxa_media) || 0;
+  const dCoxa = Number(aval.dobra_cutanea_coxa_media) || 0;
+  const cAntebraco = Number(aval.perimetro_antibraco) || 0;
+  const cPant = Number(aval.perimetro_panturrilha) || 0;
+  const dPant = Number(aval.dobra_cutanea_panturrilha) || 0;
 
-  // Usando Math.PI / 10 para cravarnos a precisão exata da dobra
-  const fatorDobra = Math.PI / 10
-  const termoCoxa = cCoxa - (dCoxa * fatorDobra)
-  const termoPant = cPant - (dPant * fatorDobra)
+  // Garantindo o uso exato de 0.3141 e conversão segura para Number para evitar concatenação de Strings
+  const termoCoxa = cCoxa - (dCoxa * 0.3141);
+  const termoPant = cPant - (dPant * 0.3141);
 
-  // Parte 2 exata conforme a fórmula do Excel
-  const parte2 = (estatura * (0.0553 * Math.pow(termoCoxa, 2) + 0.0987 * Math.pow(cAntebraco, 2) + 0.0331 * Math.pow(termoPant, 2)) - 2445) * 0.001
+  // Parte 2 exata conforme a fórmula
+  const parte2 = (estatura * (0.0553 * Math.pow(termoCoxa, 2) + 0.0987 * Math.pow(cAntebraco, 2) + 0.0331 * Math.pow(termoPant, 2)) - 2445) * 0.001;
 
   // Parte 3 (Parte 2 / Parte 1)
-  const imoVal = (parte1 > 0 && parte2 > 0) ? (parte2 / parte1) : 0
+  const imoVal = (parte1 > 0 && parte2 > 0) ? (parte2 / parte1) : 0;
 
 
   const coordX = 150 + ((dados.somatocarta_eixo_x || 0) * 15)
