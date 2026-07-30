@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
+import BotaoExportarPDF from '../components/BotaoExportarPDF';
 
 // --- HELPER CÁLCULO DE SOMATOTIPO HEATH-CARTER ---
 const calcularSomatotipo = (medidas) => {
@@ -570,6 +571,11 @@ export default function ResultadoAvaliacao() {
           ))}
 
         </div>
+        <BotaoExportarPDF 
+          avaliacao={aval} 
+          paciente={pac} 
+          imoVal={imoVal} 
+        />
       </div>
 
     </div>
