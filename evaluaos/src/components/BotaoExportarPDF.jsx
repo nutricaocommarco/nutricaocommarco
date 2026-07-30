@@ -63,10 +63,10 @@ const ProgressBar = ({ label, value, valColor, barStyle }) => (
       <View style={[barStyle, { width: `${Math.min(100, (value || 0) * 10)}%` }]} />
     </View>
   </View>
-);
+);  
 
 // --- CORPO DO PDF ---
-const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa }) => {
+const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa, nomeAvaliador }) => {
   const aval = dados?.avaliacoes || {};
   const pac = dados?.pacientes || {};
   const dataFormatada = aval.data_avaliacao ? new Date(aval.data_avaliacao + 'T12:00:00').toLocaleDateString('pt-BR') : '-';
@@ -257,15 +257,24 @@ const RelatorioPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa
 };
 
 // --- BOTÃO DE EXPORTAÇÃO E WHATSAPP ---
-const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa }) => {
+const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmpresa, nomeAvaliador }) => {
   const pac = dados?.pacientes || {};
   const nomeArquivo = pac.nome_completo ? pac.nome_completo.replace(/\s+/g, '_') : 'Paciente';
   const primeiroNome = pac.nome_completo ? pac.nome_completo.split(' ')[0] : 'Paciente';
   const telefoneLimpo = pac.telefone ? pac.telefone.replace(/\D/g, '') : '';
   
-  // Utiliza a variável dinâmica para montar a mensagem
-  const saudacaoEmpresa = nomeEmpresa ? `do consultório ${nomeEmpresa}` : 'do seu Avaliador';
-  const mensagemWhatsApp = `Olá *${primeiroNome}*, tudo bem? \n\nAqui é ${saudacaoEmpresa}! Seu laudo antropométrico já está pronto. \n\nEstou enviando o arquivo em PDF logo abaixo para você acompanhar sua evolução. Qualquer dúvida, estou à disposição! 📊💪`;
+  // Monta a saudação baseada nas informações disponíveis no banco
+  let saudacao = 'do seu Avaliador';
+  
+  if (nomeAvaliador && nomeEmpresa) {
+    saudacao = `${nomeAvaliador} do consultório ${nomeEmpresa}`;
+  } else if (nomeAvaliador) {
+    saudacao = `${nomeAvaliador}`;
+  } else if (nomeEmpresa) {
+    saudacao = `do consultório ${nomeEmpresa}`;
+  }
+
+  const mensagemWhatsApp = `Olá *${primeiroNome}*, tudo bem? \n\nAqui é ${saudacao}! Seu laudo antropométrico já está pronto. \n\nEstou enviando o arquivo em PDF logo abaixo para você acompanhar sua evolução. Qualquer dúvida, estou à disposição! 📊💪`;
   
   const linkWhatsApp = telefoneLimpo 
     ? `https://wa.me/${telefoneLimpo.startsWith('55') ? telefoneLimpo : '55' + telefoneLimpo}?text=${encodeURIComponent(mensagemWhatsApp)}`
@@ -288,7 +297,7 @@ const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmp
       ) : null}
 
       <PDFDownloadLink
-        document={<RelatorioPDF dados={dados} idade={idade} statusCintura={statusCintura} iamVal={iamVal} imoVal={imoVal} nomeEmpresa={nomeEmpresa} />}
+        document={<RelatorioPDF dados={dados} idade={idade} statusCintura={statusCintura} iamVal={iamVal} imoVal={imoVal} nomeEmpresa={nomeEmpresa} nomeAvaliador={nomeAvaliador} />}
         fileName={`Laudo_${nomeArquivo}.pdf`}
         className="flex items-center justify-center px-6 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-lg shadow hover:bg-emerald-700 transition-colors"
       >
