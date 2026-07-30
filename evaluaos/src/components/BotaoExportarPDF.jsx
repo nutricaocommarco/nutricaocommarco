@@ -274,8 +274,8 @@ const BotaoExportarPDF = ({ dados, idade, statusCintura, iamVal, imoVal, nomeEmp
     saudacao = `do consultório ${nomeEmpresa}`;
   }
 
-  const mensagemWhatsApp = `Olá *${primeiroNome}*, tudo bem? \n\nAqui é ${saudacao}! Seu laudo antropométrico já está pronto. \n\nEstou enviando o arquivo em PDF logo abaixo para você acompanhar sua evolução. Qualquer dúvida, estou à disposição! 📊💪`;
-  
+    const mensagemWhatsApp = `Olá *${primeiroNome}*, tudo bem? \n\nAqui é ${saudacao}! Seu laudo antropométrico já está pronto. \n\nEstou enviando o arquivo em PDF logo abaixo para você acompanhar sua evolução. Qualquer dúvida, estou à disposição!`;
+
   const linkWhatsApp = telefoneLimpo 
     ? `https://wa.me/${telefoneLimpo.startsWith('55') ? telefoneLimpo : '55' + telefoneLimpo}?text=${encodeURIComponent(mensagemWhatsApp)}`
     : '#';

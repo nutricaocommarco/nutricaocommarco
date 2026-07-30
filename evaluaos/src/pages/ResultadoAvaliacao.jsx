@@ -63,6 +63,10 @@ export default function ResultadoAvaliacao() {
 
   const [loading, setLoading] = useState(true)
   const [dados, setDados] = useState(null)
+  
+  // 1. ADICIONADO: Estados para guardar os dados do avaliador
+  const [nomeEmpresa, setNomeEmpresa] = useState('')
+  const [nomeAvaliador, setNomeAvaliador] = useState('')
 
   if (!avaliacaoId) {
     return (
@@ -93,6 +97,18 @@ export default function ResultadoAvaliacao() {
       }
 
       const pac = avalDados.pacientes || {}
+
+      // 2. ADICIONADO: Busca os dados do Avaliador e da Empresa direto do seu ID (3)
+      const { data: avaliadorData } = await supabase
+        .from('avaliadores')
+        .select('empresa, nome_completo')
+        .eq('id', 3)
+        .maybeSingle();
+        
+      if (avaliadorData) {
+        if (avaliadorData.empresa) setNomeEmpresa(avaliadorData.empresa);
+        if (avaliadorData.nome_completo) setNomeAvaliador(avaliadorData.nome_completo);
+      }
 
       const pesoFinal = avalDados.peso_paciente || 0
       const alturaCm = avalDados.altura_paciente || 0
@@ -571,12 +587,16 @@ export default function ResultadoAvaliacao() {
           ))}
 
         </div>
+        
+        {/* 3. ADICIONADO: Propriedades de nomeEmpresa e nomeAvaliador inseridas no botão */}
         <BotaoExportarPDF 
           dados={dados} 
           idade={idade} 
           statusCintura={statusCintura} 
           iamVal={iamVal} 
           imoVal={imoVal} 
+          nomeEmpresa={nomeEmpresa}
+          nomeAvaliador={nomeAvaliador}
         />
       </div>
 
