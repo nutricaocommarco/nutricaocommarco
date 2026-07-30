@@ -106,6 +106,7 @@ export default function ResultadoAvaliacao() {
 
       const pac = avalDados.pacientes || {}
 
+      // BUSCA DIRETA E SEGURA DO AVALIADOR NO ID 3 (Garante o carregamento da logo e dados)
       const { data: avaliadorData } = await supabase
         .from('avaliadores')
         .select('empresa, nome_completo, logomarca_url')
@@ -297,6 +298,7 @@ export default function ResultadoAvaliacao() {
       
       <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm relative">
         
+        {/* TOPO: LOGO, DADOS DO AVALIADOR E BRANDING EVALUAOS */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 border-b border-gray-100 pb-4">
           <div className="flex items-center gap-4">
             {logomarcaUrl ? (
@@ -324,6 +326,7 @@ export default function ResultadoAvaliacao() {
           </div>
         </div>
 
+        {/* NOME DO PACIENTE E LAUDO */}
         <div className="mb-6">
           <h2 className="text-2xl font-black text-gray-800">Laudo Antropométrico</h2>
           <p className="text-lg font-medium text-gray-500 mt-1">{pac.nome_completo}</p>
@@ -536,8 +539,8 @@ export default function ResultadoAvaliacao() {
               <line x1="20" y1="140" x2="260" y2="140" stroke="#cbd5e1" strokeWidth="1.5" strokeDasharray="4" />
               <polygon points="140,30 40,230 240,230" fill="none" stroke="#94a3b8" strokeWidth="1.5" />
               <text x="140" y="20" textAnchor="middle" className="text-[10px] font-bold fill-blue-600">MESOMORFIA</text>
-              <text x="30" y="245" textAnchor="middle" className="text-[10px] font-bold fill-amber-600">ENDOMORFIA</text>
-              <text x="250" y="245" textAnchor="middle" className="text-[10px] font-bold fill-emerald-600">ECTOMORFIA</text>
+              <text x="50" y="245" textAnchor="middle" className="text-[10px] font-bold fill-amber-600">ENDOMORFIA</text>
+              <text x="230" y="245" textAnchor="middle" className="text-[10px] font-bold fill-emerald-600">ECTOMORFIA</text>
               {dados.somatocarta_eixo_x != null && dados.somatocarta_eixo_y != null && (
                 <circle cx={coordX} cy={coordY} r="7" fill="#10b981" stroke="#ffffff" strokeWidth="2" className="shadow-lg" />
               )}
