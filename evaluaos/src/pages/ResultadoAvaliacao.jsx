@@ -555,13 +555,8 @@ export default function ResultadoAvaliacao() {
                 {imoVal > 0 ? imoVal.toFixed(3) : '-'}
               </span>
             </div>
-            {/* LINHA DE DEBUG: Mostra os valores exatos que o sistema usou para o cálculo */}
-            <div className="text-[9px] text-gray-400 pt-1 border-t border-gray-200 leading-tight">
-              <p>P1: {parte1.toFixed(3)} | P2: {parte2.toFixed(3)}</p>
-              <p>Valores Lidos: Est: {estatura} | CoxaMed: {cCoxa} | DobraCoxa: {dCoxa} | Ant: {cAntebraco} | Pant: {cPant} | DobraPant: {dPant}</p>
-            </div>
           </div>
-
+          
           {[
             'Área de Previsão Visceral (APVAT)', 
             'Gordura (Escala Morrow)', 
