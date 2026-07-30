@@ -240,7 +240,7 @@ export default function ResultadoAvaliacao() {
   const dRadio = aval.diametro_punho || 0 
   const dMaleolar = aval.diametro_maleolar || 0
 
-  // Parte 1
+  // Parte 1 
   const parte1 = 0.6 * estatura * Math.pow(dUmero + dFemur + dRadio + dMaleolar, 2) * 0.0001
 
   const cCoxa = aval.perimetro_coxa_media || 0
