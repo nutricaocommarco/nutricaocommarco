@@ -246,7 +246,7 @@ export default function ResultadoAvaliacao() {
   const dCoxaMm = aval.dobra_cutanea_coxa_media || 0
   const dPantMm = aval.dobra_cutanea_panturrilha || 0
 
-  // Usando Math.PI / 10 para máxima precisão decimal na conversão da dobra
+  // Usando Math.PI / 10 para máxima precisão decimal na conversão da dobra 
   const fatorPi = Math.PI / 10 
   const coxaCorrigidaIMO = pCoxa > 0 ? pCoxa - (dCoxaMm * fatorPi) : 0
   const pantCorrigidaIMO = pPant > 0 ? pPant - (dPantMm * fatorPi) : 0
