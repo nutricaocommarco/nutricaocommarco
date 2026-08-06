@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Instagram, Menu, X, Mail, ChevronDown, Store, Calculator, BookOpen, Flame } from 'lucide-react';
+import { Instagram, Menu, X, Mail, ChevronDown, Store, Calculator, BookOpen, Flame, Rocket } from 'lucide-react';
 import { HelmetProvider } from 'react-helmet-async';
 import Loja from './pages/Loja_do_Pingus/Loja';
 import ProdutoDetalhe from './pages/Loja_do_Pingus/ProdutoDetalhe';
@@ -60,6 +60,7 @@ const ComoGanharTempoCozinha = lazyRetry(() => import('./pages/ComoGanharTempoCo
 const EbookReceitas = lazyRetry(() => import('./pages/Ebook-Receitas'));
 const ComoCalcularMeuGet = lazyRetry(() => import('./pages/ComoCalcularMeuGet'));
 const AvaliacaoAntropometrica = lazyRetry(() => import('./pages/AvaliacaoAntropometrica'));
+const SoftwareAvaliacaoAntropometrica = lazyRetry(() => import('./pages/SoftwareAvaliacaoAntropometrica'));
 
 const LoadingSpinner = () => (
   <div className="flex justify-center items-center h-screen text-green-700 font-black">
@@ -119,12 +120,15 @@ function Layout({ children }) {
 
             {/* DROPDOWN LOJA E FERRAMENTAS */}
             <div className="relative group">
-              <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/loja', '/calculadora-de-gasto-calorico', '/planilha', '/ebook-receitas'].some(path => location.pathname.startsWith(path)) ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-700'}`}>
+              <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/loja', '/calculadora-de-gasto-calorico', '/planilha', '/ebook-receitas', '/software-de-avaliacao-antropometrica'].some(path => location.pathname.startsWith(path)) ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-700'}`}>
                 Loja <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
               </span>
-              <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-white border border-green-100 shadow-xl rounded-xl py-3 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col z-50">
+              <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-white border border-green-100 shadow-xl rounded-xl py-3 w-80 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col z-50">
                 <Link to="/loja" className={`px-5 py-2.5 text-sm font-black transition-all border-b border-slate-100 flex items-center gap-2 ${location.pathname === '/loja' ? 'text-green-700 bg-green-50' : 'text-slate-900 hover:text-green-700 hover:bg-slate-50'}`}>
                   <Store size={16} className="text-green-700" /> Ver Toda a Loja
+                </Link>
+                <Link to="/software-de-avaliacao-antropometrica" className={`px-5 py-2.5 text-sm font-bold transition-all flex items-center gap-2 ${location.pathname === '/software-de-avaliacao-antropometrica' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>
+                  <Rocket size={16} className="text-emerald-600" /> Software Antropometria (EvaluaOS)
                 </Link>
                 <Link to="/calculadora-de-gasto-calorico" className={`px-5 py-2 text-sm font-bold transition-all flex items-center gap-2 ${location.pathname === '/calculadora-de-gasto-calorico' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>
                   <Calculator size={16} className="text-green-700" /> Gasto Calórico (Grátis)
@@ -133,7 +137,7 @@ function Layout({ children }) {
                   <BookOpen size={16} className="text-green-700" /> E-book de Receitas
                 </Link>
                 <Link to="/planilha" className={`px-5 py-2 text-sm font-bold transition-all flex items-center gap-2 ${location.pathname === '/planilha' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>
-                  <Flame size={16} className="text-green-700" /> Planilha Antropométrica
+                  <Flame size={16} className="text-green-700" /> Planilha Antropométrica (VBA)
                 </Link>
               </div>
             </div>
@@ -170,6 +174,9 @@ function Layout({ children }) {
               <div className="flex flex-col gap-3 pl-4 border-l-2 border-green-200">
                 <Link to="/loja" onClick={() => setIsMenuOpen(false)} className="text-base font-black uppercase tracking-widest text-green-700 flex items-center gap-2">
                   <Store size={18} /> Ver Toda a Loja
+                </Link>
+                <Link to="/software-de-avaliacao-antropometrica" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-emerald-600 flex items-center gap-2">
+                  <Rocket size={18} /> Software EvaluaOS
                 </Link>
                 <Link to="/calculadora-de-gasto-calorico" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-700 flex items-center gap-2">
                   <Calculator size={18} /> Gasto Calórico (Grátis)
@@ -220,7 +227,7 @@ function Layout({ children }) {
           
           <p className="text-slate-400 text-xs font-bold tracking-[0.2em] uppercase mb-1">#NutriçãoComCiência #Antropometria #ISAK1 #ConsultaOnline</p>
           <p className="text-slate-400 text-xs font-bold tracking-[0.2em] uppercase">
-           © 2026 Nutrição com Marco • Rio de Janeiro
+            © 2026 Nutrição com Marco • Rio de Janeiro
           </p>
         </div>
       </footer>
@@ -283,6 +290,7 @@ export default function App() {
               <Route path="/loja" element={<Loja />} />
               <Route path="/loja/:id" element={<ProdutoDetalhe />} />
               <Route path="/avaliacao-antropometrica" element={<AvaliacaoAntropometrica />} />
+              <Route path="/software-de-avaliacao-antropometrica" element={<SoftwareAvaliacaoAntropometrica />} />
             </Routes>
           </Suspense>
         </Layout>

@@ -81,6 +81,12 @@ function getVideoSchema(nome, descricao, videoId, dataUpload) {
 
 // 📝 1. TODAS AS ROTAS ESTÁTICAS
 const rotasEstaticas = [
+  { 
+    path: 'software-de-avaliacao-antropometrica', 
+    title: 'Software de Avaliação Antropométrica Científico | EvaluaOS', 
+    image: '/Imagens/Afiliado/Logo.jpeg', 
+    desc: 'Conheça o EvaluaOS, o mais completo software de avaliação antropométrica para nutricionistas e avaliadores. Padrão ISAK, +60 equações, 4C Kerr e laudos web interativos.' 
+  },
   { path: 'planilha-de-avaliacao-antropometrica-marco-aurelio', title: 'Planilha de Avaliação Antropométrica Inteligente PRO | Nutrição com Marco', image: `${githubImgBase}PlanilhaImagem/Planilha_Capa.webp`, desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.' },
   { path: 'ebook-receitas', title: 'Ebook Receitas Saudáveis e Nutritivas: O Caminho da Praticidade | Nutrição com Marco', image: `${githubImgBase}Receitas_Saudáveis.png`, desc: 'Descubra como comer bem sem perder horas no fogão. Aprenda a Técnica do 3x3, pré-preparos inteligentes e dezenas de receitas práticas para a sua rotina.' },
   { path: 'planilha', title: 'Planilha Antropométrica Inteligente PRO | Nutrição com Marco', image: `${githubImgBase}PlanilhaImagem/Planilha_Capa.webp`, desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.' },
