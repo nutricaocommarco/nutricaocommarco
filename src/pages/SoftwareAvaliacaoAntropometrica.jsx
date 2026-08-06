@@ -16,7 +16,8 @@ export default function SoftwareAvaliacaoAntropometrica() {
   }, [pathname]);
 
   const appUrl = "https://evaluaos.nutricaocommarco.com.br";
-  const logoSoftware = "/Imagens/Afiliado/Logo.jpeg";
+  const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
+    const logoSoftware = `${githubImgBase}Afiliado/Logo.jpeg`;
   const linkLaudoExemplo = "https://evaluaos.nutricaocommarco.com.br/laudo/e67fbcda-cbef-416e-9d39-33b052bcff0d";
   const linkEvolucaoExemplo = "https://evaluaos.nutricaocommarco.com.br/evolucao/cf5f2d22dd728039c1d8d4a0364e893d";
 
