@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import PublicHeader from '../components/PublicHeader';
 import { 
   Sparkles, CheckCircle, Activity, Brain, ShieldCheck, 
   Smartphone, BarChart3, Lock, Rocket, ArrowRight, Video, 
@@ -88,11 +87,8 @@ export default function SoftwareAvaliacaoAntropometrica() {
       </Helmet>
 
       <div className="min-h-screen bg-white text-slate-800 font-sans selection:bg-emerald-500 selection:text-white">
-        
-        {/* 🟢 1. HEADER GLOBAL */}
-        <PublicHeader />
 
-        {/* 🚀 2. HERO SECTION */}
+        {/* 🚀 1. HERO SECTION */}
         <section className="relative overflow-hidden pt-10 pb-16 md:pt-16 md:pb-24 bg-gradient-to-b from-emerald-50/60 via-white to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center space-y-6">
             
@@ -165,7 +161,7 @@ export default function SoftwareAvaliacaoAntropometrica() {
           </div>
         </section>
 
-        {/* 🎬 3. VÍDEO TOUR DO SOFTWARE */}
+        {/* 🎬 2. VÍDEO TOUR DO SOFTWARE */}
         <section className="pb-16 bg-white relative z-10 border-b border-slate-100">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-6">
@@ -190,7 +186,7 @@ export default function SoftwareAvaliacaoAntropometrica() {
           </div>
         </section>
 
-        {/* 📱 4. DEMONSTRAÇÃO VIVA DO LAUDO WEB E EVOLUÇÃO */}
+        {/* 📱 3. DEMONSTRAÇÃO VIVA DO LAUDO WEB E EVOLUÇÃO */}
         <section id="laudo-demo" className="py-20 bg-gradient-to-b from-white via-emerald-50/40 to-white border-b border-slate-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
             
@@ -273,7 +269,7 @@ export default function SoftwareAvaliacaoAntropometrica() {
           </div>
         </section>
 
-        {/* 🧬 5. POR QUE O EVALUAOS É O SOFTWARE DE AVALIAÇÃO ANTROPOMÉTRICA IDEAL? */}
+        {/* 🧬 4. POR QUE O EVALUAOS É O SOFTWARE DE AVALIAÇÃO ANTROPOMÉTRICA IDEAL? */}
         <section className="py-20 bg-slate-950 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
             
@@ -324,7 +320,7 @@ export default function SoftwareAvaliacaoAntropometrica() {
           </div>
         </section>
 
-        {/* 💰 6. PLANOS E PREÇOS */}
+        {/* 💰 5. PLANOS E PREÇOS */}
         <section id="precos" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
           
           <div className="text-center space-y-2 max-w-2xl mx-auto">
@@ -410,7 +406,7 @@ export default function SoftwareAvaliacaoAntropometrica() {
 
         </section>
 
-        {/* ❓ 7. PERGUNTAS FREQUENTES (FAQ) */}
+        {/* ❓ 6. PERGUNTAS FREQUENTES (FAQ) */}
         <section className="py-20 bg-slate-50 border-t border-slate-200">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 space-y-10">
             
@@ -436,7 +432,7 @@ export default function SoftwareAvaliacaoAntropometrica() {
           </div>
         </section>
 
-        {/* 🧲 8. BANNER FINAL DE CTA */}
+        {/* 🧲 7. BANNER FINAL DE CTA */}
         <section className="py-20 bg-gradient-to-r from-emerald-600 to-teal-700 text-white">
           <div className="max-w-5xl mx-auto px-4 text-center space-y-6">
             <h2 className="text-2xl sm:text-4xl font-black">
@@ -456,25 +452,6 @@ export default function SoftwareAvaliacaoAntropometrica() {
             </a>
           </div>
         </section>
-
-        {/* 📞 9. RODAPÉ */}
-        <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-xs">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="space-y-1 text-center md:text-left">
-              <span className="font-bold text-white text-sm">EvaluaOS</span>
-              <p className="text-slate-500">Desenvolvido para nutricionistas e antropometristas exigentes.</p>
-            </div>
-
-            <div className="flex items-center gap-6 text-slate-300 font-semibold">
-              <a href="mailto:contato@nutricaocommarco.com.br" className="hover:text-emerald-400 transition-colors">
-                ✉️ contato@nutricaocommarco.com.br
-              </a>
-              <a href="https://www.instagram.com/nutricao_com_marco/" target="_blank" rel="noreferrer" className="hover:text-emerald-400 transition-colors">
-                📸 Instagram
-              </a>
-            </div>
-          </div>
-        </footer>
 
       </div>
     </>
