@@ -7,6 +7,15 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 const postsData = [
   {
+    id: 31,
+    link: "/relacao-cintura-quadril",
+    imgSrc: `${githubImgBase}Blog/RelacaoCinturaQuadril_Capa.webp`,
+    tag: "Composição Corporal",
+    title: "Relação Cintura-Quadril: O Que É e Como Calcular Seu Risco Cardiovascular",
+    desc: "Descubra o que é a relação cintura-quadril, como medir corretamente, os pontos de corte da OMS por sexo e use nossa calculadora gratuita para saber seu risco cardiovascular agora.",
+    isNew: true
+  },
+  {
     id: 30,
     link: "/avaliacao-antropometrica",
     imgSrc: `${githubImgBase}Blog/Avaliacao_Antropometrica_Capa.webp`,
