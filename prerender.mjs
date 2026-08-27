@@ -108,9 +108,30 @@ const rotasLoja = [
 
 // 📝 3. TODOS OS POSTS DO BLOG
 const postsBlog = [
-{ 
-    id: 31, 
-    link: "/avaliacao-antropometrica", 
+{
+    id: 32,
+    link: "/relacao-cintura-quadril",
+    img: `${githubImgBase}Blog/RelacaoCinturaQuadril_Capa.webp`,
+    titulo: "Relação Cintura-Quadril: O Que É e Como Calcular Seu Risco Cardiovascular",
+    desc: "Descubra o que é a relação cintura-quadril, como medir corretamente, os pontos de corte da OMS por sexo e use nossa calculadora gratuita para saber seu risco cardiovascular agora.",
+    data: "2026-08-27",
+    schemasExtra: [
+      getMedicalSchema("Relação Cintura-Quadril e Distribuição de Gordura Corporal", "https://www.nutricaocommarco.com.br/relacao-cintura-quadril", ["Obesidade Central", "Circunferência da Cintura", "Circunferência do Quadril", "Síndrome Metabólica", "Risco Cardiovascular"]),
+      // ⚠️ uploadDate é uma estimativa — ajuste para a data real de publicação do vídeo se souber
+      getVideoSchema("Risco Cardíaco | Relação Cintura e Quadril", "O canal Leandro Twin explica como a relação cintura-quadril se relaciona ao risco cardíaco e por que essa métrica é usada como indicador de obesidade central.", "gRQBG64uNFE", "2025-01-01T12:00:00-03:00"),
+      getFaqSchema([
+        { pergunta: "Relação Cintura-Quadril (RCQ) ou Relação Cintura-Estatura (RCEst): qual devo usar?", resposta: "Não são concorrentes, são complementares. A RCEst tem a vantagem de usar um único ponto de corte (0,5) para praticamente qualquer altura, o que a torna mais simples para triagem populacional em massa. Já a RCQ carrega uma informação que a RCEst não tem: ela compara diretamente o compartimento de risco (cintura) com o compartimento de referência óssea e muscular (quadril), sendo historicamente a métrica mais usada em estudos cardiovasculares de larga escala para descrever o padrão de distribuição de gordura andróide vs. ginoide." },
+        { pergunta: "Homens e mulheres usam o mesmo ponto de corte na RCQ?", resposta: "Não. A fisiologia óssea e hormonal muda completamente a referência. O ponto de corte da OMS para risco substancialmente elevado é acima de 0,90 para homens e acima de 0,85 para mulheres, porque a bacia feminina é naturalmente mais larga e o padrão de acúmulo de gordura pré-menopausa tende a ser mais ginoide." },
+        { pergunta: "A Relação Cintura-Quadril substitui uma bioimpedância ou um DEXA?", resposta: "Não substitui, mas frequentemente supera esses métodos como preditor de risco cardiovascular específico. A RCQ não fraciona a composição corporal em massa gorda, magra e óssea como o DEXA faz, mas ela captura diretamente onde a gordura está localizada." },
+        { pergunta: "A menopausa muda a Relação Cintura-Quadril?", resposta: "Sim, de forma bem documentada na fisiologia endócrina. A queda do estrogênio na menopausa reduz o estímulo para o armazenamento de gordura no quadril e nas coxas e favorece o acúmulo de gordura visceral abdominal, o que costuma elevar a RCQ mesmo sem grande variação no peso total." },
+        { pergunta: "Como medir a cintura e o quadril corretamente em casa?", resposta: "Use uma fita métrica inelástica, sem apertar a pele. A cintura é medida no ponto médio entre a última costela e a crista ilíaca, ao final de uma expiração normal. O quadril é medido na circunferência mais protuberante dos glúteos, geralmente ao nível do trocânter maior do fêmur." }
+      ]),
+      JSON.parse(`{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Calculadora de Relação Cintura-Quadril","operatingSystem":"Web Browser","applicationCategory":"HealthApplication","url":"https://www.nutricaocommarco.com.br/relacao-cintura-quadril#calculadora","description":"Ferramenta online e gratuita para calcular a relação cintura-quadril (RCQ) e classificar o risco cardiovascular por sexo, com base nos pontos de corte da OMS.","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"}}`)
+    ]
+  },
+{
+    id: 31,
+    link: "/avaliacao-antropometrica",
     img: `${githubImgBase}Blog/Avaliacao_Antropometrica_Capa.webp`, 
     titulo: "Como fazer uma Avaliação Antropométrica de Qualidade?", 
     desc: "Aprenda como fazer uma avaliação antropométrica completa. Domine o protocolo ISAK, Pollock, dobras cutâneas, calcule seu somatotipo online e descubra como automatizar seus relatórios!", 
