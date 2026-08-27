@@ -76,6 +76,11 @@
 
   <!-- === ARTIGOS DO BLOG (Prioridade Padrão para Conteúdo) === -->
   <url>
+    <loc>https://www.nutricaocommarco.com.br/relacao-cintura-quadril</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.nutricaocommarco.com.br/avaliacao-antropometrica</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

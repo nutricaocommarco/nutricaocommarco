@@ -312,7 +312,37 @@ export default function RelacaoCinturaQuadril() {
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-slate-400 md:hidden mb-8 italic">*Tabela completa disponível na versão desktop. Use a calculadora abaixo para ver seu resultado diretamente.</p>
+
+          {/* VERSÃO MOBILE EM CARDS DA TABELA DE CLASSIFICAÇÃO */}
+          <div className="md:hidden space-y-4 my-8">
+            {[
+              { nivel: "Baixo", homens: "Abaixo de 0,85", mulheres: "Abaixo de 0,80", risco: "Risco padrão populacional", cor: "green" },
+              { nivel: "Moderado", homens: "0,85 a 0,89", mulheres: "0,80 a 0,84", risco: "Atenção e monitoramento", cor: "orange" },
+              { nivel: "Substancialmente Elevado", homens: "A partir de 0,90", mulheres: "A partir de 0,85", risco: "Risco cardiovascular e metabólico elevado", cor: "red" },
+            ].map((item) => (
+              <div key={item.nivel} className="bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden">
+                <div className={`px-5 py-3 font-black uppercase text-xs tracking-widest ${
+                  item.cor === 'green' ? 'bg-green-50 text-green-700' : item.cor === 'orange' ? 'bg-orange-50 text-orange-700' : 'bg-red-50 text-red-700'
+                }`}>
+                  {item.nivel}
+                </div>
+                <div className="p-5 space-y-3">
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-slate-500 font-bold uppercase text-[11px] tracking-widest">RCQ Homens</span>
+                    <span className="font-black text-slate-800">{item.homens}</span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm border-t border-slate-100 pt-3">
+                    <span className="text-slate-500 font-bold uppercase text-[11px] tracking-widest">RCQ Mulheres</span>
+                    <span className="font-black text-slate-800">{item.mulheres}</span>
+                  </div>
+                  <div className="border-t border-slate-100 pt-3">
+                    <span className="text-slate-500 font-bold uppercase text-[11px] tracking-widest block mb-1">Risco Associado</span>
+                    <span className="text-slate-700 text-sm">{item.risco}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
 
           <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 text-blue-900 italic mt-6 mb-6">
             <p className="m-0">Esses cortes não são um veredito isolado: em populações com circunferência de cintura elevada, o acúmulo de fatores de risco metabólicos adicionais (triglicerídeos altos, HDL baixo, pressão elevada) amplifica de forma consistente o risco de mortalidade cardiovascular associado à obesidade central, segundo dados de coortes prospectivas de larga escala.</p>
@@ -357,6 +387,32 @@ export default function RelacaoCinturaQuadril() {
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          {/* VERSÃO MOBILE EM CARDS DA TABELA COMPARATIVA */}
+          <div className="md:hidden space-y-4 my-8">
+            {[
+              { indice: "IMC", vantagens: "Extremamente simples (peso ÷ altura²), padronizado mundialmente, útil para triagem populacional em massa.", limitacoes: "Não diferencia massa magra de massa gorda, nem onde a gordura está localizada. Um atleta musculoso pode ser classificado como \"obeso\" por engano." },
+              { indice: "Circunferência da Cintura Isolada", vantagens: "Medida única e rápida, forte componente dos critérios de síndrome metabólica. Estudos de coorte com dezenas de milhares de homens confirmam sua associação com mortalidade cardiovascular.", limitacoes: "Não é ajustada pela estrutura óssea do indivíduo — a mesma medida em cm pode significar riscos bem diferentes em uma pessoa de estrutura pequena versus grande." },
+              { indice: "RCQ (Cintura/Quadril)", vantagens: "Considera a estrutura óssea da bacia como referência, historicamente é o índice mais usado em grandes estudos cardiovasculares internacionais para descrever o padrão andróide de obesidade.", limitacoes: "Duas medidas em vez de uma (mais chance de erro cumulativo). Pode \"mascarar\" risco em pessoas com quadril proporcionalmente muito largo." },
+              { indice: "RCEst (Cintura/Estatura)", vantagens: "Um único ponto de corte simples (0,5) já foi validado como capaz de identificar cerca de 35% a mais de adultos com risco cardiometabólico \"escondido\" do que a combinação tradicional de IMC + circunferência da cintura, segundo análise de dados nacionais do Reino Unido publicada em 2016.", limitacoes: "Mais recente na literatura, ainda não tão universalmente adotada em diretrizes clínicas oficiais quanto o IMC ou a RCQ." },
+            ].map((item) => (
+              <div key={item.indice} className="bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden">
+                <div className="px-5 py-3 bg-slate-50 border-b border-slate-100 font-black text-slate-800 italic">
+                  {item.indice}
+                </div>
+                <div className="p-5 space-y-4">
+                  <div>
+                    <span className="text-green-700 font-black uppercase text-[11px] tracking-widest block mb-1.5">Vantagens</span>
+                    <p className="text-slate-700 text-sm m-0 leading-relaxed">{item.vantagens}</p>
+                  </div>
+                  <div className="border-t border-slate-100 pt-4">
+                    <span className="text-red-700 font-black uppercase text-[11px] tracking-widest block mb-1.5">Limitações</span>
+                    <p className="text-slate-600 text-sm m-0 leading-relaxed">{item.limitacoes}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* VÍDEO LAZY YOUTUBE OBRIGATÓRIO */}
