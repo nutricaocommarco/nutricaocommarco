@@ -1,13 +1,44 @@
 import fs from 'fs';
 import path from 'path';
 import http from 'http';
-import puppeteer from 'puppeteer';
 
 // Preenche o <div id="root"></div> de cada HTML pré-renderizado com o
 // conteúdo real da página (renderizado via Chromium headless), para que
 // crawlers sem JavaScript vejam o artigo completo já na primeira resposta.
 // O <head> (title/meta/schema) gerado pelo prerender.mjs é preservado
 // integralmente — este script só substitui o corpo.
+//
+// No Vercel (build em Linux, sem as libs de sistema que o Chromium normal
+// exige), usamos o binário do @sparticuz/chromium via puppeteer-core, feito
+// sob medida pra ambientes serverless/restritos. Em qualquer outro lugar
+// (dev local em Windows/Mac/Linux), usamos o pacote "puppeteer" completo,
+// que já baixa um Chromium compatível com o sistema operacional local.
+async function getLauncher() {
+  if (process.env.VERCEL) {
+    const [{ default: chromium }, { default: puppeteerCore }] = await Promise.all([
+      import('@sparticuz/chromium'),
+      import('puppeteer-core'),
+    ]);
+    const executablePath = await chromium.executablePath();
+    return {
+      launch: () =>
+        puppeteerCore.launch({
+          headless: true,
+          args: chromium.args,
+          defaultViewport: { width: 1280, height: 800 },
+          executablePath,
+        }),
+    };
+  }
+  const { default: puppeteer } = await import('puppeteer');
+  return {
+    launch: () =>
+      puppeteer.launch({
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+      }),
+  };
+}
 
 const distPath = path.resolve('dist');
 const PORT = 4173;
@@ -77,10 +108,8 @@ async function run() {
   console.log(`\n🎭 Renderizando ${htmlFiles.length} páginas via Chromium headless...`);
 
   const server = await startServer();
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
-  });
+  const launcher = await getLauncher();
+  const browser = await launcher.launch();
 
   let ok = 0;
   let skipped = 0;
