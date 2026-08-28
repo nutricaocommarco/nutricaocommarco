@@ -2,6 +2,16 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export const posts = [
   {
+    id: 32,
+    link: "/alimentacao-saudavel-das-criancas",
+    img: `${githubImgBase}Blog/AlimentacaoSaudavelCriancas_Capa.webp`,
+    tag: "Nutrição Infantil",
+    titulo: "Alimentação Saudável das Crianças a Cada Fase da Infância",
+    desc: "Entenda como a alimentação saudável das crianças muda em cada fase da infância, do aleitamento materno aos lanches escolares, e como lidar com a neofobia alimentar.",
+    data: "2026-08-28",
+    dataMod: "2026-08-28",
+  },
+  {
     id: 31,
     link: "/relacao-cintura-quadril",
     img: `${githubImgBase}Blog/RelacaoCinturaQuadril_Capa.webp`,

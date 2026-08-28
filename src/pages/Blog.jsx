@@ -7,13 +7,22 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 const postsData = [
   {
+    id: 32,
+    link: "/alimentacao-saudavel-das-criancas",
+    imgSrc: `${githubImgBase}Blog/AlimentacaoSaudavelCriancas_Capa.webp`,
+    tag: "Nutrição Infantil",
+    title: "Alimentação Saudável das Crianças a Cada Fase da Infância",
+    desc: "Entenda como a alimentação saudável das crianças muda em cada fase da infância, do aleitamento materno aos lanches escolares, e como lidar com a neofobia alimentar.",
+    isNew: true
+  },
+  {
     id: 31,
     link: "/relacao-cintura-quadril",
     imgSrc: `${githubImgBase}Blog/RelacaoCinturaQuadril_Capa.webp`,
     tag: "Composição Corporal",
     title: "Relação Cintura-Quadril: O Que É e Como Calcular Seu Risco Cardiovascular",
     desc: "Descubra o que é a relação cintura-quadril, como medir corretamente, os pontos de corte da OMS por sexo e use nossa calculadora gratuita para saber seu risco cardiovascular agora.",
-    isNew: true
+    isNew: false
   },
   {
     id: 30,
