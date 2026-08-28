@@ -492,9 +492,9 @@ export default function OQueEDietaMediterranea() {
                     </div>
 
                     <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-                        <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                        <h3 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
                             Frigideira Antiaderente <span className="text-green-700">Cerâmica Premium</span>
-                        </h4>
+                        </h3>
 
                         {/* IMAGEM DO PRODUTO ATUALIZADA */}
                         <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">

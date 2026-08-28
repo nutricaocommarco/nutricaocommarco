@@ -298,7 +298,7 @@ Acompanhar o crescimento é tão importante quanto o que está no prato.
               </div>
             ))}
           </div>
-          <p className="text-xs text-slate-400 italic mb-8">*A Primeira Fase é dividida em 2 períodos: lactente e introdução alimentar.</p>
+          <p className="text-xs text-slate-600 italic mb-8">*A Primeira Fase é dividida em 2 períodos: lactente e introdução alimentar.</p>
 
           {/* VÍDEO LAZY YOUTUBE OBRIGATÓRIO */}
           <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
@@ -386,9 +386,9 @@ Acompanhar o crescimento é tão importante quanto o que está no prato.
               </div>
 
               <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-                <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                <h3 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
                   Ebook Receitas <span className="text-green-700">Saudáveis e Nutritivas</span>
-                </h4>
+                </h3>
                 <p className="text-slate-600 text-[15px] mb-8 leading-relaxed font-medium">
                   Colocar em prática tudo isso na correria do dia a dia é o maior desafio de qualquer família. O nosso <strong>Ebook de Receitas Saudáveis e Nutritivas</strong> traz a Técnica do 3x3 e pré-preparos inteligentes para você montar lanches e refeições coloridas, práticas e aprovadas pelas crianças, sem perder tempo nem abrir mão da comida de verdade.
                 </p>
@@ -474,7 +474,7 @@ Acompanhar o crescimento é tão importante quanto o que está no prato.
           {/* 🚀 E-E-A-T (FONTES CIENTÍFICAS E AVISO LEGAL) */}
           <div className="my-12 p-6 bg-slate-100 rounded-2xl border border-slate-200">
             <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest mb-3">Referências Acadêmicas e Fontes da Alimentação Saudável das Crianças</h3>
-            <ul className="text-xs text-slate-500 leading-relaxed m-0 list-disc pl-4 space-y-1">
+            <ul className="text-xs text-slate-600 leading-relaxed m-0 list-disc pl-4 space-y-1">
               <li><a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/g/guia-alimentar-para-criancas-menores-de-2-anos" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">BRASIL. Ministério da Saúde. <em>Guia alimentar para crianças brasileiras menores de 2 anos.</em> Brasília, DF: Ministério da Saúde, 2019.</a></li>
               <li><a href="https://www.who.int" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">ORGANIZAÇÃO MUNDIAL DA SAÚDE (OMS). <em>Alimentação saudável e nutrição infantil.</em> Genebra: OMS, 2021.</a></li>
               <li>PLINER, Patrícia; HOBDEN, Karen. <em>Development of a scale to measure the trait of food neophobia in humans.</em> Appetite, v. 19, n. 2, p. 105-120, 1992.</li>
@@ -484,7 +484,7 @@ Acompanhar o crescimento é tão importante quanto o que está no prato.
             </ul>
             <div className="mt-4 pt-4 border-t border-slate-200 flex items-start gap-2">
               <AlertTriangle size={14} className="text-amber-600 shrink-0 mt-0.5" />
-              <span className="text-[10px] uppercase font-bold text-slate-500">Aviso Nutricional: Este conteúdo tem fim meramente educativo e informativo e não substitui o acompanhamento de um pediatra ou nutricionista infantil. Cada criança tem necessidades individuais que devem ser avaliadas por um profissional habilitado.</span>
+              <span className="text-[10px] uppercase font-bold text-slate-600">Aviso Nutricional: Este conteúdo tem fim meramente educativo e informativo e não substitui o acompanhamento de um pediatra ou nutricionista infantil. Cada criança tem necessidades individuais que devem ser avaliadas por um profissional habilitado.</span>
             </div>
           </div>
 
