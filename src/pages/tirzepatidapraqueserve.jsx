@@ -569,7 +569,7 @@ export default function TirzepatidaParaQueServe() {
                     <div
                       className={`transition-all duration-500 ease-in-out ${
                         openFaqIndex === index
-                          ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8'
+                          ? 'max-h-[2000px] opacity-100 pb-6 md:pb-8 px-6 md:px-8'
                           : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'
                       }`}
                     >
