@@ -602,7 +602,7 @@ export default function ComoCalcularMeuGet() {
                   </h3>
                   <ChevronDown className={`text-slate-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
                 </button>
-                <div id={`faq-answer-${index}`} className={`transition-all duration-500 ease-in-out overflow-hidden ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 px-6' : 'max-h-0 opacity-0 px-6 pb-0'}`}>
+                <div id={`faq-answer-${index}`} className={`transition-all duration-500 ease-in-out overflow-hidden ${openFaqIndex === index ? 'max-h-[2000px] opacity-100 pb-6 px-6' : 'max-h-0 opacity-0 px-6 pb-0'}`}>
                   <p className="text-slate-600 text-sm font-medium m-0 leading-relaxed border-t border-slate-200 pt-4">
                     {faq.resposta}
                   </p>

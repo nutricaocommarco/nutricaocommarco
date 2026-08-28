@@ -638,7 +638,7 @@ export default function TpmeAlimentacao() {
                         <h3 className={`text-lg font-black italic transition-colors m-0 ${openFaqIndex === index ? 'text-green-700' : 'text-slate-800 group-hover:text-green-700'}`}>{faq.pergunta}</h3>
                         <ChevronDown className={`text-slate-500 shrink-0 transition-transform ${openFaqIndex === index ? 'rotate-180 text-green-700' : ''}`} size={24} />
                       </button>
-                      <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
+                      <div className={`transition-all duration-500 ease-in-out ${openFaqIndex === index ? 'max-h-[2000px] opacity-100 pb-6 md:pb-8 px-6 md:px-8' : 'max-h-0 opacity-0 px-6 md:px-8 pb-0'}`}>
                         <p className="text-slate-600 m-0 leading-relaxed border-t border-slate-200 pt-4 text-left">{faq.resposta}</p>
                       </div>
                     </div>

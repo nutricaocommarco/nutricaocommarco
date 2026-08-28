@@ -82,7 +82,7 @@ export default function Eritropoetina() {
               </button>
 
               {/* LISTA DE LINKS ESCONDIDA */}
-              <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[500px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
+              <div className={`transition-all duration-500 ease-in-out ${isTocOpen ? 'max-h-[2000px] opacity-100 border-t border-green-100/60' : 'max-h-0 opacity-0'} overflow-hidden bg-white`}>
                 <ul className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 list-none m-0">
                   <li>
                     <a href="#papel-eritropoetina" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0">
