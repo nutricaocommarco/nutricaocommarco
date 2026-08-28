@@ -392,9 +392,9 @@ export default function Melatonina() {
                       </div>
 
                       <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-                          <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                          <h3 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
                               Máscara de Dormir <span className="text-green-700">Premium 3D Blackout</span>
-                          </h4>
+                          </h3>
 
                           <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
                               <img 

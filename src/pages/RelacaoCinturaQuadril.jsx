@@ -526,9 +526,9 @@ export default function RelacaoCinturaQuadril() {
               </div>
 
               <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-                <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                <h3 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
                   Planilha de Avaliação Antropométrica <span className="text-green-700">Inteligente PRO</span>
-                </h4>
+                </h3>
 
                 <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
                   <ImagemOtimizada src={`${githubImgBase}PlanilhaImagem/Planilha_Capa.webp`} alt="Capa da Planilha de Avaliação Antropométrica Inteligente VBA Excel" className="w-full h-auto object-contain" width="200" height="200" loading="lazy" />
@@ -596,14 +596,14 @@ export default function RelacaoCinturaQuadril() {
           {/* 🚀 E-E-A-T (FONTES CIENTÍFICAS E AVISO LEGAL) */}
           <div className="my-12 p-6 bg-slate-100 rounded-2xl border border-slate-200">
             <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest mb-3">Referências Acadêmicas e Fontes da Relação Cintura-Quadril</h3>
-            <ul className="text-xs text-slate-500 leading-relaxed m-0 list-disc pl-4 space-y-1">
+            <ul className="text-xs text-slate-600 leading-relaxed m-0 list-disc pl-4 space-y-1">
               <li><a href="https://www.who.int/publications/i/item/9789241501491" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">World Health Organization. <em>Waist Circumference and Waist-Hip Ratio: Report of a WHO Expert Consultation</em>. Geneva, 2008.</a></li>
               <li><a href="https://diabetesjournals.org/care/article/29/2/404/24685/The-Importance-of-Waist-Circumference-in-the" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">KATZMARZYK, P.T., JANSSEN, I., ROSS, R., CHURCH, T.S., BLAIR, S.N. (2006). <em>The Importance of Waist Circumference in the Definition of Metabolic Syndrome: Prospective analyses of mortality in men.</em> Diabetes Care, 29(2), 404–409.</a></li>
               <li><a href="https://bmjopen.bmj.com/content/6/3/e010159" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">ASHWELL, M., GIBSON, S. (2016). <em>Waist-to-height ratio as an indicator of 'early health risk': simpler and more predictive than using a 'matrix' based on BMI and waist circumference.</em> BMJ Open, 6(3), e010159.</a></li>
             </ul>
             <div className="mt-4 pt-4 border-t border-slate-200 flex items-start gap-2">
               <AlertTriangle size={14} className="text-amber-600 shrink-0 mt-0.5" />
-              <span className="text-[10px] uppercase font-bold text-slate-500">Aviso Nutricional da Relação Cintura-Quadril: Este conteúdo técnico destina-se primariamente a estudantes e profissionais de Educação Física e Nutrição sobre avaliação física. Avaliações antropométricas devem ser feitas exclusivamente por profissionais habilitados. O artigo possui fim meramente educativo e não substitui diagnósticos médicos.</span>
+              <span className="text-[10px] uppercase font-bold text-slate-600">Aviso Nutricional da Relação Cintura-Quadril: Este conteúdo técnico destina-se primariamente a estudantes e profissionais de Educação Física e Nutrição sobre avaliação física. Avaliações antropométricas devem ser feitas exclusivamente por profissionais habilitados. O artigo possui fim meramente educativo e não substitui diagnósticos médicos.</span>
             </div>
           </div>
 

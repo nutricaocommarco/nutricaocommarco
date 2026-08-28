@@ -556,9 +556,9 @@ export default function AvaliacaoAntropometrica() {
                 </div>
 
                 <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-                    <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                    <h3 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
                         Planilha de Avaliação Antropométrica <span className="text-green-700">Inteligente PRO</span>
-                    </h4>
+                    </h3>
 
                     <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
                         <ImagemOtimizada src={`${githubImgBase}PlanilhaImagem/Planilha_Capa.webp`} alt="Capa da Planilha de Avaliação Antropométrica Inteligente VBA Excel" className="w-full h-auto object-contain" width="200" height="200" loading="lazy" />
@@ -617,7 +617,7 @@ export default function AvaliacaoAntropometrica() {
           {/* 🚀 E-E-A-T (FONTES CIENTÍFICAS E AVISO LEGAL) */}
           <div className="my-12 p-6 bg-slate-100 rounded-2xl border border-slate-200">
              <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest mb-3">Referências Acadêmicas e Fontes da Avaliação Antropométrica</h3>
-             <ul className="text-xs text-slate-500 leading-relaxed m-0 list-disc pl-4 space-y-1">
+             <ul className="text-xs text-slate-600 leading-relaxed m-0 list-disc pl-4 space-y-1">
                <li><a href="https://isak.global/" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">ISAK - International Society for the Advancement of Kinanthropometry. (Padrões de Medição em Perfil Restrito na avaliação física).</a></li>
                <li><a href="https://www.cambridge.org/core/journals/british-journal-of-nutrition/article/body-fat-assessed-from-total-body-density-and-its-estimation-from-skinfold-thickness-measurements-on-481-men-and-women-aged-from-16-to-72-years/DAC8BA25856FCEB30E22F60E0AF80D07" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">DURNIN, J.V.G.A., & WOMERSLEY, J. (1974). <em>Body fat assessed from total body density and its estimation from skinfold thickness: measurements on 481 men and women aged from 16 to 72 years na avaliação antropométrica.</em> British Journal of Nutrition.</a></li>
                <li><a href="https://pubmed.ncbi.nlm.nih.gov/718832/" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">JACKSON, A.S., & POLLOCK, M.L. (1978). <em>Generalized equations for predicting body density of men na avaliação física.</em> British Journal of Nutrition.</a></li>
@@ -625,7 +625,7 @@ export default function AvaliacaoAntropometrica() {
              </ul>
              <div className="mt-4 pt-4 border-t border-slate-200 flex items-start gap-2">
                <AlertTriangle size={14} className="text-amber-600 shrink-0 mt-0.5" />
-               <span className="text-[10px] uppercase font-bold text-slate-500">Aviso Nutricional da Avaliação Antropométrica: Este conteúdo técnico destina-se primariamente a estudantes e profissionais de Educação Física e Nutrição sobre avaliação física. Avaliações antropométricas devem ser feitas exclusivamente por profissionais habilitados. O artigo possui fim meramente educativo e não substitui diagnósticos médicos ou treinamentos de nivelamento formal da ISAK de avaliação física.</span>
+               <span className="text-[10px] uppercase font-bold text-slate-600">Aviso Nutricional da Avaliação Antropométrica: Este conteúdo técnico destina-se primariamente a estudantes e profissionais de Educação Física e Nutrição sobre avaliação física. Avaliações antropométricas devem ser feitas exclusivamente por profissionais habilitados. O artigo possui fim meramente educativo e não substitui diagnósticos médicos ou treinamentos de nivelamento formal da ISAK de avaliação física.</span>
              </div>
           </div>
 

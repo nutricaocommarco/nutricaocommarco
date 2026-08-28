@@ -339,9 +339,9 @@ export default function DiabeticoPodeComerBeterraba() {
                       </div>
 
                       <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-                          <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
+                          <h3 className="text-xl md:text-2xl font-black text-slate-900 mb-3 leading-tight uppercase italic">
                               Ralador e Fatiador de Legumes <span className="text-green-700">Praticidade Real</span>
-                          </h4>
+                          </h3>
 
                           {/* IMAGEM DO PRODUTO */}
                           <div className="w-full max-w-[200px] mx-auto md:mx-0 mb-4 rounded-xl overflow-hidden border border-slate-100 shadow-sm p-4 bg-white">
