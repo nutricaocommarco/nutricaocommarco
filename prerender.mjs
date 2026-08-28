@@ -109,6 +109,30 @@ const rotasLoja = [
 // 📝 3. TODOS OS POSTS DO BLOG
 const postsBlog = [
 {
+    id: 33,
+    link: "/alimentacao-saudavel-das-criancas",
+    img: `${githubImgBase}Blog/AlimentacaoSaudavelCriancas_Capa.webp`,
+    titulo: "Alimentação Saudável das Crianças a Cada Fase da Infância",
+    desc: "Entenda como a alimentação saudável das crianças muda em cada fase da infância, do aleitamento materno aos lanches escolares, e como lidar com a neofobia alimentar.",
+    data: "2026-08-28",
+    author: {
+      "@type": "Person",
+      "name": "Liliane Borges",
+      "jobTitle": "Estudante de Jornalismo e Colaboradora do Blog Nutrição com Marco",
+      "url": "https://www.nutricaocommarco.com.br/alimentacao-saudavel-das-criancas"
+    },
+    schemasExtra: [
+      getMedicalSchema("Alimentação Infantil e Desenvolvimento por Fase da Infância", "https://www.nutricaocommarco.com.br/alimentacao-saudavel-das-criancas", ["Nutrição Infantil", "Aleitamento Materno", "Introdução Alimentar", "Neofobia Alimentar", "Desenvolvimento Infantil"], "Pediatrics"),
+      getVideoSchema("Qual é o Papel da Alimentação na Qualidade de Vida e Desenvolvimento das Crianças?", "O canal Saúde da Infância explica o papel da alimentação na qualidade de vida e no desenvolvimento das crianças em cada fase.", "s2cB4I2fbHo", "2025-01-01T12:00:00-03:00"),
+      getFaqSchema([
+        { pergunta: "O que fazer quando a criança se recusa a comer legumes e verduras?", resposta: "Apresentação sem pressão: Ofereça o mesmo alimento de 10 a 15 vezes em momentos diferentes antes de considerar que a criança não gosta. Mude a apresentação (cozido, assado, ralado, em purê ou em bolinhos) e evite brigas ou chantagens à mesa, pois a pressão aumenta a aversão ao alimento." },
+        { pergunta: "A partir de qual idade a criança pode consumir açúcar e produtos industrializados?", resposta: "Recomendação aos 2 anos: O açúcar adicionado e os produtos ultra processados (refrigerantes, salgadinhos, biscoitos recheados) devem ser totalmente evitados até os 2 anos de idade. Após essa fase, o consumo deve ser pontual e moderado para não prejudicar a palatabilidade dos alimentos naturais nem impactar a saúde metabólica." },
+        { pergunta: "Como saber se meu filho está se alimentando o suficiente ou se precisa de suplementos?", resposta: "Sinais e acompanhamento: O melhor indicador de boa nutrição é o acompanhamento das curvas de ganho de peso e altura nas consultas com o pediatra, e não a quantidade de comida que sobra no prato. Respeite os sinais de saciedade da criança e nunca ofereça suplementos vitamínicos sem orientação médica ou nutricional prévia." },
+        { pergunta: "O que enviar na lancheira escolar para manter uma alimentação equilibrada fora de casa?", resposta: "Regra dos 3 grupos: Monte a lancheira combinando três pilares essenciais — Fruta ou vegetal (maçã, banana, uva sem semente, tomate-cereja ou bastões de cenoura); Carboidrato de boa qualidade (pão integral, bolo caseiro sem açúcar refinado, tapioca ou biscoito de polvilho); e Proteína ou laticínio (queijo branco, iogurte natural, ovo de codorna ou patê caseiro de frango)." }
+      ])
+    ]
+  },
+{
     id: 32,
     link: "/relacao-cintura-quadril",
     img: `${githubImgBase}Blog/RelacaoCinturaQuadril_Capa.webp`,
@@ -269,7 +293,8 @@ const rotasDoBlog = postsBlog.map(post => ({
   image: post.img || `${githubImgBase}logoN_pingus.webp`,
   desc: post.desc,
   date: post.data,
-  schemasExtra: post.schemasExtra || [] 
+  author: post.author,
+  schemasExtra: post.schemasExtra || []
 }));
 
 const routes = [...rotasEstaticas, ...rotasLoja, ...rotasDoBlog];
@@ -307,8 +332,8 @@ routes.forEach(route => {
     "@type": isBlog ? "BlogPosting" : "WebPage",
     "headline": route.title,
     "image": route.image,
-    "author": { 
-      "@type": "Person", 
+    "author": route.author || {
+      "@type": "Person",
       "name": "Marco Aurélio Jr.",
       "jobTitle": "Estudante de Nutrição e Avaliador Antropométrico ISAK 1",
       "url": "https://www.nutricaocommarco.com.br/sobre"
