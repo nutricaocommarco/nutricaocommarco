@@ -172,7 +172,7 @@ export default function AlimentacaoSaudavelCriancas() {
                 <source media="(max-width: 1024px)" srcSet={`${capaArtigo}?w=800&strip=all&quality=85`} />
                 <ImagemOtimizada
                   src={`${capaArtigo}?w=1280&strip=all&quality=85`}
-                  alt="Pinguim Pingus vestindo avental de chef infantil em estilo Disney Pixar 3D, ajudando uma criança a montar um prato colorido com frutas e legumes em uma cozinha alegre e iluminada."
+                  alt="Pinguim Píngus vestindo jaleco de pediatra e chapéu de explorador em estilo Disney Pixar 3D, medindo a altura de uma criança em um consultório verde e iluminado, com a mãe sentada ao lado, um pôster de alimentação equilibrada na parede e uma mesa com frutas e legumes frescos."
                   title="Alimentação Saudável das Crianças e o Píngus"
                   className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-700"
                   priority="high"
@@ -181,7 +181,7 @@ export default function AlimentacaoSaudavelCriancas() {
             </div>
             <figcaption className="bg-slate-50 p-4 md:p-6 text-center border-t border-slate-200 relative z-10">
               <p className="text-xs md:text-sm text-slate-600 font-bold uppercase tracking-widest text-center m-0">
-                Cada fase da infância pede um prato diferente — e uma paciência diferente também.
+Acompanhar o crescimento é tão importante quanto o que está no prato.
               </p>
             </figcaption>
           </figure>
