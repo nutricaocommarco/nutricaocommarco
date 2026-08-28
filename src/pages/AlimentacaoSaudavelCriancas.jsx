@@ -495,8 +495,14 @@ export default function AlimentacaoSaudavelCriancas() {
 
         {/* 💳 CARTÃO AUTOR (E-E-A-T) */}
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
-          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700 flex items-center justify-center">
-            <span className="text-white font-black text-3xl italic">LB</span>
+          <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
+            <ImagemOtimizada
+              src={`${githubImgBase}Liliane_Borges.webp`}
+              alt="Liliane Borges - Autora e Colaboradora do Blog Nutrição com Marco"
+              title="Liliane Borges - Estudante de Jornalismo"
+              className="w-full h-full object-cover"
+              priority="low"
+            />
           </div>
 
           <div className="flex-1 text-center md:text-left">
