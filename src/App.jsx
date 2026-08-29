@@ -63,6 +63,7 @@ const AvaliacaoAntropometrica = lazyRetry(() => import('./pages/AvaliacaoAntropo
 const SoftwareAvaliacaoAntropometrica = lazyRetry(() => import('./pages/SoftwareAvaliacaoAntropometrica'));
 const RelacaoCinturaQuadril = lazyRetry(() => import('./pages/RelacaoCinturaQuadril'));
 const AlimentacaoSaudavelCriancas = lazyRetry(() => import('./pages/AlimentacaoSaudavelCriancas'));
+const AlimentacaoAntiInflamatoriaLipedema = lazyRetry(() => import('./pages/AlimentacaoAntiInflamatoriaLipedema'));
 
 const LoadingSpinner = () => (
   <div className="flex justify-center items-center h-screen text-green-700 font-black">
@@ -295,6 +296,7 @@ export default function App() {
               <Route path="/software-de-avaliacao-antropometrica" element={<SoftwareAvaliacaoAntropometrica />} />
               <Route path="/relacao-cintura-quadril" element={<RelacaoCinturaQuadril />} />
               <Route path="/alimentacao-saudavel-das-criancas" element={<AlimentacaoSaudavelCriancas />} />
+              <Route path="/alimentacao-anti-inflamatoria-para-lipedema" element={<AlimentacaoAntiInflamatoriaLipedema />} />
             </Routes>
           </Suspense>
         </Layout>

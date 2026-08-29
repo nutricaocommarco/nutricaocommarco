@@ -7,13 +7,22 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 const postsData = [
   {
+    id: 33,
+    link: "/alimentacao-anti-inflamatoria-para-lipedema",
+    imgSrc: `${githubImgBase}Blog/AlimentacaoAntiInflamatoriaLipedema_Capa.webp`,
+    tag: "Lipedema",
+    title: "Alimentação Anti-Inflamatória para Lipedema: O Que a Ciência Já Sabe",
+    desc: "Entenda o que a ciência já sabe sobre alimentação anti-inflamatória para lipedema, a diferença entre lipedema, linfedema e obesidade, e o papel da tirzepatida.",
+    isNew: true
+  },
+  {
     id: 32,
     link: "/alimentacao-saudavel-das-criancas",
     imgSrc: `${githubImgBase}Blog/AlimentacaoSaudavelCriancas_Capa.webp`,
     tag: "Nutrição Infantil",
     title: "Alimentação Saudável das Crianças a Cada Fase da Infância",
     desc: "Entenda como a alimentação saudável das crianças muda em cada fase da infância, do aleitamento materno aos lanches escolares, e como lidar com a neofobia alimentar.",
-    isNew: true
+    isNew: false
   },
   {
     id: 31,
