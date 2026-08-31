@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ImagemOtimizada from '../components/ImagemOtimizada';
 import {
   ChevronLeft, HelpCircle, Activity, FileText,
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart,
-  CheckCircle2, BookOpen, AlertTriangle, Stethoscope, Syringe, Scale, Sparkles, Salad
+  CheckCircle2, BookOpen, AlertTriangle, Stethoscope, Syringe, Scale, Sparkles, Salad, MoveHorizontal
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
@@ -22,11 +22,104 @@ const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 // Imagens
 const capaArtigo = `${githubImgBase}Blog/AlimentacaoAntiInflamatoriaLipedema_Capa.webp`;
 
+// 🎚️ SLIDER COMPARATIVO ANTES/DEPOIS (arrastável)
+function CompareSlider({ comLipedemaSrc, semLipedemaSrc, comAlt, semAlt, label, value, onChange }) {
+  const containerRef = useRef(null);
+  const draggingRef = useRef(false);
+  const [isVertical, setIsVertical] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const applyMode = () => setIsVertical(mq.matches);
+    applyMode();
+    mq.addEventListener('change', applyMode);
+    return () => mq.removeEventListener('change', applyMode);
+  }, []);
+
+  const updateFromClient = useCallback((clientX, clientY) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const pct = isVertical
+      ? ((clientY - rect.top) / rect.height) * 100
+      : ((clientX - rect.left) / rect.width) * 100;
+    onChange(Math.min(100, Math.max(0, pct)));
+  }, [onChange, isVertical]);
+
+  useEffect(() => {
+    const handleMove = (e) => {
+      if (!draggingRef.current) return;
+      const point = e.touches ? e.touches[0] : e;
+      updateFromClient(point.clientX, point.clientY);
+    };
+    const handleUp = () => { draggingRef.current = false; };
+    window.addEventListener('mousemove', handleMove);
+    window.addEventListener('touchmove', handleMove);
+    window.addEventListener('mouseup', handleUp);
+    window.addEventListener('touchend', handleUp);
+    return () => {
+      window.removeEventListener('mousemove', handleMove);
+      window.removeEventListener('touchmove', handleMove);
+      window.removeEventListener('mouseup', handleUp);
+      window.removeEventListener('touchend', handleUp);
+    };
+  }, [updateFromClient]);
+
+  const clipPath = isVertical ? `inset(${100 - value}% 0 0 0)` : `inset(0 ${100 - value}% 0 0)`;
+  const handleStyle = isVertical ? { top: `calc(${value}% - 20px)` } : { left: `calc(${value}% - 20px)` };
+  const lineStyle = isVertical ? { top: `calc(${value}% - 2px)` } : { left: `calc(${value}% - 2px)` };
+
+  return (
+    <div className="bg-white border border-slate-200 rounded-[2rem] shadow-lg overflow-hidden">
+      <div
+        ref={containerRef}
+        className={`relative w-full ${isVertical ? 'aspect-[3/4]' : 'aspect-square'} select-none touch-none bg-slate-100 ${isVertical ? 'cursor-ns-resize' : 'cursor-ew-resize'}`}
+        onMouseDown={(e) => { draggingRef.current = true; updateFromClient(e.clientX, e.clientY); }}
+        onTouchStart={(e) => { draggingRef.current = true; updateFromClient(e.touches[0].clientX, e.touches[0].clientY); }}
+      >
+        {/* Imagem base: COM lipedema, sempre visível por completo */}
+        <img src={comLipedemaSrc} alt={comAlt} className="absolute inset-0 w-full h-full object-cover pointer-events-none" loading="lazy" draggable={false} />
+        <span className="absolute bottom-3 right-3 bg-red-600 text-white text-[10px] font-black uppercase px-2 py-1 rounded-full pointer-events-none">Com Lipedema</span>
+
+        {/* Imagem revelada: SEM lipedema, recortada pelo clip-path */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ clipPath }}>
+          <img src={semLipedemaSrc} alt={semAlt} className="absolute inset-0 w-full h-full object-cover" loading="lazy" draggable={false} />
+          <span className="absolute bottom-3 left-3 bg-green-700 text-white text-[10px] font-black uppercase px-2 py-1 rounded-full">Sem Lipedema</span>
+        </div>
+
+        {/* Linha e alça do slider */}
+        <div className={`absolute pointer-events-none bg-white shadow-lg ${isVertical ? 'inset-x-0 h-1' : 'inset-y-0 w-1'}`} style={lineStyle} />
+        <div
+          className={`absolute w-10 h-10 bg-white rounded-full shadow-xl border-2 border-green-700 flex items-center justify-center pointer-events-none ${isVertical ? 'left-1/2 -ml-5' : 'top-1/2 -mt-5'}`}
+          style={handleStyle}
+        >
+          <MoveHorizontal size={18} className={`text-green-700 ${isVertical ? 'rotate-90' : ''}`} />
+        </div>
+
+        {/* Input de range invisível por cima, para acessibilidade e teclado */}
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={value}
+          onChange={(e) => onChange(Number(e.target.value))}
+          aria-label={`Arraste para comparar ${label} com e sem lipedema`}
+          className={`absolute inset-0 w-full h-full opacity-0 ${isVertical ? 'cursor-ns-resize' : 'cursor-ew-resize'}`}
+          style={isVertical ? { writingMode: 'vertical-lr', direction: 'rtl' } : undefined}
+        />
+      </div>
+      <p className="text-center text-xs font-black uppercase tracking-widest text-slate-600 py-3">{label} — Arraste para Comparar</p>
+    </div>
+  );
+}
+
 export default function AlimentacaoAntiInflamatoriaLipedema() {
   const { pathname, state } = useLocation();
   const navigate = useNavigate();
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const [sliderPernas, setSliderPernas] = useState(50);
+  const [sliderBracos, setSliderBracos] = useState(50);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -216,6 +309,32 @@ export default function AlimentacaoAntiInflamatoriaLipedema() {
           <p className="mb-4">
             O componente genético também é forte: cerca de 64% das mulheres com lipedema relatam histórico familiar da condição, sugerindo herança autossômica dominante. Ainda assim, o diagnóstico é essencialmente clínico — feito por exame físico e histórico, já que não existe um exame de sangue específico para confirmar a doença.
           </p>
+
+          {/* 🖼️ COMPARAÇÃO VISUAL EDUCATIVA (SLIDER ARRASTÁVEL) */}
+          <h3 className="text-xl font-black text-slate-800 mt-10 mb-4">Como o Lipedema Aparece nas Pernas e nos Braços</h3>
+          <p className="mb-6">Arraste a alça para revelar a diferença entre pernas/braços com o padrão característico do lipedema — gordura simétrica e desproporcional, com transição abrupta ("sinal do manguito") — e sem a condição:</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+            <CompareSlider
+              comLipedemaSrc={`${githubImgBase}Blog/Lipedema_Pernas_Com.webp`}
+              semLipedemaSrc={`${githubImgBase}Blog/Lipedema_Pernas_Sem.webp`}
+              comAlt="Ilustração educativa de pernas com padrão característico de lipedema, gordura simétrica desproporcional preservando os pés"
+              semAlt="Ilustração educativa de pernas com contorno proporcional típico, sem lipedema, para comparação"
+              label="Pernas"
+              value={sliderPernas}
+              onChange={setSliderPernas}
+            />
+            <CompareSlider
+              comLipedemaSrc={`${githubImgBase}Blog/Lipedema_Bracos_Com.webp`}
+              semLipedemaSrc={`${githubImgBase}Blog/Lipedema_Bracos_Sem.webp`}
+              comAlt="Ilustração educativa de braços com padrão característico de lipedema, gordura simétrica desproporcional preservando as mãos"
+              semAlt="Ilustração educativa de braços com contorno proporcional típico, sem lipedema, para comparação"
+              label="Braços"
+              value={sliderBracos}
+              onChange={setSliderBracos}
+            />
+          </div>
+          <p className="text-xs text-slate-500 italic mb-8">*Imagens ilustrativas geradas para fins educativos — não são fotografias reais de pacientes. Cada caso de lipedema tem apresentação própria; consulte um médico para avaliação individual.</p>
 
           {/* TABELA COMPARATIVA */}
           <h2 id="comparativo" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
