@@ -66,8 +66,8 @@ function CompareSlider({ comLipedemaSrc, semLipedemaSrc, comAlt, semAlt, label, 
   }, [updateFromClient]);
 
   const clipPath = isVertical ? `inset(${100 - value}% 0 0 0)` : `inset(0 ${100 - value}% 0 0)`;
-  const handleStyle = isVertical ? { top: `calc(${value}% - 20px)` } : { left: `calc(${value}% - 20px)` };
-  const lineStyle = isVertical ? { top: `calc(${value}% - 2px)` } : { left: `calc(${value}% - 2px)` };
+  const handleStyle = isVertical ? { top: `calc(${100 - value}% - 20px)` } : { left: `calc(${value}% - 20px)` };
+  const lineStyle = isVertical ? { top: `calc(${100 - value}% - 2px)` } : { left: `calc(${value}% - 2px)` };
 
   return (
     <div className="bg-white border border-slate-200 rounded-[2rem] shadow-lg overflow-hidden">
