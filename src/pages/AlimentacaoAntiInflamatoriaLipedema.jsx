@@ -79,7 +79,7 @@ function CompareSlider({ comLipedemaSrc, semLipedemaSrc, comAlt, semAlt, label, 
       >
         {/* Imagem base: COM lipedema, sempre visível por completo */}
         <img src={comLipedemaSrc} alt={comAlt} className="absolute inset-0 w-full h-full object-cover pointer-events-none" loading="lazy" draggable={false} />
-        <span className="absolute bottom-3 right-3 bg-red-600 text-white text-[10px] font-black uppercase px-2 py-1 rounded-full pointer-events-none">Com Lipedema</span>
+        <span className={`absolute right-3 bg-red-600 text-white text-[10px] font-black uppercase px-2 py-1 rounded-full pointer-events-none ${isVertical ? 'top-3' : 'bottom-3'}`}>Com Lipedema</span>
 
         {/* Imagem revelada: SEM lipedema, recortada pelo clip-path */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ clipPath }}>
@@ -104,7 +104,7 @@ function CompareSlider({ comLipedemaSrc, semLipedemaSrc, comAlt, semAlt, label, 
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
           aria-label={`Arraste para comparar ${label} com e sem lipedema`}
-          className={`absolute inset-0 w-full h-full opacity-0 ${isVertical ? 'cursor-ns-resize' : 'cursor-ew-resize'}`}
+          className={`absolute inset-0 w-full h-full opacity-0 touch-none ${isVertical ? 'cursor-ns-resize' : 'cursor-ew-resize'}`}
           style={isVertical ? { writingMode: 'vertical-lr', direction: 'rtl' } : undefined}
         />
       </div>
