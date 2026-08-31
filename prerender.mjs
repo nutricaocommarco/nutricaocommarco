@@ -117,6 +117,7 @@ const postsBlog = [
     data: "2026-08-29",
     schemasExtra: [
       getMedicalSchema("Lipedema e Alimentação Anti-Inflamatória", "https://www.nutricaocommarco.com.br/alimentacao-anti-inflamatoria-para-lipedema", ["Lipedema", "Linfedema", "Obesidade", "Inflamação Crônica", "Tirzepatida"], "Dietetics"),
+      getVideoSchema("Você e o Doutor: saiba mais sobre o lipedema", "O programa Você e o Doutor (Hoje em Dia) explica o que é o lipedema, seus sintomas e as opções de tratamento.", "-S7D0P_3Zsg", "2024-01-01T12:00:00-03:00"),
       getFaqSchema([
         { pergunta: "Lipedema tem cura?", resposta: "Não. O lipedema é uma doença crônica e progressiva sem cura estabelecida. O tratamento é de controle: alimentação anti-inflamatória, drenagem linfática, compressão, exercício de baixo impacto e, em casos avançados, cirurgia. O objetivo é reduzir dor, inchaço e progressão, não eliminar a condição." },
         { pergunta: "Qual a diferença entre lipedema e obesidade?", resposta: "São condições distintas com fisiopatologias diferentes: o lipedema não é causado pela obesidade, nem a obesidade é causada pelo lipedema. A gordura do lipedema é simétrica, poupa os pés, dói ao toque e resiste à dieta e ao exercício — mesmo com déficit calórico, cerca de 95% das pessoas com lipedema não conseguem reduzir a gordura das áreas afetadas. Porém, obesidade e lipedema podem coexistir: aproximadamente metade das pessoas com lipedema também tem obesidade." },

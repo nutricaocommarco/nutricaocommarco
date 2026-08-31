@@ -376,7 +376,7 @@ export default function AlimentacaoAntiInflamatoriaLipedema() {
               <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight m-0">Entenda o Lipedema em Vídeo</h3>
             </div>
             <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
-              <YouTubeLazy videoId="VIDEO_ID_PENDENTE" title="Lipedema: sintomas, diagnóstico e tratamento" />
+              <YouTubeLazy videoId="-S7D0P_3Zsg" title="Você e o Doutor: saiba mais sobre o lipedema" />
             </div>
           </div>
 
@@ -435,7 +435,7 @@ export default function AlimentacaoAntiInflamatoriaLipedema() {
             <Syringe className="text-green-700" /> Tirzepatida no Manejo do Lipedema
           </h2>
           <p className="mb-4">
-            A tirzepatida é um medicamento agonista duplo dos receptores GLP-1 e GIP, hoje aprovado apenas para diabetes tipo 2 e obesidade — <strong>não é aprovado para lipedema</strong>. O interesse no seu uso vem de um racional mecanístico: em outras doenças com inflamação e fibrose, a substância mostrou capacidade de reduzir inflamação e ação antifibrótica, o que teoricamente poderia beneficiar o tecido do lipedema.
+            A <Link to="/tirzepatida-para-que-serve" className="text-green-700 font-bold hover:underline">tirzepatida</Link> é um medicamento agonista duplo dos receptores GLP-1 e GIP, hoje aprovado apenas para diabetes tipo 2 e obesidade — <strong>não é aprovado para lipedema</strong>. O interesse no seu uso vem de um racional mecanístico: em outras doenças com inflamação e fibrose, a substância mostrou capacidade de reduzir inflamação e ação antifibrótica, o que teoricamente poderia beneficiar o tecido do lipedema.
           </p>
           <div className="bg-red-50 p-6 rounded-2xl border border-red-100 text-red-800 mt-6 mb-6">
             <p className="m-0 flex items-start gap-2"><AlertTriangle size={18} className="shrink-0 mt-0.5" /><span><strong>Não existe, até hoje, nenhum ensaio clínico randomizado testando tirzepatida especificamente em pacientes com lipedema.</strong> Toda a evidência disponível é extrapolada de estudos em obesidade e diabetes (como o SURMOUNT-1, com redução média de 20,9% do peso em 72 semanas). O uso em lipedema é considerado off-label e experimental — uma decisão médica individual, nunca uma recomendação padrão de tratamento.</span></p>
@@ -541,13 +541,14 @@ export default function AlimentacaoAntiInflamatoriaLipedema() {
             <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest mb-3">Referências Científicas Sobre Lipedema e Alimentação Anti-Inflamatória</h3>
             <ul className="text-xs text-slate-600 leading-relaxed m-0 list-disc pl-4 space-y-1">
               <li>LIMA, J. G.; SOUZA, L. V. M.; ASSIS, M. E. D.; SILVA, M. E. F.; BITTENCOURT, S. G.; DIAS, M. C. <em>Influência da alimentação no tratamento do lipedema.</em> e-Scientia, Belo Horizonte: Centro Universitário de Belo Horizonte (UniBH). ISSN: 1984-7688.</li>
-              <li>AMATO, A. C. M.; PECLAT, A. P. R. M.; KIKUCHI, R. et al. <em>Consenso Brasileiro de Lipedema pela metodologia Delphi.</em> Jornal Vascular Brasileiro, 2025;24:e20230183. DOI: 10.1590/1677-5449.202301831.</li>
-              <li>AMERICANO, J. M.; LOCATELLI, K. M. M.; SILVA, J. L.; AMANCIO, N. F. G. <em>Efeitos de dietas e mudanças de hábitos de vida nos sintomas do lipedema: uma revisão de literatura.</em> Revista DELOS, v.18, n.63, 2025. DOI: 10.55905/rdelosv18.n63-022.</li>
-              <li>VIANA, D. P. C.; INVITTI, A. L.; SCHOR, E. <em>Tirzepatide as a Potential Disease-Modifying Therapy in Lipedema: A Narrative Review.</em> International Journal of Molecular Sciences, 2025;26:10741. DOI: 10.3390/ijms262110741.</li>
-              <li>BRISCH, S. V. et al. <em>Tirzepatida no lipedema: evidências clínicas e relação com terapias injetáveis locais.</em> Journal of Medical and Biosciences Research, 2026;3(2):95-105. DOI: 10.70164/jmbr.v3i2.1150.</li>
-              <li>SANTINI, B. C.; BALBO, R.; BORNIA, E. C. S. <em>Abordagens conservadoras no manejo do lipedema: uma revisão bibliográfica.</em> Brazilian Journal of Health Review, v.8, n.4, 2025. DOI: 10.34119/bjhrv8n4-118.</li>
-              <li>SANLIER, N.; BALTACI, S. <em>Therapeutic Applications of Ketogenic Diets in Lipedema: A Narrative Review of Current Evidence.</em> Current Obesity Reports, 2025;14:49. DOI: 10.1007/s13679-025-00642-y.</li>
-              <li>CORREA, A. C. D.; GUIMARÃES, Y. S. F. <em>A influência da nutrição no tratamento do lipedema.</em> Revista Multidisciplinar em Saúde, v.5, n.3, 2024. DOI: 10.51161/conasm2024/39702.</li>
+              <li><a href="https://doi.org/10.1590/1677-5449.202301831" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">AMATO, A. C. M.; PECLAT, A. P. R. M.; KIKUCHI, R. et al. <em>Consenso Brasileiro de Lipedema pela metodologia Delphi.</em> Jornal Vascular Brasileiro, 2025;24:e20230183.</a></li>
+              <li><a href="https://doi.org/10.55905/rdelosv18.n63-022" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">AMERICANO, J. M.; LOCATELLI, K. M. M.; SILVA, J. L.; AMANCIO, N. F. G. <em>Efeitos de dietas e mudanças de hábitos de vida nos sintomas do lipedema: uma revisão de literatura.</em> Revista DELOS, v.18, n.63, 2025.</a></li>
+              <li><a href="https://doi.org/10.3390/ijms262110741" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">VIANA, D. P. C.; INVITTI, A. L.; SCHOR, E. <em>Tirzepatide as a Potential Disease-Modifying Therapy in Lipedema: A Narrative Review.</em> International Journal of Molecular Sciences, 2025;26:10741.</a></li>
+              <li><a href="https://doi.org/10.70164/jmbr.v3i2.1150" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">BRISCH, S. V. et al. <em>Tirzepatida no lipedema: evidências clínicas e relação com terapias injetáveis locais.</em> Journal of Medical and Biosciences Research, 2026;3(2):95-105.</a></li>
+              <li><a href="https://doi.org/10.34119/bjhrv8n4-118" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">SANTINI, B. C.; BALBO, R.; BORNIA, E. C. S. <em>Abordagens conservadoras no manejo do lipedema: uma revisão bibliográfica.</em> Brazilian Journal of Health Review, v.8, n.4, 2025.</a></li>
+              <li><a href="https://doi.org/10.1007/s13679-025-00642-y" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">SANLIER, N.; BALTACI, S. <em>Therapeutic Applications of Ketogenic Diets in Lipedema: A Narrative Review of Current Evidence.</em> Current Obesity Reports, 2025;14:49.</a></li>
+              <li><a href="https://doi.org/10.51161/conasm2024/39702" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">CORREA, A. C. D.; GUIMARÃES, Y. S. F. <em>A influência da nutrição no tratamento do lipedema.</em> Revista Multidisciplinar em Saúde, v.5, n.3, 2024.</a></li>
+              <li><a href="https://www.instagram.com/lipedemabrasil/" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">LIPEDEMA BRASIL. Conteúdo educativo e comunidade de apoio sobre lipedema no Instagram: @lipedemabrasil.</a></li>
             </ul>
             <div className="mt-4 pt-4 border-t border-slate-200 flex items-start gap-2">
               <AlertTriangle size={14} className="text-amber-600 shrink-0 mt-0.5" />
