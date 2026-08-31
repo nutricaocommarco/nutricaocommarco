@@ -70,9 +70,9 @@ function CompareSlider({ comLipedemaSrc, semLipedemaSrc, comAlt, semAlt, label, 
     };
   }, [updateFromClient]);
 
-  const clipPath = isVertical ? `inset(${100 - value}% 0 0 0)` : `inset(0 ${100 - value}% 0 0)`;
-  const handleStyle = isVertical ? { top: `calc(${100 - value}% - 20px)` } : { left: `calc(${value}% - 20px)` };
-  const lineStyle = isVertical ? { top: `calc(${100 - value}% - 2px)` } : { left: `calc(${value}% - 2px)` };
+  const clipPath = isVertical ? `inset(0 0 ${100 - value}% 0)` : `inset(0 ${100 - value}% 0 0)`;
+  const handleStyle = isVertical ? { top: `calc(${value}% - 20px)` } : { left: `calc(${value}% - 20px)` };
+  const lineStyle = isVertical ? { top: `calc(${value}% - 2px)` } : { left: `calc(${value}% - 2px)` };
 
   return (
     <div className="bg-white border border-slate-200 rounded-[2rem] shadow-lg overflow-hidden">
@@ -84,12 +84,12 @@ function CompareSlider({ comLipedemaSrc, semLipedemaSrc, comAlt, semAlt, label, 
       >
         {/* Imagem base: COM lipedema, sempre visível por completo */}
         <img src={comLipedemaSrc} alt={comAlt} className="absolute inset-0 w-full h-full object-cover pointer-events-none" loading="lazy" draggable={false} />
-        <span className={`absolute right-3 bg-red-600 text-white text-[10px] font-black uppercase px-2 py-1 rounded-full pointer-events-none ${isVertical ? 'top-3' : 'bottom-3'}`}>Com Lipedema</span>
+        <span className="absolute bottom-3 right-3 bg-red-600 text-white text-[10px] font-black uppercase px-2 py-1 rounded-full pointer-events-none">Com Lipedema</span>
 
         {/* Imagem revelada: SEM lipedema, recortada pelo clip-path */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ clipPath }}>
           <img src={semLipedemaSrc} alt={semAlt} className="absolute inset-0 w-full h-full object-cover" loading="lazy" draggable={false} />
-          <span className="absolute bottom-3 left-3 bg-green-700 text-white text-[10px] font-black uppercase px-2 py-1 rounded-full">Sem Lipedema</span>
+          <span className={`absolute left-3 bg-green-700 text-white text-[10px] font-black uppercase px-2 py-1 rounded-full ${isVertical ? 'top-3' : 'bottom-3'}`}>Sem Lipedema</span>
         </div>
 
         {/* Linha e alça do slider */}
