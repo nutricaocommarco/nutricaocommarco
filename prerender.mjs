@@ -109,6 +109,26 @@ const rotasLoja = [
 // 📝 3. TODOS OS POSTS DO BLOG
 const postsBlog = [
 {
+    id: 34,
+    link: "/alimentacao-anti-inflamatoria-para-lipedema",
+    img: `${githubImgBase}Blog/AlimentacaoAntiInflamatoriaLipedema_Capa.webp`,
+    titulo: "Alimentação Anti-Inflamatória para Lipedema: O Que a Ciência Já Sabe",
+    desc: "Entenda o que a ciência já sabe sobre alimentação anti-inflamatória para lipedema, a diferença entre lipedema, linfedema e obesidade, e o papel da tirzepatida.",
+    data: "2026-08-29",
+    schemasExtra: [
+      getMedicalSchema("Lipedema e Alimentação Anti-Inflamatória", "https://www.nutricaocommarco.com.br/alimentacao-anti-inflamatoria-para-lipedema", ["Lipedema", "Linfedema", "Obesidade", "Inflamação Crônica", "Tirzepatida"], "Dietetics"),
+      getVideoSchema("Você e o Doutor: saiba mais sobre o lipedema", "O programa Você e o Doutor (Hoje em Dia) explica o que é o lipedema, seus sintomas e as opções de tratamento.", "-S7D0P_3Zsg", "2024-01-01T12:00:00-03:00"),
+      getFaqSchema([
+        { pergunta: "Lipedema tem cura?", resposta: "Não. O lipedema é uma doença crônica e progressiva sem cura estabelecida. O tratamento é de controle: alimentação anti-inflamatória, drenagem linfática, compressão, exercício de baixo impacto e, em casos avançados, cirurgia. O objetivo é reduzir dor, inchaço e progressão, não eliminar a condição." },
+        { pergunta: "Qual a diferença entre lipedema e obesidade?", resposta: "São condições distintas com fisiopatologias diferentes: o lipedema não é causado pela obesidade, nem a obesidade é causada pelo lipedema. A gordura do lipedema é simétrica, poupa os pés, dói ao toque e resiste à dieta e ao exercício — mesmo com déficit calórico, cerca de 95% das pessoas com lipedema não conseguem reduzir a gordura das áreas afetadas. Porém, obesidade e lipedema podem coexistir: aproximadamente metade das pessoas com lipedema também tem obesidade." },
+        { pergunta: "A dieta cetogênica ou anti-inflamatória cura o lipedema?", resposta: "Não cura, mas estudos preliminares, a maioria com amostras pequenas, sugerem que dietas com baixo carboidrato e anti-inflamatórias podem reduzir dor, inchaço e melhorar a qualidade de vida em algumas pacientes. O único ensaio clínico randomizado encontrado na literatura teve apenas 13 participantes." },
+        { pergunta: "Tirzepatida trata lipedema?", resposta: "Ainda não há aprovação nem estudos clínicos controlados de tirzepatida especificamente para lipedema. O racional é extrapolado de estudos em obesidade e diabetes tipo 2. É considerado experimental e off-label — qualquer uso deve ser uma decisão médica individualizada." },
+        { pergunta: "Suplementos curam o lipedema?", resposta: "Não. Se a alimentação sozinha já não é suficiente, nenhum suplemento vai reverter o lipedema. Desconfie de protocolos fechados e caros vendidos com promessa de cura — isso não tem respaldo científico e é uma prática predatória." },
+        { pergunta: "Como saber se é lipedema ou só gordura localizada?", resposta: "Sinais que apontam para lipedema: distribuição simétrica nas pernas, preservação de mãos e pés, dor e hematomas fáceis ao toque, e resistência da gordura a dietas e exercícios. O diagnóstico é clínico, feito por um médico — não existe exame de sangue específico." }
+      ])
+    ]
+  },
+{
     id: 33,
     link: "/alimentacao-saudavel-das-criancas",
     img: `${githubImgBase}Blog/AlimentacaoSaudavelCriancas_Capa.webp`,
