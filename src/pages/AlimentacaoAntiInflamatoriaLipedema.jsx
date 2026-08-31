@@ -47,19 +47,24 @@ function CompareSlider({ comLipedemaSrc, semLipedemaSrc, comAlt, semAlt, label, 
   }, [onChange, isVertical]);
 
   useEffect(() => {
-    const handleMove = (e) => {
+    const handleMouseMove = (e) => {
       if (!draggingRef.current) return;
-      const point = e.touches ? e.touches[0] : e;
+      updateFromClient(e.clientX, e.clientY);
+    };
+    const handleTouchMove = (e) => {
+      if (!draggingRef.current) return;
+      e.preventDefault(); // trava o scroll da página enquanto arrasta
+      const point = e.touches[0];
       updateFromClient(point.clientX, point.clientY);
     };
     const handleUp = () => { draggingRef.current = false; };
-    window.addEventListener('mousemove', handleMove);
-    window.addEventListener('touchmove', handleMove);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
     window.addEventListener('mouseup', handleUp);
     window.addEventListener('touchend', handleUp);
     return () => {
-      window.removeEventListener('mousemove', handleMove);
-      window.removeEventListener('touchmove', handleMove);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('mouseup', handleUp);
       window.removeEventListener('touchend', handleUp);
     };
@@ -104,7 +109,7 @@ function CompareSlider({ comLipedemaSrc, semLipedemaSrc, comAlt, semAlt, label, 
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
           aria-label={`Arraste para comparar ${label} com e sem lipedema`}
-          className={`absolute inset-0 w-full h-full opacity-0 touch-none ${isVertical ? 'cursor-ns-resize' : 'cursor-ew-resize'}`}
+          className={`absolute inset-0 w-full h-full opacity-0 touch-none pointer-events-none focus-visible:pointer-events-auto ${isVertical ? 'cursor-ns-resize' : 'cursor-ew-resize'}`}
           style={isVertical ? { writingMode: 'vertical-lr', direction: 'rtl' } : undefined}
         />
       </div>
