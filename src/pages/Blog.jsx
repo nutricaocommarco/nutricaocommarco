@@ -7,13 +7,22 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 const postsData = [
   {
+    id: 34,
+    link: "/como-dormir-rapido",
+    imgSrc: `${githubImgBase}Blog/ComoDormirRapido_Capa.webp`,
+    tag: "Sono e Descanso",
+    title: "Como Dormir Rápido: Técnicas Comprovadas para Adormecer em Minutos",
+    desc: "Descubra como dormir rápido com técnicas de relaxamento, ajustes no ambiente, alimentação e a Terapia Cognitivo-Comportamental para Insônia (TCC-I).",
+    isNew: true
+  },
+  {
     id: 33,
     link: "/alimentacao-anti-inflamatoria-para-lipedema",
     imgSrc: `${githubImgBase}Blog/AlimentacaoAntiInflamatoriaLipedema_Capa.webp`,
     tag: "Lipedema",
     title: "Alimentação Anti-Inflamatória para Lipedema: O Que a Ciência Já Sabe",
     desc: "Entenda o que a ciência já sabe sobre alimentação anti-inflamatória para lipedema, a diferença entre lipedema, linfedema e obesidade, e o papel da tirzepatida.",
-    isNew: true
+    isNew: false
   },
   {
     id: 32,

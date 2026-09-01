@@ -109,6 +109,30 @@ const rotasLoja = [
 // 📝 3. TODOS OS POSTS DO BLOG
 const postsBlog = [
 {
+    id: 35,
+    link: "/como-dormir-rapido",
+    img: `${githubImgBase}Blog/ComoDormirRapido_Capa.webp`,
+    titulo: "Como Dormir Rápido: Técnicas Comprovadas para Adormecer em Minutos",
+    desc: "Descubra como dormir rápido com técnicas de relaxamento, ajustes no ambiente, alimentação e a Terapia Cognitivo-Comportamental para Insônia (TCC-I).",
+    data: "2026-09-01",
+    author: {
+      "@type": "Person",
+      "name": "Liliane Borges",
+      "jobTitle": "Estudante de Jornalismo e Colaboradora do Blog Nutrição com Marco",
+      "url": "https://www.nutricaocommarco.com.br/como-dormir-rapido"
+    },
+    schemasExtra: [
+      getMedicalSchema("Higiene do Sono e Técnicas para Adormecer Rápido", "https://www.nutricaocommarco.com.br/como-dormir-rapido", ["Insônia", "Melatonina", "Ritmo Circadiano", "Terapia Cognitivo-Comportamental", "Higiene do Sono"], "SleepMedicine"),
+      getVideoSchema("Como Dormir Melhor: Abandone esses 5 Hábitos que te Impedem de Dormir", "O canal de Caio Matsubara explica 5 hábitos comuns que atrapalham o sono e como evitá-los para dormir melhor.", "aXF765GY6xg", "2024-01-01T12:00:00-03:00"),
+      getFaqSchema([
+        { pergunta: "Por que não consigo dormir rápido mesmo quando me sinto muito cansado?", resposta: "Isso acontece devido ao estado de alerta mental, conhecido como hiperativação. Embora o seu corpo esteja exausto, a mente continua acelerada pelo excesso de estresse, ansiedade ou pensamentos acumulados ao longo do dia, o que mantém os níveis de cortisol elevados." },
+        { pergunta: "O que devo fazer se ficar virando na cama sem conseguir pegar no sono?", resposta: "Aplique a Regra dos 20 Minutos: se não adormecer após cerca de 20 minutos, levante-se da cama. Vá para outro cômodo com iluminação baixa e faça uma atividade calma e sem telas até sentir cansaço." },
+        { pergunta: "Quanto tempo antes de deitar devo desligar o celular e as telas?", resposta: "O ideal é desligar todas as telas entre 30 e 60 minutos antes de ir para a cama. A luz azul interrompe a produção natural de melatonina, o hormônio responsável por sinalizar ao corpo que é hora de descansar." },
+        { pergunta: "Músicas, chás e técnicas de respiração realmente funcionam ou são apenas mito?", resposta: "Funcionam e têm base científica. Músicas calmas (60-80 BPM) e a técnica de respiração 4-7-8 ativam o sistema nervoso parassimpático, desacelerando os batimentos cardíacos e diminuindo a ansiedade." }
+      ])
+    ]
+  },
+{
     id: 34,
     link: "/alimentacao-anti-inflamatoria-para-lipedema",
     img: `${githubImgBase}Blog/AlimentacaoAntiInflamatoriaLipedema_Capa.webp`,

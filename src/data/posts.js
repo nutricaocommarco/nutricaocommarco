@@ -2,6 +2,16 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export const posts = [
   {
+    id: 34,
+    link: "/como-dormir-rapido",
+    img: `${githubImgBase}Blog/ComoDormirRapido_Capa.webp`,
+    tag: "Sono e Descanso",
+    titulo: "Como Dormir Rápido: Técnicas Comprovadas para Adormecer em Minutos",
+    desc: "Descubra como dormir rápido com técnicas de relaxamento, ajustes no ambiente, alimentação e a Terapia Cognitivo-Comportamental para Insônia (TCC-I).",
+    data: "2026-09-01",
+    dataMod: "2026-09-01",
+  },
+  {
     id: 33,
     link: "/alimentacao-anti-inflamatoria-para-lipedema",
     img: `${githubImgBase}Blog/AlimentacaoAntiInflamatoriaLipedema_Capa.webp`,
