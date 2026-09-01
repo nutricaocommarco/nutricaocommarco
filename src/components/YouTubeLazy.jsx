@@ -5,10 +5,18 @@ export default function YouTubeLazy({ videoId, title }) {
   const [showVideo, setShowVideo] = useState(false);
   const [thumbSrc, setThumbSrc] = useState(`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`);
 
+  // Quando não existe thumbnail em resolução máxima, o YouTube responde 404
+  // mas com um placeholder cinza válido de 120x90 — o navegador NÃO dispara
+  // onError nesse caso (a imagem "carregou"), então detectamos pelo tamanho real.
+  const handleThumbLoad = (e) => {
+    if (e.target.naturalWidth <= 120 && thumbSrc.includes('maxresdefault')) {
+      setThumbSrc(`https://img.youtube.com/vi/${videoId}/sddefault.jpg`);
+    }
+  };
+
   const handleThumbError = () => {
-    // Nem todo vídeo tem thumbnail em resolução máxima — hqdefault sempre existe
     if (thumbSrc.includes('maxresdefault')) {
-      setThumbSrc(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`);
+      setThumbSrc(`https://img.youtube.com/vi/${videoId}/sddefault.jpg`);
     }
   };
 
@@ -34,6 +42,7 @@ export default function YouTubeLazy({ videoId, title }) {
             alt={title}
             className="w-full h-full object-cover transition-transform group-hover:scale-105"
             loading="lazy"
+            onLoad={handleThumbLoad}
             onError={handleThumbError}
           />
           {/* Ícone de Play para indicar que é um vídeo */}
