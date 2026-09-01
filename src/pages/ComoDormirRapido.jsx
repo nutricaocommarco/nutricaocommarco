@@ -32,14 +32,92 @@ export default function ComoDormirRapido() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  // 🌙 Checklist do Sono
-  const [checks, setChecks] = useState({ telas: false, ambiente: false, mente: false });
-  const [salvo, setSalvo] = useState(false);
-  const algumMarcado = Object.values(checks).some(Boolean);
+  // 🌙 Questionário: Pontuação do Sono
+  const perguntasSono = [
+    { id: 'telas', pergunta: 'Quantos minutos antes de dormir você larga as telas (celular, TV, computador)?', opcoes: [
+      { texto: 'Uso até a hora de dormir', pontos: 0 },
+      { texto: 'Entre 10 e 20 minutos antes', pontos: 1 },
+      { texto: '30 minutos ou mais antes', pontos: 2 },
+    ]},
+    { id: 'ambiente', pergunta: 'Como está o seu quarto à noite?', opcoes: [
+      { texto: 'Claro, barulhento ou quente', pontos: 0 },
+      { texto: 'Razoavelmente escuro e ameno', pontos: 1 },
+      { texto: 'Escuro, silencioso e fresco (18°C–21°C)', pontos: 2 },
+    ]},
+    { id: 'cafeina', pergunta: 'Até que horas você consome cafeína (café, energético, refrigerante)?', opcoes: [
+      { texto: 'Sem horário fixo, às vezes à noite', pontos: 0 },
+      { texto: 'Paro no fim da tarde', pontos: 1 },
+      { texto: 'Paro até as 14h', pontos: 2 },
+    ]},
+    { id: 'exercicio', pergunta: 'Quando você pratica atividade física?', opcoes: [
+      { texto: 'Não pratico com regularidade', pontos: 0 },
+      { texto: 'Treino perto da hora de dormir', pontos: 1 },
+      { texto: 'Treino com pelo menos 4h de intervalo até deitar', pontos: 2 },
+    ]},
+    { id: 'insonia', pergunta: 'O que você faz quando não consegue dormir em 20 minutos?', opcoes: [
+      { texto: 'Fico na cama tentando forçar ou mexendo no celular', pontos: 0 },
+      { texto: 'Às vezes levanto, às vezes insisto na cama', pontos: 1 },
+      { texto: 'Levanto e faço algo calmo, sem tela, até sentir sono', pontos: 2 },
+    ]},
+    { id: 'relaxamento', pergunta: 'Você usa alguma técnica de relaxamento antes de dormir (respiração, relaxamento muscular)?', opcoes: [
+      { texto: 'Nunca', pontos: 0 },
+      { texto: 'Às vezes', pontos: 1 },
+      { texto: 'Sempre ou quase sempre', pontos: 2 },
+    ]},
+  ];
 
-  const toggleCheck = (id) => {
-    setChecks(prev => ({ ...prev, [id]: !prev[id] }));
-    setSalvo(false);
+  const [respostasSono, setRespostasSono] = useState({});
+  const [mostrarResultadoSono, setMostrarResultadoSono] = useState(false);
+
+  const responderSono = (perguntaId, opcaoIndex) => {
+    setRespostasSono(prev => ({ ...prev, [perguntaId]: opcaoIndex }));
+    setMostrarResultadoSono(false);
+  };
+
+  const todasRespondidas = perguntasSono.every(p => respostasSono[p.id] !== undefined);
+  const pontuacaoSono = perguntasSono.reduce((total, p) => {
+    const idx = respostasSono[p.id];
+    return total + (idx !== undefined ? p.opcoes[idx].pontos : 0);
+  }, 0);
+
+  const getResultadoSono = (score) => {
+    if (score <= 4) return {
+      titulo: 'Sua Rotina de Sono Precisa de Ajustes',
+      cor: 'red',
+      texto: 'Vários hábitos importantes ainda não fazem parte da sua rotina noturna, o que provavelmente está atrasando o seu sono.',
+      dicas: [
+        'Comece pelo básico: desligue as telas 30 minutos antes de deitar — a luz azul bloqueia a produção de melatonina.',
+        'Ajuste a temperatura do quarto para entre 18°C e 21°C e deixe o ambiente o mais escuro possível.',
+        'Experimente a respiração 4-7-8 assim que deitar: inspire em 4 segundos, segure por 7, solte em 8. Repita 4 vezes.'
+      ]
+    };
+    if (score <= 8) return {
+      titulo: 'Você Está no Caminho Certo',
+      cor: 'orange',
+      texto: 'Você já tem bons hábitos de sono, mas ainda dá para ganhar consistência em alguns pontos.',
+      dicas: [
+        'Fixe um horário-limite para cafeína (café, energético, refrigerante) e para o treino, e mantenha todos os dias.',
+        'Se ainda se vira na cama, aplique a Regra dos 20 Minutos: levante e volte só quando sentir sono de verdade.',
+        'Escolha uma técnica de relaxamento (respiração 4-7-8 ou relaxamento muscular progressivo) e repita todas as noites, não só quando lembrar.'
+      ]
+    };
+    return {
+      titulo: 'Sono Otimizado',
+      cor: 'green',
+      texto: 'Sua rotina está bem alinhada com o que a ciência recomenda para dormir rápido.',
+      dicas: [
+        'Mantenha a consistência dos horários mesmo nos fins de semana — isso é o que mais sustenta um sono de qualidade a longo prazo.',
+        'Em noites mais agitadas, músicas lentas (60–80 BPM) por 30 minutos podem ajudar a fechar o ciclo.',
+        'Se mesmo com essa rotina a dificuldade para dormir persistir, vale investigar a Terapia Cognitivo-Comportamental para Insônia (TCC-I) com um especialista.'
+      ]
+    };
+  };
+
+  const resultadoSono = mostrarResultadoSono ? getResultadoSono(pontuacaoSono) : null;
+  const coresSono = {
+    red: { bg: 'bg-red-950/30', border: 'border-red-500', badge: 'bg-red-600' },
+    orange: { bg: 'bg-amber-950/30', border: 'border-amber-500', badge: 'bg-amber-600' },
+    green: { bg: 'bg-green-950/30', border: 'border-green-500', badge: 'bg-green-600' },
   };
 
   const faqs = [
@@ -133,7 +211,7 @@ export default function ComoDormirRapido() {
                   <li><a href="#relaxamento" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Wind size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Técnicas de Relaxamento</a></li>
                   <li><a href="#ambiente" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Moon size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Ajustes no Ambiente</a></li>
                   <li><a href="#habitos" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Brain size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Hábitos e TCC-I</a></li>
-                  <li><a href="#checklist" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><CheckCircle2 size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Checklist do Sono</a></li>
+                  <li><a href="#checklist" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><CheckCircle2 size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Pontuação do Sono</a></li>
                   <li><a href="#alimentacao" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Salad size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Alimentação e Sono</a></li>
                   <li><a href="#exercicio" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Dumbbell size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Atividade Física</a></li>
                   <li><a href="#musica" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Music size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Música e Sono</a></li>
@@ -229,40 +307,43 @@ export default function ComoDormirRapido() {
             </div>
           </div>
 
-          {/* ELEMENTO INTERATIVO OBRIGATÓRIO — CHECKLIST DO SONO */}
+          {/* ELEMENTO INTERATIVO OBRIGATÓRIO — QUESTIONÁRIO DE PONTUAÇÃO DO SONO */}
           <h2 id="checklist" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-            <CheckCircle2 className="text-green-700" /> Checklist do Sono
+            <CheckCircle2 className="text-green-700" /> Qual é a Sua Pontuação do Sono?
           </h2>
-          <p className="mb-8">Antes de deitar hoje, confira o que já está pronto para você dormir rápido:</p>
+          <p className="mb-8">Responda as 6 perguntas abaixo e descubra o que mais está atrapalhando (ou ajudando) você a dormir rápido:</p>
 
           <div className="my-10 bg-[#1E293B] border border-slate-700 shadow-2xl rounded-[3rem] overflow-hidden p-6 md:p-10">
             <h3 className="text-xl md:text-2xl font-black text-white italic m-0 mb-8 text-center">🌙 Preparado para dormir em minutos?</h3>
 
-            <div className="space-y-3 mb-8">
-              {[
-                { id: 'telas', label: 'Já apaguei/afastei as telas' },
-                { id: 'ambiente', label: 'O quarto está escuro e fresco' },
-                { id: 'mente', label: 'Estou pronto para relaxar a mente' },
-              ].map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => toggleCheck(item.id)}
-                  aria-label={`Marcar: ${item.label}`}
-                  aria-pressed={checks[item.id]}
-                  className={`w-full text-left p-4 md:p-5 rounded-2xl border transition-all cursor-pointer flex items-center gap-4 ${
-                    checks[item.id] ? 'bg-green-950/40 border-green-500' : 'bg-slate-800 border-slate-700 hover:border-slate-500'
-                  }`}
-                >
-                  <span className={`w-6 h-6 rounded-full border-2 shrink-0 flex items-center justify-center transition-all ${checks[item.id] ? 'bg-green-500 border-green-500 scale-110' : 'border-slate-500'}`}>
-                    {checks[item.id] && <CheckCircle2 size={16} className="text-white" />}
-                  </span>
-                  <span className="text-slate-200 text-sm md:text-base font-medium">{item.label}</span>
-                </button>
+            <div className="space-y-6 mb-8">
+              {perguntasSono.map((p) => (
+                <div key={p.id}>
+                  <p className="text-slate-200 text-sm md:text-base font-bold mb-3">{p.pergunta}</p>
+                  <div className="space-y-2">
+                    {p.opcoes.map((opcao, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => responderSono(p.id, idx)}
+                        aria-label={`Responder "${opcao.texto}" para: ${p.pergunta}`}
+                        aria-pressed={respostasSono[p.id] === idx}
+                        className={`w-full text-left p-3 md:p-4 rounded-xl border transition-all cursor-pointer flex items-center gap-3 ${
+                          respostasSono[p.id] === idx ? 'bg-green-950/40 border-green-500' : 'bg-slate-800 border-slate-700 hover:border-slate-500'
+                        }`}
+                      >
+                        <span className={`w-5 h-5 rounded-full border-2 shrink-0 flex items-center justify-center transition-all ${respostasSono[p.id] === idx ? 'bg-green-500 border-green-500 scale-110' : 'border-slate-500'}`}>
+                          {respostasSono[p.id] === idx && <CheckCircle2 size={12} className="text-white" />}
+                        </span>
+                        <span className="text-slate-300 text-sm">{opcao.texto}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
 
             <div className="relative">
-              {salvo && (
+              {mostrarResultadoSono && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 -translate-y-full flex gap-2 pointer-events-none" aria-hidden="true">
                   <span className="text-2xl animate-bounce" style={{ animationDelay: '0ms' }}>✨</span>
                   <span className="text-2xl animate-bounce" style={{ animationDelay: '100ms' }}>🌙</span>
@@ -270,25 +351,38 @@ export default function ComoDormirRapido() {
                 </div>
               )}
               <button
-                onClick={() => setSalvo(true)}
-                disabled={!algumMarcado}
-                aria-label="Salvar meu compromisso de sono"
+                onClick={() => setMostrarResultadoSono(true)}
+                disabled={!todasRespondidas}
+                aria-label="Ver minha pontuação do sono"
                 className={`w-full font-black uppercase text-sm py-4 rounded-2xl shadow-lg transition-all border-none italic ${
-                  salvo
-                    ? 'bg-green-600 text-white cursor-default shadow-[0_0_30px_rgba(34,197,94,0.5)]'
-                    : algumMarcado
+                  todasRespondidas
                     ? 'bg-green-700 text-white hover:bg-green-800 cursor-pointer hover:scale-105'
                     : 'bg-slate-700 text-slate-400 cursor-not-allowed'
                 }`}
               >
-                {salvo ? '✓ Meta salva! Boa noite 😴' : '[ 1 Clique ] Salvar meu compromisso de sono'}
+                Ver Minha Pontuação do Sono
               </button>
             </div>
 
-            {salvo && (
-              <p className="text-center text-slate-300 text-sm mt-4 mb-0" aria-live="polite">
-                Seu cérebro acabou de registrar que é hora de descansar.
-              </p>
+            {resultadoSono && (
+              <div className={`mt-6 p-6 rounded-2xl border-2 ${coresSono[resultadoSono.cor].bg} ${coresSono[resultadoSono.cor].border}`} aria-live="polite">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className={`${coresSono[resultadoSono.cor].badge} text-white text-xs font-black uppercase px-3 py-1.5 rounded-full`}>
+                    {pontuacaoSono} de 12 pontos
+                  </span>
+                </div>
+                <h4 className="text-white font-black text-lg italic mb-2">{resultadoSono.titulo}</h4>
+                <p className="text-slate-300 text-sm mb-4">{resultadoSono.texto}</p>
+                <p className="text-slate-200 font-black uppercase text-xs tracking-widest mb-3">Dicas para Dormir Melhor:</p>
+                <ul className="space-y-2 m-0 p-0 list-none">
+                  {resultadoSono.dicas.map((dica, i) => (
+                    <li key={i} className="flex items-start gap-2 text-slate-300 text-sm">
+                      <CheckCircle2 size={16} className="text-green-500 shrink-0 mt-0.5" />
+                      <span>{dica}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
           </div>
 
