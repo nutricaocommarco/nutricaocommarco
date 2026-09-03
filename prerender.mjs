@@ -109,6 +109,30 @@ const rotasLoja = [
 // 📝 3. TODOS OS POSTS DO BLOG
 const postsBlog = [
 {
+    id: 36,
+    link: "/o-que-sao-microplasticos",
+    img: `${githubImgBase}Blog/OQueSaoMicroplasticos_Capa.webp`,
+    titulo: "O Que São Microplásticos? Como Eles Afetam Sua Saúde e Fertilidade",
+    desc: "Entenda o que são microplásticos, como eles entram no corpo humano, seus efeitos na fertilidade e 5 dicas práticas para reduzir a exposição no dia a dia.",
+    data: "2026-09-02",
+    author: {
+      "@type": "Person",
+      "name": "Liliane Borges",
+      "jobTitle": "Estudante de Jornalismo e Colaboradora do Blog Nutrição com Marco",
+      "url": "https://www.nutricaocommarco.com.br/o-que-sao-microplasticos"
+    },
+    schemasExtra: [
+      getMedicalSchema("Microplásticos, Saúde e Fertilidade Humana", "https://www.nutricaocommarco.com.br/o-que-sao-microplasticos", ["Microplásticos", "Nanoplásticos", "Disrupção Endócrina", "Fertilidade", "Saúde Ambiental"], "Toxicology"),
+      getVideoSchema("Microplásticos já estão DENTRO de VOCÊ. E agora?", "O canal Ciência Todo Dia explica como os microplásticos entram no corpo humano e o que a ciência já sabe sobre seus efeitos.", "4Yqe2j2Iw-Q", "2024-01-01T12:00:00-03:00"),
+      getFaqSchema([
+        { pergunta: "O que são microplásticos e de onde eles vêm?", resposta: "São partículas de plástico com menos de 5 milímetros de diâmetro. Eles podem ser primários (fabricados intencionalmente em tamanho reduzido, como esfoliantes e grânulos industriais) ou secundários (gerados pela degradação de resíduos maiores, como garrafas, sacolas, pneus e tecidos sintéticos)." },
+        { pergunta: "Como os microplásticos entram no corpo humano?", resposta: "A entrada ocorre principalmente por três vias: ingestão (pelo consumo de água, peixes, frutos do mar e alimentos contaminados), inalação (pela poeira doméstica e ar contendo fibras sintéticas) e absorção dérmica (em menor escala, através do uso de cosméticos e produtos de higiene)." },
+        { pergunta: "Quais são os principais riscos dos microplásticos para a saúde e a fertilidade?", resposta: "Eles atuam como corpos estranhos causadores de estresse oxidativo e inflamação celular, além de transportarem aditivos químicos, como bisfenóis e ftalatos. Essas substâncias são disruptores endócrinos, podendo alterar a produção hormonal, prejudicar a qualidade do sêmen, afetar os óvulos e comprometer a saúde reprodutiva." },
+        { pergunta: "Em quais partes do corpo humano já foram detectados microplásticos?", resposta: "Estudos científicos já confirmaram a presença dessas partículas no sangue, pulmões, coração, cérebro, fígado, rins, sistema digestivo, placenta, leite materno, testículos e sêmen, demonstrando sua capacidade de circular e se acumular em diversos órgãos e fluidos corporais." }
+      ])
+    ]
+  },
+{
     id: 35,
     link: "/como-dormir-rapido",
     img: `${githubImgBase}Blog/ComoDormirRapido_Capa.webp`,
