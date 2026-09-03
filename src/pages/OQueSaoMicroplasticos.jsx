@@ -165,7 +165,7 @@ export default function OQueSaoMicroplasticos() {
                 <source media="(max-width: 1024px)" srcSet={`${capaArtigo}?w=800&strip=all&quality=85`} />
                 <ImagemOtimizada
                   src={`${capaArtigo}?w=1280&strip=all&quality=85`}
-                  alt="Pinguim Píngus vestindo jaleco de cientista em estilo Disney Pixar 3D, segurando uma lupa e examinando um copo d'água com partículas de plástico visíveis, em um laboratório limpo e iluminado."
+                  alt="Pinguim Píngus, em estilo Disney Pixar 3D, sentado sobre uma pilha de lixo plástico colorido ao ar livre, segurando um pedaço de plástico que se desfaz em pequenos fragmentos nas mãos."
                   title="O Que São Microplásticos e o Píngus"
                   className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-700"
                   priority="high"
