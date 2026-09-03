@@ -4,7 +4,7 @@ import ImagemOtimizada from '../components/ImagemOtimizada';
 import {
   ChevronLeft, HelpCircle, Activity, FileText,
   Zap, ChevronRight, PlayCircle, Headphones, ChevronDown, ShoppingCart,
-  CheckCircle2, AlertTriangle, Droplets, Wind, Waves, Sparkles, Film
+  CheckCircle2, AlertTriangle, Droplets, Wind, Waves, Film
 } from 'lucide-react';
 
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
@@ -24,17 +24,49 @@ const capaArtigo = `${githubImgBase}Blog/OQueSaoMicroplasticos_Capa.webp`;
 
 // 🔍 Fontes reais para a Caça aos Microplásticos
 const fontesMicroplasticos = [
-  { id: 'agua', nome: 'Água Engarrafada', fato: 'Um estudo de 2024 da Universidade Columbia e da Rutgers encontrou, em média, 240 mil fragmentos de plástico detectáveis por litro em marcas populares de água engarrafada — cerca de 90% eram nanoplásticos, partículas menores que 1 micrômetro.' },
-  { id: 'cha', nome: 'Saquinho de Chá', fato: 'Um estudo da Universidade McGill (2019) descobriu que mergulhar um único saquinho de chá de plástico em água quente libera cerca de 11,6 bilhões de microplásticos e 3,1 bilhões de nanoplásticos em uma única xícara.' },
-  { id: 'tabua', nome: 'Tábua de Corte', fato: 'Um estudo de 2023 publicado na Environmental Science & Technology estimou que cortar alimentos em tábuas de plástico pode gerar entre 7,4 e 50,7 gramas de microplástico por ano, dependendo do material da tábua.' },
-  { id: 'microondas', nome: 'Recipiente no Micro-ondas', fato: 'Pesquisadores da Universidade de Nebraska-Lincoln (2023) mediram a liberação de até 4,22 milhões de partículas de microplástico e 2,11 bilhões de nanoplásticos por cm² de recipiente, em apenas 3 minutos de aquecimento.' },
-  { id: 'sal', nome: 'Sal de Cozinha', fato: 'Um estudo com 39 marcas de sal de 21 países encontrou microplásticos em 36 delas — cerca de 90% das marcas testadas, com maior contaminação no sal marinho.' },
-  { id: 'roupas', nome: 'Roupas Sintéticas', fato: 'Uma única lavagem de roupas sintéticas, como poliéster e acrílico, pode liberar centenas de milhares de microfibras de plástico na água, que seguem para rios e oceanos.' },
-  { id: 'beleza', nome: 'Produtos de Beleza', fato: 'Alguns cosméticos esfoliantes chegam a conter mais de 50 mil partículas de microplástico por grama de produto — motivo pelo qual bans regionais começaram a restringir microesferas plásticas.' },
-  { id: 'embalagens', nome: 'Embalagens Plásticas', fato: 'Embalagens de alimentos, principalmente em contato com calor, gordura ou acidez, podem liberar micro e nanoplásticos direto na comida — o mesmo mecanismo já comprovado em recipientes de micro-ondas e tábuas de corte.' },
-  { id: 'carnes', nome: 'Carnes e Frutos do Mar', fato: 'Animais como peixes, bois e frangos também ingerem microplásticos presentes na água, no solo e na ração — essas partículas podem se acumular nos tecidos e chegar até o prato através da carne e dos frutos do mar.' },
-  { id: 'poeira', nome: 'Poeira Doméstica', fato: 'Estima-se que um adulto inale cerca de 170 partículas de microplástico por dia, boa parte vinda de fibras sintéticas soltas por carpetes, estofados e roupas dentro de casa.' },
+  { id: 'agua', emoji: '💧', nome: 'Água Engarrafada', fato: 'Um estudo de 2024 da Universidade Columbia e da Rutgers encontrou, em média, 240 mil fragmentos de plástico detectáveis por litro em marcas populares de água engarrafada — cerca de 90% eram nanoplásticos, partículas menores que 1 micrômetro.' },
+  { id: 'cha', emoji: '🍵', nome: 'Saquinho de Chá', fato: 'Um estudo da Universidade McGill (2019) descobriu que mergulhar um único saquinho de chá de plástico em água quente libera cerca de 11,6 bilhões de microplásticos e 3,1 bilhões de nanoplásticos em uma única xícara.' },
+  { id: 'tabua', emoji: '🔪', nome: 'Tábua de Corte', fato: 'Um estudo de 2023 publicado na Environmental Science & Technology estimou que cortar alimentos em tábuas de plástico pode gerar entre 7,4 e 50,7 gramas de microplástico por ano, dependendo do material da tábua.' },
+  { id: 'microondas', emoji: '🔥', nome: 'Recipiente no Micro-ondas', fato: 'Pesquisadores da Universidade de Nebraska-Lincoln (2023) mediram a liberação de até 4,22 milhões de partículas de microplástico e 2,11 bilhões de nanoplásticos por cm² de recipiente, em apenas 3 minutos de aquecimento.' },
+  { id: 'sal', emoji: '🧂', nome: 'Sal de Cozinha', fato: 'Um estudo com 39 marcas de sal de 21 países encontrou microplásticos em 36 delas — cerca de 90% das marcas testadas, com maior contaminação no sal marinho.' },
+  { id: 'roupas', emoji: '👕', nome: 'Roupas Sintéticas', fato: 'Uma única lavagem de roupas sintéticas, como poliéster e acrílico, pode liberar centenas de milhares de microfibras de plástico na água, que seguem para rios e oceanos.' },
+  { id: 'beleza', emoji: '🧴', nome: 'Produtos de Beleza', fato: 'Alguns cosméticos esfoliantes chegam a conter mais de 50 mil partículas de microplástico por grama de produto — motivo pelo qual bans regionais começaram a restringir microesferas plásticas.' },
+  { id: 'embalagens', emoji: '📦', nome: 'Embalagens Plásticas', fato: 'Embalagens de alimentos, principalmente em contato com calor, gordura ou acidez, podem liberar micro e nanoplásticos direto na comida — o mesmo mecanismo já comprovado em recipientes de micro-ondas e tábuas de corte.' },
+  { id: 'carnes', emoji: '🍖', nome: 'Carnes e Frutos do Mar', fato: 'Animais como peixes, bois e frangos também ingerem microplásticos presentes na água, no solo e na ração — essas partículas podem se acumular nos tecidos e chegar até o prato através da carne e dos frutos do mar.' },
+  { id: 'poeira', emoji: '🌫️', nome: 'Poeira Doméstica', fato: 'Estima-se que um adulto inale cerca de 170 partículas de microplástico por dia, boa parte vinda de fibras sintéticas soltas por carpetes, estofados e roupas dentro de casa.' },
 ];
+
+// 🔍 Card individual da Caça aos Microplásticos, espalhado ao longo do artigo
+function CacaCard({ id, dica, revelado, onRevelar }) {
+  const fonte = fontesMicroplasticos.find(f => f.id === id);
+  if (!fonte) return null;
+
+  return (
+    <div className="not-prose my-8">
+      {!revelado ? (
+        <button
+          onClick={() => onRevelar(id)}
+          aria-label={`Clique para revelar uma fonte escondida de microplástico: ${fonte.nome}`}
+          className="w-full flex items-center gap-4 bg-slate-900 hover:bg-slate-800 border-2 border-dashed border-green-500 hover:border-green-400 rounded-2xl p-5 text-left transition-colors cursor-pointer"
+        >
+          <span className="text-2xl shrink-0" aria-hidden="true">{fonte.emoji}</span>
+          <div>
+            <p className="m-0 text-[11px] font-black uppercase tracking-widest text-green-400">Achado da Caça aos Microplásticos</p>
+            <p className="m-0 text-sm font-bold text-slate-200">{dica || 'Tem uma fonte escondida por aqui perto. Clique para revelar.'}</p>
+          </div>
+        </button>
+      ) : (
+        <div className="w-full flex items-start gap-4 bg-slate-900 border-2 border-green-500 rounded-2xl p-5" aria-live="polite">
+          <span className="text-2xl shrink-0" aria-hidden="true">{fonte.emoji}</span>
+          <div>
+            <p className="m-0 text-[11px] font-black uppercase tracking-widest text-green-400 flex items-center gap-1.5">{fonte.nome} <span aria-hidden="true">✅</span></p>
+            <p className="m-0 text-sm text-slate-200 leading-relaxed mt-1">{fonte.fato}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function OQueSaoMicroplasticos() {
   const { pathname, state } = useLocation();
@@ -76,6 +108,18 @@ export default function OQueSaoMicroplasticos() {
 
   return (
     <section className="py-12 md:py-24 bg-slate-50 px-4 md:px-6 min-h-screen font-sans">
+
+      {/* 🔍 Contador flutuante da Caça aos Microplásticos */}
+      <div
+        className={`fixed bottom-5 right-5 z-40 flex items-center gap-2 px-4 py-3 rounded-full shadow-2xl border transition-colors duration-300 ${todasDescobertas ? 'bg-green-600 border-green-500 text-white' : 'bg-slate-900 border-slate-700 text-white'}`}
+        aria-live="polite"
+      >
+        <span aria-hidden="true">{todasDescobertas ? '🎉' : '🔍'}</span>
+        <span className="text-[11px] font-black uppercase tracking-widest whitespace-nowrap">
+          {todasDescobertas ? 'Achou todas!' : `Caçada: ${totalDescobertas}/${fontesMicroplasticos.length}`}
+        </span>
+      </div>
+
       <div className="container mx-auto max-w-4xl bg-white p-6 md:p-16 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
 
         {/* Botão Dinâmico */}
@@ -147,7 +191,6 @@ export default function OQueSaoMicroplasticos() {
                   <li><a href="#ocorrencia" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Waves size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Ocorrência Ambiental</a></li>
                   <li><a href="#entrada-corpo" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Wind size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como Entram no Corpo</a></li>
                   <li><a href="#fertilidade" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><AlertTriangle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Fertilidade Humana</a></li>
-                  <li><a href="#caca" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Sparkles size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Caça aos Microplásticos</a></li>
                   <li><a href="#dicas" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><CheckCircle2 size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />5 Dicas Para Reduzir</a></li>
                   <li><a href="#tabela" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Interferência na Humanidade</a></li>
                   <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes</a></li>
@@ -179,6 +222,14 @@ export default function OQueSaoMicroplasticos() {
             </figcaption>
           </figure>
 
+          {/* 🔍 EXPLICAÇÃO DA CAÇA AOS MICROPLÁSTICOS */}
+          <div className="not-prose mb-10 p-5 md:p-6 bg-slate-900 rounded-3xl border border-slate-700 flex items-start gap-4">
+            <span className="text-2xl shrink-0" aria-hidden="true">🔍</span>
+            <p className="m-0 text-sm md:text-base text-slate-200 leading-relaxed">
+              <strong className="text-white">Caça aos Microplásticos:</strong> escondemos {fontesMicroplasticos.length} cards com fontes reais de microplástico ao longo deste artigo. Sempre que encontrar um card com a lupa 🔍, clique para revelar o dado científico por trás dele. Acompanhe sua contagem no cantinho da tela.
+            </p>
+          </div>
+
           {/* 📝 INTRODUÇÃO */}
           <p className="mb-4">
             <strong>O que são microplásticos?</strong> São pequenos fragmentos ou partículas plásticas que possuem dimensões reduzidas, compreendidas no intervalo de 1 micrômetro (µm) até 5 milímetros (mm) de diâmetro. Invisíveis na maior parte das vezes, essas partículas já foram encontradas em quase todo lugar — da água que bebemos ao sangue que corre nas nossas veias.
@@ -195,6 +246,8 @@ export default function OQueSaoMicroplasticos() {
             <li><strong>Microplásticos Secundários:</strong> resultam do processo de fragmentação e degradação física, química ou biológica de resíduos plásticos maiores lançados no meio ambiente (como sacolas, garrafas PET, tecidos sintéticos, resíduos de pneus e filmes plásticos agrícolas). Fatores como a radiação ultravioleta (UV), a ação mecânica das ondas, o atrito e as variações de temperatura aceleram a quebra dessas estruturas plásticas em partes progressivamente menores.</li>
           </ul>
 
+          <CacaCard id="beleza" dica="Um exemplo clássico de microplástico primário está no seu armário de banheiro." revelado={!!descobertas.beleza} onRevelar={revelarFonte} />
+
           <h2 id="ocorrencia" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
             <Waves className="text-green-700" /> Ocorrência Ambiental e Impactos
           </h2>
@@ -208,15 +261,22 @@ export default function OQueSaoMicroplasticos() {
             <li><strong>Exposição Humana:</strong> os microplásticos ingressam na cadeia alimentar humana pelo consumo de frutos do mar, água envasada ou da rede, sal, mel, bebidas e pela inalação da poeira suspensa no ar. Estima-se uma exposição contínua por via oral e respiratória, tornando o estudo de seus impactos fisiológicos e toxicológicos a longo prazo uma das áreas mais urgentes da química ambiental moderna.</li>
           </ul>
 
+          <CacaCard id="embalagens" dica="A embalagem que guarda seu lanche pode estar liberando mais do que você imagina." revelado={!!descobertas.embalagens} onRevelar={revelarFonte} />
+
           <h2 id="entrada-corpo" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
             <Wind className="text-green-700" /> Como os Microplásticos Entram no Corpo Humano?
           </h2>
           <p className="mb-4">
             A entrada ocorre principalmente por três vias. Pela <strong>ingestão</strong>, através do consumo de água, frutos do mar, sal, mel e bebidas — estudos estimam uma exposição de aproximadamente 0,1 a 5 gramas de microplástico por pessoa, por semana, vindo da alimentação. Pela <strong>inalação</strong>, um adulto respira cerca de 170 partículas de microplástico por dia, principalmente de poeira doméstica e fibras sintéticas suspensas no ar — os efeitos dessa via ainda são pouco conhecidos e seguem sendo estudados. E, em menor escala, pela <strong>absorção dérmica</strong>, através do uso de cosméticos e produtos de higiene que contêm partículas plásticas.
           </p>
+
+          <CacaCard id="agua" dica="Falando em ingestão: aquela garrafinha na sua mesa pode ser uma das maiores fontes do dia." revelado={!!descobertas.agua} onRevelar={revelarFonte} />
+
           <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 text-blue-900 mt-6 mb-6">
             <p className="m-0"><strong>Vale o contexto:</strong> a Organização Mundial da Saúde avaliou, em revisão sobre microplásticos na água potável, que o risco à saúde humana nos níveis atuais de exposição "parece ser baixo" — mas reforça que a base de evidências ainda é limitada e mais pesquisa é necessária. Isso não significa ausência de risco, mas ajuda a colocar o tema em perspectiva, sem alarmismo.</p>
           </div>
+
+          <CacaCard id="poeira" dica="E sobre a inalação: tem uma fonte bem perto de você agora, dentro de casa." revelado={!!descobertas.poeira} onRevelar={revelarFonte} />
 
           <h2 id="fertilidade" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
             <AlertTriangle className="text-green-700" /> Microplásticos e a Fertilidade Humana
@@ -227,9 +287,39 @@ export default function OQueSaoMicroplasticos() {
           <p className="mb-4">
             No sistema masculino, a exposição gera danos testiculares e estresse oxidativo, fragmentando o DNA do esperma e reduzindo a contagem e a motilidade dos espermatozoides. No sistema feminino, prejudica a maturação dos óvulos, a qualidade folicular e a receptividade do endométrio. Essa combinação de alteração hormonal e danos celulares compromete a fertilidade e aumenta os riscos na implantação embriológica.
           </p>
-          <div className="bg-orange-50 p-6 rounded-2xl border border-orange-100 text-orange-800 mt-6 mb-6">
-            <p className="m-0 flex items-start gap-2"><Film size={18} className="shrink-0 mt-0.5" /><span><strong>Indicação de documentário:</strong> <a href="https://www.netflix.com/br/title/82074244" target="_blank" rel="noopener noreferrer" className="underline font-bold">Detox de Plástico</a> (Netflix). Sinopse: sintomas estranhos, infertilidade sem explicação — seis casais diminuem o uso de plásticos enquanto tentam engravidar neste documentário fascinante.</span></p>
+          <div className="my-10 p-6 md:p-8 bg-orange-50 rounded-[2.5rem] border border-orange-100">
+            <div className="flex items-center gap-3 mb-4">
+              <Film className="text-orange-700 shrink-0" size={22} />
+              <h3 className="text-lg md:text-xl font-black text-orange-800 uppercase italic m-0">Indicação de Documentário</h3>
+            </div>
+            <p className="text-orange-900 font-medium mb-5 leading-relaxed">
+              <strong>Detox de Plástico</strong> (Netflix, 2026). Sintomas estranhos, infertilidade sem explicação — seis casais diminuem o uso de plásticos enquanto tentam engravidar neste documentário fascinante.
+            </p>
+            <div className="relative w-full aspect-video rounded-[2rem] overflow-hidden shadow-xl border-4 border-white bg-slate-900 mb-5">
+              <YouTubeLazy videoId="Esd8PEWlt9w" title="The Plastic Detox | Official Trailer | Netflix" />
+            </div>
+            <a href="https://www.netflix.com/br/title/82074244" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-orange-800 font-black uppercase text-xs underline">
+              Assistir na Netflix <Film size={14} />
+            </a>
           </div>
+
+          <div className="my-10 p-6 md:p-8 bg-blue-50 rounded-[2.5rem] border border-blue-100">
+            <div className="flex items-center gap-3 mb-4">
+              <Film className="text-blue-700 shrink-0" size={22} />
+              <h3 className="text-lg md:text-xl font-black text-blue-800 uppercase italic m-0">Outra Indicação de Documentário</h3>
+            </div>
+            <p className="text-blue-900 font-medium mb-5 leading-relaxed">
+              <strong>Feitos de Plástico</strong> (Prime Video, 2024). A jornalista científica Ziya Tong investiga a presença de microplásticos em nosso corpo, testando a si mesma, sua comida e sua própria casa em busca de respostas.
+            </p>
+            <div className="relative w-full aspect-video rounded-[2rem] overflow-hidden shadow-xl border-4 border-white bg-slate-900 mb-5">
+              <YouTubeLazy videoId="9cbKuGDEjVk" title="Feitos de Plástico (Trailer) - 14ª Mostra Ecofalante de Cinema" />
+            </div>
+            <a href="https://www.primevideo.com/-/pt/detail/Feitos-de-Pl%C3%A1stico/0GTO3J0NFMZJ7KU8CAPPI2SKGV" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-800 font-black uppercase text-xs underline">
+              Assistir na Prime Video <Film size={14} />
+            </a>
+          </div>
+
+          <CacaCard id="carnes" dica="A cadeia alimentar também é uma rota de entrada — e não é só peixe." revelado={!!descobertas.carnes} onRevelar={revelarFonte} />
 
           <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
             <FileText className="text-green-700" /> Em Quais Partes do Corpo Já Foram Encontrados Microplásticos?
@@ -237,6 +327,8 @@ export default function OQueSaoMicroplasticos() {
           <p className="mb-4">
             Estudos científicos já confirmaram a presença dessas partículas no <strong>sangue, pulmões, coração, cérebro, fígado, rins, sistema digestivo, placenta, leite materno, testículos e sêmen</strong>, demonstrando sua capacidade de circular e se acumular em diversos órgãos e fluidos corporais. Um estudo publicado no New England Journal of Medicine em 2024 encontrou micro e nanoplásticos em placas de artérias carótidas de 58% dos pacientes analisados — e quem tinha essas partículas apresentou risco 4,5 vezes maior de infarto, AVC ou morte ao longo do acompanhamento.
           </p>
+
+          <CacaCard id="sal" dica="Até um item bem básico da sua cozinha entra nessa lista." revelado={!!descobertas.sal} onRevelar={revelarFonte} />
 
           {/* VÍDEO LAZY YOUTUBE OBRIGATÓRIO */}
           <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
@@ -251,65 +343,7 @@ export default function OQueSaoMicroplasticos() {
             </div>
           </div>
 
-          {/* ELEMENTO INTERATIVO OBRIGATÓRIO — CAÇA AOS MICROPLÁSTICOS */}
-          <h2 id="caca" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
-            <Sparkles className="text-green-700" /> Caça aos Microplásticos: Onde Eles se Escondem?
-          </h2>
-          <p className="mb-8">Clique em cada card abaixo para revelar uma fonte real de microplástico no dia a dia — e o dado científico por trás dela. Tente descobrir as {fontesMicroplasticos.length}:</p>
-
-          <div className="my-10 bg-[#1E293B] border border-slate-700 shadow-2xl rounded-[3rem] overflow-hidden p-6 md:p-10">
-            <div className="flex items-center justify-between mb-8">
-              <h3 className="text-lg md:text-xl font-black text-white italic m-0">🔎 Onde Estão os Microplásticos?</h3>
-              <span className="bg-green-700 text-white text-xs font-black uppercase px-4 py-2 rounded-full shrink-0 ml-4">
-                Descobertas: {totalDescobertas}/{fontesMicroplasticos.length}
-              </span>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4" style={{ perspective: '1000px' }}>
-              {fontesMicroplasticos.map((fonte) => {
-                const revelada = !!descobertas[fonte.id];
-                return (
-                  <button
-                    key={fonte.id}
-                    onClick={() => revelarFonte(fonte.id)}
-                    aria-label={revelada ? `${fonte.nome}: ${fonte.fato}` : `Clique para revelar: ${fonte.nome}`}
-                    aria-pressed={revelada}
-                    className="relative text-left cursor-pointer border-none bg-transparent p-0 min-h-[160px] md:min-h-[180px]"
-                    style={{ perspective: '1000px' }}
-                  >
-                    <div
-                      className="relative w-full h-full min-h-[160px] md:min-h-[180px] transition-transform duration-500"
-                      style={{ transformStyle: 'preserve-3d', transform: revelada ? 'rotateY(180deg)' : 'rotateY(0deg)' }}
-                    >
-                      {/* Frente do card */}
-                      <div
-                        className="absolute inset-0 bg-slate-800 border border-slate-700 rounded-2xl p-4 flex flex-col items-center justify-center gap-2 hover:border-green-500 transition-colors"
-                        style={{ backfaceVisibility: 'hidden' }}
-                      >
-                        <Sparkles size={24} className="text-green-500" />
-                        <span className="text-slate-200 text-xs md:text-sm font-black uppercase text-center">{fonte.nome}</span>
-                        <span className="text-slate-500 text-[10px] uppercase font-bold">Clique para revelar</span>
-                      </div>
-                      {/* Verso do card */}
-                      <div
-                        className="absolute inset-0 bg-green-950/60 border-2 border-green-500 rounded-2xl p-3 md:p-4 flex flex-col items-center justify-center gap-2 overflow-y-auto"
-                        style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
-                      >
-                        <span className="text-green-400 text-[10px] md:text-xs font-black uppercase mb-1">{fonte.nome}</span>
-                        <p className="text-slate-200 text-[10px] md:text-xs leading-snug m-0 text-center">{fonte.fato}</p>
-                      </div>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-
-            {todasDescobertas && (
-              <div className="mt-8 p-6 bg-green-700 rounded-2xl text-center" aria-live="polite">
-                <p className="text-white font-black uppercase italic m-0">🎉 Você encontrou todas as {fontesMicroplasticos.length} fontes! Agora você conhece os principais pontos de exposição do dia a dia.</p>
-              </div>
-            )}
-          </div>
+          <CacaCard id="cha" dica="Uma bebida bem comum do dia a dia também esconde uma fonte surpreendente." revelado={!!descobertas.cha} onRevelar={revelarFonte} />
 
           <h2 id="dicas" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
             <CheckCircle2 className="text-green-700" /> 5 Dicas Para Reduzir a Quantidade de Microplásticos
@@ -322,12 +356,18 @@ export default function OQueSaoMicroplasticos() {
               </h3>
               <p className="text-slate-600 m-0">Não coloque recipientes plásticos ou filmes PVC no micro-ondas nem despeje alimentos quentes neles, pois o calor acelera a migração de micropartículas e aditivos químicos para a comida.</p>
             </div>
+
+            <CacaCard id="microondas" dica="Essa dica tem um número por trás dela que você provavelmente não esperava." revelado={!!descobertas.microondas} onRevelar={revelarFonte} />
+
             <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100 shadow-sm">
               <h3 className="text-xl font-black text-slate-800 flex items-center gap-2 mb-3">
                 <CheckCircle2 className="w-5 h-5 text-blue-500" /> 2. Troque as tábuas de corte plásticas por madeira ou bambu
               </h3>
               <p className="text-slate-600 m-0">O atrito contínuo da faca sobre superfícies de plástico racha o material e gera milhões de micropartículas sintéticas diretamente nos alimentos durante o preparo.</p>
             </div>
+
+            <CacaCard id="tabua" dica="Essa mesma dica também rende um dado científico curioso — clique para ver." revelado={!!descobertas.tabua} onRevelar={revelarFonte} />
+
             <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100 shadow-sm">
               <h3 className="text-xl font-black text-slate-800 flex items-center gap-2 mb-3">
                 <CheckCircle2 className="w-5 h-5 text-orange-500" /> 3. Prefira água filtrada a garrafas PET
@@ -374,6 +414,8 @@ export default function OQueSaoMicroplasticos() {
               </div>
             </div>
           </div>
+
+          <CacaCard id="roupas" dica="Falta uma última fonte para completar a caçada — está no seu guarda-roupa." revelado={!!descobertas.roupas} onRevelar={revelarFonte} />
 
           {/* TABELA COMPARATIVA */}
           <h2 id="tabela" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
