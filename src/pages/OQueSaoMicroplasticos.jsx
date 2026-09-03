@@ -103,6 +103,10 @@ export default function OQueSaoMicroplasticos() {
     {
       pergunta: "Em quais partes do corpo humano já foram detectados microplásticos?",
       resposta: "Estudos científicos já confirmaram a presença dessas partículas no sangue, pulmões, coração, cérebro, fígado, rins, sistema digestivo, placenta, leite materno, testículos e sêmen, demonstrando sua capacidade de circular e se acumular em diversos órgãos e fluidos corporais."
+    },
+    {
+      pergunta: "Microplásticos podem afetar a saúde mental?",
+      resposta: "Pesquisas recentes sugerem uma possível ligação. Um estudo de 2025 na Nature Medicine encontrou concentrações de microplásticos de 3 a 5 vezes maiores no cérebro de pessoas com demência, e estudos em animais associam nanoplásticos a comportamentos do tipo ansioso e depressivo, ligados à neuroinflamação. Compostos químicos dos plásticos, como os ftalatos, também já foram associados a sintomas depressivos em humanos. Ainda são associações, não provas de causa, mas é uma área de pesquisa ativa."
     }
   ];
 
@@ -191,6 +195,7 @@ export default function OQueSaoMicroplasticos() {
                   <li><a href="#ocorrencia" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Waves size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Ocorrência Ambiental</a></li>
                   <li><a href="#entrada-corpo" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Wind size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Como Entram no Corpo</a></li>
                   <li><a href="#fertilidade" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><AlertTriangle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Fertilidade Humana</a></li>
+                  <li><a href="#doencas-mentais" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><AlertTriangle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Microplásticos e Doenças Mentais</a></li>
                   <li><a href="#dicas" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><CheckCircle2 size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />5 Dicas Para Reduzir</a></li>
                   <li><a href="#tabela" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><FileText size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Interferência na Humanidade</a></li>
                   <li><a href="#faq" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><HelpCircle size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Perguntas Frequentes</a></li>
@@ -329,6 +334,22 @@ export default function OQueSaoMicroplasticos() {
           </p>
 
           <CacaCard id="sal" dica="Até um item bem básico da sua cozinha entra nessa lista." revelado={!!descobertas.sal} onRevelar={revelarFonte} />
+
+          <h2 id="doencas-mentais" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+            <AlertTriangle className="text-green-700" /> Microplásticos e Doenças Mentais: O Que Diz a Ciência
+          </h2>
+          <p className="mb-4">
+            Além dos efeitos físicos e hormonais, uma linha de pesquisa mais recente investiga se os microplásticos também afetam a saúde mental e o funcionamento do cérebro. Em 2025, um estudo publicado na revista <em>Nature Medicine</em> analisou tecido cerebral de pessoas falecidas e encontrou, em média, o equivalente a uma colher de chá de micro e nanoplásticos por cérebro — com concentrações de 3 a 5 vezes maiores em indivíduos que tinham diagnóstico de demência. As amostras mais recentes (2024) também apresentaram mais plástico acumulado do que as de 2016, sugerindo aumento da exposição ao longo do tempo. É importante frisar que essa é uma associação, não uma prova de causa — o estudo não mostra que o plástico causa demência, apenas que os dois aparecem juntos com mais frequência do que o esperado, o que justifica mais pesquisa.
+          </p>
+          <p className="mb-4">
+            Estudos em animais ajudam a entender possíveis mecanismos. Uma pesquisa publicada na revista <em>Environment International</em> em 2024 mostrou que camundongos expostos a nanoplásticos de poliestireno desenvolveram comportamento do tipo ansioso, associado à ativação de células de defesa do cérebro (micróglia) e a um processo inflamatório numa via molecular específica. Outros estudos em roedores relacionam a exposição a nanoplásticos com redução da sociabilidade e comportamentos do tipo depressivo, possivelmente ligados à queda nos níveis de dopamina e serotonina — neurotransmissores centrais na regulação do humor.
+          </p>
+          <p className="mb-4">
+            Há também evidência em humanos ligando compostos químicos associados aos plásticos — como os ftalatos, usados para deixar o plástico mais flexível — a sintomas depressivos. Um estudo com adultos americanos publicado na revista <em>Chemosphere</em> em 2023 encontrou associação entre metabólitos urinários de ftalato e maior risco de sintomas depressivos. Resultado semelhante já havia sido descrito em 2016, na revista <em>Environmental Research</em>, num estudo com idosos participantes do NHANES (a grande pesquisa nacional de saúde dos Estados Unidos). Vale destacar que ftalatos são aditivos químicos dos plásticos, não os microplásticos (partículas) em si — mas ambos fazem parte do mesmo cenário de exposição cumulativa ao plástico no dia a dia.
+          </p>
+          <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 text-blue-900 mt-6 mb-6">
+            <p className="m-0"><strong>Vale o contexto:</strong> a pesquisa sobre microplásticos e saúde mental ainda é recente e, em grande parte, baseada em estudos com animais ou em associações observacionais em humanos — não em relações de causa e efeito comprovadas. Isso não invalida os achados, mas significa que ainda não é possível afirmar que os microplásticos "causam" ansiedade, depressão ou demência. É uma área de pesquisa ativa que merece atenção, não uma conclusão fechada.</p>
+          </div>
 
           {/* VÍDEO LAZY YOUTUBE OBRIGATÓRIO */}
           <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
@@ -528,6 +549,10 @@ export default function OQueSaoMicroplasticos() {
               <li><a href="https://research.unl.edu/blog/nebraska-study-finds-billions-of-nanoplastics-released-when-microwaving-containers/" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">HUSSAIN, Kazi Albab et al. <em>Assessing the Release of Microplastics and Nanoplastics from Plastic Containers and Reusable Food Pouches.</em> Environmental Science & Technology, 2023.</a></li>
               <li><a href="https://www.nature.com/articles/s41598-019-46417-z" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">KIM, Ji-Su et al. <em>Global Pattern of Microplastics in Commercial Food-Grade Salts.</em> Environmental Science & Technology, 2018.</a></li>
               <li><a href="https://cdn.who.int/media/docs/default-source/wash-documents/microplastics-in-dw-information-sheet190822.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">WORLD HEALTH ORGANIZATION. <em>Microplastics in Drinking-Water.</em> 2019 (atualizado em 2022).</a></li>
+              <li><a href="https://doi.org/10.1038/s41591-024-03453-1" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">NIHART, Alexander J. et al. <em>Bioaccumulation of microplastics in decedent human brains.</em> Nature Medicine, 2025.</a></li>
+              <li><a href="https://doi.org/10.1016/j.envint.2024.108543" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">LI, Guanjun et al. <em>Polystyrene microplastics induce anxiety via HRAS derived PERK-NF-κB pathway.</em> Environment International, 2024.</a></li>
+              <li><a href="https://doi.org/10.1016/j.chemosphere.2023.139031" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">WANG, Chun-Jui; YANG, Hui-Wen; LI, Meng-Chih. <em>Association between phthalate exposure and the risk of depressive symptoms in the adult population of the United States.</em> Chemosphere, 2023.</a></li>
+              <li><a href="https://doi.org/10.1016/j.envres.2015.11.021" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline">KIM, Kyoung-Nam et al. <em>Urinary phthalate metabolites and depression in an elderly population: National Health and Nutrition Examination Survey 2005-2012.</em> Environmental Research, 2016.</a></li>
             </ul>
             <div className="mt-4 pt-4 border-t border-slate-200 flex items-start gap-2">
               <AlertTriangle size={14} className="text-amber-600 shrink-0 mt-0.5" />
