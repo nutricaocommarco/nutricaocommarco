@@ -287,7 +287,7 @@ export default function OQueSaoMicroplasticos() {
             <AlertTriangle className="text-green-700" /> Microplásticos e a Fertilidade Humana
           </h2>
           <p className="mb-4">
-            Os microplásticos interferem na fertilidade humana principalmente por meio de desregulação endócrina, estresse oxidativo e inflamações no sistema reprodutor. Ao entrarem no organismo, essas partículas liberam compostos químicos como bisfenóis e ftalatos, afetando a via de sinalização dos hormônios sexuais.
+            Os microplásticos interferem na fertilidade humana principalmente por meio de desregulação endócrina, <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 font-bold underline">estresse oxidativo e inflamações</Link> no sistema reprodutor. Ao entrarem no organismo, essas partículas liberam compostos químicos como bisfenóis e ftalatos, afetando a via de sinalização dos hormônios sexuais.
           </p>
           <p className="mb-4">
             No sistema masculino, a exposição gera danos testiculares e estresse oxidativo, fragmentando o DNA do esperma e reduzindo a contagem e a motilidade dos espermatozoides. No sistema feminino, prejudica a maturação dos óvulos, a qualidade folicular e a receptividade do endométrio. Essa combinação de alteração hormonal e danos celulares compromete a fertilidade e aumenta os riscos na implantação embriológica.
@@ -332,6 +332,9 @@ export default function OQueSaoMicroplasticos() {
           <p className="mb-4">
             Estudos científicos já confirmaram a presença dessas partículas no <strong>sangue, pulmões, coração, cérebro, fígado, rins, sistema digestivo, placenta, leite materno, testículos e sêmen</strong>, demonstrando sua capacidade de circular e se acumular em diversos órgãos e fluidos corporais. Um estudo publicado no New England Journal of Medicine em 2024 encontrou micro e nanoplásticos em placas de artérias carótidas de 58% dos pacientes analisados — e quem tinha essas partículas apresentou risco 4,5 vezes maior de infarto, AVC ou morte ao longo do acompanhamento.
           </p>
+          <p className="mb-4">
+            A presença de microplásticos no <Link to="/o-que-sao-probioticos" className="text-green-700 font-bold underline">sistema digestivo</Link> também levanta perguntas sobre seus efeitos na microbiota intestinal, enquanto a detecção em placenta e leite materno reforça a importância de conversar sobre exposição a plásticos desde a <Link to="/alimentacao-saudavel-das-criancas" className="text-green-700 font-bold underline">alimentação infantil</Link>, já nos primeiros anos de vida.
+          </p>
 
           <CacaCard id="sal" dica="Até um item bem básico da sua cozinha entra nessa lista." revelado={!!descobertas.sal} onRevelar={revelarFonte} />
 
@@ -369,6 +372,9 @@ export default function OQueSaoMicroplasticos() {
           <h2 id="dicas" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
             <CheckCircle2 className="text-green-700" /> 5 Dicas Para Reduzir a Quantidade de Microplásticos
           </h2>
+          <p className="mb-4">
+            Boa parte dessas trocas passa por organizar melhor a rotina na cozinha — se planejar e <Link to="/como-ganhar-tempo-na-cozinha" className="text-green-700 font-bold underline">ganhar tempo cozinhando em casa</Link> torna mais fácil evitar embalagens e recipientes de plástico no dia a dia.
+          </p>
 
           <div className="space-y-6 my-8">
             <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100 shadow-sm">
@@ -426,7 +432,7 @@ export default function OQueSaoMicroplasticos() {
                   Ebook Receitas <span className="text-green-700">Saudáveis e Nutritivas</span>
                 </h3>
                 <p className="text-slate-600 text-[15px] mb-8 leading-relaxed font-medium">
-                  Reduzir microplásticos começa também na cozinha: menos embalagens, mais comida de verdade preparada em casa. O nosso <strong>Ebook de Receitas Saudáveis e Nutritivas</strong> traz opções práticas para você cozinhar mais e depender menos de alimentos ultraprocessados e embalados.
+                  Reduzir microplásticos começa também na cozinha: menos embalagens, mais <Link to="/o-que-e-dieta-mediterranea" className="text-green-700 font-bold underline">comida de verdade</Link> preparada em casa. O nosso <strong>Ebook de Receitas Saudáveis e Nutritivas</strong> traz opções práticas para você cozinhar mais e depender menos de alimentos ultraprocessados e embalados.
                 </p>
                 <Link to="/ebook-receitas" className="inline-flex items-center justify-center gap-2.5 bg-green-700 text-white px-10 py-4 rounded-full font-black uppercase text-xs shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic" aria-label="Conhecer o Ebook de Receitas Saudáveis e Nutritivas">
                   <ShoppingCart size={16} />
