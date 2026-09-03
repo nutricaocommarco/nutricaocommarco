@@ -51,7 +51,7 @@ function CacaCard({ id, dica, revelado, onRevelar }) {
         >
           <span className="text-2xl shrink-0" aria-hidden="true">{fonte.emoji}</span>
           <div>
-            <p className="m-0 text-[11px] font-black uppercase tracking-widest text-green-400">Achado da Caça aos Microplásticos</p>
+            <p className="m-0 text-[11px] font-black uppercase tracking-widest text-green-400">🔍 Fonte Escondida</p>
             <p className="m-0 text-sm font-bold text-slate-200">{dica || 'Tem uma fonte escondida por aqui perto. Clique para revelar.'}</p>
           </div>
         </button>
