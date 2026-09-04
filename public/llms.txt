@@ -1,0 +1,58 @@
+# Nutrição com Marco
+
+> Blog de nutrição, avaliação física e composição corporal com conteúdo baseado em evidência científica, produzido por Marco Aurélio Jr., especialista em avaliação antropométrica (ISAK) e nutrição clínica e esportiva.
+
+Nutrição com Marco publica artigos em português (pt-BR) sobre nutrição clínica, nutrição esportiva, nutrição comportamental, composição corporal, saúde da mulher, dietas da moda, fisiologia e metabolismo, tratamento farmacológico e nutrição infantil. As afirmações científicas citam fontes verificáveis (PubMed, Crossref, SciELO, OMS) diretamente nos artigos. O site também oferece ferramentas gratuitas e produtos pagos ligados à avaliação de composição corporal.
+
+## Páginas Principais
+- [Início](https://www.nutricaocommarco.com.br/): Apresentação do trabalho de Marco Aurélio Jr. e acesso aos planos de acompanhamento nutricional.
+- [Blog](https://www.nutricaocommarco.com.br/blog): Todos os artigos publicados, filtráveis por categoria.
+- [Sobre](https://www.nutricaocommarco.com.br/sobre): Biografia e formação de Marco Aurélio Jr.
+- [Certificações](https://www.nutricaocommarco.com.br/certificacoes): Currículo e certificações técnicas, incluindo ISAK.
+- [Planos de Acompanhamento](https://www.nutricaocommarco.com.br/planos): Níveis de acompanhamento nutricional e avaliação física oferecidos.
+- [Calculadora de Gasto Calórico](https://www.nutricaocommarco.com.br/calculadora-de-gasto-calorico): Ferramenta gratuita para calcular gasto calórico diário e taxa metabólica basal.
+- [Loja do Píngus](https://www.nutricaocommarco.com.br/loja): Canecas, avental, e-book de receitas e planilha de avaliação antropométrica.
+- [Planilha de Avaliação Antropométrica](https://www.nutricaocommarco.com.br/planilha-de-avaliacao-antropometrica-marco-aurelio): Ferramenta em VBA para avaliação de composição corporal com protocolos ISAK.
+- [Software de Avaliação Antropométrica (EvaluaOS)](https://www.nutricaocommarco.com.br/software-de-avaliacao-antropometrica): Software completo de avaliação antropométrica para nutricionistas e avaliadores.
+
+## Artigos do Blog
+- [O Que São Microplásticos? Como Eles Afetam Sua Saúde e Fertilidade](https://www.nutricaocommarco.com.br/o-que-sao-microplasticos): Definição, vias de exposição, efeitos na fertilidade e na saúde mental, e como reduzir a exposição a microplásticos.
+- [Como Dormir Rápido: Técnicas Comprovadas para Adormecer em Minutos](https://www.nutricaocommarco.com.br/como-dormir-rapido): Técnicas de relaxamento, higiene do sono, alimentação e Terapia Cognitivo-Comportamental para Insônia (TCC-I).
+- [Alimentação Anti-Inflamatória para Lipedema: O Que a Ciência Já Sabe](https://www.nutricaocommarco.com.br/alimentacao-anti-inflamatoria-para-lipedema): Diferença entre lipedema, linfedema e obesidade, e o papel da alimentação anti-inflamatória e da tirzepatida.
+- [Alimentação Saudável das Crianças a Cada Fase da Infância](https://www.nutricaocommarco.com.br/alimentacao-saudavel-das-criancas): Alimentação infantil do aleitamento materno aos lanches escolares, e como lidar com a neofobia alimentar.
+- [Relação Cintura-Quadril: O Que É e Como Calcular Seu Risco Cardiovascular](https://www.nutricaocommarco.com.br/relacao-cintura-quadril): Como medir a relação cintura-quadril, pontos de corte da OMS por sexo e calculadora de risco cardiovascular.
+- [Como fazer uma Avaliação Antropométrica de Qualidade?](https://www.nutricaocommarco.com.br/avaliacao-antropometrica): Protocolo ISAK, Pollock, dobras cutâneas e cálculo de somatotipo.
+- [O Que É Dieta Mediterrânea? O Segredo para Saúde e Longevidade](https://www.nutricaocommarco.com.br/o-que-e-dieta-mediterranea): Consumo de azeite extra virgem, peixes e vegetais, e seus efeitos na saúde cardiovascular e no emagrecimento.
+- [Como Ganhar Tempo na Cozinha: O Guia Definitivo da Organização e Mise en Place](https://www.nutricaocommarco.com.br/como-ganhar-tempo-na-cozinha): Técnica de Mise en Place, organização de cardápios e congelamento inteligente.
+- [O Que Comer na TPM: O Guia Definitivo Para Controlar a Fome e Emagrecer](https://www.nutricaocommarco.com.br/o-que-comer-na-tpm): Alimentação para aliviar sintomas da TPM e controlar a fome por doces.
+- [O Que é Dieta Low Carb? A Diferença para a Cetogênica e Como Começar](https://www.nutricaocommarco.com.br/o-que-e-dieta-low-carb): Redução de carboidratos, diferenças entre low carb e cetogênica.
+- [O Que é Dieta Cetogênica? Guia Definitivo e Científico](https://www.nutricaocommarco.com.br/o-que-e-dieta-cetogenica): Restrição de carboidratos, estado de cetose e uso de gordura como energia.
+- [O Que é Jejum Intermitente? Guia Definitivo e Científico](https://www.nutricaocommarco.com.br/o-que-e-jejum-intermitente): Efeitos do jejum intermitente no metabolismo e comparação com dieta tradicional.
+- [Melhor Horário Para Tomar Ferro: O Guia Definitivo Contra a Anemia](https://www.nutricaocommarco.com.br/melhor-horario-para-tomar-ferro): Horário ideal, sintomas de deficiência, inibidores de absorção e tratamento da anemia ferropriva.
+- [Qual o Percentual de Gordura Feminino Ideal? A Ciência Explica](https://www.nutricaocommarco.com.br/percentual-gordura-feminino-ideal): Faixas saudáveis de percentual de gordura e influência de hormônios, ciclo menstrual e idade.
+- [Quantas Calorias Gasto Por Dia? Pare de Chutar e Entenda o Seu Metabolismo](https://www.nutricaocommarco.com.br/quantas-calorias-gasto-por-dia): Cálculo de gasto calórico, Taxa Metabólica Basal, fator de atividade e fórmulas de Mifflin e Cunningham.
+- [Efeitos Colaterais da Melatonina: Vicia? Faz Mal? A Verdade Científica](https://www.nutricaocommarco.com.br/efeitos-colaterais-da-melatonina): Riscos, efeitos colaterais e dosagem correta da melatonina.
+- [O Que é Ciclo Circadiano? Relógio Biológico e Emagrecimento](https://www.nutricaocommarco.com.br/o-que-e-ciclo-circadiano): Ritmo circadiano, sono, horários das refeições e controle hormonal.
+- [O que são Simbióticos? A Sinergia Intestinal](https://www.nutricaocommarco.com.br/o-que-sao-simbioticos): União de prebióticos e probióticos e seus efeitos na flora intestinal.
+- [O que são Probióticos? Lactobacillus e Benefícios](https://www.nutricaocommarco.com.br/o-que-sao-probioticos): Probióticos, Lactobacillus, benefícios para a imunidade e principais fontes naturais.
+- [O que são Prebióticos? Alimentos, Benefícios e Para Que Servem](https://www.nutricaocommarco.com.br/o-que-sao-prebioticos): Alimentos ricos em FOS e inulina e seu papel na flora intestinal.
+- [O que é Fome Emocional? Como Identificar e Controlar o Impulso](https://www.nutricaocommarco.com.br/o-que-e-fome-emocional): Sintomas da fome emocional, Escala de Fome e técnica do atraso.
+- [Tirzepatida: Para Que Serve, Como Funciona e Efeitos](https://www.nutricaocommarco.com.br/tirzepatida-para-que-serve): Mecanismo de ação GLP-1/GIP, efeitos colaterais e uso na perda de peso.
+- [Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Científica](https://www.nutricaocommarco.com.br/comer-ovo-todo-dia-aumenta-o-colesterol): Impacto do consumo diário de ovos no HDL/LDL.
+- [Retatrutida o que é? A nova fronteira da ciência](https://www.nutricaocommarco.com.br/retatrutida_o_que_e): Agonista triplo GLP-1, GIP e Glucagon e resultados na perda de peso.
+- [Diabético pode comer beterraba? O mito desvendado](https://www.nutricaocommarco.com.br/diabetico_pode_comer_beterraba): Fibras, carga glicêmica e benefícios da beterraba no diabetes tipo 2.
+- [Qual o melhor horário para se pesar?](https://www.nutricaocommarco.com.br/qual_melhor_horario_para_se_pesar): Por que o peso varia entre manhã e noite.
+- [Nutrição para Ironman 70.3: Guia Completo](https://www.nutricaocommarco.com.br/nutricao_para_ironman_703): Estratégia nutricional de endurance, carboidratos, hidratação e suplementação.
+- [Hormônios da Fome: Por que seu corpo luta contra a dieta?](https://www.nutricaocommarco.com.br/hormonios_da_fome_emagrecimento): Grelina, leptina e inflamação celular no reganho de peso.
+- [Por que o Feijão dá Gases? (E como evitar)](https://www.nutricaocommarco.com.br/por_que_o_feijao_da_gases): Antinutrientes do feijão e o papel do remolho na digestão.
+- [O Dilema do Sangue na Altitude](https://www.nutricaocommarco.com.br/o_dilema_do_sangue_na_altitude): Eritropoetina, transfusão de hemácias e ética no esporte.
+- [O Efeito Sanfona e a Inflamação Invisível](https://www.nutricaocommarco.com.br/efeito_sanfona_inflamacao_invisivel): Por que o reganho de peso é perigoso e a memória das células de gordura.
+- [Quantas frutas posso comer por dia?](https://www.nutricaocommarco.com.br/quantas_frutas_posso_comer): Metabolismo da frutose e seu efeito no fígado.
+- [Vitamina A para que serve?](https://www.nutricaocommarco.com.br/vitamina_a_para_que_serve): Papel metabólico da vitamina A além da visão.
+- [O que é Antropometria?](https://www.nutricaocommarco.com.br/o_que_e_antropometria): Introdução à ciência que estuda as proporções do corpo humano.
+- [A balança de bioimpedância é confiável?](https://www.nutricaocommarco.com.br/a_balanca_de_bioimpedancia_e_confiavel): Fatores que alteram o resultado da bioimpedância.
+
+## Observações
+- Todo o conteúdo é em português brasileiro (pt-BR).
+- Os artigos citam referências científicas reais (estudos, revisões, órgãos de saúde) diretamente no corpo do texto.
+- Este site não oferece opt-out de indexação por agentes de IA; o conteúdo pode ser referenciado com atribuição ao domínio nutricaocommarco.com.br.
