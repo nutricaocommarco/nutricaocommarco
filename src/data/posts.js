@@ -2,6 +2,16 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export const posts = [
   {
+    id: 35,
+    link: "/o-que-sao-microplasticos",
+    img: `${githubImgBase}Blog/OQueSaoMicroplasticos_Capa.webp`,
+    tag: "Nutrição Clínica",
+    titulo: "O Que São Microplásticos? Como Eles Afetam Sua Saúde e Fertilidade",
+    desc: "Entenda o que são microplásticos, como eles entram no corpo humano, seus efeitos na fertilidade e 5 dicas práticas para reduzir a exposição no dia a dia.",
+    data: "2026-09-02",
+    dataMod: "2026-09-04",
+  },
+  {
     id: 34,
     link: "/como-dormir-rapido",
     img: `${githubImgBase}Blog/ComoDormirRapido_Capa.webp`,
