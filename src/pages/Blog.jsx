@@ -7,6 +7,15 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 const postsData = [
   {
+    id: 36,
+    link: "/como-calcular-meu-get",
+    imgSrc: `${githubImgBase}Blog/GET_Capa.webp`,
+    tag: "Fisiologia e Metabolismo",
+    title: "Como Calcular Meu GET (Gasto Energético Total): Fórmulas e Calculadora Interativa",
+    desc: "Aprenda de verdade como calcular seu GET com equações validadas (Mifflin-St Jeor e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.",
+    isNew: true
+  },
+  {
     id: 35,
     link: "/o-que-sao-microplasticos",
     imgSrc: `${githubImgBase}Blog/OQueSaoMicroplasticos_Capa.webp`,
@@ -68,15 +77,6 @@ const postsData = [
     title: "O Que É Dieta Mediterrânea? O Segredo para Saúde e Longevidade",
     desc: "Descubra o que é dieta mediterrânea na prática. Entenda como o consumo de azeite extra virgem, peixes e vegetais protege o coração e ajuda a emagrecer sem restrições extremas.",
     isNew: true
-  },
-  {
-    id: 36,
-    link: "/como-calcular-meu-get",
-    imgSrc: `${githubImgBase}Blog/GET_Capa.webp`,
-    tag: "Fisiologia e Metabolismo",
-    title: "Como Calcular Meu GET (Gasto Energético Total): Fórmulas e Calculadora Interativa",
-    desc: "Aprenda de verdade como calcular seu GET com equações validadas (Mifflin-St Jeor e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.",
-    isNew: false
   },
   {
     id: 28,
