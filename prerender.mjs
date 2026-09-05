@@ -108,6 +108,7 @@ const rotasLoja = [
 
 // 📝 3. TODOS OS POSTS DO BLOG
 const postsBlog = [
+{ id: 37, link: "/como-calcular-meu-get", img: `${githubImgBase}Blog/GET_Capa.webp`, titulo: "Como Calcular Meu GET (Gasto Energético Total): Guia e Calculadora", desc: "Aprenda de verdade como calcular meu get com equações validadas (Mifflin e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.", data: "2026-09-05", schemasExtra: [getMedicalSchema("Fisiologia do Metabolismo e Gasto Calórico", "https://www.nutricaocommarco.com.br/como-calcular-meu-get", ["Taxa Metabólica Basal", "Gasto Energético Total", "Equação de Mifflin-St Jeor"])] },
 {
     id: 36,
     link: "/o-que-sao-microplasticos",
@@ -239,12 +240,11 @@ const postsBlog = [
         { pergunta: "Devo usar a Média ou a Mediana nas dobras?", resposta: "A regra oficial estatística para diminuir o ETM diz que: se você realizar duas aferições no mesmo ponto anatômico, deve usar a Média Aritmética. Caso haja uma discrepância e você precise realizar uma terceira medida de controle, você deve usar a Mediana (o valor central)." }
       ]),
       JSON.parse(`{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Calculadora Heath-Carter Simplificada","operatingSystem":"Web Browser","applicationCategory":"HealthApplication","url":"https://www.nutricaocommarco.com.br/avaliacao-antropometrica#calculadora","description":"Ferramenta online e gratuita para calcular o somatotipo exato (Endomorfia, Mesomorfia e Ectomorfia) e gerar a plotagem gráfica matemática no plano cartesiano da Somatocarta de Heath-Carter.","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"}}`)
-    ] 
+    ]
   },
-  { id: 30, link: "/como-calcular-meu-get", img: `${githubImgBase}Blog/GET_Capa.webp`, titulo: "Como Calcular Meu GET (Gasto Energético Total): Guia e Calculadora", desc: "Aprenda de verdade como calcular meu get com equações validadas (Mifflin e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.", data: "2026-07-22", schemasExtra: [getMedicalSchema("Fisiologia do Metabolismo e Gasto Calórico", "https://www.nutricaocommarco.com.br/como-calcular-meu-get", ["Taxa Metabólica Basal", "Gasto Energético Total", "Equação de Mifflin-St Jeor"])] },
-  { 
-    id: 29, 
-    link: "/como-ganhar-tempo-na-cozinha", 
+  {
+    id: 29,
+    link: "/como-ganhar-tempo-na-cozinha",
     img: `${githubImgBase}Blog/GanharTempo_Capa.webp`, 
     titulo: "Como Ganhar Tempo na Cozinha: O Guia do Congelamento e Mise en Place", 
     desc: "Aprenda como ganhar tempo na cozinha organizando suas marmitas. Descubra a técnica do Mise en Place, a Matriz 3x3 e os segredos do congelamento inteligente.", 

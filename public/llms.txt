@@ -16,6 +16,7 @@ Nutrição com Marco publica artigos em português (pt-BR) sobre nutrição clí
 - [Software de Avaliação Antropométrica (EvaluaOS)](https://www.nutricaocommarco.com.br/software-de-avaliacao-antropometrica): Software completo de avaliação antropométrica para nutricionistas e avaliadores.
 
 ## Artigos do Blog
+- [Como Calcular Meu GET (Gasto Energético Total): Fórmulas e Calculadora Interativa](https://www.nutricaocommarco.com.br/como-calcular-meu-get): Cálculo de TMB e GET pelas equações de Mifflin-St Jeor e Harris-Benedict, fator de atividade física (NAF) e calculadora interativa.
 - [O Que São Microplásticos? Como Eles Afetam Sua Saúde e Fertilidade](https://www.nutricaocommarco.com.br/o-que-sao-microplasticos): Definição, vias de exposição, efeitos na fertilidade e na saúde mental, e como reduzir a exposição a microplásticos.
 - [Como Dormir Rápido: Técnicas Comprovadas para Adormecer em Minutos](https://www.nutricaocommarco.com.br/como-dormir-rapido): Técnicas de relaxamento, higiene do sono, alimentação e Terapia Cognitivo-Comportamental para Insônia (TCC-I).
 - [Alimentação Anti-Inflamatória para Lipedema: O Que a Ciência Já Sabe](https://www.nutricaocommarco.com.br/alimentacao-anti-inflamatoria-para-lipedema): Diferença entre lipedema, linfedema e obesidade, e o papel da alimentação anti-inflamatória e da tirzepatida.
@@ -23,7 +24,6 @@ Nutrição com Marco publica artigos em português (pt-BR) sobre nutrição clí
 - [Relação Cintura-Quadril: O Que É e Como Calcular Seu Risco Cardiovascular](https://www.nutricaocommarco.com.br/relacao-cintura-quadril): Como medir a relação cintura-quadril, pontos de corte da OMS por sexo e calculadora de risco cardiovascular.
 - [Como fazer uma Avaliação Antropométrica de Qualidade?](https://www.nutricaocommarco.com.br/avaliacao-antropometrica): Protocolo ISAK, Pollock, dobras cutâneas e cálculo de somatotipo.
 - [O Que É Dieta Mediterrânea? O Segredo para Saúde e Longevidade](https://www.nutricaocommarco.com.br/o-que-e-dieta-mediterranea): Consumo de azeite extra virgem, peixes e vegetais, e seus efeitos na saúde cardiovascular e no emagrecimento.
-- [Como Calcular Meu GET (Gasto Energético Total): Fórmulas e Calculadora Interativa](https://www.nutricaocommarco.com.br/como-calcular-meu-get): Cálculo de TMB e GET pelas equações de Mifflin-St Jeor e Harris-Benedict, fator de atividade física (NAF) e calculadora interativa.
 - [Como Ganhar Tempo na Cozinha: O Guia Definitivo da Organização e Mise en Place](https://www.nutricaocommarco.com.br/como-ganhar-tempo-na-cozinha): Técnica de Mise en Place, organização de cardápios e congelamento inteligente.
 - [O Que Comer na TPM: O Guia Definitivo Para Controlar a Fome e Emagrecer](https://www.nutricaocommarco.com.br/o-que-comer-na-tpm): Alimentação para aliviar sintomas da TPM e controlar a fome por doces.
 - [O Que é Dieta Low Carb? A Diferença para a Cetogênica e Como Começar](https://www.nutricaocommarco.com.br/o-que-e-dieta-low-carb): Redução de carboidratos, diferenças entre low carb e cetogênica.

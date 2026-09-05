@@ -2,6 +2,16 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export const posts = [
   {
+    id: 36,
+    link: "/como-calcular-meu-get",
+    img: `${githubImgBase}Blog/GET_Capa.webp`,
+    tag: "Fisiologia e Metabolismo",
+    titulo: "Como Calcular Meu GET (Gasto Energético Total): Fórmulas e Calculadora Interativa",
+    desc: "Aprenda de verdade como calcular seu GET com equações validadas (Mifflin-St Jeor e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.",
+    data: "2026-09-05",
+    dataMod: "2026-09-05",
+  },
+  {
     id: 35,
     link: "/o-que-sao-microplasticos",
     img: `${githubImgBase}Blog/OQueSaoMicroplasticos_Capa.webp`,
@@ -70,16 +80,6 @@ export const posts = [
     desc: "Descubra o que é dieta mediterrânea na prática. Entenda como o consumo de azeite extra virgem, peixes e vegetais protege o coração e ajuda a emagrecer sem restrições extremas.",
     data: "2026-07-23",
     dataMod: "2026-07-23",
-  },
-  {
-    id: 36,
-    link: "/como-calcular-meu-get",
-    img: `${githubImgBase}Blog/GET_Capa.webp`,
-    tag: "Fisiologia e Metabolismo",
-    titulo: "Como Calcular Meu GET (Gasto Energético Total): Fórmulas e Calculadora Interativa",
-    desc: "Aprenda de verdade como calcular seu GET com equações validadas (Mifflin-St Jeor e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.",
-    data: "2026-07-22",
-    dataMod: "2026-07-22",
   },
   {
     id: 28,
