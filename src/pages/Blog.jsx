@@ -70,6 +70,15 @@ const postsData = [
     isNew: true
   },
   {
+    id: 36,
+    link: "/como-calcular-meu-get",
+    imgSrc: `${githubImgBase}Blog/GET_Capa.webp`,
+    tag: "Fisiologia e Metabolismo",
+    title: "Como Calcular Meu GET (Gasto Energético Total): Fórmulas e Calculadora Interativa",
+    desc: "Aprenda de verdade como calcular seu GET com equações validadas (Mifflin-St Jeor e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.",
+    isNew: false
+  },
+  {
     id: 28,
     link: "/como-ganhar-tempo-na-cozinha",
     imgSrc: `${githubImgBase}Blog/GanharTempo_Capa.webp`,
