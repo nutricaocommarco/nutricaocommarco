@@ -226,9 +226,9 @@ export default function PlanilhaAntropometriaVendas() {
 
           {/* VÍDEO PRINCIPAL ORIGINAL RESTAURADO AQUI */}
           <div className="w-full bg-white rounded-3xl p-5 md:p-8 border border-slate-100 shadow-md flex flex-col gap-5 text-left mb-6">
-            <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic flex items-center gap-2 border-b border-green-100 pb-4">
+            <h2 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic flex items-center gap-2 border-b border-green-100 pb-4">
               <Video className="text-green-700 w-6 h-6 flex-shrink-0" /> Como funciona a Planilha de Avaliação Antropométrica?
-            </h3>
+            </h2>
             <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-sm border border-slate-200">
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
@@ -250,7 +250,7 @@ export default function PlanilhaAntropometriaVendas() {
               <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-4">
                 <HeartPulse className="text-green-700 w-8 h-8 flex-shrink-0" />
                 <div>
-                  <h4 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Automação Inteligente via VBA</h4>
+                  <h3 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Automação Inteligente via VBA</h3>
                   <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">Nossa Planilha de Avaliação Antropométrica reconhece o sexo e a idade do paciente, ocultando automaticamente as colunas e as equações irrelevantes para aquele atendimento.</p>
                 </div>
               </div>
@@ -258,7 +258,7 @@ export default function PlanilhaAntropometriaVendas() {
               <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-4">
                 <RefreshCw className="text-green-700 w-8 h-8 flex-shrink-0 animate-[spin_4s_linear_infinite]" />
                 <div>
-                  <h4 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Projeto em Constante Evolução</h4>
+                  <h3 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Projeto em Constante Evolução</h3>
                   <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">A ferramenta recebe melhorias e integrações de novas equações e abas de forma contínua para entregar a melhor experiência técnica em avaliação física.</p>
                 </div>
               </div>
@@ -266,7 +266,7 @@ export default function PlanilhaAntropometriaVendas() {
               <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-4">
                 <Activity className="text-green-700 w-8 h-8 flex-shrink-0" />
                 <div>
-                  <h4 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Mais de 30 Equações de Regressão</h4>
+                  <h3 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Mais de 30 Equações de Regressão</h3>
                   <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">Os principais protocolos mundiais de adipometria em um só lugar (Jackson & Pollock 3/4/7 dobras, Petroski, Guedes, Durnin & Womersley, Slaughter, Faulkner, Yuhasz).</p>
                 </div>
               </div>
@@ -274,7 +274,7 @@ export default function PlanilhaAntropometriaVendas() {
               <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-4">
                 <Percent className="text-green-700 w-8 h-8 flex-shrink-0" />
                 <div>
-                  <h4 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Acesso Vitalício Garantido</h4>
+                  <h3 className="font-black text-slate-900 uppercase italic text-sm md:text-base">Acesso Vitalício Garantido</h3>
                   <p className="text-xs md:text-sm text-slate-500 mt-1 leading-relaxed">Você compra o arquivo habilitado para macros uma única vez e utiliza para sempre, sem se preocupar com assinaturas de softwares.</p>
                 </div>
               </div>
@@ -291,7 +291,7 @@ export default function PlanilhaAntropometriaVendas() {
               <div className="bg-orange-50/60 p-4 rounded-xl border border-orange-100 flex items-start gap-3">
                 <Video className="text-orange-600 w-5 h-5 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h5 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Módulo em Vídeo-Aulas</h5>
+                  <h4 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Módulo em Vídeo-Aulas</h4>
                   <p className="text-[11px] md:text-xs text-slate-600 mt-0.5">Aulas curtas sobre marcação anatômica, manuseio do adipômetro e navegação VBA.</p>
                 </div>
               </div>
@@ -299,7 +299,7 @@ export default function PlanilhaAntropometriaVendas() {
               <div className="bg-orange-50/60 p-4 rounded-xl border border-orange-100 flex items-start gap-3">
                 <Layers className="text-orange-600 w-5 h-5 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h5 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Filtro de Equações Inteligente</h5>
+                  <h4 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Filtro de Equações Inteligente</h4>
                   <p className="text-[11px] md:text-xs text-slate-600 mt-0.5">Aprimoramento para sugerir matematicamente o protocolo mais preciso baseado no paciente.</p>
                 </div>
               </div>
@@ -307,7 +307,7 @@ export default function PlanilhaAntropometriaVendas() {
               <div className="bg-orange-50/60 p-4 rounded-xl border border-orange-100 flex items-start gap-3">
                 <Target className="text-orange-600 w-5 h-5 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h5 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Estipulação de Metas (Target)</h5>
+                  <h4 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Estipulação de Metas (Target)</h4>
                   <p className="text-[11px] md:text-xs text-slate-600 mt-0.5">Área dedicada para criar o projeto de perda de massa gorda ou ganho de massa magra.</p>
                 </div>
               </div>
@@ -315,7 +315,7 @@ export default function PlanilhaAntropometriaVendas() {
               <div className="bg-orange-50/60 p-4 rounded-xl border border-orange-100 flex items-start gap-3">
                 <Calculator className="text-orange-600 w-5 h-5 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h5 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Cálculo de Gasto Calórico</h5>
+                  <h4 className="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-wide">Cálculo de Gasto Calórico</h4>
                   <p className="text-[11px] md:text-xs text-slate-600 mt-0.5">Integração do cálculo de TMB e TDEE (Mifflin, Harris, Cunningham) direto no laudo.</p>
                 </div>
               </div>
