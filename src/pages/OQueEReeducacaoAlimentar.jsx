@@ -33,6 +33,14 @@ function CarrosselConceitos() {
   const irParaProximo = () => setIndice((prev) => (prev + 1) % total);
   const irParaAnterior = () => setIndice((prev) => (prev - 1 + total) % total);
 
+  // 🔄 Auto-rotação: avança sozinho, e reinicia a contagem sempre que o índice muda (auto ou manual)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndice((prev) => (prev + 1) % total);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [indice, total]);
+
   const atual = conceitos[indice];
 
   return (
@@ -42,35 +50,37 @@ function CarrosselConceitos() {
         <button
           onClick={irParaAnterior}
           aria-label="Ver conceito anterior"
-          className="shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-full bg-slate-800 border border-slate-600 text-white flex items-center justify-center hover:bg-green-700 hover:border-green-700 transition-colors cursor-pointer"
+          className="hidden md:flex shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-full bg-slate-800 border border-slate-600 text-white items-center justify-center hover:bg-green-700 hover:border-green-700 transition-colors cursor-pointer"
         >
           <ChevronLeft size={22} />
         </button>
 
-        <div className="flex-1 bg-white rounded-3xl p-5 md:p-8 text-center h-[300px] sm:h-[260px] md:h-[220px] flex flex-col items-center overflow-y-auto shadow-inner" aria-live="polite">
+        <div className="flex-1 bg-white rounded-3xl p-5 md:p-8 text-center h-[360px] sm:h-[300px] md:h-[220px] flex flex-col items-center overflow-y-auto shadow-inner" aria-live="polite">
           <span className="text-3xl md:text-4xl mb-2 md:mb-3 shrink-0" aria-hidden="true">{atual.emoji}</span>
           <h3 className="text-lg md:text-2xl font-black text-slate-900 uppercase italic mb-2 md:mb-3 shrink-0">{atual.termo}</h3>
-          <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed m-0">{atual.definicao}</p>
+          <p className="text-slate-600 text-sm md:text-base leading-relaxed m-0">{atual.definicao}</p>
         </div>
 
         <button
           onClick={irParaProximo}
           aria-label="Ver próximo conceito"
-          className="shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-full bg-slate-800 border border-slate-600 text-white flex items-center justify-center hover:bg-green-700 hover:border-green-700 transition-colors cursor-pointer"
+          className="hidden md:flex shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-full bg-slate-800 border border-slate-600 text-white items-center justify-center hover:bg-green-700 hover:border-green-700 transition-colors cursor-pointer"
         >
           <ChevronRight size={22} />
         </button>
       </div>
 
-      <div className="flex items-center justify-center gap-2 mt-6">
+      <div className="flex items-center justify-center mt-6">
         {conceitos.map((c, i) => (
           <button
             key={c.termo}
             onClick={() => setIndice(i)}
             aria-label={`Ir para o conceito: ${c.termo}`}
             aria-current={i === indice}
-            className={`h-2 rounded-full transition-all cursor-pointer border-none ${i === indice ? 'w-6 bg-green-500' : 'w-2 bg-slate-600 hover:bg-slate-500'}`}
-          />
+            className="p-2.5 flex items-center justify-center cursor-pointer bg-transparent border-none"
+          >
+            <span className={`block h-2 rounded-full transition-all pointer-events-none ${i === indice ? 'w-6 bg-green-500' : 'w-2 bg-slate-600 hover:bg-slate-500'}`} />
+          </button>
         ))}
       </div>
     </div>
