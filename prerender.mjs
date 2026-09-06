@@ -108,6 +108,30 @@ const rotasLoja = [
 
 // 📝 3. TODOS OS POSTS DO BLOG
 const postsBlog = [
+{
+    id: 38,
+    link: "/o-que-e-reeducacao-alimentar",
+    img: `${githubImgBase}Blog/OQueEReeducacaoAlimentar_Capa.webp`,
+    titulo: "O Que É Reeducação Alimentar? Guia Completo Baseado em Ciência",
+    desc: "Entenda o que é reeducação alimentar, a diferença real para dietas restritivas, o Modelo Transteórico de mudança de hábito e passos práticos baseados no Guia Alimentar oficial.",
+    data: "2026-09-06",
+    author: {
+      "@type": "Person",
+      "name": "Marco Aurélio Jr.",
+      "jobTitle": "Estudante de Nutrição Clínica e Avaliador Antropométrico ISAK Nível 1",
+      "url": "https://www.nutricaocommarco.com.br/o-que-e-reeducacao-alimentar"
+    },
+    schemasExtra: [
+      getMedicalSchema("Reeducação Alimentar e Mudança de Comportamento", "https://www.nutricaocommarco.com.br/o-que-e-reeducacao-alimentar", ["Reeducação Alimentar", "Comportamento Alimentar", "Classificação NOVA", "Modelo Transteórico", "Educação Nutricional"], "Nutrition"),
+      getVideoSchema("Especialista fala sobre dieta e reeducação alimentar", "A Record Interior SP entrevista uma especialista sobre a diferença entre dieta e reeducação alimentar.", "Qul8qoCcWP8", "2024-01-01T12:00:00-03:00"),
+      getFaqSchema([
+        { pergunta: "Qual a real diferença entre dieta e reeducação alimentar?", resposta: "A dieta é, em geral, um plano restritivo de prazo determinado, focado em um objetivo rápido. A reeducação alimentar é um processo gradual e contínuo de mudança de hábitos, sem prazo para 'terminar', que visa uma relação sustentável com a comida a longo prazo." },
+        { pergunta: "Por que dietas restritivas costumam falhar a longo prazo?", resposta: "Estudos mostram altas taxas de insucesso e baixa adesão a programas dietéticos restritivos, associadas a falta de apoio, baixa motivação e resultados aquém do esperado. Fisiologicamente, um déficit calórico muito agressivo dificulta a manutenção, já que a mudança não teve tempo de se tornar hábito automático." },
+        { pergunta: "Quanto tempo demora para reeducar a alimentação de verdade?", resposta: "Não existe um prazo fixo — o processo é lento e progressivo, e varia conforme a etapa de mudança em que a pessoa está, segundo o Modelo Transteórico de Prochaska e DiClemente." },
+        { pergunta: "Reeducação alimentar significa cortar doces e ultraprocessados para sempre?", resposta: "Não. Significa reorganizar a base da alimentação em torno de alimentos in natura e minimamente processados, deixando os ultraprocessados como exceção ocasional, não como base do cardápio." }
+      ])
+    ]
+  },
 { id: 37, link: "/como-calcular-meu-get", img: `${githubImgBase}Blog/GET_Capa.webp`, titulo: "Como Calcular Meu GET (Gasto Energético Total): Guia e Calculadora", desc: "Aprenda de verdade como calcular meu get com equações validadas (Mifflin e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.", data: "2026-09-05", schemasExtra: [getMedicalSchema("Fisiologia do Metabolismo e Gasto Calórico", "https://www.nutricaocommarco.com.br/como-calcular-meu-get", ["Taxa Metabólica Basal", "Gasto Energético Total", "Equação de Mifflin-St Jeor"])] },
 {
     id: 36,

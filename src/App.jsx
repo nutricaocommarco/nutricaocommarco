@@ -66,6 +66,7 @@ const AlimentacaoSaudavelCriancas = lazyRetry(() => import('./pages/AlimentacaoS
 const AlimentacaoAntiInflamatoriaLipedema = lazyRetry(() => import('./pages/AlimentacaoAntiInflamatoriaLipedema'));
 const ComoDormirRapido = lazyRetry(() => import('./pages/ComoDormirRapido'));
 const OQueSaoMicroplasticos = lazyRetry(() => import('./pages/OQueSaoMicroplasticos'));
+const OQueEReeducacaoAlimentar = lazyRetry(() => import('./pages/OQueEReeducacaoAlimentar'));
 const NotFound = lazyRetry(() => import('./pages/NotFound'));
 
 const LoadingSpinner = () => (
@@ -302,6 +303,7 @@ export default function App() {
               <Route path="/alimentacao-anti-inflamatoria-para-lipedema" element={<AlimentacaoAntiInflamatoriaLipedema />} />
               <Route path="/como-dormir-rapido" element={<ComoDormirRapido />} />
               <Route path="/o-que-sao-microplasticos" element={<OQueSaoMicroplasticos />} />
+              <Route path="/o-que-e-reeducacao-alimentar" element={<OQueEReeducacaoAlimentar />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
