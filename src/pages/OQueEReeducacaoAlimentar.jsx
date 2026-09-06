@@ -47,10 +47,10 @@ function CarrosselConceitos() {
           <ChevronLeft size={22} />
         </button>
 
-        <div className="flex-1 bg-white rounded-3xl p-6 md:p-8 text-center h-[280px] md:h-[240px] flex flex-col items-center justify-center shadow-inner overflow-y-auto" aria-live="polite">
-          <span className="text-4xl mb-3" aria-hidden="true">{atual.emoji}</span>
-          <h3 className="text-xl md:text-2xl font-black text-slate-900 uppercase italic mb-3">{atual.termo}</h3>
-          <p className="text-slate-600 text-sm md:text-base leading-relaxed m-0">{atual.definicao}</p>
+        <div className="flex-1 bg-white rounded-3xl p-5 md:p-8 text-center h-[300px] sm:h-[260px] md:h-[220px] flex flex-col items-center overflow-y-auto shadow-inner" aria-live="polite">
+          <span className="text-3xl md:text-4xl mb-2 md:mb-3 shrink-0" aria-hidden="true">{atual.emoji}</span>
+          <h3 className="text-lg md:text-2xl font-black text-slate-900 uppercase italic mb-2 md:mb-3 shrink-0">{atual.termo}</h3>
+          <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed m-0">{atual.definicao}</p>
         </div>
 
         <button

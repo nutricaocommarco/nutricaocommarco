@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { ChevronRight, Filter, Tag as TagIcon } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Filter, Tag as TagIcon } from 'lucide-react';
 import ImagemOtimizada from '../components/ImagemOtimizada';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
@@ -355,31 +355,35 @@ export default function Blog() {
     const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
     return (
-      <div className="flex justify-center items-center gap-2 sm:gap-4 my-12 flex-wrap">
-        <button 
-          onClick={prevPage} 
+      <div className="flex justify-center items-center gap-1.5 sm:gap-3 my-12 flex-wrap">
+        <button
+          onClick={prevPage}
           disabled={currentPage === 1}
-          className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold uppercase text-xs sm:text-sm transition-all ${currentPage === 1 ? 'bg-slate-200 text-slate-400 cursor-not-allowed' : 'bg-green-700 text-white hover:bg-green-700 shadow-md hover:-translate-y-1'}`}
+          aria-label="Página anterior"
+          className={`shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full transition-all flex items-center justify-center ${currentPage === 1 ? 'bg-slate-200 text-slate-400 cursor-not-allowed' : 'bg-green-700 text-white hover:bg-green-800 shadow-md hover:-translate-y-1'}`}
         >
-          Anterior
+          <ChevronLeft size={20} />
         </button>
-        <div className="flex gap-2">
+        <div className="flex gap-1.5 sm:gap-2">
           {pageNumbers.map((number) => (
             <button
               key={number}
               onClick={() => goToPage(number)}
-              className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full font-bold text-sm transition-all flex items-center justify-center ${currentPage === number ? 'bg-green-700 text-white shadow-lg scale-110' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-green-700'}`}
+              aria-label={`Ir para a página ${number}`}
+              aria-current={currentPage === number}
+              className={`shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full font-bold text-sm transition-all flex items-center justify-center ${currentPage === number ? 'bg-green-700 text-white shadow-lg scale-110' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-green-700'}`}
             >
               {number}
             </button>
           ))}
         </div>
-        <button 
-          onClick={nextPage} 
+        <button
+          onClick={nextPage}
           disabled={currentPage === totalPages}
-          className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold uppercase text-xs sm:text-sm transition-all ${currentPage === totalPages ? 'bg-slate-200 text-slate-400 cursor-not-allowed' : 'bg-green-700 text-white hover:bg-green-700 shadow-md hover:-translate-y-1'}`}
+          aria-label="Próxima página"
+          className={`shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full transition-all flex items-center justify-center ${currentPage === totalPages ? 'bg-slate-200 text-slate-400 cursor-not-allowed' : 'bg-green-700 text-white hover:bg-green-800 shadow-md hover:-translate-y-1'}`}
         >
-          Próxima
+          <ChevronRight size={20} />
         </button>
       </div>
     );
