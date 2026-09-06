@@ -16,6 +16,67 @@ const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 const capaArtigo = `${githubImgBase}Blog/OQueEReeducacaoAlimentar_Capa.webp`;
 
+// 📖 Glossário: termos que costumam ser confundidos
+const conceitos = [
+  { termo: 'Alimento', emoji: '🌾', definicao: 'Qualquer substância própria para nutrir o organismo — engloba desde uma fruta in natura até um produto ultraprocessado, já que ambos fornecem calorias e/ou nutrientes ao corpo.' },
+  { termo: 'Comida', emoji: '🍲', definicao: 'Preparação culinária reconhecível como refeição, feita a partir de alimentos in natura ou minimamente processados. O Guia Alimentar do Ministério da Saúde reforça essa distinção entre "comida de verdade" e produtos industriais que apenas imitam comida.' },
+  { termo: 'Alimentar-se', emoji: '🍽️', definicao: 'O ato de ingerir alimentos para suprir necessidades fisiológicas. É o comportamento em si — o "fazer", não o resultado biológico dele.' },
+  { termo: 'Nutrição', emoji: '🔬', definicao: 'A ciência (e o processo interno) de como o organismo digere, absorve e utiliza os nutrientes depois que o alimento foi ingerido. Acontece dentro do corpo, no nível celular.' },
+  { termo: 'Dieta', emoji: '📋', definicao: 'Do grego "diaita" (modo de vida): tecnicamente é o conjunto de alimentos que uma pessoa consome habitualmente, não um sinônimo de restrição. O uso popular, porém, reduziu a palavra a "plano alimentar restritivo para emagrecer".' },
+  { termo: 'Reeducação Alimentar', emoji: '🔄', definicao: 'O processo gradual e contínuo de mudar hábitos alimentares para toda a vida — o tema central deste artigo, e o oposto da dieta restritiva de prazo curto.' },
+];
+
+function CarrosselConceitos() {
+  const [indice, setIndice] = useState(0);
+  const total = conceitos.length;
+
+  const irParaProximo = () => setIndice((prev) => (prev + 1) % total);
+  const irParaAnterior = () => setIndice((prev) => (prev - 1 + total) % total);
+
+  const atual = conceitos[indice];
+
+  return (
+    <div className="not-prose my-12 bg-slate-900 rounded-[2.5rem] p-6 md:p-10 shadow-2xl border border-slate-700">
+      <p className="text-center text-[11px] font-black uppercase tracking-widest text-green-400 mb-6">Glossário Rápido: Você Sabe a Diferença?</p>
+      <div className="flex items-center gap-3 md:gap-6">
+        <button
+          onClick={irParaAnterior}
+          aria-label="Ver conceito anterior"
+          className="shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-full bg-slate-800 border border-slate-600 text-white flex items-center justify-center hover:bg-green-700 hover:border-green-700 transition-colors cursor-pointer"
+        >
+          <ChevronLeft size={22} />
+        </button>
+
+        <div className="flex-1 bg-white rounded-3xl p-6 md:p-8 text-center min-h-[220px] flex flex-col items-center justify-center shadow-inner" aria-live="polite">
+          <span className="text-4xl mb-3" aria-hidden="true">{atual.emoji}</span>
+          <h3 className="text-xl md:text-2xl font-black text-slate-900 uppercase italic mb-3">{atual.termo}</h3>
+          <p className="text-slate-600 text-sm md:text-base leading-relaxed m-0">{atual.definicao}</p>
+        </div>
+
+        <button
+          onClick={irParaProximo}
+          aria-label="Ver próximo conceito"
+          className="shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-full bg-slate-800 border border-slate-600 text-white flex items-center justify-center hover:bg-green-700 hover:border-green-700 transition-colors cursor-pointer"
+        >
+          <ChevronRight size={22} />
+        </button>
+      </div>
+
+      <div className="flex items-center justify-center gap-2 mt-6">
+        {conceitos.map((c, i) => (
+          <button
+            key={c.termo}
+            onClick={() => setIndice(i)}
+            aria-label={`Ir para o conceito: ${c.termo}`}
+            aria-current={i === indice}
+            className={`h-2 rounded-full transition-all cursor-pointer border-none ${i === indice ? 'w-6 bg-green-500' : 'w-2 bg-slate-600 hover:bg-slate-500'}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // 🧭 Etapas do Modelo Transteórico (Prochaska & DiClemente, 1981) — quiz de autoavaliação
 const etapasMudanca = [
   {
@@ -193,6 +254,8 @@ export default function OQueEReeducacaoAlimentar() {
               </p>
             </figcaption>
           </figure>
+
+          <CarrosselConceitos />
 
           {/* INTRODUÇÃO */}
           <p className="mb-4">
