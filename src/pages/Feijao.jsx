@@ -216,6 +216,7 @@ export default function Feijao() {
 
               <h2 className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">Conclusão</h2>
               <p>Em resumo, o feijão dá gases principalmente por causa da fermentação de carboidratos complexos que o corpo humano não consegue digerir completamente sozinho na primeira etapa. No entanto, isso não significa, sob hipótese alguma, que você deve parar de consumir esse alimento tão rico e tradicional da nossa cultura. Com estratégias diárias muito simples, como o demolho prolongado, o ajuste fino da quantidade consumida nas refeições e o uso inteligente de recursos digestivos, é perfeitamente possível aproveitar todos os benefícios do feijão para a sua composição corporal sem sofrer com nenhum desconforto posterior.</p>
+              <p>Vale lembrar que esses mesmos fitatos reduzidos pelo demolho também são um dos vilões que atrapalham a absorção de ferro não-heme presente no próprio feijão — por isso, se você é anêmico ou tem tendência a baixa ferritina, entender o <Link to="/melhor-horario-para-tomar-ferro" className="text-green-700 font-bold hover:underline">melhor horário para tomar ferro</Link> e os alimentos que bloqueiam sua absorção faz toda a diferença no resultado dos exames.</p>
 
               {/* VÍDEO COMPLEMENTAR INTEGRADO */}
               <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">

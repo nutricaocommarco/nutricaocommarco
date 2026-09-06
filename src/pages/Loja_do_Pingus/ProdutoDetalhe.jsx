@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import React, { useState, useEffect, useMemo } from 'react';
+import { useParams, Navigate, Link } from 'react-router-dom';
 import { ShoppingCart, ChevronRight, PackageCheck } from 'lucide-react';
 import ImagemOtimizada from '../../components/ImagemOtimizada';
 import { produtosData } from './produtosData';
@@ -12,6 +12,13 @@ export default function ProdutoDetalhe() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setImagemPrincipal(0);
+  }, [id]);
+
+  // 🔀 Outros produtos, em ordem aleatória a cada visita
+  const outrosProdutos = useMemo(() => {
+    return produtosData
+      .filter(p => p.id !== id)
+      .sort(() => Math.random() - 0.5);
   }, [id]);
 
   if (!produto) {
@@ -94,6 +101,31 @@ export default function ProdutoDetalhe() {
             </p>
           </div>
         </div>
+
+        {/* 🛍️ OUTROS PRODUTOS DA LOJA (ordem aleatória) */}
+        {outrosProdutos.length > 0 && (
+          <div className="mt-16">
+            <h2 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic mb-8 flex items-center gap-3">
+              <ShoppingCart className="text-green-700" /> Outros Produtos da Loja
+            </h2>
+            <div className="flex md:grid md:grid-cols-2 gap-6 overflow-x-auto pb-4 md:pb-0 md:overflow-visible snap-x snap-mandatory">
+              {outrosProdutos.map((p) => (
+                <Link
+                  key={p.id}
+                  to={`/loja/${p.id}`}
+                  className="shrink-0 w-64 md:w-auto snap-start bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center no-underline"
+                  aria-label={`Ver produto: ${p.nome}`}
+                >
+                  <div className="w-32 h-32 bg-slate-50 rounded-2xl p-4 mb-4 flex items-center justify-center">
+                    <ImagemOtimizada src={p.imagens[0]} alt={p.nome} className="w-full h-full object-contain" />
+                  </div>
+                  <h3 className="font-black text-slate-800 uppercase italic text-sm mb-1">{p.nome}</h3>
+                  <p className="text-green-700 font-black text-lg m-0">{p.precoFormatado}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
