@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Instagram, Menu, X, Mail, ChevronDown, Store, Calculator, BookOpen, Flame, Rocket } from 'lucide-react';
 import { HelmetProvider } from 'react-helmet-async';
@@ -77,9 +77,36 @@ const LoadingSpinner = () => (
 
 function ScrollToTop() {
   const { pathname } = useLocation();
+  const primeiraRenderizacao = useRef(true);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // O GA4 já conta a primeira página da sessão automaticamente (gtag('config', ...) no index.html).
+    // Aqui só cobrimos as trocas de rota SEGUINTES, que a navegação client-side (SPA) não dispara sozinha.
+    if (primeiraRenderizacao.current) {
+      primeiraRenderizacao.current = false;
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      const h1 = document.querySelector('h1');
+      const tituloAtual = h1?.textContent?.trim()
+        ? `${h1.textContent.trim()} | Nutrição com Marco`
+        : document.title;
+      document.title = tituloAtual;
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(['event', 'page_view', {
+        page_path: pathname,
+        page_location: window.location.href,
+        page_title: tituloAtual,
+      }]);
+    }, 300);
+
+    return () => clearTimeout(timer);
   }, [pathname]);
+
   return null;
 }
 
