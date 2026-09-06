@@ -243,8 +243,7 @@ const postsBlog = [
         { pergunta: "A Relação Cintura-Quadril substitui uma bioimpedância ou um DEXA?", resposta: "Não substitui, mas frequentemente supera esses métodos como preditor de risco cardiovascular específico. A RCQ não fraciona a composição corporal em massa gorda, magra e óssea como o DEXA faz, mas ela captura diretamente onde a gordura está localizada." },
         { pergunta: "A menopausa muda a Relação Cintura-Quadril?", resposta: "Sim, de forma bem documentada na fisiologia endócrina. A queda do estrogênio na menopausa reduz o estímulo para o armazenamento de gordura no quadril e nas coxas e favorece o acúmulo de gordura visceral abdominal, o que costuma elevar a RCQ mesmo sem grande variação no peso total." },
         { pergunta: "Como medir a cintura e o quadril corretamente em casa?", resposta: "Use uma fita métrica inelástica, sem apertar a pele. A cintura é medida no ponto médio entre a última costela e a crista ilíaca, ao final de uma expiração normal. O quadril é medido na circunferência mais protuberante dos glúteos, geralmente ao nível do trocânter maior do fêmur." }
-      ]),
-      JSON.parse(`{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Calculadora de Relação Cintura-Quadril","operatingSystem":"Web Browser","applicationCategory":"HealthApplication","url":"https://www.nutricaocommarco.com.br/relacao-cintura-quadril#calculadora","description":"Ferramenta online e gratuita para calcular a relação cintura-quadril (RCQ) e classificar o risco cardiovascular por sexo, com base nos pontos de corte da OMS.","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"}}`)
+      ])
     ]
   },
 {
@@ -262,8 +261,7 @@ const postsBlog = [
         { pergunta: "O que é o Erro Técnico de Medição (ETM)?", resposta: "O ETM é um cálculo estatístico (desvio-padrão entre medidas repetidas) que afere a precisão do avaliador na antropometria (intra-avaliador) ou a exatidão entre vários avaliadores (inter-avaliador). A ISAK exige que o ETM para dobras cutâneas seja inferior a 5% (ou 7,5% para iniciantes)." },
         { pergunta: "Para que serve a Somatocarta na Avaliação Antropométrica?", resposta: "A somatocarta é um gráfico bidimensional que classifica o paciente em Endomorfo (tendência a acumular gordura), Mesomorfo (robustez muscular) e Ectomorfo (linearidade e magreza), ajudando a alinhar expectativas de resultados genéticos baseados na estrutura óssea e muscular." },
         { pergunta: "Devo usar a Média ou a Mediana nas dobras?", resposta: "A regra oficial estatística para diminuir o ETM diz que: se você realizar duas aferições no mesmo ponto anatômico, deve usar a Média Aritmética. Caso haja uma discrepância e você precise realizar uma terceira medida de controle, você deve usar a Mediana (o valor central)." }
-      ]),
-      JSON.parse(`{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Calculadora Heath-Carter Simplificada","operatingSystem":"Web Browser","applicationCategory":"HealthApplication","url":"https://www.nutricaocommarco.com.br/avaliacao-antropometrica#calculadora","description":"Ferramenta online e gratuita para calcular o somatotipo exato (Endomorfia, Mesomorfia e Ectomorfia) e gerar a plotagem gráfica matemática no plano cartesiano da Somatocarta de Heath-Carter.","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"}}`)
+      ])
     ]
   },
   {
