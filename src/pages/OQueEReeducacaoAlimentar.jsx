@@ -47,7 +47,7 @@ function CarrosselConceitos() {
           <ChevronLeft size={22} />
         </button>
 
-        <div className="flex-1 bg-white rounded-3xl p-6 md:p-8 text-center min-h-[220px] flex flex-col items-center justify-center shadow-inner" aria-live="polite">
+        <div className="flex-1 bg-white rounded-3xl p-6 md:p-8 text-center h-[280px] md:h-[240px] flex flex-col items-center justify-center shadow-inner overflow-y-auto" aria-live="polite">
           <span className="text-4xl mb-3" aria-hidden="true">{atual.emoji}</span>
           <h3 className="text-xl md:text-2xl font-black text-slate-900 uppercase italic mb-3">{atual.termo}</h3>
           <p className="text-slate-600 text-sm md:text-base leading-relaxed m-0">{atual.definicao}</p>
@@ -553,12 +553,12 @@ export default function OQueEReeducacaoAlimentar() {
           <div className="my-12 p-6 bg-slate-100 rounded-2xl border border-slate-200">
             <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest mb-3">Referências Científicas Sobre Reeducação Alimentar</h3>
             <ul className="text-xs text-slate-600 leading-relaxed m-0 list-disc pl-4 space-y-3">
-              <li>BRASIL. Ministério da Saúde. Secretaria de Atenção à Saúde. Departamento de Atenção Básica. <em>Guia alimentar para a população brasileira.</em> 2. ed., 1. reimpr. Brasília: Ministério da Saúde, 2014. 156 p.</li>
+              <li><a href="https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline inline-block py-1">BRASIL. Ministério da Saúde. Secretaria de Atenção à Saúde. Departamento de Atenção Básica. <em>Guia alimentar para a população brasileira.</em> 2. ed., 1. reimpr. Brasília: Ministério da Saúde, 2014. 156 p.</a></li>
               <li>FREIRE, Daniela Biral do Prado. <em>Educação Alimentar e Nutricional.</em> Florianópolis, SC: Arqué, 2022 (reimpr. 2025). Universidade Cesumar – UniCesumar.</li>
               <li>PAVIANI, Letícia; PEREIRA, Noemi da Silva. <em>Nutrição Humana.</em> Indaial, SC: Arqué, 2023. Universidade Cesumar – UniCesumar.</li>
-              <li>SUZUKI, Júlio César; ARAÚJO, Gilvan C. C. de; BITELLI, Fábio Molinari (Orgs.). <em>Culturas Alimentares na América Latina.</em> São Paulo: FFLCH/USP, 2021.</li>
-              <li>PROCHASKA, J. O.; DICLEMENTE, C. C. <em>Transtheoretical Model of Behavior Change.</em> 1981.</li>
-              <li>FREIRE, Paulo. <em>Pedagogia do Oprimido.</em> Rio de Janeiro: Paz e Terra, 1987.</li>
+              <li><a href="https://www.livrosabertos.abcd.usp.br/portaldelivrosUSP/catalog/book/674" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline inline-block py-1">SUZUKI, Júlio César; ARAÚJO, Gilvan C. C. de; BITELLI, Fábio Molinari (Orgs.). <em>Culturas Alimentares na América Latina.</em> São Paulo: FFLCH/USP, 2021.</a></li>
+              <li><a href="https://doi.org/10.1037/0022-006X.51.3.390" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline inline-block py-1">PROCHASKA, J. O.; DICLEMENTE, C. C. <em>Stages and processes of self-change of smoking: toward an integrative model of change.</em> Journal of Consulting and Clinical Psychology, v. 51, n. 3, p. 390-395, 1983.</a></li>
+              <li><a href="https://www.estantevirtual.com.br/livro/pedagogia-do-oprimido-09U-9024-000-BK" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline inline-block py-1">FREIRE, Paulo. <em>Pedagogia do Oprimido.</em> Rio de Janeiro: Paz e Terra, 1987.</a></li>
             </ul>
             <div className="mt-4 pt-4 border-t border-slate-200 flex items-start gap-2">
               <AlertTriangle size={14} className="text-amber-600 shrink-0 mt-0.5" />
