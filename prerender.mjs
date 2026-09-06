@@ -81,15 +81,21 @@ function getVideoSchema(nome, descricao, videoId, dataUpload) {
 
 // 📝 1. TODAS AS ROTAS ESTÁTICAS
 const rotasEstaticas = [
-  { 
-    path: 'software-de-avaliacao-antropometrica', 
+  {
+    path: '',
+    title: 'Nutrição com Marco | Nutrição Clínica e Avaliação Antropométrica',
+    image: `${githubImgBase}logoN_pingus.webp`,
+    desc: 'Blog de nutrição baseado em evidência científica: nutrição clínica, esportiva e comportamental, avaliação antropométrica ISAK e ferramentas gratuitas, por Marco Aurélio Jr.'
+  },
+  {
+    path: 'software-de-avaliacao-antropometrica',
     title: 'Software de Avaliação Antropométrica Científico | EvaluaOS', 
     image: '/Imagens/Afiliado/Logo.jpeg', 
     desc: 'Conheça o EvaluaOS, o mais completo software de avaliação antropométrica para nutricionistas e avaliadores. Padrão ISAK, +60 equações, 4C Kerr e laudos web interativos.' 
   },
   { path: 'planilha-de-avaliacao-antropometrica-marco-aurelio', title: 'Planilha de Avaliação Antropométrica Inteligente PRO | Nutrição com Marco', image: `${githubImgBase}PlanilhaImagem/Planilha_Capa.webp`, desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.' },
   { path: 'ebook-receitas', title: 'Ebook Receitas Saudáveis e Nutritivas: O Caminho da Praticidade | Nutrição com Marco', image: `${githubImgBase}Receitas_Saudáveis.png`, desc: 'Descubra como comer bem sem perder horas no fogão. Aprenda a Técnica do 3x3, pré-preparos inteligentes e dezenas de receitas práticas para a sua rotina.' },
-  { path: 'planilha', title: 'Planilha Antropométrica Inteligente PRO | Nutrição com Marco', image: `${githubImgBase}PlanilhaImagem/Planilha_Capa.webp`, desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.' },
+  { path: 'planilha', title: 'Planilha Antropométrica Inteligente PRO | Nutrição com Marco', image: `${githubImgBase}PlanilhaImagem/Planilha_Capa.webp`, desc: 'Chega de calculadora manual: baixe a Planilha Antropométrica PRO em Excel/VBA e automatize dobras cutâneas, somatotipo e laudo completo em segundos.' },
   { path: 'sobre', title: 'Sobre Marco Aurélio Jr. | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.webp`, desc: 'Conheça a história de Marco Aurélio Jr., futuro nutricionista e especialista em avaliação física ISAK 1.' },
   { path: 'certificacoes', title: 'Currículo e Certificações | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.webp`, desc: 'Conheça a trajetória técnica e as certificações internacionais ISAK do nutricionista Marco Aurélio Jr.' },
   { path: 'planos', title: 'Planos de Acompanhamento | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.webp`, desc: 'Conheça os níveis de acompanhamento nutricional e avaliação física ISAK 1.' },
@@ -415,7 +421,7 @@ routes.forEach(route => {
   }
 
   const urlAbsoluta = `https://www.nutricaocommarco.com.br/${safePath}`;
-  const isBlog = safePath !== 'sobre' && safePath !== 'certificacoes' && safePath !== 'planos' && !safePath.includes('planilha') && !safePath.includes('loja');
+  const isBlog = safePath !== '' && safePath !== 'sobre' && safePath !== 'certificacoes' && safePath !== 'planos' && !safePath.includes('planilha') && !safePath.includes('loja');
 
   // SCHEMA 🚀 (Melhorado com Autor e Data de Modificação - E-E-A-T)
   const baseSchema = {
