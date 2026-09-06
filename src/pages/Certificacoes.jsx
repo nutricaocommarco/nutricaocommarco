@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, ShieldCheck } from 'lucide-react';
+import { ArrowUpRight, ShieldCheck, FlaskConical, ChefHat } from 'lucide-react';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -15,6 +15,13 @@ export default function Certificacoes() {
             <CertCard image={`${githubImgBase}unicesumar.png`} badge="Graduação" title="Bacharelado em Nutrição" org="Unicesumar" desc="Formação completa focada em Nutrição Clínica e Esportiva." color="slate" />
             <CertCard image={`${githubImgBase}oficial-uniguacu_vertical-edited.png`} badge="Pós-Graduação" title="Emagrecimento e Metabolismo" org="Faculdade Uniguaçú" desc="Especialização avançada nas bases fisiológicas." color="green" />
             <CertCard image={`${githubImgBase}isak-logo.png`} badge="Internacional" title="ISAK Level 1" org="ISAK" desc="Certificação mundial para padronização de medidas antropométricas." color="green" />
+          </div>
+        </div>
+        <div>
+          <h2 className="text-2xl font-black text-slate-800 uppercase italic mb-10 flex items-center gap-4 justify-center md:justify-start"><span className="w-12 h-1 bg-blue-600 rounded-full"></span> Estágios</h2>
+          <div className="grid gap-8">
+            <EstagioCard icon={FlaskConical} badge="Monitoria" title="Monitor do Laboratório de Nutrição" org="Faculdade Unicesumar • Mar/2026 – Atual" desc="Auxilia docentes e alunos nas aulas práticas do laboratório, dando suporte técnico em análises e atividades experimentais do curso de Nutrição." color="blue" />
+            <EstagioCard icon={ChefHat} badge="Estágio Supervisionado I" title="Gestão de Unidade de Alimentação e Nutrição (UAN)" org="Hospital Glória D'Or (Rede D'Or) • 192h" desc="Estágio hospitalar em Nutrição e Alimentação Coletiva, com atuação em controle de qualidade, segurança alimentar (RDC nº 216/2004) e porcionamento de dietas terapêuticas, sob supervisão da nutricionista Elida da Silva (CRN 19102329). Período: 11/05 a 24/06/2026." color="blue" />
           </div>
         </div>
         <div>
@@ -61,6 +68,24 @@ function CertCard({ image, badge, title, org, desc, color }) {
   return (
     <div className="bg-white p-8 md:p-10 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col md:flex-row gap-8 items-center group transition-all hover:scale-[1.02] text-left">
       <div className="w-32 h-32 bg-white rounded-3xl flex items-center justify-center shrink-0 shadow-inner p-3 border border-slate-50 group-hover:rotate-3 transition-transform"><img src={image} className="w-full h-full object-contain" alt={title} /></div>
+      <div className="flex-grow text-left">
+        <span className={`${colorMap[color]} font-black uppercase text-[10px] tracking-widest px-3 py-1 rounded-full mb-2 inline-block`}>{badge}</span>
+        <h3 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mb-1 leading-tight">{title}</h3>
+        <p className="text-green-700 font-black text-sm uppercase mb-3">{org}</p>
+        <p className="text-slate-600 leading-relaxed font-medium italic">{desc}</p>
+      </div>
+    </div>
+  );
+}
+
+function EstagioCard({ icon: Icon, badge, title, org, desc, color }) {
+  const colorMap = { green: 'bg-green-100 text-green-700', blue: 'bg-blue-100 text-blue-600', slate: 'bg-slate-100 text-slate-600' };
+  const iconBg = { green: 'bg-green-50 text-green-700', blue: 'bg-blue-50 text-blue-600', slate: 'bg-slate-50 text-slate-600' };
+  return (
+    <div className="bg-white p-8 md:p-10 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col md:flex-row gap-8 items-center group transition-all hover:scale-[1.02] text-left">
+      <div className={`w-32 h-32 rounded-3xl flex items-center justify-center shrink-0 shadow-inner border border-slate-50 group-hover:rotate-3 transition-transform ${iconBg[color]}`}>
+        <Icon size={56} />
+      </div>
       <div className="flex-grow text-left">
         <span className={`${colorMap[color]} font-black uppercase text-[10px] tracking-widest px-3 py-1 rounded-full mb-2 inline-block`}>{badge}</span>
         <h3 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mb-1 leading-tight">{title}</h3>
