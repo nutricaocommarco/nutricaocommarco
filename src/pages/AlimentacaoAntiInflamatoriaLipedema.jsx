@@ -313,15 +313,23 @@ export default function AlimentacaoAntiInflamatoriaLipedema() {
           </div>
 
           {/* 🖼️ FOTO REAL: RÉPLICA FÍSICA DE GORDURA COMUM x GORDURA COM LIPEDEMA */}
-          <figure className="my-10 max-w-sm mx-auto rounded-[2rem] overflow-hidden shadow-xl border border-slate-100 bg-slate-100">
-            <div className="relative w-full aspect-[900/1599] overflow-hidden bg-slate-200">
-              <ImagemOtimizada
-                src={`${githubImgBase}Blog/Lipedema_Replica_Real.webp`}
-                alt="Fotografia real de duas réplicas físicas de gordura usadas para fins didáticos: à esquerda, réplica de gordura subcutânea comum, com superfície lisa; à direita, réplica de tecido adiposo com lipedema, com nodularidade e textura irregular"
-                title="Gordura Comum x Gordura com Lipedema — Réplica Física Didática"
-                className="w-full h-full object-cover absolute inset-0"
-                priority="low"
-              />
+          {/* Vertical no celular/tablet (<1024px), horizontal no desktop (≥1024px) */}
+          <figure className="my-10 max-w-sm lg:max-w-2xl mx-auto rounded-[2rem] overflow-hidden shadow-xl border border-slate-100 bg-slate-100">
+            <div className="relative w-full aspect-[900/1599] lg:aspect-[16/9] overflow-hidden bg-slate-200">
+              <picture>
+                <source
+                  media="(min-width: 1024px)"
+                  srcSet={`https://i0.wp.com/${`${githubImgBase}Blog/Lipedema_Replica_Real_Horizontal.webp`.replace(/^https?:\/\//i, '')}?w=1400&strip=all`}
+                />
+                <img
+                  src={`https://i0.wp.com/${`${githubImgBase}Blog/Lipedema_Replica_Real.webp`.replace(/^https?:\/\//i, '')}?w=800&strip=all`}
+                  alt="Fotografia real de duas réplicas físicas de gordura usadas para fins didáticos: à esquerda, réplica de gordura subcutânea comum, com superfície lisa; à direita, réplica de tecido adiposo com lipedema, com nodularidade e textura irregular"
+                  title="Gordura Comum x Gordura com Lipedema — Réplica Física Didática"
+                  className="w-full h-full object-cover absolute inset-0"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
             </div>
             <figcaption className="bg-slate-50 p-4 md:p-5 text-center border-t border-slate-200">
               <p className="text-xs md:text-sm text-slate-600 font-bold uppercase tracking-widest text-center m-0">
