@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ImagemOtimizada from '../components/ImagemOtimizada';
 import YouTubeLazy from '../components/YouTubeLazy';
@@ -33,13 +33,52 @@ function CarrosselConceitos() {
   const irParaProximo = () => setIndice((prev) => (prev + 1) % total);
   const irParaAnterior = () => setIndice((prev) => (prev - 1 + total) % total);
 
-  // 🔄 Auto-rotação: avança sozinho, e reinicia a contagem sempre que o índice muda (auto ou manual)
+  // 👆 Arrastar com o dedo (swipe) no celular
+  const touchStartRef = useRef({ x: 0, y: 0 });
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isHorizontalSwipe, setIsHorizontalSwipe] = useState(false);
+
+  const handleTouchStart = (e) => {
+    const t = e.touches[0];
+    touchStartRef.current = { x: t.clientX, y: t.clientY };
+    setIsDragging(true);
+    setIsHorizontalSwipe(false);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    const t = e.touches[0];
+    const deltaX = t.clientX - touchStartRef.current.x;
+    const deltaY = t.clientY - touchStartRef.current.y;
+    // Só assume o gesto como swipe horizontal se o movimento lateral for maior que o vertical,
+    // assim o dedo ainda consegue rolar o texto do card verticalmente sem trocar de slide.
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      setIsHorizontalSwipe(true);
+      setDragOffset(deltaX);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    const limite = 50;
+    if (dragOffset > limite) {
+      irParaAnterior();
+    } else if (dragOffset < -limite) {
+      irParaProximo();
+    }
+    setIsDragging(false);
+    setIsHorizontalSwipe(false);
+    setDragOffset(0);
+  };
+
+  // 🔄 Auto-rotação: avança sozinho, pausa durante o arraste, e reinicia a contagem sempre que o índice muda
   useEffect(() => {
+    if (isDragging) return;
     const timer = setInterval(() => {
       setIndice((prev) => (prev + 1) % total);
     }, 5000);
     return () => clearInterval(timer);
-  }, [indice, total]);
+  }, [indice, total, isDragging]);
 
   const atual = conceitos[indice];
 
@@ -55,7 +94,18 @@ function CarrosselConceitos() {
           <ChevronLeft size={22} />
         </button>
 
-        <div className="flex-1 bg-white rounded-3xl p-5 md:p-8 text-center h-[360px] sm:h-[300px] md:h-[220px] flex flex-col items-center overflow-y-auto shadow-inner" aria-live="polite">
+        <div
+          className="flex-1 bg-white rounded-3xl p-5 md:p-8 text-center h-[360px] sm:h-[300px] md:h-[220px] flex flex-col items-center overflow-y-auto shadow-inner select-none"
+          style={{
+            touchAction: 'pan-y',
+            transform: `translateX(${dragOffset}px)`,
+            transition: isHorizontalSwipe ? 'none' : 'transform 0.3s ease',
+          }}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          aria-live="polite"
+        >
           <span className="text-3xl md:text-4xl mb-2 md:mb-3 shrink-0" aria-hidden="true">{atual.emoji}</span>
           <h3 className="text-lg md:text-2xl font-black text-slate-900 uppercase italic mb-2 md:mb-3 shrink-0">{atual.termo}</h3>
           <p className="text-slate-600 text-sm md:text-base leading-relaxed m-0">{atual.definicao}</p>
