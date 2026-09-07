@@ -311,6 +311,25 @@ export default function AlimentacaoAntiInflamatoriaLipedema() {
           <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 text-blue-900 mt-6 mb-6">
             <p className="m-0"><strong>Estadiamento:</strong> o lipedema é classificado em 3 estágios de gravidade (I: pele normal com nódulos palpáveis; II: pele irregular e endurecida; III: extrusões de pele e gordura, mobilidade reduzida) e em 5 tipos, de acordo com a região do corpo afetada — da pelve aos tornozelos.</p>
           </div>
+
+          {/* 🖼️ FOTO REAL: RÉPLICA FÍSICA DE GORDURA COMUM x GORDURA COM LIPEDEMA */}
+          <figure className="my-10 max-w-sm mx-auto rounded-[2rem] overflow-hidden shadow-xl border border-slate-100 bg-slate-100">
+            <div className="relative w-full aspect-[900/1599] overflow-hidden bg-slate-200">
+              <ImagemOtimizada
+                src={`${githubImgBase}Blog/Lipedema_Replica_Real.webp`}
+                alt="Fotografia real de duas réplicas físicas de gordura usadas para fins didáticos: à esquerda, réplica de gordura subcutânea comum, com superfície lisa; à direita, réplica de tecido adiposo com lipedema, com nodularidade e textura irregular"
+                title="Gordura Comum x Gordura com Lipedema — Réplica Física Didática"
+                className="w-full h-full object-cover absolute inset-0"
+                priority="low"
+              />
+            </div>
+            <figcaption className="bg-slate-50 p-4 md:p-5 text-center border-t border-slate-200">
+              <p className="text-xs md:text-sm text-slate-600 font-bold uppercase tracking-widest text-center m-0">
+                À esquerda, réplica de gordura comum (lisa). À direita, réplica de gordura com lipedema — repare na nodularidade que caracteriza a fibrose do tecido.
+              </p>
+            </figcaption>
+          </figure>
+
           <p className="mb-4">
             O componente genético também é forte: cerca de 64% das mulheres com lipedema relatam histórico familiar da condição, sugerindo herança autossômica dominante. Ainda assim, o diagnóstico é essencialmente clínico — feito por exame físico e histórico, já que não existe um exame de sangue específico para confirmar a doença.
           </p>
