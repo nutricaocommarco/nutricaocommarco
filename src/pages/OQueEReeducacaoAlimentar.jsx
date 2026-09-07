@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ImagemOtimizada from '../components/ImagemOtimizada';
 import YouTubeLazy from '../components/YouTubeLazy';
@@ -30,8 +30,20 @@ function CarrosselConceitos() {
   const [indice, setIndice] = useState(0);
   const total = conceitos.length;
 
-  const irParaProximo = () => setIndice((prev) => (prev + 1) % total);
-  const irParaAnterior = () => setIndice((prev) => (prev - 1 + total) % total);
+  // 🔁 Marca quando a navegação deu a "volta completa" (do último pro primeiro ou vice-versa),
+  // pra suprimir a animação só nesse salto e não deslizar visualmente por cima de todos os cards.
+  const wrapRef = useRef(false);
+
+  const irParaProximo = () => setIndice((prev) => {
+    const proximo = (prev + 1) % total;
+    wrapRef.current = proximo < prev;
+    return proximo;
+  });
+  const irParaAnterior = () => setIndice((prev) => {
+    const anterior = (prev - 1 + total) % total;
+    wrapRef.current = anterior > prev;
+    return anterior;
+  });
 
   // 👆 Arrastar com o dedo (swipe) no celular
   const touchStartRef = useRef({ x: 0, y: 0 });
@@ -74,13 +86,24 @@ function CarrosselConceitos() {
   // 🔄 Auto-rotação: avança sozinho, pausa durante o arraste, e reinicia a contagem sempre que o índice muda
   useEffect(() => {
     if (isDragging) return;
-    const timer = setInterval(() => {
-      setIndice((prev) => (prev + 1) % total);
-    }, 5000);
+    const timer = setInterval(irParaProximo, 5000);
     return () => clearInterval(timer);
   }, [indice, total, isDragging]);
 
-  const atual = conceitos[indice];
+  // Consome a marcação de "volta completa": desliga a transição por um frame só nesse salto.
+  // useLayoutEffect (não useEffect) pra isso acontecer ANTES do navegador pintar a tela —
+  // senão o navegador chega a pintar um quadro com a transição ainda ligada e o trilho
+  // "voa" visualmente por cima de todos os outros cards antes de travar em none.
+  const [suprimirTransicao, setSuprimirTransicao] = useState(false);
+  useLayoutEffect(() => {
+    if (wrapRef.current) {
+      wrapRef.current = false;
+      setSuprimirTransicao(true);
+      requestAnimationFrame(() => setSuprimirTransicao(false));
+    }
+  }, [indice]);
+
+  const semTransicao = isHorizontalSwipe || suprimirTransicao;
 
   return (
     <div className="not-prose my-12 bg-slate-900 rounded-[2.5rem] p-6 md:p-10 shadow-2xl border border-slate-700">
@@ -94,21 +117,37 @@ function CarrosselConceitos() {
           <ChevronLeft size={22} />
         </button>
 
+        {/* 🎠 "Trilho" com todos os conceitos lado a lado: arrastar desliza o trilho,
+            revelando o card seguinte (ou anterior) entrando na tela de verdade. */}
         <div
-          className="flex-1 bg-white rounded-3xl p-5 md:p-8 text-center h-[440px] sm:h-[300px] md:h-[360px] flex flex-col items-center overflow-hidden shadow-inner select-none"
-          style={{
-            touchAction: 'pan-y',
-            transform: `translateX(${dragOffset}px)`,
-            transition: isHorizontalSwipe ? 'none' : 'transform 0.3s ease',
-          }}
+          className="flex-1 bg-white rounded-3xl overflow-hidden shadow-inner select-none h-[440px] sm:h-[300px] md:h-[360px]"
+          style={{ touchAction: 'pan-y' }}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
           aria-live="polite"
         >
-          <span className="text-3xl md:text-4xl mb-2 md:mb-3 shrink-0" aria-hidden="true">{atual.emoji}</span>
-          <h3 className="text-lg md:text-2xl font-black text-slate-900 uppercase italic mb-2 md:mb-3 shrink-0">{atual.termo}</h3>
-          <p className="text-slate-600 text-sm md:text-base leading-relaxed m-0">{atual.definicao}</p>
+          <div
+            className="flex h-full"
+            style={{
+              width: `${total * 100}%`,
+              transform: `translateX(calc(${-indice * (100 / total)}% + ${dragOffset}px))`,
+              transition: semTransicao ? 'none' : 'transform 0.3s ease',
+            }}
+          >
+            {conceitos.map((c, i) => (
+              <div
+                key={c.termo}
+                aria-hidden={i !== indice}
+                className="shrink-0 h-full flex flex-col items-center p-5 md:p-8 text-center overflow-hidden"
+                style={{ width: `${100 / total}%` }}
+              >
+                <span className="text-3xl md:text-4xl mb-2 md:mb-3 shrink-0" aria-hidden="true">{c.emoji}</span>
+                <h3 className="text-lg md:text-2xl font-black text-slate-900 uppercase italic mb-2 md:mb-3 shrink-0">{c.termo}</h3>
+                <p className="text-slate-600 text-sm md:text-base leading-relaxed m-0">{c.definicao}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         <button
