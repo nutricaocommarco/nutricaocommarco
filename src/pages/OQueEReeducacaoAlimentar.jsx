@@ -95,7 +95,7 @@ function CarrosselConceitos() {
         </button>
 
         <div
-          className="flex-1 bg-white rounded-3xl p-5 md:p-8 text-center h-[360px] sm:h-[300px] md:h-[220px] flex flex-col items-center overflow-y-auto shadow-inner select-none"
+          className="flex-1 bg-white rounded-3xl p-5 md:p-8 text-center h-[440px] sm:h-[300px] md:h-[360px] flex flex-col items-center overflow-hidden shadow-inner select-none"
           style={{
             touchAction: 'pan-y',
             transform: `translateX(${dragOffset}px)`,
