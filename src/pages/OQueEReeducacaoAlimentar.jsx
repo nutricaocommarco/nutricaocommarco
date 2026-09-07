@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
-const dateModifiedISO = "2026-09-06";
+const dateModifiedISO = "2026-09-07";
 const formattedDate = dateModifiedISO.split('-').reverse().join('/');
 
 const capaArtigo = `${githubImgBase}Blog/OQueEReeducacaoAlimentar_Capa.webp`;

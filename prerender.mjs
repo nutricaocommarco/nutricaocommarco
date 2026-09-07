@@ -120,7 +120,7 @@ const postsBlog = [
     img: `${githubImgBase}Blog/OQueEReeducacaoAlimentar_Capa.webp`,
     titulo: "O Que É Reeducação Alimentar? Guia Completo Baseado em Ciência",
     desc: "Entenda o que é reeducação alimentar, a diferença real para dietas restritivas, o Modelo Transteórico de mudança de hábito e passos práticos baseados no Guia Alimentar oficial.",
-    data: "2026-09-06",
+    data: "2026-09-07",
     author: {
       "@type": "Person",
       "name": "Marco Aurélio Jr.",
