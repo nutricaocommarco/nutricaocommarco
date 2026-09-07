@@ -2,6 +2,16 @@ const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutric
 
 export const posts = [
   {
+    id: 37,
+    link: "/o-que-e-reeducacao-alimentar",
+    img: `${githubImgBase}Blog/OQueEReeducacaoAlimentar_Capa.webp`,
+    tag: "Nutrição Comportamental",
+    titulo: "O Que É Reeducação Alimentar? Guia Completo Baseado em Ciência",
+    desc: "Entenda o que é reeducação alimentar, a diferença real para dietas restritivas, o Modelo Transteórico de mudança de hábito e passos práticos baseados no Guia Alimentar oficial.",
+    data: "2026-09-07",
+    dataMod: "2026-09-07",
+  },
+  {
     id: 36,
     link: "/como-calcular-meu-get",
     img: `${githubImgBase}Blog/GET_Capa.webp`,
