@@ -115,6 +115,30 @@ const rotasLoja = [
 // 📝 3. TODOS OS POSTS DO BLOG
 const postsBlog = [
 {
+    id: 39,
+    link: "/o-que-e-compulsao-alimentar",
+    img: `${githubImgBase}Blog/CompulsaoAlimentar_Capa.webp`,
+    titulo: "Compulsão Alimentar: Sintomas e Tratamento",
+    desc: "Entenda o que é compulsão alimentar, a diferença entre bulimia e TCAP, os sinais de alerta e o tratamento recomendado com TCC e nutrição comportamental.",
+    data: "2026-09-16",
+    author: {
+      "@type": "Person",
+      "name": "Marco Aurélio Jr.",
+      "jobTitle": "Estudante de Nutrição Clínica e Avaliador Antropométrico ISAK Nível 1",
+      "url": "https://www.nutricaocommarco.com.br/o-que-e-compulsao-alimentar"
+    },
+    schemasExtra: [
+      getMedicalSchema("Compulsão Alimentar e Transtorno da Compulsão Alimentar Periódica", "https://www.nutricaocommarco.com.br/o-que-e-compulsao-alimentar", ["Compulsão Alimentar", "Transtorno da Compulsão Alimentar Periódica", "Bulimia Nervosa", "Terapia Cognitivo-Comportamental", "Nutrição Comportamental"], "Psychiatric"),
+      getVideoSchema("Eu tenho compulsão alimentar? Psiquiatra Maria Fernanda explica", "O canal Neurologia e Psiquiatria explica os sinais da compulsão alimentar com a psiquiatra Maria Fernanda.", "-YyeXTS1c8s", "2024-01-01T12:00:00-03:00"),
+      getFaqSchema([
+        { pergunta: "O que caracteriza o Transtorno da Compulsão Alimentar (TCA) segundo o DSM-5?", resposta: "É caracterizado por episódios recorrentes em que a pessoa consome grandes quantidades de alimento em um curto período, com clara sensação de perda de controle, sem o uso regular de métodos compensatórios, mas com intenso sofrimento emocional e culpa após as refeições." },
+        { pergunta: "Por que as dietas restritivas são contraindicadas no tratamento?", resposta: "Dietas rígidas e a proibição severa de grupos alimentares atuam como gatilhos para novos episódios compulsivos. A Nutrição Comportamental busca o oposto: reeducação alimentar, flexibilidade e o resgate dos sinais naturais de fome e saciedade." },
+        { pergunta: "Como a dinâmica familiar influencia na compulsão alimentar infantil?", resposta: "Práticas parentais coercitivas, como usar a comida como recompensa ou punição e impor restrições extremas, desregulam a percepção fisiológica de fome da criança, aumentando a urgência e o desejo pelos alimentos proibidos." },
+        { pergunta: "Qual é o tratamento recomendado e como acessá-lo na rede pública?", resposta: "Uma abordagem multiprofissional combinando Terapia Cognitivo-Comportamental (TCC) e Nutrição Comportamental. No Brasil, o atendimento gratuito pode ser acessado via UBS e CAPS, além do suporte emocional imediato do CVV (188)." }
+      ])
+    ]
+  },
+{
     id: 38,
     link: "/o-que-e-reeducacao-alimentar",
     img: `${githubImgBase}Blog/OQueEReeducacaoAlimentar_Capa.webp`,
