@@ -445,6 +445,14 @@ export default function OQueECompulsaoAlimentar() {
             Para tirar o conceito do papel, veja três casos <strong>fictícios e ilustrativos</strong> — criados para ajudar você a reconhecer padrões comuns, não retratos de pacientes reais nem substituto de avaliação clínica individual.
           </p>
 
+          <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 text-blue-900 mb-6">
+            <p className="m-0"><strong>Importante:</strong> nem toda compulsão envolve comida "gostosa". Comer uma grande quantidade de algo palatável — doces, salgados, ultraprocessados, como nos Casos 2 e 3 — é diferente de comer algo pouco ou nada palatável, como no Caso 1. Quando a urgência de comer se sobrepõe até ao sabor do que está sendo ingerido, isso costuma sinalizar um episódio mais intenso, mais sobre o ato compulsivo em si do que sobre o prazer da comida.</p>
+          </div>
+
+          <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 text-blue-900 mb-6">
+            <p className="m-0"><strong>Dado real:</strong> um episódio isolado como os descritos abaixo não significa, por si só, um transtorno. Um estudo com adultos do Sul do Brasil encontrou pelo menos um episódio de compulsão alimentar em três meses em 7,9% da população estudada — mais comum do que costuma se imaginar. O que caracteriza clinicamente o TCAP, segundo o DSM-5, é a recorrência (em média, pelo menos uma vez por semana, por três meses) associada a sofrimento significativo, não o episódio pontual.</p>
+          </div>
+
           <div className="space-y-6 my-8">
             <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100 shadow-sm">
               <span className="inline-block bg-red-100 text-red-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-3">Caso 1 (fictício)</span>
@@ -675,6 +683,7 @@ export default function OQueECompulsaoAlimentar() {
               <li><a href="https://www.fafica.br/revista/index.php/interciencia/article/view/302" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline inline-block py-1">SANTOS, Maria Eduarda de Oliveira et al. <em>A importância da conduta nutricional no tratamento da compulsão alimentar.</em> Revista Interdisciplinar de Ciências Médicas e da Saúde - Interciência, v. 7, n. 1, p. 1-10, 2023.</a></li>
               <li><a href="https://doi.org/10.1016/j.biopsych.2006.03.040" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline inline-block py-1">HUDSON, J. I.; HIRIPI, E.; POPE JR., H. G.; KESSLER, R. C. <em>The Prevalence and Correlates of Eating Disorders in the National Comorbidity Survey Replication.</em> Biological Psychiatry, v. 61, n. 3, p. 348-358, 2007.</a></li>
               <li><a href="https://www.nimh.nih.gov/health/statistics/eating-disorders" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline inline-block py-1">NATIONAL INSTITUTE OF MENTAL HEALTH (NIMH). <em>Eating Disorders — Statistics.</em> Acesso em: set. 2026.</a></li>
+              <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10282444/" target="_blank" rel="noopener noreferrer" className="hover:text-green-700 hover:underline inline-block py-1">FRANÇA, Giovanny Vinícius Araújo de; GIGANTE, Denise Petrucci; OLINTO, Maria Teresa Anselmo. <em>Binge eating in adults: prevalence and association with obesity, poor self-rated health status and body dissatisfaction.</em> Public Health Nutrition, v. 17, n. 4, p. 932-938, 2013.</a></li>
             </ul>
             <div className="mt-4 pt-4 border-t border-slate-200 flex items-start gap-2">
               <AlertTriangle size={14} className="text-amber-600 shrink-0 mt-0.5" />
