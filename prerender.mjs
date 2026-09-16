@@ -123,8 +123,8 @@ const postsBlog = [
     data: "2026-09-16",
     author: {
       "@type": "Person",
-      "name": "Marco Aurélio Jr.",
-      "jobTitle": "Estudante de Nutrição Clínica e Avaliador Antropométrico ISAK Nível 1",
+      "name": "Liliane Borges",
+      "jobTitle": "Estudante de Jornalismo e Colaboradora do Blog Nutrição com Marco",
       "url": "https://www.nutricaocommarco.com.br/o-que-e-compulsao-alimentar"
     },
     schemasExtra: [

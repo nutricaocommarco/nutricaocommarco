@@ -325,48 +325,12 @@ export default function OQueECompulsaoAlimentar() {
             </figcaption>
           </figure>
 
-          <TermometroDoComer />
-          <EscalaDaFome />
-
-          {/* DESTAQUE E-BOOK: ENTRE A FOME E A SACIEDADE */}
-          <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl overflow-hidden flex flex-col md:flex-row items-center gap-8 p-8 md:p-10 group">
-            <div className="w-full md:w-1/3 shrink-0 rounded-2xl overflow-hidden shadow-lg border border-slate-100">
-              <img
-                src={`${githubImgBase}capa_fome.webp`}
-                alt="Capa do E-book Entre a Fome e a Saciedade"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
-                width="400"
-                height="400"
-                loading="lazy"
-              />
-            </div>
-            <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-              <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest w-fit mx-auto md:mx-0 mb-4">
-                Material de Apoio Gratuito
-              </span>
-              <h3 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic leading-tight mb-3">
-                E-book: Entre a Fome e a Saciedade
-              </h3>
-              <p className="text-slate-600 font-medium leading-relaxed mb-8">
-                Quer se aprofundar na diferença entre fome física e fome emocional? Baixe gratuitamente o e-book completo, com a Escala da Fome, a Escala da Saciedade e um diário prático para você reconhecer os sinais reais do seu corpo, longe da mentalidade de dieta.
-              </p>
-              <a
-                href="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Fome_Ebook.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-green-700 text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm shadow-xl hover:bg-green-800 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-                aria-label="Baixar o e-book Entre a Fome e a Saciedade em PDF"
-              >
-                <FileText size={18} />
-                Baixar E-book Grátis
-              </a>
-            </div>
-          </div>
-
           {/* INTRODUÇÃO */}
           <p className="mb-4">
             <strong>O que é compulsão alimentar?</strong> É um transtorno psiquiátrico e comportamental definido por episódios recorrentes nos quais a pessoa consome uma quantidade de alimentos significativamente maior do que a maioria consumiria em um período delimitado de tempo, geralmente em um intervalo de até duas horas. O elemento central desse quadro não está apenas no volume exagerado de comida, mas sobretudo na nítida sensação de perda de controle sobre o próprio ato de comer, em que a pessoa sente que não consegue parar nem administrar o que ou o quanto está ingerindo.
           </p>
+
+          <TermometroDoComer />
 
           <h2 id="o-que-e" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
             <Stethoscope className="text-green-700" /> O Que É Compulsão Alimentar, Afinal?
@@ -499,6 +463,43 @@ export default function OQueECompulsaoAlimentar() {
           <p className="mb-4">
             Assim, o acompanhamento nutricional atua em harmonia com a saúde mental, reduzindo a ansiedade associada ao ato de comer e priorizando a promoção do bem-estar físico em detrimento do emagrecimento acelerado ou de metas estéticas inflexíveis. Entender o papel dos <Link to="/hormonios_da_fome_emagrecimento" className="text-green-700 font-bold underline">hormônios da fome</Link> ajuda o paciente a compreender que grande parte do descontrole tem uma base fisiológica real, não é "falha de caráter".
           </p>
+
+          <EscalaDaFome />
+
+          {/* DESTAQUE E-BOOK: ENTRE A FOME E A SACIEDADE */}
+          <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl overflow-hidden flex flex-col md:flex-row items-center gap-8 p-8 md:p-10 group">
+            <div className="w-full md:w-1/3 shrink-0 rounded-2xl overflow-hidden shadow-lg border border-slate-100">
+              <img
+                src={`${githubImgBase}capa_fome.webp`}
+                alt="Capa do E-book Entre a Fome e a Saciedade"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                width="400"
+                height="400"
+                loading="lazy"
+              />
+            </div>
+            <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+              <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest w-fit mx-auto md:mx-0 mb-4">
+                Material de Apoio Gratuito
+              </span>
+              <h3 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic leading-tight mb-3">
+                E-book: Entre a Fome e a Saciedade
+              </h3>
+              <p className="text-slate-600 font-medium leading-relaxed mb-8">
+                Quer se aprofundar na diferença entre fome física e fome emocional? Baixe gratuitamente o e-book completo, com a Escala da Fome, a Escala da Saciedade e um diário prático para você reconhecer os sinais reais do seu corpo, longe da mentalidade de dieta.
+              </p>
+              <a
+                href="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Fome_Ebook.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-green-700 text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm shadow-xl hover:bg-green-800 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                aria-label="Baixar o e-book Entre a Fome e a Saciedade em PDF"
+              >
+                <FileText size={18} />
+                Baixar E-book Grátis
+              </a>
+            </div>
+          </div>
 
           <h2 id="infantil" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
             <Baby className="text-green-700" /> Compulsão Alimentar Infantil
@@ -653,23 +654,21 @@ export default function OQueECompulsaoAlimentar() {
         <div className="mt-20 p-8 md:p-10 bg-slate-50 border border-green-100 rounded-[3rem] flex flex-col md:flex-row items-center md:items-start gap-8 text-left shadow-sm">
           <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
             <ImagemOtimizada
-              src={`${githubImgBase}Eu_1.webp`}
-              alt="Marco Aurélio Jr. - Avaliador Antropométrico ISAK 1"
-              title="Marco Aurélio Jr. - Estudante de Nutrição"
+              src={`${githubImgBase}Liliane_Borges.webp`}
+              alt="Liliane Borges - Autora e Colaboradora do Blog Nutrição com Marco"
+              title="Liliane Borges - Estudante de Jornalismo"
               className="w-full h-full object-cover"
               priority="low"
-              width="96"
-              height="96"
             />
           </div>
           <div className="flex-1 text-center md:text-left">
-            <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Marco Aurélio Jr.</h3>
-            <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Nutrição Clínica • Avaliador Antropométrico ISAK Nível 1</p>
+            <h3 className="text-2xl font-black text-slate-900 italic mb-1">Escrito por Liliane Borges</h3>
+            <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Estudante de Jornalismo • Colaboradora do Blog Nutrição com Marco</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6 text-lg">
-              Especialista em composição corporal e avaliação física, dedicado a traduzir evidência científica em conteúdo acessível para quem busca uma relação real e sustentável com a comida — sem julgamento e sem modismos.
+              Moradora do Rio de Janeiro, estudante de jornalismo do último ano, entusiasta de história e cultura pop asiática, atualmente estagiando em um blog de nutrição e fotografia esportiva.
             </p>
-            <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-800 transition-all italic">
-              Siga @nutricao_com_marco
+            <a href="https://instagram.com/asianeewslab" target="_blank" rel="noreferrer" className="inline-block bg-green-700 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-md hover:bg-green-700 transition-all italic">
+              Siga @asianeewslab
             </a>
           </div>
         </div>
