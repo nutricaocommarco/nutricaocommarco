@@ -102,6 +102,55 @@ function TermometroDoComer() {
   );
 }
 
+// 🌡️ Escala da Fome (0 a 10): ferramenta do e-book "Entre a Fome e a Saciedade"
+function EscalaDaFome() {
+  const [nivel, setNivel] = useState(5);
+
+  const rotulo = (n) => {
+    if (n <= 1) return 'Sem fome nenhuma — saciedade total.';
+    if (n <= 3) return 'Fome bem leve, quase imperceptível.';
+    if (n <= 5) return 'Fome moderada, começando a aparecer.';
+    if (n <= 7) return 'Fome clara — bom momento para comer.';
+    if (n <= 9) return 'Fome forte, já incomodando.';
+    return 'Fome extrema — urgência de comer.';
+  };
+
+  const dica = (n) => {
+    if (n >= 6 && n <= 7) return 'Essa é a faixa ideal para começar a comer, segundo o e-book: nem cedo demais, nem tarde demais.';
+    if (n >= 8) return 'Cuidado: quando a fome se aproxima de 10, o desconforto e a urgência costumam levar a escolhas mais impulsivas e rápidas.';
+    return 'Ainda não é urgente — vale observar como essa sensação evolui até você decidir comer.';
+  };
+
+  return (
+    <div className="not-prose my-8 bg-white border-2 border-green-100 rounded-[2rem] p-6 md:p-8 shadow-sm">
+      <h4 className="text-sm md:text-base font-black text-slate-800 uppercase italic mb-1">Escala da Fome: Onde Você Está Agora?</h4>
+      <p className="text-slate-500 text-xs md:text-sm mb-6">Ferramenta do e-book "Entre a Fome e a Saciedade" — arraste para marcar seu nível de fome de 0 (saciedade total) a 10 (fome extrema).</p>
+
+      <input
+        type="range"
+        min="0"
+        max="10"
+        step="1"
+        value={nivel}
+        onChange={(e) => setNivel(Number(e.target.value))}
+        aria-label="Escala da fome, de 0 a 10"
+        className="w-full h-3 rounded-full appearance-none cursor-pointer accent-green-700"
+        style={{ background: 'linear-gradient(to right, #ef4444, #f97316, #eab308, #4ade80, #16a34a)' }}
+      />
+      <div className="flex justify-between text-[10px] font-bold text-slate-400 uppercase tracking-wide mt-2 mb-4">
+        <span>Sem fome</span>
+        <span>Com fome</span>
+      </div>
+
+      <div className="bg-green-50 p-4 md:p-5 rounded-2xl border border-green-100 text-center" aria-live="polite">
+        <span className="block text-2xl font-black text-green-700 mb-1">{nivel}</span>
+        <span className="block text-slate-800 font-bold text-sm mb-2">{rotulo(nivel)}</span>
+        <span className="block text-slate-600 text-xs md:text-sm">{dica(nivel)}</span>
+      </div>
+    </div>
+  );
+}
+
 export default function OQueECompulsaoAlimentar() {
   const { pathname, state } = useLocation();
   const navigate = useNavigate();
@@ -239,6 +288,42 @@ export default function OQueECompulsaoAlimentar() {
           </figure>
 
           <TermometroDoComer />
+          <EscalaDaFome />
+
+          {/* DESTAQUE E-BOOK: ENTRE A FOME E A SACIEDADE */}
+          <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl overflow-hidden flex flex-col md:flex-row items-center gap-8 p-8 md:p-10 group">
+            <div className="w-full md:w-1/3 shrink-0 rounded-2xl overflow-hidden shadow-lg border border-slate-100">
+              <img
+                src={`${githubImgBase}capa_fome.webp`}
+                alt="Capa do E-book Entre a Fome e a Saciedade"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                width="400"
+                height="400"
+                loading="lazy"
+              />
+            </div>
+            <div className="flex-1 text-center md:text-left flex flex-col justify-center">
+              <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest w-fit mx-auto md:mx-0 mb-4">
+                Material de Apoio Gratuito
+              </span>
+              <h3 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic leading-tight mb-3">
+                E-book: Entre a Fome e a Saciedade
+              </h3>
+              <p className="text-slate-600 font-medium leading-relaxed mb-8">
+                Quer se aprofundar na diferença entre fome física e fome emocional? Baixe gratuitamente o e-book completo, com a Escala da Fome, a Escala da Saciedade e um diário prático para você reconhecer os sinais reais do seu corpo, longe da mentalidade de dieta.
+              </p>
+              <a
+                href="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Fome_Ebook.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-green-700 text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm shadow-xl hover:bg-green-800 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
+                aria-label="Baixar o e-book Entre a Fome e a Saciedade em PDF"
+              >
+                <FileText size={18} />
+                Baixar E-book Grátis
+              </a>
+            </div>
+          </div>
 
           {/* INTRODUÇÃO */}
           <p className="mb-4">
