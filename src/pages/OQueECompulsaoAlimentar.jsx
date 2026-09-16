@@ -102,9 +102,40 @@ function TermometroDoComer() {
   );
 }
 
+// 🎨 Interpola a cor da régua (verde → amarelo → laranja → vermelho) para um nível de 0 a 10
+// 0 = sem fome (verde, tudo tranquilo) · 10 = fome extrema (vermelho, alerta)
+const paradasCorFome = [
+  { n: 0, r: 22, g: 163, b: 74 },    // verde
+  { n: 2.5, r: 74, g: 222, b: 128 }, // verde claro
+  { n: 5, r: 234, g: 179, b: 8 },    // amarelo
+  { n: 7.5, r: 249, g: 115, b: 22 }, // laranja
+  { n: 10, r: 239, g: 68, b: 68 },   // vermelho
+];
+
+function corDaFome(nivel) {
+  for (let i = 0; i < paradasCorFome.length - 1; i++) {
+    const atual = paradasCorFome[i];
+    const proxima = paradasCorFome[i + 1];
+    if (nivel >= atual.n && nivel <= proxima.n) {
+      const t = (nivel - atual.n) / (proxima.n - atual.n);
+      return {
+        r: Math.round(atual.r + (proxima.r - atual.r) * t),
+        g: Math.round(atual.g + (proxima.g - atual.g) * t),
+        b: Math.round(atual.b + (proxima.b - atual.b) * t),
+      };
+    }
+  }
+  const ultima = paradasCorFome[paradasCorFome.length - 1];
+  return { r: ultima.r, g: ultima.g, b: ultima.b };
+}
+
 // 🌡️ Escala da Fome (0 a 10): ferramenta do e-book "Entre a Fome e a Saciedade"
 function EscalaDaFome() {
   const [nivel, setNivel] = useState(5);
+  const { r, g, b } = corDaFome(nivel);
+  const corSolida = `rgb(${r}, ${g}, ${b})`;
+  const corFundo = `rgba(${r}, ${g}, ${b}, 0.1)`;
+  const corBorda = `rgba(${r}, ${g}, ${b}, 0.35)`;
 
   const rotulo = (n) => {
     if (n <= 1) return 'Sem fome nenhuma — saciedade total.';
@@ -134,16 +165,23 @@ function EscalaDaFome() {
         value={nivel}
         onChange={(e) => setNivel(Number(e.target.value))}
         aria-label="Escala da fome, de 0 a 10"
-        className="w-full h-3 rounded-full appearance-none cursor-pointer accent-green-700"
-        style={{ background: 'linear-gradient(to right, #ef4444, #f97316, #eab308, #4ade80, #16a34a)' }}
+        className="w-full h-3 rounded-full appearance-none cursor-pointer transition-colors"
+        style={{
+          background: 'linear-gradient(to right, #16a34a, #4ade80, #eab308, #f97316, #ef4444)',
+          accentColor: corSolida,
+        }}
       />
       <div className="flex justify-between text-[10px] font-bold text-slate-400 uppercase tracking-wide mt-2 mb-4">
         <span>Sem fome</span>
         <span>Com fome</span>
       </div>
 
-      <div className="bg-green-50 p-4 md:p-5 rounded-2xl border border-green-100 text-center" aria-live="polite">
-        <span className="block text-2xl font-black text-green-700 mb-1">{nivel}</span>
+      <div
+        className="p-4 md:p-5 rounded-2xl border-2 text-center transition-colors duration-300"
+        style={{ backgroundColor: corFundo, borderColor: corBorda }}
+        aria-live="polite"
+      >
+        <span className="block text-2xl font-black mb-1 transition-colors duration-300" style={{ color: corSolida }}>{nivel}</span>
         <span className="block text-slate-800 font-bold text-sm mb-2">{rotulo(nivel)}</span>
         <span className="block text-slate-600 text-xs md:text-sm">{dica(nivel)}</span>
       </div>
