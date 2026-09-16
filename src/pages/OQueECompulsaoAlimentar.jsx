@@ -154,7 +154,7 @@ function EscalaDaFome() {
 
   return (
     <div className="not-prose my-8 bg-white border-2 border-green-100 rounded-[2rem] p-6 md:p-8 shadow-sm">
-      <h4 className="text-sm md:text-base font-black text-slate-800 uppercase italic mb-1">Escala da Fome: Onde Você Está Agora?</h4>
+      <h3 className="text-sm md:text-base font-black text-slate-800 uppercase italic mb-1">Escala da Fome: Onde Você Está Agora?</h3>
       <p className="text-slate-500 text-xs md:text-sm mb-6">Ferramenta do e-book "Entre a Fome e a Saciedade" — arraste para marcar seu nível de fome de 0 (saciedade total) a 10 (fome extrema).</p>
 
       <input
@@ -291,6 +291,7 @@ export default function OQueECompulsaoAlimentar() {
                   <li><a href="#bulimia-x-tcap" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Scale size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Bulimia x TCAP</a></li>
                   <li><a href="#ansiedade-sono" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Brain size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Ansiedade e Sono</a></li>
                   <li><a href="#tratamento" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><CheckCircle2 size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Tratamento (TCC)</a></li>
+                  <li><a href="#casos-clinicos" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Users size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Casos Clínicos</a></li>
                   <li><a href="#nutricao" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Salad size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />O Papel da Nutrição</a></li>
                   <li><a href="#infantil" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><Baby size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Compulsão Infantil</a></li>
                   <li><a href="#pilares" className="group flex items-center gap-3 text-slate-500 hover:text-green-700 transition-all font-bold text-base m-0"><ListChecks size={16} className="text-slate-300 group-hover:text-green-500 shrink-0" />Os 3 Pilares</a></li>
@@ -436,6 +437,42 @@ export default function OQueECompulsaoAlimentar() {
           <p className="mb-4">
             Através da reestruturação de pensamentos disfuncionais, do treino de regulação emocional e de práticas de atenção plena (mindfulness), a pessoa aprende a identificar seus sinais reais de fome e saciedade. Ao afastar restrições alimentares severas que funcionam como gatilhos, o processo terapêutico restaura uma relação equilibrada com a comida e fortalece a autonomia emocional.
           </p>
+
+          <h2 id="casos-clinicos" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+            <Users className="text-green-700" /> Casos Clínicos: Como a Compulsão Alimentar Aparece na Prática
+          </h2>
+          <p className="mb-6">
+            Para tirar o conceito do papel, veja três casos <strong>fictícios e ilustrativos</strong> — criados para ajudar você a reconhecer padrões comuns, não retratos de pacientes reais nem substituto de avaliação clínica individual.
+          </p>
+
+          <div className="space-y-6 my-8">
+            <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100 shadow-sm">
+              <span className="inline-block bg-red-100 text-red-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-3">Caso 1 (fictício)</span>
+              <h3 className="text-lg font-black text-slate-800 mb-3">Marina, 29 anos — depois de dias em dieta restritiva</h3>
+              <p className="text-slate-600 m-0 mb-3">
+                Marina vinha cortando carboidratos à noite havia uma semana, tentando "compensar" o fim de semana anterior. Chegou em casa tarde, exausta e sozinha, sentindo uma mistura de fome acumulada e vazio emocional. Sem nada pronto na cozinha, abriu o armário à procura de qualquer coisa — e o que encontrou foi um pacote de arroz. Sentada no chão, sem parar para cozinhar, comeu boa parte de quase 1kg de arroz cru direto do pacote, num estado quase automático, só percebendo o tamanho do episódio quando o desconforto físico a fez parar. Em seguida vieram o choque, a vergonha e o medo de não entender o próprio comportamento.
+              </p>
+              <p className="text-slate-500 text-sm m-0"><strong className="text-slate-700">O que isso mostra:</strong> o padrão restrição→compulsão descrito neste artigo (dieta rígida como gatilho), a ausência de escolha alimentar racional durante o episódio — e um alerta à parte: alimentos crus como arroz podem trazer riscos físicos reais (má digestão, risco de contaminação), o que reforça a importância de buscar acompanhamento médico e nutricional, não só psicológico.</p>
+            </div>
+
+            <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100 shadow-sm">
+              <span className="inline-block bg-red-100 text-red-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-3">Caso 2 (fictício)</span>
+              <h3 className="text-lg font-black text-slate-800 mb-3">Roberto, 45 anos — a compra do mês em uma tarde</h3>
+              <p className="text-slate-600 m-0 mb-3">
+                Roberto fez sozinho a compra do mês e guardou tudo direitinho no armário. Pouco depois, sentado à mesa da cozinha com a casa vazia, abriu "só um pacotinho" de biscoito. Não conseguiu parar: foi de embalagem em embalagem — pão, queijo, mais biscoitos — sem perceber muito bem a passagem do tempo, até se dar conta, quase uma hora depois, de que boa parte da compra que deveria durar o mês inteiro tinha sumido. Nenhum vômito, nenhum jejum depois — só um silêncio pesado e a vergonha de ter que decidir se contava pra alguém.
+              </p>
+              <p className="text-slate-500 text-sm m-0"><strong className="text-slate-700">O que isso mostra:</strong> um episódio clássico de TCAP — rápido, isolado, com perda de controle real, mas sem os comportamentos compensatórios (purgação, jejum, exercício exagerado) que caracterizariam a bulimia nervosa.</p>
+            </div>
+
+            <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100 shadow-sm">
+              <span className="inline-block bg-red-100 text-red-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-3">Caso 3 (fictício)</span>
+              <h3 className="text-lg font-black text-slate-800 mb-3">Juliana, 23 anos — noites mal dormidas em época de provas</h3>
+              <p className="text-slate-600 m-0 mb-3">
+                Havia quase duas semanas que Juliana dormia menos de cinco horas por noite, estudando para provas finais. Todas as madrugadas, no meio dos resumos, sentia uma vontade repentina e forte de doces — comia pacotes inteiros de bolacha sem realmente sentir prazer nenhum nisso, quase como um piloto automático, até o estômago doer. No dia seguinte, se cobrava tanto por "não ter disciplina" para estudar quanto por "não ter disciplina" para comer — sem perceber que as duas coisas vinham do mesmo lugar: noites de sono insuficientes desregulando seus sinais de fome e sua capacidade de lidar com o estresse.
+              </p>
+              <p className="text-slate-500 text-sm m-0"><strong className="text-slate-700">O que isso mostra:</strong> a ligação direta entre privação de sono, ansiedade e compulsão alimentar que este artigo já explorou — e como a autocrítica ("falta de força de vontade") costuma mascarar uma causa fisiológica real.</p>
+            </div>
+          </div>
 
           {/* VÍDEO LAZY YOUTUBE OBRIGATÓRIO */}
           <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
