@@ -222,6 +222,21 @@ export default function AvaliacaoAntropometrica() {
             Entregar resultados aos pacientes exige muito mais do que pedir para eles <Link to="/qual_melhor_horario_para_se_pesar" className="text-green-700 font-bold hover:underline">subirem na balança</Link>. O corpo humano é um complexo ecossistema de fluidos, tecidos moles e estruturas ósseas. Neste guia definitivo, vamos desmembrar a ciência da <Link to="/o_que_e_antropometria" className="text-green-700 font-bold hover:underline">cineantropometria</Link>, desde sua história até a aplicação exata das fórmulas de predição de gordura.
           </p>
 
+          {/* 🎬 VÍDEO: TRECHO DA ENTREVISTA SOBRE ANTROPOMETRIA (começa em 7:22) */}
+          <div className="my-10 p-6 md:p-10 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-inner">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                <PlayCircle size={24} />
+              </div>
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight m-0">Veja em Menos de 2 Minutos: Por Que a Balança Não Conta Tudo</h3>
+            </div>
+            <p className="text-slate-600 font-medium leading-relaxed mb-8">Um trecho da entrevista em que explico o que é antropometria e por que a balança sozinha não diz quanto de gordura e quanto de músculo o corpo tem.</p>
+            <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
+              <YouTubeLazy videoId="W-tSb-iwij4" start={442} title="Estudante de Jornalismo Entrevista Futuro Nutricionista: trecho sobre o que é antropometria" />
+            </div>
+            <p className="text-xs text-slate-500 italic mt-4 mb-0">O vídeo começa direto no trecho sobre antropometria (7:22); a entrevista completa está na página <Link to="/sobre" className="text-green-700 font-bold underline">Sobre</Link>.</p>
+          </div>
+
           <h2 id="historia" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
             <BookOpen className="text-green-700"/> A História Oculta da Antropometria: Arte e Ciência
           </h2>

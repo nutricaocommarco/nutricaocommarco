@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PlayCircle } from 'lucide-react';
 
-export default function YouTubeLazy({ videoId, title }) {
+export default function YouTubeLazy({ videoId, title, start }) {
   const [showVideo, setShowVideo] = useState(false);
   const [thumbSrc, setThumbSrc] = useState(`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`);
 
@@ -25,7 +25,7 @@ export default function YouTubeLazy({ videoId, title }) {
         <iframe
           width="100%"
           height="100%"
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1${start ? `&start=${start}` : ''}`}
           title={title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
