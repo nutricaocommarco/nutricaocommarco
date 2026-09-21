@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, Camera, Bike, Microscope, BookOpen, MapPin } from 'lucide-react';
+import { ChevronLeft, Camera, Bike, Microscope, BookOpen, MapPin, PlayCircle } from 'lucide-react';
+import YouTubeLazy from '../components/YouTubeLazy';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -62,7 +63,7 @@ export default function Sobre() {
                 className="w-24 h-24 object-contain flex-shrink-0 group-hover:rotate-6 transition-transform" 
               />
               <div className="text-left flex-1">
-                <h4 className="text-xl font-black text-slate-800 uppercase italic mb-3">Conheça o Pingus: O Mascote da Precisão</h4>
+                <h3 className="text-xl font-black text-slate-800 uppercase italic mb-3">Conheça o Pingus: O Mascote da Precisão</h3>
                 <p className="text-slate-600 text-base font-medium">O Pingus representa nossa busca incessante pela medida exata. Enquanto eu cuido da estratégia nutricional e fisiológica, o Pingus monitora a <Link to="/blog" className="text-green-700 underline hover:text-green-700 font-bold transition-colors">evolução métrica</Link> da sua composição corporal, garantindo que cada milímetro e percentual conte na sua jornada de saúde e alta performance.</p>
               </div>
             </div>
@@ -72,6 +73,19 @@ export default function Sobre() {
             </p>
           </div>
         </article>
+      </div>
+
+      {/* 🎬 ENTREVISTA EM VÍDEO */}
+      <div className="mt-12 bg-white p-8 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
+        <h2 className="text-2xl font-black text-slate-800 uppercase italic mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
+          <PlayCircle className="text-green-700" /> Conheça o Projeto em Vídeo
+        </h2>
+        <p className="text-lg text-slate-600 font-medium leading-relaxed mb-8">
+          Nesta entrevista, a estagiária de jornalismo Liliane conversa comigo e com o Pingus sobre como surgiu o Nutrição com Marco, alguns mitos comuns da nutrição e o que é uma avaliação antropométrica.
+        </p>
+        <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
+          <YouTubeLazy videoId="W-tSb-iwij4" title="Estudante de Jornalismo Entrevista Futuro Nutricionista: A Verdade Sobre as Dietas!" />
+        </div>
       </div>
     </section>
   );
