@@ -4,7 +4,7 @@ import ImagemOtimizada from '../components/ImagemOtimizada';
 import {
   Ruler, Armchair, Pencil, FileSpreadsheet, GraduationCap, Coffee, BookOpen,
   Monitor, MapPin, MessageCircle, CheckCircle2, AlertTriangle, ChevronDown,
-  Users, Navigation, CalendarDays, ExternalLink
+  Users, Navigation, CalendarDays, ExternalLink, Info
 } from 'lucide-react';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
@@ -71,11 +71,11 @@ const faqs = [
   },
   {
     pergunta: 'Quanto custa o curso?',
-    resposta: 'O valor do primeiro lote é R$ 500,00.'
+    resposta: 'O valor do primeiro lote é R$ 500,00. O segundo lote custa R$ 600,00 e o terceiro, R$ 700,00. O preço sobe a cada lote, então garantir a vaga agora é pagar o menor valor.'
   },
   {
     pergunta: 'Este curso dá certificação ISAK?',
-    resposta: 'Não. A certificação ISAK é emitida por cursos oficiais credenciados pela própria ISAK. Este é um curso independente, focado em aprender e treinar as técnicas de medição da avaliação antropométrica.'
+    resposta: 'Não. Este não é um curso ISAK e não emite certificação ISAK: a certificação é emitida apenas por cursos oficiais credenciados pela própria ISAK. Este é um curso independente, que ensina e treina as técnicas de medição com base nos protocolos ISAK.'
   },
 ];
 
@@ -110,6 +110,11 @@ export default function CursoAvaliacaoAntropometrica() {
               Aula teórica online, 8 horas de prática presencial no Rio de Janeiro e o livro digital <strong>Antropometria: Do Zero ao Avançado</strong>. Tudo para você sair da insegurança na hora de pegar o instrumento e aprender a medir de verdade.
             </p>
 
+            <div className="bg-blue-50 border border-blue-100 rounded-2xl p-4 mb-6 max-w-xl text-left flex items-start gap-3">
+              <Info size={20} className="text-blue-700 shrink-0 mt-0.5" />
+              <p className="m-0 text-sm text-blue-900 font-medium leading-relaxed"><strong>Baseado nos protocolos ISAK, mas não é um curso ISAK.</strong> É um curso independente e não emite certificação ISAK.</p>
+            </div>
+
             <div className="grid grid-cols-2 sm:flex gap-2 sm:gap-3 mb-6 w-full sm:w-auto">
               {[aulas.online, aulas.presencial].map((aula) => (
                 <div key={aula.titulo} className="flex items-center justify-center sm:justify-start gap-3 bg-white border border-green-100 rounded-2xl px-3 sm:px-4 py-3 text-left shadow-sm">
@@ -126,6 +131,8 @@ export default function CursoAvaliacaoAntropometrica() {
               <div className="bg-slate-900 text-white px-8 py-4 rounded-3xl text-center min-w-[190px]">
                 <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mb-1">Primeiro Lote</span>
                 <span className="block text-4xl font-black italic tracking-tighter"><span className="text-xl text-green-400 mr-1">R$</span>500<span className="text-xl text-green-400">,00</span></span>
+                <span className="block text-[11px] font-bold text-slate-300 mt-2 leading-snug">2º lote: R$ 600 • 3º lote: R$ 700</span>
+                <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mt-1">O preço sobe a cada lote</span>
               </div>
               <a
                 href={linkInscricao}
@@ -354,7 +361,7 @@ export default function CursoAvaliacaoAntropometrica() {
           <img src={`${githubImgBase}logoN_pingus.webp`} alt="Píngus, mascote do Nutrição com Marco" width="128" height="128" loading="lazy" className="w-28 md:w-32 h-auto" />
           <div className="flex-1 text-center md:text-left">
             <h2 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mb-2">Garanta sua vaga no primeiro lote</h2>
-            <p className="text-slate-700 font-medium mb-6">Valor do primeiro lote: <strong>R$ 500,00</strong>. A inscrição e as dúvidas são atendidas pelo WhatsApp.</p>
+            <p className="text-slate-700 font-medium mb-6">Valor do primeiro lote: <strong>R$ 500,00</strong>. O 2º lote custa R$ 600 e o 3º, R$ 700: quanto antes você garantir a vaga, menos paga. A inscrição e as dúvidas são atendidas pelo WhatsApp.</p>
             <a
               href={linkInscricao}
               target="_blank"
@@ -364,7 +371,7 @@ export default function CursoAvaliacaoAntropometrica() {
             >
               <MessageCircle size={18} /> Garantir minha vaga
             </a>
-            <p className="text-[11px] text-slate-500 font-medium mt-5 mb-0">Curso independente, voltado ao aprendizado e treino das técnicas de medição. Não é um curso oficial de certificação ISAK.</p>
+            <p className="text-[11px] text-slate-500 font-medium mt-5 mb-0">Curso independente, baseado nos protocolos ISAK. Não é um curso ISAK e não emite certificação ISAK.</p>
           </div>
         </div>
       </section>
