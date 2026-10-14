@@ -109,7 +109,7 @@ const rotasEstaticas = [
         "@context": "https://schema.org",
         "@type": "Course",
         "name": "Curso de Avaliação Antropométrica: Teoria Online e Prática Presencial",
-        "description": "Curso de avaliação antropométrica com aula teórica online (16/01/2027, às 18h), 8 horas de aula prática presencial no Rio de Janeiro (23/01/2027, das 8h às 17h), livro digital Antropometria: Do Zero ao Avançado (Volume 1), Planilha de Avaliação Antropométrica e materiais de medição.",
+        "description": "Curso de avaliação antropométrica com aula teórica online (16/01/2027, às 18h), 8 horas de aula prática presencial no Rio de Janeiro (23/01/2027, das 8h às 17h), livro digital Antropometria: Do Zero ao Avançado (Volume 1), Planilha de Avaliação Antropométrica e materiais de medição. Baseado nos protocolos ISAK; curso independente, que não é um curso ISAK e não emite certificação ISAK.",
         "url": "https://www.nutricaocommarco.com.br/curso-de-avaliacao-antropometrica",
         "image": `${githubImgBase}Curso_Antropometria_Pratica.webp`,
         "inLanguage": "pt-BR",
@@ -147,8 +147,8 @@ const rotasEstaticas = [
         { pergunta: "Quando acontecem as aulas?", resposta: "A aula online é no sábado, 16 de janeiro de 2027, às 18h. A aula presencial é no sábado, 23 de janeiro de 2027, das 8h às 17h." },
         { pergunta: "Paquímetro e plicômetro estão inclusos?", resposta: "Não. O paquímetro e o plicômetro não estão inclusos no valor do curso. Os modelos recomendados são o Plicômetro Clínico Preto e o Paquímetro Ósseo 16 cm Preto, ambos da Avanutri, com os links de compra na seção \"Equipamentos recomendados\" desta página. Se tiver dúvidas, chame no WhatsApp antes de se inscrever." },
         { pergunta: "Onde acontece a aula prática?", resposta: "No Estrela Café, na R. Salinópolis, 44 - Taquara, Rio de Janeiro - RJ, 22720-000." },
-        { pergunta: "Quanto custa o curso?", resposta: "O valor do primeiro lote é R$ 500,00." },
-        { pergunta: "Este curso dá certificação ISAK?", resposta: "Não. A certificação ISAK é emitida por cursos oficiais credenciados pela própria ISAK. Este é um curso independente, focado em aprender e treinar as técnicas de medição da avaliação antropométrica." }
+        { pergunta: "Quanto custa o curso?", resposta: "O valor do primeiro lote é R$ 500,00. O segundo lote custa R$ 600,00 e o terceiro, R$ 700,00. O preço sobe a cada lote, então garantir a vaga agora é pagar o menor valor." },
+        { pergunta: "Este curso dá certificação ISAK?", resposta: "Não. Este não é um curso ISAK e não emite certificação ISAK: a certificação é emitida apenas por cursos oficiais credenciados pela própria ISAK. Este é um curso independente, que ensina e treina as técnicas de medição com base nos protocolos ISAK." }
       ])
     ]
   },
