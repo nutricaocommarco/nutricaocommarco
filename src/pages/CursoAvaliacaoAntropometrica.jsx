@@ -13,7 +13,7 @@ const capaLivro = `${githubImgBase}Antropometria_Livro_Vol1_Capa.webp`;
 const fotoCurso = `${githubImgBase}Curso_Antropometria_Pratica.webp`;
 
 const aulas = {
-  online: { titulo: 'Aula Online', curta: '16/01/2027 • 18h', quando: 'Sábado, 16 de janeiro de 2027', horario: 'às 18h' },
+  online: { titulo: 'Aula Online', curta: '16/01/2027 • 18h às 21h', quando: 'Sábado, 16 de janeiro de 2027', horario: 'das 18h às 21h' },
   presencial: { titulo: 'Aula Presencial', curta: '23/01/2027 • 8h às 17h', quando: 'Sábado, 23 de janeiro de 2027', horario: 'das 8h às 17h' },
 };
 
@@ -133,7 +133,7 @@ const faqs = [
   },
   {
     pergunta: 'Quando acontecem as aulas?',
-    resposta: 'A aula online é no sábado, 16 de janeiro de 2027, às 18h. A aula presencial é no sábado, 23 de janeiro de 2027, das 8h às 17h.'
+    resposta: 'A aula online é no sábado, 16 de janeiro de 2027, das 18h às 21h. A aula presencial é no sábado, 23 de janeiro de 2027, das 8h às 17h.'
   },
   {
     pergunta: 'Paquímetro e plicômetro estão inclusos?',

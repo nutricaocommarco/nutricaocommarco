@@ -109,7 +109,7 @@ const rotasEstaticas = [
         "@context": "https://schema.org",
         "@type": "Course",
         "name": "Curso de Avaliação Antropométrica: Teoria Online e Prática Presencial",
-        "description": "Curso de avaliação antropométrica com aula teórica online (16/01/2027, às 18h), 8 horas de aula prática presencial no Rio de Janeiro (23/01/2027, das 8h às 17h), livro digital Antropometria: Do Zero ao Avançado (Volume 1), Planilha de Avaliação Antropométrica, grupo exclusivo da turma no WhatsApp e kit de brinde para levar para casa (fita antropométrica, segmômetro, caneta e banqueta). Baseado nos protocolos ISAK; curso independente, que não é um curso ISAK e não emite certificação ISAK.",
+        "description": "Curso de avaliação antropométrica com aula teórica online (16/01/2027, das 18h às 21h), 8 horas de aula prática presencial no Rio de Janeiro (23/01/2027, das 8h às 17h), livro digital Antropometria: Do Zero ao Avançado (Volume 1), Planilha de Avaliação Antropométrica, grupo exclusivo da turma no WhatsApp e kit de brinde para levar para casa (fita antropométrica, segmômetro, caneta e banqueta). Baseado nos protocolos ISAK; curso independente, que não é um curso ISAK e não emite certificação ISAK.",
         "url": "https://www.nutricaocommarco.com.br/curso-de-avaliacao-antropometrica",
         "image": `${githubImgBase}Curso_Antropometria_Pratica.webp`,
         "inLanguage": "pt-BR",
@@ -144,7 +144,7 @@ const rotasEstaticas = [
       },
       getFaqSchema([
         { pergunta: "O que está incluso no valor do curso?", resposta: "Aula teórica online, aula prática presencial de 8 horas, o livro digital \"Antropometria: Do Zero ao Avançado — Volume 1\", a Planilha de Avaliação Antropométrica, acesso ao grupo exclusivo da turma no WhatsApp e coffee break. Também vem um kit de brinde que fica com você, para levar para casa: fita antropométrica (Cescorf), segmômetro, caneta e banqueta Vonder." },
-        { pergunta: "Quando acontecem as aulas?", resposta: "A aula online é no sábado, 16 de janeiro de 2027, às 18h. A aula presencial é no sábado, 23 de janeiro de 2027, das 8h às 17h." },
+        { pergunta: "Quando acontecem as aulas?", resposta: "A aula online é no sábado, 16 de janeiro de 2027, das 18h às 21h. A aula presencial é no sábado, 23 de janeiro de 2027, das 8h às 17h." },
         { pergunta: "Paquímetro e plicômetro estão inclusos?", resposta: "Não. O paquímetro e o plicômetro não estão inclusos no valor do curso. Os modelos recomendados são o Plicômetro Clínico Preto e o Paquímetro Ósseo 16 cm Preto, ambos da Avanutri, com os links de compra na seção \"Equipamentos recomendados\" desta página. Se tiver dúvidas, chame no WhatsApp antes de se inscrever." },
         { pergunta: "Onde acontece a aula prática?", resposta: "No Estrela Café, na R. Salinópolis, 44 - Taquara, Rio de Janeiro - RJ, 22720-000." },
         { pergunta: "Quanto custa o curso?", resposta: "O valor do primeiro lote é R$ 600,00, e o primeiro lote tem 4 vagas. O segundo lote custa R$ 700,00 e o terceiro, R$ 800,00. O preço sobe a cada lote, então garantir a vaga agora é pagar o menor valor. O pagamento pode ser feito em Pix, boleto ou cartão em até 12x, com juros." },
