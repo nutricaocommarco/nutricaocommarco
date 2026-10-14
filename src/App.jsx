@@ -68,6 +68,7 @@ const ComoDormirRapido = lazyRetry(() => import('./pages/ComoDormirRapido'));
 const OQueSaoMicroplasticos = lazyRetry(() => import('./pages/OQueSaoMicroplasticos'));
 const OQueEReeducacaoAlimentar = lazyRetry(() => import('./pages/OQueEReeducacaoAlimentar'));
 const OQueECompulsaoAlimentar = lazyRetry(() => import('./pages/OQueECompulsaoAlimentar'));
+const CursoAvaliacaoAntropometrica = lazyRetry(() => import('./pages/CursoAvaliacaoAntropometrica'));
 const NotFound = lazyRetry(() => import('./pages/NotFound'));
 
 const LoadingSpinner = () => (
@@ -333,6 +334,7 @@ export default function App() {
               <Route path="/o-que-sao-microplasticos" element={<OQueSaoMicroplasticos />} />
               <Route path="/o-que-e-reeducacao-alimentar" element={<OQueEReeducacaoAlimentar />} />
               <Route path="/o-que-e-compulsao-alimentar" element={<OQueECompulsaoAlimentar />} />
+              <Route path="/curso-de-avaliacao-antropometrica" element={<CursoAvaliacaoAntropometrica />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
