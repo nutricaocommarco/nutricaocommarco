@@ -89,6 +89,7 @@ const conteudo = [
   { icone: Users, titulo: 'Aula Prática Presencial', texto: '8 horas de prática de medição, presencialmente, no Estrela Café (Taquara – RJ).' },
   { icone: BookOpen, titulo: 'Livro Digital', texto: 'Antropometria: Do Zero ao Avançado — Volume 1: Fundamentos, História e Protocolo de Medidas.' },
   { icone: FileSpreadsheet, titulo: 'Planilha de Avaliação Antropométrica', texto: 'Planilha de avaliação antropométrica incluída no curso.', link: { to: '/planilha', rotulo: 'Conhecer a planilha' } },
+  { icone: MessageCircle, titulo: 'Grupo exclusivo da turma no WhatsApp', texto: 'Acesso ao grupo exclusivo da turma no WhatsApp.', largo: true },
 ];
 
 const kitBrinde = [
@@ -121,7 +122,7 @@ const kitBrinde = [
 const faqs = [
   {
     pergunta: 'O que está incluso no valor do curso?',
-    resposta: 'Aula teórica online, aula prática presencial de 8 horas, o livro digital "Antropometria: Do Zero ao Avançado — Volume 1", a Planilha de Avaliação Antropométrica e coffee break. Também vem um kit de brinde que fica com você, para levar para casa: fita antropométrica (Cescorf), segmômetro, caneta e banqueta Vonder.'
+    resposta: 'Aula teórica online, aula prática presencial de 8 horas, o livro digital "Antropometria: Do Zero ao Avançado — Volume 1", a Planilha de Avaliação Antropométrica, acesso ao grupo exclusivo da turma no WhatsApp e coffee break. Também vem um kit de brinde que fica com você, para levar para casa: fita antropométrica (Cescorf), segmômetro, caneta e banqueta Vonder.'
   },
   {
     pergunta: 'Quando acontecem as aulas?',
@@ -330,7 +331,7 @@ export default function CursoAvaliacaoAntropometrica() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
             {conteudo.map((item) => (
-              <div key={item.titulo} className="bg-slate-50 p-6 rounded-3xl border border-slate-100 shadow-sm flex gap-4 items-start">
+              <div key={item.titulo} className={`bg-slate-50 p-6 rounded-3xl border border-slate-100 shadow-sm flex gap-4 items-start ${item.largo ? 'md:col-span-2' : ''}`}>
                 <div className="w-12 h-12 bg-green-700 rounded-2xl flex items-center justify-center text-white shrink-0 shadow-lg">
                   <item.icone size={22} />
                 </div>
