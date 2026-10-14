@@ -4,7 +4,7 @@ import ImagemOtimizada from '../components/ImagemOtimizada';
 import {
   Gift, FileSpreadsheet, GraduationCap, Coffee, BookOpen,
   Monitor, MapPin, MessageCircle, CheckCircle2, AlertTriangle, ChevronDown,
-  Users, Navigation, CalendarDays, ExternalLink, Info, ClipboardList, CreditCard, Copy, Check
+  Users, Navigation, CalendarDays, ExternalLink, Info, ClipboardList, CreditCard
 } from 'lucide-react';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
@@ -45,10 +45,8 @@ const LOTES = [
 ];
 const LOTE_ATIVO = 0;
 const LOTE = LOTES[LOTE_ATIVO];
-const PIX_CHAVE = '21997704300'; // só para o livro físico (R$ 80), pago à parte
-const PIX_CHAVE_EXIBIDA = '(21) 99770-4300';
 const PRECO_CURSO = LOTE.preco;
-const PRECO_LIVRO_FISICO = 80;
+const PRECO_LIVRO_FISICO = 80; // valor promocional, oferecido dentro da Hotmart
 const VAGAS_PRIMEIRO_LOTE = LOTES[0].vagas;
 const CHAVE_STORAGE = 'inscricao_curso_antropometria';
 
@@ -62,7 +60,7 @@ const formatarTelefone = (valor) => {
   return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
 };
 
-const formVazio = { nome: '', email: '', telefone: '', paquimetro: '', plicometro: '', livroFisico: false, aceite: false };
+const formVazio = { nome: '', email: '', telefone: '', paquimetro: '', plicometro: '', aceite: false };
 
 const lerInscricaoSalva = () => {
   try {
@@ -143,7 +141,7 @@ const faqs = [
   },
   {
     pergunta: 'Como faço a inscrição e o pagamento?',
-    resposta: 'Preencha a ficha de inscrição no fim desta página, com nome, e-mail, telefone e os equipamentos que você já tem. Ao enviar, a ficha chega ao Marco e o link de pagamento do curso é liberado. Se quiser, você pode incluir o livro físico por mais R$ 80,00, pagos à parte por Pix.'
+    resposta: 'Preencha a ficha de inscrição no fim desta página, com nome, e-mail, telefone e os equipamentos que você já tem. Ao enviar, a ficha chega ao Marco e o link de pagamento do curso é liberado. O livro físico tem valor promocional de R$ 80,00 e pode ser incluído na compra, dentro da plataforma da Hotmart.'
   },
   {
     pergunta: 'Este curso dá certificação ISAK?',
@@ -159,16 +157,13 @@ export default function CursoAvaliacaoAntropometrica() {
   const [enviando, setEnviando] = useState(false);
   const [erroEnvio, setErroEnvio] = useState(false);
   const [erros, setErros] = useState({});
-  const [pixCopiado, setPixCopiado] = useState(false);
   const painelRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const total = PRECO_CURSO + (form.livroFisico ? PRECO_LIVRO_FISICO : 0);
   const linkPagamento = LOTE.link;
-  const livroForaDoLink = form.livroFisico;
 
   const irParaInscricao = (e) => {
     e.preventDefault();
@@ -183,18 +178,24 @@ export default function CursoAvaliacaoAntropometrica() {
   const resumoEquipamento = (valor) => valor.trim() || 'Não possui';
 
   const mensagemFicha = [
-    'Olá, Marco! Quero me inscrever no Curso de Avaliação Antropométrica (1º lote).',
+    `Olá, Marco! Quero me inscrever no Curso de Avaliação Antropométrica (${LOTE.nome}).`,
     '',
     `*Nome:* ${form.nome.trim()}`,
     `*E-mail:* ${form.email.trim()}`,
     `*Telefone:* ${form.telefone}`,
     `*Paquímetro:* ${resumoEquipamento(form.paquimetro)}`,
     `*Plicômetro:* ${resumoEquipamento(form.plicometro)}`,
-    `*Livro físico (+ ${formatarReais(PRECO_LIVRO_FISICO)}):* ${form.livroFisico ? 'Sim' : 'Não'}`,
-    `*Total:* ${formatarReais(total)}`,
   ].join('\n');
   const linkFichaWhatsApp = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagemFicha)}`;
-  const linkPagoWhatsApp = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(`Olá, Marco! Já paguei por Pix os ${formatarReais(PRECO_LIVRO_FISICO)} do livro físico do Curso de Avaliação Antropométrica. Nome: ${form.nome.trim()}.`)}`;
+
+  const avisoLivroFisico = (
+    <div className="bg-orange-50 border border-orange-200 rounded-2xl p-4 flex items-start gap-3">
+      <BookOpen size={20} className="text-orange-600 shrink-0 mt-0.5" />
+      <p className="text-sm text-orange-900 font-medium leading-relaxed m-0">
+        <strong>Livro físico com desconto:</strong> valor promocional de <strong>{formatarReais(PRECO_LIVRO_FISICO)}</strong>. Você pode incluir o livro físico na sua compra, dentro da própria plataforma da Hotmart, na hora do pagamento.
+      </p>
+    </div>
+  );
 
   const liberarPagamento = () => {
     setFichaEnviada(true);
@@ -229,8 +230,6 @@ export default function CursoAvaliacaoAntropometrica() {
           telefone: form.telefone,
           paquimetro: resumoEquipamento(form.paquimetro),
           plicometro: resumoEquipamento(form.plicometro),
-          livro_fisico: form.livroFisico ? `Sim (+ ${formatarReais(PRECO_LIVRO_FISICO)})` : 'Não',
-          total: formatarReais(total),
           lote: `${LOTE.nome} (${formatarReais(PRECO_CURSO)})`,
         }),
       });
@@ -246,16 +245,6 @@ export default function CursoAvaliacaoAntropometrica() {
   const corrigirDados = () => {
     setFichaEnviada(false);
     try { sessionStorage.removeItem(CHAVE_STORAGE); } catch (err) { /* ignora */ }
-  };
-
-  const copiarPix = async () => {
-    try {
-      await navigator.clipboard.writeText(PIX_CHAVE);
-      setPixCopiado(true);
-      setTimeout(() => setPixCopiado(false), 2500);
-    } catch (err) {
-      window.prompt('Copie a chave Pix:', PIX_CHAVE);
-    }
   };
 
   const classeCampo = (campo) =>
@@ -595,18 +584,7 @@ export default function CursoAvaliacaoAntropometrica() {
               </div>
               <p className="text-xs text-slate-500 font-medium -mt-2 mb-0">Paquímetro e plicômetro não estão inclusos. Se ainda não tem, veja os modelos recomendados em &ldquo;Equipamentos recomendados&rdquo;, acima.</p>
 
-              <label htmlFor="inscricao-livro" className={`flex items-start gap-3 rounded-2xl border p-4 cursor-pointer transition-colors ${form.livroFisico ? 'border-green-600 bg-green-50' : 'border-slate-200 bg-slate-50'}`}>
-                <input id="inscricao-livro" type="checkbox" checked={form.livroFisico} onChange={(e) => atualizar('livroFisico', e.target.checked)} className="mt-1 h-5 w-5 accent-green-700 shrink-0" />
-                <span className="text-sm font-bold text-slate-800 leading-snug">
-                  Quero também o livro físico (+ {formatarReais(PRECO_LIVRO_FISICO)})
-                  <span className="block text-xs font-medium text-slate-500 mt-0.5">O livro digital já está incluso no curso.</span>
-                </span>
-              </label>
-
-              <div className="flex items-center justify-between bg-slate-900 text-white rounded-2xl px-5 py-4">
-                <span className="text-xs font-black uppercase tracking-widest text-green-400">Total</span>
-                <span className="text-2xl font-black italic tracking-tighter whitespace-nowrap">{formatarReais(total)}</span>
-              </div>
+              {avisoLivroFisico}
 
               <div>
                 <label htmlFor="inscricao-aceite" className="flex items-start gap-3 cursor-pointer">
@@ -645,19 +623,7 @@ export default function CursoAvaliacaoAntropometrica() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between bg-slate-900 text-white rounded-2xl px-5 py-4">
-                <span className="text-xs font-black uppercase tracking-widest text-green-400">Total a pagar</span>
-                <span className="text-2xl font-black italic tracking-tighter whitespace-nowrap">{formatarReais(total)}</span>
-              </div>
-
-              {livroForaDoLink && (
-                <div className="bg-orange-50 border border-orange-200 rounded-2xl p-4 flex items-start gap-3">
-                  <AlertTriangle size={20} className="text-orange-600 shrink-0 mt-0.5" />
-                  <p className="text-sm text-orange-900 font-medium leading-relaxed m-0">
-                    Você escolheu o livro físico, então o total é <strong>{formatarReais(total)}</strong>. O link abaixo é do curso ({formatarReais(PRECO_CURSO)}). Os {formatarReais(PRECO_LIVRO_FISICO)} do livro são pagos à parte, por Pix.
-                  </p>
-                </div>
-              )}
+              {avisoLivroFisico}
 
               <a
                 href={linkPagamento}
@@ -667,29 +633,6 @@ export default function CursoAvaliacaoAntropometrica() {
               >
                 <CreditCard size={18} /> Pagar o curso ({formatarReais(PRECO_CURSO)})
               </a>
-
-              {livroForaDoLink && (
-                <>
-                  <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-center sm:text-left">
-                    <span className="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">Livro físico: {formatarReais(PRECO_LIVRO_FISICO)} por Pix (chave celular)</span>
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-                      <span className="text-xl font-black text-slate-800 tracking-tight">{PIX_CHAVE_EXIBIDA}</span>
-                      <button type="button" onClick={copiarPix} className="inline-flex items-center justify-center gap-2 bg-white border border-slate-300 text-slate-700 px-5 py-2.5 rounded-full font-bold text-sm hover:bg-slate-100 transition-colors w-full sm:w-auto">
-                        {pixCopiado ? <><Check size={16} className="text-green-700" /> Chave copiada</> : <><Copy size={16} /> Copiar chave</>}
-                      </button>
-                    </div>
-                  </div>
-
-                  <a
-                    href={linkPagoWhatsApp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-3 border-2 border-green-700 text-green-800 px-8 py-3.5 rounded-full font-black uppercase text-xs tracking-widest hover:bg-green-100 transition-colors w-full italic"
-                  >
-                    <MessageCircle size={18} /> Paguei o livro: avisar no WhatsApp
-                  </a>
-                </>
-              )}
 
               <button type="button" onClick={corrigirDados} className="text-xs font-bold text-slate-500 underline self-center bg-transparent border-0 cursor-pointer">Corrigir meus dados</button>
             </div>
