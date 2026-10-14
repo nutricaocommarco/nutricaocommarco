@@ -389,7 +389,7 @@ export default function CursoAvaliacaoAntropometrica() {
           </div>
 
           <h3 className="text-sm font-black text-slate-500 uppercase tracking-widest mb-4">Equipamentos recomendados</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-2xl items-stretch">
             {equipamentosRecomendados.map((eq) => (
               <a
                 key={eq.nome}
@@ -397,15 +397,17 @@ export default function CursoAvaliacaoAntropometrica() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Ver ${eq.nome} (${eq.marca}) na loja Avanutri`}
-                className="group bg-white border border-slate-200 rounded-2xl p-5 hover:border-green-600 hover:shadow-lg transition-all no-underline"
+                className="group bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col hover:border-green-600 hover:shadow-lg transition-all no-underline"
               >
-                <div className="aspect-[4/3] bg-white rounded-xl mb-4 [&>picture]:block [&>picture]:h-full">
-                  <ImagemOtimizada src={eq.imagem} alt={eq.alt} title={eq.nome} className="!object-contain" />
+                <div className="aspect-[4/3] bg-white [&>picture]:block [&>picture]:h-full">
+                  <ImagemOtimizada src={eq.imagem} alt={eq.alt} title={eq.nome} className="!object-contain p-2 sm:p-3" />
                 </div>
-                <span className="block text-[10px] font-black uppercase tracking-widest text-green-700 mb-1">{eq.marca}</span>
-                <span className="block text-lg font-black text-slate-800 mb-1 group-hover:text-green-700 transition-colors">{eq.nome}</span>
-                <span className="block text-sm text-slate-600 font-medium mb-3">{eq.uso}</span>
-                <span className="inline-flex items-center gap-1 text-sm font-bold text-green-700 underline">Ver na loja <ExternalLink size={14} /></span>
+                <div className="p-3 sm:p-4 border-t border-slate-100 flex flex-col flex-grow">
+                  <span className="block text-[10px] font-black uppercase tracking-widest text-green-700 mb-1">{eq.marca}</span>
+                  <span className="block text-sm sm:text-base font-black text-slate-800 mb-1 leading-snug group-hover:text-green-700 transition-colors">{eq.nome}</span>
+                  <span className="block text-xs sm:text-sm text-slate-600 font-medium leading-snug mb-2 flex-grow">{eq.uso}</span>
+                  <span className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-green-700 underline">Ver na loja <ExternalLink size={12} /></span>
+                </div>
               </a>
             ))}
           </div>
