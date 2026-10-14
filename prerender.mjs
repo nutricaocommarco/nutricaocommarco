@@ -102,21 +102,23 @@ const rotasEstaticas = [
   {
     path: 'curso-de-avaliacao-antropometrica',
     title: 'Curso de Avaliação Antropométrica no Rio | Nutrição com Marco',
-    image: `${githubImgBase}Antropometria_Livro_Vol1_Capa.webp`,
+    image: `${githubImgBase}Curso_Antropometria_Pratica.webp`,
     desc: 'Curso de avaliação antropométrica com teoria online e 8h de prática presencial no Rio. Inclui livro digital, planilha e materiais. R$ 500 no primeiro lote.',
     schemasExtra: [
       {
         "@context": "https://schema.org",
         "@type": "Course",
         "name": "Curso de Avaliação Antropométrica: Teoria Online e Prática Presencial",
-        "description": "Curso de avaliação antropométrica com aula teórica online, 8 horas de aula prática presencial no Rio de Janeiro, livro digital Antropometria: Do Zero ao Avançado (Volume 1), Planilha de Avaliação Antropométrica e materiais de medição.",
+        "description": "Curso de avaliação antropométrica com aula teórica online (16/01/2027, às 18h), 8 horas de aula prática presencial no Rio de Janeiro (23/01/2027, das 8h às 17h), livro digital Antropometria: Do Zero ao Avançado (Volume 1), Planilha de Avaliação Antropométrica e materiais de medição.",
         "url": "https://www.nutricaocommarco.com.br/curso-de-avaliacao-antropometrica",
-        "image": `${githubImgBase}Antropometria_Livro_Vol1_Capa.webp`,
+        "image": `${githubImgBase}Curso_Antropometria_Pratica.webp`,
         "inLanguage": "pt-BR",
         "provider": { "@type": "Organization", "name": "Nutrição com Marco", "sameAs": "https://www.nutricaocommarco.com.br" },
         "hasCourseInstance": {
           "@type": "CourseInstance",
           "courseMode": ["Online", "Onsite"],
+          "startDate": "2027-01-16T18:00:00-03:00",
+          "endDate": "2027-01-23T17:00:00-03:00",
           "instructor": { "@type": "Person", "name": "Marco Aurélio Neves Júnior", "url": "https://www.nutricaocommarco.com.br/sobre" },
           "location": {
             "@type": "Place",
@@ -142,7 +144,8 @@ const rotasEstaticas = [
       },
       getFaqSchema([
         { pergunta: "O que está incluso no valor do curso?", resposta: "Aula teórica online, aula prática presencial de 8 horas, o livro digital \"Antropometria: Do Zero ao Avançado — Volume 1\", a Planilha de Avaliação Antropométrica, fita antropométrica (Cescorf), segmômetro, caneta, banqueta Vonder e coffee break." },
-        { pergunta: "Paquímetro e plicômetro estão inclusos?", resposta: "Não. O paquímetro e o plicômetro não estão inclusos no valor do curso." },
+        { pergunta: "Quando acontecem as aulas?", resposta: "A aula online é no sábado, 16 de janeiro de 2027, às 18h. A aula presencial é no sábado, 23 de janeiro de 2027, das 8h às 17h." },
+        { pergunta: "Paquímetro e plicômetro estão inclusos?", resposta: "Não. O paquímetro e o plicômetro não estão inclusos no valor do curso. Os modelos recomendados são o Plicômetro Clínico Preto e o Paquímetro Ósseo 16 cm Preto, ambos da Avanutri, com os links de compra na seção \"Equipamentos recomendados\" desta página. Se tiver dúvidas, chame no WhatsApp antes de se inscrever." },
         { pergunta: "Onde acontece a aula prática?", resposta: "No Estrela Café, na R. Salinópolis, 44 - Taquara, Rio de Janeiro - RJ, 22720-000." },
         { pergunta: "Quanto custa o curso?", resposta: "O valor do primeiro lote é R$ 500,00." },
         { pergunta: "Este curso dá certificação ISAK?", resposta: "Não. A certificação ISAK é emitida por cursos oficiais credenciados pela própria ISAK. Este é um curso independente, focado em aprender e treinar as técnicas de medição da avaliação antropométrica." }

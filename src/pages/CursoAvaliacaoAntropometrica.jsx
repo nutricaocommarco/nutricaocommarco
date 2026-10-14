@@ -4,11 +4,32 @@ import ImagemOtimizada from '../components/ImagemOtimizada';
 import {
   Ruler, Armchair, Pencil, FileSpreadsheet, GraduationCap, Coffee, BookOpen,
   Monitor, MapPin, MessageCircle, CheckCircle2, AlertTriangle, ChevronDown,
-  Users, Navigation, CalendarDays
+  Users, Navigation, CalendarDays, ExternalLink
 } from 'lucide-react';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 const capaLivro = `${githubImgBase}Antropometria_Livro_Vol1_Capa.webp`;
+const fotoCurso = `${githubImgBase}Curso_Antropometria_Pratica.webp`;
+
+const aulas = {
+  online: { titulo: 'Aula Online', curta: '16/01/2027 • 18h', quando: 'Sábado, 16 de janeiro de 2027', horario: 'às 18h' },
+  presencial: { titulo: 'Aula Presencial', curta: '23/01/2027 • 8h às 17h', quando: 'Sábado, 23 de janeiro de 2027', horario: 'das 8h às 17h' },
+};
+
+const equipamentosRecomendados = [
+  {
+    nome: 'Plicômetro Clínico Preto',
+    marca: 'Avanutri',
+    uso: 'Para medir as dobras cutâneas.',
+    link: 'https://www.loja.avanutri.com.br/prod,idproduto,5486796,linha-nutricao-plicometro---adipometro-plicometro-clinico-preto-avanutri',
+  },
+  {
+    nome: 'Paquímetro Ósseo 16 cm Preto',
+    marca: 'Avanutri',
+    uso: 'Para medir os diâmetros ósseos.',
+    link: 'https://www.loja.avanutri.com.br/prod,idproduto,5736088,linha-nutricao-paquimetro-osseo-paquimetro-osseo-16cm-preto-avanutri',
+  },
+];
 
 const WHATSAPP_NUMERO = '5521997704300';
 const mensagemWhatsApp = 'Olá, Marco! Quero garantir minha vaga no Curso de Avaliação Antropométrica (1º lote).';
@@ -21,7 +42,7 @@ const conteudo = [
   { icone: Monitor, titulo: 'Aula Teórica Online', texto: 'A parte teórica do curso, em formato online.' },
   { icone: Users, titulo: 'Aula Prática Presencial', texto: '8 horas de prática de medição, presencialmente, no Estrela Café (Taquara – RJ).' },
   { icone: BookOpen, titulo: 'Livro Digital', texto: 'Antropometria: Do Zero ao Avançado — Volume 1: Fundamentos, História e Protocolo de Medidas.' },
-  { icone: FileSpreadsheet, titulo: 'Planilha de Avaliação Antropométrica', texto: 'Planilha de avaliação antropométrica incluída no curso.' },
+  { icone: FileSpreadsheet, titulo: 'Planilha de Avaliação Antropométrica', texto: 'Planilha de avaliação antropométrica incluída no curso.', link: { to: '/planilha', rotulo: 'Conhecer a planilha' } },
 ];
 
 const materiais = [
@@ -37,8 +58,12 @@ const faqs = [
     resposta: 'Aula teórica online, aula prática presencial de 8 horas, o livro digital "Antropometria: Do Zero ao Avançado — Volume 1", a Planilha de Avaliação Antropométrica, fita antropométrica (Cescorf), segmômetro, caneta, banqueta Vonder e coffee break.'
   },
   {
+    pergunta: 'Quando acontecem as aulas?',
+    resposta: 'A aula online é no sábado, 16 de janeiro de 2027, às 18h. A aula presencial é no sábado, 23 de janeiro de 2027, das 8h às 17h.'
+  },
+  {
     pergunta: 'Paquímetro e plicômetro estão inclusos?',
-    resposta: 'Não. O paquímetro e o plicômetro não estão inclusos no valor do curso. Se tiver dúvidas sobre esses equipamentos, chame no WhatsApp antes de se inscrever.'
+    resposta: 'Não. O paquímetro e o plicômetro não estão inclusos no valor do curso. Os modelos recomendados são o Plicômetro Clínico Preto e o Paquímetro Ósseo 16 cm Preto, ambos da Avanutri, com os links de compra na seção "Equipamentos recomendados" desta página. Se tiver dúvidas, chame no WhatsApp antes de se inscrever.'
   },
   {
     pergunta: 'Onde acontece a aula prática?',
@@ -85,6 +110,18 @@ export default function CursoAvaliacaoAntropometrica() {
               Aula teórica online, 8 horas de prática presencial no Rio de Janeiro e o livro digital <strong>Antropometria: Do Zero ao Avançado</strong>. Tudo para você sair da insegurança na hora de pegar o instrumento e aprender a medir de verdade.
             </p>
 
+            <div className="grid grid-cols-2 sm:flex gap-2 sm:gap-3 mb-6 w-full sm:w-auto">
+              {[aulas.online, aulas.presencial].map((aula) => (
+                <div key={aula.titulo} className="flex items-center justify-center sm:justify-start gap-3 bg-white border border-green-100 rounded-2xl px-3 sm:px-4 py-3 text-left shadow-sm">
+                  <CalendarDays className="text-green-700 shrink-0 hidden sm:block" size={20} />
+                  <div>
+                    <span className="block text-[10px] font-black uppercase tracking-widest text-green-700">{aula.titulo}</span>
+                    <span className="block text-xs sm:text-sm font-bold text-slate-800">{aula.curta}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
             <div className="flex flex-col sm:flex-row items-center gap-5 bg-white p-4 rounded-[2rem] shadow-xl border border-slate-100 w-full sm:w-fit">
               <div className="bg-slate-900 text-white px-8 py-4 rounded-3xl text-center min-w-[190px]">
                 <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mb-1">Primeiro Lote</span>
@@ -103,12 +140,12 @@ export default function CursoAvaliacaoAntropometrica() {
           </div>
 
           <div className="order-1 lg:order-2 flex justify-center">
-            <div className="relative w-36 sm:w-72 lg:w-80 aspect-[1365/2000] rounded-2xl overflow-hidden shadow-2xl border-4 border-white lg:rotate-2 bg-slate-200">
+            <div className="relative w-full max-w-xs sm:max-w-none sm:w-72 lg:w-96 aspect-[4/3] sm:aspect-[1493/2000] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-200">
               <ImagemOtimizada
-                src={capaLivro}
-                alt="Capa do livro digital Antropometria: Do Zero ao Avançado, Volume 1 — Fundamentos, História e Protocolo de Medidas, de Marco Aurélio Neves Júnior"
-                title="Antropometria: Do Zero ao Avançado — Volume 1"
-                className="absolute inset-0 w-full h-full object-cover"
+                src={fotoCurso}
+                alt="Medição de dobra cutânea com plicômetro (adipômetro) na região do abdômen, com o ponto anatômico marcado na pele, durante uma avaliação antropométrica"
+                title="Aula prática de avaliação antropométrica"
+                className="absolute inset-0 w-full h-full object-cover object-[50%_40%] sm:object-center"
                 priority="high"
               />
             </div>
@@ -131,6 +168,9 @@ export default function CursoAvaliacaoAntropometrica() {
                 <div>
                   <h3 className="text-lg font-black text-slate-800 mb-1">{item.titulo}</h3>
                   <p className="text-slate-600 text-sm font-medium leading-relaxed m-0">{item.texto}</p>
+                  {item.link && (
+                    <Link to={item.link.to} className="inline-block mt-2 text-sm font-bold text-green-700 underline">{item.link.rotulo}</Link>
+                  )}
                 </div>
               </div>
             ))}
@@ -150,9 +190,50 @@ export default function CursoAvaliacaoAntropometrica() {
             </li>
           </ul>
 
-          <div className="bg-orange-50 border border-orange-100 rounded-2xl p-6 text-orange-800 flex items-start gap-3">
+          <div className="bg-orange-50 border border-orange-100 rounded-2xl p-6 text-orange-800 flex items-start gap-3 mb-8">
             <AlertTriangle size={20} className="shrink-0 mt-0.5" />
-            <p className="m-0 font-medium"><strong>Não incluso:</strong> paquímetro e plicômetro. Ficou com dúvida sobre os equipamentos? Chame no WhatsApp antes de se inscrever.</p>
+            <p className="m-0 font-medium"><strong>Não incluso:</strong> paquímetro e plicômetro. Veja abaixo os modelos que eu recomendo.</p>
+          </div>
+
+          <h3 className="text-sm font-black text-slate-500 uppercase tracking-widest mb-4">Equipamentos recomendados</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {equipamentosRecomendados.map((eq) => (
+              <a
+                key={eq.nome}
+                href={eq.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Ver ${eq.nome} (${eq.marca}) na loja Avanutri`}
+                className="group bg-white border border-slate-200 rounded-2xl p-5 hover:border-green-600 hover:shadow-lg transition-all no-underline"
+              >
+                <span className="block text-[10px] font-black uppercase tracking-widest text-green-700 mb-1">{eq.marca}</span>
+                <span className="block text-lg font-black text-slate-800 mb-1 group-hover:text-green-700 transition-colors">{eq.nome}</span>
+                <span className="block text-sm text-slate-600 font-medium mb-3">{eq.uso}</span>
+                <span className="inline-flex items-center gap-1 text-sm font-bold text-green-700 underline">Ver na loja <ExternalLink size={14} /></span>
+              </a>
+            ))}
+          </div>
+          <p className="text-xs text-slate-500 mt-4 mb-0">Os links levam à loja Avanutri, que é a responsável pela venda, pelo preço e pela entrega.</p>
+        </div>
+      </section>
+
+      {/* LIVRO DIGITAL */}
+      <section className="px-4 md:px-6 pb-16">
+        <div className="container mx-auto max-w-5xl bg-slate-900 rounded-[3rem] md:rounded-[3.5rem] p-8 md:p-12 shadow-2xl border-4 border-green-500/20 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          <div className="relative w-40 md:w-56 shrink-0 aspect-[1365/2000] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/90 bg-slate-800">
+            <ImagemOtimizada
+              src={capaLivro}
+              alt="Capa do livro digital Antropometria: Do Zero ao Avançado, Volume 1 — Fundamentos, História e Protocolo de Medidas, de Marco Aurélio Neves Júnior"
+              title="Antropometria: Do Zero ao Avançado — Volume 1"
+              className="absolute inset-0 w-full h-full object-cover"
+              priority="low"
+            />
+          </div>
+          <div className="text-center md:text-left">
+            <span className="inline-block bg-green-700 text-white px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Incluso no curso</span>
+            <h2 className="text-2xl md:text-3xl font-black text-white uppercase italic leading-tight mb-3">Antropometria: Do Zero ao Avançado</h2>
+            <p className="text-green-400 font-black uppercase tracking-widest text-xs mb-4">Volume 1 • Fundamentos, História e Protocolo de Medidas</p>
+            <p className="text-slate-300 font-medium leading-relaxed m-0">Livro digital de Marco Aurélio Neves Júnior que acompanha o curso, com os fundamentos, a história da antropometria e o protocolo de medidas.</p>
           </div>
         </div>
       </section>
@@ -200,8 +281,16 @@ export default function CursoAvaliacaoAntropometrica() {
             </div>
             <div className="bg-slate-800 border border-slate-700 rounded-3xl p-6">
               <CalendarDays className="text-green-400 mb-3" size={26} />
-              <h3 className="text-xl font-black text-white mb-2">Data e horário</h3>
-              <p className="text-slate-300 font-medium leading-relaxed m-0">Para confirmar a data e o horário da turma, fale com a gente pelo WhatsApp.</p>
+              <h3 className="text-xl font-black text-white mb-4">Data e horário</h3>
+              <ul className="list-none p-0 m-0 space-y-4">
+                {[aulas.online, aulas.presencial].map((aula) => (
+                  <li key={aula.titulo} className="text-slate-300 font-medium leading-relaxed">
+                    <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mb-0.5">{aula.titulo}</span>
+                    <span className="block text-white font-bold">{aula.quando}</span>
+                    <span className="block">{aula.horario}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
