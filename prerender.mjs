@@ -18,15 +18,18 @@ function getMedicalSchema(titulo, url, entidades, especialidade = "Dietetics") {
   };
 }
 
-function getBreadcrumbSchema(nomePagina, url) {
+function getBreadcrumbSchema(nomePagina, url, semBlog = false) {
+  const itens = [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.nutricaocommarco.com.br/" }
+  ];
+  if (!semBlog) {
+    itens.push({ "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.nutricaocommarco.com.br/blog" });
+  }
+  itens.push({ "@type": "ListItem", "position": itens.length + 1, "name": nomePagina, "item": url });
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.nutricaocommarco.com.br/" },
-      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.nutricaocommarco.com.br/blog" },
-      { "@type": "ListItem", "position": 3, "name": nomePagina, "item": url }
-    ]
+    "itemListElement": itens
   };
 }
 
@@ -96,6 +99,56 @@ const rotasEstaticas = [
   { path: 'planilha-de-avaliacao-antropometrica-marco-aurelio', title: 'Planilha de Avaliação Antropométrica Inteligente PRO | Nutrição com Marco', image: `${githubImgBase}PlanilhaImagem/Planilha_Capa.webp`, desc: 'Sistema avançado e automatizado via VBA para avaliação de composição corporal, protocolos ISAK, perímetros corrigidos e somatocarta automática.' },
   { path: 'ebook-receitas', title: 'Ebook Receitas Saudáveis e Nutritivas: O Caminho da Praticidade | Nutrição com Marco', image: `${githubImgBase}Receitas_Saudáveis.png`, desc: 'Descubra como comer bem sem perder horas no fogão. Aprenda a Técnica do 3x3, pré-preparos inteligentes e dezenas de receitas práticas para a sua rotina.' },
   { path: 'planilha', title: 'Planilha Antropométrica Inteligente PRO | Nutrição com Marco', image: `${githubImgBase}PlanilhaImagem/Planilha_Capa.webp`, desc: 'Chega de calculadora manual: baixe a Planilha Antropométrica PRO em Excel/VBA e automatize dobras cutâneas, somatotipo e laudo completo em segundos.' },
+  {
+    path: 'curso-de-avaliacao-antropometrica',
+    title: 'Curso de Avaliação Antropométrica no Rio | Nutrição com Marco',
+    image: `${githubImgBase}Antropometria_Livro_Vol1_Capa.webp`,
+    desc: 'Curso de avaliação antropométrica com teoria online e 8h de prática presencial no Rio. Inclui livro digital, planilha e materiais. R$ 500 no primeiro lote.',
+    schemasExtra: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Curso de Avaliação Antropométrica: Teoria Online e Prática Presencial",
+        "description": "Curso de avaliação antropométrica com aula teórica online, 8 horas de aula prática presencial no Rio de Janeiro, livro digital Antropometria: Do Zero ao Avançado (Volume 1), Planilha de Avaliação Antropométrica e materiais de medição.",
+        "url": "https://www.nutricaocommarco.com.br/curso-de-avaliacao-antropometrica",
+        "image": `${githubImgBase}Antropometria_Livro_Vol1_Capa.webp`,
+        "inLanguage": "pt-BR",
+        "provider": { "@type": "Organization", "name": "Nutrição com Marco", "sameAs": "https://www.nutricaocommarco.com.br" },
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": ["Online", "Onsite"],
+          "instructor": { "@type": "Person", "name": "Marco Aurélio Neves Júnior", "url": "https://www.nutricaocommarco.com.br/sobre" },
+          "location": {
+            "@type": "Place",
+            "name": "Estrela Café",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "R. Salinópolis, 44",
+              "addressLocality": "Rio de Janeiro",
+              "addressRegion": "RJ",
+              "postalCode": "22720-000",
+              "addressCountry": "BR"
+            }
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "category": "Paid",
+          "price": "500.00",
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.nutricaocommarco.com.br/curso-de-avaliacao-antropometrica"
+        }
+      },
+      getFaqSchema([
+        { pergunta: "O que está incluso no valor do curso?", resposta: "Aula teórica online, aula prática presencial de 8 horas, o livro digital \"Antropometria: Do Zero ao Avançado — Volume 1\", a Planilha de Avaliação Antropométrica, fita antropométrica (Cescorf), segmômetro, caneta, banqueta Vonder e coffee break." },
+        { pergunta: "Paquímetro e plicômetro estão inclusos?", resposta: "Não. O paquímetro e o plicômetro não estão inclusos no valor do curso." },
+        { pergunta: "Onde acontece a aula prática?", resposta: "No Estrela Café, na R. Salinópolis, 44 - Taquara, Rio de Janeiro - RJ, 22720-000." },
+        { pergunta: "Quanto custa o curso?", resposta: "O valor do primeiro lote é R$ 500,00." },
+        { pergunta: "Este curso dá certificação ISAK?", resposta: "Não. A certificação ISAK é emitida por cursos oficiais credenciados pela própria ISAK. Este é um curso independente, focado em aprender e treinar as técnicas de medição da avaliação antropométrica." }
+      ])
+    ]
+  },
   { path: 'sobre', title: 'Sobre Marco Aurélio Jr. | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.webp`, desc: 'Conheça a história de Marco Aurélio Jr., futuro nutricionista e especialista em avaliação física ISAK 1.', schemasExtra: [getVideoSchema("Estudante de Jornalismo Entrevista Futuro Nutricionista: A Verdade Sobre as Dietas!", "Entrevista da estagiária de jornalismo Liliane com Marco Aurélio, futuro nutricionista, sobre o projeto Nutrição com Marco, mitos comuns da nutrição e o que é uma avaliação antropométrica.", "W-tSb-iwij4", "2026-09-16T12:00:06-07:00")] },
   { path: 'certificacoes', title: 'Currículo e Certificações | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.webp`, desc: 'Conheça a trajetória técnica e as certificações internacionais ISAK do nutricionista Marco Aurélio Jr.' },
   { path: 'planos', title: 'Planos de Acompanhamento | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.webp`, desc: 'Conheça os níveis de acompanhamento nutricional e avaliação física ISAK 1.' },
@@ -446,7 +499,7 @@ routes.forEach(route => {
   }
 
   const urlAbsoluta = `https://www.nutricaocommarco.com.br/${safePath}`;
-  const isBlog = safePath !== '' && safePath !== 'sobre' && safePath !== 'certificacoes' && safePath !== 'planos' && !safePath.includes('planilha') && !safePath.includes('loja');
+  const isBlog = safePath !== '' && safePath !== 'sobre' && safePath !== 'certificacoes' && safePath !== 'planos' && !safePath.includes('planilha') && !safePath.includes('loja') && !safePath.startsWith('curso-');
 
   // SCHEMA 🚀 (Melhorado com Autor e Data de Modificação - E-E-A-T)
   const baseSchema = {
@@ -473,7 +526,7 @@ routes.forEach(route => {
     "dateModified": route.date ? `${route.date}T10:00:00-03:00` : new Date().toISOString()
   };
 
-  const breadcrumbSchema = getBreadcrumbSchema(route.title, urlAbsoluta);
+  const breadcrumbSchema = getBreadcrumbSchema(route.title, urlAbsoluta, safePath.startsWith('curso-'));
 
   let schemasHTML = `
       <script type="application/ld+json">${JSON.stringify(baseSchema)}</script>
