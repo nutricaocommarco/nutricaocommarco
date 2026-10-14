@@ -21,12 +21,16 @@ const equipamentosRecomendados = [
     nome: 'Plicômetro Clínico Preto',
     marca: 'Avanutri',
     uso: 'Para medir as dobras cutâneas.',
+    imagem: `${githubImgBase}Curso_Plicometro_Avanutri_recorte.webp`,
+    alt: 'Plicômetro clínico preto Avanutri, com escala graduada e mola',
     link: 'https://www.loja.avanutri.com.br/prod,idproduto,5486796,linha-nutricao-plicometro---adipometro-plicometro-clinico-preto-avanutri',
   },
   {
     nome: 'Paquímetro Ósseo 16 cm Preto',
     marca: 'Avanutri',
     uso: 'Para medir os diâmetros ósseos.',
+    imagem: `${githubImgBase}Curso_Paquimetro_Osseo_Avanutri_recorte.webp`,
+    alt: 'Paquímetro ósseo preto de 16 cm Avanutri, com hastes curvas e escala',
     link: 'https://www.loja.avanutri.com.br/prod,idproduto,5736088,linha-nutricao-paquimetro-osseo-paquimetro-osseo-16cm-preto-avanutri',
   },
 ];
@@ -392,6 +396,9 @@ export default function CursoAvaliacaoAntropometrica() {
                 aria-label={`Ver ${eq.nome} (${eq.marca}) na loja Avanutri`}
                 className="group bg-white border border-slate-200 rounded-2xl p-5 hover:border-green-600 hover:shadow-lg transition-all no-underline"
               >
+                <div className="aspect-[4/3] bg-white rounded-xl mb-4 [&>picture]:block [&>picture]:h-full">
+                  <ImagemOtimizada src={eq.imagem} alt={eq.alt} title={eq.nome} className="!object-contain" />
+                </div>
                 <span className="block text-[10px] font-black uppercase tracking-widest text-green-700 mb-1">{eq.marca}</span>
                 <span className="block text-lg font-black text-slate-800 mb-1 group-hover:text-green-700 transition-colors">{eq.nome}</span>
                 <span className="block text-sm text-slate-600 font-medium mb-3">{eq.uso}</span>
