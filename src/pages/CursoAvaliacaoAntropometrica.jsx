@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ImagemOtimizada from '../components/ImagemOtimizada';
 import {
   Ruler, Armchair, Pencil, FileSpreadsheet, GraduationCap, Coffee, BookOpen,
   Monitor, MapPin, MessageCircle, CheckCircle2, AlertTriangle, ChevronDown,
-  Users, Navigation, CalendarDays, ExternalLink, Info
+  Users, Navigation, CalendarDays, ExternalLink, Info, ClipboardList, CreditCard, Copy, Check
 } from 'lucide-react';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
@@ -32,8 +32,49 @@ const equipamentosRecomendados = [
 ];
 
 const WHATSAPP_NUMERO = '5521997704300';
-const mensagemWhatsApp = 'Olá, Marco! Quero garantir minha vaga no Curso de Avaliação Antropométrica (1º lote).';
-const linkInscricao = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagemWhatsApp)}`;
+const mensagemWhatsApp = 'Olá, Marco! Tenho uma dúvida sobre o Curso de Avaliação Antropométrica.';
+const linkDuvidas = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagemWhatsApp)}`;
+
+// Inscrição: a ficha segue pelo WhatsApp do Marco e, em seguida, o pagamento é liberado na tela.
+const LINK_PAGAMENTO = 'https://mpago.li/2uPUaTR';
+const LINK_PAGAMENTO_COM_LIVRO = null; // link de R$ 580,00 (curso + livro físico), se existir
+const PIX_CHAVE = '21997704300';
+const PIX_CHAVE_EXIBIDA = '(21) 99770-4300';
+const PRECO_CURSO = 500;
+const PRECO_LIVRO_FISICO = 80;
+const VAGAS_PRIMEIRO_LOTE = 4;
+const CHAVE_STORAGE = 'inscricao_curso_antropometria';
+
+const formatarReais = (valor) => `R$ ${valor.toFixed(2).replace('.', ',')}`;
+
+const formatarTelefone = (valor) => {
+  const d = valor.replace(/\D/g, '').slice(0, 11);
+  if (d.length <= 2) return d;
+  if (d.length <= 6) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
+  if (d.length <= 10) return `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`;
+  return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+};
+
+const formVazio = { nome: '', email: '', telefone: '', paquimetro: '', plicometro: '', livroFisico: false, aceite: false };
+
+const lerInscricaoSalva = () => {
+  try {
+    const bruto = sessionStorage.getItem(CHAVE_STORAGE);
+    return bruto ? JSON.parse(bruto) : null;
+  } catch (e) {
+    return null;
+  }
+};
+
+const validarForm = (f) => {
+  const erros = {};
+  if (f.nome.trim().length < 3) erros.nome = 'Informe seu nome completo.';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.trim())) erros.email = 'Informe um e-mail válido.';
+  const digitos = f.telefone.replace(/\D/g, '');
+  if (digitos.length < 10 || digitos.length > 11) erros.telefone = 'Informe o telefone com DDD.';
+  if (!f.aceite) erros.aceite = 'É necessário autorizar o uso dos dados para enviar a ficha.';
+  return erros;
+};
 
 const enderecoLocal = 'R. Salinópolis, 44 - Taquara, Rio de Janeiro - RJ, 22720-000';
 const linkMapa = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`Estrela Café, ${enderecoLocal}`)}`;
@@ -71,7 +112,11 @@ const faqs = [
   },
   {
     pergunta: 'Quanto custa o curso?',
-    resposta: 'O valor do primeiro lote é R$ 500,00. O segundo lote custa R$ 600,00 e o terceiro, R$ 700,00. O preço sobe a cada lote, então garantir a vaga agora é pagar o menor valor.'
+    resposta: 'O valor do primeiro lote é R$ 500,00, e o primeiro lote tem 4 vagas. O segundo lote custa R$ 600,00 e o terceiro, R$ 700,00. O preço sobe a cada lote, então garantir a vaga agora é pagar o menor valor.'
+  },
+  {
+    pergunta: 'Como faço a inscrição e o pagamento?',
+    resposta: 'Preencha a ficha de inscrição no fim desta página, com nome, e-mail, telefone e os equipamentos que você já tem. Ao enviar, a ficha segue para o WhatsApp do Marco e o pagamento é liberado por link de pagamento ou por Pix. Se quiser, você pode incluir o livro físico por mais R$ 80,00.'
   },
   {
     pergunta: 'Este curso dá certificação ISAK?',
@@ -82,10 +127,80 @@ const faqs = [
 export default function CursoAvaliacaoAntropometrica() {
   const { pathname } = useLocation();
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const [form, setForm] = useState(() => lerInscricaoSalva()?.form || formVazio);
+  const [fichaEnviada, setFichaEnviada] = useState(() => Boolean(lerInscricaoSalva()));
+  const [erros, setErros] = useState({});
+  const [pixCopiado, setPixCopiado] = useState(false);
+  const painelRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  const total = PRECO_CURSO + (form.livroFisico ? PRECO_LIVRO_FISICO : 0);
+  const linkPagamento = form.livroFisico && LINK_PAGAMENTO_COM_LIVRO ? LINK_PAGAMENTO_COM_LIVRO : LINK_PAGAMENTO;
+  const livroForaDoLink = form.livroFisico && !LINK_PAGAMENTO_COM_LIVRO;
+
+  const irParaInscricao = (e) => {
+    e.preventDefault();
+    document.getElementById('inscricao')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const atualizar = (campo, valor) => {
+    setForm((atual) => ({ ...atual, [campo]: valor }));
+    setErros((atual) => (atual[campo] ? { ...atual, [campo]: undefined } : atual));
+  };
+
+  const resumoEquipamento = (valor) => valor.trim() || 'Não possui';
+
+  const mensagemFicha = [
+    'Olá, Marco! Quero me inscrever no Curso de Avaliação Antropométrica (1º lote).',
+    '',
+    `*Nome:* ${form.nome.trim()}`,
+    `*E-mail:* ${form.email.trim()}`,
+    `*Telefone:* ${form.telefone}`,
+    `*Paquímetro:* ${resumoEquipamento(form.paquimetro)}`,
+    `*Plicômetro:* ${resumoEquipamento(form.plicometro)}`,
+    `*Livro físico (+ ${formatarReais(PRECO_LIVRO_FISICO)}):* ${form.livroFisico ? 'Sim' : 'Não'}`,
+    `*Total:* ${formatarReais(total)}`,
+  ].join('\n');
+  const linkFichaWhatsApp = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagemFicha)}`;
+  const linkPagoWhatsApp = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(`Olá, Marco! Já fiz o pagamento da inscrição no Curso de Avaliação Antropométrica (${formatarReais(total)}). Nome: ${form.nome.trim()}.`)}`;
+
+  const enviarFicha = (e) => {
+    e.preventDefault();
+    const novosErros = validarForm(form);
+    setErros(novosErros);
+    const primeiroErro = Object.keys(novosErros)[0];
+    if (primeiroErro) {
+      document.getElementById(`inscricao-${primeiroErro}`)?.focus();
+      return;
+    }
+    window.open(linkFichaWhatsApp, '_blank', 'noopener,noreferrer');
+    setFichaEnviada(true);
+    try {
+      sessionStorage.setItem(CHAVE_STORAGE, JSON.stringify({ form }));
+    } catch (err) { /* sem storage: o painel só não sobrevive ao recarregar */ }
+    setTimeout(() => painelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 150);
+  };
+
+  const corrigirDados = () => {
+    setFichaEnviada(false);
+    try { sessionStorage.removeItem(CHAVE_STORAGE); } catch (err) { /* ignora */ }
+  };
+
+  const copiarPix = async () => {
+    try {
+      await navigator.clipboard.writeText(PIX_CHAVE);
+      setPixCopiado(true);
+      setTimeout(() => setPixCopiado(false), 2500);
+    } catch (err) {
+      window.prompt('Copie a chave Pix:', PIX_CHAVE);
+    }
+  };
+
+  const classeCampo = (campo) =>
+    `w-full rounded-2xl border bg-white px-4 py-3 text-base font-medium text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-green-600 ${erros[campo] ? 'border-red-400' : 'border-slate-200'}`;
 
   return (
     <div className="bg-slate-50 min-h-screen font-sans text-slate-900 selection:bg-green-200 selection:text-green-900">
@@ -129,19 +244,18 @@ export default function CursoAvaliacaoAntropometrica() {
 
             <div className="flex flex-col sm:flex-row items-center gap-5 bg-white p-4 rounded-[2rem] shadow-xl border border-slate-100 w-full sm:w-fit">
               <div className="bg-slate-900 text-white px-8 py-4 rounded-3xl text-center min-w-[190px]">
-                <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mb-1">Primeiro Lote</span>
+                <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mb-1">Primeiro Lote • {VAGAS_PRIMEIRO_LOTE} vagas</span>
                 <span className="block text-4xl font-black italic tracking-tighter"><span className="text-xl text-green-400 mr-1">R$</span>500<span className="text-xl text-green-400">,00</span></span>
                 <span className="block text-[11px] font-bold text-slate-300 mt-2 leading-snug">2º lote: R$ 600 • 3º lote: R$ 700</span>
                 <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mt-1">O preço sobe a cada lote</span>
               </div>
               <a
-                href={linkInscricao}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Garantir minha vaga no curso de avaliação antropométrica pelo WhatsApp"
+                href="#inscricao"
+                onClick={irParaInscricao}
+                aria-label="Ir para a ficha de inscrição do curso de avaliação antropométrica"
                 className="inline-flex items-center justify-center gap-3 bg-green-700 text-white px-8 py-5 rounded-full font-black uppercase text-xs md:text-sm tracking-widest shadow-xl hover:bg-green-800 hover:scale-105 transition-all duration-300 w-full sm:w-auto italic"
               >
-                <MessageCircle size={20} /> Garantir minha vaga
+                <ClipboardList size={20} /> Garantir minha vaga
               </a>
             </div>
           </div>
@@ -355,24 +469,149 @@ export default function CursoAvaliacaoAntropometrica() {
         </div>
       </section>
 
-      {/* CTA FINAL */}
-      <section className="px-4 md:px-6 pb-24">
-        <div className="container mx-auto max-w-4xl p-8 md:p-12 bg-green-50 border border-green-200 rounded-[3rem] md:rounded-[3.5rem] flex flex-col md:flex-row items-center gap-8 shadow-xl">
-          <img src={`${githubImgBase}logoN_pingus.webp`} alt="Píngus, mascote do Nutrição com Marco" width="128" height="128" loading="lazy" className="w-28 md:w-32 h-auto" />
-          <div className="flex-1 text-center md:text-left">
-            <h2 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mb-2">Garanta sua vaga no primeiro lote</h2>
-            <p className="text-slate-700 font-medium mb-6">Valor do primeiro lote: <strong>R$ 500,00</strong>. O 2º lote custa R$ 600 e o 3º, R$ 700: quanto antes você garantir a vaga, menos paga. A inscrição e as dúvidas são atendidas pelo WhatsApp.</p>
-            <a
-              href={linkInscricao}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Garantir minha vaga no curso de avaliação antropométrica pelo WhatsApp"
-              className="inline-flex items-center justify-center gap-3 bg-green-700 text-white px-8 py-4 rounded-full font-black uppercase text-xs tracking-widest shadow-lg hover:bg-green-800 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-            >
-              <MessageCircle size={18} /> Garantir minha vaga
-            </a>
-            <p className="text-[11px] text-slate-500 font-medium mt-5 mb-0">Curso independente, baseado nos protocolos ISAK. Não é um curso ISAK e não emite certificação ISAK.</p>
+      {/* INSCRIÇÃO */}
+      <section id="inscricao" className="px-4 md:px-6 pb-24 scroll-mt-24">
+        <div className="container mx-auto max-w-3xl p-6 sm:p-8 md:p-12 bg-green-50 border border-green-200 rounded-[2.5rem] md:rounded-[3.5rem] shadow-xl">
+          <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 mb-8 text-center sm:text-left">
+            <img src={`${githubImgBase}logoN_pingus.webp`} alt="Píngus, mascote do Nutrição com Marco" width="128" height="128" loading="lazy" className="w-24 md:w-28 h-auto shrink-0" />
+            <div>
+              <h2 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mb-2">Garanta sua vaga no primeiro lote</h2>
+              <p className="text-slate-700 font-medium m-0">
+                O primeiro lote tem <strong>{VAGAS_PRIMEIRO_LOTE} vagas</strong>, por <strong>R$ 500,00</strong>. O 2º lote custa R$ 600 e o 3º, R$ 700: quanto antes você se inscrever, menos paga.
+              </p>
+            </div>
           </div>
+
+          {!fichaEnviada ? (
+            <form onSubmit={enviarFicha} noValidate className="bg-white rounded-3xl border border-green-100 shadow-sm p-5 sm:p-7 flex flex-col gap-5">
+              <div>
+                <h3 className="text-sm font-black text-slate-500 uppercase tracking-widest m-0">Ficha de inscrição</h3>
+                <p className="text-sm text-slate-600 font-medium mt-1 mb-0">Preencha para liberar o pagamento.</p>
+              </div>
+
+              <div>
+                <label htmlFor="inscricao-nome" className="block text-sm font-bold text-slate-700 mb-1.5">Nome completo</label>
+                <input id="inscricao-nome" type="text" autoComplete="name" value={form.nome} onChange={(e) => atualizar('nome', e.target.value)} className={classeCampo('nome')} aria-invalid={Boolean(erros.nome)} />
+                {erros.nome && <p role="alert" className="text-xs font-bold text-red-600 mt-1 mb-0">{erros.nome}</p>}
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label htmlFor="inscricao-email" className="block text-sm font-bold text-slate-700 mb-1.5">E-mail</label>
+                  <input id="inscricao-email" type="email" autoComplete="email" inputMode="email" value={form.email} onChange={(e) => atualizar('email', e.target.value)} className={classeCampo('email')} aria-invalid={Boolean(erros.email)} />
+                  {erros.email && <p role="alert" className="text-xs font-bold text-red-600 mt-1 mb-0">{erros.email}</p>}
+                </div>
+                <div>
+                  <label htmlFor="inscricao-telefone" className="block text-sm font-bold text-slate-700 mb-1.5">Telefone / WhatsApp</label>
+                  <input id="inscricao-telefone" type="tel" autoComplete="tel" inputMode="tel" placeholder="(21) 99999-9999" value={form.telefone} onChange={(e) => atualizar('telefone', formatarTelefone(e.target.value))} className={classeCampo('telefone')} aria-invalid={Boolean(erros.telefone)} />
+                  {erros.telefone && <p role="alert" className="text-xs font-bold text-red-600 mt-1 mb-0">{erros.telefone}</p>}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label htmlFor="inscricao-paquimetro" className="block text-sm font-bold text-slate-700 mb-1.5">Possui paquímetro? Qual?</label>
+                  <input id="inscricao-paquimetro" type="text" placeholder="Marca/modelo (vazio se não tiver)" value={form.paquimetro} onChange={(e) => atualizar('paquimetro', e.target.value)} className={classeCampo('paquimetro')} />
+                </div>
+                <div>
+                  <label htmlFor="inscricao-plicometro" className="block text-sm font-bold text-slate-700 mb-1.5">Possui plicômetro? Qual?</label>
+                  <input id="inscricao-plicometro" type="text" placeholder="Marca/modelo (vazio se não tiver)" value={form.plicometro} onChange={(e) => atualizar('plicometro', e.target.value)} className={classeCampo('plicometro')} />
+                </div>
+              </div>
+              <p className="text-xs text-slate-500 font-medium -mt-2 mb-0">Paquímetro e plicômetro não estão inclusos. Se ainda não tem, veja os modelos recomendados em &ldquo;Equipamentos recomendados&rdquo;, acima.</p>
+
+              <label htmlFor="inscricao-livro" className={`flex items-start gap-3 rounded-2xl border p-4 cursor-pointer transition-colors ${form.livroFisico ? 'border-green-600 bg-green-50' : 'border-slate-200 bg-slate-50'}`}>
+                <input id="inscricao-livro" type="checkbox" checked={form.livroFisico} onChange={(e) => atualizar('livroFisico', e.target.checked)} className="mt-1 h-5 w-5 accent-green-700 shrink-0" />
+                <span className="text-sm font-bold text-slate-800 leading-snug">
+                  Quero também o livro físico (+ {formatarReais(PRECO_LIVRO_FISICO)})
+                  <span className="block text-xs font-medium text-slate-500 mt-0.5">O livro digital já está incluso no curso.</span>
+                </span>
+              </label>
+
+              <div className="flex items-center justify-between bg-slate-900 text-white rounded-2xl px-5 py-4">
+                <span className="text-xs font-black uppercase tracking-widest text-green-400">Total</span>
+                <span className="text-2xl font-black italic tracking-tighter whitespace-nowrap">{formatarReais(total)}</span>
+              </div>
+
+              <div>
+                <label htmlFor="inscricao-aceite" className="flex items-start gap-3 cursor-pointer">
+                  <input id="inscricao-aceite" type="checkbox" checked={form.aceite} onChange={(e) => atualizar('aceite', e.target.checked)} className="mt-0.5 h-5 w-5 accent-green-700 shrink-0" aria-invalid={Boolean(erros.aceite)} />
+                  <span className="text-xs text-slate-600 font-medium leading-relaxed">Autorizo o uso dos meus dados (nome, e-mail e telefone) para contato e organização deste curso.</span>
+                </label>
+                {erros.aceite && <p role="alert" className="text-xs font-bold text-red-600 mt-1 mb-0">{erros.aceite}</p>}
+              </div>
+
+              <button type="submit" className="inline-flex items-center justify-center gap-3 bg-green-700 text-white px-8 py-4 rounded-full font-black uppercase text-xs md:text-sm tracking-widest shadow-lg hover:bg-green-800 transition-all duration-300 w-full italic">
+                <ClipboardList size={18} /> Enviar ficha e liberar pagamento
+              </button>
+              <p className="text-xs text-slate-500 font-medium text-center m-0">
+                Ao enviar, o WhatsApp abre com a sua ficha pronta para o Marco. É só tocar em enviar.
+              </p>
+            </form>
+          ) : (
+            <div ref={painelRef} className="bg-white rounded-3xl border border-green-100 shadow-sm p-5 sm:p-7 flex flex-col gap-5" role="status">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="text-green-700 shrink-0 mt-0.5" size={24} />
+                <div>
+                  <h3 className="text-lg font-black text-slate-800 m-0">Ficha pronta! Falta só o pagamento.</h3>
+                  <p className="text-sm text-slate-600 font-medium mt-1 mb-0">
+                    Se o WhatsApp não abriu, ou você ainda não tocou em enviar,{' '}
+                    <a href={linkFichaWhatsApp} target="_blank" rel="noopener noreferrer" className="font-bold text-green-700 underline">envie sua ficha pelo WhatsApp</a>.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between bg-slate-900 text-white rounded-2xl px-5 py-4">
+                <span className="text-xs font-black uppercase tracking-widest text-green-400">Total a pagar</span>
+                <span className="text-2xl font-black italic tracking-tighter whitespace-nowrap">{formatarReais(total)}</span>
+              </div>
+
+              {livroForaDoLink && (
+                <div className="bg-orange-50 border border-orange-200 rounded-2xl p-4 flex items-start gap-3">
+                  <AlertTriangle size={20} className="text-orange-600 shrink-0 mt-0.5" />
+                  <p className="text-sm text-orange-900 font-medium leading-relaxed m-0">
+                    Você escolheu o livro físico, então o total é <strong>{formatarReais(total)}</strong>. O link de pagamento abaixo é do curso ({formatarReais(PRECO_CURSO)}): pague os {formatarReais(PRECO_LIVRO_FISICO)} do livro por Pix, ou pague o total direto no Pix.
+                  </p>
+                </div>
+              )}
+
+              <a
+                href={linkPagamento}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 bg-green-700 text-white px-8 py-4 rounded-full font-black uppercase text-xs md:text-sm tracking-widest shadow-lg hover:bg-green-800 transition-all duration-300 w-full italic"
+              >
+                <CreditCard size={18} /> Pagar pelo link de pagamento
+              </a>
+
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-center sm:text-left">
+                <span className="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">Ou pague por Pix (chave celular)</span>
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <span className="text-xl font-black text-slate-800 tracking-tight">{PIX_CHAVE_EXIBIDA}</span>
+                  <button type="button" onClick={copiarPix} className="inline-flex items-center justify-center gap-2 bg-white border border-slate-300 text-slate-700 px-5 py-2.5 rounded-full font-bold text-sm hover:bg-slate-100 transition-colors w-full sm:w-auto">
+                    {pixCopiado ? <><Check size={16} className="text-green-700" /> Chave copiada</> : <><Copy size={16} /> Copiar chave</>}
+                  </button>
+                </div>
+              </div>
+
+              <a
+                href={linkPagoWhatsApp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 border-2 border-green-700 text-green-800 px-8 py-3.5 rounded-full font-black uppercase text-xs tracking-widest hover:bg-green-100 transition-colors w-full italic"
+              >
+                <MessageCircle size={18} /> Já paguei: avisar no WhatsApp
+              </a>
+
+              <button type="button" onClick={corrigirDados} className="text-xs font-bold text-slate-500 underline self-center bg-transparent border-0 cursor-pointer">Corrigir meus dados</button>
+            </div>
+          )}
+
+          <p className="text-center text-sm text-slate-600 font-medium mt-6 mb-0">
+            Ficou com alguma dúvida?{' '}
+            <a href={linkDuvidas} target="_blank" rel="noopener noreferrer" className="font-bold text-green-700 underline">Chame no WhatsApp</a>.
+          </p>
+          <p className="text-[11px] text-slate-500 font-medium mt-4 mb-0 text-center">Curso independente, baseado nos protocolos ISAK. Não é um curso ISAK e não emite certificação ISAK.</p>
         </div>
       </section>
     </div>
