@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ImagemOtimizada from '../components/ImagemOtimizada';
 import {
-  Ruler, Armchair, Pencil, FileSpreadsheet, GraduationCap, Coffee, BookOpen,
+  Gift, FileSpreadsheet, GraduationCap, Coffee, BookOpen,
   Monitor, MapPin, MessageCircle, CheckCircle2, AlertTriangle, ChevronDown,
   Users, Navigation, CalendarDays, ExternalLink, Info, ClipboardList, CreditCard, Copy, Check
 } from 'lucide-react';
@@ -87,17 +87,37 @@ const conteudo = [
   { icone: FileSpreadsheet, titulo: 'Planilha de Avaliação Antropométrica', texto: 'Planilha de avaliação antropométrica incluída no curso.', link: { to: '/planilha', rotulo: 'Conhecer a planilha' } },
 ];
 
-const materiais = [
-  { icone: Ruler, nome: 'Fita antropométrica (Cescorf)' },
-  { icone: Ruler, nome: 'Segmômetro' },
-  { icone: Pencil, nome: 'Caneta' },
-  { icone: Armchair, nome: 'Banqueta Vonder' },
+const kitBrinde = [
+  {
+    nome: 'Fita antropométrica Cescorf',
+    uso: 'Para medir os perímetros (circunferências) do corpo.',
+    imagem: `${githubImgBase}Curso_Kit_Fita_Antropometrica_Cescorf.webp`,
+    alt: 'Fita antropométrica Cescorf amarela, retrátil, com caixa cromada',
+  },
+  {
+    nome: 'Segmômetro',
+    uso: 'Para medir o comprimento dos segmentos do corpo.',
+    imagem: `${githubImgBase}Curso_Kit_Segmometro.webp`,
+    alt: 'Segmômetro com trena encaixada entre duas hastes brancas',
+  },
+  {
+    nome: 'Caneta',
+    uso: 'Para marcar os pontos anatômicos.',
+    imagem: `${githubImgBase}Curso_Kit_Canetas.webp`,
+    alt: 'Canetas marcadoras Pilot Board Master nas cores azul, vermelha e preta',
+  },
+  {
+    nome: 'Banqueta Vonder',
+    uso: 'Apoio durante as medições.',
+    imagem: `${githubImgBase}Curso_Kit_Banqueta_Vonder.webp`,
+    alt: 'Banqueta dobrável Vonder preta com tampo vazado',
+  },
 ];
 
 const faqs = [
   {
     pergunta: 'O que está incluso no valor do curso?',
-    resposta: 'Aula teórica online, aula prática presencial de 8 horas, o livro digital "Antropometria: Do Zero ao Avançado — Volume 1", a Planilha de Avaliação Antropométrica, fita antropométrica (Cescorf), segmômetro, caneta, banqueta Vonder e coffee break.'
+    resposta: 'Aula teórica online, aula prática presencial de 8 horas, o livro digital "Antropometria: Do Zero ao Avançado — Volume 1", a Planilha de Avaliação Antropométrica e coffee break. Também vem um kit de brinde que fica com você, para levar para casa: fita antropométrica (Cescorf), segmômetro, caneta e banqueta Vonder.'
   },
   {
     pergunta: 'Quando acontecem as aulas?',
@@ -311,7 +331,7 @@ export default function CursoAvaliacaoAntropometrica() {
       <section className="px-4 md:px-6 pb-16">
         <div className="container mx-auto max-w-5xl bg-white p-6 md:p-12 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
           <h2 className="text-3xl md:text-4xl font-black text-slate-800 uppercase italic mb-3 text-center">O que está incluso</h2>
-          <p className="text-slate-600 font-medium text-center max-w-2xl mx-auto mb-10">Conteúdo, materiais e conforto no mesmo valor do primeiro lote.</p>
+          <p className="text-slate-600 font-medium text-center max-w-2xl mx-auto mb-10">Conteúdo, um kit de materiais para levar para casa e conforto, tudo no valor da inscrição.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
             {conteudo.map((item) => (
@@ -330,19 +350,35 @@ export default function CursoAvaliacaoAntropometrica() {
             ))}
           </div>
 
-          <h3 className="text-sm font-black text-slate-500 uppercase tracking-widest mb-4">Materiais incluídos</h3>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 list-none p-0 m-0 mb-6">
-            {materiais.map((m) => (
-              <li key={m.nome} className="flex items-center gap-3 bg-green-50 border border-green-100 rounded-2xl p-4 text-slate-800 font-bold">
-                <m.icone size={20} className="text-green-700 shrink-0" />
-                {m.nome}
-              </li>
-            ))}
-            <li className="flex items-center gap-3 bg-green-50 border border-green-100 rounded-2xl p-4 text-slate-800 font-bold sm:col-span-2">
-              <Coffee size={20} className="text-green-700 shrink-0" />
-              Coffee break
-            </li>
-          </ul>
+          <div className="bg-green-50 border border-green-200 rounded-3xl p-5 sm:p-7 mb-6">
+            <div className="flex items-center justify-center sm:justify-start gap-3 mb-2">
+              <Gift size={24} className="text-green-700 shrink-0" />
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic m-0">Seu kit de brinde</h3>
+            </div>
+            <p className="text-slate-700 font-medium text-center sm:text-left mb-6 max-w-3xl">
+              Fita antropométrica, segmômetro, caneta e banqueta são usados na prática e <strong>ficam com você</strong>: é brinde do curso, você leva tudo para casa.
+            </p>
+            <ul className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 list-none p-0 m-0">
+              {kitBrinde.map((item) => (
+                <li key={item.nome} className="bg-white border border-green-100 rounded-2xl shadow-sm overflow-hidden flex flex-col">
+                  <div className="aspect-[4/3] bg-white [&>picture]:block [&>picture]:h-full">
+                    <ImagemOtimizada src={item.imagem} alt={item.alt} title={item.nome} className="!object-contain p-2 sm:p-3" />
+                  </div>
+                  <div className="p-3 sm:p-4 border-t border-green-50">
+                    <span className="inline-block bg-green-700 text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded-full mb-1.5">Brinde</span>
+                    <h4 className="text-sm sm:text-base font-black text-slate-800 mb-1 leading-snug">{item.nome}</h4>
+                    <p className="text-xs sm:text-sm text-slate-600 font-medium leading-snug m-0">{item.uso}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p className="text-[11px] text-slate-500 font-medium mt-4 mb-0 text-center sm:text-left">Imagens ilustrativas dos itens.</p>
+          </div>
+
+          <div className="flex items-center gap-3 bg-green-50 border border-green-100 rounded-2xl p-4 text-slate-800 font-bold mb-6">
+            <Coffee size={20} className="text-green-700 shrink-0" />
+            Coffee break incluso
+          </div>
 
           <div className="bg-orange-50 border border-orange-100 rounded-2xl p-6 text-orange-800 flex items-start gap-3 mb-8">
             <AlertTriangle size={20} className="shrink-0 mt-0.5" />
