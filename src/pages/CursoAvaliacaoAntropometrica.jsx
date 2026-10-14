@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ImagemOtimizada from '../components/ImagemOtimizada';
+import { posts } from '../data/posts';
 import {
   Gift, FileSpreadsheet, GraduationCap, Coffee, BookOpen,
-  Monitor, MapPin, MessageCircle, CheckCircle2, AlertTriangle, ChevronDown,
+  Monitor, MapPin, MessageCircle, CheckCircle2, AlertTriangle, ChevronDown, ChevronRight,
   Users, Navigation, CalendarDays, ExternalLink, Info, ClipboardList, CreditCard
 } from 'lucide-react';
 
@@ -34,6 +35,8 @@ const equipamentosRecomendados = [
     link: 'https://www.loja.avanutri.com.br/prod,idproduto,5736088,linha-nutricao-paquimetro-osseo-paquimetro-osseo-16cm-preto-avanutri',
   },
 ];
+
+const artigosAntropometria = ['/avaliacao-antropometrica', '/o_que_e_antropometria'].map((l) => posts.find((p) => p.link === l)).filter(Boolean);
 
 const WHATSAPP_NUMERO = '5521997704300';
 const mensagemWhatsApp = 'Olá, Marco! Tenho uma dúvida sobre o Curso de Avaliação Antropométrica.';
@@ -447,9 +450,25 @@ export default function CursoAvaliacaoAntropometrica() {
               </div>
             ))}
           </div>
-          <p className="text-center text-slate-600 font-medium mt-8">
-            Quer entender o assunto antes de se inscrever? Leia o guia <Link to="/avaliacao-antropometrica" className="text-green-700 font-bold underline">como fazer uma avaliação antropométrica de qualidade</Link> e veja <Link to="/o_que_e_antropometria" className="text-green-700 font-bold underline">o que é antropometria</Link>.
-          </p>
+          <div className="mt-10 pt-8 border-t border-slate-100">
+            <h3 className="text-xl md:text-2xl font-black text-slate-800 uppercase italic mb-2 text-center">Quer entender o assunto antes de se inscrever?</h3>
+            <p className="text-slate-600 font-medium text-center mb-6">Leia os artigos do blog sobre antropometria.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {artigosAntropometria.map((artigo) => (
+                <Link key={artigo.link} to={artigo.link} className="bg-slate-50 rounded-3xl border border-slate-100 overflow-hidden hover:-translate-y-2 transition-transform duration-300 group flex flex-col text-left no-underline">
+                  <div className="h-40 overflow-hidden">
+                    <img src={artigo.img} alt={artigo.titulo} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" width="280" height="160" />
+                  </div>
+                  <div className="p-6 flex flex-col flex-grow text-left">
+                    <span className="text-[10px] font-black bg-green-100 text-green-700 px-2 py-1 rounded-full uppercase tracking-widest mb-3 w-fit">{artigo.tag}</span>
+                    <h4 className="text-lg font-black text-slate-800 leading-tight mb-2">{artigo.titulo}</h4>
+                    <p className="text-slate-500 text-xs font-medium italic mb-4 line-clamp-3 flex-grow">{artigo.desc}</p>
+                    <div className="flex items-center gap-1 text-green-700 font-bold uppercase text-[10px]">Acessar Artigo <ChevronRight size={14} /></div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
