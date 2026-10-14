@@ -37,13 +37,19 @@ const linkDuvidas = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(
 
 // Inscrição: a ficha é enviada ao Formspree e, em seguida, o pagamento é liberado na tela.
 const FORMSPREE_URL = 'https://formspree.io/f/xbgdzqpe';
-const LINK_PAGAMENTO = 'https://mpago.li/2uPUaTR';
-const LINK_PAGAMENTO_COM_LIVRO = 'https://mpago.li/2qQQpcR'; // R$ 580,00 (curso + livro físico)
-const PIX_CHAVE = '21997704300';
+// Lotes da Hotmart. Para virar de lote, troque LOTE_ATIVO (0 = 1º, 1 = 2º, 2 = 3º).
+const LOTES = [
+  { nome: '1º lote', preco: 600, vagas: 4, link: 'https://pay.hotmart.com/T108024284B?off=z0uu725b' },
+  { nome: '2º lote', preco: 700, vagas: 7, link: 'https://pay.hotmart.com/T108024284B?off=1oieppo9' },
+  { nome: '3º lote', preco: 800, vagas: 9, link: 'https://pay.hotmart.com/T108024284B?off=nunzhzdq' },
+];
+const LOTE_ATIVO = 0;
+const LOTE = LOTES[LOTE_ATIVO];
+const PIX_CHAVE = '21997704300'; // só para o livro físico (R$ 80), pago à parte
 const PIX_CHAVE_EXIBIDA = '(21) 99770-4300';
-const PRECO_CURSO = 500;
+const PRECO_CURSO = LOTE.preco;
 const PRECO_LIVRO_FISICO = 80;
-const VAGAS_PRIMEIRO_LOTE = 4;
+const VAGAS_PRIMEIRO_LOTE = LOTES[0].vagas;
 const CHAVE_STORAGE = 'inscricao_curso_antropometria';
 
 const formatarReais = (valor) => `R$ ${valor.toFixed(2).replace('.', ',')}`;
@@ -133,11 +139,11 @@ const faqs = [
   },
   {
     pergunta: 'Quanto custa o curso?',
-    resposta: 'O valor do primeiro lote é R$ 500,00, e o primeiro lote tem 4 vagas. O segundo lote custa R$ 600,00 e o terceiro, R$ 700,00. O preço sobe a cada lote, então garantir a vaga agora é pagar o menor valor.'
+    resposta: 'O valor do primeiro lote é R$ 600,00, e o primeiro lote tem 4 vagas. O segundo lote custa R$ 700,00 e o terceiro, R$ 800,00. O preço sobe a cada lote, então garantir a vaga agora é pagar o menor valor. O pagamento pode ser feito em Pix, boleto ou cartão em até 12x, com juros.'
   },
   {
     pergunta: 'Como faço a inscrição e o pagamento?',
-    resposta: 'Preencha a ficha de inscrição no fim desta página, com nome, e-mail, telefone e os equipamentos que você já tem. Ao enviar, a ficha chega ao Marco e o pagamento é liberado por link de pagamento ou por Pix. Se quiser, você pode incluir o livro físico por mais R$ 80,00.'
+    resposta: 'Preencha a ficha de inscrição no fim desta página, com nome, e-mail, telefone e os equipamentos que você já tem. Ao enviar, a ficha chega ao Marco e o link de pagamento do curso é liberado. Se quiser, você pode incluir o livro físico por mais R$ 80,00, pagos à parte por Pix.'
   },
   {
     pergunta: 'Este curso dá certificação ISAK?',
@@ -161,8 +167,8 @@ export default function CursoAvaliacaoAntropometrica() {
   }, [pathname]);
 
   const total = PRECO_CURSO + (form.livroFisico ? PRECO_LIVRO_FISICO : 0);
-  const linkPagamento = form.livroFisico && LINK_PAGAMENTO_COM_LIVRO ? LINK_PAGAMENTO_COM_LIVRO : LINK_PAGAMENTO;
-  const livroForaDoLink = form.livroFisico && !LINK_PAGAMENTO_COM_LIVRO;
+  const linkPagamento = LOTE.link;
+  const livroForaDoLink = form.livroFisico;
 
   const irParaInscricao = (e) => {
     e.preventDefault();
@@ -188,7 +194,7 @@ export default function CursoAvaliacaoAntropometrica() {
     `*Total:* ${formatarReais(total)}`,
   ].join('\n');
   const linkFichaWhatsApp = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagemFicha)}`;
-  const linkPagoWhatsApp = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(`Olá, Marco! Já fiz o pagamento da inscrição no Curso de Avaliação Antropométrica (${formatarReais(total)}). Nome: ${form.nome.trim()}.`)}`;
+  const linkPagoWhatsApp = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(`Olá, Marco! Já paguei por Pix os ${formatarReais(PRECO_LIVRO_FISICO)} do livro físico do Curso de Avaliação Antropométrica. Nome: ${form.nome.trim()}.`)}`;
 
   const liberarPagamento = () => {
     setFichaEnviada(true);
@@ -225,7 +231,7 @@ export default function CursoAvaliacaoAntropometrica() {
           plicometro: resumoEquipamento(form.plicometro),
           livro_fisico: form.livroFisico ? `Sim (+ ${formatarReais(PRECO_LIVRO_FISICO)})` : 'Não',
           total: formatarReais(total),
-          lote: `1º lote (${formatarReais(PRECO_CURSO)})`,
+          lote: `${LOTE.nome} (${formatarReais(PRECO_CURSO)})`,
         }),
       });
       if (resposta.ok) liberarPagamento();
@@ -298,8 +304,8 @@ export default function CursoAvaliacaoAntropometrica() {
             <div className="flex flex-col sm:flex-row items-center gap-5 bg-white p-4 rounded-[2rem] shadow-xl border border-slate-100 w-full sm:w-fit">
               <div className="bg-slate-900 text-white px-8 py-4 rounded-3xl text-center min-w-[190px]">
                 <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mb-1">Primeiro Lote • {VAGAS_PRIMEIRO_LOTE} vagas</span>
-                <span className="block text-4xl font-black italic tracking-tighter"><span className="text-xl text-green-400 mr-1">R$</span>500<span className="text-xl text-green-400">,00</span></span>
-                <span className="block text-[11px] font-bold text-slate-300 mt-2 leading-snug">2º lote: R$ 600 • 3º lote: R$ 700</span>
+                <span className="block text-4xl font-black italic tracking-tighter"><span className="text-xl text-green-400 mr-1">R$</span>{LOTES[0].preco}<span className="text-xl text-green-400">,00</span></span>
+                <span className="block text-[11px] font-bold text-slate-300 mt-2 leading-snug">2º lote: R$ {LOTES[1].preco} • 3º lote: R$ {LOTES[2].preco}</span>
                 <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mt-1">O preço sobe a cada lote</span>
               </div>
               <a
@@ -546,7 +552,7 @@ export default function CursoAvaliacaoAntropometrica() {
             <div>
               <h2 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mb-2">Garanta sua vaga no primeiro lote</h2>
               <p className="text-slate-700 font-medium m-0">
-                O primeiro lote tem <strong>{VAGAS_PRIMEIRO_LOTE} vagas</strong>, por <strong>R$ 500,00</strong>. O 2º lote custa R$ 600 e o 3º, R$ 700: quanto antes você se inscrever, menos paga.
+                O primeiro lote tem <strong>{VAGAS_PRIMEIRO_LOTE} vagas</strong>, por <strong>{formatarReais(LOTES[0].preco)}</strong>. O 2º lote custa R$ {LOTES[1].preco} e o 3º, R$ {LOTES[2].preco}: quanto antes você se inscrever, menos paga. Cartão em até 12x, com juros.
               </p>
             </div>
           </div>
@@ -634,7 +640,7 @@ export default function CursoAvaliacaoAntropometrica() {
                 <div>
                   <h3 className="text-lg font-black text-slate-800 m-0">Ficha enviada! Falta só o pagamento.</h3>
                   <p className="text-sm text-slate-600 font-medium mt-1 mb-0">
-                    Escolha abaixo a forma de pagamento. Depois de pagar, avise o Marco pelo botão do WhatsApp.
+                    Pague o curso pelo link abaixo, em Pix, cartão (até 12x, com juros) ou boleto, conforme as opções do checkout.
                   </p>
                 </div>
               </div>
@@ -648,7 +654,7 @@ export default function CursoAvaliacaoAntropometrica() {
                 <div className="bg-orange-50 border border-orange-200 rounded-2xl p-4 flex items-start gap-3">
                   <AlertTriangle size={20} className="text-orange-600 shrink-0 mt-0.5" />
                   <p className="text-sm text-orange-900 font-medium leading-relaxed m-0">
-                    Você escolheu o livro físico, então o total é <strong>{formatarReais(total)}</strong>. O link de pagamento abaixo é do curso ({formatarReais(PRECO_CURSO)}): pague os {formatarReais(PRECO_LIVRO_FISICO)} do livro por Pix, ou pague o total direto no Pix.
+                    Você escolheu o livro físico, então o total é <strong>{formatarReais(total)}</strong>. O link abaixo é do curso ({formatarReais(PRECO_CURSO)}). Os {formatarReais(PRECO_LIVRO_FISICO)} do livro são pagos à parte, por Pix.
                   </p>
                 </div>
               )}
@@ -659,27 +665,31 @@ export default function CursoAvaliacaoAntropometrica() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 bg-green-700 text-white px-8 py-4 rounded-full font-black uppercase text-xs md:text-sm tracking-widest shadow-lg hover:bg-green-800 transition-all duration-300 w-full italic"
               >
-                <CreditCard size={18} /> Pagar pelo link de pagamento
+                <CreditCard size={18} /> Pagar o curso ({formatarReais(PRECO_CURSO)})
               </a>
 
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-center sm:text-left">
-                <span className="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">Ou pague por Pix (chave celular)</span>
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-                  <span className="text-xl font-black text-slate-800 tracking-tight">{PIX_CHAVE_EXIBIDA}</span>
-                  <button type="button" onClick={copiarPix} className="inline-flex items-center justify-center gap-2 bg-white border border-slate-300 text-slate-700 px-5 py-2.5 rounded-full font-bold text-sm hover:bg-slate-100 transition-colors w-full sm:w-auto">
-                    {pixCopiado ? <><Check size={16} className="text-green-700" /> Chave copiada</> : <><Copy size={16} /> Copiar chave</>}
-                  </button>
-                </div>
-              </div>
+              {livroForaDoLink && (
+                <>
+                  <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-center sm:text-left">
+                    <span className="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">Livro físico: {formatarReais(PRECO_LIVRO_FISICO)} por Pix (chave celular)</span>
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+                      <span className="text-xl font-black text-slate-800 tracking-tight">{PIX_CHAVE_EXIBIDA}</span>
+                      <button type="button" onClick={copiarPix} className="inline-flex items-center justify-center gap-2 bg-white border border-slate-300 text-slate-700 px-5 py-2.5 rounded-full font-bold text-sm hover:bg-slate-100 transition-colors w-full sm:w-auto">
+                        {pixCopiado ? <><Check size={16} className="text-green-700" /> Chave copiada</> : <><Copy size={16} /> Copiar chave</>}
+                      </button>
+                    </div>
+                  </div>
 
-              <a
-                href={linkPagoWhatsApp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 border-2 border-green-700 text-green-800 px-8 py-3.5 rounded-full font-black uppercase text-xs tracking-widest hover:bg-green-100 transition-colors w-full italic"
-              >
-                <MessageCircle size={18} /> Já paguei: avisar no WhatsApp
-              </a>
+                  <a
+                    href={linkPagoWhatsApp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-3 border-2 border-green-700 text-green-800 px-8 py-3.5 rounded-full font-black uppercase text-xs tracking-widest hover:bg-green-100 transition-colors w-full italic"
+                  >
+                    <MessageCircle size={18} /> Paguei o livro: avisar no WhatsApp
+                  </a>
+                </>
+              )}
 
               <button type="button" onClick={corrigirDados} className="text-xs font-bold text-slate-500 underline self-center bg-transparent border-0 cursor-pointer">Corrigir meus dados</button>
             </div>
