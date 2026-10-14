@@ -35,7 +35,8 @@ const WHATSAPP_NUMERO = '5521997704300';
 const mensagemWhatsApp = 'Olá, Marco! Tenho uma dúvida sobre o Curso de Avaliação Antropométrica.';
 const linkDuvidas = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagemWhatsApp)}`;
 
-// Inscrição: a ficha segue pelo WhatsApp do Marco e, em seguida, o pagamento é liberado na tela.
+// Inscrição: a ficha é enviada ao Formspree e, em seguida, o pagamento é liberado na tela.
+const FORMSPREE_URL = 'https://formspree.io/f/xbgdzqpe';
 const LINK_PAGAMENTO = 'https://mpago.li/2uPUaTR';
 const LINK_PAGAMENTO_COM_LIVRO = 'https://mpago.li/2qQQpcR'; // R$ 580,00 (curso + livro físico)
 const PIX_CHAVE = '21997704300';
@@ -116,7 +117,7 @@ const faqs = [
   },
   {
     pergunta: 'Como faço a inscrição e o pagamento?',
-    resposta: 'Preencha a ficha de inscrição no fim desta página, com nome, e-mail, telefone e os equipamentos que você já tem. Ao enviar, a ficha segue para o WhatsApp do Marco e o pagamento é liberado por link de pagamento ou por Pix. Se quiser, você pode incluir o livro físico por mais R$ 80,00.'
+    resposta: 'Preencha a ficha de inscrição no fim desta página, com nome, e-mail, telefone e os equipamentos que você já tem. Ao enviar, a ficha chega ao Marco e o pagamento é liberado por link de pagamento ou por Pix. Se quiser, você pode incluir o livro físico por mais R$ 80,00.'
   },
   {
     pergunta: 'Este curso dá certificação ISAK?',
@@ -129,6 +130,8 @@ export default function CursoAvaliacaoAntropometrica() {
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const [form, setForm] = useState(() => lerInscricaoSalva()?.form || formVazio);
   const [fichaEnviada, setFichaEnviada] = useState(() => Boolean(lerInscricaoSalva()));
+  const [enviando, setEnviando] = useState(false);
+  const [erroEnvio, setErroEnvio] = useState(false);
   const [erros, setErros] = useState({});
   const [pixCopiado, setPixCopiado] = useState(false);
   const painelRef = useRef(null);
@@ -167,8 +170,18 @@ export default function CursoAvaliacaoAntropometrica() {
   const linkFichaWhatsApp = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagemFicha)}`;
   const linkPagoWhatsApp = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(`Olá, Marco! Já fiz o pagamento da inscrição no Curso de Avaliação Antropométrica (${formatarReais(total)}). Nome: ${form.nome.trim()}.`)}`;
 
-  const enviarFicha = (e) => {
+  const liberarPagamento = () => {
+    setFichaEnviada(true);
+    setErroEnvio(false);
+    try {
+      sessionStorage.setItem(CHAVE_STORAGE, JSON.stringify({ form }));
+    } catch (err) { /* sem storage: o painel só não sobrevive ao recarregar */ }
+    setTimeout(() => painelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 150);
+  };
+
+  const enviarFicha = async (e) => {
     e.preventDefault();
+    if (enviando) return;
     const novosErros = validarForm(form);
     setErros(novosErros);
     const primeiroErro = Object.keys(novosErros)[0];
@@ -176,12 +189,32 @@ export default function CursoAvaliacaoAntropometrica() {
       document.getElementById(`inscricao-${primeiroErro}`)?.focus();
       return;
     }
-    window.open(linkFichaWhatsApp, '_blank', 'noopener,noreferrer');
-    setFichaEnviada(true);
+    setEnviando(true);
+    setErroEnvio(false);
     try {
-      sessionStorage.setItem(CHAVE_STORAGE, JSON.stringify({ form }));
-    } catch (err) { /* sem storage: o painel só não sobrevive ao recarregar */ }
-    setTimeout(() => painelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 150);
+      const resposta = await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Nova inscrição — Curso de Avaliação Antropométrica (1º lote)',
+          formulario: 'inscricao-curso-avaliacao-antropometrica',
+          nome: form.nome.trim(),
+          email: form.email.trim(),
+          telefone: form.telefone,
+          paquimetro: resumoEquipamento(form.paquimetro),
+          plicometro: resumoEquipamento(form.plicometro),
+          livro_fisico: form.livroFisico ? `Sim (+ ${formatarReais(PRECO_LIVRO_FISICO)})` : 'Não',
+          total: formatarReais(total),
+          lote: `1º lote (${formatarReais(PRECO_CURSO)})`,
+        }),
+      });
+      if (resposta.ok) liberarPagamento();
+      else setErroEnvio(true);
+    } catch (err) {
+      setErroEnvio(true);
+    } finally {
+      setEnviando(false);
+    }
   };
 
   const corrigirDados = () => {
@@ -541,11 +574,21 @@ export default function CursoAvaliacaoAntropometrica() {
                 {erros.aceite && <p role="alert" className="text-xs font-bold text-red-600 mt-1 mb-0">{erros.aceite}</p>}
               </div>
 
-              <button type="submit" className="inline-flex items-center justify-center gap-3 bg-green-700 text-white px-8 py-4 rounded-full font-black uppercase text-xs md:text-sm tracking-widest shadow-lg hover:bg-green-800 transition-all duration-300 w-full italic">
-                <ClipboardList size={18} /> Enviar ficha e liberar pagamento
+              {erroEnvio && (
+                <div role="alert" className="bg-red-50 border border-red-200 rounded-2xl p-4 flex items-start gap-3">
+                  <AlertTriangle size={20} className="text-red-600 shrink-0 mt-0.5" />
+                  <p className="text-sm text-red-900 font-medium leading-relaxed m-0">
+                    Não foi possível enviar sua ficha agora. Tente de novo ou{' '}
+                    <a href={linkFichaWhatsApp} onClick={liberarPagamento} target="_blank" rel="noopener noreferrer" className="font-bold underline">envie a ficha pelo WhatsApp</a>.
+                  </p>
+                </div>
+              )}
+
+              <button type="submit" disabled={enviando} className="inline-flex items-center justify-center gap-3 bg-green-700 text-white px-8 py-4 rounded-full font-black uppercase text-xs md:text-sm tracking-widest shadow-lg hover:bg-green-800 transition-all duration-300 w-full italic disabled:opacity-70 disabled:cursor-wait">
+                <ClipboardList size={18} /> {enviando ? 'Enviando...' : 'Enviar ficha e liberar pagamento'}
               </button>
               <p className="text-xs text-slate-500 font-medium text-center m-0">
-                Ao enviar, o WhatsApp abre com a sua ficha pronta para o Marco. É só tocar em enviar.
+                Ao enviar, o pagamento é liberado aqui mesmo, na próxima etapa.
               </p>
             </form>
           ) : (
@@ -553,10 +596,9 @@ export default function CursoAvaliacaoAntropometrica() {
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="text-green-700 shrink-0 mt-0.5" size={24} />
                 <div>
-                  <h3 className="text-lg font-black text-slate-800 m-0">Ficha pronta! Falta só o pagamento.</h3>
+                  <h3 className="text-lg font-black text-slate-800 m-0">Ficha enviada! Falta só o pagamento.</h3>
                   <p className="text-sm text-slate-600 font-medium mt-1 mb-0">
-                    Se o WhatsApp não abriu, ou você ainda não tocou em enviar,{' '}
-                    <a href={linkFichaWhatsApp} target="_blank" rel="noopener noreferrer" className="font-bold text-green-700 underline">envie sua ficha pelo WhatsApp</a>.
+                    Escolha abaixo a forma de pagamento. Depois de pagar, avise o Marco pelo botão do WhatsApp.
                   </p>
                 </div>
               </div>
