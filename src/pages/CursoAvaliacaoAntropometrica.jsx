@@ -53,7 +53,7 @@ const LOTES = [
 const LOTE_ATIVO = 0;
 const LOTE = LOTES[LOTE_ATIVO];
 const PRECO_CURSO = LOTE.preco;
-const PRECO_LIVRO_FISICO = 80; // valor promocional, oferecido dentro da Hotmart
+const PRECO_LIVRO_FISICO = 80; // valor promocional, vendido na Hotmart em checkout próprio
 const VAGAS_PRIMEIRO_LOTE = LOTES[0].vagas;
 const CHAVE_STORAGE = 'inscricao_curso_antropometria';
 
@@ -149,7 +149,7 @@ const faqs = [
   },
   {
     pergunta: 'Como faço a inscrição e o pagamento?',
-    resposta: 'Preencha a ficha de inscrição no fim desta página, com nome, e-mail, telefone e os equipamentos que você já tem. Ao enviar, a ficha chega ao Marco e o link de pagamento do curso é liberado. O livro físico tem valor promocional de R$ 80,00 e pode ser incluído na compra, dentro da plataforma da Hotmart.'
+    resposta: 'Preencha a ficha de inscrição no fim desta página, com nome, e-mail, telefone e os equipamentos que você já tem. Ao enviar, a ficha chega ao Marco e o link de pagamento do curso é liberado. O livro físico tem valor promocional de R$ 80,00, com entrega grátis em mãos no dia da aula presencial. Depois da inscrição, o link para comprar o livro fica disponível na área do curso, na plataforma da Hotmart.'
   },
   {
     pergunta: 'Este curso dá certificação ISAK?',
@@ -200,7 +200,7 @@ export default function CursoAvaliacaoAntropometrica() {
     <div className="bg-orange-50 border border-orange-200 rounded-2xl p-4 flex items-start gap-3">
       <BookOpen size={20} className="text-orange-600 shrink-0 mt-0.5" />
       <p className="text-sm text-orange-900 font-medium leading-relaxed m-0">
-        <strong>Livro físico com desconto:</strong> valor promocional de <strong>{formatarReais(PRECO_LIVRO_FISICO)}</strong>. Você pode incluir o livro físico na sua compra, dentro da própria plataforma da Hotmart, na hora do pagamento.
+        <strong>Livro físico com desconto:</strong> valor promocional de <strong>{formatarReais(PRECO_LIVRO_FISICO)}</strong>, com entrega grátis em mãos no dia da aula presencial (23/01/2027). Depois da inscrição, o link para comprar o livro fica disponível na área do curso, na plataforma da Hotmart.
       </p>
     </div>
   );
