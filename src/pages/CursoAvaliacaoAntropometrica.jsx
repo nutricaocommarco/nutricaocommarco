@@ -37,7 +37,7 @@ const linkDuvidas = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(
 
 // Inscrição: a ficha segue pelo WhatsApp do Marco e, em seguida, o pagamento é liberado na tela.
 const LINK_PAGAMENTO = 'https://mpago.li/2uPUaTR';
-const LINK_PAGAMENTO_COM_LIVRO = null; // link de R$ 580,00 (curso + livro físico), se existir
+const LINK_PAGAMENTO_COM_LIVRO = 'https://mpago.li/2qQQpcR'; // R$ 580,00 (curso + livro físico)
 const PIX_CHAVE = '21997704300';
 const PIX_CHAVE_EXIBIDA = '(21) 99770-4300';
 const PRECO_CURSO = 500;
