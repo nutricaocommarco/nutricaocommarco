@@ -510,29 +510,56 @@ export default function CursoAvaliacaoAntropometrica() {
         </div>
       </section>
 
-      {/* INSTRUTOR */}
+      {/* INSTRUTORES */}
       <section className="px-4 md:px-6 pb-16">
-        <div className="container mx-auto max-w-5xl bg-white p-8 md:p-12 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100 flex flex-col md:flex-row items-center gap-8">
-          <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
-            <ImagemOtimizada
-              src={`${githubImgBase}marco-aurelio.png`}
-              alt="Marco Aurélio Neves Júnior, instrutor do curso e autor do livro Antropometria: Do Zero ao Avançado"
-              title="Marco Aurélio Neves Júnior"
-              className="w-full h-full object-cover"
-              priority="low"
-            />
-          </div>
-          <div className="text-center md:text-left">
-            <h2 className="text-2xl md:text-3xl font-black text-slate-900 uppercase italic mb-1">Quem vai te ensinar</h2>
-            <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Marco Aurélio Neves Júnior • Antropometrista ISAK Nível 1</p>
-            <p className="text-slate-600 font-medium leading-relaxed mb-4">
-              Estudante de Nutrição na Unicesumar, autor do livro <em>Antropometria: Do Zero ao Avançado</em> e responsável pelo blog Nutrição com Marco. Realizo avaliações antropométricas presenciais no Rio de Janeiro.
-            </p>
-            <p className="text-sm font-bold m-0">
-              <Link to="/sobre" className="text-green-700 underline">Conheça minha história</Link>
-              <span className="text-slate-400 mx-2">•</span>
-              <Link to="/certificacoes" className="text-green-700 underline">Ver certificações</Link>
-            </p>
+        <div className="container mx-auto max-w-5xl bg-white p-8 md:p-12 rounded-[3rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
+          <h2 className="text-2xl md:text-3xl font-black text-slate-900 uppercase italic mb-8 text-center">Quem vai te ensinar</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
+            <div className="flex flex-col items-center text-center gap-5">
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
+                <ImagemOtimizada
+                  src={`${githubImgBase}marco-aurelio.png`}
+                  alt="Marco Aurélio Neves Júnior, instrutor do curso e autor do livro Antropometria: Do Zero ao Avançado"
+                  title="Marco Aurélio Neves Júnior"
+                  className="w-full h-full object-cover"
+                  priority="low"
+                />
+              </div>
+              <div>
+                <h3 className="text-xl font-black text-slate-900 uppercase italic mb-1">Marco Aurélio Neves Júnior</h3>
+                <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Antropometrista ISAK Nível 1</p>
+                <p className="text-slate-600 font-medium leading-relaxed mb-4">
+                  Estudante de Nutrição na Unicesumar, autor do livro <em>Antropometria: Do Zero ao Avançado</em> e responsável pelo blog Nutrição com Marco. Realizo avaliações antropométricas presenciais no Rio de Janeiro.
+                </p>
+                <p className="text-sm font-bold m-0">
+                  <Link to="/sobre" className="text-green-700 underline">Conheça minha história</Link>
+                  <span className="text-slate-400 mx-2">•</span>
+                  <Link to="/certificacoes" className="text-green-700 underline">Ver certificações</Link>
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center text-center gap-5">
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
+                <ImagemOtimizada
+                  src={`${githubImgBase}Isabele_Lopes_Moreira_Cabral.webp`}
+                  alt="Isabele Lopes Moreira Cabral, nutricionista e professora universitária, instrutora do curso"
+                  title="Isabele Lopes Moreira Cabral"
+                  className="w-full h-full object-cover"
+                  priority="low"
+                />
+              </div>
+              <div>
+                <h3 className="text-xl font-black text-slate-900 uppercase italic mb-1">Isabele Lopes Moreira Cabral</h3>
+                <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Nutricionista e professora universitária</p>
+                <p className="text-slate-600 font-medium leading-relaxed mb-4">
+                  Professora de Nutrição, com módulos de Nutrição Esportiva, Dietoterapia, Técnica Dietética e Nutrição Funcional, e mais de 15 anos de experiência em gestão de restaurantes. No consultório, atendo principalmente mulheres acima de 40 anos e atuo como mentora e criadora de conteúdo.
+                </p>
+                <p className="text-sm font-bold m-0">
+                  <a href="https://www.instagram.com/isabelemoreiranutri/" target="_blank" rel="noopener noreferrer" className="text-green-700 underline">Instagram @isabelemoreiranutri</a>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

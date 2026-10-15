@@ -119,7 +119,7 @@ const rotasEstaticas = [
           "courseMode": ["Online", "Onsite"],
           "startDate": "2027-01-16T18:00:00-03:00",
           "endDate": "2027-01-23T17:00:00-03:00",
-          "instructor": { "@type": "Person", "name": "Marco Aurélio Neves Júnior", "url": "https://www.nutricaocommarco.com.br/sobre" },
+          "instructor": [{ "@type": "Person", "name": "Marco Aurélio Neves Júnior", "url": "https://www.nutricaocommarco.com.br/sobre" }, { "@type": "Person", "name": "Isabele Lopes Moreira Cabral", "jobTitle": "Nutricionista e professora universitária", "sameAs": "https://www.instagram.com/isabelemoreiranutri/" }],
           "location": {
             "@type": "Place",
             "name": "Estrela Café",
