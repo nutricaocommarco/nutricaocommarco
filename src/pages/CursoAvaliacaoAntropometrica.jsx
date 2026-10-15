@@ -543,7 +543,7 @@ export default function CursoAvaliacaoAntropometrica() {
               <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
                 <ImagemOtimizada
                   src={`${githubImgBase}Isabele_Lopes_Moreira_Cabral.webp`}
-                  alt="Isabele Lopes Moreira Cabral, nutricionista e professora universitária, instrutora do curso"
+                  alt="Isabele Lopes Moreira Cabral, nutricionista e professora na Unicesumar, instrutora do curso"
                   title="Isabele Lopes Moreira Cabral"
                   className="w-full h-full object-cover"
                   priority="low"
@@ -551,9 +551,9 @@ export default function CursoAvaliacaoAntropometrica() {
               </div>
               <div>
                 <h3 className="text-xl font-black text-slate-900 uppercase italic mb-1">Isabele Lopes Moreira Cabral</h3>
-                <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Nutricionista e professora universitária</p>
+                <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Nutricionista e professora na Unicesumar</p>
                 <p className="text-slate-600 font-medium leading-relaxed mb-4">
-                  Professora de Nutrição, com módulos de Nutrição Esportiva, Dietoterapia, Técnica Dietética e Nutrição Funcional, e mais de 15 anos de experiência em gestão de restaurantes. No consultório, atendo principalmente mulheres acima de 40 anos e atuo como mentora e criadora de conteúdo.
+                  Nutricionista formada pela Gama Filho e professora de Nutrição na Unicesumar, onde leciona Nutrição Esportiva, Dietoterapia e Avaliação Nutricional. Nos últimos anos se dedicou ao consultório e hoje atua junto ao SUS.
                 </p>
                 <p className="text-sm font-bold m-0">
                   <a href="https://www.instagram.com/isabelemoreiranutri/" target="_blank" rel="noopener noreferrer" className="text-green-700 underline">Instagram @isabelemoreiranutri</a>
