@@ -122,13 +122,11 @@ const rotasEstaticas = [
           "instructor": [{ "@type": "Person", "name": "Marco Aurélio Neves Júnior", "url": "https://www.nutricaocommarco.com.br/sobre" }, { "@type": "Person", "name": "Isabele Lopes Moreira Cabral", "jobTitle": "Nutricionista e professora de Nutrição na Unicesumar", "sameAs": "https://www.instagram.com/isabelemoreiranutri/" }],
           "location": {
             "@type": "Place",
-            "name": "Estrela Café",
+            "name": "Centro do Rio de Janeiro (local a confirmar)",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "R. Salinópolis, 44",
               "addressLocality": "Rio de Janeiro",
               "addressRegion": "RJ",
-              "postalCode": "22720-000",
               "addressCountry": "BR"
             }
           }
@@ -146,7 +144,7 @@ const rotasEstaticas = [
         { pergunta: "O que está incluso no valor do curso?", resposta: "Aula teórica online, aula prática presencial de 8 horas, o livro digital \"Antropometria: Do Zero ao Avançado — Volume 1\", a Planilha de Avaliação Antropométrica, acesso ao grupo exclusivo da turma no WhatsApp e coffee break. Também vem um kit de brinde que fica com você, para levar para casa: fita antropométrica (Cescorf), segmômetro, caneta e banqueta Vonder." },
         { pergunta: "Quando acontecem as aulas?", resposta: "A aula online é no sábado, 16 de janeiro de 2027, das 18h às 21h. A aula presencial é no sábado, 23 de janeiro de 2027, das 8h às 17h." },
         { pergunta: "Paquímetro e plicômetro estão inclusos?", resposta: "Não. O paquímetro e o plicômetro não estão inclusos no valor do curso. Os modelos recomendados são o Plicômetro Clínico Preto e o Paquímetro Ósseo 16 cm Preto, ambos da Avanutri, com os links de compra na seção \"Equipamentos recomendados\" desta página. Se tiver dúvidas, chame no WhatsApp antes de se inscrever." },
-        { pergunta: "Onde acontece a aula prática?", resposta: "No Estrela Café, na R. Salinópolis, 44 - Taquara, Rio de Janeiro - RJ, 22720-000." },
+        { pergunta: "Onde acontece a aula prática?", resposta: "No Centro do Rio de Janeiro. O local exato ainda está a confirmar." },
         { pergunta: "Quanto custa o curso?", resposta: "O valor do primeiro lote é R$ 600,00, e o primeiro lote tem 4 vagas. O segundo lote custa R$ 700,00 e o terceiro, R$ 800,00. O preço sobe a cada lote, então garantir a vaga agora é pagar o menor valor. O pagamento pode ser feito em Pix, boleto ou cartão em até 12x, com juros." },
         { pergunta: "Como faço a inscrição e o pagamento?", resposta: "Preencha a ficha de inscrição no fim desta página, com nome, e-mail, telefone e os equipamentos que você já tem. Ao enviar, a ficha chega ao Marco e o link de pagamento do curso é liberado. O livro físico tem valor promocional de R$ 80,00, com entrega grátis em mãos no dia da aula presencial. Depois da inscrição, o link para comprar o livro fica disponível na área do curso, na plataforma da Hotmart." },
         { pergunta: "Este curso dá certificação ISAK?", resposta: "Não. Este não é um curso ISAK e não emite certificação ISAK: a certificação é emitida apenas por cursos oficiais credenciados pela própria ISAK. Este é um curso independente, que ensina e treina as técnicas de medição com base nos protocolos ISAK." }
