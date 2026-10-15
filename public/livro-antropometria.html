@@ -123,26 +123,38 @@ footer p{margin:6px 0}
  footer{padding-bottom:40px}
 }
 
-/* menu escondido */
-.topo{position:absolute;top:0;left:0;right:0;z-index:30;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
-.marca{color:#fff;text-decoration:none;font-family:"EB Garamond",Georgia,serif;font-size:1.15rem;letter-spacing:.04em}
-.marca b{color:var(--sky);font-weight:600}
-.burger{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(15,37,82,.55);backdrop-filter:blur(4px);cursor:pointer;display:grid;place-items:center;padding:0}
-.burger span,.burger span:before,.burger span:after{display:block;width:20px;height:2px;background:#fff;border-radius:2px;position:relative;transition:transform .2s,background .2s}
-.burger span:before,.burger span:after{content:"";position:absolute;left:0}
-.burger span:before{top:-6px}.burger span:after{top:6px}
-.burger[aria-expanded="true"] span{background:transparent}
-.burger[aria-expanded="true"] span:before{top:0;transform:rotate(45deg)}
-.burger[aria-expanded="true"] span:after{top:0;transform:rotate(-45deg)}
-.menu{position:absolute;top:68px;right:16px;width:min(330px,100% - 32px);background:#fff;color:var(--ink);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.45);padding:10px;z-index:40;max-height:calc(100vh - 90px);max-height:calc(100dvh - 90px);overflow-y:auto}
-.menu[hidden]{display:none}
-.menu a{display:block;padding:12px 14px;border-radius:10px;text-decoration:none;font-weight:700;color:var(--navy)}
-.menu a:hover,.menu a:focus-visible{background:#E8F1FF;outline:none}
-.menu .grp{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);padding:10px 14px 2px;font-weight:900}
-.menu .sub{padding-left:26px;font-weight:400}
-.menu .insta{background:var(--navy);color:#fff;text-align:center;margin-top:8px}
-.menu .insta:hover{background:#0F2552}
-.hero{padding-top:84px}
+/* menu igual ao do site (escondido atrás do botão) */
+.nav,.painel{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.5}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 1px 3px rgba(15,23,42,.12);padding:12px 0}
+.nav .in{width:min(1152px,100% - 48px);margin-inline:auto;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo img{width:48px;height:48px;object-fit:contain;transition:transform .2s}
+.logo:hover img{transform:rotate(6deg)}
+.logo span{font-size:1.25rem;font-weight:900;letter-spacing:-.025em;color:#0f172a;text-transform:uppercase;margin-left:4px;line-height:1.1}
+.logo span b{color:#15803d}
+.burger{background:none;border:0;padding:8px;color:#1e293b;cursor:pointer;display:grid;place-items:center;border-radius:8px}
+.burger svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.burger .x{display:none}
+.burger[aria-expanded="true"] .m{display:none}
+.burger[aria-expanded="true"] .x{display:block}
+.burger:focus-visible{outline:3px solid #15803d;outline-offset:2px}
+.painel{position:absolute;top:100%;left:0;width:100%;background:#fff;border-bottom:1px solid #dcfce7;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);padding:24px 0;max-height:85vh;overflow-y:auto}
+.painel[hidden]{display:none}
+.painel .col{width:min(1152px,100% - 48px);margin-inline:auto;display:flex;flex-direction:column;gap:24px}
+.painel a,.painel .t{text-decoration:none}
+.painel .n1{font-size:1.125rem;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:#1e293b;padding-bottom:8px;border-bottom:1px solid #e2e8f0;display:block}
+.painel .grupo{display:flex;flex-direction:column;gap:12px;padding-bottom:8px;border-bottom:1px solid #f0fdf4}
+.painel .grupo .t{font-size:1.125rem;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:#1e293b}
+.painel .sub{display:flex;flex-direction:column;gap:12px;padding-left:16px;border-left:2px solid #bbf7d0}
+.painel .sub a{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#475569;display:flex;align-items:center;gap:8px}
+.painel .sub a:hover,.painel .sub a:focus-visible{color:#15803d;outline:none}
+.painel .sub a.loja{font-weight:900;color:#15803d}
+.painel .sub a.soft{color:#059669}
+.painel .sub svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.painel .insta{background:#15803d;color:#fff;padding:12px 24px;border-radius:999px;box-shadow:0 4px 6px -1px rgba(0,0,0,.1);font-style:italic;text-align:center;font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+.painel .insta:hover{background:#166534}
+@media (min-width:760px){.painel .col{max-width:560px;margin-left:max(24px,calc((100% - 1152px)/2))}}
+.hero{padding-top:100px}
 /* coleção */
 .colecao{display:grid;gap:18px;margin-top:26px}
 .vol{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;gap:18px;padding:16px;align-items:center}
@@ -151,32 +163,40 @@ footer p{margin:6px 0}
 .vol h3{font-size:1.6rem;color:var(--navy);margin:6px 0 4px}
 .vol p{margin:0;color:var(--mute);font-size:.98rem}
 .breve{display:inline-block;background:#FFF1D6;color:#8A5A00;border:1px solid #F2C46B;border-radius:999px;padding:3px 12px;font-size:.74rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
-@media (min-width:760px){.colecao{grid-template-columns:repeat(2,1fr)}.vol{padding:20px}.vol .cv{width:132px}.hero{padding-top:96px}.topo{padding:20px 32px}.menu{right:32px;top:80px}}
+@media (min-width:760px){.colecao{grid-template-columns:repeat(2,1fr)}.vol{padding:20px}.vol .cv{width:132px}.hero{padding-top:110px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 
 </style>
 </head>
 <body>
 
-<!-- Menu do Nutrição com Marco (escondido; abre no botão, no celular e no desktop) -->
-<div class="topo">
-  <a class="marca" href="https://www.nutricaocommarco.com.br">Nutrição <b>com Marco</b></a>
-  <button class="burger" id="burger" type="button" aria-label="Abrir menu do Nutrição com Marco" aria-expanded="false" aria-controls="menu"><span></span></button>
-  <nav class="menu" id="menu" aria-label="Menu do site Nutrição com Marco" hidden>
-    <a href="https://www.nutricaocommarco.com.br/">Início</a>
-    <a href="https://www.nutricaocommarco.com.br/sobre">Quem sou eu</a>
-    <a href="https://www.nutricaocommarco.com.br/certificacoes">Certificações</a>
-    <a href="https://www.nutricaocommarco.com.br/blog">Blog</a>
-    <a href="https://www.nutricaocommarco.com.br/planos">Planos</a>
-    <div class="grp">Loja e ferramentas</div>
-    <a class="sub" href="https://www.nutricaocommarco.com.br/loja">Loja</a>
-    <a class="sub" href="https://www.nutricaocommarco.com.br/software-de-avaliacao-antropometrica">Software de avaliação antropométrica</a>
-    <a class="sub" href="https://www.nutricaocommarco.com.br/calculadora-de-gasto-calorico">Calculadora de gasto calórico</a>
-    <a class="sub" href="https://www.nutricaocommarco.com.br/ebook-receitas">E-book de receitas</a>
-    <a class="sub" href="https://www.nutricaocommarco.com.br/planilha">Planilha antropométrica</a>
-    <a class="insta" href="https://www.instagram.com/nutricao_com_marco" rel="noopener">Instagram @nutricao_com_marco</a>
-  </nav>
-</div>
+<!-- Menu do Nutrição com Marco: igual ao do site, escondido atrás do botão (celular e desktop) -->
+<nav class="nav" aria-label="Menu do site Nutrição com Marco">
+  <div class="in">
+    <a class="logo" href="https://www.nutricaocommarco.com.br/" title="Nutrição com Marco - Fisiologia, Composição Corporal e Saúde"><img src="data:image/webp;base64,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" alt="Logo Píngus" width="48" height="48"><span>Nutrição com <b>Marco</b></span></a>
+    <button class="burger" id="burger" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="painel">
+      <svg class="m" viewBox="0 0 24 24" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+  <div class="painel" id="painel" hidden>
+    <div class="col">
+      <a class="n1" href="https://www.nutricaocommarco.com.br/">Início</a>
+      <div class="grupo"><span class="t">Sobre</span><div class="sub"><a href="https://www.nutricaocommarco.com.br/sobre">Quem Sou Eu</a><a href="https://www.nutricaocommarco.com.br/certificacoes">Certificações</a></div></div>
+      <a class="n1" href="https://www.nutricaocommarco.com.br/blog">Blog</a>
+      <a class="n1" href="https://www.nutricaocommarco.com.br/planos">Planos</a>
+      <div class="grupo"><span class="t">Loja &amp; Ferramentas</span><div class="sub">
+        <a class="loja" href="https://www.nutricaocommarco.com.br/loja"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2v0a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12v0a2 2 0 0 1-2-2V7"/></svg> Ver Toda a Loja</a>
+        <a class="soft" href="https://www.nutricaocommarco.com.br/software-de-avaliacao-antropometrica"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg> Software EvaluaOS</a>
+        <a href="https://www.nutricaocommarco.com.br/calculadora-de-gasto-calorico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg> Gasto Calórico (Grátis)</a>
+        <a href="https://www.nutricaocommarco.com.br/ebook-receitas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> E-book de Receitas</a>
+        <a href="https://www.nutricaocommarco.com.br/planilha"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg> Planilha Antropométrica</a>
+      </div></div>
+      <a class="insta" href="https://instagram.com/nutricao_com_marco" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</nav>
+
 
 <!-- 1. HERO -->
 <header class="hero dark">
@@ -345,11 +365,11 @@ footer p{margin:6px 0}
 
 <script>
 (function(){
-  var b=document.getElementById('burger'),m=document.getElementById('menu');
-  function abrir(o){m.hidden=!o;b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Fechar menu':'Abrir menu do Nutrição com Marco');}
-  b.addEventListener('click',function(){abrir(m.hidden);});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden){abrir(false);b.focus();}});
-  document.addEventListener('click',function(e){if(!m.hidden&&!m.contains(e.target)&&!b.contains(e.target))abrir(false);});
+  var b=document.getElementById('burger'),p=document.getElementById('painel');
+  function abrir(o){p.hidden=!o;b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Fechar menu de navegação':'Abrir menu de navegação');}
+  b.addEventListener('click',function(){abrir(p.hidden);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!p.hidden){abrir(false);b.focus();}});
+  document.addEventListener('click',function(e){if(!p.hidden&&!p.contains(e.target)&&!b.contains(e.target))abrir(false);});
 })();
 </script>
 
