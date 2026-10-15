@@ -518,7 +518,7 @@ export default function CursoAvaliacaoAntropometrica() {
                 <h3 className="text-xl font-black text-slate-900 uppercase italic mb-1">Marco Aurélio Neves Júnior</h3>
                 <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Antropometrista ISAK Nível 1</p>
                 <p className="text-slate-600 font-medium leading-relaxed mb-4">
-                  Estudante de Nutrição na Unicesumar, autor do livro <em>Antropometria: Do Zero ao Avançado</em> e responsável pelo blog Nutrição com Marco. Realizo avaliações antropométricas presenciais no Rio de Janeiro.
+                  Graduando em Nutrição na Unicesumar e pós-graduando em Emagrecimento e Metabolismo pela Uniguaçu, é autor do livro <em>Antropometria: Do Zero ao Avançado</em> e responsável pelo blog Nutrição com Marco. Realiza avaliações antropométricas presenciais no Rio de Janeiro.
                 </p>
                 <p className="text-sm font-bold m-0">
                   <Link to="/sobre" className="text-green-700 underline">Conheça minha história</Link>
