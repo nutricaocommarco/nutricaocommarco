@@ -553,7 +553,7 @@ export default function CursoAvaliacaoAntropometrica() {
                 <h3 className="text-xl font-black text-slate-900 uppercase italic mb-1">Isabele Lopes Moreira Cabral</h3>
                 <p className="text-xs text-green-700 uppercase tracking-widest font-black mb-4">Nutricionista e professora na Unicesumar</p>
                 <p className="text-slate-600 font-medium leading-relaxed mb-4">
-                  Nutricionista formada pela Gama Filho e professora de Nutrição na Unicesumar, onde leciona Nutrição Esportiva, Dietoterapia e Avaliação Nutricional. Nos últimos anos se dedicou ao consultório e hoje atua junto ao SUS.
+                  Formada em Nutrição pela Gama Filho há 15 anos, é professora de Nutrição na Unicesumar, com módulos de Nutrição Esportiva, Dietoterapia, Avaliação Nutricional, Técnica Dietética e Nutrição Funcional. No consultório, atende principalmente mulheres acima de 40 anos e atualmente atua junto ao SUS.
                 </p>
                 <p className="text-sm font-bold m-0">
                   <a href="https://www.instagram.com/isabelemoreiranutri/" target="_blank" rel="noopener noreferrer" className="text-green-700 underline">Instagram @isabelemoreiranutri</a>
