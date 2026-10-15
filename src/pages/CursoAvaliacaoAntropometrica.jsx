@@ -5,7 +5,7 @@ import { posts } from '../data/posts';
 import {
   Gift, FileSpreadsheet, GraduationCap, Coffee, BookOpen,
   Monitor, MapPin, MessageCircle, CheckCircle2, AlertTriangle, ChevronDown, ChevronRight,
-  Users, Navigation, CalendarDays, ExternalLink, Info, ClipboardList, CreditCard
+  Users, CalendarDays, ExternalLink, Info, ClipboardList, CreditCard
 } from 'lucide-react';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
@@ -88,12 +88,10 @@ const validarForm = (f) => {
   return erros;
 };
 
-const enderecoLocal = 'R. Salinópolis, 44 - Taquara, Rio de Janeiro - RJ, 22720-000';
-const linkMapa = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`Estrela Café, ${enderecoLocal}`)}`;
 
 const conteudo = [
   { icone: Monitor, titulo: 'Aula Teórica Online', texto: 'A parte teórica do curso, em formato online.' },
-  { icone: Users, titulo: 'Aula Prática Presencial', texto: '8 horas de prática de medição, presencialmente, no Estrela Café (Taquara – RJ).' },
+  { icone: Users, titulo: 'Aula Prática Presencial', texto: '8 horas de prática de medição, presencialmente, no Centro do Rio de Janeiro (local a confirmar).' },
   { icone: BookOpen, titulo: 'Livro Digital', texto: 'Antropometria: Do Zero ao Avançado — Volume 1: Fundamentos, História e Protocolo de Medidas.' },
   { icone: FileSpreadsheet, titulo: 'Planilha de Avaliação Antropométrica', texto: 'Planilha de avaliação antropométrica incluída no curso.', link: { to: '/planilha', rotulo: 'Conhecer a planilha' } },
   { icone: MessageCircle, titulo: 'Grupo exclusivo da turma no WhatsApp', texto: 'Acesso ao grupo exclusivo da turma no WhatsApp.', largo: true },
@@ -141,7 +139,7 @@ const faqs = [
   },
   {
     pergunta: 'Onde acontece a aula prática?',
-    resposta: 'No Estrela Café, na R. Salinópolis, 44 - Taquara, Rio de Janeiro - RJ, 22720-000.'
+    resposta: 'No Centro do Rio de Janeiro. O local exato ainda está a confirmar.'
   },
   {
     pergunta: 'Quanto custa o curso?',
@@ -481,17 +479,8 @@ export default function CursoAvaliacaoAntropometrica() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-slate-800 border border-slate-700 rounded-3xl p-6">
               <MapPin className="text-green-400 mb-3" size={26} />
-              <h3 className="text-xl font-black text-white mb-2">Estrela Café</h3>
-              <p className="text-slate-300 font-medium leading-relaxed mb-5">R. Salinópolis, 44<br />Taquara, Rio de Janeiro - RJ<br />CEP 22720-000</p>
-              <a
-                href={linkMapa}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Abrir o endereço do Estrela Café no Google Maps"
-                className="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-full font-black uppercase text-xs tracking-widest hover:bg-green-100 transition-colors"
-              >
-                <Navigation size={16} /> Ver no mapa
-              </a>
+              <h3 className="text-xl font-black text-white mb-2">Centro do Rio de Janeiro</h3>
+              <p className="text-slate-300 font-medium leading-relaxed m-0">Local a confirmar</p>
             </div>
             <div className="bg-slate-800 border border-slate-700 rounded-3xl p-6">
               <CalendarDays className="text-green-400 mb-3" size={26} />
@@ -542,7 +531,7 @@ export default function CursoAvaliacaoAntropometrica() {
             <div className="flex flex-col items-center text-center gap-5">
               <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden shadow-xl shrink-0 border-4 border-white bg-green-700">
                 <ImagemOtimizada
-                  src={`${githubImgBase}Isabele_Lopes_Moreira_Cabral.webp`}
+                  src={`${githubImgBase}Isabele_Lopes_Moreira_Cabral_2.webp`}
                   alt="Isabele Lopes Moreira Cabral, nutricionista e professora na Unicesumar, instrutora do curso"
                   title="Isabele Lopes Moreira Cabral"
                   className="w-full h-full object-cover"
