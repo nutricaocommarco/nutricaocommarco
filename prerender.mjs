@@ -102,7 +102,7 @@ const rotasEstaticas = [
   {
     path: 'curso-de-avaliacao-antropometrica',
     title: 'Curso de Avaliação Antropométrica no Rio | Nutrição com Marco',
-    image: `${githubImgBase}Curso_Antropometria_Pratica.webp`,
+    image: `${githubImgBase}Curso_Professores_Isabele_Marco.webp`,
     desc: 'Curso de avaliação antropométrica com teoria online e 8h de prática presencial no Rio. Inclui livro digital, planilha e materiais. R$ 600 no primeiro lote.',
     schemasExtra: [
       {
@@ -111,7 +111,7 @@ const rotasEstaticas = [
         "name": "Curso de Avaliação Antropométrica: Teoria Online e Prática Presencial",
         "description": "Curso de avaliação antropométrica com aula teórica online (23/01/2027, das 18h às 21h), 8 horas de aula prática presencial no Rio de Janeiro (30/01/2027, das 8h às 17h), livro digital Antropometria: Do Zero ao Avançado (Volume 1), Planilha de Avaliação Antropométrica, grupo exclusivo da turma no WhatsApp e kit de brinde para levar para casa (fita antropométrica, segmômetro, caneta e banqueta). Baseado nos protocolos ISAK; curso independente, que não é um curso ISAK e não emite certificação ISAK.",
         "url": "https://www.nutricaocommarco.com.br/curso-de-avaliacao-antropometrica",
-        "image": `${githubImgBase}Curso_Antropometria_Pratica.webp`,
+        "image": `${githubImgBase}Curso_Professores_Isabele_Marco.webp`,
         "inLanguage": "pt-BR",
         "provider": { "@type": "Organization", "name": "Nutrição com Marco", "sameAs": "https://www.nutricaocommarco.com.br" },
         "hasCourseInstance": {
