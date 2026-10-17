@@ -291,7 +291,7 @@ export default function CursoAvaliacaoAntropometrica() {
 
             <div className="flex flex-col sm:flex-row items-center gap-5 bg-white p-4 rounded-[2rem] shadow-xl border border-slate-100 w-full sm:w-fit">
               <div className="bg-slate-900 text-white px-8 py-4 rounded-3xl text-center min-w-[190px]">
-                <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mb-1">{LOTE.ordinal} lote • {LOTE.vagas} vagas</span>
+                <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mb-1">{LOTE.ordinal} lote • {LOTE.vagas} vagas disponíveis</span>
                 <span className="block text-4xl font-black italic tracking-tighter"><span className="text-xl text-green-400 mr-1">R$</span>{LOTE.preco}<span className="text-xl text-green-400">,00</span></span>
                 {!ULTIMO_LOTE && <span className="block text-[11px] font-bold text-slate-300 mt-2 leading-snug">{PROXIMOS_LOTES.map((l) => `${l.nome}: R$ ${l.preco}`).join(' • ')}</span>}
                 <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mt-1">{ULTIMO_LOTE ? 'Último lote' : 'O preço sobe a cada lote'}</span>
@@ -580,7 +580,7 @@ export default function CursoAvaliacaoAntropometrica() {
             <div>
               <h2 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mb-2">Garanta sua vaga no {LOTE.ordinal} lote</h2>
               <p className="text-slate-700 font-medium m-0">
-                O {LOTE.ordinal} lote tem <strong>{LOTE.vagas} vagas</strong>, por <strong>{formatarReais(LOTE.preco)}</strong>. {textoProximosLotes()}{!ULTIMO_LOTE && ' Quanto antes você se inscrever, menos paga.'} Cartão em até 12x, com juros.
+                O {LOTE.ordinal} lote tem <strong>{LOTE.vagas} vagas disponíveis</strong>, por <strong>{formatarReais(LOTE.preco)}</strong>. {textoProximosLotes()}{!ULTIMO_LOTE && ' Quanto antes você se inscrever, menos paga.'} Cartão em até 12x, com juros.
               </p>
             </div>
           </div>
