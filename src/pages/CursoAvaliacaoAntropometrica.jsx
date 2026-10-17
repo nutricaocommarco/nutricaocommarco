@@ -131,7 +131,7 @@ const faqs = [
   },
   {
     pergunta: 'Quando acontecem as aulas?',
-    resposta: 'A aula online é no sábado, 23 de janeiro de 2027, das 18h às 21h. A aula presencial é no sábado, 30 de janeiro de 2027, das 8h às 17h.'
+    resposta: 'A aula online é no sábado, 23 de janeiro de 2027, das 18h às 21h. A aula presencial é no sábado, 30 de janeiro de 2027, das 8h às 17h. O horário do dia 30 pode sofrer pequenas variações dependendo da regra do local escolhido para o curso.'
   },
   {
     pergunta: 'Paquímetro e plicômetro estão inclusos?',
@@ -295,6 +295,7 @@ export default function CursoAvaliacaoAntropometrica() {
                 </div>
               ))}
             </div>
+            <p className="-mt-3 mb-6 text-xs text-slate-500 font-medium leading-relaxed">O horário do dia 30 pode sofrer pequenas variações dependendo da regra do local escolhido para o curso.</p>
 
             <div className="flex flex-col sm:flex-row items-center gap-5 bg-white p-4 rounded-[2rem] shadow-xl border border-slate-100 w-full sm:w-fit">
               <div className="bg-slate-900 text-white px-8 py-4 rounded-3xl text-center min-w-[190px]">
@@ -494,6 +495,7 @@ export default function CursoAvaliacaoAntropometrica() {
                   </li>
                 ))}
               </ul>
+              <p className="mt-4 mb-0 text-xs text-slate-400 font-medium leading-relaxed">O horário do dia 30 pode sofrer pequenas variações dependendo da regra do local escolhido para o curso.</p>
             </div>
           </div>
         </div>
