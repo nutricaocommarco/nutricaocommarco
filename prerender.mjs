@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { LOTE, respostaQuantoCusta } from './src/data/lotesCurso.js';
 
 // 🔗 Link base oficial das imagens no CDN jsDelivr
 const githubImgBase = "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/";
@@ -103,7 +104,7 @@ const rotasEstaticas = [
     path: 'curso-de-avaliacao-antropometrica',
     title: 'Curso de Avaliação Antropométrica no Rio | Nutrição com Marco',
     image: `${githubImgBase}Curso_Professores_Isabele_Marco.webp`,
-    desc: 'Curso de avaliação antropométrica com teoria online e 8h de prática presencial no Rio. Inclui livro digital, planilha e materiais. R$ 600 no primeiro lote.',
+    desc: 'Curso de avaliação antropométrica com teoria online e 8h de prática presencial no Rio. Inclui livro digital, planilha e materiais. R$ ' + LOTE.preco + ' no ' + LOTE.ordinal + ' lote.',
     schemasExtra: [
       {
         "@context": "https://schema.org",
@@ -134,7 +135,7 @@ const rotasEstaticas = [
         "offers": {
           "@type": "Offer",
           "category": "Paid",
-          "price": "600.00",
+          "price": LOTE.preco.toFixed(2),
           "priceCurrency": "BRL",
           "availability": "https://schema.org/InStock",
           "url": "https://www.nutricaocommarco.com.br/curso-de-avaliacao-antropometrica"
@@ -145,7 +146,7 @@ const rotasEstaticas = [
         { pergunta: "Quando acontecem as aulas?", resposta: "A aula online é no sábado, 23 de janeiro de 2027, das 18h às 21h. A aula presencial é no sábado, 30 de janeiro de 2027, das 8h às 17h. O horário do dia 30 pode sofrer pequenas variações dependendo da regra do local escolhido para o curso." },
         { pergunta: "Paquímetro e plicômetro estão inclusos?", resposta: "Não. O paquímetro e o plicômetro não estão inclusos no valor do curso. Os modelos recomendados são o Plicômetro Clínico Preto e o Paquímetro Ósseo 16 cm Preto, ambos da Avanutri, com os links de compra na seção \"Equipamentos recomendados\" desta página. Se tiver dúvidas, chame no WhatsApp antes de se inscrever." },
         { pergunta: "Onde acontece a aula prática?", resposta: "No Centro do Rio de Janeiro. O local exato ainda está a confirmar." },
-        { pergunta: "Quanto custa o curso?", resposta: "O valor do primeiro lote é R$ 600,00, e o primeiro lote tem 4 vagas. O segundo lote custa R$ 700,00 e o terceiro, R$ 800,00. O preço sobe a cada lote, então garantir a vaga agora é pagar o menor valor. O pagamento pode ser feito em Pix, boleto ou cartão em até 12x, com juros." },
+        { pergunta: "Quanto custa o curso?", resposta: respostaQuantoCusta() },
         { pergunta: "Como faço a inscrição e o pagamento?", resposta: "Preencha a ficha de inscrição no fim desta página, com nome, e-mail, telefone e os equipamentos que você já tem. Ao enviar, a ficha chega ao Marco e o link de pagamento do curso é liberado. O livro físico tem valor promocional de R$ 80,00, com entrega grátis em mãos no dia da aula presencial. Depois da inscrição, o link para comprar o livro fica disponível na área do curso, na plataforma da Hotmart." },
         { pergunta: "Este curso dá certificação ISAK?", resposta: "Não. Este não é um curso ISAK e não emite certificação ISAK: a certificação é emitida apenas por cursos oficiais credenciados pela própria ISAK. Este é um curso independente, que ensina e treina as técnicas de medição com base nos protocolos ISAK." }
       ])

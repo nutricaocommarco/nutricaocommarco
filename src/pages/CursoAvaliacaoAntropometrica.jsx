@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { LOTE, PROXIMOS_LOTES, ULTIMO_LOTE, textoProximosLotes, respostaQuantoCusta } from '../data/lotesCurso';
 import ImagemOtimizada from '../components/ImagemOtimizada';
 import { posts } from '../data/posts';
 import {
@@ -44,17 +45,8 @@ const linkDuvidas = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(
 
 // Inscrição: a ficha é enviada ao Formspree e, em seguida, o pagamento é liberado na tela.
 const FORMSPREE_URL = 'https://formspree.io/f/xbgdzqpe';
-// Lotes da Hotmart. Para virar de lote, troque LOTE_ATIVO (0 = 1º, 1 = 2º, 2 = 3º).
-const LOTES = [
-  { nome: '1º lote', preco: 600, vagas: 4, link: 'https://pay.hotmart.com/T108024284B?off=z0uu725b' },
-  { nome: '2º lote', preco: 700, vagas: 7, link: 'https://pay.hotmart.com/T108024284B?off=1oieppo9' },
-  { nome: '3º lote', preco: 800, vagas: 9, link: 'https://pay.hotmart.com/T108024284B?off=nunzhzdq' },
-];
-const LOTE_ATIVO = 0;
-const LOTE = LOTES[LOTE_ATIVO];
 const PRECO_CURSO = LOTE.preco;
 const PRECO_LIVRO_FISICO = 80; // valor promocional, vendido na Hotmart em checkout próprio
-const VAGAS_PRIMEIRO_LOTE = LOTES[0].vagas;
 const CHAVE_STORAGE = 'inscricao_curso_antropometria';
 
 const formatarReais = (valor) => `R$ ${valor.toFixed(2).replace('.', ',')}`;
@@ -143,7 +135,7 @@ const faqs = [
   },
   {
     pergunta: 'Quanto custa o curso?',
-    resposta: 'O valor do primeiro lote é R$ 600,00, e o primeiro lote tem 4 vagas. O segundo lote custa R$ 700,00 e o terceiro, R$ 800,00. O preço sobe a cada lote, então garantir a vaga agora é pagar o menor valor. O pagamento pode ser feito em Pix, boleto ou cartão em até 12x, com juros.'
+    resposta: respostaQuantoCusta()
   },
   {
     pergunta: 'Como faço a inscrição e o pagamento?',
@@ -229,7 +221,7 @@ export default function CursoAvaliacaoAntropometrica() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          _subject: 'Nova inscrição — Curso de Avaliação Antropométrica (1º lote)',
+          _subject: `Nova inscrição — Curso de Avaliação Antropométrica (${LOTE.nome})`,
           formulario: 'inscricao-curso-avaliacao-antropometrica',
           nome: form.nome.trim(),
           email: form.email.trim(),
@@ -268,7 +260,7 @@ export default function CursoAvaliacaoAntropometrica() {
           <div className="text-center lg:text-left flex flex-col items-center lg:items-start order-2 lg:order-1">
             <div className="flex items-center gap-2 md:gap-3 mb-5 md:mb-6 bg-white px-4 md:px-5 py-2 md:py-2.5 rounded-full shadow-sm border border-slate-200">
               <GraduationCap className="text-green-700 w-4 h-4 md:w-5 md:h-5 shrink-0" />
-              <span className="text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-wider md:tracking-widest text-slate-700 whitespace-nowrap">Curso Presencial + Online • 1º Lote</span>
+              <span className="text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-wider md:tracking-widest text-slate-700 whitespace-nowrap">Curso Presencial + Online • {LOTE.nome.replace('lote','Lote')}</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase italic leading-tight mb-6 text-slate-900">
@@ -299,10 +291,10 @@ export default function CursoAvaliacaoAntropometrica() {
 
             <div className="flex flex-col sm:flex-row items-center gap-5 bg-white p-4 rounded-[2rem] shadow-xl border border-slate-100 w-full sm:w-fit">
               <div className="bg-slate-900 text-white px-8 py-4 rounded-3xl text-center min-w-[190px]">
-                <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mb-1">Primeiro Lote • {VAGAS_PRIMEIRO_LOTE} vagas</span>
-                <span className="block text-4xl font-black italic tracking-tighter"><span className="text-xl text-green-400 mr-1">R$</span>{LOTES[0].preco}<span className="text-xl text-green-400">,00</span></span>
-                <span className="block text-[11px] font-bold text-slate-300 mt-2 leading-snug">2º lote: R$ {LOTES[1].preco} • 3º lote: R$ {LOTES[2].preco}</span>
-                <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mt-1">O preço sobe a cada lote</span>
+                <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mb-1">{LOTE.ordinal} lote • {LOTE.vagas} vagas</span>
+                <span className="block text-4xl font-black italic tracking-tighter"><span className="text-xl text-green-400 mr-1">R$</span>{LOTE.preco}<span className="text-xl text-green-400">,00</span></span>
+                {!ULTIMO_LOTE && <span className="block text-[11px] font-bold text-slate-300 mt-2 leading-snug">{PROXIMOS_LOTES.map((l) => `${l.nome}: R$ ${l.preco}`).join(' • ')}</span>}
+                <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mt-1">{ULTIMO_LOTE ? 'Último lote' : 'O preço sobe a cada lote'}</span>
               </div>
               <a
                 href="#inscricao"
@@ -586,9 +578,9 @@ export default function CursoAvaliacaoAntropometrica() {
           <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 mb-8 text-center sm:text-left">
             <img src={`${githubImgBase}logoN_pingus.webp`} alt="Píngus, mascote do Nutrição com Marco" width="128" height="128" loading="lazy" className="w-24 md:w-28 h-auto shrink-0" />
             <div>
-              <h2 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mb-2">Garanta sua vaga no primeiro lote</h2>
+              <h2 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mb-2">Garanta sua vaga no {LOTE.ordinal} lote</h2>
               <p className="text-slate-700 font-medium m-0">
-                O primeiro lote tem <strong>{VAGAS_PRIMEIRO_LOTE} vagas</strong>, por <strong>{formatarReais(LOTES[0].preco)}</strong>. O 2º lote custa R$ {LOTES[1].preco} e o 3º, R$ {LOTES[2].preco}: quanto antes você se inscrever, menos paga. Cartão em até 12x, com juros.
+                O {LOTE.ordinal} lote tem <strong>{LOTE.vagas} vagas</strong>, por <strong>{formatarReais(LOTE.preco)}</strong>. {textoProximosLotes()}{!ULTIMO_LOTE && ' Quanto antes você se inscrever, menos paga.'} Cartão em até 12x, com juros.
               </p>
             </div>
           </div>
