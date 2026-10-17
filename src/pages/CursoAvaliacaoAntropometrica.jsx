@@ -46,7 +46,7 @@ const linkDuvidas = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(
 const FORMSPREE_URL = 'https://formspree.io/f/xbgdzqpe';
 // Lotes da Hotmart. Para virar de lote, troque LOTE_ATIVO (0 = 1º, 1 = 2º, 2 = 3º).
 const LOTES = [
-  { nome: '1º lote', preco: 600, vagas: 4, link: 'https://pay.hotmart.com/T108024284B?off=z0uu725b' },
+  { nome: '1º lote', preco: 600, vagas: 3, link: 'https://pay.hotmart.com/T108024284B?off=z0uu725b' },
   { nome: '2º lote', preco: 700, vagas: 7, link: 'https://pay.hotmart.com/T108024284B?off=1oieppo9' },
   { nome: '3º lote', preco: 800, vagas: 9, link: 'https://pay.hotmart.com/T108024284B?off=nunzhzdq' },
 ];
@@ -143,7 +143,7 @@ const faqs = [
   },
   {
     pergunta: 'Quanto custa o curso?',
-    resposta: 'O valor do primeiro lote é R$ 600,00, e o primeiro lote tem 4 vagas. O segundo lote custa R$ 700,00 e o terceiro, R$ 800,00. O preço sobe a cada lote, então garantir a vaga agora é pagar o menor valor. O pagamento pode ser feito em Pix, boleto ou cartão em até 12x, com juros.'
+    resposta: 'O valor do primeiro lote é R$ 600,00, e o primeiro lote tem 3 vagas disponíveis. O segundo lote custa R$ 700,00 e o terceiro, R$ 800,00. O preço sobe a cada lote, então garantir a vaga agora é pagar o menor valor. O pagamento pode ser feito em Pix, boleto ou cartão em até 12x, com juros.'
   },
   {
     pergunta: 'Como faço a inscrição e o pagamento?',
@@ -299,7 +299,7 @@ export default function CursoAvaliacaoAntropometrica() {
 
             <div className="flex flex-col sm:flex-row items-center gap-5 bg-white p-4 rounded-[2rem] shadow-xl border border-slate-100 w-full sm:w-fit">
               <div className="bg-slate-900 text-white px-8 py-4 rounded-3xl text-center min-w-[190px]">
-                <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mb-1">Primeiro Lote • {VAGAS_PRIMEIRO_LOTE} vagas</span>
+                <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mb-1">Primeiro Lote • {VAGAS_PRIMEIRO_LOTE} vagas disponíveis</span>
                 <span className="block text-4xl font-black italic tracking-tighter"><span className="text-xl text-green-400 mr-1">R$</span>{LOTES[0].preco}<span className="text-xl text-green-400">,00</span></span>
                 <span className="block text-[11px] font-bold text-slate-300 mt-2 leading-snug">2º lote: R$ {LOTES[1].preco} • 3º lote: R$ {LOTES[2].preco}</span>
                 <span className="block text-[10px] font-black uppercase tracking-widest text-green-400 mt-1">O preço sobe a cada lote</span>
@@ -588,7 +588,7 @@ export default function CursoAvaliacaoAntropometrica() {
             <div>
               <h2 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic mb-2">Garanta sua vaga no primeiro lote</h2>
               <p className="text-slate-700 font-medium m-0">
-                O primeiro lote tem <strong>{VAGAS_PRIMEIRO_LOTE} vagas</strong>, por <strong>{formatarReais(LOTES[0].preco)}</strong>. O 2º lote custa R$ {LOTES[1].preco} e o 3º, R$ {LOTES[2].preco}: quanto antes você se inscrever, menos paga. Cartão em até 12x, com juros.
+                O primeiro lote tem <strong>{VAGAS_PRIMEIRO_LOTE} vagas disponíveis</strong>, por <strong>{formatarReais(LOTES[0].preco)}</strong>. O 2º lote custa R$ {LOTES[1].preco} e o 3º, R$ {LOTES[2].preco}: quanto antes você se inscrever, menos paga. Cartão em até 12x, com juros.
               </p>
             </div>
           </div>
