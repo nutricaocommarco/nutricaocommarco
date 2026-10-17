@@ -10,6 +10,7 @@ Nutrição com Marco publica artigos em português (pt-BR) sobre nutrição clí
 - [Sobre](https://www.nutricaocommarco.com.br/sobre): Biografia e formação de Marco Aurélio Jr.
 - [Certificações](https://www.nutricaocommarco.com.br/certificacoes): Currículo e certificações técnicas, incluindo ISAK.
 - [Planos de Acompanhamento](https://www.nutricaocommarco.com.br/planos): Níveis de acompanhamento nutricional e avaliação física oferecidos.
+- [Curso de Avaliação Antropométrica](https://www.nutricaocommarco.com.br/curso-de-avaliacao-antropometrica): Curso presencial + online no Rio de Janeiro, com teoria online e 8 horas de prática, livro digital e planilha.
 - [Calculadora de Gasto Calórico](https://www.nutricaocommarco.com.br/calculadora-de-gasto-calorico): Ferramenta gratuita para calcular gasto calórico diário e taxa metabólica basal.
 - [Loja do Píngus](https://www.nutricaocommarco.com.br/loja): Canecas, avental, e-book de receitas e planilha de avaliação antropométrica.
 - [Planilha de Avaliação Antropométrica](https://www.nutricaocommarco.com.br/planilha-de-avaliacao-antropometrica-marco-aurelio): Ferramenta em VBA para avaliação de composição corporal com protocolos ISAK.

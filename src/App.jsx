@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Instagram, Menu, X, Mail, ChevronDown, Store, Calculator, BookOpen, Flame, Rocket } from 'lucide-react';
+import { Instagram, Menu, X, Mail, ChevronDown, Store, Calculator, BookOpen, Flame, Rocket, GraduationCap } from 'lucide-react';
 import { HelmetProvider } from 'react-helmet-async';
 import Loja from './pages/Loja_do_Pingus/Loja';
 import ProdutoDetalhe from './pages/Loja_do_Pingus/ProdutoDetalhe';
@@ -156,7 +156,7 @@ function Layout({ children }) {
 
             {/* DROPDOWN LOJA E FERRAMENTAS */}
             <div className="relative group">
-              <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/loja', '/calculadora-de-gasto-calorico', '/planilha', '/ebook-receitas', '/software-de-avaliacao-antropometrica'].some(path => location.pathname.startsWith(path)) ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-700'}`}>
+              <span className={`cursor-pointer py-1 border-b-2 transition-all flex items-center gap-1 ${['/loja', '/calculadora-de-gasto-calorico', '/planilha', '/ebook-receitas', '/software-de-avaliacao-antropometrica', '/curso-de-avaliacao-antropometrica'].some(path => location.pathname.startsWith(path)) ? 'text-green-700 border-green-600' : 'text-slate-800 border-transparent group-hover:text-green-700'}`}>
                 Loja <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
               </span>
               <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-white border border-green-100 shadow-xl rounded-xl py-3 w-80 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col z-50">
@@ -165,6 +165,9 @@ function Layout({ children }) {
                 </Link>
                 <Link to="/software-de-avaliacao-antropometrica" className={`px-5 py-2.5 text-sm font-bold transition-all flex items-center gap-2 ${location.pathname === '/software-de-avaliacao-antropometrica' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>
                   <Rocket size={16} className="text-emerald-600" /> Software Antropometria (EvaluaOS)
+                </Link>
+                <Link to="/curso-de-avaliacao-antropometrica" className={`px-5 py-2.5 text-sm font-bold transition-all flex items-center gap-2 ${location.pathname === '/curso-de-avaliacao-antropometrica' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>
+                  <GraduationCap size={16} className="text-green-700" /> Curso de Antropometria
                 </Link>
                 <Link to="/calculadora-de-gasto-calorico" className={`px-5 py-2 text-sm font-bold transition-all flex items-center gap-2 ${location.pathname === '/calculadora-de-gasto-calorico' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>
                   <Calculator size={16} className="text-green-700" /> Gasto Calórico (Grátis)
@@ -213,6 +216,9 @@ function Layout({ children }) {
                 </Link>
                 <Link to="/software-de-avaliacao-antropometrica" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-emerald-600 flex items-center gap-2">
                   <Rocket size={18} /> Software EvaluaOS
+                </Link>
+                <Link to="/curso-de-avaliacao-antropometrica" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-700 flex items-center gap-2">
+                  <GraduationCap size={18} /> Curso de Antropometria
                 </Link>
                 <Link to="/calculadora-de-gasto-calorico" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-700 flex items-center gap-2">
                   <Calculator size={18} /> Gasto Calórico (Grátis)
