@@ -13,8 +13,8 @@ const capaLivro = `${githubImgBase}Antropometria_Livro_Vol1_Capa.webp`;
 const fotoCurso = `${githubImgBase}Curso_Antropometria_Pratica.webp`;
 
 const aulas = {
-  online: { titulo: 'Aula Online', curta: '16/01/2027 • 18h às 21h', quando: 'Sábado, 16 de janeiro de 2027', horario: 'das 18h às 21h' },
-  presencial: { titulo: 'Aula Presencial', curta: '23/01/2027 • 8h às 17h', quando: 'Sábado, 23 de janeiro de 2027', horario: 'das 8h às 17h' },
+  online: { titulo: 'Aula Online', curta: '23/01/2027 • 18h às 21h', quando: 'Sábado, 23 de janeiro de 2027', horario: 'das 18h às 21h' },
+  presencial: { titulo: 'Aula Presencial', curta: '30/01/2027 • 8h às 17h', quando: 'Sábado, 30 de janeiro de 2027', horario: 'das 8h às 17h' },
 };
 
 const equipamentosRecomendados = [
@@ -131,7 +131,7 @@ const faqs = [
   },
   {
     pergunta: 'Quando acontecem as aulas?',
-    resposta: 'A aula online é no sábado, 16 de janeiro de 2027, das 18h às 21h. A aula presencial é no sábado, 23 de janeiro de 2027, das 8h às 17h.'
+    resposta: 'A aula online é no sábado, 23 de janeiro de 2027, das 18h às 21h. A aula presencial é no sábado, 30 de janeiro de 2027, das 8h às 17h.'
   },
   {
     pergunta: 'Paquímetro e plicômetro estão inclusos?',
@@ -198,7 +198,7 @@ export default function CursoAvaliacaoAntropometrica() {
     <div className="bg-orange-50 border border-orange-200 rounded-2xl p-4 flex items-start gap-3">
       <BookOpen size={20} className="text-orange-600 shrink-0 mt-0.5" />
       <p className="text-sm text-orange-900 font-medium leading-relaxed m-0">
-        <strong>Livro físico com desconto:</strong> valor promocional de <strong>{formatarReais(PRECO_LIVRO_FISICO)}</strong>, com entrega grátis em mãos no dia da aula presencial (23/01/2027). Depois da inscrição, o link para comprar o livro fica disponível na área do curso, na plataforma da Hotmart.
+        <strong>Livro físico com desconto:</strong> valor promocional de <strong>{formatarReais(PRECO_LIVRO_FISICO)}</strong>, com entrega grátis em mãos no dia da aula presencial (30/01/2027). Depois da inscrição, o link para comprar o livro fica disponível na área do curso, na plataforma da Hotmart.
       </p>
     </div>
   );
