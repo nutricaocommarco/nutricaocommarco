@@ -10,7 +10,7 @@ import {
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 const capaLivro = `${githubImgBase}Antropometria_Livro_Vol1_Capa.webp`;
-const fotoCurso = `${githubImgBase}Curso_Antropometria_Pratica.webp`;
+const fotoCurso = `${githubImgBase}Curso_Professores_Isabele_Marco.webp`;
 
 const aulas = {
   online: { titulo: 'Aula Online', curta: '23/01/2027 • 18h às 21h', quando: 'Sábado, 23 de janeiro de 2027', horario: 'das 18h às 21h' },
@@ -315,12 +315,12 @@ export default function CursoAvaliacaoAntropometrica() {
           </div>
 
           <div className="order-1 lg:order-2 flex justify-center">
-            <div className="relative w-full max-w-xs sm:max-w-none sm:w-72 lg:w-96 aspect-[4/3] sm:aspect-[1493/2000] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-200">
+            <div className="relative w-full max-w-xs sm:max-w-none sm:w-72 lg:w-96 aspect-square sm:aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-200">
               <ImagemOtimizada
                 src={fotoCurso}
-                alt="Medição de dobra cutânea com plicômetro (adipômetro) na região do abdômen, com o ponto anatômico marcado na pele, durante uma avaliação antropométrica"
-                title="Aula prática de avaliação antropométrica"
-                className="absolute inset-0 w-full h-full object-cover object-[50%_40%] sm:object-center"
+                alt="Professora Isabele segurando modelos de gordura e músculo e Marco Aurélio segurando um plicômetro, professores do Curso de Avaliação Antropométrica"
+                title="Professores do Curso de Avaliação Antropométrica"
+                className="absolute inset-0 w-full h-full object-cover object-center"
                 priority="high"
               />
             </div>
