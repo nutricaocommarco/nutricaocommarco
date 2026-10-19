@@ -161,7 +161,25 @@ export default function CursoAvaliacaoAntropometrica() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const linkPagamento = LOTE.link;
+  const linkPagamento = `${LOTE.link}${LOTE.link.includes('?') ? '&' : '?'}utm_source=site&utm_medium=pagina_curso&utm_campaign=curso-antropometria&utm_content=${encodeURIComponent(LOTE.nome)}`;
+
+  // Medição do clique em "Pagar o curso": GA4 (begin_checkout) e Meta Pixel (InitiateCheckout).
+  // Os rastreadores são carregados no index.html; o clique também força o carregamento caso ainda não tenham subido.
+  const registrarInicioPagamento = () => {
+    try {
+      if (typeof window.loadTrackingScripts === 'function') window.loadTrackingScripts();
+      window.dataLayer = window.dataLayer || [];
+      const gtag = function () { window.dataLayer.push(arguments); };
+      gtag('event', 'begin_checkout', {
+        currency: 'BRL',
+        value: PRECO_CURSO,
+        items: [{ item_id: 'curso-avaliacao-antropometrica', item_name: 'Curso de Avaliação Antropométrica', item_variant: LOTE.nome, price: PRECO_CURSO, quantity: 1 }],
+        transport_type: 'beacon',
+      });
+      gtag('event', 'click_pagar_curso', { lote: LOTE.nome, transport_type: 'beacon' });
+      if (typeof window.fbq === 'function') window.fbq('track', 'InitiateCheckout', { value: PRECO_CURSO, currency: 'BRL', content_name: 'Curso de Avaliação Antropométrica' });
+    } catch (err) { /* medição nunca deve impedir o pagamento */ }
+  };
 
   const irParaInscricao = (e) => {
     e.preventDefault();
@@ -667,6 +685,7 @@ export default function CursoAvaliacaoAntropometrica() {
 
               <a
                 href={linkPagamento}
+                onClick={registrarInicioPagamento}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 bg-green-700 text-white px-8 py-4 rounded-full font-black uppercase text-xs md:text-sm tracking-widest shadow-lg hover:bg-green-800 transition-all duration-300 w-full italic"
