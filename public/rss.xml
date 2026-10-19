@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+<channel>
+  <title>Nutrição com Marco - Blog</title>
+  <link>https://www.nutricaocommarco.com.br</link>
+  <description>Artigos sobre metabolismo, fisiologia e composição corporal.</description>
+  <language>pt-br</language>
+  <item>
+    <title>O Que É Reeducação Alimentar? Guia Completo Baseado em Ciência</title>
+    <link>https://www.nutricaocommarco.com.br/o-que-e-reeducacao-alimentar</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/o-que-e-reeducacao-alimentar</guid>
+    <description>Entenda o que é reeducação alimentar, a diferença real para dietas restritivas, o Modelo Transteórico de mudança de hábito e passos práticos baseados no Guia Alimentar oficial.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/OQueEReeducacaoAlimentar_Capa.webp" type="image/jpeg" medium="image" />
+    <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Como Calcular Meu GET (Gasto Energético Total): Fórmulas e Calculadora Interativa</title>
+    <link>https://www.nutricaocommarco.com.br/como-calcular-meu-get</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/como-calcular-meu-get</guid>
+    <description>Aprenda de verdade como calcular seu GET com equações validadas (Mifflin-St Jeor e Harris-Benedict). Acesse nossa calculadora gratuita e descubra sua TMB exata.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/GET_Capa.webp" type="image/jpeg" medium="image" />
+    <pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>O Que São Microplásticos? Como Eles Afetam Sua Saúde e Fertilidade</title>
+    <link>https://www.nutricaocommarco.com.br/o-que-sao-microplasticos</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/o-que-sao-microplasticos</guid>
+    <description>Entenda o que são microplásticos, como eles entram no corpo humano, seus efeitos na fertilidade e 5 dicas práticas para reduzir a exposição no dia a dia.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/OQueSaoMicroplasticos_Capa.webp" type="image/jpeg" medium="image" />
+    <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Como Dormir Rápido: Técnicas Comprovadas para Adormecer em Minutos</title>
+    <link>https://www.nutricaocommarco.com.br/como-dormir-rapido</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/como-dormir-rapido</guid>
+    <description>Descubra como dormir rápido com técnicas de relaxamento, ajustes no ambiente, alimentação e a Terapia Cognitivo-Comportamental para Insônia (TCC-I).</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/ComoDormirRapido_Capa.webp" type="image/jpeg" medium="image" />
+    <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Alimentação Anti-Inflamatória para Lipedema: O Que a Ciência Já Sabe</title>
+    <link>https://www.nutricaocommarco.com.br/alimentacao-anti-inflamatoria-para-lipedema</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/alimentacao-anti-inflamatoria-para-lipedema</guid>
+    <description>Entenda o que a ciência já sabe sobre alimentação anti-inflamatória para lipedema, a diferença entre lipedema, linfedema e obesidade, e o papel da tirzepatida.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/AlimentacaoAntiInflamatoriaLipedema_Capa.webp" type="image/jpeg" medium="image" />
+    <pubDate>Sat, 29 Aug 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Alimentação Saudável das Crianças a Cada Fase da Infância</title>
+    <link>https://www.nutricaocommarco.com.br/alimentacao-saudavel-das-criancas</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/alimentacao-saudavel-das-criancas</guid>
+    <description>Entenda como a alimentação saudável das crianças muda em cada fase da infância, do aleitamento materno aos lanches escolares, e como lidar com a neofobia alimentar.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/AlimentacaoSaudavelCriancas_Capa.webp" type="image/jpeg" medium="image" />
+    <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Relação Cintura-Quadril: O Que É e Como Calcular Seu Risco Cardiovascular</title>
+    <link>https://www.nutricaocommarco.com.br/relacao-cintura-quadril</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/relacao-cintura-quadril</guid>
+    <description>Descubra o que é a relação cintura-quadril, como medir corretamente, os pontos de corte da OMS por sexo e use nossa calculadora gratuita para saber seu risco cardiovascular agora.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/RelacaoCinturaQuadril_Capa.webp" type="image/jpeg" medium="image" />
+    <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Como fazer uma Avaliação Antropométrica de Qualidade?</title>
+    <link>https://www.nutricaocommarco.com.br/avaliacao-antropometrica</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/avaliacao-antropometrica</guid>
+    <description>Aprenda como fazer uma avaliação antropométrica completa. Domine o protocolo ISAK, Pollock, dobras cutâneas, calcule seu somatotipo online e descubra como automatizar seus relatórios!</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Avaliacao_Antropometrica_Capa.webp" type="image/jpeg" medium="image" />
+    <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>O Que É Dieta Mediterrânea? O Segredo para Saúde e Longevidade</title>
+    <link>https://www.nutricaocommarco.com.br/o-que-e-dieta-mediterranea</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/o-que-e-dieta-mediterranea</guid>
+    <description>Descubra o que é dieta mediterrânea na prática. Entenda como o consumo de azeite extra virgem, peixes e vegetais protege o coração e ajuda a emagrecer sem restrições extremas.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/DietaMediterranea_Capa.webp" type="image/jpeg" medium="image" />
+    <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Como Ganhar Tempo na Cozinha: O Guia Definitivo da Organização e Mise en Place</title>
+    <link>https://www.nutricaocommarco.com.br/como-ganhar-tempo-na-cozinha</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/como-ganhar-tempo-na-cozinha</guid>
+    <description>Descubra como ganhar tempo na cozinha adotando a técnica profissional de Mise en Place. Aprenda a organizar cardápios e usar o congelamento inteligente a seu favor.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/GanharTempo_Capa.webp" type="image/jpeg" medium="image" />
+    <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>O Que Comer na TPM: O Guia Definitivo Para Controlar a Fome e Emagrecer</title>
+    <link>https://www.nutricaocommarco.com.br/o-que-comer-na-tpm</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/o-que-comer-na-tpm</guid>
+    <description>Descubra exatamente o que comer na TPM para aliviar os sintomas, controlar a fome por doces e manter o emagrecimento, entendendo a fisiologia do seu ciclo.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/TPM.webp" type="image/jpeg" medium="image" />
+    <pubDate>Mon, 20 Jul 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>O Que é Dieta Low Carb? A Diferença para a Cetogênica e Como Começar</title>
+    <link>https://www.nutricaocommarco.com.br/o-que-e-dieta-low-carb</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/o-que-e-dieta-low-carb</guid>
+    <description>Entenda a estratégia de redução inteligente de carboidratos, aprenda a diferença entre low carb e cetogênica e descubra como começar sua jornada metabólica com nossa calculadora exclusiva.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/LowCarb_Capa.webp" type="image/jpeg" medium="image" />
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>O Que é Dieta Cetogênica? Guia Definitivo e Científico</title>
+    <link>https://www.nutricaocommarco.com.br/o-que-e-dieta-cetogenica</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/o-que-e-dieta-cetogenica</guid>
+    <description>Aprenda como a restrição inteligente de carboidratos força o seu corpo a entrar em cetose, transformando gordura estocada na sua principal fonte de energia.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/DietaCetogenica_Capa.webp" type="image/jpeg" medium="image" />
+    <pubDate>Wed, 15 Jul 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>O Que é Jejum Intermitente? Guia Definitivo e Científico</title>
+    <link>https://www.nutricaocommarco.com.br/o-que-e-jejum-intermitente</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/o-que-e-jejum-intermitente</guid>
+    <description>Descubra o que é o jejum intermitente, como ele afeta o metabolismo, o limite do corpo humano sem comer e se ele realmente emagrece mais que a dieta tradicional.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/JejumIntermitente_Capa.webp" type="image/jpeg" medium="image" />
+    <pubDate>Tue, 14 Jul 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Melhor Horário Para Tomar Ferro: O Guia Definitivo Contra a Anemia</title>
+    <link>https://www.nutricaocommarco.com.br/melhor-horario-para-tomar-ferro</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/melhor-horario-para-tomar-ferro</guid>
+    <description>Descubra o melhor horário para tomar ferro, sintomas de falta no organismo, o que inibe a absorção e quanto tempo dura o tratamento para anemia ferropriva.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/HorarioFerro.webp" type="image/jpeg" medium="image" />
+    <pubDate>Sun, 12 Jul 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Qual o Percentual de Gordura Feminino Ideal? A Ciência Explica</title>
+    <link>https://www.nutricaocommarco.com.br/percentual-gordura-feminino-ideal</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/percentual-gordura-feminino-ideal</guid>
+    <description>Pare de brigar com a balança. Descubra qual é a faixa ideal para sua saúde e estética, e entenda como hormônios, ciclo menstrual e idade influenciam sua composição corporal.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/PercentualGorduraFeminino_Capa.webp" type="image/jpeg" medium="image" />
+    <pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Quantas Calorias Gasto Por Dia? Pare de Chutar e Entenda o Seu Metabolismo</title>
+    <link>https://www.nutricaocommarco.com.br/quantas-calorias-gasto-por-dia</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/quantas-calorias-gasto-por-dia</guid>
+    <description>Descubra como calcular seu gasto calórico diário. Entenda a sua Taxa Metabólica Basal (TMB), fator de atividade, METs e as fórmulas de Mifflin e Cunningham.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/QuantasCaloriasGasto.webp" type="image/jpeg" medium="image" />
+    <pubDate>Sun, 05 Apr 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Efeitos Colaterais da Melatonina: Vicia? Faz Mal? A Verdade Científica</title>
+    <link>https://www.nutricaocommarco.com.br/efeitos-colaterais-da-melatonina</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/efeitos-colaterais-da-melatonina</guid>
+    <description>Descubra a verdade científica sobre a melatonina: ela vicia? Faz mal? Entenda os efeitos colaterais, riscos psicológicos e como dosar corretamente para dormir bem.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Melatonina.webp" type="image/jpeg" medium="image" />
+    <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>O Que é Ciclo Circadiano? Relógio Biológico e Emagrecimento</title>
+    <link>https://www.nutricaocommarco.com.br/o-que-e-ciclo-circadiano</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/o-que-e-ciclo-circadiano</guid>
+    <description>Guia completo sobre ciclo circadiano: como emagrecer, melhorar o sono, horários corretos das refeições, a verdade sobre a melatonina e controle hormonal.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/CicloCircadiano.webp" type="image/jpeg" medium="image" />
+    <pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>O que são Simbióticos? A Sinergia Intestinal</title>
+    <link>https://www.nutricaocommarco.com.br/o-que-sao-simbioticos</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/o-que-sao-simbioticos</guid>
+    <description>Descubra o que são os alimentos simbióticos, como a união de prebióticos e probióticos transforma a sua flora e as melhores combinações.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Simbioticos.webp" type="image/jpeg" medium="image" />
+    <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>O que são Probióticos? Lactobacillus e Benefícios</title>
+    <link>https://www.nutricaocommarco.com.br/o-que-sao-probioticos</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/o-que-sao-probioticos</guid>
+    <description>Descubra o que são probióticos e Lactobacillus, para que servem no intestino, seus benefícios para a imunidade e quais as melhores fontes naturais.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Probioticos.webp" type="image/jpeg" medium="image" />
+    <pubDate>Tue, 31 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>O que são Prebióticos? Alimentos, Benefícios e Para Que Servem</title>
+    <link>https://www.nutricaocommarco.com.br/o-que-sao-prebioticos</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/o-que-sao-prebioticos</guid>
+    <description>Descubra o que são prebióticos, para que servem no seu intestino, quais alimentos são ricos em FOS e inulina, e como eles alimentam sua flora intestinal.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Prebioticos.webp" type="image/jpeg" medium="image" />
+    <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>O que é Fome Emocional? Como Identificar e Controlar o Impulso</title>
+    <link>https://www.nutricaocommarco.com.br/o-que-e-fome-emocional</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/o-que-e-fome-emocional</guid>
+    <description>Descubra os sintomas da fome emocional, entenda o ciclo da compulsão e aprenda estratégias práticas como a Escala de Fome e a técnica do atraso para retomar o controle.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Fome-Emocional-Capa.webp" type="image/jpeg" medium="image" />
+    <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Tirzepatida: Para Que Serve, Como Funciona e Efeitos</title>
+    <link>https://www.nutricaocommarco.com.br/tirzepatida-para-que-serve</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/tirzepatida-para-que-serve</guid>
+    <description>Descubra para que serve a Tirzepatida, entenda seu mecanismo de ação duplo (GLP-1 e GIP), os principais efeitos colaterais e o potencial na perda de peso.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Tirzepatida-para-que-serve.webp" type="image/jpeg" medium="image" />
+    <pubDate>Thu, 26 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Comer Ovo Todo Dia Aumenta o Colesterol? A Verdade Científica</title>
+    <link>https://www.nutricaocommarco.com.br/comer-ovo-todo-dia-aumenta-o-colesterol</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/comer-ovo-todo-dia-aumenta-o-colesterol</guid>
+    <description>Comer ovo todo dia aumenta o colesterol? Descubra a verdade científica, entenda o impacto no HDL/LDL e quantos ovos você pode consumir com segurança.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/comer-ovo-todo-dia-aumenta-o-colesterol.webp" type="image/jpeg" medium="image" />
+    <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Retatrutida o que é? A nova fronteira da ciência</title>
+    <link>https://www.nutricaocommarco.com.br/retatrutida_o_que_e</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/retatrutida_o_que_e</guid>
+    <description>Descubra o que é a retatrutida, o novo medicamento agonista triplo (GLP-1, GIP e Glucagon) e seus resultados impressionantes na perda de peso.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/retatrutida_molecula.webp" type="image/jpeg" medium="image" />
+    <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Diabético pode comer beterraba? O mito desvendado</title>
+    <link>https://www.nutricaocommarco.com.br/diabetico_pode_comer_beterraba</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/diabetico_pode_comer_beterraba</guid>
+    <description>Descubra se diabéticos podem comer beterraba. Entenda como as fibras reduzem a carga glicêmica e os benefícios reais para o metabolismo no diabetes tipo 2.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/beterraba_diabetes.webp" type="image/jpeg" medium="image" />
+    <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Qual o melhor horário para se pesar?</title>
+    <link>https://www.nutricaocommarco.com.br/qual_melhor_horario_para_se_pesar</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/qual_melhor_horario_para_se_pesar</guid>
+    <description>Descubra o melhor horário para se pesar e entenda por que seu peso varia tanto de manhã para a noite.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/melhor_horario_pesagem.webp" type="image/jpeg" medium="image" />
+    <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Nutrição para Ironman 70.3: Guia Completo</title>
+    <link>https://www.nutricaocommarco.com.br/nutricao_para_ironman_703</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/nutricao_para_ironman_703</guid>
+    <description>Aprenda a estratégia nutricional para triatletas de endurance: calorias, carboidratos, hidratação e suplementação para o Ironman 70.3.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/nutricao_ironman_703.webp" type="image/jpeg" medium="image" />
+    <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Hormônios da Fome: Por que seu corpo luta contra a dieta?</title>
+    <link>https://www.nutricaocommarco.com.br/hormonios_da_fome_emagrecimento</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/hormonios_da_fome_emagrecimento</guid>
+    <description>Entenda como a Grelina e a Leptina controlam seu apetite e por que a ciência foca na inflamação celular para evitar o reganho de peso.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Hormfome.webp" type="image/jpeg" medium="image" />
+    <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Por que o Feijão dá Gases? (E como evitar)</title>
+    <link>https://www.nutricaocommarco.com.br/por_que_o_feijao_da_gases</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/por_que_o_feijao_da_gases</guid>
+    <description>Descubra a ciência por trás dos antinutrientes e como o remolho pode salvar sua digestão.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/feijao.webp" type="image/jpeg" medium="image" />
+    <pubDate>Tue, 17 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>O Dilema do Sangue na Altitude</title>
+    <link>https://www.nutricaocommarco.com.br/o_dilema_do_sangue_na_altitude</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/o_dilema_do_sangue_na_altitude</guid>
+    <description>Como o hormônio eritropoetina e a transfusão de hemácias afetam a biologia do atleta e a ética no esporte.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/eritropoietina.webp" type="image/jpeg" medium="image" />
+    <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>O Efeito Sanfona e a Inflamação Invisível</title>
+    <link>https://www.nutricaocommarco.com.br/efeito_sanfona_inflamacao_invisivel</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/efeito_sanfona_inflamacao_invisivel</guid>
+    <description>Por que o reganho de peso é tão perigoso e como a memória das suas células de gordura dificulta o emagrecimento real.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/efeito_sanfona.webp" type="image/jpeg" medium="image" />
+    <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Quantas frutas posso comer por dia?</title>
+    <link>https://www.nutricaocommarco.com.br/quantas_frutas_posso_comer</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/quantas_frutas_posso_comer</guid>
+    <description>Entenda o metabolismo da frutose e descubra a verdade sobre a fruta e a gordura no fígado.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/frutose_bananas.webp" type="image/jpeg" medium="image" />
+    <pubDate>Sat, 14 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Vitamina A para que serve?</title>
+    <link>https://www.nutricaocommarco.com.br/vitamina_a_para_que_serve</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/vitamina_a_para_que_serve</guid>
+    <description>Descubra como a Vitamina A atua no seu metabolismo muito além da visão.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/vitamina_a.webp" type="image/jpeg" medium="image" />
+    <pubDate>Fri, 13 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>O que é Antropometria?</title>
+    <link>https://www.nutricaocommarco.com.br/o_que_e_antropometria</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/o_que_e_antropometria</guid>
+    <description>A Antropometria é uma ciência fundamental que estuda as proporções do corpo humano.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/O_que_e_antropometria.webp" type="image/jpeg" medium="image" />
+    <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>A balança de bioimpedância é confiável?</title>
+    <link>https://www.nutricaocommarco.com.br/a_balanca_de_bioimpedancia_e_confiavel</link>
+    <guid isPermaLink="true">https://www.nutricaocommarco.com.br/a_balanca_de_bioimpedancia_e_confiavel</guid>
+    <description>Entenda se a balança de bioimpedância é confiável e os fatores que alteram o resultado.</description>
+    <media:content url="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/Blog/Bia1.webp" type="image/jpeg" medium="image" />
+    <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
+  </item>
+</channel>
+</rss>
