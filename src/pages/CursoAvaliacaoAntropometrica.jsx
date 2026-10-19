@@ -461,6 +461,7 @@ export default function CursoAvaliacaoAntropometrica() {
                 </Link>
               ))}
             </div>
+            <p className="text-center text-sm text-slate-600 font-medium mt-6 mb-0">Prefere estudar com um livro de antropometria completo? Conheça o <a href="/livro-antropometria" className="font-black text-green-700 underline hover:text-green-800">livro de antropometria — Do Zero ao Avançado (Vol. 1)</a>.</p>
           </div>
         </div>
       </section>

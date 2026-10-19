@@ -112,6 +112,7 @@ export default function Home() {
               </a>
             ))}
           </div>
+          <p className="mt-12 text-slate-600 font-medium">Procurando um livro de antropometria completo? Conheça o <a href="/livro-antropometria" className="font-black text-green-700 underline hover:text-green-800">Antropometria — Do Zero ao Avançado (Vol. 1)</a>.</p>
         </div>
       </section>
     </>
