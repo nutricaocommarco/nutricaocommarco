@@ -495,6 +495,7 @@ export default function PlanilhaAntropometriaVendas() {
                 <p className="text-slate-400 text-[11px] font-medium mt-4 uppercase tracking-widest">
                   Garantia de 7 Dias • Acesso Imediato via E-mail
                 </p>
+                <p className="text-slate-300 text-sm font-medium mt-6 mb-0">Quer aprofundar a técnica? Conheça o <a href="/livro-antropometria" className="font-black text-green-400 underline hover:text-green-300">livro de antropometria do zero ao avançado (Vol. 1)</a>.</p>
               </div>
             </div>
 

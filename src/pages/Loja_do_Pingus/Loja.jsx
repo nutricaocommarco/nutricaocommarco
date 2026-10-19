@@ -66,6 +66,15 @@ export default function Loja() {
   // Dados manuais para os produtos digitais já existentes no site
   const produtosDigitais = [
     {
+      id: "livro-antropometria",
+      nome: "Livro de Antropometria — Do Zero ao Avançado (Vol. 1)",
+      link: "/livro-antropometria",
+      estatica: true, // página HTML estática, fora do roteador React
+      imagem: "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/Antropometria_Livro_Vol1_Capa.webp",
+      tipo: "Livro impresso",
+      icone: <BookOpen size={18} className="text-green-700" />
+    },
+    {
       id: "calculadora-gasto-calorico",
       nome: "Calculadora de Gasto Calórico Inteligente",
       link: "/calculadora-de-gasto-calorico",
@@ -107,10 +116,12 @@ export default function Loja() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto text-left">
-          {produtosDigitais.map((produto) => (
-            <Link 
+          {produtosDigitais.map((produto) => {
+            const Tag = produto.estatica ? 'a' : Link;
+            return (
+            <Tag 
               key={produto.id} 
-              to={produto.link} 
+              {...(produto.estatica ? { href: produto.link } : { to: produto.link })} 
               className="bg-white rounded-[3rem] shadow-xl overflow-hidden hover:-translate-y-2 transition-all group border border-slate-100 flex flex-col"
             >
               <div className="relative w-full h-80 overflow-hidden bg-slate-100 p-6 flex items-center justify-center border-b border-slate-50 group-hover:bg-slate-200/50 transition-colors">
@@ -133,8 +144,9 @@ export default function Loja() {
                   <ExternalLink size={16} /> Conhecer Produto
                 </div>
               </div>
-            </Link>
-          ))}
+            </Tag>
+            );
+          })}
         </div>
       </div>
 
