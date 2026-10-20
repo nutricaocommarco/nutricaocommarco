@@ -184,6 +184,7 @@ export default function CursoAvaliacaoAntropometrica() {
         items: [{ item_id: 'curso-avaliacao-antropometrica', item_name: 'Curso de Avaliação Antropométrica', item_variant: LOTE.nome, price: PRECO_CURSO, quantity: 1 }],
         transport_type: 'beacon',
       });
+      gtag('event', 'begin_checkout_curso', { lote: LOTE.nome, currency: 'BRL', value: PRECO_CURSO, transport_type: 'beacon' });
       gtag('event', 'click_pagar_curso', { lote: LOTE.nome, transport_type: 'beacon' });
       if (typeof window.fbq === 'function') window.fbq('track', 'InitiateCheckout', { value: PRECO_CURSO, currency: 'BRL', content_name: 'Curso de Avaliação Antropométrica' });
     } catch (err) { /* medição nunca deve impedir o pagamento */ }
