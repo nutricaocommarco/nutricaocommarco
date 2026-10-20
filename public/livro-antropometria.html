@@ -910,6 +910,7 @@ setTimeout(loadTrackingScripts,5000);
       loadTrackingScripts();
       var d={currency:'BRL',value:149.9,items:[{item_id:'978-65-02-43624-0',item_name:'Livro de Antropometria - Do Zero ao Avancado (Vol. 1)',price:149.9,quantity:1}]};
       window.gtag&&gtag('event','begin_checkout',Object.assign({transport_type:'beacon',link_url:a.href,posicao:pos},d));
+      window.gtag&&gtag('event','begin_checkout_vol1',{transport_type:'beacon',link_url:a.href,posicao:pos,currency:'BRL',value:149.9});
       window.gtag&&gtag('event','click_comprar_livro',{transport_type:'beacon',link_url:a.href,posicao:pos});
       window.fbq&&fbq('track','InitiateCheckout',{value:149.9,currency:'BRL',content_name:'Livro de Antropometria Vol. 1',content_type:'product'});
     });
