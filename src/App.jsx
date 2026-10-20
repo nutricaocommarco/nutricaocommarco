@@ -169,6 +169,9 @@ function Layout({ children }) {
                 <Link to="/curso-de-avaliacao-antropometrica" className={`px-5 py-2.5 text-sm font-bold transition-all flex items-center gap-2 ${location.pathname === '/curso-de-avaliacao-antropometrica' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>
                   <GraduationCap size={16} className="text-green-700" /> Curso de Antropometria
                 </Link>
+                <a href="/livro-antropometria" className="px-5 py-2.5 text-sm font-bold transition-all flex items-center gap-2 text-slate-700 hover:text-green-700 hover:bg-slate-50">
+                  <BookOpen size={16} className="text-green-700" /> Livro de Antropometria
+                </a>
                 <Link to="/calculadora-de-gasto-calorico" className={`px-5 py-2 text-sm font-bold transition-all flex items-center gap-2 ${location.pathname === '/calculadora-de-gasto-calorico' ? 'text-green-700 bg-green-50' : 'text-slate-700 hover:text-green-700 hover:bg-slate-50'}`}>
                   <Calculator size={16} className="text-green-700" /> Gasto Calórico (Grátis)
                 </Link>
@@ -220,6 +223,9 @@ function Layout({ children }) {
                 <Link to="/curso-de-avaliacao-antropometrica" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-700 flex items-center gap-2">
                   <GraduationCap size={18} /> Curso de Antropometria
                 </Link>
+                <a href="/livro-antropometria" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-700 flex items-center gap-2">
+                  <BookOpen size={18} /> Livro de Antropometria
+                </a>
                 <Link to="/calculadora-de-gasto-calorico" onClick={() => setIsMenuOpen(false)} className="text-base font-bold uppercase tracking-widest text-slate-600 hover:text-green-700 flex items-center gap-2">
                   <Calculator size={18} /> Gasto Calórico (Grátis)
                 </Link>

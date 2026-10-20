@@ -93,6 +93,20 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="livro" className="py-16 md:py-24 bg-white px-4 md:px-6">
+        <div className="container mx-auto max-w-5xl bg-slate-900 text-white rounded-[2.5rem] md:rounded-[3.5rem] p-8 md:p-14 shadow-2xl grid md:grid-cols-[auto_1fr] gap-8 md:gap-14 items-center border-4 border-green-500/20">
+          <a href="/livro-antropometria" className="mx-auto md:mx-0 block w-44 md:w-56 shrink-0 hover:-translate-y-2 transition-transform duration-300" aria-label="Conhecer o livro Antropometria — Do Zero ao Avançado, Volume 1">
+            <img src={`${githubImgBase}Antropometria_Livro_Vol1_Capa.webp`} alt="Capa do livro Antropometria — Do Zero ao Avançado, Volume 1, de Marco Aurélio Neves Júnior" width="1365" height="2000" loading="lazy" className="w-full h-auto rounded-lg shadow-2xl border border-white/10" />
+          </a>
+          <div className="text-center md:text-left">
+            <span className="inline-block text-[10px] sm:text-xs font-black uppercase tracking-widest text-green-400 mb-3">Livro impresso • Volume 1</span>
+            <h2 className="text-3xl md:text-4xl font-black uppercase italic leading-tight mb-4">Livro de Antropometria: Do Zero ao Avançado</h2>
+            <p className="text-slate-300 font-medium leading-relaxed mb-6 max-w-xl mx-auto md:mx-0">O livro de antropometria para quem quer aprender avaliação antropométrica com técnica e método: dobras cutâneas, perímetros, diâmetros ósseos e o protocolo ISAK passo a passo. Frete grátis.</p>
+            <a href="/livro-antropometria" className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-full font-black uppercase text-xs md:text-sm tracking-widest shadow-xl transition-all hover:scale-105">Conhecer o livro</a>
+          </div>
+        </div>
+      </section>
+
       <section id="ebooks" className="py-24 bg-slate-50 text-center">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl font-black text-slate-900 mb-4 uppercase italic">Meus Materiais</h2>
@@ -112,7 +126,6 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <p className="mt-12 text-slate-600 font-medium">Procurando um livro de antropometria completo? Conheça o <a href="/livro-antropometria" className="font-black text-green-700 underline hover:text-green-800">Antropometria — Do Zero ao Avançado (Vol. 1)</a>.</p>
         </div>
       </section>
     </>

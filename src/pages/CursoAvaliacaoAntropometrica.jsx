@@ -92,7 +92,7 @@ const validarForm = (f) => {
 const conteudo = [
   { icone: Monitor, titulo: 'Aula Teórica Online', texto: 'A parte teórica do curso, em formato online.' },
   { icone: Users, titulo: 'Aula Prática Presencial', texto: '8 horas de prática de medição, presencialmente, no Centro do Rio de Janeiro (local a confirmar).' },
-  { icone: BookOpen, titulo: 'Livro Digital', texto: 'Antropometria: Do Zero ao Avançado — Volume 1: Fundamentos, História e Protocolo de Medidas.' },
+  { icone: BookOpen, titulo: 'Livro Digital', texto: 'Antropometria: Do Zero ao Avançado — Volume 1: Fundamentos, História e Protocolo de Medidas.', link: { href: '/livro-antropometria', rotulo: 'Conhecer o livro' } },
   { icone: FileSpreadsheet, titulo: 'Planilha de Avaliação Antropométrica', texto: 'Planilha de avaliação antropométrica incluída no curso.', link: { to: '/planilha', rotulo: 'Conhecer a planilha' } },
   { icone: MessageCircle, titulo: 'Grupo exclusivo da turma no WhatsApp', texto: 'Acesso ao grupo exclusivo da turma no WhatsApp.', largo: true },
 ];
@@ -364,7 +364,9 @@ export default function CursoAvaliacaoAntropometrica() {
                   <h3 className="text-lg font-black text-slate-800 mb-1">{item.titulo}</h3>
                   <p className="text-slate-600 text-sm font-medium leading-relaxed m-0">{item.texto}</p>
                   {item.link && (
-                    <Link to={item.link.to} className="inline-block mt-2 text-sm font-bold text-green-700 underline">{item.link.rotulo}</Link>
+                    item.link.href
+                      ? <a href={item.link.href} className="inline-block mt-2 text-sm font-bold text-green-700 underline">{item.link.rotulo}</a>
+                      : <Link to={item.link.to} className="inline-block mt-2 text-sm font-bold text-green-700 underline">{item.link.rotulo}</Link>
                   )}
                 </div>
               </div>
@@ -488,7 +490,6 @@ export default function CursoAvaliacaoAntropometrica() {
                 </Link>
               ))}
             </div>
-            <p className="text-center text-sm text-slate-600 font-medium mt-6 mb-0">Prefere estudar com um livro de antropometria completo? Conheça o <a href="/livro-antropometria" className="font-black text-green-700 underline hover:text-green-800">livro de antropometria — Do Zero ao Avançado (Vol. 1)</a>.</p>
           </div>
         </div>
       </section>
