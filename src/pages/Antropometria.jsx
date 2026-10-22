@@ -5,6 +5,7 @@ import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import ImagemOtimizada from '../components/ImagemOtimizada';
 import { Helmet } from 'react-helmet-async';
+import LivroAntropometria from '../components/LivroAntropometria';
 
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
 
@@ -154,7 +155,7 @@ export default function Antropometria() {
               Como funciona a Medição do Percentual de Gordura na Prática?
             </h2>
 
-            <p>O grande diferencial de uma avaliação física baseada no padrão ISAK é a sua padronização rigorosa. Na prática, o antropometrista utiliza instrumentos de precisão para coletar diversas medidas, como o plicômetro para as dobras cutâneas.</p>
+            <p>O grande diferencial de uma avaliação física baseada no padrão ISAK é a sua padronização rigorosa. Na prática, o antropometrista utiliza instrumentos de precisão para coletar diversas medidas, como o plicômetro para as dobras cutâneas. Eu detalho cada ponto desse protocolo, passo a passo, no meu <a href="/livro-antropometria" className="text-green-700 underline hover:text-green-800 font-bold">livro de antropometria</a>.</p>
 
             {/* BLOCO CITÁVEL: TERMOS TÉCNICOS (OTIMIZADO PARA IA E SEO) */}
             <div className="my-8 p-6 md:p-8 bg-white border-l-4 border-green-600 shadow-md rounded-r-3xl flex flex-col gap-3 text-left">
@@ -201,6 +202,8 @@ export default function Antropometria() {
 
             <p>Essas medições permitem o fracionamento da massa corporal em componentes essenciais. Para estimar o percentual de gordura de forma exata, o avaliador realiza o destaque das dobras cutâneas em pontos anatômicos específicos, conhecidos como landmarks. Um erro de poucos milímetros na marcação desses pontos pode comprometer o resultado final.</p>
 
+            <LivroAntropometria titulo="Aprenda a medir com técnica" texto="Quer saber como cada medida é feita? O livro de antropometria explica o protocolo ISAK ponto a ponto, das medidas básicas às dobras cutâneas, perímetros e diâmetros ósseos." />
+
             <h2 id="somatotipo" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2">
               Somatotipo e o Fim do "Achismo" no Emagrecimento
             </h2>
@@ -234,6 +237,8 @@ export default function Antropometria() {
             </div>
 
             <p>Ela identifica riscos cardiovasculares e permite que nutricionistas ajustem dietas com base no volume exato de massa muscular, garantindo que a sua evolução seja monitorada por dados concretos e científicos, crucial para evitar a inflamação do <Link to="/efeito_sanfona_inflamacao_invisivel" className="text-green-700 underline hover:text-green-700 font-bold transition-colors">efeito sanfona</Link>. Portanto, investir em uma antropometria de qualidade é o primeiro passo para otimizar seus resultados.</p>
+
+            <LivroAntropometria />
 
             {/* INÍCIO DO FAQ VISUAL OTIMIZADO */}
             <div id="faq" className="mt-16 pt-10 border-t border-slate-100 text-left">
