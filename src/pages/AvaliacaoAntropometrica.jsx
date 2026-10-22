@@ -11,6 +11,7 @@ import {
 import ArtigosRecomendados from '../components/ArtigosRecomendados';
 import Newsletter from '../components/Newsletter';
 import YouTubeLazy from '../components/YouTubeLazy';
+import LivroAntropometria from '../components/LivroAntropometria';
 
 // 🔗 Link base oficial das imagens no CDN jsDelivr
 const githubImgBase = "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Imagens/";
@@ -404,7 +405,7 @@ export default function AvaliacaoAntropometrica() {
           </h2>
           <p className="mb-4">
             O protocolo da <em>International Society for the Advancement of Kinanthropometry</em> (ISAK) é a linguagem unificada mundial da cineantropometria. Uma avaliação antropométrica tirada por um profissional Nível 1 no Rio de Janeiro usando essa padronização rígida de pontos será matematicamente idêntica à de um profissional na Austrália.
-          </p>
+           O protocolo completo está no meu <a href="/livro-antropometria" className="text-green-700 underline hover:text-green-800 font-bold">livro de antropometria</a>.</p>
           <p className="mb-4">
             O foco do curso ISAK não está apenas em gerar um percentual de gordura no final, mas na precisão cirúrgica contínua da avaliação física.
           </p>
@@ -427,6 +428,8 @@ export default function AvaliacaoAntropometrica() {
               <YouTubeLazy videoId="_Fmm4T4Ooto" title="Demonstração Prática do Perfil Restrito ISAK na Avaliação Física" />
             </div>
           </div>
+
+          <LivroAntropometria titulo="Protocolo ISAK passo a passo" texto="No livro de antropometria, cada medida do protocolo ISAK é explicada com a técnica, os pontos anatômicos e exercícios para praticar, além do Erro Técnico de Medida." />
 
           <h2 id="formulas" className="text-2xl font-black text-slate-800 uppercase italic mt-12 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
             <Brain className="text-green-700"/> As Fórmulas de Regressão: Escolhendo o Caminho
@@ -677,6 +680,8 @@ export default function AvaliacaoAntropometrica() {
                 </div>
             </div> 
           </div>
+
+          <LivroAntropometria />
 
           <h2 id="conclusao" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-4 border-b border-green-100 pb-2 flex items-center gap-3">
             <CheckCircle2 className="text-green-700"/> Conclusão: Dominando a Antropometria
