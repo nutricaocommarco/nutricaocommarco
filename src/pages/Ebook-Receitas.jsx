@@ -29,7 +29,25 @@ export default function EbookReceitas() {
   const location = useLocation();
 
   const checkoutLinkDigital = "https://pay.hotmart.com/R106813023M";
-  const checkoutLinkFisico = "https://pay.hotmart.com/C106830467I";
+  // Livro impresso: vendido na loja da Uiclap (impressão sob demanda). Frete calculado no carrinho.
+  const checkoutLinkFisico = "https://loja.uiclap.com/titulo/ua216140";
+
+  // Medição do clique em "Comprar Livro Físico" (GA4 + Meta Pixel); a venda acontece fora do site.
+  const registrarCompraFisico = () => {
+    try {
+      if (typeof window.loadTrackingScripts === 'function') window.loadTrackingScripts();
+      window.dataLayer = window.dataLayer || [];
+      const gtag = function () { window.dataLayer.push(arguments); };
+      gtag('event', 'begin_checkout', {
+        currency: 'BRL',
+        value: 50,
+        items: [{ item_id: 'ua216140', item_name: 'Receitas Saudáveis e Nutritivas (livro impresso)', price: 50, quantity: 1 }],
+        transport_type: 'beacon',
+      });
+      gtag('event', 'begin_checkout_receitas_fisico', { currency: 'BRL', value: 50, transport_type: 'beacon' });
+      if (typeof window.fbq === 'function') window.fbq('track', 'InitiateCheckout', { value: 50, currency: 'BRL', content_name: 'Receitas Saudáveis e Nutritivas (livro impresso)' });
+    } catch (err) { /* a medição nunca deve impedir a compra */ }
+  };
   const afiliadoLink = "https://affiliate.hotmart.com/affiliate-recruiting/view/7371R106813044";
 
   // Depoimentos Estratégicos (Prova Social)
@@ -102,7 +120,7 @@ export default function EbookReceitas() {
           </a>
           <div className="flex items-center justify-center gap-2 mt-4 text-sm text-slate-600">
             <ShieldCheck size={16} className="text-green-700" aria-hidden="true" />
-            <span>Pagamento 100% seguro via Hotmart.</span>
+            <span>Pagamento 100% seguro: Hotmart (digital) e Uiclap (livro impresso).</span>
           </div>
         </header>
 
@@ -212,6 +230,7 @@ export default function EbookReceitas() {
                 </p>
                 <a 
                   href={checkoutLinkFisico}
+                  onClick={registrarCompraFisico}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-green-700 hover:bg-green-800 text-white py-4 rounded-full font-black uppercase text-sm tracking-widest shadow-lg shadow-green-700/30 transition-transform hover:-translate-y-1 flex items-center justify-center gap-2"
@@ -543,6 +562,7 @@ export default function EbookReceitas() {
 
             <a 
               href={checkoutLinkFisico}
+                  onClick={registrarCompraFisico}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 bg-green-700 hover:bg-green-800 text-white px-8 py-5 rounded-full text-lg md:text-xl font-bold shadow-2xl shadow-green-700/40 transition-transform hover:-translate-y-1 w-full md:w-auto"
