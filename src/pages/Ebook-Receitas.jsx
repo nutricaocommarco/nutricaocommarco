@@ -30,7 +30,7 @@ export default function EbookReceitas() {
 
   const checkoutLinkDigital = "https://pay.hotmart.com/R106813023M";
   // Livro impresso: vendido na loja da Uiclap (impressão sob demanda). Frete calculado no carrinho.
-  const checkoutLinkFisico = "https://loja.uiclap.com/titulo/ua216140";
+  const checkoutLinkFisico = "https://loja.uiclap.com/carrinho/?add-to-cart=595059"; // 595059 = código do livro na Uiclap (título ua216140)
 
   // Medição do clique em "Comprar Livro Físico" (GA4 + Meta Pixel); a venda acontece fora do site.
   const registrarCompraFisico = () => {
