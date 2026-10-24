@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { 
   CheckCircle, 
@@ -37,6 +37,8 @@ export default function EbookReceitas() {
   const [comboEstado, setComboEstado] = useState('parado'); // parado | montando | aviso
   const [comboEtapa, setComboEtapa] = useState(0);
   const [comboProgresso, setComboProgresso] = useState(false);
+  const [passo, setPasso] = useState(1);            // fluxo guiado (celular): 1 = Antropometria, 2 = Receitas
+  const [passoAberto, setPassoAberto] = useState(false); // o link do passo 1 já foi tocado
   const COMBO_ESPERA_MS = 6000;
   const comboEtapas = [
     'Abrindo a loja da Uiclap…',
@@ -44,6 +46,16 @@ export default function EbookReceitas() {
     'Adicionando o livro Receitas Saudáveis e Nutritivas…',
     'Levando você para o carrinho…',
   ];
+
+
+  // Fluxo guiado: quando a pessoa volta da aba da loja (passo 1), avançamos sozinhos para o passo 2.
+  useEffect(() => {
+    if (comboEstado !== 'passos' || passo !== 1 || !passoAberto) return undefined;
+    const aoVoltar = () => { if (document.visibilityState === 'visible') setPasso(2); };
+    document.addEventListener('visibilitychange', aoVoltar);
+    window.addEventListener('focus', aoVoltar);
+    return () => { document.removeEventListener('visibilitychange', aoVoltar); window.removeEventListener('focus', aoVoltar); };
+  }, [comboEstado, passo, passoAberto]);
 
   const levarOsDois = (e) => {
     e.preventDefault();
@@ -61,9 +73,10 @@ export default function EbookReceitas() {
     const t = Math.max(0, (window.screen.availHeight || 800) - 260);
     const janela = podeJanela ? window.open(carrinhoAntropometria, 'uiclap_antropometria', `width=320,height=200,left=${l},top=${t}`) : null;
     if (!janela) {
-      // celular ou pop-up bloqueado: segue só com o livro de receitas e mostra o aviso na tela
-      setComboEstado('aviso');
-      window.open(checkoutLinkFisico, '_blank', 'noopener');
+      // celular ou pop-up bloqueado: fluxo guiado em 2 passos, dentro do próprio site
+      setPasso(1);
+      setPassoAberto(false);
+      setComboEstado('passos');
       return;
     }
     try { window.focus(); } catch (err) { /* ignora */ }
@@ -298,12 +311,6 @@ export default function EbookReceitas() {
                   >
                     <ShoppingCart size={16} /> Levar os 2 livros (frete grátis)
                   </button>
-                  {comboEstado === 'aviso' && (
-                    <p role="status" className="text-xs text-green-900 mt-2 mb-0">
-                      Abrimos o livro de receitas na loja. Para levar também o Antropometria,{' '}
-                      <a href={carrinhoAntropometria} target="_blank" rel="noopener noreferrer" className="font-black underline">toque aqui para adicioná-lo ao carrinho</a>.
-                    </p>
-                  )}
                 </div>
               </div>
             </div>
@@ -684,6 +691,59 @@ export default function EbookReceitas() {
         </section>
 
       </main>
+
+      {comboEstado === 'passos' && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/70 backdrop-blur-sm px-4" role="dialog" aria-modal="true" aria-labelledby="passos-titulo">
+          <div className="w-full max-w-md bg-white rounded-[2rem] shadow-2xl p-6 text-center border-4 border-green-100 relative">
+            <button type="button" onClick={() => setComboEstado('parado')} className="absolute top-3 right-4 text-slate-400 hover:text-slate-700 text-2xl leading-none bg-transparent border-0 cursor-pointer" aria-label="Fechar">×</button>
+            <h3 id="passos-titulo" className="text-xl font-black text-slate-900 uppercase italic mb-1">Leve os 2 livros</h3>
+            <p className="text-sm text-slate-600 font-medium mb-5">2 livros impressos • frete grátis</p>
+
+            <div className={`rounded-2xl border-2 p-4 mb-3 text-left ${passo === 1 ? 'border-green-600 bg-green-50' : 'border-slate-200 bg-slate-50'}`}>
+              <div className="flex items-center gap-3">
+                <img src={`${githubImgBase}Antropometria_Livro_Vol1_Capa.webp`} alt="" width="1365" height="2000" className="w-12 h-auto rounded shadow border border-slate-200" />
+                <div className="flex-grow">
+                  <p className="text-sm font-black text-slate-900 m-0">1. Antropometria — Do Zero ao Avançado</p>
+                  <p className="text-xs text-slate-600 m-0">{passo === 2 ? '✓ Pronto, já está no seu carrinho.' : 'Toque no botão: a loja abre em outra aba. Quando carregar, volte para esta aba.'}</p>
+                </div>
+              </div>
+              {passo === 1 && (
+                <a
+                  href={carrinhoAntropometria}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setPassoAberto(true)}
+                  className="mt-3 w-full inline-flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 text-white py-3 rounded-full font-black uppercase text-xs tracking-widest no-underline"
+                >
+                  <ShoppingCart size={16} /> Adicionar este livro
+                </a>
+              )}
+              {passo === 1 && passoAberto && (
+                <button type="button" onClick={() => setPasso(2)} className="mt-2 w-full text-xs font-bold text-green-800 underline bg-transparent border-0 cursor-pointer">Já voltei da loja, continuar</button>
+              )}
+            </div>
+
+            <div className={`rounded-2xl border-2 p-4 text-left ${passo === 2 ? 'border-green-600 bg-green-50' : 'border-slate-200 bg-slate-50 opacity-60'}`}>
+              <div className="flex items-center gap-3">
+                <img src={`${githubImgBase}Receitas.webp`} alt="" className="w-12 h-auto rounded shadow border border-slate-200" />
+                <div className="flex-grow">
+                  <p className="text-sm font-black text-slate-900 m-0">2. Receitas Saudáveis e Nutritivas</p>
+                  <p className="text-xs text-slate-600 m-0">{passo === 2 ? 'Toque para abrir o carrinho com os 2 livros.' : 'Libera depois do passo 1.'}</p>
+                </div>
+              </div>
+              {passo === 2 && (
+                <a
+                  href={checkoutLinkFisico}
+                  onClick={() => registrarCompraFisico()}
+                  className="mt-3 w-full inline-flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 text-white py-3 rounded-full font-black uppercase text-xs tracking-widest no-underline"
+                >
+                  <ShoppingCart size={16} /> Abrir meu carrinho
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {comboEstado === 'montando' && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/70 backdrop-blur-sm px-4" role="dialog" aria-modal="true" aria-labelledby="combo-titulo">
