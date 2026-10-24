@@ -35,6 +35,15 @@ export default function EbookReceitas() {
   // No celular (ou com pop-up bloqueado) seguimos só com o livro de receitas e avisamos.
   const carrinhoAntropometria = "https://loja.uiclap.com/carrinho/?add-to-cart=592548"; // título ua214517
   const [comboEstado, setComboEstado] = useState('parado'); // parado | montando | aviso
+  const [comboEtapa, setComboEtapa] = useState(0);
+  const [comboProgresso, setComboProgresso] = useState(false);
+  const COMBO_ESPERA_MS = 6000;
+  const comboEtapas = [
+    'Abrindo a loja da Uiclap…',
+    'Adicionando o livro Antropometria — Do Zero ao Avançado…',
+    'Adicionando o livro Receitas Saudáveis e Nutritivas…',
+    'Levando você para o carrinho…',
+  ];
 
   const levarOsDois = (e) => {
     e.preventDefault();
@@ -47,18 +56,28 @@ export default function EbookReceitas() {
     } catch (err) { /* a medição nunca deve impedir a compra */ }
 
     const podeJanela = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
-    const janela = podeJanela ? window.open(carrinhoAntropometria, 'uiclap_antropometria', 'width=480,height=640') : null;
+    // janela pequena no canto da tela: só serve para a loja gravar o 1º livro no carrinho
+    const l = Math.max(0, (window.screen.availWidth || 1280) - 340);
+    const t = Math.max(0, (window.screen.availHeight || 800) - 260);
+    const janela = podeJanela ? window.open(carrinhoAntropometria, 'uiclap_antropometria', `width=320,height=200,left=${l},top=${t}`) : null;
     if (!janela) {
       // celular ou pop-up bloqueado: segue só com o livro de receitas e mostra o aviso na tela
       setComboEstado('aviso');
       window.open(checkoutLinkFisico, '_blank', 'noopener');
       return;
     }
+    try { window.focus(); } catch (err) { /* ignora */ }
+    setComboEtapa(0);
+    setComboProgresso(false);
     setComboEstado('montando');
+    setTimeout(() => setComboProgresso(true), 60);
+    setTimeout(() => setComboEtapa(1), 1200);
+    setTimeout(() => setComboEtapa(2), Math.round(COMBO_ESPERA_MS * 0.55));
+    setTimeout(() => setComboEtapa(3), COMBO_ESPERA_MS - 900);
     setTimeout(() => {
       try { janela.close(); } catch (err) { /* ignora */ }
       window.location.href = checkoutLinkFisico;
-    }, 7000);
+    }, COMBO_ESPERA_MS);
   };
 
   // Livro impresso: vendido na loja da Uiclap (impressão sob demanda). Frete calculado no carrinho.
@@ -277,11 +296,8 @@ export default function EbookReceitas() {
                     disabled={comboEstado === 'montando'}
                     className="w-full border-2 border-green-700 text-green-800 hover:bg-green-700 hover:text-white disabled:opacity-60 py-3 rounded-full font-black uppercase text-xs tracking-widest transition-colors flex items-center justify-center gap-2 cursor-pointer bg-transparent"
                   >
-                    <ShoppingCart size={16} /> {comboEstado === 'montando' ? 'Montando seu carrinho…' : 'Levar os 2 livros (frete grátis)'}
+                    <ShoppingCart size={16} /> Levar os 2 livros (frete grátis)
                   </button>
-                  {comboEstado === 'montando' && (
-                    <p role="status" className="text-xs text-green-900 mt-2 mb-0">Abrindo a loja da Uiclap com os dois livros. Não feche esta página por alguns segundos.</p>
-                  )}
                   {comboEstado === 'aviso' && (
                     <p role="status" className="text-xs text-green-900 mt-2 mb-0">
                       Abrimos o livro de receitas na loja. Para levar também o Antropometria,{' '}
@@ -668,6 +684,25 @@ export default function EbookReceitas() {
         </section>
 
       </main>
+
+      {comboEstado === 'montando' && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/70 backdrop-blur-sm px-4" role="dialog" aria-modal="true" aria-labelledby="combo-titulo">
+          <div className="w-full max-w-md bg-white rounded-[2rem] shadow-2xl p-8 text-center border-4 border-green-100">
+            <div className="flex items-end justify-center gap-3 mb-6">
+              <img src={`${githubImgBase}Antropometria_Livro_Vol1_Capa.webp`} alt="" width="1365" height="2000" className="w-20 h-auto rounded-md shadow-lg border border-slate-200 -rotate-3" />
+              <span className="text-3xl font-black text-green-700 pb-8" aria-hidden="true">+</span>
+              <img src={`${githubImgBase}Receitas.webp`} alt="" className="w-24 h-auto rounded-md shadow-lg border border-slate-200 rotate-3" />
+            </div>
+            <h3 id="combo-titulo" className="text-xl font-black text-slate-900 uppercase italic mb-1">Montando seu carrinho</h3>
+            <p className="text-sm text-slate-600 font-medium mb-5">2 livros impressos • frete grátis</p>
+            <div className="h-3 w-full bg-slate-100 rounded-full overflow-hidden mb-4" aria-hidden="true">
+              <div className="h-full bg-green-600 rounded-full" style={{ width: comboProgresso ? '100%' : '4%', transition: `width ${COMBO_ESPERA_MS}ms linear` }} />
+            </div>
+            <p role="status" aria-live="polite" className="text-sm font-bold text-green-800 min-h-[40px] m-0">{comboEtapas[comboEtapa]}</p>
+            <p className="text-xs text-slate-500 mt-3 mb-0">Não feche esta página. Uma janelinha da loja abre e fecha sozinha.</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
