@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { 
   CheckCircle, 
@@ -29,6 +29,38 @@ export default function EbookReceitas() {
   const location = useLocation();
 
   const checkoutLinkDigital = "https://pay.hotmart.com/R106813023M";
+  // "Levar os dois": o carrinho da Uiclap guarda os livros no navegador do visitante e aceita um livro por link.
+  // No computador, abrimos o carrinho do Antropometria numa janela pequena, esperamos ele ser adicionado,
+  // fechamos a janela e seguimos na aba principal com o carrinho do livro de receitas (os dois ficam juntos).
+  // No celular (ou com pop-up bloqueado) seguimos só com o livro de receitas e avisamos.
+  const carrinhoAntropometria = "https://loja.uiclap.com/carrinho/?add-to-cart=592548"; // título ua214517
+  const [comboEstado, setComboEstado] = useState('parado'); // parado | montando | aviso
+
+  const levarOsDois = (e) => {
+    e.preventDefault();
+    try {
+      if (typeof window.loadTrackingScripts === 'function') window.loadTrackingScripts();
+      window.dataLayer = window.dataLayer || [];
+      const gtag = function () { window.dataLayer.push(arguments); };
+      gtag('event', 'begin_checkout_combo_receitas_antropometria', { currency: 'BRL', value: 199.89, transport_type: 'beacon' });
+      if (typeof window.fbq === 'function') window.fbq('track', 'InitiateCheckout', { value: 199.89, currency: 'BRL', content_name: 'Combo Receitas + Antropometria (livros impressos)' });
+    } catch (err) { /* a medição nunca deve impedir a compra */ }
+
+    const podeJanela = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+    const janela = podeJanela ? window.open(carrinhoAntropometria, 'uiclap_antropometria', 'width=480,height=640') : null;
+    if (!janela) {
+      // celular ou pop-up bloqueado: segue só com o livro de receitas e mostra o aviso na tela
+      setComboEstado('aviso');
+      window.open(checkoutLinkFisico, '_blank', 'noopener');
+      return;
+    }
+    setComboEstado('montando');
+    setTimeout(() => {
+      try { janela.close(); } catch (err) { /* ignora */ }
+      window.location.href = checkoutLinkFisico;
+    }, 7000);
+  };
+
   // Livro impresso: vendido na loja da Uiclap (impressão sob demanda). Frete calculado no carrinho.
   const checkoutLinkFisico = "https://loja.uiclap.com/carrinho/?add-to-cart=595059"; // 595059 = código do livro na Uiclap (título ua216140)
 
@@ -237,6 +269,26 @@ export default function EbookReceitas() {
                 >
                   <ShoppingCart size={18} /> Comprar Livro Físico
                 </a>
+                <div className="mt-4 rounded-2xl border border-green-300 bg-white/70 p-4 text-left">
+                  <p className="text-xs font-bold text-green-900 m-0 mb-2 flex items-center gap-1"><Truck size={14} /> Aproveite: leve também o livro Antropometria — Do Zero ao Avançado e ganhe frete grátis.</p>
+                  <button
+                    type="button"
+                    onClick={levarOsDois}
+                    disabled={comboEstado === 'montando'}
+                    className="w-full border-2 border-green-700 text-green-800 hover:bg-green-700 hover:text-white disabled:opacity-60 py-3 rounded-full font-black uppercase text-xs tracking-widest transition-colors flex items-center justify-center gap-2 cursor-pointer bg-transparent"
+                  >
+                    <ShoppingCart size={16} /> {comboEstado === 'montando' ? 'Montando seu carrinho…' : 'Levar os 2 livros (frete grátis)'}
+                  </button>
+                  {comboEstado === 'montando' && (
+                    <p role="status" className="text-xs text-green-900 mt-2 mb-0">Abrindo a loja da Uiclap com os dois livros. Não feche esta página por alguns segundos.</p>
+                  )}
+                  {comboEstado === 'aviso' && (
+                    <p role="status" className="text-xs text-green-900 mt-2 mb-0">
+                      Abrimos o livro de receitas na loja. Para levar também o Antropometria,{' '}
+                      <a href={carrinhoAntropometria} target="_blank" rel="noopener noreferrer" className="font-black underline">toque aqui para adicioná-lo ao carrinho</a>.
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
 
