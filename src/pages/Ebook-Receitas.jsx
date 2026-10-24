@@ -220,10 +220,27 @@ export default function EbookReceitas() {
             <p className="text-lg text-slate-600">Disponível em versão digital para acesso imediato ou impresso para ter sempre na bancada da sua cozinha.</p>
           </div>
 
+          {/* Atalho para o celular: mostra os dois formatos de uma vez, antes dos cartões longos */}
+          <div className="md:hidden grid grid-cols-2 gap-3 mb-6" role="navigation" aria-label="Escolher formato">
+            <a href="#formato-digital" className="rounded-2xl border-2 border-slate-200 bg-white p-3 text-center no-underline text-slate-900 active:scale-95 transition-transform">
+              <Zap size={20} className="mx-auto mb-1 text-slate-700" aria-hidden="true" />
+              <span className="block text-xs font-black uppercase tracking-wide">E-book digital</span>
+              <span className="block text-lg font-black">R$ 9,90</span>
+              <span className="block text-[11px] text-slate-500 font-medium">PDF, acesso imediato</span>
+            </a>
+            <a href="#formato-fisico" className="relative rounded-2xl border-2 border-green-500 bg-green-50 p-3 text-center no-underline text-slate-900 active:scale-95 transition-transform">
+              <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-green-600 text-white px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wide whitespace-nowrap">Mais vendido</span>
+              <Book size={20} className="mx-auto mb-1 mt-1 text-green-700" aria-hidden="true" />
+              <span className="block text-xs font-black uppercase tracking-wide">Livro impresso</span>
+              <span className="block text-lg font-black">R$ 50,00</span>
+              <span className="block text-[11px] text-slate-500 font-medium">Chega na sua casa</span>
+            </a>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             {/* CARD DIGITAL */}
-            <div className="bg-white p-8 rounded-[3rem] shadow-xl border-2 border-slate-100 flex flex-col hover:border-green-200 transition-colors relative">
+            <div id="formato-digital" className="scroll-mt-24 bg-white p-8 rounded-[3rem] shadow-xl border-2 border-slate-100 flex flex-col hover:border-green-200 transition-colors relative">
               <div className="flex-grow">
                 <div className="w-16 h-16 bg-slate-50 text-slate-700 rounded-2xl flex items-center justify-center mb-6 border border-slate-100">
                   <Zap size={32} />
@@ -260,7 +277,7 @@ export default function EbookReceitas() {
             </div>
 
             {/* CARD FÍSICO */}
-            <div className="bg-green-50 p-8 rounded-[3rem] shadow-2xl border-2 border-green-500 flex flex-col relative transform md:-translate-y-4">
+            <div id="formato-fisico" className="scroll-mt-24 bg-green-50 p-8 rounded-[3rem] shadow-2xl border-2 border-green-500 flex flex-col relative transform md:-translate-y-4">
               <div className="absolute -top-4 right-8 bg-green-600 text-white px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest shadow-md">
                 Mais Vendido
               </div>
