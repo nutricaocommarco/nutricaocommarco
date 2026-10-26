@@ -83,6 +83,15 @@ export default function Loja() {
       icone: <BookOpen size={18} className="text-green-700" />
     },
     {
+      id: "livro-entre-a-fome-e-a-saciedade",
+      nome: "Livro Entre a Fome e a Saciedade",
+      link: "/livro-entre-a-fome-e-a-saciedade",
+      estatica: true, // página HTML estática, fora do roteador React
+      imagem: "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/Livro_Fome_Saciedade_Capa.webp",
+      tipo: "Livro impresso",
+      icone: <BookOpen size={18} className="text-green-700" />
+    },
+    {
       id: "calculadora-gasto-calorico",
       nome: "Calculadora de Gasto Calórico Inteligente",
       link: "/calculadora-de-gasto-calorico",
