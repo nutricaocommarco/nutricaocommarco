@@ -312,7 +312,7 @@ export default function EbookReceitas() {
                   <span className="text-4xl font-black text-green-900">R$ 50,00</span>
                 </div>
                 <p className="text-xs text-green-800 mb-4 font-semibold flex items-center gap-1">
-                  <Truck size={14} /> *Frete calculado no momento do pagamento.
+                  <Truck size={14} /> *Prazo de 7 dias úteis (produção + entrega). Frete calculado no momento do pagamento.
                 </p>
                 <a 
                   href={checkoutLinkFisico}
