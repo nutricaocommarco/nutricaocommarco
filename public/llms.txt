@@ -10,6 +10,7 @@ Nutrição com Marco publica artigos em português (pt-BR) sobre nutrição clí
 - [Sobre](https://www.nutricaocommarco.com.br/sobre): Biografia e formação de Marco Aurélio Jr.
 - [Certificações](https://www.nutricaocommarco.com.br/certificacoes): Currículo e certificações técnicas, incluindo ISAK.
 - [Planos de Acompanhamento](https://www.nutricaocommarco.com.br/planos): Níveis de acompanhamento nutricional e avaliação física oferecidos.
+- [Entre a Fome e a Saciedade (livro)](https://www.nutricaocommarco.com.br/livro-entre-a-fome-e-a-saciedade): Livro impresso sobre fome emocional, saciedade e comer intuitivo, com exercícios e diário de 7 dias.
 - [Antropometria — Do Zero ao Avançado (Livro Vol. 1)](https://www.nutricaocommarco.com.br/livro-antropometria): Livro impresso de antropometria segundo o protocolo ISAK, com frete grátis.
 - [Curso de Avaliação Antropométrica](https://www.nutricaocommarco.com.br/curso-de-avaliacao-antropometrica): Curso presencial + online no Rio de Janeiro, com teoria online e 8 horas de prática, livro digital e planilha.
 - [Calculadora de Gasto Calórico](https://www.nutricaocommarco.com.br/calculadora-de-gasto-calorico): Ferramenta gratuita para calcular gasto calórico diário e taxa metabólica basal.

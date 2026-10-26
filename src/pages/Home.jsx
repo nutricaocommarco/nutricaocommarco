@@ -107,14 +107,27 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="livro-fome" className="py-16 md:py-24 bg-slate-50 px-4 md:px-6">
+        <div className="container mx-auto max-w-5xl bg-[#123C2E] text-white rounded-[2.5rem] md:rounded-[3.5rem] p-8 md:p-14 shadow-2xl grid md:grid-cols-[auto_1fr] gap-8 md:gap-14 items-center border-4 border-amber-400/30">
+          <a href="/livro-entre-a-fome-e-a-saciedade" className="mx-auto md:mx-0 block w-44 md:w-56 shrink-0 hover:-translate-y-2 transition-transform duration-300" aria-label="Conhecer o livro Entre a Fome e a Saciedade">
+            <img src={`${githubImgBase}Livro_Fome_Saciedade_Capa.webp`} alt="Capa do livro Entre a Fome e a Saciedade: Estratégias para uma alimentação consciente, de Marco Aurelio Neves Junior" width="620" height="940" loading="lazy" className="w-full h-auto rounded-lg shadow-2xl border border-white/10" />
+          </a>
+          <div className="text-center md:text-left">
+            <span className="inline-block text-[10px] sm:text-xs font-black uppercase tracking-widest text-amber-300 mb-3">Livro impresso • Alimentação consciente</span>
+            <h2 className="text-3xl md:text-4xl font-black uppercase italic leading-tight mb-4">Entre a Fome e a Saciedade</h2>
+            <p className="text-emerald-50/90 font-medium leading-relaxed mb-6 max-w-xl mx-auto md:mx-0">Você come porque está com fome ou porque quer outra coisa? Aprenda a ouvir a fome e a saciedade, sem dieta e sem culpa, com exercícios, escalas e um diário de 7 dias.</p>
+            <a href="/livro-entre-a-fome-e-a-saciedade" className="inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-emerald-950 px-8 py-4 rounded-full font-black uppercase text-xs md:text-sm tracking-widest shadow-xl transition-all hover:scale-105">Conhecer o livro • R$ 29,90</a>
+          </div>
+        </div>
+      </section>
+
       <section id="ebooks" className="py-24 bg-slate-50 text-center">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl font-black text-slate-900 mb-4 uppercase italic">Meus Materiais</h2>
           <p className="text-slate-500 font-bold uppercase text-sm tracking-widest mb-16">Conteúdo gratuito para sua evolução</p>
           <div className="flex flex-wrap justify-center gap-10 max-w-7xl mx-auto">
             {[
-              { title: "Entendendo a Fome", desc: "Aprenda a diferenciar fome física da emocional.", image: `${githubImgBase}capa_fome.webp`, link: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Fome_Ebook.pdf" },
-              { title: "Manual de Antropometria", desc: "Entenda como medimos o seu resultado real.", image: `${githubImgBase}capa_antropometria.webp`, link: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Antropometria-ebook.pdf" },
+                            { title: "Manual de Antropometria", desc: "Entenda como medimos o seu resultado real.", image: `${githubImgBase}capa_antropometria.webp`, link: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Antropometria-ebook.pdf" },
               { title: "Casca de Banana", desc: "Aproveitamento integral inteligente.", image: `${githubImgBase}Capa_pancs.webp`, link: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Casca_de_Banana_na_Cozinha.pdf" },
               { title: "Guia de Vitaminas", desc: "Tudo sobre micronutrientes com receitas exclusivas.", image: `${githubImgBase}Vitaminas_Capa.webp`, link: "https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Vitaminas.pdf" }
             ].map((ebook, i) => (

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import LivroFome from '../components/LivroFome';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ImagemOtimizada from '../components/ImagemOtimizada';
 import { 
@@ -459,39 +460,8 @@ export default function CicloCircadiano() {
                 </div>
             </div>
 
-            {/* DESTAQUE E-BOOK - RESTAURADO! */}
-            <div className="my-16 bg-white rounded-[3rem] border border-green-100 shadow-2xl overflow-hidden flex flex-col md:flex-row items-center gap-8 p-8 md:p-10 group">
-              <div className="w-full md:w-1/3 shrink-0 rounded-2xl overflow-hidden shadow-lg border border-slate-100">
-                <img 
-                  src={`${githubImgBase}capa_fome.webp`} 
-                  alt="Capa do E-book Entendendo a Fome" 
-                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
-                  width="400"
-                  height="400"
-                  loading="lazy"
-                />
-              </div>
-              <div className="flex-1 text-center md:text-left flex flex-col justify-center">
-                <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest w-fit mx-auto md:mx-0 mb-4">
-                  Material de Apoio
-                </span>
-                <h3 className="text-2xl md:text-3xl font-black text-slate-800 uppercase italic leading-tight mb-3">
-                  E-book: Entendendo a Fome
-                </h3>
-                <p className="text-slate-600 font-medium leading-relaxed mb-8">
-                  Dormiu mal e acordou com vontade de comer tudo pela frente? Baixe o meu e-book exclusivo e aprenda a diferenciar a fome física da <Link to="/o-que-e-fome-emocional" className="text-green-700 font-semibold hover:underline">fome emocional</Link>, dominando os seus sinais de saciedade.
-                </p>
-                <a 
-                  href="https://raw.githubusercontent.com/nutricaocommarco/nutricaocommarco/main/Ebooks/Fome_Ebook.pdf" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-green-700 text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm shadow-xl hover:bg-green-700 hover:scale-105 transition-all duration-300 w-full md:w-fit italic"
-                >
-                  <FileText size={18} />
-                  Baixar E-book Agora
-                </a>
-              </div>
-            </div>
+            {/* DESTAQUE: LIVRO ENTRE A FOME E A SACIEDADE */}
+            <LivroFome texto="Dormiu mal e acordou com vontade de comer tudo pela frente? No livro “Entre a Fome e a Saciedade”, eu explico como diferenciar a fome física da fome emocional e usar as escalas da fome e da saciedade, com um diário de 7 dias. Livro impresso, sem dieta e sem culpa." />
 
             {/* RESUMO / CONCLUSÃO */}
             <h2 id="resumo" className="text-2xl font-black text-slate-800 uppercase italic mt-16 mb-6 border-b border-green-100 pb-2 flex items-center gap-3">
