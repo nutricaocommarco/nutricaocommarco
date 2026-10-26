@@ -36,6 +36,11 @@ export default function EbookReceitas() {
   const carrinhoAntropometria = "https://loja.uiclap.com/carrinho/?add-to-cart=592548"; // título ua214517
   const [comboEstado, setComboEstado] = useState('parado'); // parado | montando | aviso
   const [comboEtapa, setComboEtapa] = useState(0);
+  // O combo "Levar os 2 livros" só funciona bem com mouse (computador): em celular/tablet a caixa fica oculta.
+  const [comboDisponivel, setComboDisponivel] = useState(false);
+  useEffect(() => {
+    setComboDisponivel(Boolean(window.matchMedia && window.matchMedia('(pointer: fine)').matches));
+  }, []);
   const [comboProgresso, setComboProgresso] = useState(false);
   const [passo, setPasso] = useState(1);            // fluxo guiado (celular): 1 = Antropometria, 2 = Receitas
   const [passoAberto, setPassoAberto] = useState(false); // o link do passo 1 já foi tocado
@@ -318,6 +323,7 @@ export default function EbookReceitas() {
                 >
                   <ShoppingCart size={18} /> Comprar Livro Físico
                 </a>
+                {comboDisponivel && (
                 <div className="mt-4 rounded-2xl border border-green-300 bg-white/70 p-4 text-left">
                   <p className="text-xs font-bold text-green-900 m-0 mb-2 flex items-center gap-1"><Truck size={14} /> Aproveite: leve também o livro Antropometria — Do Zero ao Avançado e ganhe frete grátis.</p>
                   <button
@@ -329,6 +335,7 @@ export default function EbookReceitas() {
                     <ShoppingCart size={16} /> Levar os 2 livros (frete grátis)
                   </button>
                 </div>
+                )}
               </div>
             </div>
 
