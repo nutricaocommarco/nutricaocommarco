@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingCart, MonitorPlay, BookOpen, ExternalLink, Calculator } from 'lucide-react';
+import { ShoppingCart, MonitorPlay, BookOpen, ExternalLink, Calculator, GraduationCap } from 'lucide-react';
 import ImagemOtimizada from '../../components/ImagemOtimizada';
 import { produtosData } from './produtosData';
 
@@ -66,6 +66,14 @@ export default function Loja() {
   // Dados manuais para os produtos digitais já existentes no site
   const produtosDigitais = [
     {
+      id: "curso-avaliacao-antropometrica-rio-de-janeiro",
+      nome: "Curso de Avaliação Antropométrica no Rio de Janeiro",
+      link: "/curso-de-avaliacao-antropometrica",
+      imagem: "https://cdn.jsdelivr.net/gh/nutricaocommarco/nutricaocommarco@main/Imagens/Curso_Professores_Isabele_Marco.webp",
+      tipo: "Curso presencial + online • Rio de Janeiro",
+      icone: <GraduationCap size={18} className="text-green-700" />
+    },
+    {
       id: "livro-antropometria",
       nome: "Livro de Antropometria — Do Zero ao Avançado (Vol. 1)",
       link: "/livro-antropometria",
@@ -111,7 +119,7 @@ export default function Loja() {
       <div className="mb-20">
         <div className="flex items-center justify-center gap-4 mb-10">
           <div className="h-px bg-slate-200 flex-grow max-w-[100px]"></div>
-          <h2 className="text-3xl font-black text-slate-800 uppercase italic m-0">Produtos Digitais</h2>
+          <h2 className="text-3xl font-black text-slate-800 uppercase italic m-0">Cursos, Livros e Ferramentas</h2>
           <div className="h-px bg-slate-200 flex-grow max-w-[100px]"></div>
         </div>
 
