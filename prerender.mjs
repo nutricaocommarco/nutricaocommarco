@@ -157,7 +157,13 @@ const rotasEstaticas = [
   { path: 'planos', title: 'Planos de Acompanhamento | Nutrição com Marco', image: `${githubImgBase}logoN_pingus.webp`, desc: 'Conheça os níveis de acompanhamento nutricional e avaliação física ISAK 1.' },
   { path: 'blog', title: 'Blog de Nutrição e Ciência | Nutrição com Marco', image: `${githubImgBase}ImgBlog.jpg`, desc: 'Conteúdo científico sobre antropometria, bioimpedância e emagrecimento real.' },
   { path: 'calculadora-de-gasto-calorico', title: 'Calculadora de Gasto Calórico Inteligente | Nutrição com Marco', image: `${githubImgBase}Calculadora-de-Gasto-Calorico.webp`, desc: 'Descubra seu gasto calórico diário e taxa metabólica basal com nossa calculadora inteligente.' },
-  { path: 'parceria-inatividade-zero', title: 'Avaliação Antropométrica de Precisão - Parceria Inatividade Zero | Nutrição com Marco', image: `${githubImgBase}PingusReserva.jpg`, desc: 'Agende sua avaliação antropométrica avançada na Academia Inatividade Zero em parceria com Nutrição com Marco e descubra sua composição corporal real.' }
+  { path: 'parceria-inatividade-zero', title: 'Avaliação Antropométrica de Precisão - Parceria Inatividade Zero | Nutrição com Marco', image: `${githubImgBase}PingusReserva.jpg`, desc: 'Agende sua avaliação antropométrica avançada na Academia Inatividade Zero em parceria com Nutrição com Marco e descubra sua composição corporal real.' },
+  {
+    path: 'comece-aqui',
+    title: 'Comece aqui | Nutrição com Marco',
+    image: 'https://www.nutricaocommarco.com.br/comece-aqui-og.jpg',
+    desc: 'Antropometria na prática: livro, e-book, ferramentas gratuitas e artigos para aprender a medir certo e a ler o resultado. Por Marco Aurélio Neves Júnior.'
+  },
 ];
 
 // 📝 2. ROTAS DA LOJA
@@ -502,7 +508,7 @@ routes.forEach(route => {
   }
 
   const urlAbsoluta = `https://www.nutricaocommarco.com.br/${safePath}`;
-  const isBlog = safePath !== '' && safePath !== 'sobre' && safePath !== 'certificacoes' && safePath !== 'planos' && !safePath.includes('planilha') && !safePath.includes('loja') && !safePath.startsWith('curso-');
+  const isBlog = safePath !== '' && safePath !== 'sobre' && safePath !== 'certificacoes' && safePath !== 'planos' && safePath !== 'comece-aqui' && !safePath.includes('planilha') && !safePath.includes('loja') && !safePath.startsWith('curso-');
 
   // SCHEMA 🚀 (Melhorado com Autor e Data de Modificação - E-E-A-T)
   const baseSchema = {
