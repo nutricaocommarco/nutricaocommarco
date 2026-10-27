@@ -27,12 +27,12 @@ const registrarClique = (item) => {
 const classeLinha = "group flex items-center gap-4 w-full min-h-[64px] bg-white rounded-3xl border border-slate-200 p-3 pr-4 shadow-sm hover:shadow-lg hover:border-green-200 transition-all no-underline focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700";
 
 // Linha de link: <Link> para rotas do React, <a> para páginas estáticas e PDFs.
-function Linha({ item, to, href, externo, icone, imagem, titulo, texto, selo }) {
+function Linha({ item, to, href, externo, icone, imagem, alt = '', titulo, texto, selo }) {
   const miolo = (
     <>
       <span className="shrink-0 w-14 h-14 rounded-2xl bg-green-50 border border-green-100 flex items-center justify-center overflow-hidden">
         {imagem
-          ? <img src={imagem} alt="" width="56" height="56" loading="lazy" decoding="async" className="w-full h-full object-contain" />
+          ? <img src={imagem} alt={alt} width="56" height="56" loading="lazy" decoding="async" className="w-full h-full object-contain" />
           : icone}
       </span>
       <span className="flex-1 min-w-0 text-left">
@@ -127,7 +127,7 @@ function ListaInteresseCurso() {
             {estado === 'enviando' ? 'Enviando…' : 'Entrar na lista'}
           </button>
           {estado === 'erro' && <p role="alert" className="text-sm font-bold text-red-700 m-0">Não foi possível enviar agora. Tente de novo em instantes ou escreva para contato@nutricaocommarco.com.br.</p>}
-          <p className="text-xs font-medium text-slate-600 leading-snug m-0">Uso seu contato só para avisar sobre o curso. Sem spam.</p>
+          <p className="text-xs font-medium text-slate-600 leading-snug m-0">Ao entrar, você aceita receber avisos sobre o curso. Dá para sair quando quiser.</p>
         </form>
       )}
     </div>
@@ -171,20 +171,20 @@ export default function ComecoAqui() {
                   <p className="text-sm font-medium text-slate-600 m-0">369 páginas</p>
                 </div>
               </div>
-              <p className="text-3xl font-black text-slate-900 mt-4 mb-0">R$ 149,90 <span className="text-sm font-bold text-slate-600">ou até 12x</span></p>
+              <p className="text-3xl font-black text-slate-900 mt-4 mb-0">R$ 149,90 <span className="text-sm font-bold text-slate-600">ou 12x de R$ 14,20</span></p>
               <p className="flex items-center gap-2 text-sm font-bold text-green-700 mt-1 mb-4"><Truck size={16} aria-hidden="true" /> Frete grátis</p>
               <a href={comUtm('/livro-antropometria', 'livro-antropometria')} onClick={() => registrarClique('livro_antropometria')} className="flex items-center justify-center min-h-[52px] bg-slate-900 text-white px-6 py-3 rounded-2xl font-bold shadow-xl hover:bg-slate-800 transition-all no-underline focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700">Quero meu exemplar</a>
             </div>
           </section>
 
           <Secao titulo="Para ler e estudar">
-            <Linha item="ebook_receitas" to={comUtm('/ebook-receitas', 'ebook-receitas')} imagem={`${githubImgBase}capa_receitas.webp`} titulo="Receitas Saudáveis e Nutritivas" texto="E-book para a cozinha do dia a dia" selo="R$ 9,90" />
-            <Linha item="livro_fome" href={comUtm('/livro-entre-a-fome-e-a-saciedade', 'livro-fome')} imagem={`${githubImgBase}Livro_Fome_Saciedade_Capa.webp`} titulo="Entre a Fome e a Saciedade" texto="Livro impresso sobre alimentação consciente" selo="R$ 29,90" />
-            <Linha item="planilha" to={comUtm('/planilha', 'planilha')} icone={<Table2 size={26} className="text-green-700" aria-hidden="true" />} titulo="Planilha Antropométrica" texto="Para organizar suas avaliações" selo="R$ 50" />
+            <Linha item="ebook_receitas" to={comUtm('/ebook-receitas', 'ebook-receitas')} imagem={`${githubImgBase}capa_receitas.webp`} alt="Capa do e-book Receitas Saudáveis e Nutritivas" titulo="Receitas Saudáveis e Nutritivas" texto="E-book para a cozinha do dia a dia" selo="R$ 9,90" />
+            <Linha item="livro_fome" href={comUtm('/livro-entre-a-fome-e-a-saciedade', 'livro-fome')} imagem={`${githubImgBase}Livro_Fome_Saciedade_Capa.webp`} alt="Capa do livro Entre a Fome e a Saciedade" titulo="Entre a Fome e a Saciedade" texto="Livro impresso sobre alimentação consciente" selo="R$ 29,90" />
+            <Linha item="planilha" to={comUtm('/planilha', 'planilha')} icone={<Table2 size={26} className="text-green-700" aria-hidden="true" />} titulo="Planilha Antropométrica" texto="Para organizar suas avaliações" selo="R$ 50,00" />
           </Secao>
 
           <Secao titulo="Materiais gratuitos">
-            <Linha item="manual_antropometria" href={`${githubRaw}Ebooks/Antropometria-ebook.pdf`} externo icone={<FileText size={26} className="text-green-700" aria-hidden="true" />} titulo="Manual de Antropometria" texto="PDF para baixar" selo="Grátis" />
+            <Linha item="manual_antropometria" href={comUtm(`${githubRaw}Ebooks/Antropometria-ebook.pdf`, 'manual-antropometria')} externo icone={<FileText size={26} className="text-green-700" aria-hidden="true" />} titulo="Manual de Antropometria" texto="PDF para baixar" selo="Grátis" />
             <Linha item="calculadora_gasto" to={comUtm('/calculadora-de-gasto-calorico', 'calculadora-gasto')} icone={<Calculator size={26} className="text-green-700" aria-hidden="true" />} titulo="Calculadora de Gasto Calórico" texto="Estime seu gasto energético" selo="Grátis" />
           </Secao>
 
@@ -205,11 +205,11 @@ export default function ComecoAqui() {
           {/* RODAPÉ */}
           <footer className="mt-12 pt-8 border-t border-slate-200 text-center">
             <div className="flex justify-center gap-4 mb-5">
-              <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" aria-label="Instagram @nutricao_com_marco" className="w-12 h-12 bg-slate-900 text-white rounded-2xl flex items-center justify-center hover:bg-green-700 transition-all focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700"><Instagram size={22} /></a>
+              <a href={comUtm('https://instagram.com/nutricao_com_marco', 'rodape-instagram')} target="_blank" rel="noreferrer" aria-label="Instagram @nutricao_com_marco" className="w-12 h-12 bg-slate-900 text-white rounded-2xl flex items-center justify-center hover:bg-green-700 transition-all focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700"><Instagram size={22} /></a>
               <a href="mailto:contato@nutricaocommarco.com.br" aria-label="E-mail contato@nutricaocommarco.com.br" className="w-12 h-12 bg-slate-900 text-white rounded-2xl flex items-center justify-center hover:bg-green-700 transition-all focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700"><Mail size={22} /></a>
             </div>
             <p className="text-sm font-bold text-slate-700 m-0 mb-1">contato@nutricaocommarco.com.br</p>
-            <Link to="/" className="inline-flex items-center min-h-[44px] text-sm font-bold text-green-700 underline">Ver o site completo</Link>
+            <Link to={comUtm('/', 'site-completo')} className="inline-flex items-center min-h-[44px] text-sm font-bold text-green-700 underline">Ver o site completo</Link>
             <p className="text-xs font-medium text-slate-600 leading-snug mt-3 mb-0">Conteúdo educativo. Não substitui avaliação individual por profissional habilitado.</p>
           </footer>
         </div>
