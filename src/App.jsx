@@ -17,6 +17,7 @@ const lazyRetry = (importFn) => {
 };
 
 const Home = lazyRetry(() => import('./pages/Home'));
+const ComecoAqui = lazyRetry(() => import('./pages/ComecoAqui'));
 const Certificacoes = lazyRetry(() => import('./pages/Certificacoes')); 
 const Sobre = lazyRetry(() => import('./pages/Sobre'));
 const Blog = lazyRetry(() => import('./pages/Blog'));
@@ -116,6 +117,8 @@ function Layout({ children }) {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  // Página do link da bio: sem menu nem rodapé do site, para o visitante não se dispersar.
+  const semMoldura = location.pathname === '/comece-aqui';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -131,7 +134,7 @@ function Layout({ children }) {
 
   return (
     <div className="min-h-screen font-sans text-slate-800 bg-gradient-to-br from-green-50 to-white flex flex-col selection:bg-green-200">
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || location.pathname !== '/' ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
+      {!semMoldura && <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || location.pathname !== '/' ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center relative">
           <Link to="/" className="flex items-center gap-2 group">
             <img src="/logoN_pingus.webp" alt="Logo Pingus" title="Nutrição com Marco - Fisiologia, Composição Corporal e Saúde" className="w-12 h-12 group-hover:rotate-6 transition-transform object-contain" />
@@ -241,13 +244,13 @@ function Layout({ children }) {
             <a href="https://instagram.com/nutricao_com_marco" target="_blank" rel="noreferrer" onClick={() => setIsMenuOpen(false)} className="bg-green-700 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-all shadow-md italic text-center text-sm font-bold uppercase tracking-widest">Instagram</a>
           </div>
         )}
-      </nav>
+      </nav>}
 
-      <main className="pt-20 flex-grow">
+      <main className={`${semMoldura ? '' : 'pt-20 '}flex-grow`}>
         {children}
       </main>
 
-      <footer className="bg-slate-900 text-white py-20 text-center mt-auto">
+      {!semMoldura && <footer className="bg-slate-900 text-white py-20 text-center mt-auto">
         <div className="container mx-auto px-6 text-center">
           <Link to="/" className="flex items-center justify-center gap-3 mb-10 group">
             <img src="/logoN_pingus.webp" alt="Logo" title="Nutrição com Marco - Fisiologia, Composição Corporal e Saúde" className="w-12 h-12 object-contain group-hover:rotate-6 transition-transform" />
@@ -278,7 +281,7 @@ function Layout({ children }) {
             © 2026 Nutrição com Marco • Rio de Janeiro
           </p>
         </div>
-      </footer>
+      </footer>}
     </div>
   );
 }
@@ -292,6 +295,7 @@ export default function App() {
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/comece-aqui" element={<ComecoAqui />} />
               <Route path="/admin-pingus-email" element={<GeradorEmailSecreto />} />
               <Route path="/certificacoes" element={<Certificacoes />} />
               <Route path="/sobre" element={<Sobre />} />
